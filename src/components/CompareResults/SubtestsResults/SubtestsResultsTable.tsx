@@ -1,6 +1,8 @@
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 
 import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
+import { Await } from 'react-router-dom';
 
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
@@ -9,49 +11,11 @@ import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
-
-type SubtestsResults = {
-  key: string;
-  // By construction, there should be only one item in the array. But if more
-  // than one subtests share the same name, then there will be more than one item.
-  // Can this happen? We're not sure.
-  value: CompareResultsItem[];
-};
-
-function processResults(results: CompareResultsItem[]) {
-  const processedResults = new Map<string, CompareResultsItem[]>();
-  results.forEach((result) => {
-    const { header_name: header } = result;
-    const processedResult = processedResults.get(header);
-    if (processedResult) {
-      processedResult.push(result);
-    } else {
-      processedResults.set(header, [result]);
-    }
-  });
-  const restructuredResults: SubtestsResults[] = Array.from(
-    processedResults,
-    function ([rowIdentifier, result]) {
-      return {
-        key: rowIdentifier,
-        value: result,
-      };
-    },
-  );
-
-  return restructuredResults;
-}
-
-const stringComparisonCollator = new Intl.Collator('en', {
-  numeric: true,
-  sensitivity: 'base',
-});
-function defaultSortFunction(
-  resultA: CompareResultsItem,
-  resultB: CompareResultsItem,
-) {
-  return stringComparisonCollator.compare(resultA.test, resultB.test);
-}
+import {
+  defaultSortFunction,
+  resultMatchesSearchTerm,
+  processResults,
+} from '../../../utils/subtestsUtils';
 
 const columnsConfiguration: CompareResultsTableConfig = [
   {
@@ -158,21 +122,14 @@ const columnsConfiguration: CompareResultsTableConfig = [
   { key: 'expand', gridWidth: '34px' },
 ];
 
-function resultMatchesSearchTerm(
-  result: CompareResultsItem,
-  searchTerm: string,
-) {
-  return result.test.toLowerCase().includes(searchTerm.toLowerCase());
-}
-
 type ResultsTableProps = {
   filteringSearchTerm: string;
-  results: CompareResultsItem[];
+  resultsPromise: CompareResultsItem[] | Promise<CompareResultsItem[]>;
 };
 
 function SubtestsResultsTable({
   filteringSearchTerm,
-  results,
+  resultsPromise,
 }: ResultsTableProps) {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
@@ -180,30 +137,6 @@ function SubtestsResultsTable({
     useTableFilters(columnsConfiguration);
   const { sortColumn, sortDirection, onToggleSort } =
     useTableSort(columnsConfiguration);
-
-  const filteredResults = useMemo(() => {
-    return filterResults(
-      columnsConfiguration,
-      results,
-      filteringSearchTerm,
-      tableFilters,
-      resultMatchesSearchTerm,
-    );
-  }, [results, filteringSearchTerm, tableFilters]);
-
-  const filteredAndSortedResults = useMemo(() => {
-    return sortResults(
-      columnsConfiguration,
-      filteredResults,
-      sortColumn,
-      sortDirection,
-      defaultSortFunction,
-    );
-  }, [sortColumn, sortDirection, filteredResults]);
-
-  const processedResults = useMemo(() => {
-    return processResults(filteredAndSortedResults);
-  }, [filteredAndSortedResults]);
 
   const rowGridTemplateColumns = columnsConfiguration
     .map((config) => config.gridWidth)
@@ -225,16 +158,59 @@ function SubtestsResultsTable({
         sortDirection={sortDirection}
         onToggleSort={onToggleSort}
       />
-      {processedResults.map((res) => (
-        <SubtestsTableContent
-          key={res.key}
-          identifier={res.key}
-          results={res.value}
-          rowGridTemplateColumns={rowGridTemplateColumns}
-        />
-      ))}
 
-      {processedResults.length == 0 && <NoResultsFound />}
+      <Suspense
+        fallback={
+          <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
+            <CircularProgress />
+          </Box>
+        }
+      >
+        <Await resolve={resultsPromise}>
+          {(results: CompareResultsItem[]) => {
+            const filteredResults = useMemo(() => {
+              return filterResults(
+                columnsConfiguration,
+                results,
+                filteringSearchTerm,
+                tableFilters,
+                resultMatchesSearchTerm,
+              );
+            }, [results, filteringSearchTerm, tableFilters]);
+
+            const filteredAndSortedResults = useMemo(() => {
+              return sortResults(
+                columnsConfiguration,
+                filteredResults,
+                sortColumn,
+                sortDirection,
+                defaultSortFunction,
+              );
+            }, [filteredResults, sortColumn, sortDirection]);
+
+            const processedResults = useMemo(() => {
+              return processResults(filteredAndSortedResults);
+            }, [filteredAndSortedResults]);
+
+            if (processedResults.length === 0) {
+              return <NoResultsFound />;
+            }
+
+            return (
+              <>
+                {processedResults.map((res) => (
+                  <SubtestsTableContent
+                    key={res.key}
+                    identifier={res.key}
+                    results={res.value}
+                    rowGridTemplateColumns={rowGridTemplateColumns}
+                  />
+                ))}
+              </>
+            );
+          }}
+        </Await>
+      </Suspense>
     </Box>
   );
 }
