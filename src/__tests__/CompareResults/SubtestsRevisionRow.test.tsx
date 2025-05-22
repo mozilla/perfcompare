@@ -83,6 +83,9 @@ describe('SubtestsRevisionRow Component', () => {
       />,
     );
 
+    // wait until all elements render correctly
+    await screen.findByText('browser.html');
+
     expect(document.body).toMatchSnapshot();
     expect(await screen.findByText(/firefox/i)).toBeInTheDocument();
     expect(await screen.findByText(/chrome/i)).toBeInTheDocument();
@@ -97,6 +100,9 @@ describe('SubtestsRevisionRow Component', () => {
         gridTemplateColumns={mockGridTemplateColumns}
       />,
     );
+
+    // wait until all elements render correctly
+    await screen.findByText('dhtml.html');
 
     expect(document.body).toMatchSnapshot();
     expect(screen.queryByText(/firefox/i)).not.toBeInTheDocument();
