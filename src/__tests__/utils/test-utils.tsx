@@ -15,11 +15,9 @@ import { store } from './setupTests';
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
 import getProtocolTheme from '../../theme/protocolTheme';
 
-type ChildrenProps = { children: React.ReactElement };
-
 type ThemeConfig = Partial<Theme> | null;
 export function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {
-  function Wrapper({ children }: ChildrenProps) {
+  function Wrapper({ children }: { children: React.ReactNode }) {
     const { protocolTheme } = getProtocolTheme('light');
     const theme = themeConfig ? createTheme(themeConfig) : protocolTheme;
     return (

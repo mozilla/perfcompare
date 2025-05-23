@@ -34,7 +34,7 @@ describe('SelectedRevision', () => {
 
   it('should show the selected checked revisions once a result checkbox is clicked, and remove it when X button is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
     // focus input to show results
@@ -66,10 +66,10 @@ describe('SelectedRevision', () => {
   });
 
   it('should show warning icon on selected try revision when try base is compared with a non try repository', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
-    const baseDropdown = screen.getByRole('button', { name: 'Base' });
+    const baseDropdown = screen.getByRole('combobox', { name: 'Base' });
     expect(baseDropdown).toHaveTextContent('try');
 
     const firstSearchInput = screen.getAllByPlaceholderText(
@@ -82,7 +82,9 @@ describe('SelectedRevision', () => {
       }),
     );
 
-    const newDropdown = screen.getAllByRole('button', { name: 'Revisions' })[0];
+    const newDropdown = screen.getByRole('combobox', {
+      name: 'Revisions',
+    });
     await user.click(newDropdown);
     const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',
@@ -95,7 +97,7 @@ describe('SelectedRevision', () => {
   });
 
   it('should copy hash number when copyicon is clicked', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -109,7 +111,7 @@ describe('SelectedRevision', () => {
   });
 
   it('should handle copy failure when clipboard API fails', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);

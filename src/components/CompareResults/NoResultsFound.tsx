@@ -19,7 +19,13 @@ function NoResultsFound() {
 
   return (
     <Container>
-      <Grid container alignItems='center' justifyContent='center'>
+      <Grid
+        container
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
         <div className={`${styles.text}`}>
           <div>
             <SearchIcon fontSize='large' />

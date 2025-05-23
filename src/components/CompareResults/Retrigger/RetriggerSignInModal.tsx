@@ -40,10 +40,12 @@ export function RetriggerSignInModal(props: SignInModalProps) {
       }}
     >
       <Box
-        sx={{
-          filter: (theme) =>
-            theme.palette.mode === 'dark' ? 'brightness(2)' : null,
-        }}
+        sx={(theme) => ({
+          filter: null,
+          ...theme.applyStyles('dark', {
+            filter: 'brightness(2)',
+          }),
+        })}
       >
         <img src={TaskclusterLogo} role='presentation' width='48' />
       </Box>

@@ -51,18 +51,21 @@ function SearchInput({
         error={Boolean(searchError)}
         helperText={searchError}
         placeholder={inputPlaceholder}
-        inputProps={{ 'aria-label': inputPlaceholder }}
         id={`search-${searchType}-input`}
         onFocus={onFocus}
         onChange={(e) => onChange(e.currentTarget.value)}
         size={size}
         className={`search-text-field ${searchType}`}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position='end'>
-              <SearchIcon />
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            startAdornment: (
+              <InputAdornment position='end'>
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          },
+
+          htmlInput: { 'aria-label': inputPlaceholder },
         }}
       />
     </FormControl>

@@ -117,7 +117,7 @@ describe('Compare With Base', () => {
   it('expands when user clicks on title header', async () => {
     await renderSearchViewComponent();
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const testExpandedTimeID = 'time-state';
     const headerContentTime = screen.getByTestId(testExpandedTimeID);
     const testExpandedBaseID = 'base-state';
@@ -143,17 +143,17 @@ describe('Compare With Base', () => {
   it('selects and displays new framework when clicked', async () => {
     await renderSearchViewComponent();
     const formElement = await waitForPageReadyAndReturnForm();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(within(formElement).getByText(/talos/i)).toBeInTheDocument();
     expect(
       within(formElement).queryByText(/build_metrics/i),
     ).not.toBeInTheDocument();
 
-    const frameworkDropdown = screen.getAllByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework Framework',
     });
 
-    await user.click(frameworkDropdown[0]);
+    await user.click(frameworkDropdown);
     expect(screen.getByRole('listbox')).toMatchSnapshot();
     const buildMetricsItem = screen.getByRole('option', {
       name: 'build_metrics',
@@ -168,7 +168,7 @@ describe('Compare With Base', () => {
     await renderSearchViewComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -191,7 +191,7 @@ describe('Compare With Base', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
     const formElement = await waitForPageReadyAndReturnForm();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
     const baseSelectedRevision = await screen.findByTestId(
@@ -291,7 +291,7 @@ describe('Compare With Base', () => {
   });
 
   it('updates the framework and url when a new one is selected', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     renderWithCompareResultsURL(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
@@ -300,7 +300,7 @@ describe('Compare With Base', () => {
 
     expect(header).toBeInTheDocument();
 
-    const frameworkDropdown = screen.getByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework',
     });
 
@@ -327,7 +327,7 @@ describe('Compare With Base', () => {
     await waitForPageReadyAndReturnForm();
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const baseSelectedRevision = await screen.findByTestId(
       'base-selected-revision',

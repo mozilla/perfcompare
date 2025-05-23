@@ -81,7 +81,7 @@ function getCancelButton() {
 }
 
 async function expandOverTimeComponent() {
-  const user = userEvent.setup({ delay: null });
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   const testExpandedID = 'time-state';
   const headerContent = await screen.findByTestId(testExpandedID);
   await user.click(headerContent);
@@ -109,7 +109,7 @@ describe('Compare Over Time', () => {
   it('expands on header click and closes when user clicks base component header', async () => {
     renderSearchViewComponent();
     await waitForPageReady();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const testExpandedID = 'time-state';
     const headerContent = screen.getByTestId(testExpandedID);
@@ -136,7 +136,7 @@ describe('Compare Over Time', () => {
 
   it('selects and displays base repository when clicked', async () => {
     renderSearchViewComponent();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
@@ -146,8 +146,8 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/mozilla-central/i),
     ).not.toBeInTheDocument();
 
-    const baseDropdown = screen.getByRole('button', {
-      name: 'Base repository try',
+    const baseDropdown = screen.getByRole('combobox', {
+      name: 'Base repository',
     });
 
     await user.click(baseDropdown);
@@ -155,19 +155,19 @@ describe('Compare Over Time', () => {
       name: 'mozilla-central',
     });
     await user.click(mozRepoItem);
-    expect(mozRepoItem).toBeInTheDocument();
+    expect(baseDropdown).toHaveTextContent('mozilla-central');
 
     await user.click(baseDropdown);
     const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
     await user.click(autolandItem);
-    expect(autolandItem).toBeInTheDocument();
+    expect(baseDropdown).toHaveTextContent('autoland');
   });
 
   it('selects and displays new repository when clicked', async () => {
     renderSearchViewComponent();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
@@ -177,26 +177,26 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/mozilla-central/i),
     ).not.toBeInTheDocument();
 
-    const newDropdown = screen.getByRole('button', { name: 'Revisions' });
+    const newDropdown = screen.getByRole('combobox', { name: 'Revisions' });
 
     await user.click(newDropdown);
     const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',
     });
     await user.click(mozRepoItem);
-    expect(mozRepoItem).toBeInTheDocument();
+    expect(newDropdown).toHaveTextContent('mozilla-central');
 
     await user.click(newDropdown);
     const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
     await user.click(autolandItem);
-    expect(autolandItem).toBeInTheDocument();
+    expect(newDropdown).toHaveTextContent('autoland');
   });
 
   it('selects and displays new framework when clicked', async () => {
     renderSearchViewComponent();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
@@ -206,7 +206,7 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/build_metrics/i),
     ).not.toBeInTheDocument();
 
-    const frameworkDropdown = screen.getByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework Framework',
     });
 
@@ -215,7 +215,7 @@ describe('Compare Over Time', () => {
       name: 'build_metrics',
     });
     await user.click(buildMetricsItem);
-    expect(screen.getAllByText(/build_metrics/i)[1]).toBeInTheDocument();
+    expect(frameworkDropdown).toHaveTextContent('build_metrics');
   });
 
   it('selects and displays new time range when clicked', async () => {
@@ -223,7 +223,7 @@ describe('Compare Over Time', () => {
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     expect(
       within(formElement).getAllByText(/Last day/i)[0],
@@ -233,8 +233,8 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/Last 2 days/i),
     ).not.toBeInTheDocument();
 
-    const timeRangeDropdown = screen.getByRole('button', {
-      name: /Time range Last day/i,
+    const timeRangeDropdown = screen.getByRole('combobox', {
+      name: /Time range/i,
     });
 
     await user.click(timeRangeDropdown);
@@ -255,7 +255,7 @@ describe('Compare Over Time', () => {
     await expandOverTimeComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // Click inside the input box to show search results.
     const searchInput = screen.getByRole('textbox');
@@ -276,7 +276,7 @@ describe('Compare Over Time', () => {
     const formElement = await waitForPageReadyAndReturnForm();
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     expect(within(formElement).getByText(/Time range/)).toBeInTheDocument();
 
@@ -306,7 +306,7 @@ describe('Compare Over Time', () => {
       textElement.closest('li')?.querySelector('.MuiCheckbox-root');
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
@@ -350,7 +350,7 @@ describe('Compare Over Time', () => {
     expect(window.location.pathname).toBe('/');
     await expandOverTimeComponent();
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // Press the compare button -> It shouldn't work!
     const compareButton = await screen.findByRole('button', {
@@ -407,7 +407,7 @@ describe('Compare Over Time', () => {
       <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
     );
     const formElement = await waitForPageReadyAndReturnForm();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
     // the readonly and new revision should be displayed
@@ -423,16 +423,16 @@ describe('Compare Over Time', () => {
 
     //the base repo and time range dropdowns should be hidden
     expect(
-      screen.queryByRole('button', { name: 'Base repository try' }),
+      screen.queryByRole('combobox', { name: 'Base repository' }),
     ).not.toBeInTheDocument();
 
     expect(
-      screen.queryByRole('button', { name: 'Time range Last day' }),
+      screen.queryByRole('combobox', { name: 'Time range' }),
     ).not.toBeInTheDocument();
 
     // The new repo dropdown and search input should be hidden
     expect(
-      screen.queryByRole('button', { name: 'Revisions' }),
+      screen.queryByRole('combobox', { name: 'Revisions' }),
     ).not.toBeInTheDocument();
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
 
@@ -446,16 +446,16 @@ describe('Compare Over Time', () => {
 
     //the base repo and time range dropdowns should be visible
     expect(
-      screen.getByRole('button', { name: 'Base repository try' }),
+      screen.getByRole('combobox', { name: 'Base repository' }),
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('button', { name: /Time range Last day/i }),
+      screen.getByRole('combobox', { name: /Time range/i }),
     ).toBeInTheDocument();
 
     // The new repo dropdown and search input should be visible
     expect(
-      screen.getByRole('button', { name: 'Revisions' }),
+      screen.getByRole('combobox', { name: 'Revisions' }),
     ).toBeInTheDocument();
     expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
 
@@ -463,13 +463,13 @@ describe('Compare Over Time', () => {
     await user.click(getCancelButton());
 
     expect(
-      screen.queryByRole('button', { name: 'Base repository try' }),
+      screen.queryByRole('combobox', { name: 'Base repository' }),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('button', { name: 'Time range Last day' }),
+      screen.queryByRole('combobox', { name: 'Time range' }),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('button', { name: 'Revisions' }),
+      screen.queryByRole('combobox', { name: 'Revisions' }),
     ).not.toBeInTheDocument();
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
   });
@@ -479,7 +479,7 @@ describe('Compare Over Time', () => {
       <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
     );
     const formElement = await waitForPageReadyAndReturnForm();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
     const checkboxForText = (textElement: Element) =>
@@ -493,7 +493,7 @@ describe('Compare Over Time', () => {
 
     // The new repo dropdown and search input should be hidden
     expect(
-      screen.queryByRole('button', { name: 'Revisions' }),
+      screen.queryByRole('combobox', { name: 'Revisions' }),
     ).not.toBeInTheDocument();
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
 
@@ -509,8 +509,8 @@ describe('Compare Over Time', () => {
     await user.click(editButton);
 
     //The base repo dropdown
-    const baseDropdown = screen.getByRole('button', {
-      name: 'Base repository try',
+    const baseDropdown = screen.getByRole('combobox', {
+      name: 'Base repository',
     });
 
     await user.click(baseDropdown);
@@ -521,7 +521,7 @@ describe('Compare Over Time', () => {
 
     // The new repo dropdown and search input should be visible
     expect(
-      screen.getByRole('button', { name: 'Revisions' }),
+      screen.getByRole('combobox', { name: 'Revisions' }),
     ).toBeInTheDocument();
     expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
     const compareButton = await screen.findByRole('button', {
@@ -540,8 +540,8 @@ describe('Compare Over Time', () => {
     expect(checkboxForText(alvesOfCoconut)).toHaveClass('Mui-checked');
 
     //change time range
-    const timeRangeDropdown = screen.getByRole('button', {
-      name: /Time range Last day/i,
+    const timeRangeDropdown = screen.getByRole('combobox', {
+      name: /Time range/i,
     });
     await user.click(timeRangeDropdown);
     const last2daysItem = screen.getByRole('option', {

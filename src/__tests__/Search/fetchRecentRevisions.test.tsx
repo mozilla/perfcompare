@@ -30,10 +30,10 @@ describe('Search View/fetchRecentRevisions', () => {
     );
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
-    const baseRepoSelect = screen.getAllByRole('button', { name: 'Base' })[0];
+    const baseRepoSelect = screen.getByRole('combobox', { name: 'Base' });
     expect(baseRepoSelect).toHaveTextContent('try');
     await user.click(baseRepoSelect);
 
