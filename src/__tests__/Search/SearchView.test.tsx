@@ -49,7 +49,7 @@ function setupTestData() {
 }
 
 async function expandOverTimeComponent() {
-  const user = userEvent.setup({ delay: null });
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   const testExpandedID = 'time-state';
   const headerContent = screen.getByTestId(testExpandedID);
   await user.click(headerContent);
@@ -59,7 +59,7 @@ async function expandOverTimeComponent() {
 }
 
 async function expandWithBaseComponent() {
-  const user = userEvent.setup({ delay: null });
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   const testExpandedID = 'base-state';
   const headerContent = screen.getByTestId(testExpandedID);
   await user.click(headerContent);
@@ -118,7 +118,7 @@ describe('Search View', () => {
     await renderComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await user.tab();
     await user.keyboard('{Enter}');
     expect(screen.getByTestId('search-section')).toHaveFocus();
@@ -186,7 +186,7 @@ describe('Base and OverTime Search', () => {
 
   it('should hide search results when clicking outside of search input', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
     // Click inside the input box to show search results.
@@ -204,7 +204,7 @@ describe('Base and OverTime Search', () => {
 
   it('Should hide the search results when Escape key is pressed', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
     // Click inside the input box to show search results.
@@ -223,7 +223,7 @@ describe('Base and OverTime Search', () => {
 
   it('Should not call fetch if search value is not a hash or email', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -261,7 +261,7 @@ describe('Base and OverTime Search', () => {
     // the debounce behavior.
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -313,7 +313,7 @@ describe('Base and OverTime Search', () => {
 
   it('Should clear search results if the search value is cleared', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -336,7 +336,7 @@ describe('Base and OverTime Search', () => {
 
   it('should not hide search results when clicking search results', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
     // focus input to show results
@@ -398,7 +398,7 @@ describe('Base and OverTime Search', () => {
 
     expect(window.location.pathname).toBe('/');
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // Press the compare button -> It shouldn't work!
     const compareButton = await screen.findByRole('button', {

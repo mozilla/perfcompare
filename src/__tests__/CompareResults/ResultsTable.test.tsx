@@ -222,7 +222,7 @@ describe('Results Table', () => {
 
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await clickMenuItem(user, 'Platform', /Windows/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -329,7 +329,7 @@ describe('Results Table', () => {
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await clickMenuItem(user, 'Status', /No changes/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -386,7 +386,7 @@ describe('Results Table', () => {
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await clickMenuItem(user, 'Confidence', /Low/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -468,7 +468,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(await summarizeTableFiltersFromCheckboxes(user)).toEqual({
       'Platform(2)': ['macOS', 'Android'],
       'Status(3)': ['No changes', 'Improvement', 'Regression'],
@@ -518,7 +518,7 @@ describe('Results Table', () => {
     expect(window.location.search).not.toContain('sort=');
 
     // Sort by Delta
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const deltaButton = screen.getByRole('button', { name: /Delta/ });
     expect(deltaButton).toMatchSnapshot();
     // Sort descending
@@ -638,7 +638,7 @@ describe('Results Table', () => {
     ]);
 
     // And clicking the button once should move it back to the initial state.
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await user.click(deltaButton);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
