@@ -34,9 +34,9 @@ const setup = ({
     subtestsResult,
   );
 
-  // Check if selectedTimeRange is present in the search query
-  const isOverTimeComparison = new URLSearchParams(search).has(
-    'selectedTimeRange',
+  // Check if the route indicates an "over time" comparison
+  const isOverTimeComparison = route.includes(
+    'subtests-compare-over-time-results',
   );
 
   // Render the component with routing
