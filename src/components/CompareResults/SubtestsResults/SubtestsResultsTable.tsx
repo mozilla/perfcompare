@@ -11,11 +11,49 @@ import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
-import {
-  defaultSortFunction,
-  resultMatchesSearchTerm,
-  processResults,
-} from '../../../utils/subtestsUtils';
+
+type SubtestsResults = {
+  key: string;
+  // By construction, there should be only one item in the array. But if more
+  // than one subtests share the same name, then there will be more than one item.
+  // Can this happen? We're not sure.
+  value: CompareResultsItem[];
+};
+
+function processResults(results: CompareResultsItem[]) {
+  const processedResults = new Map<string, CompareResultsItem[]>();
+  results.forEach((result) => {
+    const { header_name: header } = result;
+    const processedResult = processedResults.get(header);
+    if (processedResult) {
+      processedResult.push(result);
+    } else {
+      processedResults.set(header, [result]);
+    }
+  });
+  const restructuredResults: SubtestsResults[] = Array.from(
+    processedResults,
+    function ([rowIdentifier, result]) {
+      return {
+        key: rowIdentifier,
+        value: result,
+      };
+    },
+  );
+
+  return restructuredResults;
+}
+
+const stringComparisonCollator = new Intl.Collator('en', {
+  numeric: true,
+  sensitivity: 'base',
+});
+function defaultSortFunction(
+  resultA: CompareResultsItem,
+  resultB: CompareResultsItem,
+) {
+  return stringComparisonCollator.compare(resultA.test, resultB.test);
+}
 
 const columnsConfiguration: CompareResultsTableConfig = [
   {
@@ -121,6 +159,13 @@ const columnsConfiguration: CompareResultsTableConfig = [
   { key: 'buttons', gridWidth: '34px' },
   { key: 'expand', gridWidth: '34px' },
 ];
+
+function resultMatchesSearchTerm(
+  result: CompareResultsItem,
+  searchTerm: string,
+) {
+  return result.test.toLowerCase().includes(searchTerm.toLowerCase());
+}
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
