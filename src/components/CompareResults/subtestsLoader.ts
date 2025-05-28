@@ -1,5 +1,8 @@
 import { repoMap, frameworks } from '../../common/constants';
-import { fetchSubtestsCompareResults } from '../../logic/treeherder';
+import {
+  fetchSubtestsCompareResults,
+  getPerfherderSubtestsCompareWithBaseViewURL,
+} from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework } from '../../types/types';
 
@@ -153,6 +156,16 @@ export function loader({ request }: { request: Request }) {
     newParentSignature,
   });
 
+  const subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(
+    baseRepo,
+    baseRev,
+    baseRepo,
+    newRev,
+    frameworkId,
+    Number(baseParentSignature),
+    Number(newParentSignature),
+  );
+
   return {
     results,
     baseRev,
@@ -163,6 +176,7 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     baseParentSignature,
     newParentSignature,
+    subtestsViewPerfherderURL,
   };
 }
 
