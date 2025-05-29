@@ -14,7 +14,7 @@ const styles = {
     fontSize: '16px',
     lineHeight: '1.5',
   }),
-  align: style({
+  nowrap: style({
     display: 'flex',
     flexWrap: 'nowrap',
   }),
@@ -29,7 +29,7 @@ export default function LinkToRevision(props: LinkToRevisionProps) {
   const { result } = props;
   const shortHash = truncateHash(result.new_rev);
   return (
-    <div className={styles.align}>
+    <div className={styles.nowrap}>
       <Link
         href={getTreeherderURL(result.new_rev, result.new_repository_name)}
         target='_blank'
