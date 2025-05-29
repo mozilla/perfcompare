@@ -1,5 +1,8 @@
 import { repoMap, frameworks, timeRanges } from '../../common/constants';
-import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
+import {
+  fetchSubtestsCompareOverTimeResults,
+  getPerfherderSubtestsCompareOverTimeViewURL,
+} from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
 
@@ -127,7 +130,7 @@ function checkValues({
 // by React Router DOM when the compare-results path is requested.
 // It uses the URL parameters as inputs, and returns all the fetched data to the
 // React components through React Router's useLoaderData hook.
-export async function loader({ request }: { request: Request }) {
+export function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
 
   const baseRepoFromUrl = url.searchParams.get('baseRepo') as
@@ -164,7 +167,7 @@ export async function loader({ request }: { request: Request }) {
     newParentSignature: newParentSignatureFromUrl,
   });
 
-  const results = await fetchSubtestsCompareOverTimeResults({
+  const results = fetchSubtestsCompareOverTimeResults({
     baseRepo,
     newRev,
     newRepo,
@@ -173,6 +176,16 @@ export async function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
   });
+
+  const subtestsViewPerfherderURL = getPerfherderSubtestsCompareOverTimeViewURL(
+    baseRepo,
+    newRepo,
+    newRev,
+    frameworkId,
+    intervalValue,
+    Number(baseParentSignature),
+    Number(newParentSignature),
+  );
 
   return {
     results,
@@ -185,6 +198,7 @@ export async function loader({ request }: { request: Request }) {
     intervalText,
     baseParentSignature,
     newParentSignature,
+    subtestsViewPerfherderURL,
   };
 }
 
