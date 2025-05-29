@@ -14,6 +14,10 @@ const styles = {
     fontSize: '16px',
     lineHeight: '1.5',
   }),
+  nowrap: style({
+    display: 'flex',
+    flexWrap: 'nowrap',
+  }),
 };
 
 type HeaderProperties = Pick<
@@ -25,7 +29,7 @@ export default function LinkToRevision(props: LinkToRevisionProps) {
   const { result } = props;
   const shortHash = truncateHash(result.new_rev);
   return (
-    <>
+    <div className={styles.nowrap}>
       <Link
         href={getTreeherderURL(result.new_rev, result.new_repository_name)}
         target='_blank'
@@ -38,7 +42,7 @@ export default function LinkToRevision(props: LinkToRevisionProps) {
         text={shortHash}
         arialLabel='Copy the revision to the clipboard'
       />
-    </>
+    </div>
   );
 }
 

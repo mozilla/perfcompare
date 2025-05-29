@@ -1304,7 +1304,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fh103jg"
                         >
                           <div
-                            class="f1l733lh"
+                            class="f195ysgj"
                           >
                             <strong>
                               <a
@@ -1319,43 +1319,47 @@ exports[`Results Table Should match snapshot 1`] = `
                                dhtml.html
                             </strong>
                              
-                            <a
-                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
-                              href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
-                              target="_blank"
-                              title="open treeherder view for spam"
+                            <div
+                              class="fsudoo"
                             >
-                              spam
-                            </a>
-                            <span
-                              class="MuiBox-root css-79elbk"
-                            >
-                              <button
-                                aria-label="Copy the revision to the clipboard"
-                                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
-                                data-testid="copy-icon"
-                                tabindex="0"
-                                type="button"
+                              <a
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
+                                href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
+                                target="_blank"
+                                title="open treeherder view for spam"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                                  data-testid="ContentCopyIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
+                                spam
+                              </a>
+                              <span
+                                class="MuiBox-root css-79elbk"
+                              >
+                                <button
+                                  aria-label="Copy the revision to the clipboard"
+                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                  data-testid="copy-icon"
+                                  tabindex="0"
+                                  type="button"
                                 >
-                                  <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                                    data-testid="ContentCopyIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
-                                </svg>
-                                <span
-                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                />
-                              </button>
-                            </span>
+                                </button>
+                              </span>
+                            </div>
                           </div>
                           <div
-                            class="f1oxa67k"
+                            class="fexjzun"
                           >
                             <span
                               class="f1rpr1m5"
@@ -2064,7 +2068,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fh103jg"
                         >
                           <div
-                            class="f1l733lh"
+                            class="f195ysgj"
                           >
                             <strong>
                               <a
@@ -2079,43 +2083,47 @@ exports[`Results Table Should match snapshot 1`] = `
                                dhtml.html
                             </strong>
                              
-                            <a
-                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
-                              href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
-                              target="_blank"
-                              title="open treeherder view for spam"
+                            <div
+                              class="fsudoo"
                             >
-                              spam
-                            </a>
-                            <span
-                              class="MuiBox-root css-79elbk"
-                            >
-                              <button
-                                aria-label="Copy the revision to the clipboard"
-                                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
-                                data-testid="copy-icon"
-                                tabindex="0"
-                                type="button"
+                              <a
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
+                                href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
+                                target="_blank"
+                                title="open treeherder view for spam"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                                  data-testid="ContentCopyIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
+                                spam
+                              </a>
+                              <span
+                                class="MuiBox-root css-79elbk"
+                              >
+                                <button
+                                  aria-label="Copy the revision to the clipboard"
+                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                  data-testid="copy-icon"
+                                  tabindex="0"
+                                  type="button"
                                 >
-                                  <path
-                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                                    data-testid="ContentCopyIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                   />
-                                </svg>
-                                <span
-                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                />
-                              </button>
-                            </span>
+                                </button>
+                              </span>
+                            </div>
                           </div>
                           <div
-                            class="f1oxa67k"
+                            class="fexjzun"
                           >
                             <span
                               class="f1rpr1m5"
@@ -2600,7 +2608,7 @@ exports[`Results Table should render different blocks when rendering several rev
     class="fh103jg"
   >
     <div
-      class="f1l733lh"
+      class="f195ysgj"
     >
       <strong>
         <a
@@ -2616,7 +2624,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </strong>
     </div>
     <div
-      class="f1oxa67k"
+      class="fexjzun"
     >
       <span
         class="f1rpr1m5"
@@ -2648,40 +2656,44 @@ exports[`Results Table should render different blocks when rendering several rev
   <div
     class="fw0pvlu"
   >
-    <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
-      href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
-      target="_blank"
-      title="open treeherder view for spam"
+    <div
+      class="fsudoo"
     >
-      spam
-    </a>
-    <span
-      class="MuiBox-root css-79elbk"
-    >
-      <button
-        aria-label="Copy the revision to the clipboard"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
-        data-testid="copy-icon"
-        tabindex="0"
-        type="button"
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
+        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
+        target="_blank"
+        title="open treeherder view for spam"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-          data-testid="ContentCopyIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        spam
+      </a>
+      <span
+        class="MuiBox-root css-79elbk"
+      >
+        <button
+          aria-label="Copy the revision to the clipboard"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="copy-icon"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+            data-testid="ContentCopyIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </span>
+        </button>
+      </span>
+    </div>
     <div
       class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
       role="row"
@@ -2910,40 +2922,44 @@ exports[`Results Table should render different blocks when rendering several rev
   <div
     class="fw0pvlu"
   >
-    <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
-      href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=devilrabbit"
-      target="_blank"
-      title="open treeherder view for devilrabbit"
+    <div
+      class="fsudoo"
     >
-      devilrabbit
-    </a>
-    <span
-      class="MuiBox-root css-79elbk"
-    >
-      <button
-        aria-label="Copy the revision to the clipboard"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
-        data-testid="copy-icon"
-        tabindex="0"
-        type="button"
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
+        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=devilrabbit"
+        target="_blank"
+        title="open treeherder view for devilrabbit"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-          data-testid="ContentCopyIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        devilrabbit
+      </a>
+      <span
+        class="MuiBox-root css-79elbk"
+      >
+        <button
+          aria-label="Copy the revision to the clipboard"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="copy-icon"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+            data-testid="ContentCopyIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </span>
+        </button>
+      </span>
+    </div>
     <div
       class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
       role="row"
