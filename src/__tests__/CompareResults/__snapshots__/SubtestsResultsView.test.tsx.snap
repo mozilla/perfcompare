@@ -1507,7 +1507,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 2`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-cdzw26-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-cdzw26-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -1537,6 +1537,14 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
         class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
       />
     </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+      style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
+      />
+    </span>
   </span>
 </button>
 `;
@@ -1544,7 +1552,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 3`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-cdzw26-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-cdzw26-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -1575,11 +1583,19 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       />
     </span>
     <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+      style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving MuiTouchRipple-childPulsate"
+      />
+    </span>
+    <span
       class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
       style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        class="MuiTouchRipple-child"
       />
     </span>
   </span>
@@ -1620,6 +1636,14 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       />
     </span>
     <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+      style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving MuiTouchRipple-childPulsate"
+      />
+    </span>
+    <span
       class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
       style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
     >
@@ -1634,7 +1658,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 5`] = `
 <button
   aria-label="Confidence (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-dtssjq-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-dtssjq-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -1661,6 +1685,14 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
     >
       <span
         class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+      style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
       />
     </span>
   </span>
@@ -1699,6 +1731,14 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
         class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
       />
     </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+      style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving MuiTouchRipple-childPulsate"
+      />
+    </span>
   </span>
 </button>
 `;
@@ -1706,7 +1746,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 7`] = `
 <button
   aria-label="Subtests (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-cdzw26-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-cdzw26-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -1734,6 +1774,14 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
     >
       <span
         class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+      style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
       />
     </span>
   </span>
