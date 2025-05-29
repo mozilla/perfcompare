@@ -3,7 +3,6 @@ import { useState, Suspense } from 'react';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import { Grid, Skeleton, Stack, Link, Button } from '@mui/material';
 import Alert from '@mui/material/Alert';
-import { useTheme } from '@mui/material/styles';
 import { Container } from '@mui/system';
 import { useLoaderData, Await } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -25,19 +24,19 @@ import RetriggerButton from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
-type SubtestsResultsMainInternalProps = {
+type SubtestsResultsHeaderProps = {
   loadedResults: CompareResultsItem[];
   view: typeof subtestsView | typeof subtestsOverTimeView;
   initialSearchTerm: string;
   onSearchTermChange: (term: string) => void;
 };
 
-function SubtestsResultsMainInternal({
+function SubtestsResultsHeader({
   loadedResults,
   view,
   initialSearchTerm,
   onSearchTermChange,
-}: SubtestsResultsMainInternalProps) {
+}: SubtestsResultsHeaderProps) {
   if (!loadedResults.length) return null;
 
   const subtestsHeader: SubtestsRevisionsHeader = {
@@ -119,10 +118,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     updateRawSearchParams(rawSearchParams);
   };
 
-  const {
-    palette: { secondary },
-  } = useTheme();
-
   return (
     <Container className={styles.container} data-testid='subtests-main'>
       <header>
@@ -144,7 +139,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
                   sx={{
                     // This fontSize value makes the skeleton match the height of the replaced element.
                     fontSize: '2.18em',
-                    backgroundColor: secondary.main,
+                    backgroundColor: 'secondary.main',
                   }}
                 />
               </Stack>
@@ -189,7 +184,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         >
           <Await resolve={results}>
             {(loadedResults: CompareResultsItem[]) => (
-              <SubtestsResultsMainInternal
+              <SubtestsResultsHeader
                 loadedResults={loadedResults}
                 view={view}
                 initialSearchTerm={initialSearchTerm}
