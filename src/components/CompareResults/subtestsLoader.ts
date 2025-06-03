@@ -1,5 +1,8 @@
 import { repoMap, frameworks } from '../../common/constants';
-import { fetchSubtestsCompareResults } from '../../logic/treeherder';
+import {
+  fetchSubtestsCompareResults,
+  getPerfherderSubtestsCompareWithBaseViewURL,
+} from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework } from '../../types/types';
 
@@ -107,7 +110,7 @@ function checkValues({
 // by React Router DOM when the compare-results path is requested.
 // It uses the URL parameters as inputs, and returns all the fetched data to the
 // React components through React Router's useLoaderData hook.
-export async function loader({ request }: { request: Request }) {
+export function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
 
   const baseRevFromUrl = url.searchParams.get('baseRev');
@@ -143,7 +146,7 @@ export async function loader({ request }: { request: Request }) {
     newParentSignature: newParentSignatureFromUrl,
   });
 
-  const results = await fetchSubtestsCompareResults({
+  const results = fetchSubtestsCompareResults({
     baseRev,
     baseRepo,
     newRev,
@@ -152,6 +155,16 @@ export async function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
   });
+
+  const subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(
+    baseRepo,
+    baseRev,
+    baseRepo,
+    newRev,
+    frameworkId,
+    Number(baseParentSignature),
+    Number(newParentSignature),
+  );
 
   return {
     results,
@@ -163,6 +176,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     baseParentSignature,
     newParentSignature,
+    subtestsViewPerfherderURL,
   };
 }
 

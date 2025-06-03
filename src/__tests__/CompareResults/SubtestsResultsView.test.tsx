@@ -1,6 +1,7 @@
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/subtestsLoader';
+import { loader as subtestsOverTimeLoader } from '../../components/CompareResults/subtestsOverTimeLoader';
 import SubtestsOverTimeResultsView from '../../components/CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsView from '../../components/CompareResults/SubtestsResults/SubtestsResultsView';
 import { Strings } from '../../resources/Strings';
@@ -33,11 +34,16 @@ const setup = ({
     subtestsResult,
   );
 
+  // Check if the route indicates an "over time" comparison
+  const isOverTimeComparison = route.includes(
+    'subtests-compare-over-time-results',
+  );
+
   // Render the component with routing
   renderWithRouter(element, {
     route,
     search,
-    loader,
+    loader: isOverTimeComparison ? subtestsOverTimeLoader : loader,
   });
 };
 
