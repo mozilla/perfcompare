@@ -706,7 +706,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="86400"
     role="option"
     tabindex="0"
@@ -887,7 +887,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-nrxrys-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-nrxrys-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -912,14 +912,6 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
         >
           <span
             class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-          />
-        </span>
-        <span
-          class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
-          style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
-        >
-          <span
-            class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
           />
         </span>
       </span>
@@ -2141,14 +2133,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
             class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
           />
         </span>
-        <span
-          class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
-          style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
-        >
-          <span
-            class="MuiTouchRipple-child MuiTouchRipple-childLeaving MuiTouchRipple-childPulsate"
-          />
-        </span>
       </span>
     </button>
   </div>
@@ -2610,14 +2594,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         >
           <span
             class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-          />
-        </span>
-        <span
-          class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
-          style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
-        >
-          <span
-            class="MuiTouchRipple-child MuiTouchRipple-childLeaving MuiTouchRipple-childPulsate"
           />
         </span>
       </span>

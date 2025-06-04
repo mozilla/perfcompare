@@ -929,7 +929,7 @@ exports[`Results View Should update url with new title and the table with the ne
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-nrxrys-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-nrxrys-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="submit"
       >
@@ -943,14 +943,6 @@ exports[`Results View Should update url with new title and the table with the ne
           >
             <span
               class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-            />
-          </span>
-          <span
-            class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
-            style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
-          >
-            <span
-              class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
             />
           </span>
         </span>
