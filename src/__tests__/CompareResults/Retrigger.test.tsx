@@ -132,7 +132,7 @@ describe('Retrigger', () => {
 
     const openModalButton = await screen.findByTitle('retrigger jobs');
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await user.click(openModalButton);
 
     const signInButton = await screen.findByText('Sign in');
@@ -205,7 +205,7 @@ describe('Retrigger', () => {
       name: 'retrigger jobs',
     });
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await user.click(openModalButton);
 
     // select option 1 for base
