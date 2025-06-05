@@ -1,7 +1,6 @@
 import { useState, Suspense } from 'react';
 
-import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { Grid, Skeleton, Stack, Link, Button } from '@mui/material';
+import { Grid, Skeleton, Stack, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { useLoaderData, Await } from 'react-router-dom';
@@ -10,7 +9,7 @@ import { style } from 'typestyle';
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
-import DownloadButton from '.././DownloadButton';
+import { DownloadButton, DisabledDownloadButton } from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
@@ -20,7 +19,10 @@ import type {
   CompareResultsItem,
   SubtestsRevisionsHeader,
 } from '../../../types/state';
-import RetriggerButton from '../Retrigger/RetriggerButton';
+import {
+  RetriggerButton,
+  DisabledRetriggerButton,
+} from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
@@ -151,32 +153,10 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
                   />
                 </Grid>
                 <Grid item xs='auto'>
-                  <Button
-                    variant='contained'
-                    color='secondary'
-                    disabled
-                    sx={{
-                      height: '41px',
-                      flex: 'none',
-                      '& .MuiButtonBase-root': {
-                        height: '100%',
-                        width: '100%',
-                      },
-                    }}
-                  >
-                    Download JSON
-                  </Button>
+                  <DisabledDownloadButton />
                 </Grid>
                 <Grid item xs='auto'>
-                  <Button
-                    title='Retrigger test'
-                    color='primary'
-                    variant='text'
-                    startIcon={<RefreshOutlinedIcon />}
-                    disabled
-                  >
-                    Retrigger test
-                  </Button>
+                  <DisabledRetriggerButton />
                 </Grid>
               </Grid>
             </>

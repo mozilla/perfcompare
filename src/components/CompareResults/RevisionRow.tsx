@@ -13,7 +13,7 @@ import { IconButton, Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
-import RetriggerButton from './Retrigger/RetriggerButton';
+import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';

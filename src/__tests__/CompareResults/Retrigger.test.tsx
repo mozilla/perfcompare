@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { Hooks } from 'taskcluster-client-web';
 
-import RetriggerButton from '../../components/CompareResults/Retrigger/RetriggerButton';
+import { RetriggerButton } from '../../components/CompareResults/Retrigger/RetriggerButton';
 import { loader } from '../../components/CompareResults/subtestsLoader';
 import SubtestsResultsMain from '../../components/CompareResults/SubtestsResults/SubtestsResultsMain';
 import { getLocationOrigin } from '../../utils/location';
