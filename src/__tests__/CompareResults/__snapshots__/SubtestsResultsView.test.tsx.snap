@@ -68,7 +68,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg fjvfn2t css-1oqqzyl-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-1oqqzyl-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -1941,7 +1941,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg fjvfn2t css-1oqqzyl-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-1oqqzyl-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
