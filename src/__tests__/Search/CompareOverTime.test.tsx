@@ -81,7 +81,7 @@ function getCancelButton() {
 }
 
 async function expandOverTimeComponent() {
-  const user = userEvent.setup({ delay: null });
+  const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
   const testExpandedID = 'time-state';
   const headerContent = await screen.findByTestId(testExpandedID);
   await user.click(headerContent);
@@ -109,7 +109,7 @@ describe('Compare Over Time', () => {
   it('expands on header click and closes when user clicks base component header', async () => {
     renderSearchViewComponent();
     await waitForPageReady();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const testExpandedID = 'time-state';
     const headerContent = screen.getByTestId(testExpandedID);
@@ -136,7 +136,7 @@ describe('Compare Over Time', () => {
 
   it('selects and displays base repository when clicked', async () => {
     renderSearchViewComponent();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
@@ -155,19 +155,19 @@ describe('Compare Over Time', () => {
       name: 'mozilla-central',
     });
     await user.click(mozRepoItem);
-    expect(mozRepoItem).toBeInTheDocument();
+    expect(baseDropdown).toHaveTextContent('mozilla-central');
 
     await user.click(baseDropdown);
     const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
     await user.click(autolandItem);
-    expect(autolandItem).toBeInTheDocument();
+    expect(baseDropdown).toHaveTextContent('autoland');
   });
 
   it('selects and displays new repository when clicked', async () => {
     renderSearchViewComponent();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
@@ -184,19 +184,19 @@ describe('Compare Over Time', () => {
       name: 'mozilla-central',
     });
     await user.click(mozRepoItem);
-    expect(mozRepoItem).toBeInTheDocument();
+    expect(newDropdown).toHaveTextContent('mozilla-central');
 
     await user.click(newDropdown);
     const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
     await user.click(autolandItem);
-    expect(autolandItem).toBeInTheDocument();
+    expect(newDropdown).toHaveTextContent('autoland');
   });
 
   it('selects and displays new framework when clicked', async () => {
     renderSearchViewComponent();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
@@ -215,7 +215,7 @@ describe('Compare Over Time', () => {
       name: 'build_metrics',
     });
     await user.click(buildMetricsItem);
-    expect(screen.getAllByText(/build_metrics/i)[1]).toBeInTheDocument();
+    expect(frameworkDropdown).toHaveTextContent('build_metrics');
   });
 
   it('selects and displays new time range when clicked', async () => {
@@ -223,7 +223,7 @@ describe('Compare Over Time', () => {
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     expect(
       within(formElement).getAllByText(/Last day/i)[0],
@@ -255,7 +255,7 @@ describe('Compare Over Time', () => {
     await expandOverTimeComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // Click inside the input box to show search results.
     const searchInput = screen.getByRole('textbox');
@@ -276,7 +276,7 @@ describe('Compare Over Time', () => {
     const formElement = await waitForPageReadyAndReturnForm();
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     expect(within(formElement).getByText(/Time range/)).toBeInTheDocument();
 
@@ -306,7 +306,7 @@ describe('Compare Over Time', () => {
       textElement.closest('li')?.querySelector('.MuiCheckbox-root');
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
@@ -350,7 +350,7 @@ describe('Compare Over Time', () => {
     expect(window.location.pathname).toBe('/');
     await expandOverTimeComponent();
 
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // Press the compare button -> It shouldn't work!
     const compareButton = await screen.findByRole('button', {
@@ -407,7 +407,7 @@ describe('Compare Over Time', () => {
       <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
     );
     const formElement = await waitForPageReadyAndReturnForm();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
     // the readonly and new revision should be displayed
@@ -479,7 +479,7 @@ describe('Compare Over Time', () => {
       <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
     );
     const formElement = await waitForPageReadyAndReturnForm();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
     const checkboxForText = (textElement: Element) =>

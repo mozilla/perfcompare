@@ -17,6 +17,10 @@ const styles = {
     marginBottom: '12px',
   }),
   tagsOptions: style({
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '4px',
+    margin: '0 4px',
     textAlign: 'right',
     $nest: {
       'span:nth-child(3n)': {
@@ -46,12 +50,11 @@ const styles = {
     textAlign: 'center',
     textTransform: 'uppercase',
   }),
-  typography: style({
+  revisionTitle: style({
+    flexWrap: 'wrap',
     fontFamily: 'SF Pro',
-    fontStyle: 'normal',
-    fontWeight: 590,
-    fontSize: '16px',
-    lineHeight: '1.5',
+    display: 'flex',
+    gap: '4px',
   }),
 };
 
@@ -106,7 +109,7 @@ export default function TestHeader(props: TestHeaderProps) {
   const extraOptions = getExtraOptions(result.extra_options);
   return (
     <div className={styles.revisionHeader}>
-      <div className={styles.typography}>
+      <div className={styles.revisionTitle}>
         <strong>{createTitle(result, docsURL, isLinkSupported)}</strong>
         {withRevision && (
           <>

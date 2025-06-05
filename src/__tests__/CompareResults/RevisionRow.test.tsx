@@ -91,7 +91,7 @@ describe('<RevisionRow>', () => {
 
 describe('Expanded row', () => {
   it('should display "Show 39 more" and "Show less" for base runs when row is expanded', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareDataWithReplicatesMultipleValues: rowData } =
       getTestData();
 
@@ -120,7 +120,7 @@ describe('Expanded row', () => {
     const writeTextMock = jest
       .spyOn(navigator.clipboard, 'writeText')
       .mockResolvedValue();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareData } = getTestData();
     const baseRuns = testCompareData[0].base_runs.toString();
 
