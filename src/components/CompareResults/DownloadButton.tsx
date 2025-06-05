@@ -83,11 +83,31 @@ const styles = {
   }),
 };
 
+export function DisabledDownloadButton() {
+  return (
+    <Button
+      variant='contained'
+      color='secondary'
+      disabled
+      sx={{
+        height: '41px',
+        flex: 'none',
+        '& .MuiButtonBase-root': {
+          height: '100%',
+          width: '100%',
+        },
+      }}
+    >
+      Download JSON
+    </Button>
+  );
+}
+
 interface DownloadButtonProps {
   resultsPromise: Promise<CompareResultsItem[][]> | CompareResultsItem[][];
 }
 
-function DownloadButton({ resultsPromise }: DownloadButtonProps) {
+export function DownloadButton({ resultsPromise }: DownloadButtonProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
@@ -138,5 +158,3 @@ function DownloadButton({ resultsPromise }: DownloadButtonProps) {
     </div>
   );
 }
-
-export default DownloadButton;

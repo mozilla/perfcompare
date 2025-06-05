@@ -2,7 +2,7 @@ import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
-import DownloadButton from './DownloadButton';
+import { DownloadButton } from './DownloadButton';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 import { useAppSelector } from '../../hooks/app';
