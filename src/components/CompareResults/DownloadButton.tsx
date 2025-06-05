@@ -85,21 +85,11 @@ const styles = {
 
 export function DisabledDownloadButton() {
   return (
-    <Button
-      variant='contained'
-      color='secondary'
-      disabled
-      sx={{
-        height: '41px',
-        flex: 'none',
-        '& .MuiButtonBase-root': {
-          height: '100%',
-          width: '100%',
-        },
-      }}
-    >
-      Download JSON
-    </Button>
+    <div className={styles.downloadButton}>
+      <Button variant='contained' color='secondary' disabled>
+        Download JSON
+      </Button>
+    </div>
   );
 }
 
