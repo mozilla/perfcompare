@@ -23,12 +23,26 @@ import SnackbarCloseButton from '../../Shared/SnackbarCloseButton';
 
 type Status = 'pending' | 'signin-modal' | 'retrigger-modal';
 
+export function DisabledRetriggerButton() {
+  return (
+    <Button
+      title='Retrigger test'
+      color='primary'
+      variant='text'
+      startIcon={<RefreshOutlinedIcon />}
+      disabled
+    >
+      Retrigger test
+    </Button>
+  );
+}
+
 interface RetriggerButtonProps {
   result: CompareResultsItem;
   variant: 'icon' | 'text';
 }
 
-function RetriggerButton({ result, variant }: RetriggerButtonProps) {
+export function RetriggerButton({ result, variant }: RetriggerButtonProps) {
   const {
     base_repository_name: baseRepository,
     base_retriggerable_job_ids: baseRetriggerableJobIds,
@@ -190,5 +204,3 @@ function RetriggerButton({ result, variant }: RetriggerButtonProps) {
     </>
   );
 }
-
-export default RetriggerButton;
