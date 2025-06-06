@@ -54,9 +54,10 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       Buffer: ['buffer', 'Buffer'],
-    }),
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
+
+      // We need to use require.resolve, otherwise we get this issue with
+      // react-redux: https://github.com/reduxjs/redux-toolkit/issues/4990
+      process: require.resolve('process/browser'),
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './public/index.html'),
