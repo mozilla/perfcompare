@@ -31,8 +31,14 @@ function SubtestsResultsView(props: ResultsViewProps) {
       data-testid='beta-version-compare-subtests-results'
     >
       <PerfCompareHeader />
-      <Grid container alignItems='center' justifyContent='center'>
-        <Grid item xs={12}>
+      <Grid
+        container
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Grid size={12}>
           <SubtestsResultsMain view={subtestsView} />
         </Grid>
       </Grid>

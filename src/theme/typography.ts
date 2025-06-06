@@ -1,4 +1,4 @@
-import type { TypographyOptions } from '@mui/material/styles/createTypography';
+import type { TypographyVariantsOptions } from '@mui/material/styles';
 
 import { FontsRaw, FontSizeRaw } from '../styles/Fonts';
 
@@ -6,7 +6,7 @@ import { FontsRaw, FontSizeRaw } from '../styles/Fonts';
 // https://protocol.mozilla.org/
 const h1Size = '3.5rem';
 
-const typography: TypographyOptions = {
+const typography: TypographyVariantsOptions = {
   h1: {
     fontFamily: 'Zilla Slab',
     fontSize: h1Size,

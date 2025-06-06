@@ -136,7 +136,7 @@ describe('Search Container', () => {
     const baseInput = screen.getAllByPlaceholderText(
       'Search by revision ID or author email',
     )[0];
-    const repoDropdown = screen.getByRole('button', { name: 'Base' });
+    const repoDropdown = screen.getByRole('combobox', { name: 'Base' });
 
     expect(compTitle).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
@@ -460,13 +460,13 @@ describe('With search parameters', () => {
       within(withBaseForm).getByRole('link', { name: /spamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Base' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Base' }),
     ).toHaveTextContent('try');
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('try');
     expect(
-      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+      within(withBaseForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('talos');
     expect(withBaseForm).toMatchSnapshot('with base form');
 
@@ -476,13 +476,13 @@ describe('With search parameters', () => {
       within(overtimeForm).getByRole('link', { name: /spamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Base repository/ }),
     ).toHaveTextContent('try');
     expect(
-      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+      within(overtimeForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('try');
     expect(
-      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('talos');
     expect(overtimeForm).toMatchSnapshot('over time form');
   });
@@ -497,13 +497,13 @@ describe('With search parameters', () => {
       within(withBaseForm).getByRole('link', { name: /spamspamspam/ }), // Note that the revision is truncated
     ).toBeInTheDocument();
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Base' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Base' }),
     ).toHaveTextContent('autoland');
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('autoland');
     expect(
-      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+      within(withBaseForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('browsertime');
     expect(withBaseForm).toMatchSnapshot('with base form');
 
@@ -513,13 +513,13 @@ describe('With search parameters', () => {
       within(overtimeForm).getByRole('link', { name: /spamspamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Base repository/ }),
     ).toHaveTextContent('autoland');
     expect(
-      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+      within(overtimeForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('autoland');
     expect(
-      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('browsertime');
     expect(overtimeForm).toMatchSnapshot('over time form');
   });
@@ -556,13 +556,13 @@ describe('With search parameters', () => {
       within(withBaseForm).getByRole('link', { name: /spamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Base' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Base' }),
     ).toHaveTextContent('try');
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('try');
     expect(
-      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+      within(withBaseForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('talos');
     expect(withBaseForm).toMatchSnapshot('with base form');
 
@@ -572,13 +572,13 @@ describe('With search parameters', () => {
       within(overtimeForm).getByRole('link', { name: /spamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Base repository/ }),
     ).toHaveTextContent('try');
     expect(
-      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+      within(overtimeForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('try');
     expect(
-      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('talos');
     expect(overtimeForm).toMatchSnapshot('over time form');
   });

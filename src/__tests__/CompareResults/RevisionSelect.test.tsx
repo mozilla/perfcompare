@@ -27,8 +27,8 @@ describe('Revision select', () => {
     expect(await screen.findByTestId('revision-select')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
 
-    const selectButton = await screen.findByRole('button', {
-      name: 'All revisions',
+    const selectButton = await screen.findByRole('combobox', {
+      name: 'Filter by revision',
     });
     fireEvent.mouseDown(selectButton);
 
@@ -45,6 +45,7 @@ describe('Revision select', () => {
       { results: [] },
     );
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    await screen.findByLabelText('Filter by revision');
 
     // check to display results for all revisions
     let firstRevisionHeaders = await screen.findAllByRole('link', {
@@ -63,11 +64,8 @@ describe('Revision select', () => {
     expect(thirdRevisionHeaders).toHaveLength(8);
 
     // change comparison to revision bb6a5e451dac
-    const selectRevisionDropdown = within(
-      await screen.findByTestId('revision-select'),
-    );
-    const selectButton = await selectRevisionDropdown.findByRole('button', {
-      name: 'All revisions',
+    const selectButton = await screen.findByRole('combobox', {
+      name: 'Filter by revision',
     });
     fireEvent.mouseDown(selectButton);
 

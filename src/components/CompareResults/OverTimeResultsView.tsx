@@ -51,8 +51,14 @@ function ResultsView(props: ResultsViewProps) {
           newRepo={newRepo}
         />
       </section>
-      <Grid container alignItems='center' justifyContent='center'>
-        <Grid item xs={12}>
+      <Grid
+        container
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Grid size={12}>
           <ResultsMain />
         </Grid>
       </Grid>

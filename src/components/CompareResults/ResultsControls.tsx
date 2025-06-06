@@ -33,13 +33,18 @@ export default function ResultsControls({
   const mode = useAppSelector((state) => state.theme.mode);
   return (
     <Grid container className={controlsStyles} spacing={2}>
-      <Grid item md={6} xs={12}>
+      <Grid
+        size={{
+          md: 6,
+          xs: 12,
+        }}
+      >
         <SearchInput
           defaultValue={initialSearchTerm}
           onChange={onSearchTermChange}
         />
       </Grid>
-      <Grid item xs>
+      <Grid size='grow'>
         <FormControl sx={{ width: '100%' }}>
           <FrameworkDropdown
             frameworkId={frameworkId}
@@ -50,10 +55,10 @@ export default function ResultsControls({
           />
         </FormControl>
       </Grid>
-      <Grid item xs>
+      <Grid size='grow'>
         <RevisionSelect />
       </Grid>
-      <Grid item xs>
+      <Grid size='grow'>
         <DownloadButton resultsPromise={resultsPromise} />
       </Grid>
     </Grid>

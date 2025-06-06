@@ -59,13 +59,13 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-p35293-MuiSvgIcon-root"
             data-testid="ThumbUpIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+              d="M1 21h4V9H1zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"
             />
           </svg>
           Improvement
@@ -86,13 +86,13 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-qms0sm-MuiSvgIcon-root"
           data-testid="KeyboardArrowDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
         >
           <path
-            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
           />
         </svg>
         Low
@@ -133,7 +133,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
             class="graph-link-button-container"
           >
             <a
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
               tabindex="0"
               target="_blank"
@@ -141,18 +141,15 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                 data-testid="TimelineIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                  d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
                 />
               </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </a>
           </div>
         </div>
@@ -162,16 +159,16 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         role="cell"
       >
         <button
-          aria-controls=":r3:"
+          aria-controls=":r9:"
           aria-expanded="false"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           title="expand this row"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
             data-testid="ExpandMoreIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -180,9 +177,6 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
               d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
             />
           </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
         </button>
       </div>
     </div>
@@ -231,7 +225,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         role="cell"
       >
         <div
-          class="status-hint  MuiBox-root css-1dj4wrv"
+          class="status-hint MuiBox-root css-1dj4wrv"
         >
           -
         </div>
@@ -251,13 +245,13 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-qms0sm-MuiSvgIcon-root"
           data-testid="KeyboardArrowDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
         >
           <path
-            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
           />
         </svg>
         Low
@@ -298,7 +292,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
             class="graph-link-button-container"
           >
             <a
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
               tabindex="0"
               target="_blank"
@@ -306,18 +300,15 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                 data-testid="TimelineIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                  d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
                 />
               </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </a>
           </div>
         </div>
@@ -327,16 +318,16 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         role="cell"
       >
         <button
-          aria-controls=":r4:"
+          aria-controls=":rc:"
           aria-expanded="false"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           title="expand this row"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
             data-testid="ExpandMoreIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -345,9 +336,6 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
               d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
             />
           </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
         </button>
       </div>
     </div>
@@ -396,7 +384,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         role="cell"
       >
         <div
-          class="status-hint  MuiBox-root css-1dj4wrv"
+          class="status-hint MuiBox-root css-1dj4wrv"
         >
           -
         </div>
@@ -416,13 +404,13 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-qms0sm-MuiSvgIcon-root"
           data-testid="KeyboardArrowDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
         >
           <path
-            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
           />
         </svg>
         Low
@@ -463,7 +451,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
             class="graph-link-button-container"
           >
             <a
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
               tabindex="0"
               target="_blank"
@@ -471,18 +459,15 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                 data-testid="TimelineIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                  d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
                 />
               </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </a>
           </div>
         </div>
@@ -494,14 +479,14 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         <button
           aria-controls=":r0:"
           aria-expanded="false"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           title="expand this row"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
             data-testid="ExpandMoreIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -510,9 +495,6 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
               d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
             />
           </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
         </button>
       </div>
     </div>

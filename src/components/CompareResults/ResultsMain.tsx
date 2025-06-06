@@ -60,6 +60,7 @@ function ResultsMain() {
       fontSize: '16px',
       borderLeft: '1px solid #5B5B66',
       paddingLeft: '9px',
+      margin: 0,
     }),
   };
 
@@ -161,7 +162,7 @@ function ResultsMain() {
             />
           ) : (
             <>
-              <Grid component='h2' item className={styles.title}>
+              <Grid component='h2' className={styles.title}>
                 {comparisonTitleName}
               </Grid>
               <Button
@@ -175,7 +176,7 @@ function ResultsMain() {
             </>
           )}
 
-          <Grid component='h2' item className={styles.subtitle}>
+          <Grid component='h2' className={styles.subtitle}>
             {subtitles[view]}
           </Grid>
         </Grid>

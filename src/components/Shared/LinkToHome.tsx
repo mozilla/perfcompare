@@ -5,7 +5,12 @@ import Stack from '@mui/material/Stack';
 export function LinkToHome() {
   return (
     <Link href='/' aria-label='link to home'>
-      <Stack direction='row' alignItems='center'>
+      <Stack
+        direction='row'
+        sx={{
+          alignItems: 'center',
+        }}
+      >
         <ChevronLeftIcon fontSize='small' />
         <p>Home</p>
       </Stack>

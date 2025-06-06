@@ -48,29 +48,32 @@ function SearchInput({ defaultValue, onChange }: SearchInputProps) {
     >
       <TextField
         placeholder={inputStrings.placeholder}
-        inputProps={{ 'aria-label': inputStrings.label }}
         size='small'
         value={searchTerm}
         onChange={onValueChange}
         sx={{ flex: 'auto' }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position='start'>
-              <SearchIcon />
-            </InputAdornment>
-          ),
-          endAdornment: (
-            <InputAdornment position='end'>
-              <IconButton
-                aria-label='Clear the search input'
-                size='small'
-                edge='end'
-                onClick={clearSearchTerm}
-              >
-                <Close />
-              </IconButton>
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            startAdornment: (
+              <InputAdornment position='start'>
+                <SearchIcon />
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton
+                  aria-label='Clear the search input'
+                  size='small'
+                  edge='end'
+                  onClick={clearSearchTerm}
+                >
+                  <Close />
+                </IconButton>
+              </InputAdornment>
+            ),
+          },
+
+          htmlInput: { 'aria-label': inputStrings.label },
         }}
       />
     </Box>

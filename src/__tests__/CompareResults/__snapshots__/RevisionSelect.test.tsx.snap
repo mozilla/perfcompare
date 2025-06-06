@@ -8,13 +8,14 @@ exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`
       data-testid="revision-select"
     >
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t css-1iil27j-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-ewmjmk-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
       >
         <div
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-          role="button"
+          aria-label="Filter by revision"
+          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-128ypvr-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+          role="combobox"
           tabindex="0"
         >
           <div
@@ -22,19 +23,19 @@ exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                 data-testid="SortIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+                  d="M3 18h6v-2H3zM3 6v2h18V6zm0 7h12v-2H3z"
                 />
               </svg>
             </svg>
@@ -43,13 +44,14 @@ exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`
         </div>
         <input
           aria-hidden="true"
-          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          aria-invalid="false"
+          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
           tabindex="-1"
           value="all-revisions"
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-w4piji-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hstfqs-MuiSvgIcon-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -60,12 +62,13 @@ exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`
         </svg>
         <fieldset
           aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="css-ihdtdm"
+            class="css-w4cd9x"
           >
             <span
+              aria-hidden="true"
               class="notranslate"
             >
               ​
