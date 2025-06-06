@@ -272,7 +272,6 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
-                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -694,7 +693,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 <ul
   aria-labelledby="select-timerange-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id=":r4a:"
+  id="«r4a»"
   role="listbox"
   tabindex="-1"
 >
@@ -1160,7 +1159,6 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
-                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1939,7 +1937,6 @@ exports[`Compare Over Time should remove the checked revision once X button is c
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
-                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2831,7 +2828,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
-                  value=""
                 />
                 <fieldset
                   aria-hidden="true"

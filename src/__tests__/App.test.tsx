@@ -1,9 +1,8 @@
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import App, { router } from '../components/App';
 import getTestData from './utils/fixtures';
-import { render, screen, FetchMockSandbox } from './utils/test-utils';
+import { act, render, screen, FetchMockSandbox } from './utils/test-utils';
 
 describe('App', () => {
   beforeEach(() => {

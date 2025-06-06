@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 
 interface EditTitleInputProps {
   value: string;
-  refInput: React.RefObject<HTMLInputElement>;
+  refInput: React.RefObject<HTMLInputElement | null>;
   onCancel: () => unknown;
   onChange: (titleText: string) => unknown;
   onSave: () => unknown;

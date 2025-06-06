@@ -28,7 +28,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
-              value=""
             />
             <span
               class="css-1qiat4j"
@@ -141,7 +140,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
-              value=""
             />
             <span
               class="css-1qiat4j"
@@ -254,7 +252,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
-              value=""
             />
             <span
               class="css-1qiat4j"
@@ -367,7 +364,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
-              value=""
             />
             <span
               class="css-1qiat4j"
@@ -480,7 +476,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
-              value=""
             />
             <span
               class="css-1qiat4j"
@@ -593,7 +588,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
-              value=""
             />
             <span
               class="css-1qiat4j"
@@ -927,7 +921,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-base-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
-                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -974,7 +967,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
-                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1087,7 +1079,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
-                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1200,7 +1191,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
-                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1313,7 +1303,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
-                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1426,7 +1415,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
-                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1539,7 +1527,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
-                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1761,7 +1748,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
-                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -2185,7 +2171,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
-                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"

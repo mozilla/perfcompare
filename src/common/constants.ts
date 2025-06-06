@@ -1,5 +1,3 @@
-import { Dictionary } from '@reduxjs/toolkit';
-
 import { Repository } from '../types/state';
 import {
   Framework,
@@ -14,7 +12,7 @@ export const subtestsView = 'subtests-results';
 export const subtestsOverTimeView = 'subtests-over-time-results';
 export const searchView = 'search';
 
-export const repoMap: Dictionary<Repository['name']> = {
+export const repoMap: Record<Repository['id'], Repository['name']> = {
   1: 'mozilla-central',
   4: 'try',
   6: 'mozilla-beta',

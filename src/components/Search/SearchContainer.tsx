@@ -75,7 +75,7 @@ function SearchContainer(props: SearchViewProps) {
 }
 
 interface SearchViewProps {
-  containerRef: React.RefObject<HTMLElement>;
+  containerRef: React.RefObject<HTMLElement | null>;
 }
 
 export default SearchContainer;
