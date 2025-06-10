@@ -21,7 +21,7 @@ function setupTestData() {
 
 function renderComponent() {
   setupTestData();
-  const ref: React.RefObject<HTMLInputElement> = React.createRef();
+  const ref: React.RefObject<HTMLInputElement | null> = React.createRef();
   renderWithRouter(<SearchContainer containerRef={ref} />, { loader });
 }
 

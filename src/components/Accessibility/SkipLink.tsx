@@ -1,8 +1,10 @@
 import React from 'react';
 
 interface SkipLinkProperties {
-  containerRef: React.RefObject<HTMLElement>;
-  children: React.ReactElement;
+  containerRef: React.RefObject<HTMLElement | null>;
+  children: React.ReactElement<{
+    onClick: (e: React.SyntheticEvent) => unknown;
+  }>;
 }
 
 const SkipLink: React.FC<SkipLinkProperties> = (props) => {
@@ -18,7 +20,6 @@ const SkipLink: React.FC<SkipLinkProperties> = (props) => {
 
   return React.cloneElement(props.children, {
     onClick,
-    ref: props.containerRef,
   });
 };
 

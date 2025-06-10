@@ -159,7 +159,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         role="cell"
       >
         <button
-          aria-controls=":r9:"
+          aria-controls="«r9»"
           aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
@@ -318,7 +318,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         role="cell"
       >
         <button
-          aria-controls=":rc:"
+          aria-controls="«rc»"
           aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
@@ -477,7 +477,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         role="cell"
       >
         <button
-          aria-controls=":r0:"
+          aria-controls="«r0»"
           aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
