@@ -25,6 +25,7 @@ export async function loader({ request }: { request: Request }) {
       'Not all values were supplied please check you provided both baseLando and newLando',
     );
   }
+  const replicates = url.searchParams.has('replicates');
 
   const baseRevisionsFromLando =
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
@@ -46,6 +47,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
   );
 }
 

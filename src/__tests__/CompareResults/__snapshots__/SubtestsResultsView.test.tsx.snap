@@ -353,6 +353,20 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </form>
                 </div>
                 <div
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto f44aluk css-zh2j38-MuiGrid-root"
+                >
+                  <button
+                    aria-pressed="false"
+                    class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-primary css-1hk2dfe-MuiButtonBase-root-MuiToggleButton-root"
+                    tabindex="0"
+                    type="button"
+                    value="check"
+                  >
+                    Enable replicates
+                  </button>
+                   
+                </div>
+                <div
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
                 >
                   <div
@@ -2153,6 +2167,20 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       </div>
                     </div>
                   </form>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto f44aluk css-zh2j38-MuiGrid-root"
+                >
+                  <button
+                    aria-pressed="false"
+                    class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-primary css-1hk2dfe-MuiButtonBase-root-MuiToggleButton-root"
+                    tabindex="0"
+                    type="button"
+                    value="check"
+                  >
+                    Enable replicates
+                  </button>
+                   
                 </div>
                 <div
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"

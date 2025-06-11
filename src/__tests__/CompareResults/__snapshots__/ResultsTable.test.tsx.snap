@@ -370,11 +370,11 @@ exports[`Results Table Should match snapshot 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    aria-label="Mar 29, 51, 00:00 UTC"
+                                    aria-label="Mar 29, 51, 24:00 UTC"
                                     class=""
                                     data-mui-internal-clone-element="true"
                                   >
-                                    Mar 29, 51, 00:00 UTC
+                                    Mar 29, 51, 24:00 UTC
                                   </div>
                                 </div>
                               </div>
@@ -655,11 +655,11 @@ exports[`Results Table Should match snapshot 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    aria-label="Mar 29, 51, 00:00 UTC"
+                                    aria-label="Mar 29, 51, 24:00 UTC"
                                     class=""
                                     data-mui-internal-clone-element="true"
                                   >
-                                    Mar 29, 51, 00:00 UTC
+                                    Mar 29, 51, 24:00 UTC
                                   </div>
                                 </div>
                               </div>
@@ -742,6 +742,19 @@ exports[`Results Table Should match snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-direction-xs-row f11kzsvi css-k4qgqg-MuiGrid-root"
                 >
                   Compare with a base
+                </h2>
+                <h2
+                  class="MuiGrid-root MuiGrid-direction-xs-row f11kzsvi css-k4qgqg-MuiGrid-root"
+                >
+                  <button
+                    aria-pressed="false"
+                    class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-primary css-1qj9qz3-MuiButtonBase-root-MuiToggleButton-root"
+                    tabindex="0"
+                    type="button"
+                    value="check"
+                  >
+                    Enable replicates
+                  </button>
                 </h2>
               </div>
               <div
