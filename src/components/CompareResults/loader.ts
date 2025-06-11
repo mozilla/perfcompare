@@ -65,6 +65,7 @@ export function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
+
   if (!newRevs.length) {
     return {
       baseRev,
@@ -107,12 +108,14 @@ async function fetchCompareResultsOnTreeherder({
   newRevs,
   newRepos,
   framework,
+  replicates,
 }: {
   baseRev: string;
   baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: Framework['id'];
+  replicates: boolean;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareResults({
@@ -121,6 +124,7 @@ async function fetchCompareResultsOnTreeherder({
       newRev,
       newRepo: newRepos[i],
       framework,
+      replicates,
     }),
   );
   return Promise.all(promises);
@@ -188,6 +192,7 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
+  const replicates = url.searchParams.has('replicates');
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
@@ -205,6 +210,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
   );
 }
 
@@ -215,6 +221,7 @@ export async function getComparisonInformation(
   newRepos: Repository['name'][],
   frameworkId: Framework['id'],
   frameworkName: Framework['name'],
+  replicates: boolean,
 ) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
@@ -222,6 +229,7 @@ export async function getComparisonInformation(
     newRevs,
     newRepos,
     framework: frameworkId,
+    replicates,
   });
 
   // TODO what happens if there's no result?
@@ -253,6 +261,7 @@ export async function getComparisonInformation(
     frameworkName,
     view: compareView,
     generation: generationCounter++,
+    replicates,
   };
 }
 
@@ -268,6 +277,7 @@ type DeferredLoaderData = {
   frameworkName: Framework['name'];
   view: typeof compareView;
   generation: number;
+  replicates: boolean;
 };
 
 // Be explicit with the returned type to control it better than if we were

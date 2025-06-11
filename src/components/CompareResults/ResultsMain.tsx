@@ -2,8 +2,9 @@ import { Fragment, useRef, useEffect, useState } from 'react';
 
 import { Button, Grid, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
+import ToggleButton from '@mui/material/ToggleButton';
 import { Container } from '@mui/system';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useSearchParams } from 'react-router';
 import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './loader';
@@ -93,6 +94,19 @@ function ResultsMain() {
       );
     }
   }
+
+  const [toggleReplicates, setToggleReplicates] = useState(
+    loaderData.replicates,
+  );
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const onToggleReplicates = () => {
+    setToggleReplicates(!toggleReplicates);
+    if (!toggleReplicates) searchParams.set('replicates', '');
+    else searchParams.delete('replicates');
+    setSearchParams(searchParams);
+  };
+
   /************************************************/
   /********** Edit Results Title Section **********/
   /************************************************/
@@ -175,6 +189,16 @@ function ResultsMain() {
 
           <Grid component='h2' className={styles.subtitle}>
             {subtitles[loaderData.view]}
+          </Grid>
+          <Grid component='h2' className={styles.subtitle}>
+            <ToggleButton
+              color='primary'
+              value='check'
+              selected={toggleReplicates}
+              onChange={onToggleReplicates}
+            >
+              Enable replicates
+            </ToggleButton>
           </Grid>
         </Grid>
         <Grid container sx={titleContainerSx}>

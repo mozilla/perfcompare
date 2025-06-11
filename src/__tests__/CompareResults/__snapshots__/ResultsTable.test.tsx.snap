@@ -743,6 +743,19 @@ exports[`Results Table Should match snapshot 1`] = `
                 >
                   Compare with a base
                 </h2>
+                <h2
+                  class="MuiGrid-root MuiGrid-direction-xs-row f11kzsvi css-k4qgqg-MuiGrid-root"
+                >
+                  <button
+                    aria-pressed="false"
+                    class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-primary css-1qj9qz3-MuiButtonBase-root-MuiToggleButton-root"
+                    tabindex="0"
+                    type="button"
+                    value="check"
+                  >
+                    Enable replicates
+                  </button>
+                </h2>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-suqpw6-MuiGrid-root"
