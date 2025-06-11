@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import SvgIcon from '@mui/material/SvgIcon';
 import { useDispatch } from 'react-redux';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './loader';

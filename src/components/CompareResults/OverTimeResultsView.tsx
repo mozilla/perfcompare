@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import Grid from '@mui/material/Grid';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './overTimeLoader';

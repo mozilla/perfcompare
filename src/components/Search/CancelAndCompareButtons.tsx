@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import Button from '@mui/material/Button';
-import { Await, useLoaderData } from 'react-router-dom';
+import { Await, useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import { Strings } from '../../resources/Strings';

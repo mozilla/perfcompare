@@ -1,7 +1,8 @@
 import { ReactElement } from 'react';
 
 import userEvent from '@testing-library/user-event';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { loader as overTimeLoader } from '../../components/CompareResults/overTimeLoader';
 import OverTimeResultsView from '../../components/CompareResults/OverTimeResultsView';

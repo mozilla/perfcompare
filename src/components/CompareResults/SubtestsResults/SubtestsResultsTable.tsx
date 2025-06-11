@@ -2,7 +2,7 @@ import { Suspense, useMemo } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Await } from 'react-router-dom';
+import { Await } from 'react-router';
 
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';

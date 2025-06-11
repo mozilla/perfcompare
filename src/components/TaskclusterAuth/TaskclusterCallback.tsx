@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { Typography, Box, CircularProgress } from '@mui/material';
-import { useLoaderData, Await } from 'react-router-dom';
+import { useLoaderData, Await } from 'react-router';
 
 import { LoaderReturnValue } from './loader';
 

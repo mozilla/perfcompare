@@ -3,7 +3,7 @@ import { Fragment, useRef, useEffect, useState } from 'react';
 import { Button, Grid, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './loader';

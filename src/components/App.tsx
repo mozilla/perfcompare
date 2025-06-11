@@ -7,10 +7,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import {
   createBrowserRouter,
-  RouterProvider,
   createRoutesFromElements,
   Route,
-} from 'react-router-dom';
+} from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { useAppSelector } from '../hooks/app';
 import { Strings } from '../resources/Strings';

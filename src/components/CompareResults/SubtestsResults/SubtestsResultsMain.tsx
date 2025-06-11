@@ -3,7 +3,7 @@ import { useState, Suspense } from 'react';
 import { Grid, Skeleton, Stack, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
-import { useLoaderData, Await } from 'react-router-dom';
+import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
 
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';

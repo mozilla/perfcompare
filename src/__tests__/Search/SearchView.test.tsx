@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { repoMap } from '../../common/constants';
 import { loader } from '../../components/Search/loader';

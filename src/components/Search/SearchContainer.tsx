@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Typography from '@mui/material/Typography';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';

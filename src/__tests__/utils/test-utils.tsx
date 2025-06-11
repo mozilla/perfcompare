@@ -7,8 +7,9 @@ import {
 import { render as rtlRender } from '@testing-library/react';
 import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import type { LoaderFunction } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
+import type { LoaderFunction } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 import { VirtuosoMockContext } from 'react-virtuoso';
 
 import { store } from './setupTests';
