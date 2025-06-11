@@ -236,6 +236,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                                 id="search-base-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -381,6 +382,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -804,6 +806,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -1200,6 +1203,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1334,11 +1338,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1574,6 +1578,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1719,6 +1724,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1854,11 +1860,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2249,6 +2255,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2383,11 +2390,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 4, 20, 00:00 UTC"
+                        aria-label="Jul 4, 20, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 4, 20, 00:00 UTC
+                        Jul 4, 20, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2623,6 +2630,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2768,6 +2776,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2903,11 +2912,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 4, 20, 00:00 UTC"
+                        aria-label="Jul 4, 20, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 4, 20, 00:00 UTC
+                        Jul 4, 20, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3298,6 +3307,7 @@ exports[`With search parameters displays the default value for framework if the 
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3432,11 +3442,11 @@ exports[`With search parameters displays the default value for framework if the 
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3672,6 +3682,7 @@ exports[`With search parameters displays the default value for framework if the 
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3817,6 +3828,7 @@ exports[`With search parameters displays the default value for framework if the 
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3952,11 +3964,11 @@ exports[`With search parameters displays the default value for framework if the 
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -4347,6 +4359,7 @@ exports[`With search parameters displays the default values if some values are b
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -4581,6 +4594,7 @@ exports[`With search parameters displays the default values if some values are b
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -4726,6 +4740,7 @@ exports[`With search parameters displays the default values if some values are b
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"

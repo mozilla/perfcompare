@@ -16,6 +16,7 @@ function checkValues({
   framework,
   baseParentSignature,
   newParentSignature,
+  replicates,
 }: {
   baseRev: string | null;
   baseRepo: Repository['name'] | null;
@@ -24,6 +25,7 @@ function checkValues({
   framework: string | number | null;
   baseParentSignature: string | null;
   newParentSignature: string | null;
+  replicates: string | boolean | null;
 }): {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -33,6 +35,7 @@ function checkValues({
   frameworkName: Framework['name'];
   baseParentSignature: string;
   newParentSignature: string;
+  replicates: boolean;
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -94,6 +97,10 @@ function checkValues({
     );
   }
 
+  if (replicates === 'true') {
+    replicates = true;
+  } else replicates = false;
+
   return {
     baseRev,
     baseRepo,
@@ -103,6 +110,7 @@ function checkValues({
     frameworkName,
     baseParentSignature,
     newParentSignature,
+    replicates,
   };
 }
 
@@ -126,6 +134,7 @@ export function loader({ request }: { request: Request }) {
     'baseParentSignature',
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
+  const replicatesFromUrl = url.searchParams.get('replicates');
 
   const {
     baseRev,
@@ -136,6 +145,7 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     newParentSignature,
     baseParentSignature,
+    replicates,
   } = checkValues({
     baseRev: baseRevFromUrl,
     baseRepo: baseRepoFromUrl,
@@ -144,6 +154,7 @@ export function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
+    replicates: replicatesFromUrl,
   });
 
   const results = fetchSubtestsCompareResults({
@@ -154,6 +165,7 @@ export function loader({ request }: { request: Request }) {
     framework: frameworkId,
     baseParentSignature,
     newParentSignature,
+    replicates,
   });
 
   const subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(
@@ -177,6 +189,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     subtestsViewPerfherderURL,
+    replicates,
   };
 }
 

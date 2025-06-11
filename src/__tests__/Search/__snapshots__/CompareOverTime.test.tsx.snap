@@ -272,6 +272,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -641,11 +642,11 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -693,7 +694,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 <ul
   aria-labelledby="select-timerange-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="«r4a»"
+  id=":r4a:"
   role="listbox"
   tabindex="-1"
 >
@@ -1159,6 +1160,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1293,11 +1295,11 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1617,11 +1619,11 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1937,6 +1939,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2326,11 +2329,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2465,11 +2468,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <div
-                        aria-label="Jul 4, 20, 00:00 UTC"
+                        aria-label="Jul 4, 20, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 4, 20, 00:00 UTC
+                        Jul 4, 20, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2828,6 +2831,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2962,11 +2966,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3286,11 +3290,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>

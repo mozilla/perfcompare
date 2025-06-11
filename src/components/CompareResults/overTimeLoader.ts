@@ -19,12 +19,14 @@ function checkValues({
   newRepos,
   framework,
   interval,
+  replicates,
 }: {
   baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
   interval: string | number | null;
+  replicates: string | boolean | null;
 }): {
   baseRepo: Repository['name'];
   newRevs: string[];
@@ -33,6 +35,7 @@ function checkValues({
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
+  replicates: boolean;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -95,6 +98,10 @@ function checkValues({
     );
   }
 
+  if (replicates === 'true') {
+    replicates = true;
+  } else replicates = false;
+
   return {
     baseRepo,
     newRevs,
@@ -103,6 +110,7 @@ function checkValues({
     frameworkName,
     intervalText,
     intervalValue,
+    replicates,
   };
 }
 
@@ -114,12 +122,14 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   newRepos,
   framework,
   interval,
+  replicates,
 }: {
   baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: Framework['id'];
   interval: TimeRange['value'];
+  replicates: boolean;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareOverTimeResults({
@@ -128,6 +138,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
       newRepo: newRepos[i],
       framework,
       interval,
+      replicates,
     }),
   );
   return Promise.all(promises);
@@ -155,6 +166,7 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
+  const replicatesFromUrl = url.searchParams.get('replicates');
 
   const {
     baseRepo,
@@ -164,12 +176,14 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
+    replicates,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRevs: newRevsFromUrl,
     newRepos: newReposFromUrl,
     framework: frameworkFromUrl,
     interval: intervalFromUrl,
+    replicates: replicatesFromUrl,
   });
 
   const resultsTimePromise = fetchCompareOverTimeResultsOnTreeherder({
@@ -178,6 +192,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     framework: frameworkId,
     interval: intervalValue,
+    replicates,
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
@@ -201,6 +216,7 @@ export async function loader({ request }: { request: Request }) {
     intervalText,
     view: compareOverTimeView,
     generation: generationCounter++,
+    replicates,
   };
 }
 
@@ -216,6 +232,7 @@ type DeferredLoaderData = {
   intervalText: TimeRange['text'];
   view: typeof compareOverTimeView;
   generation: number;
+  replicates: boolean;
 };
 
 // Be explicit with the returned type to control it better than if we were

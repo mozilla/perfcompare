@@ -28,6 +28,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
+              value=""
             />
             <span
               class="css-1qiat4j"
@@ -104,11 +105,11 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <div
-                  aria-label="Mar 29, 51, 00:00 UTC"
+                  aria-label="Mar 29, 51, 24:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  Mar 29, 51, 00:00 UTC
+                  Mar 29, 51, 24:00 UTC
                 </div>
               </div>
             </div>
@@ -140,6 +141,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
+              value=""
             />
             <span
               class="css-1qiat4j"
@@ -216,11 +218,11 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <div
-                  aria-label="Feb 22, 58, 00:00 UTC"
+                  aria-label="Feb 22, 58, 24:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  Feb 22, 58, 00:00 UTC
+                  Feb 22, 58, 24:00 UTC
                 </div>
               </div>
             </div>
@@ -252,6 +254,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
+              value=""
             />
             <span
               class="css-1qiat4j"
@@ -328,11 +331,11 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <div
-                  aria-label="Jul 29, 87, 00:00 UTC"
+                  aria-label="Jul 29, 87, 24:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  Jul 29, 87, 00:00 UTC
+                  Jul 29, 87, 24:00 UTC
                 </div>
               </div>
             </div>
@@ -364,6 +367,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
+              value=""
             />
             <span
               class="css-1qiat4j"
@@ -440,11 +444,11 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <div
-                  aria-label="Jul 4, 20, 00:00 UTC"
+                  aria-label="Jul 4, 20, 24:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  Jul 4, 20, 00:00 UTC
+                  Jul 4, 20, 24:00 UTC
                 </div>
               </div>
             </div>
@@ -476,6 +480,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
+              value=""
             />
             <span
               class="css-1qiat4j"
@@ -552,11 +557,11 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <div
-                  aria-label="Apr 13, 22, 00:00 UTC"
+                  aria-label="Apr 13, 22, 24:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  Apr 13, 22, 00:00 UTC
+                  Apr 13, 22, 24:00 UTC
                 </div>
               </div>
             </div>
@@ -588,6 +593,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               class="PrivateSwitchBase-input css-j8yymo"
               tabindex="-1"
               type="radio"
+              value=""
             />
             <span
               class="css-1qiat4j"
@@ -664,11 +670,11 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <div
-                  aria-label="Apr 13, 22, 00:03 UTC"
+                  aria-label="Apr 13, 22, 24:03 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  Apr 13, 22, 00:03 UTC
+                  Apr 13, 22, 24:03 UTC
                 </div>
               </div>
             </div>
@@ -921,6 +927,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-base-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -967,6 +974,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
+                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1043,11 +1051,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           />
                                         </svg>
                                         <div
-                                          aria-label="Mar 29, 51, 00:00 UTC"
+                                          aria-label="Mar 29, 51, 24:00 UTC"
                                           class=""
                                           data-mui-internal-clone-element="true"
                                         >
-                                          Mar 29, 51, 00:00 UTC
+                                          Mar 29, 51, 24:00 UTC
                                         </div>
                                       </div>
                                     </div>
@@ -1079,6 +1087,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
+                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1155,11 +1164,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           />
                                         </svg>
                                         <div
-                                          aria-label="Feb 22, 58, 00:00 UTC"
+                                          aria-label="Feb 22, 58, 24:00 UTC"
                                           class=""
                                           data-mui-internal-clone-element="true"
                                         >
-                                          Feb 22, 58, 00:00 UTC
+                                          Feb 22, 58, 24:00 UTC
                                         </div>
                                       </div>
                                     </div>
@@ -1191,6 +1200,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
+                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1267,11 +1277,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           />
                                         </svg>
                                         <div
-                                          aria-label="Jul 29, 87, 00:00 UTC"
+                                          aria-label="Jul 29, 87, 24:00 UTC"
                                           class=""
                                           data-mui-internal-clone-element="true"
                                         >
-                                          Jul 29, 87, 00:00 UTC
+                                          Jul 29, 87, 24:00 UTC
                                         </div>
                                       </div>
                                     </div>
@@ -1303,6 +1313,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
+                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1379,11 +1390,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           />
                                         </svg>
                                         <div
-                                          aria-label="Jul 4, 20, 00:00 UTC"
+                                          aria-label="Jul 4, 20, 24:00 UTC"
                                           class=""
                                           data-mui-internal-clone-element="true"
                                         >
-                                          Jul 4, 20, 00:00 UTC
+                                          Jul 4, 20, 24:00 UTC
                                         </div>
                                       </div>
                                     </div>
@@ -1415,6 +1426,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
+                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1491,11 +1503,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           />
                                         </svg>
                                         <div
-                                          aria-label="Apr 13, 22, 00:00 UTC"
+                                          aria-label="Apr 13, 22, 24:00 UTC"
                                           class=""
                                           data-mui-internal-clone-element="true"
                                         >
-                                          Apr 13, 22, 00:00 UTC
+                                          Apr 13, 22, 24:00 UTC
                                         </div>
                                       </div>
                                     </div>
@@ -1527,6 +1539,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       class="PrivateSwitchBase-input css-j8yymo"
                                       tabindex="-1"
                                       type="radio"
+                                      value=""
                                     />
                                     <span
                                       class="css-1qiat4j"
@@ -1603,11 +1616,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           />
                                         </svg>
                                         <div
-                                          aria-label="Apr 13, 22, 00:03 UTC"
+                                          aria-label="Apr 13, 22, 24:03 UTC"
                                           class=""
                                           data-mui-internal-clone-element="true"
                                         >
-                                          Apr 13, 22, 00:03 UTC
+                                          Apr 13, 22, 24:03 UTC
                                         </div>
                                       </div>
                                     </div>
@@ -1748,6 +1761,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -2171,6 +2185,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
