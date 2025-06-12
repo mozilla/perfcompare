@@ -8,11 +8,11 @@ import '@testing-library/jest-dom';
 import { webcrypto } from 'node:crypto';
 import { TextDecoder, TextEncoder } from 'util';
 
-import { density1d } from 'fast-kde';
 // The import of fetchMock also installs jest matchers as a side effect.
 // See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
 // to use this mock.
-import fetchMock from 'fetch-mock-jest';
+import fetchMock from '@fetch-mock/jest';
+import { density1d } from 'fast-kde';
 import { Bubble, Line } from 'react-chartjs-2';
 import { Hooks } from 'taskcluster-client-web';
 
@@ -84,22 +84,14 @@ beforeEach(() => {
   MockedDensity1d.mockImplementation(() => 'fast-kde');
 });
 
-beforeEach(function () {
-  // Install fetch and fetch-related objects globally.
-  // Using the sandbox ensures that parallel tests run properly.
-  const fetchSandbox = fetchMock.sandbox();
-  // Use a catch-all for requests that are not matched, so that we don't have
-  // errors when this happens. We'll still have a warning.
-  fetchSandbox.catch(404);
-  globalThis.fetch = fetchSandbox as (
-    input: RequestInfo | URL,
-    init?: RequestInit,
-  ) => Promise<Response>;
-});
+// Install the fetch mock globally
+fetchMock.mockGlobal();
 
 beforeEach(() => {
   jest.useFakeTimers({ now: new Date('Wed, 09 Oct 2024 12:45:17 GMT') });
   store = createStore();
+
+  fetchMock.catch(404);
 });
 
 afterEach(() => {
