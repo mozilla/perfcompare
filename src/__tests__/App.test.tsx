@@ -1,18 +1,16 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import App, { router } from '../components/App';
 import getTestData from './utils/fixtures';
-import { act, render, screen, FetchMockSandbox } from './utils/test-utils';
+import { act, render, screen } from './utils/test-utils';
 
 describe('App', () => {
   beforeEach(() => {
     const { testData } = getTestData();
-    (global.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/',
-      {
-        results: [testData[0]],
-      },
-    );
+    fetchMock.get('begin:https://treeherder.mozilla.org/api/project/', {
+      results: [testData[0]],
+    });
   });
 
   test('Should render search view on default route', async () => {
@@ -72,7 +70,7 @@ describe('App', () => {
     it('Should render an error page when the treeherder request fails with an error 500', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
-      (window.fetch as FetchMockSandbox).get(
+      fetchMock.get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         500,
       );
@@ -94,7 +92,7 @@ describe('App', () => {
     it('Should render an error page when the treeherder request fails with an error 400', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
-      (window.fetch as FetchMockSandbox).get(
+      fetchMock.get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         {
           status: 400,
@@ -117,7 +115,7 @@ describe('App', () => {
     it('Should render an error page for compare over time when the treeherder request fails with an error 400', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
-      (window.fetch as FetchMockSandbox).get(
+      fetchMock.get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         {
           status: 400,

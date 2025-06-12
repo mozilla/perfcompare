@@ -1,15 +1,11 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import {
-  screen,
-  within,
-  renderWithRouter,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { screen, within, renderWithRouter } from '../utils/test-utils';
 
 async function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
@@ -23,7 +19,7 @@ async function renderComponent() {
 describe('SearchResultsList', () => {
   beforeEach(() => {
     const { testData } = getTestData();
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'begin:https://treeherder.mozilla.org/api/project/try/push/',
       {
         results: testData,

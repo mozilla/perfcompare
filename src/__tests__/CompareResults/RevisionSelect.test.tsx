@@ -1,5 +1,7 @@
 import type { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
+
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionSelect from '../../components/CompareResults/RevisionSelect';
@@ -9,7 +11,6 @@ import {
   renderWithRouter,
   screen,
   within,
-  FetchMockSandbox,
 } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
@@ -40,10 +41,9 @@ describe('Revision select', () => {
 
   it('Should filter results', async () => {
     // The component requests recent revisions at load time.
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/',
-      { results: [] },
-    );
+    fetchMock.get('begin:https://treeherder.mozilla.org/api/project/', {
+      results: [],
+    });
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
     await screen.findByLabelText('Filter by revision');
 

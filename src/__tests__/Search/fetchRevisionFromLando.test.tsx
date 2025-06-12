@@ -1,5 +1,7 @@
+import fetchMock from '@fetch-mock/jest';
+
 import App, { router } from '../../components/App';
-import { FetchMockSandbox, render } from '../utils/test-utils';
+import { render } from '../utils/test-utils';
 
 describe('Lando to commit validating', () => {
   it('Should tell us not all paramaters were provided', async () => {
@@ -20,9 +22,9 @@ describe('Lando to commit validating', () => {
 
   it('should reject hashes not associated with any commits error 404', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'glob:https://api.lando.services.mozilla.com/*',
-      (url) => {
+      ({ url }) => {
         return url.includes('123')
           ? {
               status: 404,
@@ -53,9 +55,9 @@ describe('Lando to commit validating', () => {
 
   it('should reject', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'glob:https://api.lando.services.mozilla.com/*',
-      (url) => {
+      ({ url }) => {
         return url.includes('123')
           ? {
               commit_id: null,

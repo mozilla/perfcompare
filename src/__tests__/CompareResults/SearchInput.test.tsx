@@ -1,15 +1,11 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import {
-  renderWithRouter,
-  screen,
-  waitFor,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { renderWithRouter, screen, waitFor } from '../utils/test-utils';
 
 function setUpTestData() {
   const { testData, testCompareData } = getTestData();
@@ -41,7 +37,7 @@ function setUpTestData() {
     },
   ];
 
-  (global.fetch as FetchMockSandbox)
+  fetchMock
     .get(
       'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
       compareData,

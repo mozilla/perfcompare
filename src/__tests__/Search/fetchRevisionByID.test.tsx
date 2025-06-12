@@ -1,15 +1,11 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import {
-  screen,
-  renderWithRouter,
-  act,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { screen, renderWithRouter, act } from '../utils/test-utils';
 
 async function renderSearchViewComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
@@ -24,12 +20,9 @@ describe('Search View/fetchRevisionByID', () => {
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
     const { testData } = getTestData();
 
-    (global.fetch as FetchMockSandbox).get(
-      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-      {
-        results: testData,
-      },
-    );
+    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+      results: testData,
+    });
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
@@ -39,7 +32,7 @@ describe('Search View/fetchRevisionByID', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');
     act(() => void jest.runAllTimers());
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
       undefined,
     );
@@ -55,7 +48,7 @@ describe('Search View/fetchRevisionByID', () => {
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     act(() => void jest.runAllTimers());
 
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
       undefined,
     );
@@ -68,9 +61,9 @@ describe('Search View/fetchRevisionByID', () => {
   });
 
   it('should reject fetchRevisionByID if fetch returns no results', async () => {
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-      (url) => ({
+      ({ url }) => ({
         results: url.includes('?revision') ? [] : getTestData().testData,
       }),
     );
@@ -84,7 +77,7 @@ describe('Search View/fetchRevisionByID', () => {
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     act(() => void jest.runAllTimers());
 
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
       undefined,
     );
@@ -95,9 +88,9 @@ describe('Search View/fetchRevisionByID', () => {
 
   it('should update error state if fetchRevisionByID returns an error', async () => {
     const errorMessage = 'Connection error';
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-      (url) =>
+      ({ url }) =>
         url.includes('?revision')
           ? {
               throws: new Error(errorMessage),
@@ -117,7 +110,7 @@ describe('Search View/fetchRevisionByID', () => {
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     act(() => void jest.runAllTimers());
 
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
       undefined,
     );
@@ -130,9 +123,9 @@ describe('Search View/fetchRevisionByID', () => {
   });
 
   it('should update error state with generic message if fetch error message is undefined', async () => {
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-      (url) =>
+      ({ url }) =>
         url.includes('?revision')
           ? {
               throws: new Error(),
@@ -152,7 +145,7 @@ describe('Search View/fetchRevisionByID', () => {
     await user.type(searchInput, 'abcdef123456');
     act(() => void jest.runAllTimers());
 
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
       undefined,
     );

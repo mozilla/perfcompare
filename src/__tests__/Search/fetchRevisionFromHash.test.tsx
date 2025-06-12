@@ -1,5 +1,7 @@
+import fetchMock from '@fetch-mock/jest';
+
 import App, { router } from '../../components/App';
-import { FetchMockSandbox, render } from '../utils/test-utils';
+import { render } from '../utils/test-utils';
 
 describe('Hash to commit good run validating', () => {
   it('Should return a baseRev not found if we return a null baseRev', async () => {
@@ -8,9 +10,9 @@ describe('Hash to commit good run validating', () => {
     // remove the mockImplementation part to debug.
 
     jest.spyOn(console, 'error').mockImplementation(() => {});
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'glob:https://treeherder.mozilla.org/api/project/*/hash/*',
-      (url) => {
+      ({ url }) => {
         return url.includes('tocommit')
           ? {
               baseRevision: null,
@@ -35,9 +37,9 @@ describe('Hash to commit good run validating', () => {
   it('should reject hashes not associated with any commits', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'glob:https://treeherder.mozilla.org/api/project/*/hash/*',
-      (url) =>
+      ({ url }) =>
         url.includes('tocommit')
           ? {
               throws: new Error(
@@ -64,9 +66,9 @@ describe('Hash to commit good run validating', () => {
   it('should display a different error message if the datehash is today and not found', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'glob:https://treeherder.mozilla.org/api/project/*/hash/*',
-      (url) =>
+      ({ url }) =>
         url.includes('tocommit')
           ? {
               throws: new Error(

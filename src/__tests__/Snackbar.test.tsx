@@ -1,3 +1,4 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import App from '../components/App';
@@ -11,13 +12,12 @@ import {
   renderWithRouter,
   render,
   waitForElementToBeRemoved,
-  FetchMockSandbox,
 } from './utils/test-utils';
 
 describe('Snackbar', () => {
   beforeEach(() => {
     const { testData } = getTestData();
-    (global.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'begin:https://treeherder.mozilla.org/api/project/try/push/',
       {
         results: testData,
