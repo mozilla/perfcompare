@@ -17,12 +17,14 @@ import PerfCompareHeader from '../Shared/PerfCompareHeader';
 interface ResultsViewProps {
   title: string;
 }
+
+type CombinedLoaderReturnValue =
+  | LoaderReturnValue
+  | HashLoaderReturnValue
+  | LandoLoaderReturnValue;
 function ResultsView(props: ResultsViewProps) {
   const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
-    useLoaderData() as
-      | LoaderReturnValue
-      | HashLoaderReturnValue
-      | LandoLoaderReturnValue;
+    useLoaderData<CombinedLoaderReturnValue>();
 
   const newRepo = newRepos[0];
   const { title } = props;

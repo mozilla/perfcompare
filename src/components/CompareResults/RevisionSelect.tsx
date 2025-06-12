@@ -28,7 +28,7 @@ const allRevisionsOption =
 
 function RevisionSelect() {
   const dispatch = useDispatch();
-  const { newRevs } = useLoaderData() as LoaderReturnValue;
+  const { newRevs } = useLoaderData<LoaderReturnValue>();
   const { activeComparison } = useAppSelector((state) => state.comparison);
   const handlerChangeComparison = (option: string) => {
     dispatch(updateComparison({ activeComparison: option }));

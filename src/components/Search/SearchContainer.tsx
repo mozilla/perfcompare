@@ -19,7 +19,7 @@ function SearchContainer(props: SearchViewProps) {
   const styles = SearchContainerStyles(themeMode, /* isHome */ true);
   const [isBaseSearchExpanded, setIsBaseSearchExpanded] = useState(true);
   const { newRevInfo, newRepo, frameworkId } =
-    useLoaderData() as LoaderReturnValue;
+    useLoaderData<LoaderReturnValue>();
 
   return (
     <section

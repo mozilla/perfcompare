@@ -123,7 +123,7 @@ function getRevLink(
 }
 
 function getTimeRange(repo: Repository['name']) {
-  const { intervalValue } = useLoaderData() as OvertimeLoaderReturnValue;
+  const { intervalValue } = useLoaderData<OvertimeLoaderReturnValue>();
   return ` Base (${repo}) ${timeRangeMap[intervalValue]} `;
 }
 

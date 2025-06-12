@@ -26,19 +26,16 @@ function getPunctuationMark(index: number, newRevs: string[]) {
   return index != newRevs.length - 1 ? ', ' : '.';
 }
 
+type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
+
 function ResultsMain() {
-  const loaderData = useLoaderData() as
-    | LoaderReturnValue
-    | OverTimeLoaderReturnValue;
+  const loaderData = useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
 
-  const { view } = useLoaderData() as
-    | LoaderReturnValue
-    | OverTimeLoaderReturnValue;
   const styles = {
     alert: style({
       width: '100%',
@@ -177,7 +174,7 @@ function ResultsMain() {
           )}
 
           <Grid component='h2' className={styles.subtitle}>
-            {subtitles[view]}
+            {subtitles[loaderData.view]}
           </Grid>
         </Grid>
         <Grid container sx={titleContainerSx}>

@@ -35,7 +35,7 @@ function CredentialsFound() {
 }
 
 export default function TaskclusterCallback() {
-  const { retrievalPromise } = useLoaderData() as LoaderReturnValue;
+  const { retrievalPromise } = useLoaderData<LoaderReturnValue>();
 
   return (
     <>
