@@ -5,6 +5,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -754,6 +755,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -1278,6 +1280,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -1970,6 +1973,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -2618,6 +2622,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -3158,6 +3163,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -3827,6 +3833,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 action="/compare-results"
                 aria-label="Compare with base form"
                 autocomplete="off"
+                data-discover="true"
                 method="get"
               >
                 <div
@@ -4240,6 +4247,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 action="/compare-over-time-results"
                 aria-label="Compare over time form"
                 autocomplete="off"
+                data-discover="true"
                 method="get"
               >
                 <div

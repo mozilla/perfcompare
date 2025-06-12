@@ -5,6 +5,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -394,6 +395,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -849,6 +851,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -1370,6 +1373,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -1670,6 +1674,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -2059,6 +2064,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -2518,6 +2524,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -3039,6 +3046,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
