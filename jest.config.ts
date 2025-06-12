@@ -29,7 +29,7 @@ const config: Config.InitialOptions = {
   // dependencies of fetch-mock do! Hopefully this won't be needed in the future
   // when fetch-mock updates.
   transformIgnorePatterns: [
-    '/node_modules/(?!(taskcluster-client-web|data-uri-to-buffer|fetch-blob|formdata-polyfill|node-fetch)/)',
+    '/node_modules/(?!(taskcluster-client-web|data-uri-to-buffer|fetch-blob|formdata-polyfill|fetch-mock|@fetch-mock/jest)/)',
   ],
   modulePaths: [],
   moduleNameMapper: {
