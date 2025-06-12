@@ -7,7 +7,7 @@ const config: Config.InitialOptions = {
   setupFiles: ['react-app-polyfill/jsdom'],
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/utils/setupTests.ts'],
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/__tests__/utils/'],
-  testEnvironment: 'jsdom',
+  testEnvironment: './src/__tests__/utils/custom-environment',
   transform: {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',

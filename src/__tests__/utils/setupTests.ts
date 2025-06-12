@@ -6,7 +6,6 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
 import { webcrypto } from 'node:crypto';
-import { TextDecoder, TextEncoder } from 'util';
 
 // The import of fetchMock also installs jest matchers as a side effect.
 // See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
@@ -18,22 +17,6 @@ import { Hooks } from 'taskcluster-client-web';
 
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
-
-// Register TextDecoder and TextEncoder with the global scope.
-// These are now available globally in nodejs, but not when running with jsdom
-// in jest apparently.
-// Still let's double check that they're from the global scope as expected, so
-// that this can be removed once it's implemented in jsdom.
-if ('TextDecoder' in global) {
-  throw new Error(
-    'TextDecoder is already present in the global scope, please update setupTests.ts.',
-  );
-}
-
-// @ts-expect-error TextDecoder from node and TextDecoder from JavaScript are
-// not 100% compatible, but they're a reasonable approximation.
-globalThis.TextDecoder = TextDecoder;
-globalThis.TextEncoder = TextEncoder;
 
 let store: Store;
 
