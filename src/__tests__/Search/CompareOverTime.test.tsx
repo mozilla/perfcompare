@@ -342,6 +342,7 @@ describe('Compare Over Time', () => {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
         loader: searchLoader,
+        hydrateFallbackElement: <></>,
       },
       { path: '/compare-over-time-results', element: <div /> },
     ]);

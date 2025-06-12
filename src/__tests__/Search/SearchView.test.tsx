@@ -391,6 +391,7 @@ describe('Base and OverTime Search', () => {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
         loader,
+        hydrateFallbackElement: <></>,
       },
       { path: '/compare-results', element: <div /> },
     ]);

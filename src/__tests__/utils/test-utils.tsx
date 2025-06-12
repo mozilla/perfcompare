@@ -60,7 +60,9 @@ export function renderWithRouter(
   return {
     ...render(
       <RouterProvider
-        router={createBrowserRouter([{ path: route, element: ui, loader }])}
+        router={createBrowserRouter([
+          { path: route, element: ui, loader, HydrateFallback: () => null },
+        ])}
       />,
       theme,
     ),
