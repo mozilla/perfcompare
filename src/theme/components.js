@@ -239,6 +239,11 @@ const components = {
       ],
     },
   },
+  MuiStack: {
+    defaultProps: {
+      useFlexGap: true,
+    },
+  },
 };
 
 export default components;

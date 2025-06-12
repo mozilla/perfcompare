@@ -12,19 +12,72 @@ import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
 import RevisionRowExpandable from '.././RevisionRowExpandable';
-import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
-import { Colors, FontSize, Spacing } from '../../../styles';
+import { FontSize, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
 
-const revisionsRow = {
+const revisionRow = style({
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
   margin: `${Spacing.Small}px 0px 0px 0px`,
   alignItems: 'center',
-};
+  $nest: {
+    '.cell': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+    },
+    '.confidence': {
+      gap: '10px',
+      justifyContent: 'start',
+      paddingInlineStart: '15%',
+    },
+    '.subtests': {
+      borderRadius: '4px 0 0 4px',
+      paddingLeft: Spacing.Medium, // Synchronize with its header
+      justifyContent: 'left',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
+    '.status': {
+      justifyContent: 'center',
+    },
+    '.total-runs': {
+      gap: '8px',
+    },
+    '.row-buttons': {
+      borderRadius: '0px 4px 4px 0px',
+      display: 'flex',
+      justifyContent: 'flex-end',
+    },
+    '.status-hint': {
+      display: 'inline-flex',
+      gap: '6px',
+      borderRadius: '4px',
+      padding: '4px 10px',
+    },
+
+    '.status-hint .MuiSvgIcon-root': {
+      height: '16px',
+    },
+
+    '.status-hint-regression .MuiSvgIcon-root': {
+      // We need to move the icon a bit lower so that it _looks_ centered.
+      marginTop: '2px',
+    },
+    '.browser-name': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      padding: '10px 0px',
+    },
+  },
+});
 
 const typography = style({
   fontFamily: 'SF Pro',
@@ -34,83 +87,6 @@ const typography = style({
   whiteSpace: 'nowrap',
   lineHeight: '1.5',
 });
-
-function getStyles(themeMode: string) {
-  const mainBackgroundColor =
-    themeMode === 'light' ? Colors.Background200 : Colors.Background200Dark;
-  const backgroundColorExpandButton =
-    themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
-
-  return {
-    revisionRow: style({
-      ...revisionsRow,
-      backgroundColor: mainBackgroundColor,
-      $nest: {
-        '.cell': {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
-        },
-        '.confidence': {
-          gap: '10px',
-          justifyContent: 'start',
-          paddingInlineStart: '15%',
-        },
-        '.subtests': {
-          borderRadius: '4px 0 0 4px',
-          paddingLeft: Spacing.Medium, // Synchronize with its header
-          justifyContent: 'left',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-        },
-        '.status': {
-          justifyContent: 'center',
-        },
-        '.total-runs': {
-          gap: '8px',
-        },
-        '.row-buttons': {
-          borderRadius: '0px 4px 4px 0px',
-          display: 'flex',
-          justifyContent: 'flex-end',
-        },
-        '.expand-button': {
-          backgroundColor: backgroundColorExpandButton,
-        },
-        '.status-hint': {
-          display: 'inline-flex',
-          gap: '6px',
-          borderRadius: '4px',
-          padding: '4px 10px',
-        },
-
-        '.status-hint .MuiSvgIcon-root': {
-          height: '16px',
-        },
-
-        '.status-hint-regression .MuiSvgIcon-root': {
-          // We need to move the icon a bit lower so that it _looks_ centered.
-          marginTop: '2px',
-        },
-        '.browser-name': {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          padding: '10px 0px',
-        },
-      },
-    }),
-    typography: typography,
-  };
-}
-
-const styles = {
-  light: getStyles('light'),
-  dark: getStyles('dark'),
-};
 
 const confidenceIcons = {
   Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
@@ -162,13 +138,11 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     setExpanded(!expanded);
   };
 
-  const themeMode = useAppSelector((state) => state.theme.mode);
-
   return (
     <>
       <Box
-        className={`revisionRow ${styles[themeMode].revisionRow} ${styles[themeMode].typography}`}
-        sx={{ gridTemplateColumns }}
+        className={`revisionRow ${revisionRow} ${typography}`}
+        sx={{ gridTemplateColumns, backgroundColor: 'revisionRow.background' }}
         role='row'
       >
         <div title={test} className='subtests' role='cell'>
@@ -241,7 +215,11 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
             </div>
           </div>
         </div>
-        <div className='expand-button cell' role='cell'>
+        <Box
+          className='cell'
+          role='cell'
+          sx={{ backgroundColor: 'background.default' }}
+        >
           <IconButton
             title={
               expanded
@@ -256,7 +234,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           >
             {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </IconButton>
-        </div>
+        </Box>
       </Box>
       {expanded && <RevisionRowExpandable id={id} result={result} />}
     </>

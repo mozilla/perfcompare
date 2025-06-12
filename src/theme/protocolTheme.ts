@@ -35,6 +35,12 @@ const lightMode = {
     improvement: Colors.Background500,
     regression: Colors.Background400,
   },
+  revisionRow: {
+    background: Colors.Background200,
+  },
+  expandedRow: {
+    background: Colors.SecondaryDefault,
+  },
 };
 
 const darkMode = {
@@ -64,6 +70,12 @@ const darkMode = {
   status: {
     improvement: Colors.Background500Dark,
     regression: Colors.Background400Dark,
+  },
+  revisionRow: {
+    background: Colors.Background200Dark,
+  },
+  expandedRow: {
+    background: Colors.Background100Dark,
   },
 };
 
