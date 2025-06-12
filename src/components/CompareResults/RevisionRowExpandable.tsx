@@ -1,10 +1,10 @@
+import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import { style } from 'typestyle';
+import Stack from '@mui/material/Stack';
 
 import Distribution from './Distribution';
-import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Colors, Spacing } from '../../styles';
+import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { formatNumber } from './../../utils/format';
 
@@ -48,54 +48,31 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     );
   }
 
-  const themeMode = useAppSelector((state) => state.theme.mode);
-  const themeColor200 =
-    themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark;
-  const contentThemeColor =
-    themeMode == 'light' ? Colors.SecondaryDefault : Colors.Background100Dark;
-
-  const styles = {
-    expandedRow: style({
-      backgroundColor: themeColor200,
-      padding: Spacing.Medium,
-      borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
-      marginInlineEnd: 34 /* This value needs to be synchronized with the expand icon size. */,
-    }),
-    content: style({
-      backgroundColor: contentThemeColor,
-      padding: Spacing.Medium,
-      borderRadius: Spacing.xSmall,
-    }),
-    bottomSpace: style({
-      paddingBottom: Spacing.Small,
-    }),
-    note: style({
-      fontSize: '10px',
-      textTransform: 'uppercase',
-    }),
-    whiteSpace: style({
-      whiteSpace: 'nowrap',
-    }),
-  };
-
   return (
-    <section
+    <Box
+      component='section'
       id={id}
       aria-label='Revision Row Details'
-      className={`${styles.expandedRow}`}
+      sx={{
+        backgroundColor: 'revisionRow.background',
+        padding: 2,
+        borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
+        marginInlineEnd:
+          '34px' /* This value needs to be synchronized with the expand icon size. */,
+      }}
     >
-      <div className={`${styles.content}`}>
-        <div className={`${styles.bottomSpace}`}>
-          <b>{platform}</b> <br />
-        </div>
-        <div className={`${styles.bottomSpace}`}>
-          <Divider />
-        </div>
+      <Stack
+        divider={<Divider flexItem />}
+        spacing={2}
+        sx={{
+          backgroundColor: 'expandedRow.background',
+          padding: 2,
+          borderRadius: 0.5,
+        }}
+      >
+        <b>{platform}</b>
         <Distribution result={result} />
-        <div className={`${styles.bottomSpace}`}>
-          <Divider />
-        </div>
-        <div className={`${styles.bottomSpace}`}>
+        <div>
           {moreRunsAreNeeded && <div>{singleRun} </div>}
           {baseApplication && (
             <div>
@@ -107,41 +84,44 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               <b>New application</b>: {newApplication}{' '}
             </div>
           )}
-        </div>
-        <div className={`${styles.whiteSpace}`}>
-          <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
-          {lowerIsBetter ? 'lower' : 'higher'} is better)
-        </div>
-        <div className={`${styles.whiteSpace}`}>
-          <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
-          {deltaUnit ? ' ' + deltaUnit : null})
-        </div>
-        {newMedian && baseMedian ? (
-          <div className={`${styles.whiteSpace}`}>
-            <b>Difference of medians</b>: {medianPercentage}% (
-            {medianDifference}
+          <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
+            <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
+            {lowerIsBetter ? 'lower' : 'higher'} is better)
+          </Box>
+          <Box sx={{ whiteSpace: 'nowrap' }}>
+            <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
             {deltaUnit ? ' ' + deltaUnit : null})
-          </div>
-        ) : null}
-        {confidenceText ? (
-          <div>
-            <div className={`${styles.whiteSpace}`}>
-              <b>Confidence</b>: {confidenceText}
-              {confidenceValue ? ' ' + `(${confidenceValue})` : null}
+          </Box>
+          {newMedian && baseMedian ? (
+            <Box sx={{ whiteSpace: 'nowrap' }}>
+              <b>Difference of medians</b>: {medianPercentage}% (
+              {medianDifference}
+              {deltaUnit ? ' ' + deltaUnit : null})
+            </Box>
+          ) : null}
+          {confidenceText ? (
+            <div>
+              <Box sx={{ whiteSpace: 'nowrap' }}>
+                <b>Confidence</b>: {confidenceText}
+                {confidenceValue ? ' ' + `(${confidenceValue})` : null}
+              </Box>
+              <Box
+                sx={{
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                }}
+              >
+                <b>**Note</b>: {confidenceNote}{' '}
+              </Box>
             </div>
-            <div className={styles.note}>
-              <b>**Note</b>: {confidenceNote}{' '}
-            </div>
-          </div>
-        ) : (
-          <div>
-            <div className={`${styles.whiteSpace}`}>
+          ) : (
+            <Box sx={{ whiteSpace: 'nowrap' }}>
               <b>Confidence</b>: Not available{' '}
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
+            </Box>
+          )}
+        </div>
+      </Stack>
+    </Box>
   );
 }
 
