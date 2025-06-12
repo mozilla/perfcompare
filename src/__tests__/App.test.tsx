@@ -13,6 +13,10 @@ describe('App', () => {
     });
   });
 
+  async function waitForAllFetches() {
+    await act(async () => await fetchMock.callHistory.flush());
+  }
+
   test('Should render search view on default route', async () => {
     render(<App />);
 
@@ -23,6 +27,7 @@ describe('App', () => {
     act(() => void jest.runAllTimers());
     const homeText = screen.getByText('Compare with a base or over time');
     expect(homeText).toBeInTheDocument();
+    await waitForAllFetches();
   });
 
   test('Should display File bug link', async () => {
@@ -35,6 +40,7 @@ describe('App', () => {
       'href',
       'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     );
+    await waitForAllFetches();
   });
 
   test('Should display PerfCompare Matrix channel link', async () => {
@@ -47,6 +53,7 @@ describe('App', () => {
       'href',
       'https://matrix.to/#/#perfcompare:mozilla.org',
     );
+    await waitForAllFetches();
   });
 
   test('Should switch between dark mode and light mode on toggle', async () => {
