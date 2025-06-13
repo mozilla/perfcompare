@@ -141,6 +141,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -296,11 +297,11 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -446,6 +447,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -601,11 +603,11 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -653,7 +655,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 <ul
   aria-labelledby="select-framework-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="«r1t»"
+  id=":r1t:"
   role="listbox"
   tabindex="-1"
 >
@@ -927,6 +929,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1082,11 +1085,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1232,6 +1235,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1436,6 +1440,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1591,11 +1596,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1741,6 +1746,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1896,11 +1902,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2109,6 +2115,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2264,11 +2271,11 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2414,6 +2421,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2569,11 +2577,11 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2786,6 +2794,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2931,6 +2940,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3086,11 +3096,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3335,6 +3345,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3490,11 +3501,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 00:00 UTC"
+                        aria-label="Mar 29, 51, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 00:00 UTC
+                        Mar 29, 51, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3640,6 +3651,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3946,6 +3958,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                 id="search-base-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -4091,6 +4104,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -4515,6 +4529,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -4642,7 +4657,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="«r53»"
+  id=":r53:"
   role="listbox"
   tabindex="-1"
 >

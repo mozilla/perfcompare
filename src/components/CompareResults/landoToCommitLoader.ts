@@ -25,20 +25,29 @@ export async function loader({ request }: { request: Request }) {
       'Not all values were supplied please check you provided both baseLando and newLando',
     );
   }
+  const replicatesFromUrl = url.searchParams.get('replicates');
 
   const baseRevisionsFromLando =
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
   const newRevisionsFromLando =
     await fetchRevisionFromLandoId(newLandoIDFromUrl);
 
-  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
-    checkValues({
-      baseRev: baseRevisionsFromLando.commit_id,
-      baseRepo: baseRepoFromUrl,
-      newRevs: [newRevisionsFromLando.commit_id],
-      newRepos: newReposFromUrl,
-      framework: frameworkFromUrl,
-    });
+  const {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+    frameworkName,
+    replicates,
+  } = checkValues({
+    baseRev: baseRevisionsFromLando.commit_id,
+    baseRepo: baseRepoFromUrl,
+    newRevs: [newRevisionsFromLando.commit_id],
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+    replicates: replicatesFromUrl,
+  });
   return await getComparisonInformation(
     baseRev,
     baseRepo,
@@ -46,6 +55,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
   );
 }
 

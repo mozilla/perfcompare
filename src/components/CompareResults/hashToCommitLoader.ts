@@ -62,14 +62,23 @@ export async function loader({ request }: { request: Request }) {
   }
   const baseRevsFromHash = commits_from_hashes.baseRevision;
   const newRevsFromHash = [commits_from_hashes.newRevision];
-  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
-    checkValues({
-      baseRev: baseRevsFromHash,
-      baseRepo: baseRepoFromUrl,
-      newRevs: newRevsFromHash,
-      newRepos: newReposFromUrl,
-      framework: frameworkFromUrl,
-    });
+  const replicatesFromUrl = url.searchParams.get('replicates');
+  const {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+    frameworkName,
+    replicates,
+  } = checkValues({
+    baseRev: baseRevsFromHash,
+    baseRepo: baseRepoFromUrl,
+    newRevs: newRevsFromHash,
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+    replicates: replicatesFromUrl,
+  });
   return await getComparisonInformation(
     baseRev,
     baseRepo,
@@ -77,6 +86,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
   );
 }
 

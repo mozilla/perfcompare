@@ -15,12 +15,14 @@ export function checkValues({
   newRevs,
   newRepos,
   framework,
+  replicates,
 }: {
   baseRev: string | null;
   baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
+  replicates: string | boolean | null;
 }): {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -28,6 +30,7 @@ export function checkValues({
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
+  replicates: boolean;
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -65,6 +68,11 @@ export function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
+
+  if (replicates === 'true') {
+    replicates = true;
+  } else replicates = false;
+
   if (!newRevs.length) {
     return {
       baseRev,
@@ -73,6 +81,7 @@ export function checkValues({
       newRepos: [baseRepo],
       frameworkId,
       frameworkName,
+      replicates,
     };
   }
 
@@ -96,6 +105,7 @@ export function checkValues({
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
   };
 }
 
@@ -107,12 +117,14 @@ async function fetchCompareResultsOnTreeherder({
   newRevs,
   newRepos,
   framework,
+  replicates,
 }: {
   baseRev: string;
   baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: Framework['id'];
+  replicates: boolean;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareResults({
@@ -121,6 +133,7 @@ async function fetchCompareResultsOnTreeherder({
       newRev,
       newRepo: newRepos[i],
       framework,
+      replicates,
     }),
   );
   return Promise.all(promises);
@@ -188,15 +201,24 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
+  const replicatesFromUrl = url.searchParams.get('replicates');
 
-  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
-    checkValues({
-      baseRev: baseRevFromUrl,
-      baseRepo: baseRepoFromUrl,
-      newRevs: newRevsFromUrl,
-      newRepos: newReposFromUrl,
-      framework: frameworkFromUrl,
-    });
+  const {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+    frameworkName,
+    replicates,
+  } = checkValues({
+    baseRev: baseRevFromUrl,
+    baseRepo: baseRepoFromUrl,
+    newRevs: newRevsFromUrl,
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+    replicates: replicatesFromUrl,
+  });
 
   return await getComparisonInformation(
     baseRev,
@@ -205,6 +227,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
   );
 }
 
@@ -215,6 +238,7 @@ export async function getComparisonInformation(
   newRepos: Repository['name'][],
   frameworkId: Framework['id'],
   frameworkName: Framework['name'],
+  replicates: boolean,
 ) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
@@ -222,6 +246,7 @@ export async function getComparisonInformation(
     newRevs,
     newRepos,
     framework: frameworkId,
+    replicates,
   });
 
   // TODO what happens if there's no result?
@@ -253,6 +278,7 @@ export async function getComparisonInformation(
     frameworkName,
     view: compareView,
     generation: generationCounter++,
+    replicates,
   };
 }
 
@@ -268,6 +294,7 @@ type DeferredLoaderData = {
   frameworkName: Framework['name'];
   view: typeof compareView;
   generation: number;
+  replicates: boolean;
 };
 
 // Be explicit with the returned type to control it better than if we were
