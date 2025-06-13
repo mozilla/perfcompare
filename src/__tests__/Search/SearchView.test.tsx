@@ -1,6 +1,7 @@
 import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { repoMap } from '../../common/constants';
 import { loader } from '../../components/Search/loader';
@@ -390,6 +391,7 @@ describe('Base and OverTime Search', () => {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
         loader,
+        hydrateFallbackElement: <></>,
       },
       { path: '/compare-results', element: <div /> },
     ]);

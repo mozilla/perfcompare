@@ -2,7 +2,8 @@ import { ReactElement } from 'react';
 
 import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { loader as overTimeLoader } from '../../components/CompareResults/overTimeLoader';
 import OverTimeResultsView from '../../components/CompareResults/OverTimeResultsView';
@@ -341,6 +342,7 @@ describe('Compare Over Time', () => {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
         loader: searchLoader,
+        hydrateFallbackElement: <></>,
       },
       { path: '/compare-over-time-results', element: <div /> },
     ]);

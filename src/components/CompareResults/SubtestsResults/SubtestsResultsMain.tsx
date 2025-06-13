@@ -3,7 +3,7 @@ import { useState, Suspense } from 'react';
 import { Grid, Skeleton, Stack, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
-import { useLoaderData, Await } from 'react-router-dom';
+import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
 
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
@@ -87,10 +87,11 @@ type SubtestsResultsMainProps = {
   view: typeof subtestsView | typeof subtestsOverTimeView;
 };
 
+type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
+
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
-  const { results, subtestsViewPerfherderURL } = useLoaderData() as
-    | LoaderReturnValue
-    | OvertimeLoaderReturnValue;
+  const { results, subtestsViewPerfherderURL } =
+    useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 

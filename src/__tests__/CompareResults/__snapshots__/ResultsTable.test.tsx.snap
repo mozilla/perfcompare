@@ -99,6 +99,7 @@ exports[`Results Table Should match snapshot 1`] = `
               action="/compare-results"
               aria-label="Compare with base form"
               autocomplete="off"
+              data-discover="true"
               method="get"
             >
               <div

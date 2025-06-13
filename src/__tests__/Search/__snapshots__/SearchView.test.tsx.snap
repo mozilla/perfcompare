@@ -124,6 +124,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 action="/compare-results"
                 aria-label="Compare with base form"
                 autocomplete="off"
+                data-discover="true"
                 method="get"
               >
                 <div
@@ -537,6 +538,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 action="/compare-over-time-results"
                 aria-label="Compare over time form"
                 autocomplete="off"
+                data-discover="true"
                 method="get"
               >
                 <div
@@ -933,6 +935,7 @@ exports[`With search parameters both search components are populated as expected
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -1462,6 +1465,7 @@ exports[`With search parameters both search components are populated as expected
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -1982,6 +1986,7 @@ exports[`With search parameters both search components are populated as expected
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -2511,6 +2516,7 @@ exports[`With search parameters both search components are populated as expected
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -3031,6 +3037,7 @@ exports[`With search parameters displays the default value for framework if the 
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -3560,6 +3567,7 @@ exports[`With search parameters displays the default value for framework if the 
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -4080,6 +4088,7 @@ exports[`With search parameters displays the default values if some values are b
   action="/compare-over-time-results"
   aria-label="Compare over time form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div
@@ -4469,6 +4478,7 @@ exports[`With search parameters displays the default values if some values are b
   action="/compare-results"
   aria-label="Compare with base form"
   autocomplete="off"
+  data-discover="true"
   method="get"
 >
   <div

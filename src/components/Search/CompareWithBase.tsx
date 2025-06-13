@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form } from 'react-router-dom';
+import { Form } from 'react-router';
 import { style } from 'typestyle';
 
 import CancelAndCompareButtons from './CancelAndCompareButtons';

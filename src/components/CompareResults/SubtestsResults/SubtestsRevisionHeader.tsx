@@ -3,7 +3,7 @@ import { type ReactNode } from 'react';
 import AppleIcon from '@mui/icons-material/Apple';
 import { Link } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import {
@@ -123,7 +123,7 @@ function getRevLink(
 }
 
 function getTimeRange(repo: Repository['name']) {
-  const { intervalValue } = useLoaderData() as OvertimeLoaderReturnValue;
+  const { intervalValue } = useLoaderData<OvertimeLoaderReturnValue>();
   return ` Base (${repo}) ${timeRangeMap[intervalValue]} `;
 }
 

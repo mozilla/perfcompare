@@ -2,7 +2,7 @@ import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useSearchParams, useLoaderData, Await } from 'react-router-dom';
+import { useSearchParams, useLoaderData, Await } from 'react-router';
 
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
@@ -12,7 +12,6 @@ import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
-import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
@@ -135,13 +134,14 @@ const columnsConfiguration: CompareResultsTableConfig = [
   { key: 'expand', gridWidth: '34px' }, // 1 button
 ];
 
+type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 export default function ResultsTable() {
   const {
     results: resultsPromise,
     view,
     frameworkId,
     generation,
-  } = useLoaderData() as LoaderReturnValue | OverTimeLoaderReturnValue;
+  } = useLoaderData<CombinedLoaderReturnValue>();
   const [searchParams, setSearchParams] = useSearchParams();
 
   // This is our custom hook that updates the search params without a rerender.
@@ -228,7 +228,7 @@ export default function ResultsTable() {
           {(resolvedResults) => (
             <TableContent
               columnsConfiguration={columnsConfiguration}
-              results={resolvedResults as CompareResultsItem[][]}
+              results={resolvedResults}
               view={view}
               rowGridTemplateColumns={rowGridTemplateColumns}
               filteringSearchTerm={searchTerm}
