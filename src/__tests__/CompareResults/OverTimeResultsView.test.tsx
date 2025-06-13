@@ -1,18 +1,16 @@
 import type { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
+
 import { loader } from '../../components/CompareResults/overTimeLoader';
 import OverTimeResultsView from '../../components/CompareResults/OverTimeResultsView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import {
-  renderWithRouter,
-  screen,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { renderWithRouter, screen } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   const { testCompareData, testData } = getTestData();
-  (window.fetch as FetchMockSandbox)
+  fetchMock
     .get(
       'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
       testCompareData,

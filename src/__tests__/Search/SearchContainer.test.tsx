@@ -1,22 +1,17 @@
 import React from 'react';
 
+import fetchMock from '@fetch-mock/jest';
+
 import { loader } from '../../components/Search/loader';
 import SearchContainer from '../../components/Search/SearchContainer';
 import getTestData from '../utils/fixtures';
-import {
-  renderWithRouter,
-  screen,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { renderWithRouter, screen } from '../utils/test-utils';
 
 function setupTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox).get(
-    'begin:https://treeherder.mozilla.org/api/project/try/push/',
-    {
-      results: testData,
-    },
-  );
+  fetchMock.get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
+    results: testData,
+  });
 }
 
 function renderComponent() {

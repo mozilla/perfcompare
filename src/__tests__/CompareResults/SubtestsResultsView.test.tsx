@@ -1,3 +1,4 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/subtestsLoader';
@@ -8,11 +9,7 @@ import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import {
-  renderWithRouter,
-  screen,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { renderWithRouter, screen } from '../utils/test-utils';
 
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
@@ -29,7 +26,7 @@ const setup = ({
   subtestsResult: CompareResultsItem[];
 }): void => {
   // Mock fetch data
-  (window.fetch as FetchMockSandbox).get(
+  fetchMock.get(
     'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
     subtestsResult,
   );

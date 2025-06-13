@@ -75,7 +75,3 @@ export {
   waitFor,
   waitForElementToBeRemoved,
 } from '@testing-library/react';
-
-// See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
-// to use this package.
-export { FetchMockSandbox } from 'fetch-mock';
