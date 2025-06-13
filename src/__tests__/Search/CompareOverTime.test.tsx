@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
@@ -13,7 +14,6 @@ import getTestData from '../utils/fixtures';
 import {
   screen,
   renderWithRouter,
-  FetchMockSandbox,
   within,
   render,
   waitFor,
@@ -21,7 +21,7 @@ import {
 
 function setUpTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox)
+  fetchMock
     .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
       results: testData,
     })

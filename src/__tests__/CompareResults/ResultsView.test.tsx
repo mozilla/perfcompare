@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps, Line } from 'react-chartjs-2';
 
@@ -11,16 +12,11 @@ import type { Repository } from '../../types/state';
 import type { Framework } from '../../types/types';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import {
-  renderWithRouter,
-  screen,
-  FetchMockSandbox,
-  waitFor,
-} from '../utils/test-utils';
+import { renderWithRouter, screen, waitFor } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   const { testCompareData, testData } = getTestData();
-  (window.fetch as FetchMockSandbox)
+  fetchMock
     .get(
       'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
       testCompareData,
@@ -111,7 +107,7 @@ describe('Results View', () => {
     // We set up a compare data that has 1 result but with several runs, so that
     // the graphs are displayed for this result.
     const { testCompareDataWithMultipleRuns, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
+    fetchMock
       .get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         testCompareDataWithMultipleRuns,
@@ -185,7 +181,7 @@ describe('Results View', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const { testCompareDataWithMultipleRuns, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
+    fetchMock
       .get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         testCompareDataWithMultipleRuns,
@@ -248,7 +244,7 @@ describe('Results View', () => {
     // We set up a compare data that has 1 result but with several runs, so that
     // the graphs are displayed for this result.
     const { testCompareDataWithReplicates, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
+    fetchMock
       .get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         testCompareDataWithReplicates,
@@ -321,7 +317,7 @@ describe('Results View', () => {
     // We set up a compare data that has 1 result but with several runs, so that
     // the graphs are displayed for this result.
     const { testCompareDataWithReplicatesOneValue, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
+    fetchMock
       .get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         testCompareDataWithReplicatesOneValue,

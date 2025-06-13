@@ -1,0 +1,4 @@
+# Automatically request reviews for dependency updates
+/package.json @esanuandra @beatrice-acasandrei @julienw
+/package-lock.json @esanuandra @beatrice-acasandrei @julienw
+

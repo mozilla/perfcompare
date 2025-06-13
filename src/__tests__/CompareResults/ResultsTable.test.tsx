@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
 import userEvent, { type UserEvent } from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/loader';
@@ -11,12 +12,7 @@ import getTestData, {
   augmentCompareDataWithSeveralTests,
   augmentCompareDataWithSeveralRevisions,
 } from '../utils/fixtures';
-import {
-  renderWithRouter,
-  screen,
-  within,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { renderWithRouter, screen, within } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement, extraParameters?: string) {
   return renderWithRouter(component, {
@@ -33,7 +29,7 @@ function setupAndRender(
   extraParameters?: string,
 ) {
   const { testData } = getTestData();
-  (window.fetch as FetchMockSandbox)
+  fetchMock
     .get(
       'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
       testCompareData,

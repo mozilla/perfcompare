@@ -1,3 +1,4 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 import { Hooks } from 'taskcluster-client-web';
 
@@ -7,7 +8,6 @@ import SubtestsResultsMain from '../../components/CompareResults/SubtestsResults
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
 import {
-  FetchMockSandbox,
   fireEvent,
   render,
   renderWithRouter,
@@ -142,7 +142,7 @@ describe('Retrigger', () => {
 
   it('should retrigger one job for base revision and one job for new revision', async () => {
     // fetch requests for base revision info
-    (window.fetch as FetchMockSandbox)
+    fetchMock
       .get(
         'begin:https://treeherder.mozilla.org/api/project/mozilla-central/jobs/381594973/',
         {
@@ -170,7 +170,7 @@ describe('Retrigger', () => {
         },
       );
     // fetch requests for new revision info
-    (window.fetch as FetchMockSandbox)
+    fetchMock
       .get(
         'begin:https://treeherder.mozilla.org/api/project/mozilla-central/jobs/381452501/',
         {
@@ -272,7 +272,7 @@ describe('Retrigger', () => {
 describe('Retrigger in Subtests view', () => {
   it('displays retrigger button on Subtests view', async () => {
     const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'begin:https://treeherder.mozilla.org/api/perfcompare/results/?base_repository=mozilla-central&base_revision=d775409d7c6abb76362a3430e9880ec032ad4679&new_repository=mozilla-central&new_revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7&framework=1&base_parent_signature=4769486&new_parent_signature=4769486',
       subtestsResult,
     );
