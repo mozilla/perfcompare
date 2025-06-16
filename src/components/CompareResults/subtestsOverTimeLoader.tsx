@@ -16,6 +16,7 @@ function checkValues({
   interval,
   baseParentSignature,
   newParentSignature,
+  replicates,
 }: {
   baseRepo: Repository['name'] | null;
   newRev: string | null;
@@ -24,6 +25,7 @@ function checkValues({
   interval: string | number | null;
   baseParentSignature: string | null;
   newParentSignature: string | null;
+  replicates: string | boolean | null;
 }): {
   baseRepo: Repository['name'];
   newRev: string;
@@ -34,6 +36,7 @@ function checkValues({
   intervalText: TimeRange['text'];
   baseParentSignature: string;
   newParentSignature: string;
+  replicates: boolean;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -113,6 +116,8 @@ function checkValues({
     );
   }
 
+  replicates = replicates === 'true' ? true : false;
+
   return {
     baseRepo,
     newRev,
@@ -123,6 +128,7 @@ function checkValues({
     intervalValue,
     baseParentSignature,
     newParentSignature,
+    replicates,
   };
 }
 
@@ -146,6 +152,7 @@ export function loader({ request }: { request: Request }) {
     'baseParentSignature',
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
+  const replicatesFromUrl = url.searchParams.get('replicates');
 
   const {
     baseRepo,
@@ -157,6 +164,7 @@ export function loader({ request }: { request: Request }) {
     intervalText,
     baseParentSignature,
     newParentSignature,
+    replicates,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRev: newRevFromUrl,
@@ -165,6 +173,7 @@ export function loader({ request }: { request: Request }) {
     interval: intervalFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
+    replicates: replicatesFromUrl,
   });
 
   const results = fetchSubtestsCompareOverTimeResults({
@@ -175,6 +184,7 @@ export function loader({ request }: { request: Request }) {
     interval: intervalValue,
     baseParentSignature,
     newParentSignature,
+    replicates,
   });
 
   const subtestsViewPerfherderURL = getPerfherderSubtestsCompareOverTimeViewURL(
@@ -199,6 +209,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     subtestsViewPerfherderURL,
+    replicates,
   };
 }
 
