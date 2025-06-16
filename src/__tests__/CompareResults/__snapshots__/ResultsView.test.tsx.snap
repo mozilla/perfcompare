@@ -3,30 +3,20 @@
 exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
 <section
   aria-label="Revision Row Details"
-  class="fgv9bhz"
+  class="MuiBox-root css-13s8wtg"
   id="«rai»"
 >
   <div
-    class="fp3h4kr"
+    class="MuiStack-root css-1714cpj-MuiStack-root"
   >
+    <b>
+      linux1804-64-shippable-qr
+    </b>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
     <div
-      class="fc8wfj0"
-    >
-      <b>
-        linux1804-64-shippable-qr
-      </b>
-       
-      <br />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1jpc804-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="f9mtzuo"
+      class="f1f1ygnm"
     >
       <div
         class="fnblmop"
@@ -193,16 +183,10 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         chartjs-line
       </div>
     </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1jpc804-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
+    <div>
       <div>
         Only one run (consider more runs for greater confidence).
          
@@ -223,63 +207,63 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         chrome
          
       </div>
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Comparison result
-      </b>
-      : 
-      worse
-       (
-      lower
-       is better)
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of means
-      </b>
-      : 
-      1.7
-      % (
-      10.1
-      )
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of medians
-      </b>
-      : 
-      1.46
-      % (
-      8.74
-      )
-    </div>
-    <div>
       <div
-        class="fheif50"
+        class="MuiBox-root css-1yf3lzr"
       >
         <b>
-          Confidence
+          Comparison result
         </b>
         : 
-        Low
-         (2.89)
+        worse
+         (
+        lower
+         is better)
       </div>
       <div
-        class="fj8mg7a"
+        class="MuiBox-root css-epvm6"
       >
         <b>
-          **Note
+          Difference of means
         </b>
         : 
-        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-         
+        1.7
+        % (
+        10.1
+        )
+      </div>
+      <div
+        class="MuiBox-root css-epvm6"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
+        )
+      </div>
+      <div>
+        <div
+          class="MuiBox-root css-epvm6"
+        >
+          <b>
+            Confidence
+          </b>
+          : 
+          Low
+           (2.89)
+        </div>
+        <div
+          class="MuiBox-root css-bewn4"
+        >
+          <b>
+            **Note
+          </b>
+          : 
+          The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
+           
+        </div>
       </div>
     </div>
   </div>
@@ -289,30 +273,20 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
 exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
 <section
   aria-label="Revision Row Details"
-  class="fgv9bhz"
+  class="MuiBox-root css-13s8wtg"
   id="«r99»"
 >
   <div
-    class="fp3h4kr"
+    class="MuiStack-root css-1714cpj-MuiStack-root"
   >
+    <b>
+      linux1804-64-shippable-qr
+    </b>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
     <div
-      class="fc8wfj0"
-    >
-      <b>
-        linux1804-64-shippable-qr
-      </b>
-       
-      <br />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1jpc804-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="f9mtzuo"
+      class="f1f1ygnm"
     >
       <div
         class="fnblmop"
@@ -479,16 +453,10 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         chartjs-line
       </div>
     </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1jpc804-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
+    <div>
       <div>
         Only one run (consider more runs for greater confidence).
          
@@ -509,63 +477,63 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         chrome
          
       </div>
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Comparison result
-      </b>
-      : 
-      worse
-       (
-      lower
-       is better)
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of means
-      </b>
-      : 
-      1.7
-      % (
-      10.1
-      )
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of medians
-      </b>
-      : 
-      1.46
-      % (
-      8.74
-      )
-    </div>
-    <div>
       <div
-        class="fheif50"
+        class="MuiBox-root css-1yf3lzr"
       >
         <b>
-          Confidence
+          Comparison result
         </b>
         : 
-        Low
-         (2.89)
+        worse
+         (
+        lower
+         is better)
       </div>
       <div
-        class="fj8mg7a"
+        class="MuiBox-root css-epvm6"
       >
         <b>
-          **Note
+          Difference of means
         </b>
         : 
-        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-         
+        1.7
+        % (
+        10.1
+        )
+      </div>
+      <div
+        class="MuiBox-root css-epvm6"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
+        )
+      </div>
+      <div>
+        <div
+          class="MuiBox-root css-epvm6"
+        >
+          <b>
+            Confidence
+          </b>
+          : 
+          Low
+           (2.89)
+        </div>
+        <div
+          class="MuiBox-root css-bewn4"
+        >
+          <b>
+            **Note
+          </b>
+          : 
+          The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
+           
+        </div>
       </div>
     </div>
   </div>
@@ -575,30 +543,20 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
 <section
   aria-label="Revision Row Details"
-  class="fgv9bhz"
+  class="MuiBox-root css-13s8wtg"
   id="«r4q»"
 >
   <div
-    class="fp3h4kr"
+    class="MuiStack-root css-1714cpj-MuiStack-root"
   >
+    <b>
+      linux1804-64-shippable-qr
+    </b>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
     <div
-      class="fc8wfj0"
-    >
-      <b>
-        linux1804-64-shippable-qr
-      </b>
-       
-      <br />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1jpc804-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="f9mtzuo"
+      class="f1f1ygnm"
     >
       <div
         class="fnblmop"
@@ -765,16 +723,10 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         chartjs-line
       </div>
     </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1jpc804-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
+    <div>
       <div>
         Only one run (consider more runs for greater confidence).
          
@@ -795,63 +747,63 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         chrome
          
       </div>
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Comparison result
-      </b>
-      : 
-      worse
-       (
-      lower
-       is better)
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of means
-      </b>
-      : 
-      1.7
-      % (
-      10.1
-      )
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of medians
-      </b>
-      : 
-      1.46
-      % (
-      8.74
-      )
-    </div>
-    <div>
       <div
-        class="fheif50"
+        class="MuiBox-root css-1yf3lzr"
       >
         <b>
-          Confidence
+          Comparison result
         </b>
         : 
-        Low
-         (2.89)
+        worse
+         (
+        lower
+         is better)
       </div>
       <div
-        class="fj8mg7a"
+        class="MuiBox-root css-epvm6"
       >
         <b>
-          **Note
+          Difference of means
         </b>
         : 
-        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-         
+        1.7
+        % (
+        10.1
+        )
+      </div>
+      <div
+        class="MuiBox-root css-epvm6"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
+        )
+      </div>
+      <div>
+        <div
+          class="MuiBox-root css-epvm6"
+        >
+          <b>
+            Confidence
+          </b>
+          : 
+          Low
+           (2.89)
+        </div>
+        <div
+          class="MuiBox-root css-bewn4"
+        >
+          <b>
+            **Note
+          </b>
+          : 
+          The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1499,7 +1451,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow f1r4bj33 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1682,7 +1634,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="expand-button cell"
+                  class="cell MuiBox-root css-172osot"
                   role="cell"
                 >
                   <div
@@ -1713,7 +1665,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow f1r4bj33 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1897,7 +1849,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="expand-button cell"
+                  class="cell MuiBox-root css-172osot"
                   role="cell"
                 >
                   <div
@@ -1928,7 +1880,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow f1r4bj33 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -2090,7 +2042,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="expand-button cell"
+                  class="cell MuiBox-root css-172osot"
                   role="cell"
                 >
                   <div
@@ -2121,7 +2073,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow f1r4bj33 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -2294,7 +2246,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="expand-button cell"
+                  class="cell MuiBox-root css-172osot"
                   role="cell"
                 >
                   <div
