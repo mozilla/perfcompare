@@ -40,10 +40,6 @@ const config: Config.InitialOptions = {
       '<rootDir>/src/mockData/mockedFonts/Metropolis-Bold.woff2',
   },
   moduleFileExtensions: ['js', 'ts', 'tsx', 'jsx'],
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
-  ],
   globalSetup: '<rootDir>/src/__tests__/utils/globalSetup.ts',
   testTimeout: 30000,
 };
