@@ -90,6 +90,12 @@ export enum Colors {
   IconDark = '#FBFBFE',
   IconDarkSuccess = '#4DBC87',
   IconDarkError = '#F37F98',
+
+  // Colors for the base and new charts
+  // Note that they need to be using the hash notation so that they work in all
+  // places they're used
+  ChartBase = '#9059ff',
+  ChartNew = '#008787',
 }
 
 export const background = (mode: string) => {
