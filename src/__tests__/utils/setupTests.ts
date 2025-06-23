@@ -12,7 +12,7 @@ import { webcrypto } from 'node:crypto';
 // to use this mock.
 import fetchMock from '@fetch-mock/jest';
 import { density1d } from 'fast-kde';
-import { Bubble, Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import { Hooks } from 'taskcluster-client-web';
 
 import { createStore } from '../../common/store';
@@ -46,10 +46,8 @@ beforeEach(() => {
 });
 
 jest.mock('react-chartjs-2', () => ({
-  Bubble: jest.fn(),
   Line: jest.fn(),
 }));
-const MockedBubble = Bubble as jest.Mock;
 const MockedLine = Line as jest.Mock;
 
 jest.mock('fast-kde', () => ({
@@ -62,7 +60,6 @@ Object.defineProperty(window, 'crypto', { value: webcrypto });
 beforeEach(() => {
   // After every test jest resets the mock implementation, so we need to define
   // it again for each test.
-  MockedBubble.mockImplementation(() => 'chartjs-bubble');
   MockedLine.mockImplementation(() => 'chartjs-line');
   MockedDensity1d.mockImplementation(() => 'fast-kde');
 });
