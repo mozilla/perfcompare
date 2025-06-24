@@ -17,6 +17,11 @@ const typography: TypographyVariantsOptions = {
     ...FontSizeRaw.xxLarge,
     lineHeight: '1.5',
   },
+  h3: {
+    ...FontsRaw.HeadingXS,
+    ...FontSizeRaw.xSmall,
+    lineHeight: '1.5',
+  },
   button: {
     textTransform: 'none',
   },

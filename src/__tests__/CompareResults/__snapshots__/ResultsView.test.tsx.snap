@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
+exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="«rai»"
+  id="«r63»"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -16,253 +16,244 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
       class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
     />
     <div
-      class="f1f1ygnm"
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 css-13620ud-MuiGrid-root"
     >
       <div
-        class="fnblmop"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-8 css-1p37y3n-MuiGrid-root"
       >
-        <div>
-          <b>
-            Base
-            :
-          </b>
-           
-          595.73
-           
-           (
-          firefox
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
+        <div
+          class="MuiStack-root css-1ucnu3w-MuiStack-root"
+        >
+          <h3
+            class="MuiTypography-root MuiTypography-h3 css-1mx3ha4-MuiTypography-root"
+            id="retrigger-modal-title"
+          >
+            Runs Density Distribution
+          </h3>
           <div
-            class="fyll6k4"
+            class="MuiBox-root css-72fd9l"
+          >
+            chartjs-line
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-4 css-1mppd14-MuiGrid-root"
           >
             <div
-              class="f1pfon3k"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b4085i-MuiGrid-root"
             >
-              587.15
+              <div>
+                <b>
+                  Base
+                  :
+                </b>
+                 
+                595.73
+                 
+                 (
+                firefox
+                )
+              </div>
+              <div
+                class="fzzwjz3"
+              >
+                <div>
+                  587.15
+                </div>
+                <div>
+                  593.04
+                </div>
+                <div>
+                  600.7
+                </div>
+                <div>
+                  602.04
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Copy results
+                </button>
+              </div>
+              <div>
+                <b>
+                  Mean
+                </b>
+                :
+                 
+                595.73
+                ,
+                 
+                <b>
+                  Median
+                </b>
+                :
+                 
+                596.87
+              </div>
+              <div
+                class="fnujpat"
+              >
+                6.96
+                 
+                 = 
+                1.17
+                % standard deviation
+              </div>
             </div>
             <div
-              class="f1pfon3k"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b4085i-MuiGrid-root"
             >
-              593.04
+              <div>
+                <b>
+                  New
+                  :
+                </b>
+                 
+                605.83
+                 
+                 (
+                chrome
+                )
+              </div>
+              <div
+                class="fzzwjz3"
+              >
+                <div>
+                  605.16
+                </div>
+                <div>
+                  605.31
+                </div>
+                <div>
+                  605.61
+                </div>
+                <div>
+                  605.81
+                </div>
+                <div>
+                  607.27
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Copy results
+                </button>
+              </div>
+              <div>
+                <b>
+                  Mean
+                </b>
+                :
+                 
+                605.83
+                ,
+                 
+                <b>
+                  Median
+                </b>
+                :
+                 
+                605.61
+              </div>
+              <div
+                class="fnujpat"
+              >
+                0.84
+                 
+                 = 
+                0.14
+                % standard deviation
+              </div>
             </div>
-            <div
-              class="f1pfon3k"
-            >
-              600.7
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              602.04
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-4 css-14eavsq-MuiGrid-root"
+      >
+        <div>
+          <div>
+            Only one run (consider more runs for greater confidence).
+             
           </div>
           <div>
             <b>
-              Mean
+              Base application
             </b>
-            :
-             
-            595.73
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            596.87
-          </div>
-          <div
-            class="fnujpat"
-          >
-            6.96
+            : 
+            firefox
              
-             = 
-            1.17
-            % standard deviation
-          </div>
-        </div>
-      </div>
-      <div
-        class="fnblmop"
-      >
-        <div>
-          <b>
-            New
-            :
-          </b>
-           
-          605.83
-           
-           (
-          chrome
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
-          <div
-            class="fyll6k4"
-          >
-            <div
-              class="f1pfon3k"
-            >
-              605.16
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.31
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.61
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.81
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              607.27
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-            </button>
           </div>
           <div>
             <b>
-              Mean
+              New application
             </b>
-            :
-             
-            605.83
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            605.61
+            : 
+            chrome
+             
           </div>
           <div
-            class="fnujpat"
+            class="MuiBox-root css-1yf3lzr"
           >
-            0.84
-             
-             = 
-            0.14
-            % standard deviation
+            <b>
+              Comparison result
+            </b>
+            : 
+            worse
+             (
+            lower
+             is better)
           </div>
-        </div>
-      </div>
-      <div
-        class="fyc4e7p"
-      >
-        chartjs-line
-      </div>
-    </div>
-    <hr
-      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
-    />
-    <div>
-      <div>
-        Only one run (consider more runs for greater confidence).
-         
-      </div>
-      <div>
-        <b>
-          Base application
-        </b>
-        : 
-        firefox
-         
-      </div>
-      <div>
-        <b>
-          New application
-        </b>
-        : 
-        chrome
-         
-      </div>
-      <div
-        class="MuiBox-root css-1yf3lzr"
-      >
-        <b>
-          Comparison result
-        </b>
-        : 
-        worse
-         (
-        lower
-         is better)
-      </div>
-      <div
-        class="MuiBox-root css-epvm6"
-      >
-        <b>
-          Difference of means
-        </b>
-        : 
-        1.7
-        % (
-        10.1
-        )
-      </div>
-      <div
-        class="MuiBox-root css-epvm6"
-      >
-        <b>
-          Difference of medians
-        </b>
-        : 
-        1.46
-        % (
-        8.74
-        )
-      </div>
-      <div>
-        <div
-          class="MuiBox-root css-epvm6"
-        >
-          <b>
-            Confidence
-          </b>
-          : 
-          Low
-           (2.89)
-        </div>
-        <div
-          class="MuiBox-root css-bewn4"
-        >
-          <b>
-            **Note
-          </b>
-          : 
-          The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-           
+          <div
+            class="MuiBox-root css-epvm6"
+          >
+            <b>
+              Difference of means
+            </b>
+            : 
+            1.7
+            % (
+            10.1
+            )
+          </div>
+          <div
+            class="MuiBox-root css-epvm6"
+          >
+            <b>
+              Difference of medians
+            </b>
+            : 
+            1.46
+            % (
+            8.74
+            )
+          </div>
+          <div>
+            <div
+              class="MuiBox-root css-epvm6"
+            >
+              <b>
+                Confidence
+              </b>
+              : 
+              Low
+               (2.89)
+            </div>
+            <div
+              class="MuiBox-root css-bewn4"
+            >
+              <b>
+                **Note
+              </b>
+              : 
+              The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
+               
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -270,274 +261,52 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
 </section>
 `;
 
-exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
-<section
-  aria-label="Revision Row Details"
-  class="MuiBox-root css-13s8wtg"
-  id="«r99»"
->
-  <div
-    class="MuiStack-root css-1714cpj-MuiStack-root"
-  >
-    <b>
-      linux1804-64-shippable-qr
-    </b>
-    <hr
-      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
-    />
-    <div
-      class="f1f1ygnm"
-    >
-      <div
-        class="fnblmop"
-      >
-        <div>
-          <b>
-            Base
-            :
-          </b>
-           
-          595.73
-           
-           (
-          firefox
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
-          <div
-            class="fyll6k4"
-          >
-            <div
-              class="f1pfon3k"
-            >
-              587.15
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              593.04
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              600.7
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              602.04
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-            </button>
-          </div>
-          <div>
-            <b>
-              Mean
-            </b>
-            :
-             
-            595.73
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            596.87
-          </div>
-          <div
-            class="fnujpat"
-          >
-            6.96
-             
-             = 
-            1.17
-            % standard deviation
-          </div>
-        </div>
-      </div>
-      <div
-        class="fnblmop"
-      >
-        <div>
-          <b>
-            New
-            :
-          </b>
-           
-          605.83
-           
-           (
-          chrome
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
-          <div
-            class="fyll6k4"
-          >
-            <div
-              class="f1pfon3k"
-            >
-              605.16
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.31
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.61
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.81
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              607.27
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-            </button>
-          </div>
-          <div>
-            <b>
-              Mean
-            </b>
-            :
-             
-            605.83
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            605.61
-          </div>
-          <div
-            class="fnujpat"
-          >
-            0.84
-             
-             = 
-            0.14
-            % standard deviation
-          </div>
-        </div>
-      </div>
-      <div
-        class="fyc4e7p"
-      >
-        chartjs-line
-      </div>
-    </div>
-    <hr
-      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
-    />
-    <div>
-      <div>
-        Only one run (consider more runs for greater confidence).
-         
-      </div>
-      <div>
-        <b>
-          Base application
-        </b>
-        : 
-        firefox
-         
-      </div>
-      <div>
-        <b>
-          New application
-        </b>
-        : 
-        chrome
-         
-      </div>
-      <div
-        class="MuiBox-root css-1yf3lzr"
-      >
-        <b>
-          Comparison result
-        </b>
-        : 
-        worse
-         (
-        lower
-         is better)
-      </div>
-      <div
-        class="MuiBox-root css-epvm6"
-      >
-        <b>
-          Difference of means
-        </b>
-        : 
-        1.7
-        % (
-        10.1
-        )
-      </div>
-      <div
-        class="MuiBox-root css-epvm6"
-      >
-        <b>
-          Difference of medians
-        </b>
-        : 
-        1.46
-        % (
-        8.74
-        )
-      </div>
-      <div>
-        <div
-          class="MuiBox-root css-epvm6"
-        >
-          <b>
-            Confidence
-          </b>
-          : 
-          Low
-           (2.89)
-        </div>
-        <div
-          class="MuiBox-root css-bewn4"
-        >
-          <b>
-            **Note
-          </b>
-          : 
-          The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-           
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+exports[`Results View Should display Base, New and Common graphs with replicates: Dataset for scatter 1`] = `
+{
+  "backgroundColor": [Function],
+  "data": [
+    {
+      "x": 587.15,
+      "y": "Base",
+    },
+    {
+      "x": 593.04,
+      "y": "Base",
+    },
+    {
+      "x": 600.7,
+      "y": "Base",
+    },
+    {
+      "x": 602.04,
+      "y": "Base",
+    },
+    {
+      "x": 605.16,
+      "y": "New",
+    },
+    {
+      "x": 605.31,
+      "y": "New",
+    },
+    {
+      "x": 605.61,
+      "y": "New",
+    },
+    {
+      "x": 605.81,
+      "y": "New",
+    },
+    {
+      "x": 607.27,
+      "y": "New",
+    },
+  ],
+  "pointRadius": 7,
+  "pointStyle": "triangle",
+  "type": "scatter",
+  "yAxisID": "yValues",
+}
 `;
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
@@ -556,258 +325,297 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
       class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
     />
     <div
-      class="f1f1ygnm"
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 css-13620ud-MuiGrid-root"
     >
       <div
-        class="fnblmop"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-8 css-1p37y3n-MuiGrid-root"
       >
-        <div>
-          <b>
-            Base
-            :
-          </b>
-           
-          595.73
-           
-           (
-          firefox
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
+        <div
+          class="MuiStack-root css-1ucnu3w-MuiStack-root"
+        >
+          <h3
+            class="MuiTypography-root MuiTypography-h3 css-1mx3ha4-MuiTypography-root"
+            id="retrigger-modal-title"
+          >
+            Runs Density Distribution
+          </h3>
           <div
-            class="fyll6k4"
+            class="MuiBox-root css-72fd9l"
+          >
+            chartjs-line
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-4 css-1mppd14-MuiGrid-root"
           >
             <div
-              class="f1pfon3k"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b4085i-MuiGrid-root"
             >
-              587.15
+              <div>
+                <b>
+                  Base
+                  :
+                </b>
+                 
+                595.73
+                 
+                 (
+                firefox
+                )
+              </div>
+              <div
+                class="fzzwjz3"
+              >
+                <div>
+                  587.15
+                </div>
+                <div>
+                  593.04
+                </div>
+                <div>
+                  600.7
+                </div>
+                <div>
+                  602.04
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Copy results
+                </button>
+              </div>
+              <div>
+                <b>
+                  Mean
+                </b>
+                :
+                 
+                595.73
+                ,
+                 
+                <b>
+                  Median
+                </b>
+                :
+                 
+                596.87
+              </div>
+              <div
+                class="fnujpat"
+              >
+                6.96
+                 
+                 = 
+                1.17
+                % standard deviation
+              </div>
             </div>
             <div
-              class="f1pfon3k"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b4085i-MuiGrid-root"
             >
-              593.04
+              <div>
+                <b>
+                  New
+                  :
+                </b>
+                 
+                605.83
+                 
+                 (
+                chrome
+                )
+              </div>
+              <div
+                class="fzzwjz3"
+              >
+                <div>
+                  605.16
+                </div>
+                <div>
+                  605.31
+                </div>
+                <div>
+                  605.61
+                </div>
+                <div>
+                  605.81
+                </div>
+                <div>
+                  607.27
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Copy results
+                </button>
+              </div>
+              <div>
+                <b>
+                  Mean
+                </b>
+                :
+                 
+                605.83
+                ,
+                 
+                <b>
+                  Median
+                </b>
+                :
+                 
+                605.61
+              </div>
+              <div
+                class="fnujpat"
+              >
+                0.84
+                 
+                 = 
+                0.14
+                % standard deviation
+              </div>
             </div>
-            <div
-              class="f1pfon3k"
-            >
-              600.7
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              602.04
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-4 css-14eavsq-MuiGrid-root"
+      >
+        <div>
+          <div>
+            Only one run (consider more runs for greater confidence).
+             
           </div>
           <div>
             <b>
-              Mean
+              Base application
             </b>
-            :
-             
-            595.73
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            596.87
-          </div>
-          <div
-            class="fnujpat"
-          >
-            6.96
+            : 
+            firefox
              
-             = 
-            1.17
-            % standard deviation
-          </div>
-        </div>
-      </div>
-      <div
-        class="fnblmop"
-      >
-        <div>
-          <b>
-            New
-            :
-          </b>
-           
-          605.83
-           
-           (
-          chrome
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
-          <div
-            class="fyll6k4"
-          >
-            <div
-              class="f1pfon3k"
-            >
-              605.16
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.31
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.61
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.81
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              607.27
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-            </button>
           </div>
           <div>
             <b>
-              Mean
+              New application
             </b>
-            :
-             
-            605.83
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            605.61
+            : 
+            chrome
+             
           </div>
           <div
-            class="fnujpat"
+            class="MuiBox-root css-1yf3lzr"
           >
-            0.84
-             
-             = 
-            0.14
-            % standard deviation
+            <b>
+              Comparison result
+            </b>
+            : 
+            worse
+             (
+            lower
+             is better)
           </div>
-        </div>
-      </div>
-      <div
-        class="fyc4e7p"
-      >
-        chartjs-line
-      </div>
-    </div>
-    <hr
-      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
-    />
-    <div>
-      <div>
-        Only one run (consider more runs for greater confidence).
-         
-      </div>
-      <div>
-        <b>
-          Base application
-        </b>
-        : 
-        firefox
-         
-      </div>
-      <div>
-        <b>
-          New application
-        </b>
-        : 
-        chrome
-         
-      </div>
-      <div
-        class="MuiBox-root css-1yf3lzr"
-      >
-        <b>
-          Comparison result
-        </b>
-        : 
-        worse
-         (
-        lower
-         is better)
-      </div>
-      <div
-        class="MuiBox-root css-epvm6"
-      >
-        <b>
-          Difference of means
-        </b>
-        : 
-        1.7
-        % (
-        10.1
-        )
-      </div>
-      <div
-        class="MuiBox-root css-epvm6"
-      >
-        <b>
-          Difference of medians
-        </b>
-        : 
-        1.46
-        % (
-        8.74
-        )
-      </div>
-      <div>
-        <div
-          class="MuiBox-root css-epvm6"
-        >
-          <b>
-            Confidence
-          </b>
-          : 
-          Low
-           (2.89)
-        </div>
-        <div
-          class="MuiBox-root css-bewn4"
-        >
-          <b>
-            **Note
-          </b>
-          : 
-          The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-           
+          <div
+            class="MuiBox-root css-epvm6"
+          >
+            <b>
+              Difference of means
+            </b>
+            : 
+            1.7
+            % (
+            10.1
+            )
+          </div>
+          <div
+            class="MuiBox-root css-epvm6"
+          >
+            <b>
+              Difference of medians
+            </b>
+            : 
+            1.46
+            % (
+            8.74
+            )
+          </div>
+          <div>
+            <div
+              class="MuiBox-root css-epvm6"
+            >
+              <b>
+                Confidence
+              </b>
+              : 
+              Low
+               (2.89)
+            </div>
+            <div
+              class="MuiBox-root css-bewn4"
+            >
+              <b>
+                **Note
+              </b>
+              : 
+              The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
+               
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+`;
+
+exports[`Results View Should display Base, New and Common graphs with tooltips: Dataset for scatter 1`] = `
+{
+  "backgroundColor": [Function],
+  "data": [
+    {
+      "x": 587.15,
+      "y": "Base",
+    },
+    {
+      "x": 593.04,
+      "y": "Base",
+    },
+    {
+      "x": 600.7,
+      "y": "Base",
+    },
+    {
+      "x": 602.04,
+      "y": "Base",
+    },
+    {
+      "x": 605.16,
+      "y": "New",
+    },
+    {
+      "x": 605.31,
+      "y": "New",
+    },
+    {
+      "x": 605.61,
+      "y": "New",
+    },
+    {
+      "x": 605.81,
+      "y": "New",
+    },
+    {
+      "x": 607.27,
+      "y": "New",
+    },
+  ],
+  "pointRadius": 7,
+  "pointStyle": "triangle",
+  "type": "scatter",
+  "yAxisID": "yValues",
+}
 `;
 
 exports[`Results View Should update url with new title and the table with the new title: After clicking the Save button 1`] = `
