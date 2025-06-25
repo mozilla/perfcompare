@@ -7,8 +7,9 @@ import {
 import { render as rtlRender } from '@testing-library/react';
 import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import type { LoaderFunction } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
+import type { LoaderFunction } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 import { VirtuosoMockContext } from 'react-virtuoso';
 
 import { store } from './setupTests';
@@ -59,7 +60,9 @@ export function renderWithRouter(
   return {
     ...render(
       <RouterProvider
-        router={createBrowserRouter([{ path: route, element: ui, loader }])}
+        router={createBrowserRouter([
+          { path: route, element: ui, loader, HydrateFallback: () => null },
+        ])}
       />,
       theme,
     ),
@@ -75,7 +78,3 @@ export {
   waitFor,
   waitForElementToBeRemoved,
 } from '@testing-library/react';
-
-// See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
-// to use this package.
-export { FetchMockSandbox } from 'fetch-mock';

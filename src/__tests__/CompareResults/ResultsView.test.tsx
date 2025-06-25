@@ -1,26 +1,24 @@
 import type { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
-import { Bubble, ChartProps, Line } from 'react-chartjs-2';
+import type { ScriptableContext } from 'chart.js';
+import { ChartProps, Line } from 'react-chartjs-2';
 
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import TestHeader from '../../components/CompareResults/TestHeader';
 import { Strings } from '../../resources/Strings';
+import { Colors } from '../../styles/Colors';
 import type { Repository } from '../../types/state';
 import type { Framework } from '../../types/types';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import {
-  renderWithRouter,
-  screen,
-  FetchMockSandbox,
-  waitFor,
-} from '../utils/test-utils';
+import { renderWithRouter, screen, waitFor } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   const { testCompareData, testData } = getTestData();
-  (window.fetch as FetchMockSandbox)
+  fetchMock
     .get(
       'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
       testCompareData,
@@ -56,7 +54,7 @@ describe('Results View', () => {
 
     expect(header).toBeInTheDocument();
 
-    const frameworkDropdown = screen.getByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework',
     });
 
@@ -111,7 +109,7 @@ describe('Results View', () => {
     // We set up a compare data that has 1 result but with several runs, so that
     // the graphs are displayed for this result.
     const { testCompareDataWithMultipleRuns, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
+    fetchMock
       .get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         testCompareDataWithMultipleRuns,
@@ -133,35 +131,201 @@ describe('Results View', () => {
       name: 'expand this row',
     });
     await user.click(expandButton);
-    await screen.findByText(testCompareDataWithMultipleRuns[0].platform);
-    // TODO In the future it would be good to name this section with an
-    // aria-label for example, which would help accessibility AND this test.
-    expect(screen.getAllByRole('row')[1].nextSibling).toMatchSnapshot();
+    expect(
+      await screen.findByRole('region', { name: 'Revision Row Details' }),
+    ).toMatchSnapshot();
 
-    const MockedBubble = Bubble as jest.Mock;
-
-    const bubbleProps = MockedBubble.mock.calls.map(
-      (call) => call[0] as ChartProps,
+    // 1. Test that the chart library is called with various datasets.
+    const MockedLine = Line as jest.Mock;
+    const chartProps = MockedLine.mock.calls[0][0] as ChartProps;
+    const datasets = chartProps.data.datasets;
+    expect(datasets).toHaveLength(3);
+    // The KDE dataset is too long to test here, but let's test the other
+    // elements.
+    const datasetsForKde = datasets.filter(
+      (dataset) => 'yAxisID' in dataset && dataset.yAxisID === 'yKde',
     );
-    expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
-    expect(bubbleProps[1].data.datasets[0].label).toBe('New');
+    expect(datasetsForKde).toMatchObject([
+      {
+        yAxisID: 'yKde',
+        label: 'Base',
+        fill: false,
+        borderColor: Colors.ChartBase,
+      },
+      {
+        yAxisID: 'yKde',
+        label: 'New',
+        fill: false,
+        borderColor: Colors.ChartNew,
+      },
+    ]);
 
+    const datasetForScatter = datasets.find(
+      (dataset) => dataset.type === 'scatter',
+    );
+    expect(datasetForScatter).toMatchSnapshot('Dataset for scatter');
+
+    // 2. Test the more complex tooltip functions with various use cases.
     const labelFunction =
-      bubbleProps[0].options?.plugins?.tooltip?.callbacks?.label;
+      chartProps.options?.plugins?.tooltip?.callbacks?.label;
     expect(labelFunction).toBeDefined();
 
-    // @ts-expect-error does not affect the test coverage
-    // consider fixing it if we change the label function in the future
-    const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
-    expect(labelResult).toBe('5 ms');
+    const tooltipItemKdeBase = {
+      dataset: datasetsForKde[0],
+      parsed: { x: 5, y: 5 },
+    };
+    const tooltipItemKdeNew = {
+      dataset: datasetsForKde[1],
+      parsed: { x: 5, y: 5 },
+    };
+    const tooltipItemValueBase = {
+      dataset: datasetForScatter,
+      raw: {
+        x: '1.234',
+        y: 'Base',
+      },
+    };
+    const tooltipItemValueNew = {
+      dataset: datasetForScatter,
+      raw: {
+        x: '2.345',
+        y: 'New',
+      },
+    };
 
-    const MockedLine = Line as jest.Mock;
-    const lineProps = MockedLine.mock.calls.map(
-      (call) => call[0] as ChartProps,
+    expect(
+      labelFunction!.call(
+        // @ts-expect-error This object doesn't obey fully to the type
+        // description, but it's good enough to test our code.
+        { dataPoints: [tooltipItemKdeBase] },
+        tooltipItemKdeBase,
+      ),
+    ).toBe('@ 5.00');
+    expect(
+      labelFunction!.call(
+        // @ts-expect-error This object doesn't obey fully to the type
+        // description, but it's good enough to test our code.
+        { dataPoints: [tooltipItemValueBase] },
+        tooltipItemValueBase,
+      ),
+    ).toBe('Base: 1.234');
+    expect(
+      labelFunction!.call(
+        // @ts-expect-error This object doesn't obey fully to the type
+        // description, but it's good enough to test our code.
+        { dataPoints: [tooltipItemValueNew] },
+        tooltipItemValueNew,
+      ),
+    ).toBe('New: 2.345');
+
+    // Also test the cases where there are 2 values at the same x point.
+    // The first item shows a summary of both values.
+    expect(
+      labelFunction!.call(
+        // @ts-expect-error This object doesn't obey fully to the type
+        // description, but it's good enough to test our code.
+        { dataPoints: [tooltipItemValueBase, { ...tooltipItemValueBase }] },
+        tooltipItemValueBase,
+      ),
+    ).toBe('Base: 1.234 (×2)');
+    // But the second item isn't displayed at all.
+    expect(
+      labelFunction!.call(
+        // @ts-expect-error This object doesn't obey fully to the type
+        // description, but it's good enough to test our code.
+        { dataPoints: [{ ...tooltipItemValueBase }, tooltipItemValueBase] },
+        tooltipItemValueBase,
+      ),
+    ).toBe('');
+
+    // 3. Also test the complex color function
+    const labelColorFunction =
+      chartProps.options?.plugins?.tooltip?.callbacks?.labelColor;
+    expect(labelColorFunction).toBeDefined();
+
+    // @ts-expect-error This object doesn't obey fully to the type
+    // description, but it's good enough to test our code.
+    expect(labelColorFunction!(tooltipItemKdeBase)).toEqual({
+      backgroundColor: Colors.ChartBase,
+    });
+    // @ts-expect-error This object doesn't obey fully to the type
+    // description, but it's good enough to test our code.
+    expect(labelColorFunction!(tooltipItemKdeNew)).toEqual({
+      backgroundColor: Colors.ChartNew,
+    });
+    // @ts-expect-error This object doesn't obey fully to the type
+    // description, but it's good enough to test our code.
+    expect(labelColorFunction!(tooltipItemValueBase)).toEqual({
+      backgroundColor: Colors.ChartBase,
+    });
+    // @ts-expect-error This object doesn't obey fully to the type
+    // description, but it's good enough to test our code.
+    expect(labelColorFunction!(tooltipItemValueNew)).toEqual({
+      backgroundColor: Colors.ChartNew,
+    });
+
+    // 4. Also test the background color function for the scatter graph
+    const backgroundColorFunction = datasetForScatter?.backgroundColor as (
+      ctx: ScriptableContext<'line'>,
+    ) => string | undefined;
+    expect(backgroundColorFunction).toBeInstanceOf(Function);
+    // @ts-expect-error This object doesn't obey fully to the type
+    // description, but it's good enough to test our code.
+    expect(backgroundColorFunction({ raw: { x: 5, y: 'Base' } })).toBe(
+      Colors.ChartBase + '99',
     );
-    const graphTitle = lineProps[0].options?.plugins?.title?.text;
-    expect(graphTitle).toBeDefined();
-    expect(graphTitle).toBe('Runs Density Distribution');
+    // @ts-expect-error This object doesn't obey fully to the type
+    // description, but it's good enough to test our code.
+    expect(backgroundColorFunction({ raw: { x: 5, y: 'New' } })).toBe(
+      Colors.ChartNew + '99',
+    );
+  });
+
+  it('Should display Base, New and Common graphs with replicates', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // We set up a compare data that has 1 result but with several runs, so that
+    // the graphs are displayed for this result.
+    const { testCompareDataWithReplicates, testData } = getTestData();
+    fetchMock
+      .get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareDataWithReplicates,
+      )
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [testData[0]],
+      });
+
+    renderWithRouter(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+      {
+        route: '/compare-results/',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
+        loader,
+      },
+    );
+
+    const expandButton = await screen.findByRole('button', {
+      name: 'expand this row',
+    });
+    await user.click(expandButton);
+
+    expect(
+      await screen.findByRole('region', { name: 'Revision Row Details' }),
+    ).toMatchSnapshot();
+
+    // Test that this time all replicates are displayed
+    const MockedLine = Line as jest.Mock;
+    const chartProps = MockedLine.mock.calls[0][0] as ChartProps;
+    const datasets = chartProps.data.datasets;
+    const datasetForScatter = datasets.find(
+      (dataset) => dataset.type === 'scatter',
+    );
+    expect(datasetForScatter!.data).toHaveLength(
+      testCompareDataWithReplicates[0].base_runs_replicates.length +
+        testCompareDataWithReplicates[0].new_runs_replicates.length,
+    );
+    expect(datasetForScatter).toMatchSnapshot('Dataset for scatter');
   });
 
   it('should make blobUrl available when "Download JSON" button is clicked', async () => {
@@ -185,7 +349,7 @@ describe('Results View', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const { testCompareDataWithMultipleRuns, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
+    fetchMock
       .get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         testCompareDataWithMultipleRuns,
@@ -240,152 +404,6 @@ describe('Results View', () => {
       windowOpenUrl.searchParams.get('state'),
     );
     expect(sessionStorage.taskclusterUrl).toBe(windowOpenUrl.origin);
-  });
-
-  it('Should display Base, New and Common graphs with replicates', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-
-    // We set up a compare data that has 1 result but with several runs, so that
-    // the graphs are displayed for this result.
-    const { testCompareDataWithReplicates, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
-      .get(
-        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-        testCompareDataWithReplicates,
-      )
-      .get('begin:https://treeherder.mozilla.org/api/project/', {
-        results: [testData[0]],
-      });
-
-    renderWithRouter(
-      <ResultsView title={Strings.metaData.pageTitle.results} />,
-      {
-        route: '/compare-results/',
-        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
-        loader,
-      },
-    );
-
-    const expandButton = await screen.findByRole('button', {
-      name: 'expand this row',
-    });
-    await user.click(expandButton);
-
-    await screen.findByText(testCompareDataWithReplicates[0].platform);
-    // TODO In the future it would be good to name this section with an
-    // aria-label for example, which would help accessibility AND this test.
-    expect(screen.getAllByRole('row')[1].nextSibling).toMatchSnapshot();
-
-    const MockedBubble = Bubble as jest.Mock;
-
-    const bubbleProps = MockedBubble.mock.calls.map(
-      (call) => call[0] as ChartProps,
-    );
-    expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
-    expect(bubbleProps[1].data.datasets[0].label).toBe('New');
-
-    expect(bubbleProps[0].data.datasets[0].data).toHaveLength(4);
-    expect(bubbleProps[0].data.datasets[0].data[3]).toStrictEqual({
-      r: 10,
-      x: 602.04,
-      y: 0,
-    });
-    expect(bubbleProps[1].data.datasets[0].data).toHaveLength(5);
-    expect(bubbleProps[1].data.datasets[0].data[4]).toStrictEqual({
-      r: 10,
-      x: 607.27,
-      y: 0,
-    });
-
-    const labelFunction =
-      bubbleProps[0].options?.plugins?.tooltip?.callbacks?.label;
-    expect(labelFunction).toBeDefined();
-
-    // @ts-expect-error does not affect the test coverage
-    // consider fixing it if we change the label function in the future
-    const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
-    expect(labelResult).toBe('5 ms');
-
-    const MockedLine = Line as jest.Mock;
-    const lineProps = MockedLine.mock.calls.map(
-      (call) => call[0] as ChartProps,
-    );
-    const graphTitle = lineProps[0].options?.plugins?.title?.text;
-    expect(graphTitle).toBeDefined();
-    expect(graphTitle).toBe('Runs Density Distribution');
-  });
-
-  it('Should display Base, New and Common graphs with 1 value and replicates', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-
-    // We set up a compare data that has 1 result but with several runs, so that
-    // the graphs are displayed for this result.
-    const { testCompareDataWithReplicatesOneValue, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
-      .get(
-        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-        testCompareDataWithReplicatesOneValue,
-      )
-      .get('begin:https://treeherder.mozilla.org/api/project/', {
-        results: [testData[0]],
-      });
-
-    renderWithRouter(
-      <ResultsView title={Strings.metaData.pageTitle.results} />,
-      {
-        route: '/compare-results/',
-        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
-        loader,
-      },
-    );
-
-    const expandButton = await screen.findByRole('button', {
-      name: 'expand this row',
-    });
-    await user.click(expandButton);
-
-    await screen.findByText(testCompareDataWithReplicatesOneValue[0].platform);
-    // TODO In the future it would be good to name this section with an
-    // aria-label for example, which would help accessibility AND this test.
-    expect(screen.getAllByRole('row')[1].nextSibling).toMatchSnapshot();
-
-    const MockedBubble = Bubble as jest.Mock;
-
-    const bubbleProps = MockedBubble.mock.calls.map(
-      (call) => call[0] as ChartProps,
-    );
-    expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
-    expect(bubbleProps[1].data.datasets[0].label).toBe('New');
-
-    expect(bubbleProps[0].data.datasets[0].data).toHaveLength(4);
-    expect(bubbleProps[0].data.datasets[0].data[3]).toStrictEqual({
-      r: 10,
-      x: 602.04,
-      y: 0,
-    });
-    expect(bubbleProps[1].data.datasets[0].data).toHaveLength(5);
-    expect(bubbleProps[1].data.datasets[0].data[4]).toStrictEqual({
-      r: 10,
-      x: 607.27,
-      y: 0,
-    });
-
-    const labelFunction =
-      bubbleProps[0].options?.plugins?.tooltip?.callbacks?.label;
-    expect(labelFunction).toBeDefined();
-
-    // @ts-expect-error does not affect the test coverage
-    // consider fixing it if we change the label function in the future
-    const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
-    expect(labelResult).toBe('5 ms');
-
-    const MockedLine = Line as jest.Mock;
-    const lineProps = MockedLine.mock.calls.map(
-      (call) => call[0] as ChartProps,
-    );
-    const graphTitle = lineProps[0].options?.plugins?.title?.text;
-    expect(graphTitle).toBeDefined();
-    expect(graphTitle).toBe('Runs Density Distribution');
   });
 
   it('Should show the input, cancel and save button when the user click edit title button', async () => {

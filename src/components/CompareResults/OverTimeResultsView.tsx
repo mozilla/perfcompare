@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import Grid from '@mui/material/Grid';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './overTimeLoader';
@@ -17,7 +17,7 @@ interface ResultsViewProps {
 }
 function ResultsView(props: ResultsViewProps) {
   const { newRevsInfo, frameworkId, intervalValue, baseRepo, newRepos } =
-    useLoaderData() as LoaderReturnValue;
+    useLoaderData<LoaderReturnValue>();
   const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -51,8 +51,14 @@ function ResultsView(props: ResultsViewProps) {
           newRepo={newRepo}
         />
       </section>
-      <Grid container alignItems='center' justifyContent='center'>
-        <Grid item xs={12}>
+      <Grid
+        container
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Grid size={12}>
           <ResultsMain />
         </Grid>
       </Grid>

@@ -2,7 +2,7 @@ import { Suspense, useMemo } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Await } from 'react-router-dom';
+import { Await } from 'react-router';
 
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
@@ -203,10 +203,15 @@ function SubtestsResultsTable({
         sortDirection={sortDirection}
         onToggleSort={onToggleSort}
       />
-
       <Suspense
         fallback={
-          <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: 3,
+            }}
+          >
             <CircularProgress />
           </Box>
         }

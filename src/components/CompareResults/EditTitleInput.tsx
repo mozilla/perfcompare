@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 
 interface EditTitleInputProps {
   value: string;
-  refInput: React.RefObject<HTMLInputElement>;
+  refInput: React.RefObject<HTMLInputElement | null>;
   onCancel: () => unknown;
   onChange: (titleText: string) => unknown;
   onSave: () => unknown;
@@ -62,9 +62,6 @@ function EditTitleInput({
           sx={{ minWidth: '568px' }}
           onFocus={(e) => e.currentTarget.select()}
           placeholder={inputPlaceholder}
-          inputProps={{
-            'aria-label': inputPlaceholder,
-          }}
           id='results-title-input'
           onChange={(e) => {
             setTitleError(false);
@@ -75,7 +72,13 @@ function EditTitleInput({
           error={titleError}
           value={value}
           helperText={titleError ? titleErrorMsg : ''}
-          FormHelperTextProps={{ sx: { padding: 0, margin: 0 } }}
+          slotProps={{
+            htmlInput: {
+              'aria-label': inputPlaceholder,
+            },
+
+            formHelperText: { sx: { padding: 0, margin: 0 } },
+          }}
         />
         <Box
           className='edit-title-btns'

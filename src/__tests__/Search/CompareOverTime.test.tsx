@@ -1,7 +1,9 @@
 import { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { loader as overTimeLoader } from '../../components/CompareResults/overTimeLoader';
 import OverTimeResultsView from '../../components/CompareResults/OverTimeResultsView';
@@ -12,7 +14,6 @@ import getTestData from '../utils/fixtures';
 import {
   screen,
   renderWithRouter,
-  FetchMockSandbox,
   within,
   render,
   waitFor,
@@ -20,7 +21,7 @@ import {
 
 function setUpTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox)
+  fetchMock
     .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
       results: testData,
     })
@@ -146,8 +147,8 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/mozilla-central/i),
     ).not.toBeInTheDocument();
 
-    const baseDropdown = screen.getByRole('button', {
-      name: 'Base repository try',
+    const baseDropdown = screen.getByRole('combobox', {
+      name: 'Base repository',
     });
 
     await user.click(baseDropdown);
@@ -177,7 +178,7 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/mozilla-central/i),
     ).not.toBeInTheDocument();
 
-    const newDropdown = screen.getByRole('button', { name: 'Revisions' });
+    const newDropdown = screen.getByRole('combobox', { name: 'Revisions' });
 
     await user.click(newDropdown);
     const mozRepoItem = await screen.findByRole('option', {
@@ -206,7 +207,7 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/build_metrics/i),
     ).not.toBeInTheDocument();
 
-    const frameworkDropdown = screen.getByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework Framework',
     });
 
@@ -233,8 +234,8 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/Last 2 days/i),
     ).not.toBeInTheDocument();
 
-    const timeRangeDropdown = screen.getByRole('button', {
-      name: /Time range Last day/i,
+    const timeRangeDropdown = screen.getByRole('combobox', {
+      name: /Time range/i,
     });
 
     await user.click(timeRangeDropdown);
@@ -341,6 +342,7 @@ describe('Compare Over Time', () => {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
         loader: searchLoader,
+        hydrateFallbackElement: <></>,
       },
       { path: '/compare-over-time-results', element: <div /> },
     ]);
@@ -423,16 +425,16 @@ describe('Compare Over Time', () => {
 
     //the base repo and time range dropdowns should be hidden
     expect(
-      screen.queryByRole('button', { name: 'Base repository try' }),
+      screen.queryByRole('combobox', { name: 'Base repository' }),
     ).not.toBeInTheDocument();
 
     expect(
-      screen.queryByRole('button', { name: 'Time range Last day' }),
+      screen.queryByRole('combobox', { name: 'Time range' }),
     ).not.toBeInTheDocument();
 
     // The new repo dropdown and search input should be hidden
     expect(
-      screen.queryByRole('button', { name: 'Revisions' }),
+      screen.queryByRole('combobox', { name: 'Revisions' }),
     ).not.toBeInTheDocument();
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
 
@@ -446,16 +448,16 @@ describe('Compare Over Time', () => {
 
     //the base repo and time range dropdowns should be visible
     expect(
-      screen.getByRole('button', { name: 'Base repository try' }),
+      screen.getByRole('combobox', { name: 'Base repository' }),
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('button', { name: /Time range Last day/i }),
+      screen.getByRole('combobox', { name: /Time range/i }),
     ).toBeInTheDocument();
 
     // The new repo dropdown and search input should be visible
     expect(
-      screen.getByRole('button', { name: 'Revisions' }),
+      screen.getByRole('combobox', { name: 'Revisions' }),
     ).toBeInTheDocument();
     expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
 
@@ -463,13 +465,13 @@ describe('Compare Over Time', () => {
     await user.click(getCancelButton());
 
     expect(
-      screen.queryByRole('button', { name: 'Base repository try' }),
+      screen.queryByRole('combobox', { name: 'Base repository' }),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('button', { name: 'Time range Last day' }),
+      screen.queryByRole('combobox', { name: 'Time range' }),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('button', { name: 'Revisions' }),
+      screen.queryByRole('combobox', { name: 'Revisions' }),
     ).not.toBeInTheDocument();
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
   });
@@ -493,7 +495,7 @@ describe('Compare Over Time', () => {
 
     // The new repo dropdown and search input should be hidden
     expect(
-      screen.queryByRole('button', { name: 'Revisions' }),
+      screen.queryByRole('combobox', { name: 'Revisions' }),
     ).not.toBeInTheDocument();
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
 
@@ -509,8 +511,8 @@ describe('Compare Over Time', () => {
     await user.click(editButton);
 
     //The base repo dropdown
-    const baseDropdown = screen.getByRole('button', {
-      name: 'Base repository try',
+    const baseDropdown = screen.getByRole('combobox', {
+      name: 'Base repository',
     });
 
     await user.click(baseDropdown);
@@ -521,7 +523,7 @@ describe('Compare Over Time', () => {
 
     // The new repo dropdown and search input should be visible
     expect(
-      screen.getByRole('button', { name: 'Revisions' }),
+      screen.getByRole('combobox', { name: 'Revisions' }),
     ).toBeInTheDocument();
     expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
     const compareButton = await screen.findByRole('button', {
@@ -540,8 +542,8 @@ describe('Compare Over Time', () => {
     expect(checkboxForText(alvesOfCoconut)).toHaveClass('Mui-checked');
 
     //change time range
-    const timeRangeDropdown = screen.getByRole('button', {
-      name: /Time range Last day/i,
+    const timeRangeDropdown = screen.getByRole('combobox', {
+      name: /Time range/i,
     });
     await user.click(timeRangeDropdown);
     const last2daysItem = screen.getByRole('option', {

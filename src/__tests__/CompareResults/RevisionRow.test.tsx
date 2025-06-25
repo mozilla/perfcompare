@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { compareView } from '../../common/constants';
@@ -8,14 +9,10 @@ import RevisionRow from '../../components/CompareResults/RevisionRow';
 import { CompareResultsItem } from '../../types/state';
 import { Platform } from '../../types/types';
 import getTestData from '../utils/fixtures';
-import {
-  screen,
-  renderWithRouter,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { screen, renderWithRouter } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
-  (window.fetch as FetchMockSandbox)
+  fetchMock
     .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
     .get('begin:https://treeherder.mozilla.org/api/project/', {
       results: [],

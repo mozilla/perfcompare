@@ -1,14 +1,11 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import {
-  screen,
-  renderWithRouter,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { screen, renderWithRouter } from '../utils/test-utils';
 
 async function renderSearchViewComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
@@ -22,18 +19,15 @@ async function renderSearchViewComponent() {
 describe('Search View/fetchRecentRevisions', () => {
   it('should fetch and display recent results when repository is selected', async () => {
     const { testData } = getTestData();
-    (global.fetch as FetchMockSandbox).get(
-      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-      {
-        results: testData,
-      },
-    );
+    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+      results: testData,
+    });
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
-    const baseRepoSelect = screen.getAllByRole('button', { name: 'Base' })[0];
+    const baseRepoSelect = screen.getByRole('combobox', { name: 'Base' });
     expect(baseRepoSelect).toHaveTextContent('try');
     await user.click(baseRepoSelect);
 
@@ -53,19 +47,16 @@ describe('Search View/fetchRecentRevisions', () => {
     await user.click(searchInput);
     await screen.findAllByText("you've got no arms left!");
 
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
     );
   });
 
   it('should reject fetchRecentRevisions if fetch returns no results', async () => {
-    (global.fetch as FetchMockSandbox).get(
-      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-      {
-        results: [],
-      },
-    );
+    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+      results: [],
+    });
 
     await renderSearchViewComponent();
 
@@ -75,7 +66,7 @@ describe('Search View/fetchRecentRevisions', () => {
     const inputs = screen.getAllByRole('textbox');
     expect(inputs[0]).toBeInvalid();
     expect(inputs[1]).toBeInvalid();
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
     );
@@ -83,12 +74,9 @@ describe('Search View/fetchRecentRevisions', () => {
 
   it('should update error state if fetchRecentRevisions returns an error', async () => {
     const errorMessage = 'What, ridden on a horse?';
-    (global.fetch as FetchMockSandbox).get(
-      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-      {
-        throws: new Error(errorMessage),
-      },
-    );
+    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+      throws: new Error(errorMessage),
+    });
 
     // This test will output an error to the console. Let's silence it.
     jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -101,7 +89,7 @@ describe('Search View/fetchRecentRevisions', () => {
     const inputs = screen.getAllByRole('textbox');
     expect(inputs[0]).toBeInvalid();
     expect(inputs[1]).toBeInvalid();
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
     );

@@ -7,7 +7,7 @@ const config: Config.InitialOptions = {
   setupFiles: ['react-app-polyfill/jsdom'],
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/utils/setupTests.ts'],
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/__tests__/utils/'],
-  testEnvironment: 'jsdom',
+  testEnvironment: './src/__tests__/utils/custom-environment',
   transform: {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',
@@ -29,7 +29,7 @@ const config: Config.InitialOptions = {
   // dependencies of fetch-mock do! Hopefully this won't be needed in the future
   // when fetch-mock updates.
   transformIgnorePatterns: [
-    '/node_modules/(?!(taskcluster-client-web|data-uri-to-buffer|fetch-blob|formdata-polyfill|node-fetch)/)',
+    '/node_modules/(?!(taskcluster-client-web|data-uri-to-buffer|fetch-blob|formdata-polyfill|fetch-mock|@fetch-mock/jest)/)',
   ],
   modulePaths: [],
   moduleNameMapper: {
@@ -40,10 +40,6 @@ const config: Config.InitialOptions = {
       '<rootDir>/src/mockData/mockedFonts/Metropolis-Bold.woff2',
   },
   moduleFileExtensions: ['js', 'ts', 'tsx', 'jsx'],
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
-  ],
   globalSetup: '<rootDir>/src/__tests__/utils/globalSetup.ts',
   testTimeout: 30000,
 };

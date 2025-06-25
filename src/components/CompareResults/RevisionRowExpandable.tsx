@@ -1,10 +1,12 @@
+import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import { style } from 'typestyle';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 
+import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
-import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Colors, Spacing } from '../../styles';
+import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { formatNumber } from './../../utils/format';
 
@@ -21,6 +23,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id } = props;
 
   const {
+    base_runs: baseRuns,
+    new_runs: newRuns,
+    base_runs_replicates: baseRunsReplicates,
+    new_runs_replicates: newRunsReplicates,
     platform,
     delta_percentage: deltaPercent,
     delta_value: delta,
@@ -48,100 +54,102 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     );
   }
 
-  const themeMode = useAppSelector((state) => state.theme.mode);
-  const themeColor200 =
-    themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark;
-  const contentThemeColor =
-    themeMode == 'light' ? Colors.SecondaryDefault : Colors.Background100Dark;
+  const baseValues =
+    baseRunsReplicates && baseRunsReplicates.length
+      ? baseRunsReplicates
+      : baseRuns;
 
-  const styles = {
-    expandedRow: style({
-      backgroundColor: themeColor200,
-      padding: Spacing.Medium,
-      borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
-      marginInlineEnd: 34 /* This value needs to be synchronized with the expand icon size. */,
-    }),
-    content: style({
-      backgroundColor: contentThemeColor,
-      padding: Spacing.Medium,
-      borderRadius: Spacing.xSmall,
-    }),
-    bottomSpace: style({
-      paddingBottom: Spacing.Small,
-    }),
-    note: style({
-      fontSize: '10px',
-      textTransform: 'uppercase',
-    }),
-    whiteSpace: style({
-      whiteSpace: 'nowrap',
-    }),
-  };
+  const newValues =
+    newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
 
   return (
-    <section
+    <Box
+      component='section'
       id={id}
       aria-label='Revision Row Details'
-      className={`${styles.expandedRow}`}
+      sx={{
+        backgroundColor: 'revisionRow.background',
+        padding: 2,
+        borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
+        marginInlineEnd:
+          '34px' /* This value needs to be synchronized with the expand icon size. */,
+      }}
     >
-      <div className={`${styles.content}`}>
-        <div className={`${styles.bottomSpace}`}>
-          <b>{platform}</b> <br />
-        </div>
-        <div className={`${styles.bottomSpace}`}>
-          <Divider />
-        </div>
-        <Distribution result={result} />
-        <div className={`${styles.bottomSpace}`}>
-          <Divider />
-        </div>
-        <div className={`${styles.bottomSpace}`}>
-          {moreRunsAreNeeded && <div>{singleRun} </div>}
-          {baseApplication && (
+      <Stack
+        divider={<Divider flexItem />}
+        spacing={2}
+        sx={{
+          backgroundColor: 'expandedRow.background',
+          padding: 2,
+          borderRadius: 0.5,
+        }}
+      >
+        <b>{platform}</b>
+        <Grid container spacing={2}>
+          <Grid size={8}>
+            <Stack spacing={2}>
+              <CommonGraph
+                baseValues={baseValues}
+                newValues={newValues}
+                unit={baseUnit || newUnit}
+              />
+              <Distribution result={result} />
+            </Stack>
+          </Grid>
+          <Grid size={4}>
             <div>
-              <b>Base application</b>: {baseApplication}{' '}
+              {moreRunsAreNeeded && <div>{singleRun} </div>}
+              {baseApplication && (
+                <div>
+                  <b>Base application</b>: {baseApplication}{' '}
+                </div>
+              )}
+              {newApplication && (
+                <div>
+                  <b>New application</b>: {newApplication}{' '}
+                </div>
+              )}
+              <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
+                <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
+                {lowerIsBetter ? 'lower' : 'higher'} is better)
+              </Box>
+              <Box sx={{ whiteSpace: 'nowrap' }}>
+                <b>Difference of means</b>: {deltaPercent}% (
+                {formatNumber(delta)}
+                {deltaUnit ? ' ' + deltaUnit : null})
+              </Box>
+              {newMedian && baseMedian ? (
+                <Box sx={{ whiteSpace: 'nowrap' }}>
+                  <b>Difference of medians</b>: {medianPercentage}% (
+                  {medianDifference}
+                  {deltaUnit ? ' ' + deltaUnit : null})
+                </Box>
+              ) : null}
+              {confidenceText ? (
+                <div>
+                  <Box sx={{ whiteSpace: 'nowrap' }}>
+                    <b>Confidence</b>: {confidenceText}
+                    {confidenceValue ? ' ' + `(${confidenceValue})` : null}
+                  </Box>
+                  <Box
+                    sx={{
+                      fontSize: '10px',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    <b>**Note</b>: {confidenceNote}{' '}
+                  </Box>
+                </div>
+              ) : (
+                <Box sx={{ whiteSpace: 'nowrap' }}>
+                  <b>Confidence</b>: Not available{' '}
+                </Box>
+              )}
             </div>
-          )}
-          {newApplication && (
-            <div>
-              <b>New application</b>: {newApplication}{' '}
-            </div>
-          )}
-        </div>
-        <div className={`${styles.whiteSpace}`}>
-          <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
-          {lowerIsBetter ? 'lower' : 'higher'} is better)
-        </div>
-        <div className={`${styles.whiteSpace}`}>
-          <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
-          {deltaUnit ? ' ' + deltaUnit : null})
-        </div>
-        {newMedian && baseMedian ? (
-          <div className={`${styles.whiteSpace}`}>
-            <b>Difference of medians</b>: {medianPercentage}% (
-            {medianDifference}
-            {deltaUnit ? ' ' + deltaUnit : null})
-          </div>
-        ) : null}
-        {confidenceText ? (
-          <div>
-            <div className={`${styles.whiteSpace}`}>
-              <b>Confidence</b>: {confidenceText}
-              {confidenceValue ? ' ' + `(${confidenceValue})` : null}
-            </div>
-            <div className={styles.note}>
-              <b>**Note</b>: {confidenceNote}{' '}
-            </div>
-          </div>
-        ) : (
-          <div>
-            <div className={`${styles.whiteSpace}`}>
-              <b>Confidence</b>: Not available{' '}
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
+          </Grid>
+        </Grid>
+      </Stack>
+    </Box>
   );
 }
 

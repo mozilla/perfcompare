@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { loader as withBaseLoader } from '../../components/CompareResults/loader';
@@ -8,17 +9,11 @@ import { loader as searchLoader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import {
-  screen,
-  renderWithRouter,
-  FetchMockSandbox,
-  within,
-  waitFor,
-} from '../utils/test-utils';
+import { screen, renderWithRouter, within, waitFor } from '../utils/test-utils';
 
 function setUpTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox)
+  fetchMock
     .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
       results: testData,
     })
@@ -149,11 +144,11 @@ describe('Compare With Base', () => {
       within(formElement).queryByText(/build_metrics/i),
     ).not.toBeInTheDocument();
 
-    const frameworkDropdown = screen.getAllByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework Framework',
     });
 
-    await user.click(frameworkDropdown[0]);
+    await user.click(frameworkDropdown);
     expect(screen.getByRole('listbox')).toMatchSnapshot();
     const buildMetricsItem = screen.getByRole('option', {
       name: 'build_metrics',
@@ -300,7 +295,7 @@ describe('Compare With Base', () => {
 
     expect(header).toBeInTheDocument();
 
-    const frameworkDropdown = screen.getByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework',
     });
 

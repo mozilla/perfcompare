@@ -8,7 +8,7 @@ exports[`Search Containter should match snapshot 1`] = `
       data-testid="search-section"
     >
       <span
-        class="MuiTypography-root MuiTypography-body1 search-default-title css-1k2yhz0-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 search-default-title css-1vajmro-MuiTypography-root"
       >
         Compare with a base or over time
       </span>
@@ -21,7 +21,7 @@ exports[`Search Containter should match snapshot 1`] = `
             class="compare-card-text cardText_fsmdlf1"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 compare-card-title css-f6nf3y-MuiTypography-root"
             >
               Compare with a base
             </h2>
@@ -40,7 +40,7 @@ exports[`Search Containter should match snapshot 1`] = `
           class="compare-card-container content-base content-base--expanded container_fi9fvil wrapper--withbase fcdpsbx"
         >
           <hr
-            class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
+            class="MuiDivider-root MuiDivider-fullWidth divider css-1jpc804-MuiDivider-root"
           />
           <div
             class="MuiBox-root css-1wx1stc"
@@ -49,16 +49,17 @@ exports[`Search Containter should match snapshot 1`] = `
               action="/compare-results"
               aria-label="Compare with base form"
               autocomplete="off"
+              data-discover="true"
               method="get"
             >
               <div
-                class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-direction-xs-row component_fr4vqnw css-k4qgqg-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb label-edit-wrapper css-19405n1-MuiGrid-root"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
                     id="repo-dropdown--base"
                   >
                     Base
@@ -66,51 +67,52 @@ exports[`Search Containter should match snapshot 1`] = `
                   <svg
                     aria-hidden="true"
                     aria-label="The baseline revision (no changes) your revision will be compared against."
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
                     data-mui-internal-clone-element="true"
                     data-testid="InfoOutlinedIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
                     />
                   </svg>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container  css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi show-container css-1x0cl1l-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb -base-dropdown css-7epmqr-MuiGrid-root"
                     id="base_search-dropdown"
                   >
                     <div
-                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-repo-dropdown--base"
                       >
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--base"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                          role="button"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          role="combobox"
                           tabindex="0"
                         >
                           try
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          aria-invalid="false"
+                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                           tabindex="-1"
                           value="try"
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -123,53 +125,53 @@ exports[`Search Containter should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-7 base-search-input baseSearchInput_foodp4k css-8p3h79-MuiGrid-root"
                     id="base_search-input"
                   >
                     <div
                       class="MuiBox-root css-0"
                     >
                       <div
-                        class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
+                        class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                       >
                         <div
-                          class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root search-text-field base css-1xp5r68-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                                 data-testid="SearchIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
                               >
                                 <path
-                                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
                                 />
                               </svg>
                             </div>
                             <input
                               aria-invalid="false"
                               aria-label="Search by revision ID or author email"
-                              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
+                              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-base-input"
                               placeholder="Search by revision ID or author email"
                               type="text"
-                              value=""
                             />
                             <fieldset
                               aria-hidden="true"
-                              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                              class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
                             >
                               <legend
-                                class="css-ihdtdm"
+                                class="css-w4cd9x"
                               >
                                 <span
+                                  aria-hidden="true"
                                   class="notranslate"
                                 >
                                   ​
@@ -183,26 +185,26 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row d-flex css-k4qgqg-MuiGrid-root"
                   data-testid="base-selected-revision"
                 >
                   <div
                     class="box_f9k3p52 base-box MuiBox-root css-0"
                   >
                     <ul
-                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                      class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
                     />
                   </div>
                 </div>
               </div>
               <div
-                class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-direction-xs-row component_fr4vqnw css-k4qgqg-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb label-edit-wrapper css-19405n1-MuiGrid-root"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
                     id="repo-dropdown--new"
                   >
                     Revisions
@@ -210,51 +212,52 @@ exports[`Search Containter should match snapshot 1`] = `
                   <svg
                     aria-hidden="true"
                     aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
                     data-mui-internal-clone-element="true"
                     data-testid="InfoOutlinedIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
                     />
                   </svg>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container  css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi show-container css-1x0cl1l-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb -base-dropdown css-7epmqr-MuiGrid-root"
                     id="new_search-dropdown"
                   >
                     <div
-                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-repo-dropdown--new"
                       >
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--new"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                          role="button"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          role="combobox"
                           tabindex="0"
                         >
                           try
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          aria-invalid="false"
+                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                           tabindex="-1"
                           value="try"
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -267,53 +270,53 @@ exports[`Search Containter should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-7 new-search-input baseSearchInput_foodp4k css-8p3h79-MuiGrid-root"
                     id="new_search-input"
                   >
                     <div
                       class="MuiBox-root css-0"
                     >
                       <div
-                        class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
+                        class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                       >
                         <div
-                          class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root search-text-field new css-1xp5r68-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                                 data-testid="SearchIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
                               >
                                 <path
-                                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
                                 />
                               </svg>
                             </div>
                             <input
                               aria-invalid="false"
                               aria-label="Search by revision ID or author email"
-                              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
+                              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
                               placeholder="Search by revision ID or author email"
                               type="text"
-                              value=""
                             />
                             <fieldset
                               aria-hidden="true"
-                              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                              class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
                             >
                               <legend
-                                class="css-ihdtdm"
+                                class="css-w4cd9x"
                               >
                                 <span
+                                  aria-hidden="true"
                                   class="notranslate"
                                 >
                                   ​
@@ -327,29 +330,29 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row d-flex css-k4qgqg-MuiGrid-root"
                   data-testid="new-selected-revision"
                 >
                   <div
                     class="box_f9k3p52 new-box MuiBox-root css-0"
                   >
                     <ul
-                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                      class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
                     />
                   </div>
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 dropDown_frp1utb css-1nxoejh-MuiGrid-root"
               >
                 <div
-                  class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
+                  class="MuiFormControl-root framework-dropdown f1ttr4cl css-1iw3t7y-MuiFormControl-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-b5rjtg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 css-1yu4dci-MuiGrid-root"
                   >
                     <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-152lhzm-MuiFormLabel-root-MuiInputLabel-root"
                       data-shrink="true"
                       id="select-framework-label"
                     >
@@ -358,19 +361,19 @@ exports[`Search Containter should match snapshot 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label="The framework or test harness containing the test you want to examine."
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
                       data-mui-internal-clone-element="true"
                       data-testid="InfoOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
                       />
                     </svg>
                   </div>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                     data-testid="framework-select"
                   >
                     <div
@@ -378,23 +381,24 @@ exports[`Search Containter should match snapshot 1`] = `
                       aria-haspopup="listbox"
                       aria-label="Framework"
                       aria-labelledby="select-framework-label mui-component-select-framework"
-                      class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                      class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                       id="mui-component-select-framework"
-                      role="button"
+                      role="combobox"
                       tabindex="0"
                     >
                       talos
                     </div>
                     <input
                       aria-hidden="true"
-                      class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                      aria-invalid="false"
+                      class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                       name="framework"
                       tabindex="-1"
                       value="1"
                     />
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
                       data-testid="ArrowDropDownIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -409,15 +413,12 @@ exports[`Search Containter should match snapshot 1`] = `
                   class="fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-6hc3gy-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"
                   >
                     Compare
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -434,7 +435,7 @@ exports[`Search Containter should match snapshot 1`] = `
             class="compare-card-text cardText_fsmdlf1"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 compare-card-title css-f6nf3y-MuiTypography-root"
             >
               Compare over time
             </h2>
@@ -453,7 +454,7 @@ exports[`Search Containter should match snapshot 1`] = `
           class="compare-card-container content-base content-base--hidden container_fi9fvil wrapper--overtime f1ucodr8"
         >
           <hr
-            class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
+            class="MuiDivider-root MuiDivider-fullWidth divider css-1jpc804-MuiDivider-root"
           />
           <div
             class="MuiBox-root css-1wx1stc"
@@ -462,19 +463,20 @@ exports[`Search Containter should match snapshot 1`] = `
               action="/compare-over-time-results"
               aria-label="Compare over time form"
               autocomplete="off"
+              data-discover="true"
               method="get"
             >
               <div
-                class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-direction-xs-row component_fr4vqnw css-k4qgqg-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_frp1utb css-1e9xsub-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_frp1utb css-13620ud-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-2ltabg-MuiGrid-root"
                   >
                     <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
                       id="base-repo-dropdown--overtime"
                     >
                       Base repository
@@ -482,22 +484,22 @@ exports[`Search Containter should match snapshot 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label="The repository to compare revisions against."
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
                       data-mui-internal-clone-element="true"
                       data-testid="InfoOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
                       />
                     </svg>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-2ltabg-MuiGrid-root"
                   >
                     <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
                       id="select-timerange-label"
                     >
                       Time range
@@ -505,55 +507,56 @@ exports[`Search Containter should match snapshot 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label="The time range to compare revisions."
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
                       data-mui-internal-clone-element="true"
                       data-testid="InfoOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
                       />
                     </svg>
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fgv7cgi css-14mwbf0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi css-1dgifna-MuiGrid-root"
                   id="base-time-dropdown-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown css-1t7ybvx-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow base-search-dropdown css-t3of1j-MuiGrid-root"
                     id="base_search-dropdown--time"
                     style="max-width: 365px;"
                   >
                     <div
-                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-base-repo-dropdown--overtime"
                       >
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           id="mui-component-select-baseRepo"
-                          role="button"
+                          role="combobox"
                           tabindex="0"
                         >
                           try
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          aria-invalid="false"
+                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                           name="baseRepo"
                           tabindex="-1"
                           value="try"
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -566,24 +569,24 @@ exports[`Search Containter should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow new-search-dropdown dropDown_frp1utb css-t3of1j-MuiGrid-root"
                     id="time-range"
                     style="max-width: 430px;"
                   >
                     <div
-                      class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                      class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-timerange"
                       >
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           id="mui-component-select-selectedTimeRange"
-                          role="button"
+                          role="combobox"
                           tabindex="0"
                         >
                           <div
@@ -599,14 +602,15 @@ exports[`Search Containter should match snapshot 1`] = `
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          aria-invalid="false"
+                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                           name="selectedTimeRange"
                           tabindex="-1"
                           value="86400"
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -620,63 +624,64 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-7epmqr-MuiGrid-root"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
                     id="repo-dropdown--overtime"
                   >
                     Revisions
                     <svg
                       aria-hidden="true"
                       aria-label="Revisions (typically including your changes) to compare over a specified time range."
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
                       data-mui-internal-clone-element="true"
                       data-testid="InfoOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
                       />
                     </svg>
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
-          } css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi show-container--time
+ } css-1x0cl1l-MuiGrid-root"
                   id="new-search-container--time"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -new-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb -new-dropdown css-7epmqr-MuiGrid-root"
                     id="new_search-dropdown--time"
                   >
                     <div
-                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-repo-dropdown--overtime"
                       >
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--overtime"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                          role="button"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          role="combobox"
                           tabindex="0"
                         >
                           try
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          aria-invalid="false"
+                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                           tabindex="-1"
                           value="try"
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -689,53 +694,53 @@ exports[`Search Containter should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-7 new-search-input--time baseSearchInput_foodp4k css-8p3h79-MuiGrid-root"
                     id="new_search-input--time"
                   >
                     <div
                       class="MuiBox-root css-0"
                     >
                       <div
-                        class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
+                        class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                       >
                         <div
-                          class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root search-text-field new css-1xp5r68-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                                 data-testid="SearchIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
                               >
                                 <path
-                                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
                                 />
                               </svg>
                             </div>
                             <input
                               aria-invalid="false"
                               aria-label="Search by revision ID or author email"
-                              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
+                              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
                               placeholder="Search by revision ID or author email"
                               type="text"
-                              value=""
                             />
                             <fieldset
                               aria-hidden="true"
-                              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                              class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
                             >
                               <legend
-                                class="css-ihdtdm"
+                                class="css-w4cd9x"
                               >
                                 <span
+                                  aria-hidden="true"
                                   class="notranslate"
                                 >
                                   ​
@@ -749,28 +754,28 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row d-flex css-k4qgqg-MuiGrid-root"
                 >
                   <div
                     class="box_f9k3p52 new-box MuiBox-root css-0"
                   >
                     <ul
-                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                      class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
                     />
                   </div>
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 dropDown_frp1utb css-1nxoejh-MuiGrid-root"
               >
                 <div
-                  class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
+                  class="MuiFormControl-root framework-dropdown f1ttr4cl css-1iw3t7y-MuiFormControl-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-b5rjtg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 css-1yu4dci-MuiGrid-root"
                   >
                     <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-152lhzm-MuiFormLabel-root-MuiInputLabel-root"
                       data-shrink="true"
                       id="select-framework-label"
                     >
@@ -779,19 +784,19 @@ exports[`Search Containter should match snapshot 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label="The framework or test harness containing the test you want to examine."
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
                       data-mui-internal-clone-element="true"
                       data-testid="InfoOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
                       />
                     </svg>
                   </div>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                     data-testid="framework-select"
                   >
                     <div
@@ -799,23 +804,24 @@ exports[`Search Containter should match snapshot 1`] = `
                       aria-haspopup="listbox"
                       aria-label="Framework"
                       aria-labelledby="select-framework-label mui-component-select-framework"
-                      class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                      class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                       id="mui-component-select-framework"
-                      role="button"
+                      role="combobox"
                       tabindex="0"
                     >
                       talos
                     </div>
                     <input
                       aria-hidden="true"
-                      class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                      aria-invalid="false"
+                      class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                       name="framework"
                       tabindex="-1"
                       value="1"
                     />
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
                       data-testid="ArrowDropDownIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -830,15 +836,12 @@ exports[`Search Containter should match snapshot 1`] = `
                   class="fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-6hc3gy-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"
                   >
                     Compare
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>

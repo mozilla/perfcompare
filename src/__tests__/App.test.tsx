@@ -1,20 +1,21 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import App, { router } from '../components/App';
 import getTestData from './utils/fixtures';
-import { render, screen, FetchMockSandbox } from './utils/test-utils';
+import { act, render, screen } from './utils/test-utils';
 
 describe('App', () => {
   beforeEach(() => {
     const { testData } = getTestData();
-    (global.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/',
-      {
-        results: [testData[0]],
-      },
-    );
+    fetchMock.get('begin:https://treeherder.mozilla.org/api/project/', {
+      results: [testData[0]],
+    });
   });
+
+  async function waitForAllFetches() {
+    await act(async () => await fetchMock.callHistory.flush());
+  }
 
   test('Should render search view on default route', async () => {
     render(<App />);
@@ -26,6 +27,7 @@ describe('App', () => {
     act(() => void jest.runAllTimers());
     const homeText = screen.getByText('Compare with a base or over time');
     expect(homeText).toBeInTheDocument();
+    await waitForAllFetches();
   });
 
   test('Should display File bug link', async () => {
@@ -38,6 +40,7 @@ describe('App', () => {
       'href',
       'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     );
+    await waitForAllFetches();
   });
 
   test('Should display PerfCompare Matrix channel link', async () => {
@@ -50,6 +53,7 @@ describe('App', () => {
       'href',
       'https://matrix.to/#/#perfcompare:mozilla.org',
     );
+    await waitForAllFetches();
   });
 
   test('Should switch between dark mode and light mode on toggle', async () => {
@@ -73,7 +77,7 @@ describe('App', () => {
     it('Should render an error page when the treeherder request fails with an error 500', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
-      (window.fetch as FetchMockSandbox).get(
+      fetchMock.get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         500,
       );
@@ -95,7 +99,7 @@ describe('App', () => {
     it('Should render an error page when the treeherder request fails with an error 400', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
-      (window.fetch as FetchMockSandbox).get(
+      fetchMock.get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         {
           status: 400,
@@ -118,7 +122,7 @@ describe('App', () => {
     it('Should render an error page for compare over time when the treeherder request fails with an error 400', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
-      (window.fetch as FetchMockSandbox).get(
+      fetchMock.get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
         {
           status: 400,

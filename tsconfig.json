@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "jsx": "react-jsx", // use typescript to transpile jsx to js
     "module": "es2022", // specify module code generation
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true, // do not emit output files
     "outDir": "./build/", // path to output directory
     "preserveConstEnums": true,

@@ -7,10 +7,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import {
   createBrowserRouter,
-  RouterProvider,
   createRoutesFromElements,
   Route,
-} from 'react-router-dom';
+} from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { useAppSelector } from '../hooks/app';
 import { Strings } from '../resources/Strings';
@@ -74,6 +74,7 @@ export const router = createBrowserRouter(
         loader={homeLoader}
         element={<SearchView title={Strings.metaData.pageTitle.search} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.search} />}
+        hydrateFallbackElement={<></>}
       />
 
       <Route
@@ -81,6 +82,7 @@ export const router = createBrowserRouter(
         loader={compareLoader}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+        hydrateFallbackElement={<></>}
       />
 
       <Route
@@ -88,6 +90,7 @@ export const router = createBrowserRouter(
         loader={hashToCommitLoader}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+        hydrateFallbackElement={<></>}
       />
 
       <Route
@@ -95,6 +98,7 @@ export const router = createBrowserRouter(
         loader={landoToCommitLoader}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+        hydrateFallbackElement={<></>}
       />
 
       <Route
@@ -104,6 +108,7 @@ export const router = createBrowserRouter(
           <OverTimeResultsView title={Strings.metaData.pageTitle.results} />
         }
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+        hydrateFallbackElement={<></>}
       />
 
       <Route
@@ -113,6 +118,7 @@ export const router = createBrowserRouter(
           <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
         }
         errorElement={<PageError title={Strings.metaData.pageTitle.subtests} />}
+        hydrateFallbackElement={<></>}
       />
 
       <Route
@@ -124,6 +130,7 @@ export const router = createBrowserRouter(
           />
         }
         errorElement={<PageError title={Strings.metaData.pageTitle.subtests} />}
+        hydrateFallbackElement={<></>}
       />
 
       <Route
@@ -131,6 +138,7 @@ export const router = createBrowserRouter(
         loader={authenticationLoader}
         element={<TaskclusterCallback />}
         errorElement={<PageError title={'Error'} />}
+        hydrateFallbackElement={<></>}
       />
     </>,
   ),

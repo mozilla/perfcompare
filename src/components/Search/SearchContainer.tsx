@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Typography from '@mui/material/Typography';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
@@ -19,7 +19,7 @@ function SearchContainer(props: SearchViewProps) {
   const styles = SearchContainerStyles(themeMode, /* isHome */ true);
   const [isBaseSearchExpanded, setIsBaseSearchExpanded] = useState(true);
   const { newRevInfo, newRepo, frameworkId } =
-    useLoaderData() as LoaderReturnValue;
+    useLoaderData<LoaderReturnValue>();
 
   return (
     <section
@@ -75,7 +75,7 @@ function SearchContainer(props: SearchViewProps) {
 }
 
 interface SearchViewProps {
-  containerRef: React.RefObject<HTMLElement>;
+  containerRef: React.RefObject<HTMLElement | null>;
 }
 
 export default SearchContainer;

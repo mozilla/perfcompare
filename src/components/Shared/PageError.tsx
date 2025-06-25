@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useRouteError } from 'react-router-dom';
+import { useRouteError } from 'react-router';
 import { style } from 'typestyle';
 
 import { LinkToHome } from './LinkToHome';

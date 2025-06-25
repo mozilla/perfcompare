@@ -3,7 +3,7 @@ import { Fragment, useRef, useEffect, useState } from 'react';
 import { Button, Grid, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './loader';
@@ -26,19 +26,16 @@ function getPunctuationMark(index: number, newRevs: string[]) {
   return index != newRevs.length - 1 ? ', ' : '.';
 }
 
+type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
+
 function ResultsMain() {
-  const loaderData = useLoaderData() as
-    | LoaderReturnValue
-    | OverTimeLoaderReturnValue;
+  const loaderData = useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
 
-  const { view } = useLoaderData() as
-    | LoaderReturnValue
-    | OverTimeLoaderReturnValue;
   const styles = {
     alert: style({
       width: '100%',
@@ -60,6 +57,7 @@ function ResultsMain() {
       fontSize: '16px',
       borderLeft: '1px solid #5B5B66',
       paddingLeft: '9px',
+      margin: 0,
     }),
   };
 
@@ -161,7 +159,7 @@ function ResultsMain() {
             />
           ) : (
             <>
-              <Grid component='h2' item className={styles.title}>
+              <Grid component='h2' className={styles.title}>
                 {comparisonTitleName}
               </Grid>
               <Button
@@ -175,8 +173,8 @@ function ResultsMain() {
             </>
           )}
 
-          <Grid component='h2' item className={styles.subtitle}>
-            {subtitles[view]}
+          <Grid component='h2' className={styles.subtitle}>
+            {subtitles[loaderData.view]}
           </Grid>
         </Grid>
         <Grid container sx={titleContainerSx}>

@@ -15,11 +15,13 @@ export function CenteredModal(props: CenteredModalProps) {
       open={props.open}
       onClose={props.onClose}
       aria-labelledby={props.ariaLabelledby}
-      PaperProps={{
-        sx: {
-          gap: 2,
-          padding: 6,
-          ...props.paperStyle,
+      slotProps={{
+        paper: {
+          sx: {
+            gap: 2,
+            padding: 6,
+            ...props.paperStyle,
+          },
         },
       }}
     >

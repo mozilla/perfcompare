@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import Button from '@mui/material/Button';
-import { Await, useLoaderData } from 'react-router-dom';
+import { Await, useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import { Strings } from '../../resources/Strings';
@@ -16,12 +16,15 @@ interface CompareButtonProps {
   onCancel: () => void;
 }
 
+type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 export default function CompareButton({
   label,
   hasCancelButton,
   hasEditButton,
   onCancel,
 }: CompareButtonProps) {
+  const { results } = useLoaderData<CombinedLoaderReturnValue>();
+
   const cancelText = Strings.components.searchDefault.sharedCollasped.cancel;
 
   const cancelCompareStyles = style({
@@ -32,10 +35,6 @@ export default function CompareButton({
 
   const renderCompareButton = () => {
     if (hasEditButton) {
-      const { results } = useLoaderData() as
-        | LoaderReturnValue
-        | OverTimeLoaderReturnValue;
-
       return (
         <Suspense
           fallback={

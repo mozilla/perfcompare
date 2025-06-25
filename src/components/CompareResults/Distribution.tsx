@@ -1,33 +1,7 @@
-import { style } from 'typestyle';
+import Grid from '@mui/material/Grid';
 
-import CommonGraph from './CommonGraph';
 import RunValues from './RunValues';
-import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
-
-const styles = {
-  container: style({
-    display: 'flex',
-    marginBottom: Spacing.Medium,
-  }),
-};
-
-function computeMinMax(
-  baseRuns: number[],
-  newRuns: number[],
-): [number, number] {
-  let min = Infinity;
-  let max = -Infinity;
-  for (const value of baseRuns) {
-    min = Math.min(min, value);
-    max = Math.max(max, value);
-  }
-  for (const value of newRuns) {
-    min = Math.min(min, value);
-    max = Math.max(max, value);
-  }
-  return [min, max];
-}
 
 function Distribution(props: DistributionProps) {
   const { result } = props;
@@ -50,54 +24,55 @@ function Distribution(props: DistributionProps) {
     new_measurement_unit: newUnit,
   } = result;
 
+  const baseValues =
+    baseRunsReplicates && baseRunsReplicates.length
+      ? baseRunsReplicates
+      : baseRuns;
+
   const baseRevisionRuns = {
     name: 'Base',
     avg: baseAvg,
     median: baseMedian,
-    values:
-      baseRunsReplicates && baseRunsReplicates.length
-        ? baseRunsReplicates
-        : baseRuns,
+    values: baseValues,
     application: baseApplication,
     stddev: baseStddev,
     stddevPercent: baseStddevPercent,
     measurementUnit: baseUnit,
   };
 
+  const newValues =
+    newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
+
   const newRevisionRuns = {
     name: 'New',
     avg: newAvg,
     median: newMedian,
-    values:
-      newRunsReplicates && newRunsReplicates.length
-        ? newRunsReplicates
-        : newRuns,
+    values: newValues,
     application: newApplication,
     stddev: newStddev,
     stddevPercent: newStddevPercent,
     measurementUnit: newUnit,
   };
 
-  const [minValue, maxValue] = computeMinMax(
-    baseRevisionRuns.values,
-    newRevisionRuns.values,
-  );
-
   return (
-    <div className={styles.container}>
-      <RunValues
-        revisionRuns={baseRevisionRuns}
-        min={minValue}
-        max={maxValue}
-      />
-      <RunValues revisionRuns={newRevisionRuns} min={minValue} max={maxValue} />
-      <CommonGraph
-        baseRevisionRuns={baseRevisionRuns}
-        newRevisionRuns={newRevisionRuns}
-        min={minValue}
-        max={maxValue}
-      />
-    </div>
+    <Grid container spacing={4} sx={{ marginBottom: 2 }}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+        }}
+      >
+        <RunValues revisionRuns={baseRevisionRuns} />
+      </Grid>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+        }}
+      >
+        <RunValues revisionRuns={newRevisionRuns} />
+      </Grid>
+    </Grid>
   );
 }
 

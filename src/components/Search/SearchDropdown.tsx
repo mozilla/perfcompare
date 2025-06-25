@@ -69,14 +69,14 @@ function SearchDropdown({
             },
           }}
         >
-          {Object.keys(repoMap).map((key) => (
+          {Object.values(repoMap).map((repoName) => (
             <MenuItem
-              id={repoMap[key]}
-              value={repoMap[key]}
-              key={repoMap[key]}
+              id={repoName}
+              value={repoName}
+              key={repoName}
               className={`${searchType}Repository`}
             >
-              {repoMap[key]}
+              {repoName}
             </MenuItem>
           ))}
         </Select>

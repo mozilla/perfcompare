@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form } from 'react-router-dom';
+import { Form } from 'react-router';
 import { style } from 'typestyle';
 
 import CancelAndCompareButtons from './CancelAndCompareButtons';
@@ -280,12 +280,13 @@ function CompareWithBase({
         hasCancelButton means we are in Edit mode on Results view */}
           {(!hasEditButton || hasCancelButton) && (
             <Grid
-              item
-              xs={2}
-              display='flex'
-              justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
               className={dropDownStyles.dropDown}
-              alignItems='flex-end'
+              size={2}
+              sx={{
+                display: 'flex',
+                justifyContent: hasEditButton ? 'flex-end' : 'space-between',
+                alignItems: 'flex-end',
+              }}
             >
               {!hasEditButton && (
                 <SearchFrameworkDropdown frameworkId={frameworkIdVal} />

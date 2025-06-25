@@ -1,5 +1,7 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 
 import { repoMap } from '../../common/constants';
 import { loader } from '../../components/Search/loader';
@@ -13,24 +15,23 @@ import {
   renderWithRouter,
   waitFor,
   within,
-  FetchMockSandbox,
 } from '../utils/test-utils';
 
 const baseTitle = Strings.components.searchDefault.base.title;
 
 function setupTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox)
+  fetchMock
     .get(
       'begin:https://treeherder.mozilla.org/api/project/try/push/?author_contains=',
-      (url) => {
-        const author = new URL(url).searchParams.get('author_contains');
+      ({ queryParams }) => {
+        const author = queryParams?.get('author_contains');
         return { results: testData.filter((item) => item.author === author) };
       },
     )
     .get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/?revision=*',
-      (urlAsString) => {
+      ({ url: urlAsString }) => {
         const url = new URL(urlAsString);
         const revision = url.searchParams.get('revision');
         const repository = url.pathname.split('/')[3];
@@ -136,7 +137,7 @@ describe('Search Container', () => {
     const baseInput = screen.getAllByPlaceholderText(
       'Search by revision ID or author email',
     )[0];
-    const repoDropdown = screen.getByRole('button', { name: 'Base' });
+    const repoDropdown = screen.getByRole('combobox', { name: 'Base' });
 
     expect(compTitle).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
@@ -253,7 +254,7 @@ describe('Base and OverTime Search', () => {
     // - 1 time from the user interaction: 1 time for each "clear", because the
     //   other user interactons are invalid and therefore don't trigger any
     //   fetches (this is the goal for this test).
-    expect(global.fetch).toHaveBeenCalledTimes(4);
+    expect(global.fetch).toHaveFetchedTimes(4);
   });
 
   it('Should debounce user interaction', async () => {
@@ -300,15 +301,15 @@ describe('Base and OverTime Search', () => {
     // - 3 times on initial load
     // - once for coconut@python.com
     // The call to coconut@python.co was debounced.
-    expect(global.fetch).not.toHaveBeenCalledWith(
+    expect(global.fetch).not.toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?author_contains=johncleese%40python.co',
       undefined,
     );
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?author_contains=johncleese%40python.com',
       undefined,
     );
-    expect(global.fetch).toHaveBeenCalledTimes(4);
+    expect(global.fetch).toHaveFetchedTimes(4);
   });
 
   it('Should clear search results if the search value is cleared', async () => {
@@ -320,7 +321,7 @@ describe('Base and OverTime Search', () => {
     await user.type(searchInput, 'terrygilliam@python.com');
     act(() => void jest.runAllTimers());
 
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?author_contains=terrygilliam%40python.com',
       undefined,
     );
@@ -359,13 +360,13 @@ describe('Base and OverTime Search', () => {
   });
 
   it('should update error state with generic message if fetch error is undefined', async () => {
-    (global.fetch as FetchMockSandbox).mock('*', { throws: new Error() });
+    fetchMock.any({ throws: new Error() });
     // This test will output an error to the console. Let's silence it.
     jest.spyOn(console, 'error').mockImplementation(() => {});
     await renderComponent();
     act(() => void jest.runAllTimers());
 
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
     );
@@ -390,6 +391,7 @@ describe('Base and OverTime Search', () => {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
         loader,
+        hydrateFallbackElement: <></>,
       },
       { path: '/compare-results', element: <div /> },
     ]);
@@ -460,13 +462,13 @@ describe('With search parameters', () => {
       within(withBaseForm).getByRole('link', { name: /spamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Base' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Base' }),
     ).toHaveTextContent('try');
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('try');
     expect(
-      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+      within(withBaseForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('talos');
     expect(withBaseForm).toMatchSnapshot('with base form');
 
@@ -476,13 +478,13 @@ describe('With search parameters', () => {
       within(overtimeForm).getByRole('link', { name: /spamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Base repository/ }),
     ).toHaveTextContent('try');
     expect(
-      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+      within(overtimeForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('try');
     expect(
-      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('talos');
     expect(overtimeForm).toMatchSnapshot('over time form');
   });
@@ -497,13 +499,13 @@ describe('With search parameters', () => {
       within(withBaseForm).getByRole('link', { name: /spamspamspam/ }), // Note that the revision is truncated
     ).toBeInTheDocument();
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Base' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Base' }),
     ).toHaveTextContent('autoland');
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('autoland');
     expect(
-      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+      within(withBaseForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('browsertime');
     expect(withBaseForm).toMatchSnapshot('with base form');
 
@@ -513,13 +515,13 @@ describe('With search parameters', () => {
       within(overtimeForm).getByRole('link', { name: /spamspamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Base repository/ }),
     ).toHaveTextContent('autoland');
     expect(
-      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+      within(overtimeForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('autoland');
     expect(
-      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('browsertime');
     expect(overtimeForm).toMatchSnapshot('over time form');
   });
@@ -556,13 +558,13 @@ describe('With search parameters', () => {
       within(withBaseForm).getByRole('link', { name: /spamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Base' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Base' }),
     ).toHaveTextContent('try');
     expect(
-      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+      within(withBaseForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('try');
     expect(
-      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+      within(withBaseForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('talos');
     expect(withBaseForm).toMatchSnapshot('with base form');
 
@@ -572,13 +574,13 @@ describe('With search parameters', () => {
       within(overtimeForm).getByRole('link', { name: /spamspam/ }),
     ).toBeInTheDocument();
     expect(
-      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Base repository/ }),
     ).toHaveTextContent('try');
     expect(
-      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+      within(overtimeForm).getByRole('combobox', { name: 'Revisions' }),
     ).toHaveTextContent('try');
     expect(
-      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+      within(overtimeForm).getByRole('combobox', { name: /Framework/ }),
     ).toHaveTextContent('talos');
     expect(overtimeForm).toMatchSnapshot('over time form');
   });

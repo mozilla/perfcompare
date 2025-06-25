@@ -1,11 +1,9 @@
+import fetchMock from '@fetch-mock/jest';
+
 import { loader } from '../../components/TaskclusterAuth/loader';
 import TaskclusterCallback from '../../components/TaskclusterAuth/TaskclusterCallback';
 import { getLocationOrigin } from '../../utils/location';
-import {
-  FetchMockSandbox,
-  renderWithRouter,
-  screen,
-} from '../utils/test-utils';
+import { renderWithRouter, screen } from '../utils/test-utils';
 
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
@@ -35,7 +33,7 @@ describe('Taskcluster Callback', () => {
 
     setup({ inputState });
 
-    (window.fetch as FetchMockSandbox).post(
+    fetchMock.post(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
       {
         access_token: returnedBearerToken,
@@ -43,7 +41,7 @@ describe('Taskcluster Callback', () => {
       },
     );
 
-    (window.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'begin:https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
       {
         expires: '2024-05-20T14:07:40.828Z',
@@ -63,20 +61,26 @@ describe('Taskcluster Callback', () => {
       await screen.findByText(/Credentials were found/),
     ).toBeInTheDocument();
 
-    expect(window.fetch).toHaveBeenCalledWith(
+    expect(window.fetch).toHaveFetched(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
       {
         method: 'POST',
-        body: expect.any(URLSearchParams) as URLSearchParams,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       },
     );
-    const requestBody = Object.fromEntries(
-      (window.fetch as jest.Mock).mock.calls[0][1].body as URLSearchParams,
-    );
 
+    const tokenCall = fetchMock.callHistory.lastCall(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
+    );
+    const body = tokenCall?.options.body;
+    if (!(body instanceof URLSearchParams)) {
+      throw new Error(
+        'Unexpected body passed to the endpoint /login/oauth/token',
+      );
+    }
+    const requestBody = Object.fromEntries(body);
     expect(requestBody).toEqual({
       client_id: 'perfcompare-localhost-3000-client',
       code: inputCode,
@@ -84,7 +88,7 @@ describe('Taskcluster Callback', () => {
       redirect_uri: 'http://localhost/taskcluster-auth',
     });
 
-    expect(window.fetch).toHaveBeenLastCalledWith(
+    expect(window.fetch).toHaveLastFetched(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
       {
         headers: {
@@ -112,12 +116,12 @@ describe('Taskcluster Callback', () => {
 
     const neverResolvedPromise = new Promise(() => {});
 
-    (window.fetch as FetchMockSandbox).post(
+    fetchMock.post(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
       neverResolvedPromise,
     );
 
-    (window.fetch as FetchMockSandbox).get(
+    fetchMock.get(
       'begin:https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
       neverResolvedPromise,
     );
@@ -143,7 +147,7 @@ describe('Taskcluster Callback', () => {
 
     setup({ inputState });
 
-    (window.fetch as FetchMockSandbox).post(
+    fetchMock.post(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
       {
         status: 403,

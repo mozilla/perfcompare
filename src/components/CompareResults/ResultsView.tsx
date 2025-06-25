@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import Grid from '@mui/material/Grid';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import type { HashLoaderReturnValue } from './hashToCommitLoader';
@@ -17,12 +17,14 @@ import PerfCompareHeader from '../Shared/PerfCompareHeader';
 interface ResultsViewProps {
   title: string;
 }
+
+type CombinedLoaderReturnValue =
+  | LoaderReturnValue
+  | HashLoaderReturnValue
+  | LandoLoaderReturnValue;
 function ResultsView(props: ResultsViewProps) {
   const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
-    useLoaderData() as
-      | LoaderReturnValue
-      | HashLoaderReturnValue
-      | LandoLoaderReturnValue;
+    useLoaderData<CombinedLoaderReturnValue>();
 
   const newRepo = newRepos[0];
   const { title } = props;
@@ -45,7 +47,6 @@ function ResultsView(props: ResultsViewProps) {
       data-testid='beta-version-compare-results'
     >
       <PerfCompareHeader />
-
       <section className={sectionStyles.container}>
         <LinkToHome />
         <CompareWithBase
@@ -58,9 +59,14 @@ function ResultsView(props: ResultsViewProps) {
           newRepo={newRepo}
         />
       </section>
-
-      <Grid container alignItems='center' justifyContent='center'>
-        <Grid item xs={12}>
+      <Grid
+        container
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Grid size={12}>
           <ResultsMain />
         </Grid>
       </Grid>

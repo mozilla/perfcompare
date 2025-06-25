@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import SvgIcon from '@mui/material/SvgIcon';
 import { useDispatch } from 'react-redux';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './loader';
@@ -28,7 +28,7 @@ const allRevisionsOption =
 
 function RevisionSelect() {
   const dispatch = useDispatch();
-  const { newRevs } = useLoaderData() as LoaderReturnValue;
+  const { newRevs } = useLoaderData<LoaderReturnValue>();
   const { activeComparison } = useAppSelector((state) => state.comparison);
   const handlerChangeComparison = (option: string) => {
     dispatch(updateComparison({ activeComparison: option }));
@@ -41,6 +41,7 @@ function RevisionSelect() {
         defaultValue=''
         displayEmpty
         size='small'
+        inputProps={{ 'aria-label': 'Filter by revision' }}
         renderValue={(value) => {
           return (
             <Box className={styles.box}>

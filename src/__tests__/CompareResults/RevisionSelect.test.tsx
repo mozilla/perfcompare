@@ -1,5 +1,7 @@
 import type { ReactElement } from 'react';
 
+import fetchMock from '@fetch-mock/jest';
+
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionSelect from '../../components/CompareResults/RevisionSelect';
@@ -9,7 +11,6 @@ import {
   renderWithRouter,
   screen,
   within,
-  FetchMockSandbox,
 } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
@@ -27,8 +28,8 @@ describe('Revision select', () => {
     expect(await screen.findByTestId('revision-select')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
 
-    const selectButton = await screen.findByRole('button', {
-      name: 'All revisions',
+    const selectButton = await screen.findByRole('combobox', {
+      name: 'Filter by revision',
     });
     fireEvent.mouseDown(selectButton);
 
@@ -40,11 +41,11 @@ describe('Revision select', () => {
 
   it('Should filter results', async () => {
     // The component requests recent revisions at load time.
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/',
-      { results: [] },
-    );
+    fetchMock.get('begin:https://treeherder.mozilla.org/api/project/', {
+      results: [],
+    });
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    await screen.findByLabelText('Filter by revision');
 
     // check to display results for all revisions
     let firstRevisionHeaders = await screen.findAllByRole('link', {
@@ -63,11 +64,8 @@ describe('Revision select', () => {
     expect(thirdRevisionHeaders).toHaveLength(8);
 
     // change comparison to revision bb6a5e451dac
-    const selectRevisionDropdown = within(
-      await screen.findByTestId('revision-select'),
-    );
-    const selectButton = await selectRevisionDropdown.findByRole('button', {
-      name: 'All revisions',
+    const selectButton = await screen.findByRole('combobox', {
+      name: 'Filter by revision',
     });
     fireEvent.mouseDown(selectButton);
 

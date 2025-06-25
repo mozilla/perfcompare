@@ -1,16 +1,15 @@
 import { useState, Suspense } from 'react';
 
-import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { Grid, Skeleton, Stack, Link, Button } from '@mui/material';
+import { Grid, Skeleton, Stack, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
-import { useLoaderData, Await } from 'react-router-dom';
+import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
 
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
-import DownloadButton from '.././DownloadButton';
+import { DownloadButton, DisabledDownloadButton } from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
@@ -20,7 +19,10 @@ import type {
   CompareResultsItem,
   SubtestsRevisionsHeader,
 } from '../../../types/state';
-import RetriggerButton from '../Retrigger/RetriggerButton';
+import {
+  RetriggerButton,
+  DisabledRetriggerButton,
+} from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
@@ -58,16 +60,22 @@ function SubtestsResultsHeader({
     <>
       <SubtestsRevisionHeader header={subtestsHeader} view={view} />
       <Grid container spacing={1}>
-        <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
+        <Grid
+          sx={{ marginInlineEnd: 'auto' }}
+          size={{
+            xs: 12,
+            md: 6,
+          }}
+        >
           <SearchInput
             defaultValue={initialSearchTerm}
             onChange={onSearchTermChange}
           />
         </Grid>
-        <Grid item xs='auto'>
+        <Grid size='auto'>
           <DownloadButton resultsPromise={[loadedResults]} />
         </Grid>
-        <Grid item xs='auto'>
+        <Grid size='auto'>
           <RetriggerButton result={loadedResults[0]} variant='text' />
         </Grid>
       </Grid>
@@ -79,10 +87,11 @@ type SubtestsResultsMainProps = {
   view: typeof subtestsView | typeof subtestsOverTimeView;
 };
 
+type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
+
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
-  const { results, subtestsViewPerfherderURL } = useLoaderData() as
-    | LoaderReturnValue
-    | OvertimeLoaderReturnValue;
+  const { results, subtestsViewPerfherderURL } =
+    useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
@@ -144,39 +153,23 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
                 />
               </Stack>
               <Grid container spacing={1}>
-                <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
+                <Grid
+                  sx={{ marginInlineEnd: 'auto' }}
+                  size={{
+                    xs: 12,
+                    md: 6,
+                  }}
+                >
                   <SearchInput
                     defaultValue={initialSearchTerm}
                     onChange={onSearchTermChange}
                   />
                 </Grid>
-                <Grid item xs='auto'>
-                  <Button
-                    variant='contained'
-                    color='secondary'
-                    disabled
-                    sx={{
-                      height: '41px',
-                      flex: 'none',
-                      '& .MuiButtonBase-root': {
-                        height: '100%',
-                        width: '100%',
-                      },
-                    }}
-                  >
-                    Download JSON
-                  </Button>
+                <Grid size='auto'>
+                  <DisabledDownloadButton />
                 </Grid>
-                <Grid item xs='auto'>
-                  <Button
-                    title='Retrigger test'
-                    color='primary'
-                    variant='text'
-                    startIcon={<RefreshOutlinedIcon />}
-                    disabled
-                  >
-                    Retrigger test
-                  </Button>
+                <Grid size='auto'>
+                  <DisabledRetriggerButton />
                 </Grid>
               </Grid>
             </>
@@ -194,7 +187,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
           </Await>
         </Suspense>
       </header>
-
       <SubtestsResultsTable
         filteringSearchTerm={searchTerm}
         resultsPromise={results}

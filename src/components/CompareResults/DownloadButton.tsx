@@ -83,11 +83,21 @@ const styles = {
   }),
 };
 
+export function DisabledDownloadButton() {
+  return (
+    <div className={styles.downloadButton}>
+      <Button variant='contained' color='secondary' disabled>
+        Download JSON
+      </Button>
+    </div>
+  );
+}
+
 interface DownloadButtonProps {
   resultsPromise: Promise<CompareResultsItem[][]> | CompareResultsItem[][];
 }
 
-function DownloadButton({ resultsPromise }: DownloadButtonProps) {
+export function DownloadButton({ resultsPromise }: DownloadButtonProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
@@ -138,5 +148,3 @@ function DownloadButton({ resultsPromise }: DownloadButtonProps) {
     </div>
   );
 }
-
-export default DownloadButton;

@@ -1,879 +1,621 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
+exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
 <section
   aria-label="Revision Row Details"
-  class="fgv9bhz"
-  id=":r4u:"
+  class="MuiBox-root css-13s8wtg"
+  id="«r63»"
 >
   <div
-    class="fp3h4kr"
+    class="MuiStack-root css-1714cpj-MuiStack-root"
   >
+    <b>
+      linux1804-64-shippable-qr
+    </b>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
     <div
-      class="fc8wfj0"
-    >
-      <b>
-        linux1804-64-shippable-qr
-      </b>
-       
-      <br />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="f9mtzuo"
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 css-13620ud-MuiGrid-root"
     >
       <div
-        class="fnblmop"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-8 css-1p37y3n-MuiGrid-root"
       >
-        <div>
-          <b>
-            Base
-            :
-          </b>
-           
-          595.73
-           
-           (
-          firefox
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
+        <div
+          class="MuiStack-root css-1ucnu3w-MuiStack-root"
+        >
+          <h3
+            class="MuiTypography-root MuiTypography-h3 css-1mx3ha4-MuiTypography-root"
+            id="retrigger-modal-title"
+          >
+            Runs Density Distribution
+          </h3>
           <div
-            class="fyll6k4"
+            class="MuiBox-root css-72fd9l"
+          >
+            chartjs-line
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-4 css-1mppd14-MuiGrid-root"
           >
             <div
-              class="f1pfon3k"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b4085i-MuiGrid-root"
             >
-              587.15
+              <div>
+                <b>
+                  Base
+                  :
+                </b>
+                 
+                595.73
+                 
+                 (
+                firefox
+                )
+              </div>
+              <div
+                class="fzzwjz3"
+              >
+                <div>
+                  587.15
+                </div>
+                <div>
+                  593.04
+                </div>
+                <div>
+                  600.7
+                </div>
+                <div>
+                  602.04
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Copy results
+                </button>
+              </div>
+              <div>
+                <b>
+                  Mean
+                </b>
+                :
+                 
+                595.73
+                ,
+                 
+                <b>
+                  Median
+                </b>
+                :
+                 
+                596.87
+              </div>
+              <div
+                class="fnujpat"
+              >
+                6.96
+                 
+                 = 
+                1.17
+                % standard deviation
+              </div>
             </div>
             <div
-              class="f1pfon3k"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b4085i-MuiGrid-root"
             >
-              593.04
+              <div>
+                <b>
+                  New
+                  :
+                </b>
+                 
+                605.83
+                 
+                 (
+                chrome
+                )
+              </div>
+              <div
+                class="fzzwjz3"
+              >
+                <div>
+                  605.16
+                </div>
+                <div>
+                  605.31
+                </div>
+                <div>
+                  605.61
+                </div>
+                <div>
+                  605.81
+                </div>
+                <div>
+                  607.27
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Copy results
+                </button>
+              </div>
+              <div>
+                <b>
+                  Mean
+                </b>
+                :
+                 
+                605.83
+                ,
+                 
+                <b>
+                  Median
+                </b>
+                :
+                 
+                605.61
+              </div>
+              <div
+                class="fnujpat"
+              >
+                0.84
+                 
+                 = 
+                0.14
+                % standard deviation
+              </div>
             </div>
-            <div
-              class="f1pfon3k"
-            >
-              600.7
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              602.04
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation css-121m766-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-4 css-14eavsq-MuiGrid-root"
+      >
+        <div>
+          <div>
+            Only one run (consider more runs for greater confidence).
+             
           </div>
           <div>
             <b>
-              Mean
+              Base application
             </b>
-            :
-             
-            595.73
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            596.87
-          </div>
-          <div
-            class="fnujpat"
-          >
-            6.96
+            : 
+            firefox
              
-             = 
-            1.17
-            % standard deviation
-          </div>
-        </div>
-      </div>
-      <div
-        class="fnblmop"
-      >
-        <div>
-          <b>
-            New
-            :
-          </b>
-           
-          605.83
-           
-           (
-          chrome
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
-          <div
-            class="fyll6k4"
-          >
-            <div
-              class="f1pfon3k"
-            >
-              605.16
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.31
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.61
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.81
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              607.27
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation css-121m766-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
           </div>
           <div>
             <b>
-              Mean
+              New application
             </b>
-            :
-             
-            605.83
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            605.61
+            : 
+            chrome
+             
           </div>
           <div
-            class="fnujpat"
+            class="MuiBox-root css-1yf3lzr"
           >
-            0.84
-             
-             = 
-            0.14
-            % standard deviation
+            <b>
+              Comparison result
+            </b>
+            : 
+            worse
+             (
+            lower
+             is better)
+          </div>
+          <div
+            class="MuiBox-root css-epvm6"
+          >
+            <b>
+              Difference of means
+            </b>
+            : 
+            1.7
+            % (
+            10.1
+            )
+          </div>
+          <div
+            class="MuiBox-root css-epvm6"
+          >
+            <b>
+              Difference of medians
+            </b>
+            : 
+            1.46
+            % (
+            8.74
+            )
+          </div>
+          <div>
+            <div
+              class="MuiBox-root css-epvm6"
+            >
+              <b>
+                Confidence
+              </b>
+              : 
+              Low
+               (2.89)
+            </div>
+            <div
+              class="MuiBox-root css-bewn4"
+            >
+              <b>
+                **Note
+              </b>
+              : 
+              The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
+               
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="fyc4e7p"
-      >
-        chartjs-line
-      </div>
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <div>
-        Only one run (consider more runs for greater confidence).
-         
-      </div>
-      <div>
-        <b>
-          Base application
-        </b>
-        : 
-        firefox
-         
-      </div>
-      <div>
-        <b>
-          New application
-        </b>
-        : 
-        chrome
-         
-      </div>
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Comparison result
-      </b>
-      : 
-      worse
-       (
-      lower
-       is better)
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of means
-      </b>
-      : 
-      1.7
-      % (
-      10.1
-      )
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of medians
-      </b>
-      : 
-      1.46
-      % (
-      8.74
-      )
-    </div>
-    <div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Confidence
-        </b>
-        : 
-        Low
-         (2.89)
-      </div>
-      <div
-        class="fj8mg7a"
-      >
-        <b>
-          **Note
-        </b>
-        : 
-        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-         
       </div>
     </div>
   </div>
 </section>
 `;
 
-exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
-<section
-  aria-label="Revision Row Details"
-  class="fgv9bhz"
-  id=":r4c:"
->
-  <div
-    class="fp3h4kr"
-  >
-    <div
-      class="fc8wfj0"
-    >
-      <b>
-        linux1804-64-shippable-qr
-      </b>
-       
-      <br />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="f9mtzuo"
-    >
-      <div
-        class="fnblmop"
-      >
-        <div>
-          <b>
-            Base
-            :
-          </b>
-           
-          595.73
-           
-           (
-          firefox
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
-          <div
-            class="fyll6k4"
-          >
-            <div
-              class="f1pfon3k"
-            >
-              587.15
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              593.04
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              600.7
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              602.04
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation css-121m766-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-          <div>
-            <b>
-              Mean
-            </b>
-            :
-             
-            595.73
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            596.87
-          </div>
-          <div
-            class="fnujpat"
-          >
-            6.96
-             
-             = 
-            1.17
-            % standard deviation
-          </div>
-        </div>
-      </div>
-      <div
-        class="fnblmop"
-      >
-        <div>
-          <b>
-            New
-            :
-          </b>
-           
-          605.83
-           
-           (
-          chrome
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
-          <div
-            class="fyll6k4"
-          >
-            <div
-              class="f1pfon3k"
-            >
-              605.16
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.31
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.61
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.81
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              607.27
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation css-121m766-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-          <div>
-            <b>
-              Mean
-            </b>
-            :
-             
-            605.83
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            605.61
-          </div>
-          <div
-            class="fnujpat"
-          >
-            0.84
-             
-             = 
-            0.14
-            % standard deviation
-          </div>
-        </div>
-      </div>
-      <div
-        class="fyc4e7p"
-      >
-        chartjs-line
-      </div>
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <div>
-        Only one run (consider more runs for greater confidence).
-         
-      </div>
-      <div>
-        <b>
-          Base application
-        </b>
-        : 
-        firefox
-         
-      </div>
-      <div>
-        <b>
-          New application
-        </b>
-        : 
-        chrome
-         
-      </div>
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Comparison result
-      </b>
-      : 
-      worse
-       (
-      lower
-       is better)
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of means
-      </b>
-      : 
-      1.7
-      % (
-      10.1
-      )
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of medians
-      </b>
-      : 
-      1.46
-      % (
-      8.74
-      )
-    </div>
-    <div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Confidence
-        </b>
-        : 
-        Low
-         (2.89)
-      </div>
-      <div
-        class="fj8mg7a"
-      >
-        <b>
-          **Note
-        </b>
-        : 
-        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-         
-      </div>
-    </div>
-  </div>
-</section>
+exports[`Results View Should display Base, New and Common graphs with replicates: Dataset for scatter 1`] = `
+{
+  "backgroundColor": [Function],
+  "data": [
+    {
+      "x": 587.15,
+      "y": "Base",
+    },
+    {
+      "x": 593.04,
+      "y": "Base",
+    },
+    {
+      "x": 600.7,
+      "y": "Base",
+    },
+    {
+      "x": 602.04,
+      "y": "Base",
+    },
+    {
+      "x": 605.16,
+      "y": "New",
+    },
+    {
+      "x": 605.31,
+      "y": "New",
+    },
+    {
+      "x": 605.61,
+      "y": "New",
+    },
+    {
+      "x": 605.81,
+      "y": "New",
+    },
+    {
+      "x": 607.27,
+      "y": "New",
+    },
+  ],
+  "pointRadius": 7,
+  "pointStyle": "triangle",
+  "type": "scatter",
+  "yAxisID": "yValues",
+}
 `;
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
 <section
   aria-label="Revision Row Details"
-  class="fgv9bhz"
-  id=":r2a:"
+  class="MuiBox-root css-13s8wtg"
+  id="«r4q»"
 >
   <div
-    class="fp3h4kr"
+    class="MuiStack-root css-1714cpj-MuiStack-root"
   >
+    <b>
+      linux1804-64-shippable-qr
+    </b>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
     <div
-      class="fc8wfj0"
-    >
-      <b>
-        linux1804-64-shippable-qr
-      </b>
-       
-      <br />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="f9mtzuo"
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 css-13620ud-MuiGrid-root"
     >
       <div
-        class="fnblmop"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-8 css-1p37y3n-MuiGrid-root"
       >
-        <div>
-          <b>
-            Base
-            :
-          </b>
-           
-          595.73
-           
-           (
-          firefox
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
+        <div
+          class="MuiStack-root css-1ucnu3w-MuiStack-root"
+        >
+          <h3
+            class="MuiTypography-root MuiTypography-h3 css-1mx3ha4-MuiTypography-root"
+            id="retrigger-modal-title"
+          >
+            Runs Density Distribution
+          </h3>
           <div
-            class="fyll6k4"
+            class="MuiBox-root css-72fd9l"
+          >
+            chartjs-line
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-4 css-1mppd14-MuiGrid-root"
           >
             <div
-              class="f1pfon3k"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b4085i-MuiGrid-root"
             >
-              587.15
+              <div>
+                <b>
+                  Base
+                  :
+                </b>
+                 
+                595.73
+                 
+                 (
+                firefox
+                )
+              </div>
+              <div
+                class="fzzwjz3"
+              >
+                <div>
+                  587.15
+                </div>
+                <div>
+                  593.04
+                </div>
+                <div>
+                  600.7
+                </div>
+                <div>
+                  602.04
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Copy results
+                </button>
+              </div>
+              <div>
+                <b>
+                  Mean
+                </b>
+                :
+                 
+                595.73
+                ,
+                 
+                <b>
+                  Median
+                </b>
+                :
+                 
+                596.87
+              </div>
+              <div
+                class="fnujpat"
+              >
+                6.96
+                 
+                 = 
+                1.17
+                % standard deviation
+              </div>
             </div>
             <div
-              class="f1pfon3k"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b4085i-MuiGrid-root"
             >
-              593.04
+              <div>
+                <b>
+                  New
+                  :
+                </b>
+                 
+                605.83
+                 
+                 (
+                chrome
+                )
+              </div>
+              <div
+                class="fzzwjz3"
+              >
+                <div>
+                  605.16
+                </div>
+                <div>
+                  605.31
+                </div>
+                <div>
+                  605.61
+                </div>
+                <div>
+                  605.81
+                </div>
+                <div>
+                  607.27
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13hwqcr-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Copy results
+                </button>
+              </div>
+              <div>
+                <b>
+                  Mean
+                </b>
+                :
+                 
+                605.83
+                ,
+                 
+                <b>
+                  Median
+                </b>
+                :
+                 
+                605.61
+              </div>
+              <div
+                class="fnujpat"
+              >
+                0.84
+                 
+                 = 
+                0.14
+                % standard deviation
+              </div>
             </div>
-            <div
-              class="f1pfon3k"
-            >
-              600.7
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              602.04
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation css-121m766-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-4 css-14eavsq-MuiGrid-root"
+      >
+        <div>
+          <div>
+            Only one run (consider more runs for greater confidence).
+             
           </div>
           <div>
             <b>
-              Mean
+              Base application
             </b>
-            :
-             
-            595.73
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            596.87
-          </div>
-          <div
-            class="fnujpat"
-          >
-            6.96
+            : 
+            firefox
              
-             = 
-            1.17
-            % standard deviation
-          </div>
-        </div>
-      </div>
-      <div
-        class="fnblmop"
-      >
-        <div>
-          <b>
-            New
-            :
-          </b>
-           
-          605.83
-           
-           (
-          chrome
-          )
-        </div>
-        <div>
-          chartjs-bubble
-        </div>
-        <div>
-          <div
-            class="fyll6k4"
-          >
-            <div
-              class="f1pfon3k"
-            >
-              605.16
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.31
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.61
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              605.81
-            </div>
-            <div
-              class="f1pfon3k"
-            >
-              607.27
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-disableElevation css-121m766-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Copy results
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
           </div>
           <div>
             <b>
-              Mean
+              New application
             </b>
-            :
-             
-            605.83
-            ,
-             
-            <b>
-              Median
-            </b>
-            :
-             
-            605.61
+            : 
+            chrome
+             
           </div>
           <div
-            class="fnujpat"
+            class="MuiBox-root css-1yf3lzr"
           >
-            0.84
-             
-             = 
-            0.14
-            % standard deviation
+            <b>
+              Comparison result
+            </b>
+            : 
+            worse
+             (
+            lower
+             is better)
+          </div>
+          <div
+            class="MuiBox-root css-epvm6"
+          >
+            <b>
+              Difference of means
+            </b>
+            : 
+            1.7
+            % (
+            10.1
+            )
+          </div>
+          <div
+            class="MuiBox-root css-epvm6"
+          >
+            <b>
+              Difference of medians
+            </b>
+            : 
+            1.46
+            % (
+            8.74
+            )
+          </div>
+          <div>
+            <div
+              class="MuiBox-root css-epvm6"
+            >
+              <b>
+                Confidence
+              </b>
+              : 
+              Low
+               (2.89)
+            </div>
+            <div
+              class="MuiBox-root css-bewn4"
+            >
+              <b>
+                **Note
+              </b>
+              : 
+              The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
+               
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="fyc4e7p"
-      >
-        chartjs-line
-      </div>
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-      />
-    </div>
-    <div
-      class="fc8wfj0"
-    >
-      <div>
-        Only one run (consider more runs for greater confidence).
-         
-      </div>
-      <div>
-        <b>
-          Base application
-        </b>
-        : 
-        firefox
-         
-      </div>
-      <div>
-        <b>
-          New application
-        </b>
-        : 
-        chrome
-         
-      </div>
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Comparison result
-      </b>
-      : 
-      worse
-       (
-      lower
-       is better)
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of means
-      </b>
-      : 
-      1.7
-      % (
-      10.1
-      )
-    </div>
-    <div
-      class="fheif50"
-    >
-      <b>
-        Difference of medians
-      </b>
-      : 
-      1.46
-      % (
-      8.74
-      )
-    </div>
-    <div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Confidence
-        </b>
-        : 
-        Low
-         (2.89)
-      </div>
-      <div
-        class="fj8mg7a"
-      >
-        <b>
-          **Note
-        </b>
-        : 
-        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
-         
       </div>
     </div>
   </div>
 </section>
+`;
+
+exports[`Results View Should display Base, New and Common graphs with tooltips: Dataset for scatter 1`] = `
+{
+  "backgroundColor": [Function],
+  "data": [
+    {
+      "x": 587.15,
+      "y": "Base",
+    },
+    {
+      "x": 593.04,
+      "y": "Base",
+    },
+    {
+      "x": 600.7,
+      "y": "Base",
+    },
+    {
+      "x": 602.04,
+      "y": "Base",
+    },
+    {
+      "x": 605.16,
+      "y": "New",
+    },
+    {
+      "x": 605.31,
+      "y": "New",
+    },
+    {
+      "x": 605.61,
+      "y": "New",
+    },
+    {
+      "x": 605.81,
+      "y": "New",
+    },
+    {
+      "x": 607.27,
+      "y": "New",
+    },
+  ],
+  "pointRadius": 7,
+  "pointStyle": "triangle",
+  "type": "scatter",
+  "yAxisID": "yValues",
+}
 `;
 
 exports[`Results View Should update url with new title and the table with the new title: After clicking the Save button 1`] = `
@@ -882,18 +624,18 @@ exports[`Results View Should update url with new title and the table with the ne
   class="edit-title-form"
 >
   <div
-    class="MuiFormControl-root MuiFormControl-fullWidth css-1xzgzyi-MuiFormControl-root"
+    class="MuiFormControl-root MuiFormControl-fullWidth css-1l7yi17-MuiFormControl-root"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root edit-results-title-text-field css-dlsp48-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root edit-results-title-text-field css-1me4ib9-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-n4ux5c-MuiInputBase-root-MuiOutlinedInput-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-nxnc2c-MuiInputBase-root-MuiOutlinedInput-root"
       >
         <input
           aria-invalid="false"
           aria-label="Write a title for this comparison"
-          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1ajdsht-MuiInputBase-input-MuiOutlinedInput-input"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1y5dgo3-MuiInputBase-input-MuiOutlinedInput-input"
           id="results-title-input"
           placeholder="Write a title for this comparison"
           type="text"
@@ -901,12 +643,13 @@ exports[`Results View Should update url with new title and the table with the ne
         />
         <fieldset
           aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="css-ihdtdm"
+            class="css-w4cd9x"
           >
             <span
+              aria-hidden="true"
               class="notranslate"
             >
               ​
@@ -919,41 +662,21 @@ exports[`Results View Should update url with new title and the table with the ne
       class="edit-title-btns MuiBox-root css-58oy1n"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-nrxrys-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >
         Cancel
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-nrxrys-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="submit"
       >
         Save
         <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        >
-          <span
-            class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-            style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-          >
-            <span
-              class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-            />
-          </span>
-          <span
-            class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
-            style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
-          >
-            <span
-              class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
-            />
-          </span>
-        </span>
+          class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
+        />
       </button>
     </div>
   </div>
@@ -970,62 +693,63 @@ exports[`Results View The table should match snapshot and other elements should 
     class="MuiBox-root css-1rw0zd7"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 f1wpas00 css-1e9xsub-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 f1wpas00 css-13620ud-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-fo77co-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-6 MuiGrid-grid-xs-12 css-dq0w3o-MuiGrid-root"
       >
         <form
           aria-label="Search by title, platform, revision or options"
           class="MuiBox-root css-1wxqtyp"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root css-1cocm2p-MuiFormControl-root-MuiTextField-root"
+            class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-m7khg8-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <div
-                class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-ittuaa-MuiInputAdornment-root"
+                class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1nowbqt-MuiInputAdornment-root"
               >
                 <span
+                  aria-hidden="true"
                   class="notranslate"
                 >
                   ​
                 </span>
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                   data-testid="SearchIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
                   />
                 </svg>
               </div>
               <input
                 aria-invalid="false"
                 aria-label="Search by title, platform, revision or options"
-                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                id=":r6:"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
+                id="«re»"
                 placeholder="Search results"
                 type="text"
                 value=""
               />
               <div
-                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-elo8k2-MuiInputAdornment-root"
               >
                 <button
                   aria-label="Clear the search input"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeSmall css-151ffkv-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeSmall css-13mnts1-MuiButtonBase-root-MuiIconButton-root"
                   tabindex="0"
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                     data-testid="CloseIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -1034,19 +758,17 @@ exports[`Results View The table should match snapshot and other elements should 
                       d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                     />
                   </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-ihdtdm"
+                  class="css-w4cd9x"
                 >
                   <span
+                    aria-hidden="true"
                     class="notranslate"
                   >
                     ​
@@ -1058,13 +780,13 @@ exports[`Results View The table should match snapshot and other elements should 
         </form>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-t3of1j-MuiGrid-root"
       >
         <div
-          class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
+          class="MuiFormControl-root css-7549ua-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select css-1iil27j-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-ewmjmk-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             data-testid="framework-select"
           >
             <div
@@ -1072,23 +794,24 @@ exports[`Results View The table should match snapshot and other elements should 
               aria-haspopup="listbox"
               aria-label="Framework"
               aria-labelledby="mui-component-select-framework"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-128ypvr-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-component-select-framework"
-              role="button"
+              role="combobox"
               tabindex="0"
             >
               build_metrics
             </div>
             <input
               aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              aria-invalid="false"
+              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
               name="framework"
               tabindex="-1"
               value="2"
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-w4piji-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hstfqs-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1099,12 +822,13 @@ exports[`Results View The table should match snapshot and other elements should 
             </svg>
             <fieldset
               aria-hidden="true"
-              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="css-ihdtdm"
+                class="css-w4cd9x"
               >
                 <span
+                  aria-hidden="true"
                   class="notranslate"
                 >
                   ​
@@ -1115,20 +839,21 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-t3of1j-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-0"
           data-testid="revision-select"
         >
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t css-1iil27j-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-ewmjmk-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
           >
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-              role="button"
+              aria-label="Filter by revision"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-128ypvr-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              role="combobox"
               tabindex="0"
             >
               <div
@@ -1136,19 +861,19 @@ exports[`Results View The table should match snapshot and other elements should 
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                     data-testid="SortIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+                      d="M3 18h6v-2H3zM3 6v2h18V6zm0 7h12v-2H3z"
                     />
                   </svg>
                 </svg>
@@ -1157,13 +882,14 @@ exports[`Results View The table should match snapshot and other elements should 
             </div>
             <input
               aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              aria-invalid="false"
+              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
               tabindex="-1"
               value="all-revisions"
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-w4piji-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hstfqs-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1174,12 +900,13 @@ exports[`Results View The table should match snapshot and other elements should 
             </svg>
             <fieldset
               aria-hidden="true"
-              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="css-ihdtdm"
+                class="css-w4cd9x"
               >
                 <span
+                  aria-hidden="true"
                   class="notranslate"
                 >
                   ​
@@ -1190,20 +917,17 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-t3of1j-MuiGrid-root"
       >
         <div
           class="f6hg2jo"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1y7fc34-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
             Download JSON
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -1220,7 +944,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Platform (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-9vteyo-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
           data-mui-internal-clone-element="true"
           tabindex="0"
           type="button"
@@ -1236,18 +960,15 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
             data-testid="KeyboardArrowDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
             />
           </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
         </button>
       </div>
       <div
@@ -1285,7 +1006,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Status (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-9vteyo-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
           data-mui-internal-clone-element="true"
           tabindex="0"
           type="button"
@@ -1301,18 +1022,15 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
             data-testid="KeyboardArrowDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
             />
           </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
         </button>
       </div>
       <div
@@ -1326,28 +1044,25 @@ exports[`Results View The table should match snapshot and other elements should 
         >
           <button
             aria-label="Delta (Click to sort by this column)"
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-cdzw26-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
             <svg
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
               data-testid="SwapVertIcon"
               focusable="false"
               role="img"
               viewBox="0 0 24 24"
             >
               <path
-                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
                 Not sorted by Delta
               </title>
             </svg>
             Delta
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
           </button>
         </span>
       </div>
@@ -1356,37 +1071,34 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <div
-          class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
+          class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
           role="group"
         >
           <button
             aria-label="Confidence (Click to sort by this column)"
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-dtssjq-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
             <svg
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
               data-testid="SwapVertIcon"
               focusable="false"
               role="img"
               viewBox="0 0 24 24"
             >
               <path
-                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
                 Not sorted by Confidence
               </title>
             </svg>
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
           </button>
           <button
             aria-haspopup="true"
             aria-label="Confidence (Click to filter values)"
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-9vteyo-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
             data-mui-internal-clone-element="true"
             tabindex="0"
             type="button"
@@ -1402,18 +1114,15 @@ exports[`Results View The table should match snapshot and other elements should 
             </div>
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
               data-testid="KeyboardArrowDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
               />
             </svg>
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -1470,7 +1179,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 <strong>
                   <a
                     aria-label="link to suite documentation"
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
                     href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                     target="_blank"
                     title="Link to suite documentation  "
@@ -1484,7 +1193,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fsudoo"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                     target="_blank"
                     title="open treeherder view for spam"
@@ -1496,25 +1205,22 @@ exports[`Results View The table should match snapshot and other elements should 
                   >
                     <button
                       aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1b34gs1-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="copy-icon"
                       tabindex="0"
                       type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
                         data-testid="ContentCopyIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2m0 16H8V7h11z"
                         />
                       </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </span>
                 </div>
@@ -1553,7 +1259,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow f1r4bj33 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1568,7 +1274,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                       focusable="false"
                       viewBox="0 0 34 34"
                     >
@@ -1612,13 +1318,13 @@ exports[`Results View The table should match snapshot and other elements should 
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-1uz6t4g-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-r7hube-MuiSvgIcon-root"
                       data-testid="ThumbDownIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"
+                        d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2m4 0v12h4V3z"
                       />
                     </svg>
                     Regression
@@ -1639,13 +1345,13 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o6fkbf-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-16zwf6a-MuiSvgIcon-root"
                     data-testid="DragHandleIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
+                      d="M20 9H4v2h16zM4 15h16v-2H4z"
                     />
                   </svg>
                   Medium
@@ -1686,7 +1392,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       class="graph-link-button-container"
                     >
                       <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                         href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
                         tabindex="0"
                         target="_blank"
@@ -1694,18 +1400,15 @@ exports[`Results View The table should match snapshot and other elements should 
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                           data-testid="TimelineIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
                           />
                         </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
                       </a>
                     </div>
                   </div>
@@ -1718,31 +1421,28 @@ exports[`Results View The table should match snapshot and other elements should 
                       class="retrigger-button-container"
                     >
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                         tabindex="0"
                         title="retrigger jobs"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                           data-testid="RefreshOutlinedIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"
                           />
                         </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
                       </button>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="expand-button cell"
+                  class="cell MuiBox-root css-172osot"
                   role="cell"
                 >
                   <div
@@ -1750,16 +1450,16 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls=":re:"
+                      aria-controls="«r10»"
                       aria-expanded="false"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
                       type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                         data-testid="ExpandMoreIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -1768,15 +1468,12 @@ exports[`Results View The table should match snapshot and other elements should 
                           d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
                         />
                       </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow f1r4bj33 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1791,7 +1488,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                       data-testid="AppleIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -1836,13 +1533,13 @@ exports[`Results View The table should match snapshot and other elements should 
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-p35293-MuiSvgIcon-root"
                       data-testid="ThumbUpIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+                        d="M1 21h4V9H1zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"
                       />
                     </svg>
                     Improvement
@@ -1863,13 +1560,13 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-qms0sm-MuiSvgIcon-root"
                     data-testid="KeyboardArrowDownIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
                     />
                   </svg>
                   Low
@@ -1910,7 +1607,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       class="graph-link-button-container"
                     >
                       <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                         href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
                         tabindex="0"
                         target="_blank"
@@ -1918,18 +1615,15 @@ exports[`Results View The table should match snapshot and other elements should 
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                           data-testid="TimelineIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
                           />
                         </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
                       </a>
                     </div>
                   </div>
@@ -1942,31 +1636,28 @@ exports[`Results View The table should match snapshot and other elements should 
                       class="retrigger-button-container"
                     >
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                         tabindex="0"
                         title="retrigger jobs"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                           data-testid="RefreshOutlinedIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"
                           />
                         </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
                       </button>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="expand-button cell"
+                  class="cell MuiBox-root css-172osot"
                   role="cell"
                 >
                   <div
@@ -1974,16 +1665,16 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls=":ri:"
+                      aria-controls="«r17»"
                       aria-expanded="false"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
                       type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                         data-testid="ExpandMoreIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -1992,15 +1683,12 @@ exports[`Results View The table should match snapshot and other elements should 
                           d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
                         />
                       </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow f1r4bj33 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -2015,7 +1703,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                       focusable="false"
                       viewBox="0 0 30 30"
                     >
@@ -2056,7 +1744,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   <div
-                    class="status-hint  MuiBox-root css-1dj4wrv"
+                    class="status-hint MuiBox-root css-1dj4wrv"
                   >
                     -
                   </div>
@@ -2112,7 +1800,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       class="graph-link-button-container"
                     >
                       <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                         href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                         tabindex="0"
                         target="_blank"
@@ -2120,18 +1808,15 @@ exports[`Results View The table should match snapshot and other elements should 
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                           data-testid="TimelineIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
                           />
                         </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
                       </a>
                     </div>
                   </div>
@@ -2144,31 +1829,28 @@ exports[`Results View The table should match snapshot and other elements should 
                       class="retrigger-button-container"
                     >
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                         tabindex="0"
                         title="retrigger jobs"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                           data-testid="RefreshOutlinedIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"
                           />
                         </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
                       </button>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="expand-button cell"
+                  class="cell MuiBox-root css-172osot"
                   role="cell"
                 >
                   <div
@@ -2176,16 +1858,16 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls=":rm:"
+                      aria-controls="«r1e»"
                       aria-expanded="false"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
                       type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                         data-testid="ExpandMoreIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -2194,15 +1876,12 @@ exports[`Results View The table should match snapshot and other elements should 
                           d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
                         />
                       </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow f1r4bj33 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -2217,7 +1896,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                       focusable="false"
                       viewBox="0 0 30 30"
                     >
@@ -2258,7 +1937,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   <div
-                    class="status-hint  MuiBox-root css-1dj4wrv"
+                    class="status-hint MuiBox-root css-1dj4wrv"
                   >
                     -
                   </div>
@@ -2278,7 +1957,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-18c6igo-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1waqt7h-MuiSvgIcon-root"
                     data-testid="KeyboardArrowUpIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -2325,7 +2004,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       class="graph-link-button-container"
                     >
                       <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                         href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                         tabindex="0"
                         target="_blank"
@@ -2333,18 +2012,15 @@ exports[`Results View The table should match snapshot and other elements should 
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                           data-testid="TimelineIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
                           />
                         </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
                       </a>
                     </div>
                   </div>
@@ -2357,31 +2033,28 @@ exports[`Results View The table should match snapshot and other elements should 
                       class="retrigger-button-container"
                     >
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                         tabindex="0"
                         title="retrigger jobs"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                           data-testid="RefreshOutlinedIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"
                           />
                         </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
                       </button>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="expand-button cell"
+                  class="cell MuiBox-root css-172osot"
                   role="cell"
                 >
                   <div
@@ -2389,16 +2062,16 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls=":rq:"
+                      aria-controls="«r1l»"
                       aria-expanded="false"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
                       type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
                         data-testid="ExpandMoreIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -2407,9 +2080,6 @@ exports[`Results View The table should match snapshot and other elements should 
                           d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
                         />
                       </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
                     </button>
                   </div>
                 </div>
@@ -2429,9 +2099,9 @@ exports[`Results View renders framework dropdown in closed condition 1`] = `
   aria-haspopup="listbox"
   aria-label="Framework"
   aria-labelledby="mui-component-select-framework"
-  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-128ypvr-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
   id="mui-component-select-framework"
-  role="button"
+  role="combobox"
   tabindex="0"
 >
   build_metrics

@@ -9,15 +9,16 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-1qrenvf-MuiPaper-root-MuiAlert-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard fld8l4l css-gb7yta-MuiPaper-root-MuiAlert-root"
       role="alert"
+      style="--Paper-shadow: none;"
     >
       <div
-        class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+        class="MuiAlert-icon css-vab54s-MuiAlert-icon"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
           data-testid="ReportProblemOutlinedIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -28,7 +29,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         </svg>
       </div>
       <div
-        class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+        class="MuiAlert-message css-zioonp-MuiAlert-message"
       >
         <div
           class="banner-text"
@@ -36,7 +37,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
             href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
             target="_blank"
           >
@@ -46,7 +47,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           Find us at
            
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
             href="https://matrix.to/#/#perfcompare:mozilla.org"
             target="_blank"
           >
@@ -60,43 +61,40 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
         >
           <div
-            class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
+            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
           >
             <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-z8chs3-MuiFormControlLabel-root"
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
             >
               <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
+                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1n50hym-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
                     id="Dark mode"
                     name="toggle-dark-mode"
                     type="checkbox"
                   />
                   <span
-                    class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-                  />
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1k2yhz0-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -107,7 +105,8 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
+            style="--Typography-textAlign: center;"
           >
             PerfCompare
           </h1>
@@ -118,15 +117,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       >
         <a
           aria-label="link to home"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
           href="/"
         >
           <div
-            class="css-1d9cypr-MuiStack-root"
+            class="MuiStack-root css-1d9cypr-MuiStack-root"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
               data-testid="ChevronLeftIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -267,15 +266,16 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-1qrenvf-MuiPaper-root-MuiAlert-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard fld8l4l css-gb7yta-MuiPaper-root-MuiAlert-root"
       role="alert"
+      style="--Paper-shadow: none;"
     >
       <div
-        class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+        class="MuiAlert-icon css-vab54s-MuiAlert-icon"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
           data-testid="ReportProblemOutlinedIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -286,7 +286,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         </svg>
       </div>
       <div
-        class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+        class="MuiAlert-message css-zioonp-MuiAlert-message"
       >
         <div
           class="banner-text"
@@ -294,7 +294,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
             href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
             target="_blank"
           >
@@ -304,7 +304,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           Find us at
            
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
             href="https://matrix.to/#/#perfcompare:mozilla.org"
             target="_blank"
           >
@@ -318,43 +318,40 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
         >
           <div
-            class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
+            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
           >
             <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-z8chs3-MuiFormControlLabel-root"
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
             >
               <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
+                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1n50hym-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
                     id="Dark mode"
                     name="toggle-dark-mode"
                     type="checkbox"
                   />
                   <span
-                    class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-                  />
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1k2yhz0-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -365,7 +362,8 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
+            style="--Typography-textAlign: center;"
           >
             PerfCompare
           </h1>
@@ -376,15 +374,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       >
         <a
           aria-label="link to home"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
           href="/"
         >
           <div
-            class="css-1d9cypr-MuiStack-root"
+            class="MuiStack-root css-1d9cypr-MuiStack-root"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
               data-testid="ChevronLeftIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -420,15 +418,16 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-1qrenvf-MuiPaper-root-MuiAlert-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard fld8l4l css-gb7yta-MuiPaper-root-MuiAlert-root"
       role="alert"
+      style="--Paper-shadow: none;"
     >
       <div
-        class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+        class="MuiAlert-icon css-vab54s-MuiAlert-icon"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
           data-testid="ReportProblemOutlinedIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -439,7 +438,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         </svg>
       </div>
       <div
-        class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+        class="MuiAlert-message css-zioonp-MuiAlert-message"
       >
         <div
           class="banner-text"
@@ -447,7 +446,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
             href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
             target="_blank"
           >
@@ -457,7 +456,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           Find us at
            
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
             href="https://matrix.to/#/#perfcompare:mozilla.org"
             target="_blank"
           >
@@ -471,43 +470,40 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
         >
           <div
-            class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
+            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
           >
             <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-z8chs3-MuiFormControlLabel-root"
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
             >
               <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
+                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1n50hym-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
                     id="Dark mode"
                     name="toggle-dark-mode"
                     type="checkbox"
                   />
                   <span
-                    class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-                  />
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1k2yhz0-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -518,7 +514,8 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
+            style="--Typography-textAlign: center;"
           >
             PerfCompare
           </h1>
@@ -529,15 +526,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       >
         <a
           aria-label="link to home"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
           href="/"
         >
           <div
-            class="css-1d9cypr-MuiStack-root"
+            class="MuiStack-root css-1d9cypr-MuiStack-root"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
               data-testid="ChevronLeftIcon"
               focusable="false"
               viewBox="0 0 24 24"

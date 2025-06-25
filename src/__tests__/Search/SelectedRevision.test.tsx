@@ -1,15 +1,11 @@
+import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import {
-  screen,
-  within,
-  renderWithRouter,
-  FetchMockSandbox,
-} from '../utils/test-utils';
+import { screen, within, renderWithRouter } from '../utils/test-utils';
 
 async function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
@@ -24,12 +20,9 @@ describe('SelectedRevision', () => {
   const { testData } = getTestData();
 
   beforeEach(() => {
-    (global.fetch as FetchMockSandbox).get(
-      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-      {
-        results: testData,
-      },
-    );
+    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+      results: testData,
+    });
   });
 
   it('should show the selected checked revisions once a result checkbox is clicked, and remove it when X button is clicked', async () => {
@@ -69,7 +62,7 @@ describe('SelectedRevision', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
-    const baseDropdown = screen.getByRole('button', { name: 'Base' });
+    const baseDropdown = screen.getByRole('combobox', { name: 'Base' });
     expect(baseDropdown).toHaveTextContent('try');
 
     const firstSearchInput = screen.getAllByPlaceholderText(
@@ -82,7 +75,9 @@ describe('SelectedRevision', () => {
       }),
     );
 
-    const newDropdown = screen.getAllByRole('button', { name: 'Revisions' })[0];
+    const newDropdown = screen.getByRole('combobox', {
+      name: 'Revisions',
+    });
     await user.click(newDropdown);
     const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',

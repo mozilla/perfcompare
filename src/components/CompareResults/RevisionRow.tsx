@@ -13,12 +13,11 @@ import { IconButton, Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
-import RetriggerButton from './Retrigger/RetriggerButton';
+import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Colors, FontSize, Spacing } from '../../styles';
+import { FontSize, Spacing } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
 import { formatNumber } from '../../utils/format';
 import {
@@ -31,19 +30,13 @@ import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
 
-const revisionsRow = {
-  borderRadius: '4px 0px 0px 4px',
-  display: 'grid',
-  margin: `${Spacing.Small}px 0px 0px 0px`,
-};
-
-const typography = {
+const typography = style({
   fontFamily: 'SF Pro',
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '16px',
   lineHeight: '1.5',
-};
+});
 
 const browserName = style({
   display: 'flex',
@@ -53,151 +46,71 @@ const browserName = style({
   padding: '10px 0px',
 });
 
-const stylesLight = {
-  revisionRow: style({
-    ...revisionsRow,
-    backgroundColor: Colors.Background200,
-    $nest: {
-      '.cell': {
-        display: 'flex',
-        padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-      '.confidence': {
-        gap: '10px',
-        justifyContent: 'start',
-        paddingInlineStart: '15%',
-      },
-      '.expand-button-container': {
-        justifyContent: 'right',
-      },
-      '.platform': {
-        borderRadius: '4px 0 0 4px',
-        paddingLeft: Spacing.xLarge,
-        justifyContent: 'left',
-      },
-      '.platform-container': {
-        alignItems: 'flex-end',
-        display: 'flex',
-      },
-      '.retrigger-button': {
-        borderRadius: '0px 4px 4px 0px',
-        cursor: 'not-allowed',
-      },
-      '.status': {
-        justifyContent: 'center',
-      },
-      '.total-runs': {
-        gap: '8px',
-      },
-      '.row-buttons': {
-        borderRadius: '0px 4px 4px 0px',
-        display: 'flex',
-        justifyContent: 'flex-end',
-        $nest: {
-          '.download': {
-            cursor: 'not-allowed',
-          },
+const revisionRow = style({
+  borderRadius: '4px 0px 0px 4px',
+  display: 'grid',
+  margin: `${Spacing.Small}px 0px 0px 0px`,
+  $nest: {
+    '.cell': {
+      display: 'flex',
+      padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    '.confidence': {
+      gap: '10px',
+      justifyContent: 'start',
+      paddingInlineStart: '15%',
+    },
+    '.expand-button-container': {
+      justifyContent: 'right',
+    },
+    '.platform': {
+      borderRadius: '4px 0 0 4px',
+      paddingLeft: Spacing.xLarge,
+      justifyContent: 'left',
+    },
+    '.platform-container': {
+      alignItems: 'flex-end',
+      display: 'flex',
+    },
+    '.retrigger-button': {
+      borderRadius: '0px 4px 4px 0px',
+      cursor: 'not-allowed',
+    },
+    '.status': {
+      justifyContent: 'center',
+    },
+    '.total-runs': {
+      gap: '8px',
+    },
+    '.row-buttons': {
+      borderRadius: '0px 4px 4px 0px',
+      display: 'flex',
+      justifyContent: 'flex-end',
+      $nest: {
+        '.download': {
+          cursor: 'not-allowed',
         },
       },
-      '.expand-button': {
-        backgroundColor: Colors.Background300,
-      },
-      '.status-hint': {
-        display: 'inline-flex',
-        gap: '6px',
-        borderRadius: '4px',
-        padding: '4px 10px',
-      },
-
-      '.status-hint .MuiSvgIcon-root': {
-        height: '16px',
-      },
-
-      '.status-hint-regression .MuiSvgIcon-root': {
-        // We need to move the icon a bit lower so that it _looks_ centered.
-        marginTop: '2px',
-      },
     },
-  }),
-  typography: style({
-    ...typography,
-  }),
-};
-
-const stylesDark = {
-  revisionRow: style({
-    ...revisionsRow,
-    backgroundColor: Colors.Background200Dark,
-    $nest: {
-      '.cell': {
-        display: 'flex',
-        alignItems: 'center',
-        padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
-        justifyContent: 'center',
-      },
-      '.confidence': {
-        gap: '10px',
-        justifyContent: 'start',
-        paddingInlineStart: '15%',
-      },
-      '.expand-button-container': {
-        justifyContent: 'right',
-      },
-      '.platform': {
-        borderRadius: '4px 0 0 4px',
-        paddingLeft: Spacing.xLarge, // Synchronize with its header
-        justifyContent: 'left',
-      },
-      '.platform-container': {
-        alignItems: 'flex-end',
-        display: 'flex',
-      },
-      '.retrigger-button': {
-        borderRadius: '0px 4px 4px 0px',
-        cursor: 'not-allowed',
-      },
-      '.status': {
-        justifyContent: 'center',
-      },
-      '.total-runs': {
-        gap: '8px',
-      },
-      '.row-buttons': {
-        borderRadius: '0px 4px 4px 0px',
-        display: 'flex',
-        justifyContent: 'flex-end',
-        $nest: {
-          '.download': {
-            cursor: 'not-allowed',
-          },
-        },
-      },
-      '.expand-button': {
-        backgroundColor: Colors.Background100Dark,
-      },
-      '.status-hint': {
-        display: 'inline-flex',
-        gap: '4px',
-        borderRadius: '4px',
-        padding: '4px 10px',
-      },
-
-      '.status-hint .MuiSvgIcon-root': {
-        height: '16px',
-      },
-
-      '.status-hint-regression .MuiSvgIcon-root': {
-        // We need to move the icon a bit lower so that it _looks_ centered.
-        marginTop: '2px',
-      },
+    '.status-hint': {
+      display: 'inline-flex',
+      gap: '6px',
+      borderRadius: '4px',
+      padding: '4px 10px',
     },
-  }),
-  typography: style({
-    ...typography,
-  }),
-};
+
+    '.status-hint .MuiSvgIcon-root': {
+      height: '16px',
+    },
+
+    '.status-hint-regression .MuiSvgIcon-root': {
+      // We need to move the icon a bit lower so that it _looks_ centered.
+      marginTop: '2px',
+    },
+  },
+});
 
 function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
@@ -313,15 +226,11 @@ function RevisionRow(props: RevisionRowProps) {
       ? getSubtestsCompareWithBaseLink(result)
       : getSubtestsCompareOverTimeLink(result);
 
-  const themeMode = useAppSelector((state) => state.theme.mode);
-
-  const styles = themeMode === 'light' ? stylesLight : stylesDark;
-
   return (
     <>
       <Box
-        className={`revisionRow ${styles.revisionRow} ${styles.typography}`}
-        sx={{ gridTemplateColumns }}
+        className={`revisionRow ${revisionRow} ${typography}`}
+        sx={{ gridTemplateColumns, backgroundColor: 'revisionRow.background' }}
         role='row'
       >
         <div className='platform cell' role='cell'>
@@ -433,7 +342,11 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </div>
         </div>
-        <div className='expand-button cell' role='cell'>
+        <Box
+          className='cell'
+          role='cell'
+          sx={{ backgroundColor: 'background.default' }}
+        >
           <div
             className='expand-button-container'
             onClick={toggleIsExpanded}
@@ -453,7 +366,7 @@ function RevisionRow(props: RevisionRowProps) {
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
           </div>
-        </div>
+        </Box>
       </Box>
       {expanded && <RevisionRowExpandable id={id} result={result} />}
     </>
