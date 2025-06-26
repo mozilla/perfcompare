@@ -89,7 +89,7 @@ describe('Search by title/test name', () => {
     const form = await screen.findByRole('form', { name: /Search by title/ });
     expect(form).toMatchSnapshot();
 
-    const searchInput = await screen.findByRole('textbox', {
+    const searchInput = await screen.findByRole('searchbox', {
       name: /Search by title/,
     });
 
@@ -115,7 +115,7 @@ describe('Search by title/test name', () => {
   it('should filter various properties', async () => {
     await setupAndRenderComponent();
 
-    const searchInput = await screen.findByRole('textbox', {
+    const searchInput = await screen.findByRole('searchbox', {
       name: /Search by title/,
     });
 
@@ -168,7 +168,7 @@ describe('Search by title/test name', () => {
   it('should filter by several terms', async () => {
     await setupAndRenderComponent();
 
-    const searchInput = await screen.findByRole('textbox', {
+    const searchInput = await screen.findByRole('searchbox', {
       name: /Search by title/,
     });
 
@@ -192,7 +192,7 @@ describe('Search by title/test name', () => {
   it('should filter negatively', async () => {
     await setupAndRenderComponent();
 
-    const searchInput = await screen.findByRole('textbox', {
+    const searchInput = await screen.findByRole('searchbox', {
       name: /Search by title/,
     });
 
@@ -214,7 +214,7 @@ describe('Search by title/test name', () => {
   it('should reset the search input after clicking on the clear button', async () => {
     await setupAndRenderComponent();
 
-    const searchInput = await screen.findByRole('textbox', {
+    const searchInput = await screen.findByRole('searchbox', {
       name: /Search by title/,
     });
 
@@ -236,7 +236,7 @@ describe('Search by title/test name', () => {
   it('should update the url search params properly', async () => {
     await setupAndRenderComponent();
 
-    const searchInput = await screen.findByRole('textbox', {
+    const searchInput = await screen.findByRole('searchbox', {
       name: /Search by title/,
     });
 

@@ -124,8 +124,16 @@ export const Strings = {
       },
     },
     searchResultsInput: {
-      placeholder: 'Search results',
+      placeholder: 'Filter results',
       label: 'Search by title, platform, revision or options',
+      description:
+        'Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word.',
+    },
+    subtestsSearchResultsInput: {
+      placeholder: 'Filter results',
+      label: 'Search by title',
+      description:
+        'Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word.',
     },
     retrigger: {
       signin: {
