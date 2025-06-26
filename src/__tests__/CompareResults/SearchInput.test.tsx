@@ -189,6 +189,28 @@ describe('Search by title/test name', () => {
     expect(screen.getByText('rabbit')).toBeInTheDocument();
   });
 
+  it('should filter negatively', async () => {
+    await setupAndRenderComponent();
+
+    const searchInput = await screen.findByRole('textbox', {
+      name: /Search by title/,
+    });
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // With the mock setup in this test, there are 3 results with different
+    // properties.
+    await user.type(searchInput, 'a11y{Enter}');
+    expect(screen.queryByText('swallowbird')).not.toBeInTheDocument();
+    expect(screen.getByText('spam')).toBeInTheDocument();
+    expect(screen.getByText('rabbit')).toBeInTheDocument();
+
+    await user.type(searchInput, ' -Windows{Enter}');
+    expect(screen.queryByText('rabbit')).not.toBeInTheDocument();
+    expect(screen.getByText('spam')).toBeInTheDocument();
+  });
+
   it('should reset the search input after clicking on the clear button', async () => {
     await setupAndRenderComponent();
 

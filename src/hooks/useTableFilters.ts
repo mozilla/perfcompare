@@ -160,6 +160,8 @@ function resultMatchesColumnFilter(
 //
 // Note that the argument searchTerm can be made of several terms separated with space
 // characters, this works as a AND operation.
+// This also supports negative filtering if one of the search terms starts with
+// a "-" character.
 export function filterResults(
   columnsConfiguration: CompareResultsTableConfig,
   results: CompareResultsItem[],
@@ -182,7 +184,14 @@ export function filterResults(
 
   return results.filter((result) => {
     for (const searchTerm of searchTerms) {
-      if (!resultMatchesSearchTerm(result, searchTerm)) {
+      if (searchTerm.startsWith('-')) {
+        if (searchTerm.length > 1) {
+          const negativeSearchTerm = searchTerm.slice(1);
+          if (resultMatchesSearchTerm(result, negativeSearchTerm)) {
+            return false;
+          }
+        }
+      } else if (!resultMatchesSearchTerm(result, searchTerm)) {
         return false;
       }
     }
