@@ -26,6 +26,16 @@ function setUpTestData() {
     },
     {
       ...baseCompareData,
+      new_rev: 'rabbit',
+      platform: 'windows10-64-2004-shippable-qr',
+      suite: 'A11yr', // The capital letter is on purpose, to test case-insensitive search
+      header_name: 'a11yr dhtml.html opt e10s fission stylo webrender',
+      test: 'dhtml.html',
+      option_name: 'opt',
+      extra_options: 'e10s fission stylo webrender',
+    },
+    {
+      ...baseCompareData,
       new_rev: 'swallowbird',
       platform: 'linux1804-64-shippable-qr',
       suite: 'glvideo',
@@ -112,8 +122,8 @@ describe('Search by title/test name', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
-    // With the mock setup in this test, there are 2 results with different
-    // properties. In this test we make each of the input show and disappear in
+    // With the mock setup in this test, there are 3 results with different
+    // properties. In this test we make some of the results show and disappear in
     // an alternance, by searching for the values in the different properties.
     await user.type(searchInput, 'swallowbi');
     await waitFor(() =>
@@ -155,6 +165,30 @@ describe('Search by title/test name', () => {
     expect(await screen.findByText('No results found')).toBeInTheDocument();
   });
 
+  it('should filter by several terms', async () => {
+    await setupAndRenderComponent();
+
+    const searchInput = await screen.findByRole('textbox', {
+      name: /Search by title/,
+    });
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // With the mock setup in this test, there are 3 results with different
+    // properties.
+    await user.type(searchInput, 'a11y');
+    await waitFor(() =>
+      expect(screen.queryByText('swallowbird')).not.toBeInTheDocument(),
+    );
+    expect(screen.getByText('spam')).toBeInTheDocument();
+    expect(screen.getByText('rabbit')).toBeInTheDocument();
+
+    await user.type(searchInput, ' Windows{Enter}');
+    expect(screen.queryByText('spam')).not.toBeInTheDocument();
+    expect(screen.getByText('rabbit')).toBeInTheDocument();
+  });
+
   it('should reset the search input after clicking on the clear button', async () => {
     await setupAndRenderComponent();
 
@@ -165,9 +199,6 @@ describe('Search by title/test name', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
-    // With the mock setup in this test, there are 2 results with different
-    // properties. In this test we make each of the input show and disappear in
-    // an alternance, by searching for the values in the different properties.
     await user.type(searchInput, 'swallowbi');
     await waitFor(() =>
       expect(screen.queryByText('spam')).not.toBeInTheDocument(),
@@ -190,9 +221,6 @@ describe('Search by title/test name', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
-    // With the mock setup in this test, there are 2 results with different
-    // properties. In this test we make each of the input show and disappear in
-    // an alternance, by searching for the values in the different properties.
     await user.type(searchInput, 'glvideo');
     await waitFor(() =>
       expect(screen.queryByText('a11yr')).not.toBeInTheDocument(),
@@ -208,6 +236,10 @@ describe('Search by title/test name', () => {
     await user.type(searchInput, 'a11yr{Enter}');
     // With enter the update should happen instantly.
     expect(window.location.search).toContain('&search=a11yr');
+
+    await user.type(searchInput, ' macos{Enter}');
+    // With enter the update should happen instantly.
+    expect(window.location.search).toContain('&search=a11yr+macos');
 
     const clearButton = screen.getByRole('button', {
       name: 'Clear the search input',

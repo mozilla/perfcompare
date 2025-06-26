@@ -88,20 +88,19 @@ function processResults(
   ]);
 }
 
-// This function implements the simple string search. It is passed to
-// filterResults.
+// This function implements the simple string search. It is passed to filterResults.
+// searchTerm needs to be lowerCased already.
 function resultMatchesSearchTerm(
   result: CompareResultsItem,
-  searchTerm: string,
+  lowerCasedSearchTerm: string,
 ) {
-  searchTerm = searchTerm.toLowerCase();
   return (
-    result.suite.toLowerCase().includes(searchTerm) ||
-    result.extra_options.toLowerCase().includes(searchTerm) ||
-    result.option_name.toLowerCase().includes(searchTerm) ||
-    result.test.toLowerCase().includes(searchTerm) ||
-    result.new_rev.toLowerCase().includes(searchTerm) ||
-    result.platform.toLowerCase().includes(searchTerm)
+    result.suite.toLowerCase().includes(lowerCasedSearchTerm) ||
+    result.extra_options.toLowerCase().includes(lowerCasedSearchTerm) ||
+    result.option_name.toLowerCase().includes(lowerCasedSearchTerm) ||
+    result.test.toLowerCase().includes(lowerCasedSearchTerm) ||
+    result.new_rev.toLowerCase().includes(lowerCasedSearchTerm) ||
+    result.platform.toLowerCase().includes(lowerCasedSearchTerm)
   );
 }
 

@@ -157,6 +157,9 @@ function resultMatchesColumnFilter(
 
 // This function filters the results array using both the searchTerm and the
 // tableFilters. The tableFilters is a map ColumnID -> Set of values to add.
+//
+// Note that the argument searchTerm can be made of several terms separated with space
+// characters, this works as a AND operation.
 export function filterResults(
   columnsConfiguration: CompareResultsTableConfig,
   results: CompareResultsItem[],
@@ -171,9 +174,17 @@ export function filterResults(
     return results;
   }
 
+  // Using the regexp instead of a simple space supports all white-space as well
+  // as when several space characters are present. For example for "foo   bar"
+  // we'll get just 2 items in the resulting array with the regexp, which is a
+  // better behavior.
+  const searchTerms = searchTerm.toLowerCase().split(/\s+/);
+
   return results.filter((result) => {
-    if (!resultMatchesSearchTerm(result, searchTerm)) {
-      return false;
+    for (const searchTerm of searchTerms) {
+      if (!resultMatchesSearchTerm(result, searchTerm)) {
+        return false;
+      }
     }
 
     for (const [columnId, checkedValues] of tableFilters) {
