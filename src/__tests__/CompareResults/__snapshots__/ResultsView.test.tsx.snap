@@ -4,7 +4,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="«r63»"
+  id="«r67»"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -313,7 +313,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="«r4q»"
+  id="«r4t»"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -704,6 +704,7 @@ exports[`Results View The table should match snapshot and other elements should 
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
+            data-mui-internal-clone-element="true"
           >
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
@@ -730,12 +731,13 @@ exports[`Results View The table should match snapshot and other elements should 
                 </svg>
               </div>
               <input
+                aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
                 aria-invalid="false"
                 aria-label="Search by title, platform, revision or options"
-                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                id="«re»"
-                placeholder="Search results"
-                type="text"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
+                id="«rf»"
+                placeholder="Filter results"
+                type="search"
                 value=""
               />
               <div
@@ -1450,7 +1452,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r10»"
+                      aria-controls="«r11»"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1665,7 +1667,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r17»"
+                      aria-controls="«r18»"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1858,7 +1860,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r1e»"
+                      aria-controls="«r1f»"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -2062,7 +2064,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r1l»"
+                      aria-controls="«r1m»"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"

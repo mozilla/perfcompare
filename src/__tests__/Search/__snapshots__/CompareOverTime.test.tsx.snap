@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Compare Over Time renders correctly in Search View: Initial state for the form 1`] = `
 <form
@@ -695,7 +695,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 <ul
   aria-labelledby="select-timerange-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="«r4a»"
+  id="«r4b»"
   role="listbox"
   tabindex="-1"
 >
