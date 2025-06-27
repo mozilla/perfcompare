@@ -128,21 +128,27 @@ export function RetriggerButton({ result, variant }: RetriggerButtonProps) {
   }) => {
     setStatus('pending');
 
-    const baseRetriggerConfigPromise = getRetriggerConfig(
-      baseRepository,
-      baseRetriggerableJobIds[0],
-      baseTimes,
-    );
+    let baseRetriggerPromise = null;
+    if (baseRetriggerableJobIds.length > 0) {
+      baseRetriggerPromise = getRetriggerConfig(
+        baseRepository,
+        baseRetriggerableJobIds[0],
+        baseTimes,
+      ).then(retrigger);
+    }
 
-    const newRetriggerConfigPromise = getRetriggerConfig(
-      newRepository,
-      newRetriggerableJobIds[0],
-      newTimes,
-    );
+    let newRetriggerPromise = null;
+    if (newRetriggerableJobIds.length > 0) {
+      newRetriggerPromise = getRetriggerConfig(
+        newRepository,
+        newRetriggerableJobIds[0],
+        newTimes,
+      ).then(retrigger);
+    }
 
     const [baseRetriggerTaskId, newRetriggerTaskId] = await Promise.all([
-      baseRetriggerConfigPromise.then(retrigger),
-      newRetriggerConfigPromise.then(retrigger),
+      baseRetriggerPromise,
+      newRetriggerPromise,
     ]);
 
     // Note that the notification for "new" is dispatched before the
