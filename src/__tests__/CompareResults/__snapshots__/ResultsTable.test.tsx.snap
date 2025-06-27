@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Results Table Should match snapshot 1`] = `
 <body>
@@ -1254,11 +1254,11 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <div
                   data-viewport-type="window"
-                  style="width: 100%; height: 100%; position: absolute; top: 0px;"
+                  style="height: 100%; position: absolute; top: 0px; width: 100%;"
                 >
                   <div
                     data-testid="virtuoso-item-list"
-                    style="box-sizing: border-box; margin-top: 0px; padding-top: 0px; padding-bottom: 0px;"
+                    style="box-sizing: border-box; margin-top: 0px; padding-bottom: 0px; padding-top: 0px;"
                   >
                     <div
                       data-index="0"
