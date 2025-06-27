@@ -3,25 +3,18 @@ import { useState } from 'react';
 import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
-import GraphDistribution from './GraphDistribution';
 import { Spacing } from '../../styles';
 import { MeasurementUnit } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 
 const styles = {
-  container: style({
-    width: '300px',
-    marginRight: Spacing.xLarge,
-  }),
   values: style({
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
     marginBottom: Spacing.Small,
     width: '300px',
-  }),
-  value: style({
-    marginRight: Spacing.xSmall,
+    gap: Spacing.xSmall,
   }),
   deviation: style({
     textTransform: 'uppercase',
@@ -55,7 +48,7 @@ function RunValues(props: RunValuesProps) {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       {application ? (
         <div>
           <b>{name}:</b> {formatNumber(avg)} {measurementUnit} ({application})
@@ -65,52 +58,38 @@ function RunValues(props: RunValuesProps) {
           <b>{name}:</b> {formatNumber(avg)} {measurementUnit}
         </div>
       )}
-      <div>
-        <GraphDistribution
-          name={name}
-          values={values}
-          min={props.min}
-          max={props.max}
-        />
+      <div className={styles.values}>
+        {firstValues.map((value, index) => (
+          <div key={`${index}`}>{formatNumber(value)}</div>
+        ))}
+        {expanded
+          ? lastValues.map((value, index) => (
+              <div key={`${index}`}>{value}</div>
+            ))
+          : null}
+        {lastValues.length ? (
+          <Button variant='text' size='small' onClick={toggleIsExpanded}>
+            {expanded ? 'Show less' : `Show ${lastValues.length} more`}
+          </Button>
+        ) : null}
+        {values.length && (
+          <Button variant='text' size='small' onClick={onCopyValues}>
+            Copy results
+          </Button>
+        )}
       </div>
       <div>
-        <div className={styles.values}>
-          {firstValues.map((value, index) => (
-            <div key={`${index}`} className={styles.value}>
-              {formatNumber(value)}
-            </div>
-          ))}
-          {expanded
-            ? lastValues.map((value, index) => (
-                <div key={`${index}`} className={styles.value}>
-                  {value}
-                </div>
-              ))
-            : null}
-          {lastValues.length ? (
-            <Button variant='text' size='small' onClick={toggleIsExpanded}>
-              {expanded ? 'Show less' : `Show ${lastValues.length} more`}
-            </Button>
-          ) : null}
-          {values.length && (
-            <Button variant='text' size='small' onClick={onCopyValues}>
-              Copy results
-            </Button>
-          )}
-        </div>
-        <div>
-          <b>Mean</b>:{'\u00a0'}
-          {formatNumber(avg)}
-          {measurementUnit},{'\u00a0'}
-          <b>Median</b>:{'\u00a0'}
-          {formatNumber(median)}
-          {measurementUnit}
-        </div>
-        <div className={styles.deviation}>
-          {stddev} {unit} = {stddevPercent}% standard deviation
-        </div>
+        <b>Mean</b>:{'\u00a0'}
+        {formatNumber(avg)}
+        {measurementUnit},{'\u00a0'}
+        <b>Median</b>:{'\u00a0'}
+        {formatNumber(median)}
+        {measurementUnit}
       </div>
-    </div>
+      <div className={styles.deviation}>
+        {stddev} {unit} = {stddevPercent}% standard deviation
+      </div>
+    </>
   );
 }
 interface RunValuesProps {
@@ -124,8 +103,6 @@ interface RunValuesProps {
     stddevPercent: number;
     measurementUnit: MeasurementUnit;
   };
-  min: number;
-  max: number;
 }
 
 export default RunValues;
