@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Search by title/test name should filter results after a timeout or immediately with enter 1`] = `
 <form
@@ -7,6 +7,7 @@ exports[`Search by title/test name should filter results after a timeout or imme
 >
   <div
     class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
+    data-mui-internal-clone-element="true"
   >
     <div
       class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
@@ -33,12 +34,13 @@ exports[`Search by title/test name should filter results after a timeout or imme
         </svg>
       </div>
       <input
+        aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
         aria-invalid="false"
         aria-label="Search by title, platform, revision or options"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-        id="«rg»"
-        placeholder="Search results"
-        type="text"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
+        id="«rh»"
+        placeholder="Filter results"
+        type="search"
         value=""
       />
       <div

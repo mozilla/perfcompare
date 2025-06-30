@@ -162,9 +162,9 @@ const columnsConfiguration: CompareResultsTableConfig = [
 
 function resultMatchesSearchTerm(
   result: CompareResultsItem,
-  searchTerm: string,
+  lowerCasedSearchTerm: string,
 ) {
-  return result.test.toLowerCase().includes(searchTerm.toLowerCase());
+  return result.test.toLowerCase().includes(lowerCasedSearchTerm);
 }
 
 type ResultsTableProps = {

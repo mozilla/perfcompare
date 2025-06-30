@@ -6,6 +6,7 @@ import { DownloadButton } from './DownloadButton';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 import { useAppSelector } from '../../hooks/app';
+import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
 import type { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
@@ -42,6 +43,7 @@ export default function ResultsControls({
         <SearchInput
           defaultValue={initialSearchTerm}
           onChange={onSearchTermChange}
+          strings={Strings.components.searchResultsInput}
         />
       </Grid>
       <Grid size='grow'>

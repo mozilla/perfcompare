@@ -16,29 +16,77 @@ import { Colors } from '../../styles/Colors';
 
 ChartJS.register(LinearScale, LineElement);
 
-function computeMinMax(
-  baseRuns: number[],
-  newRuns: number[],
-): [number, number] {
-  let min = Infinity;
-  let max = -Infinity;
-  for (const value of baseRuns) {
-    min = Math.min(min, value);
-    max = Math.max(max, value);
-  }
-  for (const value of newRuns) {
-    min = Math.min(min, value);
-    max = Math.max(max, value);
+// This computes the min, max and the KDE bandwidth from a list of numbers.
+function computeStatisticsForRuns(data: number[]) {
+  if (!data.length) {
+    return null;
   }
 
-  // Add some grace value of 5%
-  min = min * 0.95;
-  max = max * 1.05;
-  return [min, max];
+  const sorted = [...data].sort((a, b) => a - b);
+
+  return {
+    min: quantileSorted(sorted, 0),
+    max: quantileSorted(sorted, 1),
+    bandwidth: approximateSJBandwidth(sorted),
+  };
+}
+
+// This logic approximates the Sheather and Jones algorithm according to ChatGPT.
+// In the future we might want to compute a better value, see
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1901248 for some ideas.
+function approximateSJBandwidth(sorted: number[]): number {
+  const n = sorted.length;
+  if (n < 2) return sorted[0] * 0.0015;
+
+  const q25 = quantileSorted(sorted, 0.25);
+  const q75 = quantileSorted(sorted, 0.75);
+  const iqr = q75 - q25;
+
+  const mean = sorted.reduce((a, b) => a + b, 0) / n;
+  const std = Math.sqrt(
+    sorted.reduce((sum, x) => sum + Math.pow(x - mean, 2), 0) / n,
+  );
+
+  const sigma = Math.min(std, iqr / 1.34); // Robust estimate
+  const h = 0.9 * sigma * Math.pow(n, -1 / 5);
+
+  return h;
+}
+
+// This function returns a quantile from a sorted array of numbers.
+function quantileSorted(sorted: number[], q: number): number {
+  const pos = (sorted.length - 1) * q;
+  const base = Math.floor(pos);
+  const rest = pos - base;
+
+  if (sorted[base + 1] !== undefined) {
+    return sorted[base] + rest * (sorted[base + 1] - sorted[base]);
+  } else {
+    return sorted[base];
+  }
+}
+
+// A simple wrapper to Math.min, resilient when one of the numbers is undefined or null.
+function computeMin(a?: number, b?: number) {
+  a ??= Infinity;
+  b ??= Infinity;
+  return Math.min(a, b);
+}
+
+// A simple wrapper to Math.max, resilient when one of the numbers is undefined or null.
+function computeMax(a?: number, b?: number) {
+  a ??= -Infinity;
+  b ??= -Infinity;
+  return Math.max(a, b);
 }
 
 function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
-  const [min, max] = computeMinMax(baseValues, newValues);
+  const statsForBase = computeStatisticsForRuns(baseValues);
+  const statsForNew = computeStatisticsForRuns(newValues);
+
+  // Compute the global min and max with some grace value.
+  const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
+  const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
 
   // The KDE line chart and categorical bubble chart share an x-axis but use
   // entirely different y-scales, making the composition flexible but
@@ -226,11 +274,10 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
   const allValuesData = [...baseValuesData, ...newValuesData];
 
   //////////////////// START FAST KDE ////////////////////////
+  // So that the 2 KDE graphs are visually comparable, it's important to use the
+  // same bandwidth for both.
+  const bandwidth = computeMin(statsForBase?.bandwidth, statsForNew?.bandwidth);
 
-  // Arbitrary value that seems to work OK.
-  // In the future we'll want to compute a better value, see
-  // https://bugzilla.mozilla.org/show_bug.cgi?id=1901248 for some ideas.
-  const bandwidth = (max - min) / 15;
   const baseRunsDensity = Array.from(
     kde.density1d(baseValues, {
       bandwidth,

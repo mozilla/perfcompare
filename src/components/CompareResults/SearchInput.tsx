@@ -2,16 +2,22 @@ import { useState, useCallback } from 'react';
 
 import Close from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
-import { InputAdornment, TextField, Box, IconButton } from '@mui/material';
+import {
+  InputAdornment,
+  TextField,
+  Box,
+  IconButton,
+  Tooltip,
+} from '@mui/material';
 
-import { Strings } from '../../resources/Strings';
 import { simpleDebounce } from '../../utils/simple-debounce';
 
 interface SearchInputProps {
   defaultValue?: string;
+  strings: { placeholder: string; label: string; description: string };
   onChange: (searchTerm: string) => unknown;
 }
-function SearchInput({ defaultValue, onChange }: SearchInputProps) {
+function SearchInput({ defaultValue, strings, onChange }: SearchInputProps) {
   const [searchTerm, setSearchTerm] = useState(defaultValue ?? '');
 
   // By using useCallback, we ensure that we always have the same instance of
@@ -37,45 +43,61 @@ function SearchInput({ defaultValue, onChange }: SearchInputProps) {
     onChange(searchTerm);
   };
 
-  const inputStrings = Strings.components.searchResultsInput;
-
   return (
     <Box
       component='form'
-      aria-label={inputStrings.label}
+      aria-label={strings.label}
       onSubmit={onSubmit}
       sx={{ display: 'flex', marginRight: 'auto', width: '100%' }}
     >
-      <TextField
-        placeholder={inputStrings.placeholder}
-        size='small'
-        value={searchTerm}
-        onChange={onValueChange}
-        sx={{ flex: 'auto' }}
+      <Tooltip
+        title={strings.label + '. ' + strings.description}
+        arrow
+        enterDelay={250}
         slotProps={{
-          input: {
-            startAdornment: (
-              <InputAdornment position='start'>
-                <SearchIcon />
-              </InputAdornment>
-            ),
-            endAdornment: (
-              <InputAdornment position='end'>
-                <IconButton
-                  aria-label='Clear the search input'
-                  size='small'
-                  edge='end'
-                  onClick={clearSearchTerm}
-                >
-                  <Close />
-                </IconButton>
-              </InputAdornment>
-            ),
+          tooltip: {
+            // This is a quite long tooltip, let's give it some more space.
+            sx: { maxWidth: '30em' },
           },
-
-          htmlInput: { 'aria-label': inputStrings.label },
         }}
-      />
+      >
+        <TextField
+          placeholder={strings.placeholder}
+          size='small'
+          value={searchTerm}
+          onChange={onValueChange}
+          sx={{ flex: 'auto' }}
+          slotProps={{
+            // This removes the aria-label added by the Tooltip above. We'll add
+            // it again in the input below.
+            root: { 'aria-label': undefined },
+            input: {
+              startAdornment: (
+                <InputAdornment position='start'>
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position='end'>
+                  <IconButton
+                    aria-label='Clear the search input'
+                    size='small'
+                    edge='end'
+                    onClick={clearSearchTerm}
+                  >
+                    <Close />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            },
+            htmlInput: {
+              type: 'search',
+              'aria-label': strings.label,
+              'aria-description': strings.description,
+            },
+          }}
+        />
+      </Tooltip>
     </Box>
   );
 }

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Results View The table should match snapshot and other elements should be present in the page 1`] = `
 <div
@@ -21,6 +21,7 @@ exports[`Results View The table should match snapshot and other elements should 
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
+            data-mui-internal-clone-element="true"
           >
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
@@ -47,12 +48,13 @@ exports[`Results View The table should match snapshot and other elements should 
                 </svg>
               </div>
               <input
+                aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
                 aria-invalid="false"
                 aria-label="Search by title, platform, revision or options"
-                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                id="«r8»"
-                placeholder="Search results"
-                type="text"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
+                id="«r9»"
+                placeholder="Filter results"
+                type="search"
                 value=""
               />
               <div
@@ -471,11 +473,11 @@ exports[`Results View The table should match snapshot and other elements should 
   >
     <div
       data-viewport-type="window"
-      style="width: 100%; height: 100%; position: absolute; top: 0px;"
+      style="height: 100%; position: absolute; top: 0px; width: 100%;"
     >
       <div
         data-testid="virtuoso-item-list"
-        style="box-sizing: border-box; margin-top: 0px; padding-top: 0px; padding-bottom: 0px;"
+        style="box-sizing: border-box; margin-top: 0px; padding-bottom: 0px; padding-top: 0px;"
       >
         <div
           data-index="0"
@@ -767,7 +769,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«rq»"
+                      aria-controls="«rr»"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -982,7 +984,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r11»"
+                      aria-controls="«r12»"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1175,7 +1177,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r18»"
+                      aria-controls="«r19»"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1379,7 +1381,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r1f»"
+                      aria-controls="«r1g»"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"

@@ -14,6 +14,7 @@ import SearchInput from '.././SearchInput';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
+import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {
   CompareResultsItem,
@@ -70,6 +71,7 @@ function SubtestsResultsHeader({
           <SearchInput
             defaultValue={initialSearchTerm}
             onChange={onSearchTermChange}
+            strings={Strings.components.subtestsSearchResultsInput}
           />
         </Grid>
         <Grid size='auto'>
@@ -163,6 +165,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
                   <SearchInput
                     defaultValue={initialSearchTerm}
                     onChange={onSearchTermChange}
+                    strings={Strings.components.subtestsSearchResultsInput}
                   />
                 </Grid>
                 <Grid size='auto'>
