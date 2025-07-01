@@ -40,7 +40,7 @@
     "react-router": "^7.6.2",
     "react-virtuoso": "^4.13.0",
     "stream-browserify": "^3.0.0",
-    "taskcluster-client-web": "^85.0.1",
+    "taskcluster-client-web": "^86.0.2",
     "taskcluster-lib-scopes": "^11.0.0",
     "typestyle": "^2.4.0",
     "url": "^0.11.4"
