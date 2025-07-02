@@ -99,6 +99,7 @@ const revisionRow = style({
       gap: '6px',
       borderRadius: '4px',
       padding: '4px 10px',
+      alignItems: 'center',
     },
 
     '.status-hint .MuiSvgIcon-root': {
