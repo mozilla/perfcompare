@@ -126,6 +126,7 @@ export function loader({ request }: { request: Request }) {
     'baseParentSignature',
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
+  const replicates = url.searchParams.has('replicates');
 
   const {
     baseRev,
@@ -154,6 +155,7 @@ export function loader({ request }: { request: Request }) {
     framework: frameworkId,
     baseParentSignature,
     newParentSignature,
+    replicates,
   });
 
   const subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(
@@ -177,6 +179,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     subtestsViewPerfherderURL,
+    replicates,
   };
 }
 

@@ -114,12 +114,14 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   newRepos,
   framework,
   interval,
+  replicates,
 }: {
   baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: Framework['id'];
   interval: TimeRange['value'];
+  replicates: boolean;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareOverTimeResults({
@@ -128,6 +130,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
       newRepo: newRepos[i],
       framework,
       interval,
+      replicates,
     }),
   );
   return Promise.all(promises);
@@ -155,6 +158,7 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
+  const replicates = url.searchParams.has('replicates');
 
   const {
     baseRepo,
@@ -178,6 +182,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     framework: frameworkId,
     interval: intervalValue,
+    replicates,
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
@@ -201,6 +206,7 @@ export async function loader({ request }: { request: Request }) {
     intervalText,
     view: compareOverTimeView,
     generation: generationCounter++,
+    replicates,
   };
 }
 
@@ -216,6 +222,7 @@ type DeferredLoaderData = {
   intervalText: TimeRange['text'];
   view: typeof compareOverTimeView;
   generation: number;
+  replicates: boolean;
 };
 
 // Be explicit with the returned type to control it better than if we were

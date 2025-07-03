@@ -62,6 +62,7 @@ export async function loader({ request }: { request: Request }) {
   }
   const baseRevsFromHash = commits_from_hashes.baseRevision;
   const newRevsFromHash = [commits_from_hashes.newRevision];
+  const replicates = url.searchParams.has('replicates');
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
       baseRev: baseRevsFromHash,
@@ -77,6 +78,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
   );
 }
 

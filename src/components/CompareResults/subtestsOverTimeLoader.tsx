@@ -146,6 +146,7 @@ export function loader({ request }: { request: Request }) {
     'baseParentSignature',
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
+  const replicates = url.searchParams.has('replicates');
 
   const {
     baseRepo,
@@ -175,6 +176,7 @@ export function loader({ request }: { request: Request }) {
     interval: intervalValue,
     baseParentSignature,
     newParentSignature,
+    replicates,
   });
 
   const subtestsViewPerfherderURL = getPerfherderSubtestsCompareOverTimeViewURL(
@@ -199,6 +201,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     subtestsViewPerfherderURL,
+    replicates,
   };
 }
 
