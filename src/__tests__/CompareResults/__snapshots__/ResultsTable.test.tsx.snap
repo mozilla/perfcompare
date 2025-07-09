@@ -835,7 +835,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             aria-invalid="false"
                             aria-label="Search by title, platform, revision or options"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="«rf»"
+                            id="«rg»"
                             placeholder="Filter results"
                             type="search"
                             value=""
@@ -1552,7 +1552,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r11»"
+                                  aria-controls="«r12»"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1767,7 +1767,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r18»"
+                                  aria-controls="«r19»"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1971,7 +1971,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r1f»"
+                                  aria-controls="«r1g»"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2245,7 +2245,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r1n»"
+                                  aria-controls="«r1o»"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2837,7 +2837,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="«r3v»"
+            aria-controls="«r42»"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -3091,7 +3091,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="«r47»"
+            aria-controls="«r4a»"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
