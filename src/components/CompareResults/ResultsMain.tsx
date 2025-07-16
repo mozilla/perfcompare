@@ -2,9 +2,8 @@ import { Fragment, useRef, useEffect, useState } from 'react';
 
 import { Button, Grid, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
-import ToggleButton from '@mui/material/ToggleButton';
 import { Container } from '@mui/system';
-import { useLoaderData, useSearchParams } from 'react-router';
+import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './loader';
@@ -22,6 +21,7 @@ import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
 import { truncateHash } from '../../utils/helpers';
 import EditTitleInput from '../CompareResults/EditTitleInput';
+import ToggleReplicatesButton from '../Shared/ToggleReplicatesButton';
 
 function getPunctuationMark(index: number, newRevs: string[]) {
   return index != newRevs.length - 1 ? ', ' : '.';
@@ -60,6 +60,9 @@ function ResultsMain() {
       paddingLeft: '9px',
       margin: 0,
     }),
+    replicates: style({
+      marginLeft: '730px',
+    }),
   };
 
   const titleContainerSx = {
@@ -94,18 +97,6 @@ function ResultsMain() {
       );
     }
   }
-
-  const [toggleReplicates, setToggleReplicates] = useState(
-    loaderData.replicates,
-  );
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const onToggleReplicates = () => {
-    setToggleReplicates(!toggleReplicates);
-    if (!toggleReplicates) searchParams.set('replicates', '');
-    else searchParams.delete('replicates');
-    setSearchParams(searchParams);
-  };
 
   /************************************************/
   /********** Edit Results Title Section **********/
@@ -190,15 +181,8 @@ function ResultsMain() {
           <Grid component='h2' className={styles.subtitle}>
             {subtitles[loaderData.view]}
           </Grid>
-          <Grid component='h2' className={styles.subtitle}>
-            <ToggleButton
-              color='primary'
-              value='check'
-              selected={toggleReplicates}
-              onChange={onToggleReplicates}
-            >
-              Enable replicates
-            </ToggleButton>
+          <Grid component='h2' className={styles.replicates}>
+            <ToggleReplicatesButton />
           </Grid>
         </Grid>
         <Grid container sx={titleContainerSx}>

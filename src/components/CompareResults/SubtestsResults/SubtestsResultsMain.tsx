@@ -2,9 +2,8 @@ import { useState, Suspense } from 'react';
 
 import { Grid, Skeleton, Stack, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
-import ToggleButton from '@mui/material/ToggleButton';
 import { Container } from '@mui/system';
-import { useLoaderData, Await, useSearchParams } from 'react-router';
+import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
 
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
@@ -21,6 +20,7 @@ import type {
   CompareResultsItem,
   SubtestsRevisionsHeader,
 } from '../../../types/state';
+import ToggleReplicatesButton from '../../Shared/ToggleReplicatesButton';
 import {
   RetriggerButton,
   DisabledRetriggerButton,
@@ -33,7 +33,6 @@ type SubtestsResultsHeaderProps = {
   view: typeof subtestsView | typeof subtestsOverTimeView;
   initialSearchTerm: string;
   onSearchTermChange: (term: string) => void;
-  replicates: boolean;
 };
 
 function SubtestsResultsHeader({
@@ -41,7 +40,6 @@ function SubtestsResultsHeader({
   view,
   initialSearchTerm,
   onSearchTermChange,
-  replicates,
 }: SubtestsResultsHeaderProps) {
   if (!loadedResults.length) return null;
 
@@ -58,29 +56,6 @@ function SubtestsResultsHeader({
     base_parent_signature: loadedResults[0].base_parent_signature,
     new_parent_signature: loadedResults[0].base_parent_signature,
     platform: loadedResults[0].platform,
-  };
-
-  const styles = {
-    toggleReplicatesButton: style({
-      height: '41px',
-      flex: 'none',
-      $nest: {
-        '.MuiButtonBase-root': {
-          height: '100%',
-          width: '90%',
-        },
-      },
-    }),
-  };
-
-  const [toggleReplicates, setToggleReplicates] = useState(replicates);
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const onToggleReplicates = () => {
-    setToggleReplicates(!toggleReplicates);
-    if (!toggleReplicates) searchParams.set('replicates', '');
-    else searchParams.delete('replicates');
-    setSearchParams(searchParams);
   };
 
   return (
@@ -100,17 +75,6 @@ function SubtestsResultsHeader({
             strings={Strings.components.subtestsSearchResultsInput}
           />
         </Grid>
-        <Grid size='auto' className={styles.toggleReplicatesButton}>
-          <ToggleButton
-            color='primary'
-            value='check'
-            selected={toggleReplicates}
-            onChange={onToggleReplicates}
-            sx={{ marginInline: 2 }}
-          >
-            Enable replicates
-          </ToggleButton>{' '}
-        </Grid>
         <Grid size='auto'>
           <DownloadButton resultsPromise={[loadedResults]} />
         </Grid>
@@ -129,7 +93,7 @@ type SubtestsResultsMainProps = {
 type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
-  const { results, subtestsViewPerfherderURL, replicates } =
+  const { results, subtestsViewPerfherderURL } =
     useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -169,7 +133,12 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   return (
     <Container className={styles.container} data-testid='subtests-main'>
       <header>
-        <SubtestsBreadcrumbs view={view} />
+        <Grid container spacing={1}>
+          <SubtestsBreadcrumbs view={view} />
+        </Grid>
+        <Grid>
+          <ToggleReplicatesButton />
+        </Grid>
         <Alert severity='info' className={styles.title}>
           A Perfherder link is available for{' '}
           <Link href={subtestsViewPerfherderURL} target='_blank'>
@@ -222,7 +191,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
                 view={view}
                 initialSearchTerm={initialSearchTerm}
                 onSearchTermChange={onSearchTermChange}
-                replicates={replicates}
               />
             )}
           </Await>
