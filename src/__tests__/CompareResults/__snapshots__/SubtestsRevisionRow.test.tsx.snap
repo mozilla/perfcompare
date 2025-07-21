@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`SubtestsRevisionRow Component renders browser name when base and new apps are different 1`] = `
 <body>
   <div>
     <div
-      class="revisionRow fmlrvsb f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f1l4wgcn f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -159,7 +159,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         role="cell"
       >
         <button
-          aria-controls="«r9»"
+          aria-controls="«rd»"
           aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
@@ -188,7 +188,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
 <body>
   <div>
     <div
-      class="revisionRow fmlrvsb f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f1l4wgcn f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -318,7 +318,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         role="cell"
       >
         <button
-          aria-controls="«rc»"
+          aria-controls="«rh»"
           aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
@@ -347,7 +347,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
 <body>
   <div>
     <div
-      class="revisionRow fmlrvsb f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f1l4wgcn f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -477,7 +477,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         role="cell"
       >
         <button
-          aria-controls="«r0»"
+          aria-controls="«r1»"
           aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
