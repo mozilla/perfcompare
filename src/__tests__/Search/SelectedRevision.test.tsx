@@ -7,6 +7,9 @@ import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
 import { screen, within, renderWithRouter } from '../utils/test-utils';
 
+const searchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
 async function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader,
@@ -31,12 +34,15 @@ describe('SelectedRevision', () => {
 
     await renderComponent();
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
 
-    const noArmsLeft = await screen.findByRole('button', {
-      name: /you've got no arms left!/,
-    });
+    const autocompleteOptions = await screen.findAllByTestId(
+      'autocomplete-option',
+    );
+    const noArmsLeft = autocompleteOptions[0];
     const noArmsLeftCheckbox = within(noArmsLeft).getByRole('radio');
 
     await user.click(noArmsLeft);
@@ -69,11 +75,13 @@ describe('SelectedRevision', () => {
       'Search by revision ID or author email',
     )[0];
     await user.click(firstSearchInput);
-    await user.click(
-      await screen.findByRole('button', {
-        name: /you've got no arms left!/,
-      }),
+
+    const autocompleteOptions = await screen.findAllByTestId(
+      'autocomplete-option',
     );
+    const noArmsLeft = autocompleteOptions[0];
+
+    await user.click(noArmsLeft);
 
     const newDropdown = screen.getByRole('combobox', {
       name: 'Revisions',
@@ -92,11 +100,15 @@ describe('SelectedRevision', () => {
   it('should copy hash number when copyicon is clicked', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
-    const noArmsLeft = await screen.findByRole('button', {
-      name: /you've got no arms left!/,
-    });
+
+    const autocompleteOptions = await screen.findAllByTestId(
+      'autocomplete-option',
+    );
+    const noArmsLeft = autocompleteOptions[0];
     await user.click(noArmsLeft);
     const copyIcon = screen.getByTestId('copy-icon');
     await user.click(copyIcon);
@@ -106,11 +118,16 @@ describe('SelectedRevision', () => {
   it('should handle copy failure when clipboard API fails', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
-    const searchInput = screen.getAllByRole('textbox')[0];
+
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
-    const noArmsLeft = await screen.findByRole('button', {
-      name: /you've got no arms left!/,
-    });
+
+    const autocompleteOptions = await screen.findAllByTestId(
+      'autocomplete-option',
+    );
+    const noArmsLeft = autocompleteOptions[0];
     await user.click(noArmsLeft);
     const consoleErrorSpy = jest
       .spyOn(console, 'error')

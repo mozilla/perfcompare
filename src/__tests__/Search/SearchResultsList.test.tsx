@@ -5,7 +5,7 @@ import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import { screen, within, renderWithRouter } from '../utils/test-utils';
+import { screen, renderWithRouter, fireEvent } from '../utils/test-utils';
 
 async function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
@@ -32,8 +32,12 @@ describe('SearchResultsList', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
+
+    const placeholder =
+      Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(placeholder)[0];
     await user.click(searchInput);
     await screen.findByText(/flesh wound/);
     expect(document.body).toMatchSnapshot();
@@ -44,11 +48,20 @@ describe('SearchResultsList', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
-    // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
 
-    const fleshWound = await screen.findAllByText("it's just a flesh wound");
+    const autocomplete = screen.getAllByTestId('autocomplete')[0];
+
+    // open dropdown using keyboard arrow down
+    fireEvent.keyDown(autocomplete, {
+      key: 'ArrowDown',
+      code: 'ArrowDown',
+      charCode: 40,
+    });
+
+    // Wait for the dropdown to open and results to load
+    await screen.findAllByRole('textbox');
+
+    const fleshWound = await screen.findAllByText(/it's just a flesh wound/);
 
     await user.click(fleshWound[0]);
     expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
@@ -60,23 +73,29 @@ describe('SearchResultsList', () => {
 
     await renderComponent();
 
-    // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
+    const autocomplete = screen.getAllByTestId('autocomplete')[0];
 
-    const fleshWound = await screen.findByRole('button', {
-      name: /it's just a flesh wound/,
+    // open dropdown using keyboard arrow down
+    fireEvent.keyDown(autocomplete, {
+      key: 'ArrowDown',
+      code: 'ArrowDown',
+      charCode: 40,
     });
-    const fleshWoundCheckbox = within(fleshWound).getByRole('radio');
+
+    // Wait for the dropdown to open and results to load
+    await screen.findAllByRole('textbox');
+
+    const autocompleteOptions = await screen.findAllByTestId(
+      'autocomplete-option',
+    );
+    const fleshWound = autocompleteOptions[0];
 
     await user.click(fleshWound);
     expect(fleshWound).toHaveClass('item-selected');
-    expect(fleshWoundCheckbox).toBeChecked();
     expect(fleshWound.querySelector('.Mui-checked')).toBeInTheDocument();
 
     await user.click(fleshWound);
     expect(fleshWound).not.toHaveClass('item-selected');
-    expect(fleshWoundCheckbox).not.toBeChecked();
     expect(fleshWound.querySelector('.Mui-checked')).toBeNull();
   });
 
@@ -85,9 +104,15 @@ describe('SearchResultsList', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
-    // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
+    const autocomplete = screen.getAllByTestId('autocomplete')[0];
+
+    // open dropdown using keyboard arrow down
+    fireEvent.keyDown(autocomplete, {
+      key: 'ArrowDown',
+      code: 'ArrowDown',
+      charCode: 40,
+    });
+
     await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
@@ -111,8 +136,12 @@ describe('SearchResultsList', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
+
+    const placeholder =
+      Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[1];
+    const searchInput = screen.getAllByPlaceholderText(placeholder)[1];
     await user.click(searchInput);
 
     const noArmsLeft = await screen.findByText(/no arms left/);
@@ -146,10 +175,17 @@ describe('SearchResultsList', () => {
 
     await user.click(darkModeToggle);
     expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
-    const resultsList = screen.getByTestId('list-mode');
-    expect(resultsList).toMatchSnapshot('after toggling dark mode');
+    const autocomplete = screen.getAllByTestId('autocomplete')[0];
+
+    // open dropdown using keyboard arrow down
+    fireEvent.keyDown(autocomplete, {
+      key: 'ArrowDown',
+      code: 'ArrowDown',
+      charCode: 40,
+    });
+
+    const resultsList = screen.getByRole('listbox');
+    expect(resultsList).toMatchSnapshot('after toggling dark mode 1');
     expect(resultsList).toHaveClass('results-list-dark');
   });
 });
