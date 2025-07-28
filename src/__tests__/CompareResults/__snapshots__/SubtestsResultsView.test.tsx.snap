@@ -23,11 +23,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                     id="Dark mode"
                     name="toggle-dark-mode"
                     type="checkbox"
@@ -335,10 +335,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                         >
                           <legend
-                            class="css-w4cd9x"
+                            class="css-1nf2c5d-MuiNotchedOutlined-root"
                           >
                             <span
                               aria-hidden="true"
@@ -1833,11 +1833,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                     id="Dark mode"
                     name="toggle-dark-mode"
                     type="checkbox"
@@ -2137,10 +2137,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                         >
                           <legend
-                            class="css-w4cd9x"
+                            class="css-1nf2c5d-MuiNotchedOutlined-root"
                           >
                             <span
                               aria-hidden="true"

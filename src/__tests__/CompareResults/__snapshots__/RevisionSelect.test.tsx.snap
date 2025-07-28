@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`] = `
 <body>
@@ -14,7 +14,7 @@ exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Filter by revision"
-          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-128ypvr-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
           role="combobox"
           tabindex="0"
         >
@@ -51,7 +51,7 @@ exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hstfqs-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -62,10 +62,10 @@ exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`
         </svg>
         <fieldset
           aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="css-w4cd9x"
+            class="css-1nf2c5d-MuiNotchedOutlined-root"
           >
             <span
               aria-hidden="true"

@@ -81,7 +81,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="combobox"
               tabindex="0"
@@ -98,7 +98,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -126,7 +126,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="combobox"
               tabindex="0"
@@ -152,7 +152,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -208,7 +208,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -223,7 +223,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -276,10 +276,10 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -346,7 +346,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -363,7 +363,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -970,7 +970,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="combobox"
               tabindex="0"
@@ -987,7 +987,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1015,7 +1015,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="combobox"
               tabindex="0"
@@ -1041,7 +1041,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1097,7 +1097,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -1112,7 +1112,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1165,10 +1165,10 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -1750,7 +1750,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="combobox"
               tabindex="0"
@@ -1767,7 +1767,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1795,7 +1795,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="combobox"
               tabindex="0"
@@ -1821,7 +1821,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1877,7 +1877,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -1892,7 +1892,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1945,10 +1945,10 @@ exports[`Compare Over Time should remove the checked revision once X button is c
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -2015,7 +2015,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -2032,7 +2032,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -2643,7 +2643,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="combobox"
               tabindex="0"
@@ -2660,7 +2660,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2688,7 +2688,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="combobox"
               tabindex="0"
@@ -2714,7 +2714,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2770,7 +2770,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -2785,7 +2785,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2838,10 +2838,10 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"

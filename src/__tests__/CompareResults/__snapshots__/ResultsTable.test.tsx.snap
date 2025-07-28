@@ -23,11 +23,11 @@ exports[`Results Table Should match snapshot 1`] = `
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                     id="Dark mode"
                     name="toggle-dark-mode"
                     type="checkbox"
@@ -170,7 +170,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--base"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="combobox"
                           tabindex="0"
                         >
@@ -185,7 +185,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -238,10 +238,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             />
                             <fieldset
                               aria-hidden="true"
-                              class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                             >
                               <legend
-                                class="css-w4cd9x"
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
                               >
                                 <span
                                   aria-hidden="true"
@@ -455,7 +455,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--new"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="combobox"
                           tabindex="0"
                         >
@@ -470,7 +470,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -523,10 +523,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             />
                             <fieldset
                               aria-hidden="true"
-                              class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                             >
                               <legend
-                                class="css-w4cd9x"
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
                               >
                                 <span
                                   aria-hidden="true"
@@ -864,10 +864,10 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                           <fieldset
                             aria-hidden="true"
-                            class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                            class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                           >
                             <legend
-                              class="css-w4cd9x"
+                              class="css-1nf2c5d-MuiNotchedOutlined-root"
                             >
                               <span
                                 aria-hidden="true"
@@ -896,7 +896,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-haspopup="listbox"
                           aria-label="Framework"
                           aria-labelledby="mui-component-select-framework"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-128ypvr-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           id="mui-component-select-framework"
                           role="combobox"
                           tabindex="0"
@@ -913,7 +913,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hstfqs-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -924,10 +924,10 @@ exports[`Results Table Should match snapshot 1`] = `
                         </svg>
                         <fieldset
                           aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                         >
                           <legend
-                            class="css-w4cd9x"
+                            class="css-1nf2c5d-MuiNotchedOutlined-root"
                           >
                             <span
                               aria-hidden="true"
@@ -954,7 +954,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-label="Filter by revision"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-128ypvr-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           role="combobox"
                           tabindex="0"
                         >
@@ -991,7 +991,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hstfqs-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1002,10 +1002,10 @@ exports[`Results Table Should match snapshot 1`] = `
                         </svg>
                         <fieldset
                           aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                         >
                           <legend
-                            class="css-w4cd9x"
+                            class="css-1nf2c5d-MuiNotchedOutlined-root"
                           >
                             <span
                               aria-hidden="true"

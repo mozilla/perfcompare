@@ -67,10 +67,10 @@ exports[`Search by title/test name should filter results after a timeout or imme
       </div>
       <fieldset
         aria-hidden="true"
-        class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="css-w4cd9x"
+          class="css-1nf2c5d-MuiNotchedOutlined-root"
         >
           <span
             aria-hidden="true"
