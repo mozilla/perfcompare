@@ -141,6 +141,7 @@ export default function ResultsTable() {
     view,
     frameworkId,
     generation,
+    replicates,
   } = useLoaderData<CombinedLoaderReturnValue>();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -230,6 +231,7 @@ export default function ResultsTable() {
               columnsConfiguration={columnsConfiguration}
               results={resolvedResults}
               view={view}
+              replicates={replicates}
               rowGridTemplateColumns={rowGridTemplateColumns}
               filteringSearchTerm={searchTerm}
               tableFilters={tableFilters}

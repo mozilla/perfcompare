@@ -26,8 +26,11 @@ function ToggleReplicatesButton() {
 
   const onToggleReplicates = () => {
     setToggleReplicates(!toggleReplicates);
-    if (!toggleReplicates) searchParams.set('replicates', '');
-    else searchParams.delete('replicates');
+    if (!toggleReplicates) {
+      searchParams.set('replicates', '');
+    } else {
+      searchParams.delete('replicates');
+    }
     setSearchParams(searchParams);
   };
 

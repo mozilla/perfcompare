@@ -70,6 +70,7 @@ describe('<RevisionRow>', () => {
           result={rowData}
           view={compareView}
           gridTemplateColumns='none'
+          replicates={false}
         />,
       );
       const shortNameNode = await screen.findByText(shortName);
@@ -97,6 +98,7 @@ describe('Expanded row', () => {
         result={rowData[0] as CompareResultsItem}
         view={compareView}
         gridTemplateColumns='none'
+        replicates={false}
       />,
     );
 
@@ -126,6 +128,7 @@ describe('Expanded row', () => {
         result={testCompareData[0]}
         view={compareView}
         gridTemplateColumns='none'
+        replicates={false}
       />,
     );
 

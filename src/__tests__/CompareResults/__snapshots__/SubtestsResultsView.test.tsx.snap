@@ -142,7 +142,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </nav>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-k4qgqg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
               >
                 <div
                   class="f1qbk2gm MuiBox-root css-0"
@@ -157,10 +157,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                         class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
                       >
                         <span
-                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
+                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
                         >
                           <input
-                            class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
+                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                             type="checkbox"
                           />
                           <span
@@ -1995,7 +1995,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </nav>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-k4qgqg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
               >
                 <div
                   class="f1qbk2gm MuiBox-root css-0"
@@ -2010,10 +2010,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                         class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
                       >
                         <span
-                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
+                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
                         >
                           <input
-                            class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
+                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                             type="checkbox"
                           />
                           <span

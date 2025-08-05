@@ -93,7 +93,7 @@ type SubtestsResultsMainProps = {
 type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
-  const { results, subtestsViewPerfherderURL } =
+  const { results, subtestsViewPerfherderURL, replicates } =
     useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -136,7 +136,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <Grid container spacing={1}>
           <SubtestsBreadcrumbs view={view} />
         </Grid>
-        <Grid>
+        <Grid sx={{ marginRight: '10px' }}>
           <ToggleReplicatesButton />
         </Grid>
         <Alert severity='info' className={styles.title}>
@@ -199,6 +199,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       <SubtestsResultsTable
         filteringSearchTerm={searchTerm}
         resultsPromise={results}
+        replicates={replicates}
       />
     </Container>
   );
