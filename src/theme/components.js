@@ -225,7 +225,7 @@ const components = {
           outline: '1px auto',
         },
         '&.MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before': {
-          borderBottom: "none",
+          borderBottom: 'none',
         },
       },
       select: [
