@@ -20,6 +20,7 @@ import type {
   CompareResultsItem,
   SubtestsRevisionsHeader,
 } from '../../../types/state';
+import ToggleReplicatesButton from '../../Shared/ToggleReplicatesButton';
 import {
   RetriggerButton,
   DisabledRetriggerButton,
@@ -92,7 +93,7 @@ type SubtestsResultsMainProps = {
 type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
-  const { results, subtestsViewPerfherderURL } =
+  const { results, subtestsViewPerfherderURL, replicates } =
     useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -132,7 +133,12 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   return (
     <Container className={styles.container} data-testid='subtests-main'>
       <header>
-        <SubtestsBreadcrumbs view={view} />
+        <Grid container spacing={1}>
+          <SubtestsBreadcrumbs view={view} />
+        </Grid>
+        <Grid sx={{ marginRight: '10px' }}>
+          <ToggleReplicatesButton />
+        </Grid>
         <Alert severity='info' className={styles.title}>
           A Perfherder link is available for{' '}
           <Link href={subtestsViewPerfherderURL} target='_blank'>
@@ -193,6 +199,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       <SubtestsResultsTable
         filteringSearchTerm={searchTerm}
         resultsPromise={results}
+        replicates={replicates}
       />
     </Container>
   );

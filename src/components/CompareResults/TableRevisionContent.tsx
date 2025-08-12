@@ -21,7 +21,7 @@ const styles = {
 };
 
 function TableRevisionContent(props: Props) {
-  const { results, view, rowGridTemplateColumns } = props;
+  const { results, view, rowGridTemplateColumns, replicates } = props;
 
   if (!results.length) {
     return null;
@@ -53,6 +53,7 @@ function TableRevisionContent(props: Props) {
               result={result}
               view={view}
               gridTemplateColumns={rowGridTemplateColumns}
+              replicates={replicates}
             />
           ))}
         </div>
@@ -70,6 +71,7 @@ interface Props {
   results: Array<[string, CompareResultsItem[]]>;
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
+  replicates: boolean;
 }
 
 export default TableRevisionContent;
