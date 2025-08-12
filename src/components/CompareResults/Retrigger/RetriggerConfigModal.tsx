@@ -28,9 +28,7 @@ function RetriggerCountSelect({
         name={`${prefix}-retrigger-count`}
         defaultValue={0}
         label={label}
-        sx={{ height: 32, '&.MuiInputBase-root': {
-           outline: 'none'
-        }}}
+        sx={{ height: 32 }}
       >
         {Array.from({ length: 10 }).map((_, count) => (
           <MenuItem key={count} value={count}>
