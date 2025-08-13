@@ -37,7 +37,6 @@ function RunValues(props: RunValuesProps) {
   const displayedValues = 100;
   const firstValues = values.slice(0, displayedValues);
   const lastValues = values.slice(displayedValues);
-
   const [expanded, setExpanded] = useState(false);
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
@@ -87,7 +86,9 @@ function RunValues(props: RunValuesProps) {
         {measurementUnit}
       </div>
       <div className={styles.deviation}>
-        {stddev} {unit} = {stddevPercent}% standard deviation
+        {values.length > 1
+          ? `${stddev} ${unit} = ${stddevPercent}% standard deviation`
+          : `${stddev} ${unit} = N/A standard deviation`}
       </div>
     </>
   );

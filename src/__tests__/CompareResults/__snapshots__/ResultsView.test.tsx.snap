@@ -95,11 +95,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               <div
                 class="fnujpat"
               >
-                6.96
-                 
-                 = 
-                1.17
-                % standard deviation
+                6.96  = 1.17% standard deviation
               </div>
             </div>
             <div
@@ -162,11 +158,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               <div
                 class="fnujpat"
               >
-                0.84
-                 
-                 = 
-                0.14
-                % standard deviation
+                0.84  = 0.14% standard deviation
               </div>
             </div>
           </div>
@@ -404,11 +396,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               <div
                 class="fnujpat"
               >
-                6.96
-                 
-                 = 
-                1.17
-                % standard deviation
+                6.96  = 1.17% standard deviation
               </div>
             </div>
             <div
@@ -471,11 +459,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               <div
                 class="fnujpat"
               >
-                0.84
-                 
-                 = 
-                0.14
-                % standard deviation
+                0.84  = 0.14% standard deviation
               </div>
             </div>
           </div>
