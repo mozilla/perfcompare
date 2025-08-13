@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 
 import { CenteredModal } from './CenteredModal';
-import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
 
 const retriggerStrings = Strings.components.retrigger.config;
@@ -21,31 +20,15 @@ function RetriggerCountSelect({
   prefix: string;
   label: string;
 }) {
-  const mode = useAppSelector((state) => state.theme.mode);
   return (
-    <FormControl sx={{ width: '100%' }} size='small'>
+    <FormControl sx={{ width: '100%' }}>
       <InputLabel id={`${prefix}-retrigger-count-label`}>{label}</InputLabel>
       <Select
         labelId={`${prefix}-retrigger-count-label`}
         name={`${prefix}-retrigger-count`}
-        className='dropdown-select'
         defaultValue={0}
         label={label}
-        variant='standard'
-        MenuProps={{
-          classes: {
-            paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
-          },
-        }}
-        sx={{
-          '& .MuiSelect-select:focus': {
-            minWidth: '50px',
-            outline: 'none',
-          },
-          '& .MuiInputBase-root': {
-            outline: 'none',
-          },
-        }}
+        sx={{ height: 32 }}
       >
         {Array.from({ length: 10 }).map((_, count) => (
           <MenuItem key={count} value={count}>
