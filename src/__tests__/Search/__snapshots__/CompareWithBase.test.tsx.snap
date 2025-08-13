@@ -76,7 +76,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -91,7 +91,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -144,10 +144,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -381,7 +381,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -396,7 +396,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -449,10 +449,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -862,7 +862,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -877,7 +877,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -930,10 +930,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -1167,7 +1167,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -1182,7 +1182,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1235,10 +1235,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -1371,7 +1371,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -1386,7 +1386,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1439,10 +1439,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -1676,7 +1676,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -1691,7 +1691,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1744,10 +1744,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -2044,7 +2044,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -2059,7 +2059,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2112,10 +2112,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -2349,7 +2349,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -2364,7 +2364,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2417,10 +2417,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -2721,7 +2721,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -2736,7 +2736,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2789,10 +2789,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -2866,7 +2866,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -2881,7 +2881,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2934,10 +2934,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -3270,7 +3270,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -3285,7 +3285,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3338,10 +3338,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -3575,7 +3575,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-94sdcb-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -3590,7 +3590,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3643,10 +3643,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -3738,11 +3738,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                     id="Dark mode"
                     name="toggle-dark-mode"
                     type="checkbox"
@@ -3881,7 +3881,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--base"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -3896,7 +3896,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -3949,10 +3949,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
                               />
                               <fieldset
                                 aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                               >
                                 <legend
-                                  class="css-w4cd9x"
+                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -4026,7 +4026,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--new"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -4041,7 +4041,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -4094,10 +4094,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
                               />
                               <fieldset
                                 aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                               >
                                 <legend
-                                  class="css-w4cd9x"
+                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -4165,7 +4165,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         aria-haspopup="listbox"
                         aria-label="Framework"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="combobox"
                         tabindex="0"
@@ -4182,7 +4182,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -4323,7 +4323,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             id="mui-component-select-baseRepo"
                             role="combobox"
                             tabindex="0"
@@ -4340,7 +4340,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -4368,7 +4368,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             id="mui-component-select-selectedTimeRange"
                             role="combobox"
                             tabindex="0"
@@ -4394,7 +4394,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -4450,7 +4450,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--overtime"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -4465,7 +4465,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -4518,10 +4518,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
                               />
                               <fieldset
                                 aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                               >
                                 <legend
-                                  class="css-w4cd9x"
+                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -4588,7 +4588,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         aria-haspopup="listbox"
                         aria-label="Framework"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="combobox"
                         tabindex="0"
@@ -4605,7 +4605,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"

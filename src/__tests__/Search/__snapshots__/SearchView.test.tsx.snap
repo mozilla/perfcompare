@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Search View renders correctly when there are no results 1`] = `
 <body>
@@ -29,11 +29,11 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1g6ob8-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                     id="Dark mode"
                     name="toggle-dark-mode"
                     type="checkbox"
@@ -172,7 +172,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--base"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -187,7 +187,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -240,10 +240,10 @@ exports[`Search View renders correctly when there are no results 1`] = `
                               />
                               <fieldset
                                 aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                               >
                                 <legend
-                                  class="css-w4cd9x"
+                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -317,7 +317,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--new"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -332,7 +332,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -385,10 +385,10 @@ exports[`Search View renders correctly when there are no results 1`] = `
                               />
                               <fieldset
                                 aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                               >
                                 <legend
-                                  class="css-w4cd9x"
+                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -456,7 +456,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         aria-haspopup="listbox"
                         aria-label="Framework"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="combobox"
                         tabindex="0"
@@ -473,7 +473,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -614,7 +614,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             id="mui-component-select-baseRepo"
                             role="combobox"
                             tabindex="0"
@@ -631,7 +631,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -659,7 +659,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             id="mui-component-select-selectedTimeRange"
                             role="combobox"
                             tabindex="0"
@@ -685,7 +685,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -741,7 +741,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--overtime"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -756,7 +756,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -809,10 +809,10 @@ exports[`Search View renders correctly when there are no results 1`] = `
                               />
                               <fieldset
                                 aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                               >
                                 <legend
-                                  class="css-w4cd9x"
+                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -879,7 +879,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         aria-haspopup="listbox"
                         aria-label="Framework"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="combobox"
                         tabindex="0"
@@ -896,7 +896,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -1011,7 +1011,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="combobox"
               tabindex="0"
@@ -1028,7 +1028,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1056,7 +1056,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="combobox"
               tabindex="0"
@@ -1082,7 +1082,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1138,7 +1138,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -1153,7 +1153,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1206,10 +1206,10 @@ exports[`With search parameters both search components are populated as expected
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -1416,7 +1416,7 @@ exports[`With search parameters both search components are populated as expected
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -1433,7 +1433,7 @@ exports[`With search parameters both search components are populated as expected
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -1513,7 +1513,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -1528,7 +1528,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1581,10 +1581,10 @@ exports[`With search parameters both search components are populated as expected
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -1658,7 +1658,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -1673,7 +1673,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1726,10 +1726,10 @@ exports[`With search parameters both search components are populated as expected
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -1937,7 +1937,7 @@ exports[`With search parameters both search components are populated as expected
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -1954,7 +1954,7 @@ exports[`With search parameters both search components are populated as expected
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -2062,7 +2062,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="combobox"
               tabindex="0"
@@ -2079,7 +2079,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2107,7 +2107,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="combobox"
               tabindex="0"
@@ -2133,7 +2133,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2189,7 +2189,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -2204,7 +2204,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2257,10 +2257,10 @@ exports[`With search parameters both search components are populated as expected
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -2467,7 +2467,7 @@ exports[`With search parameters both search components are populated as expected
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -2484,7 +2484,7 @@ exports[`With search parameters both search components are populated as expected
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -2564,7 +2564,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -2579,7 +2579,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2632,10 +2632,10 @@ exports[`With search parameters both search components are populated as expected
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -2709,7 +2709,7 @@ exports[`With search parameters both search components are populated as expected
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -2724,7 +2724,7 @@ exports[`With search parameters both search components are populated as expected
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2777,10 +2777,10 @@ exports[`With search parameters both search components are populated as expected
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -2988,7 +2988,7 @@ exports[`With search parameters both search components are populated as expected
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -3005,7 +3005,7 @@ exports[`With search parameters both search components are populated as expected
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -3113,7 +3113,7 @@ exports[`With search parameters displays the default value for framework if the 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="combobox"
               tabindex="0"
@@ -3130,7 +3130,7 @@ exports[`With search parameters displays the default value for framework if the 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3158,7 +3158,7 @@ exports[`With search parameters displays the default value for framework if the 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="combobox"
               tabindex="0"
@@ -3184,7 +3184,7 @@ exports[`With search parameters displays the default value for framework if the 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3240,7 +3240,7 @@ exports[`With search parameters displays the default value for framework if the 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -3255,7 +3255,7 @@ exports[`With search parameters displays the default value for framework if the 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3308,10 +3308,10 @@ exports[`With search parameters displays the default value for framework if the 
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -3518,7 +3518,7 @@ exports[`With search parameters displays the default value for framework if the 
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -3535,7 +3535,7 @@ exports[`With search parameters displays the default value for framework if the 
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -3615,7 +3615,7 @@ exports[`With search parameters displays the default value for framework if the 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -3630,7 +3630,7 @@ exports[`With search parameters displays the default value for framework if the 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3683,10 +3683,10 @@ exports[`With search parameters displays the default value for framework if the 
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -3760,7 +3760,7 @@ exports[`With search parameters displays the default value for framework if the 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -3775,7 +3775,7 @@ exports[`With search parameters displays the default value for framework if the 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -3828,10 +3828,10 @@ exports[`With search parameters displays the default value for framework if the 
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -4039,7 +4039,7 @@ exports[`With search parameters displays the default value for framework if the 
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -4056,7 +4056,7 @@ exports[`With search parameters displays the default value for framework if the 
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -4164,7 +4164,7 @@ exports[`With search parameters displays the default values if some values are b
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="combobox"
               tabindex="0"
@@ -4181,7 +4181,7 @@ exports[`With search parameters displays the default values if some values are b
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -4209,7 +4209,7 @@ exports[`With search parameters displays the default values if some values are b
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="combobox"
               tabindex="0"
@@ -4235,7 +4235,7 @@ exports[`With search parameters displays the default values if some values are b
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -4291,7 +4291,7 @@ exports[`With search parameters displays the default values if some values are b
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -4306,7 +4306,7 @@ exports[`With search parameters displays the default values if some values are b
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -4359,10 +4359,10 @@ exports[`With search parameters displays the default values if some values are b
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -4429,7 +4429,7 @@ exports[`With search parameters displays the default values if some values are b
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -4446,7 +4446,7 @@ exports[`With search parameters displays the default values if some values are b
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -4526,7 +4526,7 @@ exports[`With search parameters displays the default values if some values are b
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -4541,7 +4541,7 @@ exports[`With search parameters displays the default values if some values are b
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -4594,10 +4594,10 @@ exports[`With search parameters displays the default values if some values are b
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -4671,7 +4671,7 @@ exports[`With search parameters displays the default values if some values are b
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="combobox"
               tabindex="0"
             >
@@ -4686,7 +4686,7 @@ exports[`With search parameters displays the default values if some values are b
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -4739,10 +4739,10 @@ exports[`With search parameters displays the default values if some values are b
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-w4cd9x"
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
                   >
                     <span
                       aria-hidden="true"
@@ -4810,7 +4810,7 @@ exports[`With search parameters displays the default values if some values are b
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1sri01b-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="combobox"
           tabindex="0"
@@ -4827,7 +4827,7 @@ exports[`With search parameters displays the default values if some values are b
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-mf0ero-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"

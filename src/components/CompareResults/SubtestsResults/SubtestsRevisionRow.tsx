@@ -115,7 +115,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 
 function SubtestsRevisionRow(props: RevisionRowProps) {
   const id = useId();
-  const { result, gridTemplateColumns } = props;
+  const { result, gridTemplateColumns, replicates } = props;
   const {
     test,
     base_avg_value: baseAvgValue,
@@ -131,7 +131,14 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     graphs_link: graphLink,
     base_app: baseApp,
     new_app: newApp,
+    new_runs_replicates: newRunsReplicates,
+    base_runs_replicates: baseRunsReplicates,
   } = result;
+
+  const baseRunsCount = replicates
+    ? baseRunsReplicates.length
+    : baseRuns.length;
+  const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
 
   const [expanded, setExpanded] = useState(false);
 
@@ -194,11 +201,11 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
-            <strong>{baseRuns.length}</strong>
+            <strong>{baseRunsCount}</strong>
           </span>
           <span>
             <span title='New runs'>N:</span>
-            <strong>{newRuns.length}</strong>
+            <strong>{newRunsCount}</strong>
           </span>
         </div>
         <div className='row-buttons cell'>
@@ -245,6 +252,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 interface RevisionRowProps {
   result: CompareResultsItem;
   gridTemplateColumns: string;
+  replicates: boolean;
 }
 
 export default SubtestsRevisionRow;

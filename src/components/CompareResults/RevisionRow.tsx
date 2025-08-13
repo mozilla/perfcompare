@@ -193,7 +193,8 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
 
 function RevisionRow(props: RevisionRowProps) {
   const id = useId();
-  const { result, view, gridTemplateColumns } = props;
+
+  const { result, view, gridTemplateColumns, replicates } = props;
   const {
     platform,
     base_avg_value: baseAvgValue,
@@ -209,11 +210,16 @@ function RevisionRow(props: RevisionRowProps) {
     graphs_link: graphLink,
     base_app: baseApp,
     new_app: newApp,
+    new_runs_replicates: newRunsReplicates,
+    base_runs_replicates: baseRunsReplicates,
   } = result;
-
   const platformShortName = getPlatformShortName(platform);
   const platformIcon = platformIcons[platformShortName];
   const platformNameAndVersion = getPlatformAndVersion(platform);
+  const baseRunsCount = replicates
+    ? baseRunsReplicates.length
+    : baseRuns.length;
+  const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
 
   const [expanded, setExpanded] = useState(false);
 
@@ -296,11 +302,11 @@ function RevisionRow(props: RevisionRowProps) {
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
-            <strong>{baseRuns.length}</strong>
+            <strong>{baseRunsCount}</strong>
           </span>
           <span>
             <span title='New runs'>N:</span>
-            <strong>{newRuns.length}</strong>
+            <strong>{newRunsCount}</strong>
           </span>
         </div>
         <div className='row-buttons cell'>
@@ -378,6 +384,7 @@ interface RevisionRowProps {
   result: CompareResultsItem;
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
+  replicates: boolean;
 }
 
 export default RevisionRow;
