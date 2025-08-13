@@ -93,7 +93,7 @@ type SubtestsResultsMainProps = {
 type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
-  const { results, subtestsViewPerfherderURL } =
+  const { results, subtestsViewPerfherderURL, replicates } =
     useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
