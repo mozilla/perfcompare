@@ -29,6 +29,7 @@ describe('SubtestsRevisionRow Component', () => {
       <SubtestsRevisionRow
         result={subtestsResult[0]}
         gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
       />,
     );
 
@@ -48,6 +49,7 @@ describe('SubtestsRevisionRow Component', () => {
       <SubtestsRevisionRow
         result={subtestsResult[2]}
         gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
       />,
     );
 
@@ -63,6 +65,7 @@ describe('SubtestsRevisionRow Component', () => {
       <SubtestsRevisionRow
         result={subtestsResult[3]}
         gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
       />,
     );
 
@@ -78,6 +81,7 @@ describe('SubtestsRevisionRow Component', () => {
       <SubtestsRevisionRow
         result={subtestsResult[4]}
         gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
       />,
     );
 
@@ -96,6 +100,7 @@ describe('SubtestsRevisionRow Component', () => {
       <SubtestsRevisionRow
         result={subtestsResult[0]}
         gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
       />,
     );
 
