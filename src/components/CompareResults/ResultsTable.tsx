@@ -141,7 +141,6 @@ export default function ResultsTable() {
     view,
     frameworkId,
     generation,
-    replicates,
   } = useLoaderData<CombinedLoaderReturnValue>();
   const [searchParams, setSearchParams] = useSearchParams();
 

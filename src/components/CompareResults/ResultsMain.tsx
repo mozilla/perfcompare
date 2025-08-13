@@ -184,12 +184,8 @@ function ResultsMain() {
               </>
             )}
 
-            <Grid component='h2' className={styles.subtitle}>
-              {subtitles[loaderData.view]}
-            </Grid>
-          </Grid>
-          <Grid component='h2' className={styles.replicates}>
-            <ToggleReplicatesButton />
+          <Grid component='h2' className={styles.subtitle}>
+            {subtitles[loaderData.view]}
           </Grid>
         </Grid>
         <Grid container sx={titleContainerSx}>
