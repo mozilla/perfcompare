@@ -21,6 +21,7 @@ import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
 import { truncateHash } from '../../utils/helpers';
 import EditTitleInput from '../CompareResults/EditTitleInput';
+import ToggleReplicatesButton from '../Shared/ToggleReplicatesButton';
 
 function getPunctuationMark(index: number, newRevs: string[]) {
   return index != newRevs.length - 1 ? ', ' : '.';
@@ -59,12 +60,21 @@ function ResultsMain() {
       paddingLeft: '9px',
       margin: 0,
     }),
+    replicates: style({
+      marginRight: '10px',
+    }),
   };
 
   const titleContainerSx = {
     alignItems: 'center',
     gap: '9px',
     margin: `0 0 ${Spacing.Medium}px 0`,
+    justifyContent: 'space-between',
+  };
+
+  const titleContainerSubSx = {
+    alignItems: 'center',
+    gap: '9px',
   };
 
   const subtitles = {
@@ -149,32 +159,37 @@ function ResultsMain() {
     >
       <header>
         <Grid container sx={titleContainerSx}>
-          {editComparisonTitleInputVisible ? (
-            <EditTitleInput
-              refInput={editTitleInputRef}
-              onChange={onComparisonTitleChange}
-              onSave={onSaveButtonClick}
-              onCancel={onCancelButtonClick}
-              value={comparisonTitleName}
-            />
-          ) : (
-            <>
-              <Grid component='h2' className={styles.title}>
-                {comparisonTitleName}
-              </Grid>
-              <Button
-                startIcon={buttonIcon}
-                variant='text'
-                onClick={onEditButtonClick}
-                sx={{ fontSize: FontSizeRaw.xSmall.fontSize }}
-              >
-                Edit title
-              </Button>
-            </>
-          )}
+          <Grid container sx={titleContainerSubSx}>
+            {editComparisonTitleInputVisible ? (
+              <EditTitleInput
+                refInput={editTitleInputRef}
+                onChange={onComparisonTitleChange}
+                onSave={onSaveButtonClick}
+                onCancel={onCancelButtonClick}
+                value={comparisonTitleName}
+              />
+            ) : (
+              <>
+                <Grid component='h2' className={styles.title}>
+                  {comparisonTitleName}
+                </Grid>
+                <Button
+                  startIcon={buttonIcon}
+                  variant='text'
+                  onClick={onEditButtonClick}
+                  sx={{ fontSize: FontSizeRaw.xSmall.fontSize }}
+                >
+                  Edit title
+                </Button>
+              </>
+            )}
 
-          <Grid component='h2' className={styles.subtitle}>
-            {subtitles[loaderData.view]}
+            <Grid component='h2' className={styles.subtitle}>
+              {subtitles[loaderData.view]}
+            </Grid>
+          </Grid>
+          <Grid component='h2' className={styles.replicates}>
+            <ToggleReplicatesButton />
           </Grid>
         </Grid>
         <Grid container sx={titleContainerSx}>

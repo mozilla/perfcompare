@@ -74,7 +74,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-base-repo-dropdown--overtime"
           >
             <div
@@ -119,7 +119,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-timerange"
           >
             <div
@@ -201,7 +201,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-repo-dropdown--overtime"
           >
             <div
@@ -338,7 +338,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
         </svg>
       </div>
       <div
-        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
         data-testid="framework-select"
       >
         <div
@@ -963,7 +963,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-base-repo-dropdown--overtime"
           >
             <div
@@ -1008,7 +1008,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-timerange"
           >
             <div
@@ -1090,7 +1090,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-repo-dropdown--overtime"
           >
             <div
@@ -1743,7 +1743,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-base-repo-dropdown--overtime"
           >
             <div
@@ -1788,7 +1788,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-timerange"
           >
             <div
@@ -1870,7 +1870,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-repo-dropdown--overtime"
           >
             <div
@@ -2007,7 +2007,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
         </svg>
       </div>
       <div
-        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
         data-testid="framework-select"
       >
         <div
@@ -2636,7 +2636,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-base-repo-dropdown--overtime"
           >
             <div
@@ -2681,7 +2681,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-timerange"
           >
             <div
@@ -2763,7 +2763,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
             data-testid="dropdown-select-repo-dropdown--overtime"
           >
             <div
