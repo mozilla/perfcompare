@@ -224,6 +224,9 @@ const components = {
         '&.Mui-focused': {
           outline: '1px auto',
         },
+        '&.MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before': {
+          borderBottom: 'none',
+        },
       },
       select: [
         Select.light,

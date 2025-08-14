@@ -163,7 +163,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-repo-dropdown--base"
                       >
                         <div
@@ -448,7 +448,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1a42vku-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-repo-dropdown--new"
                       >
                         <div
@@ -931,7 +931,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="MuiFormControl-root css-7549ua-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-ewmjmk-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                         data-testid="framework-select"
                       >
                         <div
@@ -991,7 +991,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       data-testid="revision-select"
                     >
                       <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-ewmjmk-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                       >
                         <div
                           aria-expanded="false"
