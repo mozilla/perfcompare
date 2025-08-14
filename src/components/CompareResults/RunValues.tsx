@@ -88,7 +88,7 @@ function RunValues(props: RunValuesProps) {
       <div className={styles.deviation}>
         {values.length > 1
           ? `${stddev} ${unit} = ${stddevPercent}% standard deviation`
-          : `${stddev} ${unit} = N/A standard deviation`}
+          : 'N/A standard deviation'}
       </div>
     </>
   );
