@@ -98,6 +98,10 @@ export function RetriggerButton({ result, variant }: RetriggerButtonProps) {
   const showNotification = (message: string, actionHref: string) => {
     enqueueSnackbar(message, {
       variant: 'info',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'left',
+      },
       autoHideDuration: 10000, // The default (6000ms) configured in App.tsx seems a bit low for this notification
       // It's common that 2 notifications are sent (one for base, one for
       // new), so specifying the width makes them look more consistent.
