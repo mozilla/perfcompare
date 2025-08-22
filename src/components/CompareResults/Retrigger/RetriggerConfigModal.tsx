@@ -26,7 +26,7 @@ function RetriggerCountSelect({
       <Select
         labelId={`${prefix}-retrigger-count-label`}
         name={`${prefix}-retrigger-count`}
-        defaultValue={0}
+        defaultValue={5}
         label={label}
         sx={{ height: 32 }}
       >
