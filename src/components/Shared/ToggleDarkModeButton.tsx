@@ -10,7 +10,6 @@ import { Spacing, FontsRaw, SwitchRaw } from '../../styles';
 import { ThemeMode } from '../../types/state';
 
 const strings = Strings.components.header;
-const label = { inputProps: { 'aria-label': 'Dark mode switch' } };
 
 function ToggleDarkMode() {
   const dispatch = useAppDispatch();
@@ -57,7 +56,7 @@ function ToggleDarkMode() {
               onChange={toggleColorMode}
               className='toggle-switch toggle-dark-mode'
               name='toggle-dark-mode'
-              {...label}
+              slotProps={{ input: { 'aria-label': 'Dark mode switch' } }}
               id={theme == 'light' ? strings.darkMode : strings.lightMode}
             />
           }

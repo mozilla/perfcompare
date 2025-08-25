@@ -161,6 +161,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                         >
                           <input
                             class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                            role="switch"
                             type="checkbox"
                           />
                           <span
@@ -2014,6 +2015,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                         >
                           <input
                             class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                            role="switch"
                             type="checkbox"
                           />
                           <span

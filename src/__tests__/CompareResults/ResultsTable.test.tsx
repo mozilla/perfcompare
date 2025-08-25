@@ -68,13 +68,13 @@ function summarizeVisibleRows() {
         name: /open treeherder view/,
       });
       if (maybeLink) {
-        result.push('  rev: ' + maybeLink.textContent!);
+        result.push('  rev: ' + maybeLink.textContent);
       }
 
       const rows = within(revisionGroup).getAllByRole('row');
       for (const row of rows) {
         const rowString = ['.platform span', '.status', '.delta', '.confidence']
-          .map((selector) => row.querySelector(selector)!.textContent!.trim())
+          .map((selector) => row.querySelector(selector)!.textContent.trim())
           .join(', ');
 
         result.push('  - ' + rowString);

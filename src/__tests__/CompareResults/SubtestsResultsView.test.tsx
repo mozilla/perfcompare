@@ -57,7 +57,7 @@ function summarizeVisibleRows() {
     }
 
     const rowString = ['.delta', '.confidence']
-      .map((selector) => row.querySelector(selector)!.textContent!.trim())
+      .map((selector) => row.querySelector(selector)!.textContent.trim())
       .join(', ');
     result.push(`${subtest}: ${rowString}`);
   }
