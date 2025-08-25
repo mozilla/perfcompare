@@ -767,6 +767,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           >
                             <input
                               class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                              role="switch"
                               type="checkbox"
                             />
                             <span
