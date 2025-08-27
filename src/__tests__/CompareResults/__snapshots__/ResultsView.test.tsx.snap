@@ -95,11 +95,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               <div
                 class="fnujpat"
               >
-                6.96
-                 
-                 = 
-                1.17
-                % standard deviation
+                6.96  = 1.17% standard deviation
               </div>
             </div>
             <div
@@ -162,11 +158,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               <div
                 class="fnujpat"
               >
-                0.84
-                 
-                 = 
-                0.14
-                % standard deviation
+                0.84  = 0.14% standard deviation
               </div>
             </div>
           </div>
@@ -404,11 +396,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               <div
                 class="fnujpat"
               >
-                6.96
-                 
-                 = 
-                1.17
-                % standard deviation
+                6.96  = 1.17% standard deviation
               </div>
             </div>
             <div
@@ -471,11 +459,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               <div
                 class="fnujpat"
               >
-                0.84
-                 
-                 = 
-                0.14
-                % standard deviation
+                0.84  = 0.14% standard deviation
               </div>
             </div>
           </div>
@@ -788,7 +772,7 @@ exports[`Results View The table should match snapshot and other elements should 
           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-ewmjmk-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             data-testid="framework-select"
           >
             <div
@@ -848,7 +832,7 @@ exports[`Results View The table should match snapshot and other elements should 
           data-testid="revision-select"
         >
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-ewmjmk-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
           >
             <div
               aria-expanded="false"
