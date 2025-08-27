@@ -349,9 +349,10 @@ export default function SearchInputAndResults({
         noOptionsText={searchError || 'No results found'}
         slotProps={{
           listbox: {
-            className: getListStyles(mode),
+            className: `${getListStyles(mode)} results-list-${mode}`,
           },
         }}
+        data-testid='autocomplete'
       />
     </Box>
   );
