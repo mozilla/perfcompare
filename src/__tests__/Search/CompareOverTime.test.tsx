@@ -19,6 +19,9 @@ import {
   waitFor,
 } from '../utils/test-utils';
 
+const SearchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
 function setUpTestData() {
   const { testData } = getTestData();
   fetchMock
@@ -104,7 +107,7 @@ describe('Compare Over Time', () => {
       <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
     );
     const formElement = await waitForPageReadyAndReturnForm();
-    expect(formElement).toMatchSnapshot('Initial state for the form');
+    expect(formElement).toMatchSnapshot('Initial state for the form 1');
   });
 
   it('expands on header click and closes when user clicks base component header', async () => {
@@ -259,7 +262,11 @@ describe('Compare Over Time', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // Click inside the input box to show search results.
-    const searchInput = screen.getByRole('textbox');
+
+    // focus input to show results
+    const searchInput = screen.getAllByPlaceholderText(
+      SearchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
 
     const comment = await screen.findAllByText("you've got no arms left!");
@@ -281,7 +288,9 @@ describe('Compare Over Time', () => {
 
     expect(within(formElement).getByText(/Time range/)).toBeInTheDocument();
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByPlaceholderText(
+      SearchRevisionPlaceholder,
+    )[2];
     await user.click(searchInput);
     const checkbox = await screen.findByTestId('checkbox-0');
     await user.click(checkbox);
@@ -310,7 +319,10 @@ describe('Compare Over Time', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByPlaceholderText(
+      SearchRevisionPlaceholder,
+    )[2];
+
     await user.click(searchInput);
 
     const noArmsLeft = await screen.findByText(/no arms left/);
@@ -368,8 +380,10 @@ describe('Compare Over Time', () => {
     ).toBeInTheDocument();
 
     // focus first input to show results
-    const inputs = screen.getAllByRole('textbox');
-    await user.click(inputs[0]);
+    const searchInputs = screen.getAllByPlaceholderText(
+      SearchRevisionPlaceholder,
+    );
+    await user.click(searchInputs[2]);
 
     // Select a rev
     const items = await screen.findAllByText("you've got no arms left!");
@@ -410,7 +424,7 @@ describe('Compare Over Time', () => {
     );
     const formElement = await waitForPageReadyAndReturnForm();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    expect(formElement).toMatchSnapshot('Initial state for the form');
+    expect(formElement).toMatchSnapshot('Initial state for the form 1');
 
     // the readonly and new revision should be displayed
     const timeReadOnly = document.querySelector(
@@ -442,7 +456,7 @@ describe('Compare Over Time', () => {
     const editButton = getEditButton();
     await user.click(editButton);
 
-    expect(formElement).toMatchSnapshot('After clicking edit button');
+    expect(formElement).toMatchSnapshot('After clicking edit button 1');
 
     expect(editButton).not.toBeVisible();
 
@@ -482,7 +496,7 @@ describe('Compare Over Time', () => {
     );
     const formElement = await waitForPageReadyAndReturnForm();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    expect(formElement).toMatchSnapshot('Initial state for the form');
+    expect(formElement).toMatchSnapshot('Initial state for the form 1');
 
     const checkboxForText = (textElement: Element) =>
       textElement.closest('li')?.querySelector('.MuiCheckbox-root');
@@ -531,11 +545,15 @@ describe('Compare Over Time', () => {
     });
     expect(compareButton).toBeInTheDocument();
 
-    expect(formElement).toMatchSnapshot('After clicking edit button');
+    expect(formElement).toMatchSnapshot('After clicking edit button 1');
     expect(editButton).not.toBeVisible();
 
     //add a new revision
-    const searchInput = within(formElement).getByRole('textbox');
+    // const searchInput = within(formElement).getByRole('textbox');
+    const searchInput = screen.getAllByPlaceholderText(
+      SearchRevisionPlaceholder,
+    )[0];
+
     await user.click(searchInput);
     const alvesOfCoconut = await screen.findByText(/alves of coconuts/);
     await user.click(alvesOfCoconut);
@@ -553,7 +571,7 @@ describe('Compare Over Time', () => {
 
     // Press the compare button
     await user.click(compareButton);
-    expect(formElement).toMatchSnapshot('After clicking Compare button');
+    expect(formElement).toMatchSnapshot('After clicking Compare button 1');
 
     await waitFor(() => {
       expect(location.href).toContain('selectedTimeRange=172800');

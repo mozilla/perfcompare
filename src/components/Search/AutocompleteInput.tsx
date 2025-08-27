@@ -56,6 +56,7 @@ function AutocompleteInput({
         id={`search-${searchType}-input`}
         size={compact ? 'small' : undefined}
         className={`search-text-field ${searchType}`}
+        role='textbox'
         slotProps={{
           input: {
             ...params.InputProps,

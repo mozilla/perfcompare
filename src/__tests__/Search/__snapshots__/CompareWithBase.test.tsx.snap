@@ -112,12 +112,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -151,7 +153,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r4»"
+                    id="_r_4_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -457,12 +459,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -496,7 +500,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rd»"
+                    id="_r_d_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -733,7 +737,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 <ul
   aria-labelledby="select-framework-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="«r2g»"
+  id="_r_2g_"
   role="listbox"
   tabindex="-1"
 >
@@ -978,12 +982,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1017,7 +1023,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r3t»"
+                    id="_r_3t_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1323,12 +1329,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1362,7 +1370,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r46»"
+                    id="_r_46_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1567,12 +1575,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1606,7 +1616,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r3t»"
+                    id="_r_3t_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1912,12 +1922,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1951,7 +1963,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r46»"
+                    id="_r_46_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2320,12 +2332,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -2359,7 +2373,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r3t»"
+                    id="_r_3t_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2665,12 +2679,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -2704,7 +2720,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r46»"
+                    id="_r_46_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3077,12 +3093,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -3116,7 +3134,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r3t»"
+                    id="_r_3t_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3262,12 +3280,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -3301,7 +3321,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r46»"
+                    id="_r_46_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3706,12 +3726,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -3745,7 +3767,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r3t»"
+                    id="_r_3t_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4051,12 +4073,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -4090,7 +4114,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«r46»"
+                    id="_r_46_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -5122,7 +5146,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="«r63»"
+  id="_r_63_"
   role="listbox"
   tabindex="-1"
 >
