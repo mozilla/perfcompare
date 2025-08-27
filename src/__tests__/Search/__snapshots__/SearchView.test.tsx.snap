@@ -214,6 +214,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           >
                             <div
                               class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                              role="textbox"
                             >
                               <div
                                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -399,6 +400,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           >
                             <div
                               class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                              role="textbox"
                             >
                               <div
                                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -863,6 +865,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           >
                             <div
                               class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                              role="textbox"
                             >
                               <div
                                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1300,6 +1303,7 @@ exports[`With search parameters both search components are populated as expected
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1333,7 +1337,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rcj»"
+                    id="«rck»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1715,6 +1719,7 @@ exports[`With search parameters both search components are populated as expected
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1748,7 +1753,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rbv»"
+                    id="«rc0»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1900,6 +1905,7 @@ exports[`With search parameters both search components are populated as expected
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1933,7 +1939,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rc4»"
+                    id="«rc5»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2471,6 +2477,7 @@ exports[`With search parameters both search components are populated as expected
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -2504,7 +2511,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rdk»"
+                    id="«rdl»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2886,6 +2893,7 @@ exports[`With search parameters both search components are populated as expected
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -2919,7 +2927,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rd0»"
+                    id="«rd1»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3071,6 +3079,7 @@ exports[`With search parameters both search components are populated as expected
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -3104,7 +3113,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rd5»"
+                    id="«rd6»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3642,6 +3651,7 @@ exports[`With search parameters displays the default value for framework if the 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -3675,7 +3685,7 @@ exports[`With search parameters displays the default value for framework if the 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rfg»"
+                    id="«rfh»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4057,6 +4067,7 @@ exports[`With search parameters displays the default value for framework if the 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -4090,7 +4101,7 @@ exports[`With search parameters displays the default value for framework if the 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«res»"
+                    id="«ret»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4242,6 +4253,7 @@ exports[`With search parameters displays the default value for framework if the 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -4275,7 +4287,7 @@ exports[`With search parameters displays the default value for framework if the 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rf1»"
+                    id="«rf2»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4813,6 +4825,7 @@ exports[`With search parameters displays the default values if some values are b
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -4846,7 +4859,7 @@ exports[`With search parameters displays the default values if some values are b
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«rei»"
+                    id="«rej»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -5088,6 +5101,7 @@ exports[`With search parameters displays the default values if some values are b
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -5121,7 +5135,7 @@ exports[`With search parameters displays the default values if some values are b
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«re1»"
+                    id="«re2»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -5273,6 +5287,7 @@ exports[`With search parameters displays the default values if some values are b
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -5306,7 +5321,7 @@ exports[`With search parameters displays the default values if some values are b
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="«re6»"
+                    id="«re7»"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
