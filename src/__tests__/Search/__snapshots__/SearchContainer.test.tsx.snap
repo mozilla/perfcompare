@@ -133,12 +133,14 @@ exports[`Search Containter should match snapshot 1`] = `
                     >
                       <div
                         class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                        data-testid="autocomplete"
                       >
                         <div
                           class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                            role="textbox"
                           >
                             <div
                               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -318,12 +320,14 @@ exports[`Search Containter should match snapshot 1`] = `
                     >
                       <div
                         class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                        data-testid="autocomplete"
                       >
                         <div
                           class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                            role="textbox"
                           >
                             <div
                               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -782,12 +786,14 @@ exports[`Search Containter should match snapshot 1`] = `
                     >
                       <div
                         class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                        data-testid="autocomplete"
                       >
                         <div
                           class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                            role="textbox"
                           >
                             <div
                               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"

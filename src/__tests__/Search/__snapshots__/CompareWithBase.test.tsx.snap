@@ -112,12 +112,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -457,12 +459,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -992,12 +996,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1031,7 +1037,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_41_"
+                    id="_r_4b_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1337,12 +1343,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1376,7 +1384,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4a_"
+                    id="_r_4k_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1586,12 +1594,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1625,7 +1635,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_41_"
+                    id="_r_4b_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1931,12 +1941,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1970,7 +1982,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4a_"
+                    id="_r_4k_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2344,12 +2356,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -2383,7 +2397,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_41_"
+                    id="_r_4b_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2689,12 +2703,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -2728,7 +2744,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4a_"
+                    id="_r_4k_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3106,12 +3122,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -3145,7 +3163,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_41_"
+                    id="_r_4b_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3291,12 +3309,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -3330,7 +3350,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4a_"
+                    id="_r_4k_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3740,12 +3760,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -3779,7 +3801,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_41_"
+                    id="_r_4b_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4085,12 +4107,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            data-testid="autocomplete"
           >
             <div
               class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                role="textbox"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
@@ -4124,7 +4148,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4a_"
+                    id="_r_4k_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4270,11 +4294,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
@@ -4485,7 +4509,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-repo-dropdown--base"
                         >
                           <div
@@ -4527,43 +4551,21 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
+                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                          data-testid="autocomplete"
                         >
                           <div
-                            class="MuiFormControl-root MuiTextField-root search-text-field base css-1xp5r68-MuiFormControl-root-MuiTextField-root"
+                            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                           >
                             <div
-                              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
+                              class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field base css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                              role="textbox"
                             >
                               <div
-                                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
+                                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                                  data-testid="SearchIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
-                                  />
-                                </svg>
-                              </div>
-                              <input
-                                aria-invalid="false"
-                                aria-label="Search by revision ID or author email"
-                                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="search-base-input"
-                                placeholder="Search by revision ID or author email"
-                                type="text"
-                              />
-                              <fieldset
-                                aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                              >
-                                <legend
-                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
+                                <div
+                                  class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-uehsul-MuiInputAdornment-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -4571,8 +4573,72 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                   >
                                     ​
                                   </span>
-                                </legend>
-                              </fieldset>
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                    data-testid="SearchIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                                    />
+                                  </svg>
+                                </div>
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-expanded="false"
+                                  aria-invalid="false"
+                                  aria-label="Search by revision ID or author email"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
+                                  id="_r_36_"
+                                  placeholder="Search by revision ID or author email"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  type="text"
+                                  value=""
+                                />
+                                <div
+                                  class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
+                                >
+                                  <button
+                                    aria-label="Open"
+                                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                                    tabindex="-1"
+                                    title="Open"
+                                    type="button"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                      data-testid="ArrowDropDownIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M7 10l5 5 5-5z"
+                                      />
+                                    </svg>
+                                  </button>
+                                </div>
+                                <fieldset
+                                  aria-hidden="true"
+                                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                                >
+                                  <legend
+                                    class="css-1nf2c5d-MuiNotchedOutlined-root"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      class="notranslate"
+                                    >
+                                      ​
+                                    </span>
+                                  </legend>
+                                </fieldset>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4630,7 +4696,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-repo-dropdown--new"
                         >
                           <div
@@ -4672,43 +4738,21 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
+                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                          data-testid="autocomplete"
                         >
                           <div
-                            class="MuiFormControl-root MuiTextField-root search-text-field new css-1xp5r68-MuiFormControl-root-MuiTextField-root"
+                            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                           >
                             <div
-                              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
+                              class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                              role="textbox"
                             >
                               <div
-                                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
+                                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                                  data-testid="SearchIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
-                                  />
-                                </svg>
-                              </div>
-                              <input
-                                aria-invalid="false"
-                                aria-label="Search by revision ID or author email"
-                                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="search-new-input"
-                                placeholder="Search by revision ID or author email"
-                                type="text"
-                              />
-                              <fieldset
-                                aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                              >
-                                <legend
-                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
+                                <div
+                                  class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-uehsul-MuiInputAdornment-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -4716,8 +4760,72 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                   >
                                     ​
                                   </span>
-                                </legend>
-                              </fieldset>
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                    data-testid="SearchIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                                    />
+                                  </svg>
+                                </div>
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-expanded="false"
+                                  aria-invalid="false"
+                                  aria-label="Search by revision ID or author email"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
+                                  id="_r_3b_"
+                                  placeholder="Search by revision ID or author email"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  type="text"
+                                  value=""
+                                />
+                                <div
+                                  class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
+                                >
+                                  <button
+                                    aria-label="Open"
+                                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                                    tabindex="-1"
+                                    title="Open"
+                                    type="button"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                      data-testid="ArrowDropDownIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M7 10l5 5 5-5z"
+                                      />
+                                    </svg>
+                                  </button>
+                                </div>
+                                <fieldset
+                                  aria-hidden="true"
+                                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                                >
+                                  <legend
+                                    class="css-1nf2c5d-MuiNotchedOutlined-root"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      class="notranslate"
+                                    >
+                                      ​
+                                    </span>
+                                  </legend>
+                                </fieldset>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4768,7 +4876,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       </svg>
                     </div>
                     <div
-                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="framework-select"
                     >
                       <div
@@ -4927,7 +5035,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-base-repo-dropdown--overtime"
                         >
                           <div
@@ -4972,7 +5080,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-timerange"
                         >
                           <div
@@ -5054,7 +5162,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-repo-dropdown--overtime"
                         >
                           <div
@@ -5096,43 +5204,21 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
+                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                          data-testid="autocomplete"
                         >
                           <div
-                            class="MuiFormControl-root MuiTextField-root search-text-field new css-1xp5r68-MuiFormControl-root-MuiTextField-root"
+                            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-ytlejw-MuiFormControl-root"
                           >
                             <div
-                              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
+                              class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root search-text-field new css-cmpglg-MuiFormControl-root-MuiTextField-root"
+                              role="textbox"
                             >
                               <div
-                                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
+                                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1e4fo0f-MuiInputBase-root-MuiOutlinedInput-root"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                                  data-testid="SearchIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
-                                  />
-                                </svg>
-                              </div>
-                              <input
-                                aria-invalid="false"
-                                aria-label="Search by revision ID or author email"
-                                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="search-new-input"
-                                placeholder="Search by revision ID or author email"
-                                type="text"
-                              />
-                              <fieldset
-                                aria-hidden="true"
-                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                              >
-                                <legend
-                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
+                                <div
+                                  class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-uehsul-MuiInputAdornment-root"
                                 >
                                   <span
                                     aria-hidden="true"
@@ -5140,8 +5226,72 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                   >
                                     ​
                                   </span>
-                                </legend>
-                              </fieldset>
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                    data-testid="SearchIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                                    />
+                                  </svg>
+                                </div>
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-expanded="false"
+                                  aria-invalid="false"
+                                  aria-label="Search by revision ID or author email"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
+                                  id="_r_3n_"
+                                  placeholder="Search by revision ID or author email"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  type="text"
+                                  value=""
+                                />
+                                <div
+                                  class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
+                                >
+                                  <button
+                                    aria-label="Open"
+                                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                                    tabindex="-1"
+                                    title="Open"
+                                    type="button"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                      data-testid="ArrowDropDownIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M7 10l5 5 5-5z"
+                                      />
+                                    </svg>
+                                  </button>
+                                </div>
+                                <fieldset
+                                  aria-hidden="true"
+                                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                                >
+                                  <legend
+                                    class="css-1nf2c5d-MuiNotchedOutlined-root"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      class="notranslate"
+                                    >
+                                      ​
+                                    </span>
+                                  </legend>
+                                </fieldset>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -5191,7 +5341,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       </svg>
                     </div>
                     <div
-                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="framework-select"
                     >
                       <div
@@ -5253,7 +5403,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="_r_6b_"
+  id="_r_6l_"
   role="listbox"
   tabindex="-1"
 >
