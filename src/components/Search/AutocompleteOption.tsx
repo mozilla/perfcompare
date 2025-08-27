@@ -87,6 +87,7 @@ function AutocompleteOption({
         isChecked ? 'item-selected' : ''
       }`}
       onClick={onToggleAction}
+      data-testid='autocomplete-option'
     >
       <Box className='search-revision-item-icon search-revision'>
         <ListItemComponent
@@ -95,6 +96,7 @@ function AutocompleteOption({
           disableRipple
           data-testid={`checkbox-${index}`}
           checked={isChecked}
+          role='button'
         />
       </Box>
 

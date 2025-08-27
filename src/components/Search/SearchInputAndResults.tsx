@@ -48,7 +48,6 @@ export default function SearchInputAndResults({
 }: Props) {
   const mode = useAppSelector((state) => state.theme.mode);
 
-  // const [displayDropdown, setDisplayDropdown] = useState(false);
   const [recentRevisions, setRecentRevisions] = useState(
     null as null | Changeset[],
   );
@@ -149,27 +148,6 @@ export default function SearchInputAndResults({
     });
   };
 
-  // const handleDocumentMousedown = useCallback(
-  //   (e: MouseEvent) => {
-  //     if (!displayDropdown) {
-  //       return;
-  //     }
-  //     const target = e.target as HTMLElement;
-  //     if (!containerRef.current?.contains(target)) {
-  //       // Close the dropdown only if the click is outside the search input or one
-  //       // of it's descendants.
-  //       setDisplayDropdown(false);
-  //     }
-  //   },
-  //   [displayDropdown],
-  // );
-
-  // const handleEscKeypress = useCallback((e: KeyboardEvent) => {
-  //   if (e.key === 'Escape') {
-  //     setDisplayDropdown(false);
-  //   }
-  // }, []);
-
   const searchRecentRevisions = useCallback(
     async (searchTerm: string) => {
       // If the URL has a parameter useFulltextSearch, use it to determine the search type.
@@ -263,20 +241,6 @@ export default function SearchInputAndResults({
     void searchRecentRevisions(lastSearchTermRef.current);
   }, [repository]);
 
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', handleDocumentMousedown);
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleDocumentMousedown);
-  //   };
-  // }, [handleDocumentMousedown]);
-
-  // useEffect(() => {
-  //   document.addEventListener('keydown', handleEscKeypress);
-  //   return () => {
-  //     document.removeEventListener('keydown', handleEscKeypress);
-  //   };
-  // }, [handleEscKeypress]);
-
   const renderInput = (params: AutocompleteRenderInputParams) => (
     <AutocompleteInput
       params={params}
@@ -304,25 +268,6 @@ export default function SearchInputAndResults({
 
   return (
     <Box ref={containerRef}>
-      {/* <SearchInput
-        onFocus={() => setDisplayDropdown(true)}
-        compact={compact}
-        inputPlaceholder={inputPlaceholder}
-        searchType={searchType}
-        searchError={searchError}
-        onChange={onValueChange}
-      />
-
-      {recentRevisions && displayDropdown && (
-        <SearchResultsList
-          compact={compact}
-          searchResults={recentRevisions}
-          displayedRevisions={displayedRevisions}
-          onToggle={onSearchResultsToggle}
-          listItemComponent={listItemComponent}
-        />
-      )} */}
-
       <Autocomplete
         options={recentRevisions ?? []}
         getOptionLabel={(options) => options.revision}
@@ -349,9 +294,10 @@ export default function SearchInputAndResults({
         noOptionsText={searchError || 'No results found'}
         slotProps={{
           listbox: {
-            className: getListStyles(mode),
+            className: `${getListStyles(mode)} results-list-${mode}`,
           },
         }}
+        data-testid='autocomplete'
       />
     </Box>
   );
