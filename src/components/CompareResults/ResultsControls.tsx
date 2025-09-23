@@ -34,7 +34,7 @@ export default function ResultsControls({
   resultsPromise,
   onSearchTermChange,
   onFrameworkChange,
-  onTestVersionChange
+  onTestVersionChange,
 }: Props) {
   const mode = useAppSelector((state) => state.theme.mode);
   return (
