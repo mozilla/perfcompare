@@ -997,14 +997,14 @@ exports[`Results Table Should match snapshot 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Statistics Test Type"
+                          aria-label="Stats Test Version"
                           aria-labelledby="test-version-type mui-component-select-test-version"
                           class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           id="mui-component-select-test-version"
                           role="combobox"
                           tabindex="0"
                         >
-                          Student-T Test
+                          Student-T
                         </div>
                         <input
                           aria-hidden="true"
