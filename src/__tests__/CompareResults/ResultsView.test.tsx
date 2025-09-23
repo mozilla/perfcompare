@@ -69,7 +69,6 @@ describe('Results View', () => {
   });
 
   it('renders test version dropdown defaults to student-t test', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     const header = await screen.findByText('Results');
