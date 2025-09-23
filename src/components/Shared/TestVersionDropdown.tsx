@@ -13,7 +13,7 @@ interface TestVersionDropdownProps {
 
 const TEST_VERSIONS = [
   { type: 'mann-whitney-u', label: 'Mann-Whitney-U' },
-  { type: 'student-t', label: 'Student-T Test' },
+  { type: 'student-t', label: 'Student-T' },
 ];
 
 function TestVersionDropdown({
@@ -44,7 +44,7 @@ function TestVersionDropdown({
         },
       }}
       inputProps={{
-        'aria-label': 'Statistics Test Type',
+        'aria-label': 'Stats Test Version',
       }}
     >
       {TEST_VERSIONS.map(({ label, type }) => (

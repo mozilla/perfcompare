@@ -4,7 +4,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="«r6h»"
+  id="«raf»"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -305,7 +305,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="«r55»"
+  id="«r93»"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -837,14 +837,14 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Statistics Test Type"
+              aria-label="Stats Test Version"
               aria-labelledby="test-version-type mui-component-select-test-version"
               class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-component-select-test-version"
               role="combobox"
               tabindex="0"
             >
-              Student-T Test
+              Student-T
             </div>
             <input
               aria-hidden="true"
@@ -2150,5 +2150,35 @@ exports[`Results View renders framework dropdown in closed condition 1`] = `
   tabindex="0"
 >
   build_metrics
+</div>
+`;
+
+exports[`Results View renders test version dropdown defaults to student-t test 1`] = `
+<div
+  aria-expanded="false"
+  aria-haspopup="listbox"
+  aria-label="Stats Test Version"
+  aria-labelledby="test-version-type mui-component-select-test-version"
+  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+  id="mui-component-select-test-version"
+  role="combobox"
+  tabindex="0"
+>
+  Student-T
+</div>
+`;
+
+exports[`Results View renders test version dropdown in closed condition 1`] = `
+<div
+  aria-expanded="false"
+  aria-haspopup="listbox"
+  aria-label="Stats Test Version"
+  aria-labelledby="test-version-type mui-component-select-test-version"
+  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+  id="mui-component-select-test-version"
+  role="combobox"
+  tabindex="0"
+>
+  Student-T
 </div>
 `;
