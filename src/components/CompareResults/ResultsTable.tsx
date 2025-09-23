@@ -158,6 +158,7 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
+  const [testVersionVal, setTestVersionVal] = useState('student-t');
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
@@ -193,9 +194,11 @@ export default function ResultsTable() {
         <ResultsControls
           initialSearchTerm={initialSearchTerm}
           frameworkId={frameworkIdVal}
+          testType={testVersionVal}
           resultsPromise={resultsPromise}
           onSearchTermChange={onSearchTermChange}
           onFrameworkChange={onFrameworkChange}
+          onTestVersionChange={setTestVersionVal}
         />
         <TableHeader
           columnsConfiguration={columnsConfiguration}
