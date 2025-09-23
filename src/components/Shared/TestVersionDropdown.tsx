@@ -10,7 +10,7 @@ interface TestVersionDropdownProps {
   onChange: (test_version: string) => void;
 }
 
-const TEST_VERSIONS = [{type: 'mann-whitney-u', label: 'Mann Whitney U Test'}, {type: 'student-t', label: 'Student-T Test'}]
+const TEST_VERSIONS = [{type: 'mann-whitney-u', label: 'Mann-Whitney-U'}, {type: 'student-t', label: 'Student-T Test'}]
 
 function TestVersionDropdown({
   testType,
