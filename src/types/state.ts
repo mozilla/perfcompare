@@ -137,3 +137,5 @@ export type PlatformShortName =
   | 'Android'
   | 'iOS'
   | 'Unspecified';
+
+export type TestVersionName = 'mann-whitney-u' | 'student-t'
