@@ -1,4 +1,5 @@
 import { Suspense, useState } from 'react';
+import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -64,14 +65,13 @@ export default function ResultsTable() {
 
   const onTestVersionChange = (testVersion: TestVersionName) => {
     rawSearchParams.set('test_version', testVersion);
-    setTestVersionVal(testVersion)
+    setTestVersionVal(testVersion);
     updateRawSearchParams(rawSearchParams);
-  }
+  };
 
   const rowGridTemplateColumns = getTableConfigs(testVersionVal)
     .map((config) => config.gridWidth)
     .join(' ');
-
 
   return (
     <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>

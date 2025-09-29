@@ -4,7 +4,7 @@ import {
   fetchFakeCompareResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
-import { Changeset, CompareResultItemType, CompareResultsItem, Repository } from '../../types/state';
+import { Changeset, CompareResultItemType, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that

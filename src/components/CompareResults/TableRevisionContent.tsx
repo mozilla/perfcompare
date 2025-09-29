@@ -2,11 +2,11 @@ import { style } from 'typestyle';
 
 import LinkToRevision from './LinkToRevision';
 import RevisionRow from './RevisionRow';
+import RevisionRowMannWhitney from './RevisionRowMannWhitney';
 import TestHeader from './TestHeader';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
-import type { CompareResultItemType, CompareResultsItem } from '../../types/state';
-import RevisionRowMannWhitney from './RevisionRowMannWhitney';
+import type { CompareResultItemType, TestVersionName } from '../../types/state';
 import { MANN_WHITNEY_U } from '../../utils/helpers';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
@@ -82,7 +82,7 @@ interface Props {
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
-  testVersionVal: string;
+  testVersionVal: TestVersionName;
 }
 
 export default TableRevisionContent;

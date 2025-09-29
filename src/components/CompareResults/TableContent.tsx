@@ -9,7 +9,7 @@ import { useAppSelector } from '../../hooks/app';
 import { filterResults } from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultItemType, CompareResultsItem } from '../../types/state';
+import type { CompareResultItemType, CompareResultsItem, TestVersionName } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
 
 // The data structure returned by processResults may look complex at first, so
@@ -135,7 +135,7 @@ type Props = {
   sortColumn: null | string;
   sortDirection: 'asc' | 'desc' | null;
   replicates: boolean;
-  testVersionVal: string;
+  testVersionVal: TestVersionName;
 };
 
 function TableContent({

@@ -3,21 +3,18 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
-import CommonGraph from './CommonGraph';
-import Distribution from './Distribution';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
-import { formatNumber } from '../../utils/format';
 import { CompareResultsMannWhitneyItem } from '../../types/state';
 
 const strings = Strings.components.expandableRow;
-const { singleRun, confidenceNote } = strings;
+const { singleRun } = strings;
 
 const numberFormatterTwoDigits = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 2,
 });
-const formatNumberTwoDigits = (value: number) =>
-  numberFormatterTwoDigits.format(value);
+// const formatNumberTwoDigits = (value: number) =>
+//   numberFormatterTwoDigits.format(value);
 
 function RevisionRowExpandableMannWhitney(props: RevisionRowExpandableMannWhitneyProps) {
   const { result, id } = props;
@@ -28,8 +25,8 @@ function RevisionRowExpandableMannWhitney(props: RevisionRowExpandableMannWhitne
     base_runs_replicates: baseRunsReplicates,
     new_runs_replicates: newRunsReplicates,
     platform,
-    base_standard_stats,
-    new_standard_stats,
+    // base_standard_stats,
+    // new_standard_stats,
   
     base_app: baseApplication,
     new_app: newApplication,
@@ -37,24 +34,6 @@ function RevisionRowExpandableMannWhitney(props: RevisionRowExpandableMannWhitne
     lower_is_better: lowerIsBetter,
     new_is_better: newIsBetter,
   } = result;
-  const baseMedian = base_standard_stats?.median ?? 0
-  const newMedian = base_standard_stats?.median ?? 0
-  let medianDifference = '';
-  let medianPercentage = '';
-  if (baseMedian && newMedian) {
-    medianDifference = formatNumberTwoDigits(newMedian - baseMedian);
-    medianPercentage = formatNumberTwoDigits(
-      ((newMedian - baseMedian) / baseMedian) * 100,
-    );
-  }
-
-  const baseValues =
-    baseRunsReplicates && baseRunsReplicates.length
-      ? baseRunsReplicates
-      : baseRuns;
-
-  const newValues =
-    newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
 
   return (
     <Box

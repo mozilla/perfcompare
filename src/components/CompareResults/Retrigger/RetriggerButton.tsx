@@ -17,7 +17,7 @@ import {
   fetchJobInformationFromJobId,
 } from '../../../logic/treeherder';
 import { Strings } from '../../../resources/Strings';
-import { CompareResultItemType, CompareResultsItem } from '../../../types/state';
+import { CompareResultItemType } from '../../../types/state';
 import { getTreeherderURL } from '../../../utils/helpers';
 import SnackbarCloseButton from '../../Shared/SnackbarCloseButton';
 

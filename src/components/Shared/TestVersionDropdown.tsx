@@ -34,7 +34,7 @@ function TestVersionDropdown({
       data-testid='test-version-select'
       value={testType}
       labelId={'test-version-type'}
-      className='framework-dropdown-select'
+      className='test-version-select'
       onChange={onValueChange}
       name='test-version'
       variant={variant}

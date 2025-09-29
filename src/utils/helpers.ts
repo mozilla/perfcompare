@@ -1,3 +1,4 @@
+import { getPlatformShortName } from './platform';
 import {
   frameworkMap,
   devToolsFramework,
@@ -9,7 +10,6 @@ import {
 import { treeherderBaseURL } from '../logic/treeherder';
 import type { Repository, Changeset, CompareResultsItem } from '../types/state';
 import type { CompareResultsTableConfig, Framework, SupportedPerfdocsFramework } from '../types/types';
-import { getPlatformShortName } from './platform';
 
 const truncateHash = (revision: Changeset['revision']) => revision.slice(0, 12);
 
@@ -230,75 +230,6 @@ const mannWhitneyConfig: CompareResultsTableConfig = [
     },
   }]
 
-const columnsConfiguration: CompareResultsTableConfig = [
-  {
-    name: 'Platform',
-    filter: true,
-    key: 'platform',
-    gridWidth: '2fr',
-    possibleValues: [
-      { label: 'Windows', key: 'windows' },
-      { label: 'macOS', key: 'osx' },
-      { label: 'Linux', key: 'linux' },
-      { label: 'Android', key: 'android' },
-      { label: 'iOS', key: 'ios' },
-    ],
-    matchesFunction(result, valueKey) {
-      const label = this.possibleValues.find(
-        ({ key }) => key === valueKey,
-      )?.label;
-      const platformName = getPlatformShortName(result.platform);
-      return platformName === label;
-    },
-  },
-  {
-    name: 'Base',
-    key: 'base',
-    gridWidth: '1fr',
-    tooltip: 'A summary of all values from Base runs using a mean.',
-  },
-  {
-    key: 'comparisonSign',
-
-    gridWidth: '0.2fr',
-  },
-  {
-    name: 'New',
-    key: 'new',
-    gridWidth: '1fr',
-    tooltip: 'A summary of all values from New runs using a mean.',
-  },
-  {
-    name: 'Status',
-    filter: true,
-    key: 'status',
-    gridWidth: '1.5fr',
-    possibleValues: [
-      { label: 'No changes', key: 'none' },
-      { label: 'Improvement', key: 'improvement' },
-      { label: 'Regression', key: 'regression' },
-    ],
-    matchesFunction(result, valueKey) {
-      switch (valueKey) {
-        case 'improvement':
-          return result.is_improvement;
-        case 'regression':
-          return result.is_regression;
-        default:
-          return !result.is_improvement && !result.is_regression;
-      }
-    },
-  },
-  {
-    name: 'Total Runs',
-    key: 'runs',
-    gridWidth: '1fr',
-    tooltip: 'The total number of tasks/jobs that ran for this metric.',
-  },
-  // We use the real pixel value for the buttons, so that everything is better aligned.
-  { key: 'buttons', gridWidth: `calc(3.5 * 34px)` }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
-  { key: 'expand', gridWidth: '34px' }, // 1 button
-];
 
 export const MANN_WHITNEY_U = 'mann-whitney-u'
 export const STUDENT_T = 'student-t'

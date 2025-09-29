@@ -1,4 +1,4 @@
-import { CompareResultItemType, CompareResultsItem, CompareResultsMannWhitneyItem } from './state';
+import { CompareResultItemType, CompareResultsItem } from './state';
 
 /* --- Types for configuring the behavior and styles of the results tables columns --- */
 

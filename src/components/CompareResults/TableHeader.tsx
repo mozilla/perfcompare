@@ -20,6 +20,7 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
+import { TestVersionName } from '../../types/state';
 import type {
   CompareResultsTableConfig,
   FilterableColumn,
@@ -69,7 +70,7 @@ function SortDirectionIcon({
 type FilterableColumnHeaderProps = {
   name: string;
   columnId: string;
-  testVersionVal: string;
+  testVersionVal: TestVersionName;
   /* Properties for filtering */
   possibleValues: FilterableColumn['possibleValues'];
   checkedValues?: Set<string>;
@@ -81,7 +82,6 @@ type FilterableColumnHeaderProps = {
 function FilterableColumnHeader({
   name,
   columnId,
-  testVersionVal,
   possibleValues,
   checkedValues,
   onToggleFilter,
@@ -251,7 +251,7 @@ function SortableColumnHeader({
 }
 
 type TableHeaderProps = {
-  testVersionVal: string;
+  testVersionVal: TestVersionName;
   columnsConfiguration: CompareResultsTableConfig;
 
   // Filter properties

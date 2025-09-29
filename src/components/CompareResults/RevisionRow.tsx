@@ -29,7 +29,6 @@ import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
-import RevisionRowExpandableMannWhitney from './RevisionRowExpandableMannWhitney';
 
 const typography = style({
   fontFamily: 'SF Pro',

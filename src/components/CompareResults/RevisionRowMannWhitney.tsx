@@ -1,11 +1,8 @@
 import { useId, useState, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
-import DragHandleIcon from '@mui/icons-material/DragHandle';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
@@ -14,10 +11,11 @@ import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
 import { RetriggerButton } from './Retrigger/RetriggerButton';
+import RevisionRowExpandableMannWhitney from './RevisionRowExpandableMannWhitney';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
-import type { CompareResultItemType, CompareResultsMannWhitneyItem, PlatformShortName } from '../../types/state';
+import type { CompareResultItemType, PlatformShortName } from '../../types/state';
 import { formatNumber } from '../../utils/format';
 import {
   getPlatformShortName,
@@ -28,7 +26,6 @@ import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
-import RevisionRowExpandableMannWhitney from './RevisionRowExpandableMannWhitney';
 
 const typography = style({
   fontFamily: 'SF Pro',
@@ -140,11 +137,11 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Unspecified: '',
 };
 
-const confidenceIcons = {
-  Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
-  Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
-  High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
-};
+// const confidenceIcons = {
+//   Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
+//   Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
+//   High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
+// };
 
 const getSubtestsCompareWithBaseLink = (result: CompareResultItemType) => {
   const params = new URLSearchParams({
