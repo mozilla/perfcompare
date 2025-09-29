@@ -109,6 +109,65 @@ export type CompareResultsItem = {
   has_subtests: boolean;
 };
 
+export type BasicStatItem = {
+  rev_data: number[];
+  mean: number;
+  median: number;
+  stddev: number;
+  stddev_pct: number;
+  variance: number;
+  count: number;
+  min: number;
+  max: number;
+}
+
+export type CompareResultsMannWhitneyItem = {
+  base_rev: string;
+  new_rev: string;
+  base_app: string;
+  new_app: string;
+  header_name: string;
+  base_retriggerable_job_ids: number[];
+  new_retriggerable_job_ids: number[];
+  base_measurement_unit: MeasurementUnit;
+  new_measurement_unit: MeasurementUnit;
+  platform: Platform;
+  suite: string;
+  framework_id: Framework['id'];
+  new_repository_name: Repository['name'];
+  base_repository_name: Repository['name'];
+  new_runs: number[];
+  base_runs: number[];
+  new_runs_replicates: number[];
+  base_runs_replicates: number[];
+  base_standard_stats: BasicStatItem;
+  new_standard_stats: BasicStatItem;
+  cliffs_delta: number;
+  mann_pvalue: number;
+  new_is_better: boolean;
+  lower_is_better: boolean;
+  is_improvement: boolean;
+  test: string;
+  option_name: string;
+  extra_options: string;
+  graphs_link: string;
+  is_regression: boolean;
+  is_meaningful: boolean;
+  more_runs_are_needed: boolean;
+  /*
+  Each test has a signature and each signature may or may not have a parent_signature.
+  If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
+  */
+  base_parent_signature: number | null;
+  new_parent_signature: number | null;
+  base_signature_id: number;
+  new_signature_id: number;
+  has_subtests: boolean;
+
+}
+
+export type CompareResultItemType = CompareResultsItem & CompareResultsMannWhitneyItem;
+
 export type HashToCommit = {
   baseRevision: string;
   newRevision: string;
@@ -137,5 +196,6 @@ export type PlatformShortName =
   | 'Android'
   | 'iOS'
   | 'Unspecified';
+
 
 export type TestVersionName = 'mann-whitney-u' | 'student-t'

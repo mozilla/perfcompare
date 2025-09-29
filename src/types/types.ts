@@ -1,4 +1,4 @@
-import { CompareResultsItem } from './state';
+import { CompareResultItemType, CompareResultsItem, CompareResultsMannWhitneyItem } from './state';
 
 /* --- Types for configuring the behavior and styles of the results tables columns --- */
 
@@ -23,7 +23,7 @@ interface FilterableColumnMixin {
   // This function returns whether this result matches the value for this column.
   matchesFunction: (
     this: FilterableColumnMixin,
-    result: CompareResultsItem,
+    result: CompareResultItemType,
     value: string,
   ) => boolean;
 }
@@ -32,8 +32,8 @@ interface FilterableColumnMixin {
 interface SortableColumnMixin {
   name: string;
   sortFunction: (
-    resultA: CompareResultsItem,
-    resultB: CompareResultsItem,
+    resultA: CompareResultItemType,
+    resultB: CompareResultItemType,
   ) => number;
 }
 

@@ -6,8 +6,10 @@ import {
   nonDocumentedTestsDevTools,
   supportedPerfdocsFrameworks,
 } from '../common/constants';
-import type { Repository, Changeset } from '../types/state';
-import type { Framework, SupportedPerfdocsFramework } from '../types/types';
+import { treeherderBaseURL } from '../logic/treeherder';
+import type { Repository, Changeset, CompareResultsItem } from '../types/state';
+import type { CompareResultsTableConfig, Framework, SupportedPerfdocsFramework } from '../types/types';
+import { getPlatformShortName } from './platform';
 
 const truncateHash = (revision: Changeset['revision']) => revision.slice(0, 12);
 
@@ -49,7 +51,7 @@ const getTreeherderURL = (
   revision: Changeset['revision'],
   repository: Repository['name'],
 ) =>
-  `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;
+  `${treeherderBaseURL}/jobs?repo=${repository}&revision=${revision}`;
 
 const createDevtoolsDocsUrl = (
   supportedFramework: string,
@@ -116,6 +118,265 @@ const swapArrayElements = <T>(
   return array;
 };
 
+const studentTConfigs: CompareResultsTableConfig  = [
+  {
+    name: "Delta",
+    key: 'delta',
+    gridWidth: '1fr',
+    sortFunction(resultA, resultB) {
+      return (
+        Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
+      );
+    },
+    tooltip: 'The percentage difference between the Base and New values',
+  },
+  {
+    name: 'Confidence',
+    filter: true,
+    key: 'confidence',
+    gridWidth: '1.5fr',
+    tooltip:
+      "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
+    possibleValues: [
+      { label: 'No value', key: 'none' },
+      { label: 'Low', key: 'low' },
+      { label: 'Medium', key: 'medium' },
+      { label: 'High', key: 'high' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'none':
+          return !result.confidence_text;
+        default: {
+          const label = this.possibleValues.find(
+            ({ key }) => key === valueKey,
+          )?.label;
+          return result.confidence_text === label;
+        }
+      }
+    },
+    sortFunction(resultA, resultB) {
+      const confidenceA =
+        resultA.confidence_text && resultA.confidence !== null
+          ? resultA.confidence
+          : -1;
+      const confidenceB =
+        resultB.confidence_text && resultB.confidence !== null
+          ? resultB.confidence
+          : -1;
+      return confidenceA - confidenceB;
+    },
+}]
+
+const mannWhitneyConfig: CompareResultsTableConfig = [
+  {
+    name: `Cliff's Delta`,
+    key: 'cliffs-delta',
+    gridWidth: '1.5fr',
+    sortFunction(resultA, resultB) {
+      return (
+        Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta)
+      );
+    },
+    tooltip: `Cliff's Delta is a way to measure how different two groups are.`,
+  },
+  {
+    name: `P-Value`,
+    key: 'p-value',
+    gridWidth: '1.5fr',
+    sortFunction(resultA, resultB) {
+      return (
+        Math.abs(resultA.mann_pvalue) - Math.abs(resultB.mann_pvalue)
+      );
+    },
+    tooltip: `Cliff's Delta is a way to measure how different two groups are.`,
+  },
+  
+  {
+    name: 'CLES',
+    filter: true,
+    key: 'effect-size',
+    gridWidth: '1.5fr',
+    tooltip:
+      "",
+    possibleValues: [
+      { label: 'No value', key: 'none' },
+      { label: 'Low', key: 'low' },
+      { label: 'Medium', key: 'medium' },
+      { label: 'High', key: 'high' },
+    ],
+    matchesFunction(result: CompareResultsItem, valueKey) {
+      switch (valueKey) {
+        case 'none':
+          return !result.confidence_text;
+        default: {
+          const label = this.possibleValues.find(
+            ({ key }) => key === valueKey,
+          )?.label;
+          return result.confidence_text === label;
+        }
+      }
+    },
+    sortFunction(resultA: CompareResultsItem, resultB: CompareResultsItem) {
+      const confidenceA =
+        resultA.confidence_text && resultA.confidence !== null
+          ? resultA.confidence
+          : -1;
+      const confidenceB =
+        resultB.confidence_text && resultB.confidence !== null
+          ? resultB.confidence
+          : -1;
+      return confidenceA - confidenceB;
+    },
+  }]
+
+const columnsConfiguration: CompareResultsTableConfig = [
+  {
+    name: 'Platform',
+    filter: true,
+    key: 'platform',
+    gridWidth: '2fr',
+    possibleValues: [
+      { label: 'Windows', key: 'windows' },
+      { label: 'macOS', key: 'osx' },
+      { label: 'Linux', key: 'linux' },
+      { label: 'Android', key: 'android' },
+      { label: 'iOS', key: 'ios' },
+    ],
+    matchesFunction(result, valueKey) {
+      const label = this.possibleValues.find(
+        ({ key }) => key === valueKey,
+      )?.label;
+      const platformName = getPlatformShortName(result.platform);
+      return platformName === label;
+    },
+  },
+  {
+    name: 'Base',
+    key: 'base',
+    gridWidth: '1fr',
+    tooltip: 'A summary of all values from Base runs using a mean.',
+  },
+  {
+    key: 'comparisonSign',
+
+    gridWidth: '0.2fr',
+  },
+  {
+    name: 'New',
+    key: 'new',
+    gridWidth: '1fr',
+    tooltip: 'A summary of all values from New runs using a mean.',
+  },
+  {
+    name: 'Status',
+    filter: true,
+    key: 'status',
+    gridWidth: '1.5fr',
+    possibleValues: [
+      { label: 'No changes', key: 'none' },
+      { label: 'Improvement', key: 'improvement' },
+      { label: 'Regression', key: 'regression' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'improvement':
+          return result.is_improvement;
+        case 'regression':
+          return result.is_regression;
+        default:
+          return !result.is_improvement && !result.is_regression;
+      }
+    },
+  },
+  {
+    name: 'Total Runs',
+    key: 'runs',
+    gridWidth: '1fr',
+    tooltip: 'The total number of tasks/jobs that ran for this metric.',
+  },
+  // We use the real pixel value for the buttons, so that everything is better aligned.
+  { key: 'buttons', gridWidth: `calc(3.5 * 34px)` }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
+  { key: 'expand', gridWidth: '34px' }, // 1 button
+];
+
+export const MANN_WHITNEY_U = 'mann-whitney-u'
+export const STUDENT_T = 'student-t'
+
+const getTableConfigs = (test_version: string): CompareResultsTableConfig => {
+  const testVersionConfig = test_version === MANN_WHITNEY_U? mannWhitneyConfig: studentTConfigs
+  return [
+  {
+    name: 'Platform',
+    filter: true,
+    key: 'platform',
+    gridWidth: '2fr',
+    possibleValues: [
+      { label: 'Windows', key: 'windows' },
+      { label: 'macOS', key: 'osx' },
+      { label: 'Linux', key: 'linux' },
+      { label: 'Android', key: 'android' },
+      { label: 'iOS', key: 'ios' },
+    ],
+    matchesFunction(result, valueKey) {
+      const label = this.possibleValues.find(
+        ({ key }) => key === valueKey,
+      )?.label;
+      const platformName = getPlatformShortName(result.platform);
+      return platformName === label;
+    },
+  },
+  {
+    name: 'Base',
+    key: 'base',
+    gridWidth: '1fr',
+    tooltip: 'A summary of all values from Base runs using a mean.',
+  },
+  {
+    key: 'comparisonSign',
+
+    gridWidth: '0.2fr',
+  },
+  {
+    name: 'New',
+    key: 'new',
+    gridWidth: '1fr',
+    tooltip: 'A summary of all values from New runs using a mean.',
+  },
+  {
+    name: 'Status',
+    filter: true,
+    key: 'status',
+    gridWidth: '1.5fr',
+    possibleValues: [
+      { label: 'No changes', key: 'none' },
+      { label: 'Improvement', key: 'improvement' },
+      { label: 'Regression', key: 'regression' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'improvement':
+          return result.is_improvement;
+        case 'regression':
+          return result.is_regression;
+        default:
+          return !result.is_improvement && !result.is_regression;
+      }
+    },
+  },
+  ...testVersionConfig,
+  {
+    name: 'Total Runs',
+    key: 'runs',
+    gridWidth: '1fr',
+    tooltip: 'The total number of tasks/jobs that ran for this metric.',
+  },
+  // We use the real pixel value for the buttons, so that everything is better aligned.
+  { key: 'buttons', gridWidth: `calc(3.5 * 34px)` }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
+  { key: 'expand', gridWidth: '34px' }, // 1 button
+  ]
+}
+
 export {
   formatDate,
   getLatestCommitMessage,
@@ -124,4 +385,5 @@ export {
   swapArrayElements,
   truncateHash,
   getDocsURL,
+  getTableConfigs
 };

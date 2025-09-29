@@ -9,7 +9,7 @@ import { useAppSelector } from '../../hooks/app';
 import { filterResults } from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type { CompareResultItemType, CompareResultsItem } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
 
 // The data structure returned by processResults may look complex at first, so
@@ -54,14 +54,14 @@ type ListOfResultsGroupedByTest = Array<
 >;
 
 function processResults(
-  results: CompareResultsItem[],
+  results: CompareResultItemType[],
 ): ListOfResultsGroupedByTest {
   // This map will make it possible to group all results by test header first,
   // and by revision then.
   // Map<header, Map<revision, array of results>>
   const processedResults: Map<
     string,
-    Map<string, CompareResultsItem[]>
+    Map<string, CompareResultItemType[]>
   > = new Map();
 
   for (const result of results) {
@@ -112,8 +112,8 @@ const stringComparisonCollator = new Intl.Collator('en', {
 // test and options), and platform, so that the order is stable when reloading
 // the page.
 function defaultSortFunction(
-  itemA: CompareResultsItem,
-  itemB: CompareResultsItem,
+  itemA: CompareResultItemType,
+  itemB: CompareResultItemType,
 ) {
   const keyA = itemA.header_name + ' ' + itemA.platform;
   const keyB = itemB.header_name + ' ' + itemB.platform;
@@ -125,7 +125,7 @@ const allRevisionsOption =
 
 type Props = {
   columnsConfiguration: CompareResultsTableConfig;
-  results: CompareResultsItem[][];
+  results: CompareResultItemType[][];
   view: typeof compareView | typeof compareOverTimeView;
   rowGridTemplateColumns: string;
   // Filtering properties
@@ -135,6 +135,7 @@ type Props = {
   sortColumn: null | string;
   sortDirection: 'asc' | 'desc' | null;
   replicates: boolean;
+  testVersionVal: string;
 };
 
 function TableContent({
@@ -147,6 +148,7 @@ function TableContent({
   sortColumn,
   sortDirection,
   replicates,
+  testVersionVal
 }: Props) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
@@ -212,6 +214,7 @@ function TableContent({
           view={view}
           rowGridTemplateColumns={rowGridTemplateColumns}
           replicates={replicates}
+          testVersionVal={testVersionVal}
         />
       )}
     />

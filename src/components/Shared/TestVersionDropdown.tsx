@@ -2,6 +2,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { TestVersionName, ThemeMode } from '../../types/state';
+import { MANN_WHITNEY_U, STUDENT_T } from '../../utils/helpers';
 
 interface TestVersionDropdownProps {
   testType: string;
@@ -12,8 +13,8 @@ interface TestVersionDropdownProps {
 }
 
 const TEST_VERSIONS = [
-  { type: 'mann-whitney-u', label: 'Mann-Whitney-U' },
-  { type: 'student-t', label: 'Student-T' },
+  { type: MANN_WHITNEY_U, label: 'Mann-Whitney-U' },
+  { type: STUDENT_T, label: 'Student-T' },
 ];
 
 function TestVersionDropdown({
