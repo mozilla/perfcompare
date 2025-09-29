@@ -41,7 +41,7 @@ export default function ResultsControls({
     <Grid container className={controlsStyles} spacing={2}>
       <Grid
         size={{
-          md: 6,
+          md: 4,
           xs: 12,
         }}
       >
@@ -51,7 +51,10 @@ export default function ResultsControls({
           strings={Strings.components.searchResultsInput}
         />
       </Grid>
-      <Grid size='grow'>
+      <Grid size={{
+          md: 2,
+          xs: 6,
+        }}>
         <FormControl sx={{ width: '100%' }}>
           <FrameworkDropdown
             frameworkId={frameworkId}
@@ -62,7 +65,10 @@ export default function ResultsControls({
           />
         </FormControl>
       </Grid>
-      <Grid size='grow'>
+      <Grid size={{
+          md: 2,
+          xs: 6,
+        }}>
         <FormControl sx={{ width: '100%' }}>
           <TestVersionDropdown
             testType={testType}
