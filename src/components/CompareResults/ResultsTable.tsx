@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -12,10 +12,10 @@ import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
+import { TestVersionName } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
-import { TestVersionName } from '../../types/state';
 
 const columnsConfiguration: CompareResultsTableConfig = [
   {
@@ -180,14 +180,13 @@ export default function ResultsTable() {
 
   const onTestVersionChange = (testVersion: TestVersionName) => {
     rawSearchParams.set('test_version', testVersion);
-    setTestVersionVal(testVersion)
+    setTestVersionVal(testVersion);
     updateRawSearchParams(rawSearchParams);
-  }
+  };
 
   const rowGridTemplateColumns = columnsConfiguration
     .map((config) => config.gridWidth)
     .join(' ');
-
 
   return (
     <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>
