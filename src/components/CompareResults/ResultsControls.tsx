@@ -51,10 +51,12 @@ export default function ResultsControls({
           strings={Strings.components.searchResultsInput}
         />
       </Grid>
-      <Grid size={{
+      <Grid
+        size={{
           md: 2,
           xs: 6,
-        }}>
+        }}
+      >
         <FormControl sx={{ width: '100%' }}>
           <FrameworkDropdown
             frameworkId={frameworkId}
@@ -65,10 +67,12 @@ export default function ResultsControls({
           />
         </FormControl>
       </Grid>
-      <Grid size={{
+      <Grid
+        size={{
           md: 2,
           xs: 6,
-        }}>
+        }}
+      >
         <FormControl sx={{ width: '100%' }}>
           <TestVersionDropdown
             testType={testType}
