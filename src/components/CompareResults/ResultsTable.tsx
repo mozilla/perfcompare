@@ -12,6 +12,7 @@ import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
+import { TestVersionName } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
@@ -177,6 +178,12 @@ export default function ResultsTable() {
     updateRawSearchParams(rawSearchParams);
   };
 
+  const onTestVersionChange = (testVersion: TestVersionName) => {
+    rawSearchParams.set('test_version', testVersion);
+    setTestVersionVal(testVersion);
+    updateRawSearchParams(rawSearchParams);
+  };
+
   const rowGridTemplateColumns = columnsConfiguration
     .map((config) => config.gridWidth)
     .join(' ');
@@ -198,7 +205,7 @@ export default function ResultsTable() {
           resultsPromise={resultsPromise}
           onSearchTermChange={onSearchTermChange}
           onFrameworkChange={onFrameworkChange}
-          onTestVersionChange={setTestVersionVal}
+          onTestVersionChange={onTestVersionChange}
         />
         <TableHeader
           columnsConfiguration={columnsConfiguration}
