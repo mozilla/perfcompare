@@ -198,4 +198,4 @@ export type PlatformShortName =
   | 'Unspecified';
 
 
-export type TestVersionName = 'mann-whitney-u' | 'student-t'
+export type TestVersionName = 'mann-whitney-u' | 'student-t';

@@ -5,7 +5,7 @@ import { TestVersionName, ThemeMode } from '../../types/state';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../utils/helpers';
 
 interface TestVersionDropdownProps {
-  testType: string;
+  testType: TestVersionName;
   size?: 'small' | 'medium';
   variant?: 'standard' | 'outlined' | 'filled';
   mode: ThemeMode;
