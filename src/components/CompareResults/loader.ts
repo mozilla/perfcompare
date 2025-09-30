@@ -6,7 +6,6 @@ import {
 } from '../../logic/treeherder';
 import { Changeset, CompareResultItemType, Repository, TestVersionName } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
-import { MANN_WHITNEY_U } from '../../utils/helpers';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.

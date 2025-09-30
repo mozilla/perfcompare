@@ -14,7 +14,7 @@ import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { CompareResultItemType, TestVersionName } from '../../types/state';
 import { Framework } from '../../types/types';
-import { getTableConfigs, MANN_WHITNEY_U, STUDENT_T } from '../../utils/helpers';
+import { getTableConfigs, MANN_WHITNEY_U } from '../../utils/helpers';
 
 
 
