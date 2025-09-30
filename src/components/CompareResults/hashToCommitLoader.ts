@@ -17,6 +17,7 @@ import { Framework } from '../../types/types';
 // the commit associated with that hash and update the baseRev and newRev
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
+  console.log(url.searchParams, 'urlSearchParams')
   const baseHashFromUrl = url.searchParams.get('baseHash');
   const baseHashDateFromUrl = url.searchParams.get('baseHashDate');
   const newHashFromUrl = url.searchParams.get('newHash');
@@ -79,6 +80,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion
   );
 }
 

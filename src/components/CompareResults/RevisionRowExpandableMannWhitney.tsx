@@ -10,9 +10,9 @@ import { CompareResultsMannWhitneyItem } from '../../types/state';
 const strings = Strings.components.expandableRow;
 const { singleRun } = strings;
 
-const numberFormatterTwoDigits = new Intl.NumberFormat('en-US', {
-  maximumFractionDigits: 2,
-});
+// const numberFormatterTwoDigits = new Intl.NumberFormat('en-US', {
+//   maximumFractionDigits: 2,
+// });
 // const formatNumberTwoDigits = (value: number) =>
 //   numberFormatterTwoDigits.format(value);
 
@@ -20,10 +20,10 @@ function RevisionRowExpandableMannWhitney(props: RevisionRowExpandableMannWhitne
   const { result, id } = props;
 
   const {
-    base_runs: baseRuns,
-    new_runs: newRuns,
-    base_runs_replicates: baseRunsReplicates,
-    new_runs_replicates: newRunsReplicates,
+    // base_runs: baseRuns,
+    // new_runs: newRuns,
+    // base_runs_replicates: baseRunsReplicates,
+    // new_runs_replicates: newRunsReplicates,
     platform,
     // base_standard_stats,
     // new_standard_stats,

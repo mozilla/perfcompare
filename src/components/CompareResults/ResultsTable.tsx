@@ -1,5 +1,4 @@
 import { Suspense, useState } from 'react';
-import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -13,9 +12,9 @@ import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
-import { Framework } from '../../types/types';
 import { CompareResultItemType, TestVersionName } from '../../types/state';
-import { getTableConfigs, STUDENT_T } from '../../utils/helpers';
+import { Framework } from '../../types/types';
+import { getTableConfigs, MANN_WHITNEY_U, STUDENT_T } from '../../utils/helpers';
 
 
 
@@ -37,7 +36,7 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [testVersionVal, setTestVersionVal] = useState(STUDENT_T);
+  const [testVersionVal, setTestVersionVal] = useState<TestVersionName>(MANN_WHITNEY_U);
 
     // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
