@@ -18,7 +18,7 @@ import { STUDENT_T } from '../../utils/helpers';
 // the commit associated with that hash and update the baseRev and newRev
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
-  const testVersionFromUrl = url.searchParams.get('testVersion');
+  const testVersionFromUrl = url.searchParams.get('test_version');
   const baseHashFromUrl = url.searchParams.get('baseHash');
   const baseHashDateFromUrl = url.searchParams.get('baseHashDate');
   const newHashFromUrl = url.searchParams.get('newHash');
