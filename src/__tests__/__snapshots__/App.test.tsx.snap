@@ -61,7 +61,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -115,30 +115,34 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       <section
         class="container_f1h7ern2"
       >
-        <a
-          aria-label="link to home"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-          href="/"
+        <div
+          class="fgqequq MuiBox-root css-0"
         >
-          <div
-            class="MuiStack-root css-1d9cypr-MuiStack-root"
+          <a
+            aria-label="link to home"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="/"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-              data-testid="ChevronLeftIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <div
+              class="MuiStack-root css-1d9cypr-MuiStack-root"
             >
-              <path
-                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-              />
-            </svg>
-            <p>
-              Home
-            </p>
-          </div>
-        </a>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                data-testid="ChevronLeftIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
+              <p>
+                Home
+              </p>
+            </div>
+          </a>
+        </div>
         <p>
           Error: 
           Error when requesting treeherder: Treeherder request error
@@ -318,7 +322,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -372,30 +376,34 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       <section
         class="container_f1h7ern2"
       >
-        <a
-          aria-label="link to home"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-          href="/"
+        <div
+          class="fgqequq MuiBox-root css-0"
         >
-          <div
-            class="MuiStack-root css-1d9cypr-MuiStack-root"
+          <a
+            aria-label="link to home"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="/"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-              data-testid="ChevronLeftIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <div
+              class="MuiStack-root css-1d9cypr-MuiStack-root"
             >
-              <path
-                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-              />
-            </svg>
-            <p>
-              Home
-            </p>
-          </div>
-        </a>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                data-testid="ChevronLeftIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
+              <p>
+                Home
+              </p>
+            </div>
+          </a>
+        </div>
         <p>
           Error: 
           Error when requesting treeherder: Treeherder request error
@@ -470,7 +478,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -524,30 +532,34 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       <section
         class="container_f1h7ern2"
       >
-        <a
-          aria-label="link to home"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-          href="/"
+        <div
+          class="fgqequq MuiBox-root css-0"
         >
-          <div
-            class="MuiStack-root css-1d9cypr-MuiStack-root"
+          <a
+            aria-label="link to home"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="/"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-              data-testid="ChevronLeftIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <div
+              class="MuiStack-root css-1d9cypr-MuiStack-root"
             >
-              <path
-                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-              />
-            </svg>
-            <p>
-              Home
-            </p>
-          </div>
-        </a>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                data-testid="ChevronLeftIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
+              <p>
+                Home
+              </p>
+            </div>
+          </a>
+        </div>
         <p>
           Error: 
           Error when requesting treeherder: (500) Internal Server Error
