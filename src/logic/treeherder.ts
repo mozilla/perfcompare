@@ -2,19 +2,16 @@ import moize from 'moize';
 
 import { JobInformation } from '../types/api';
 import {
-  CompareResultsItem,
   Repository,
   Changeset,
   HashToCommit,
-  TestVersionName,
   CompareResultItemType,
 } from '../types/state';
 import { Framework, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
-// export const treeherderBaseURL = 'https://treeherder.mozilla.org';
-export const treeherderBaseURL = 'http://localhost:8000';
+export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
 type FetchProps = {
   baseRepo: Repository['name'];
@@ -23,7 +20,7 @@ type FetchProps = {
   newRev: string;
   framework: Framework['id'];
   replicates: boolean;
-  testVersion?: TestVersionName;
+  testVersion: string;
 };
 
 type FetchOverTimeProps = {
@@ -33,7 +30,7 @@ type FetchOverTimeProps = {
   framework: Framework['id'];
   interval: TimeRange['value'];
   replicates: boolean;
-  testVersion?: TestVersionName;
+  testVersion: string;
 };
 
 type FetchSubtestsProps = {
@@ -45,7 +42,7 @@ type FetchSubtestsProps = {
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
-  testVersion?:TestVersionName;
+  testVersion: string;
 };
 
 type FetchSubtestsOverTimeProps = {
@@ -57,7 +54,7 @@ type FetchSubtestsOverTimeProps = {
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
-  testVersion?:TestVersionName;
+  testVersion: string;
 };
 
 export async function fetchRevisionFromHash(
@@ -114,12 +111,12 @@ export async function fetchCompareResults({
     framework: String(framework),
     no_subtests: 'true',
     replicates: String(replicates),
-    test_version: testVersion
+    test_version: testVersion,
   });
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
 
-  return response.json() as Promise<CompareResultsItem[]>;
+  return response.json() as Promise<CompareResultItemType[]>;
 }
 
 // This API returns the results of compare over time between new revisions.
@@ -145,7 +142,7 @@ export async function fetchCompareOverTimeResults({
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
 
-  return response.json() as Promise<CompareResultsItem[]>;
+  return response.json() as Promise<CompareResultItemType[]>;
 }
 
 // This API returns the subtests results of a particular comparison result between 2 revisions.
@@ -205,13 +202,13 @@ export async function fetchSubtestsCompareOverTimeResults({
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
 
-  return response.json() as Promise<CompareResultsItem[]>;
+  return response.json() as Promise<CompareResultItemType[]>;
 }
 
 // This function returns fake comparison results from mock files.
 export async function fetchFakeCompareResults(commitHash: string) {
   const module = (await import(`../mockData/${commitHash}`)) as {
-    comparisonResults: CompareResultsItem[];
+    comparisonResults: CompareResultItemType[];
   };
   return module.comparisonResults;
 }

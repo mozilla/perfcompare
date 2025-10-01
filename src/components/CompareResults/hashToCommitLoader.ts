@@ -3,11 +3,12 @@ import { compareView } from '../../common/constants';
 import { fetchRevisionFromHash } from '../../logic/treeherder';
 import {
   Changeset,
-  CompareResultsItem,
   Repository,
   HashToCommit,
+  CompareResultItemType,
 } from '../../types/state';
 import { Framework } from '../../types/types';
+import { STUDENT_T } from '../../utils/helpers';
 
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-hash-results route is requested.
@@ -17,7 +18,7 @@ import { Framework } from '../../types/types';
 // the commit associated with that hash and update the baseRev and newRev
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
-  console.log(url.searchParams, 'urlSearchParams')
+  const testVersionFromUrl = url.searchParams.get('testVersion');
   const baseHashFromUrl = url.searchParams.get('baseHash');
   const baseHashDateFromUrl = url.searchParams.get('baseHashDate');
   const newHashFromUrl = url.searchParams.get('newHash');
@@ -64,6 +65,7 @@ export async function loader({ request }: { request: Request }) {
   const baseRevsFromHash = commits_from_hashes.baseRevision;
   const newRevsFromHash = [commits_from_hashes.newRevision];
   const replicates = url.searchParams.has('replicates');
+  const testVersion = testVersionFromUrl ?? STUDENT_T;
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
       baseRev: baseRevsFromHash,
@@ -80,12 +82,12 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
-    testVersion
+    testVersion,
   );
 }
 
 type HashLoaderData = {
-  results: Promise<CompareResultsItem[][]>;
+  results: Promise<CompareResultItemType[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];

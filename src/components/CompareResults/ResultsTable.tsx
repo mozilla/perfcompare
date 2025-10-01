@@ -12,11 +12,9 @@ import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
-import { CompareResultItemType, TestVersionName } from '../../types/state';
+import { CompareResultItemType } from '../../types/state';
 import { Framework } from '../../types/types';
-import { getTableConfigs, MANN_WHITNEY_U } from '../../utils/helpers';
-
-
+import { getTableConfigs, STUDENT_T } from '../../utils/helpers';
 
 type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 export default function ResultsTable() {
@@ -28,7 +26,6 @@ export default function ResultsTable() {
     replicates,
   } = useLoaderData<CombinedLoaderReturnValue>();
   const [searchParams, setSearchParams] = useSearchParams();
-  
 
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
@@ -36,14 +33,16 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [testVersionVal, setTestVersionVal] = useState<TestVersionName>(MANN_WHITNEY_U);
+  const [testVersionVal, setTestVersionVal] = useState(STUDENT_T);
 
-    // This is our custom hook that manages table filters
+  // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
-  const { tableFilters, onClearFilter, onToggleFilter } =
-    useTableFilters(getTableConfigs(testVersionVal));
-  const { sortColumn, sortDirection, onToggleSort } =
-    useTableSort(getTableConfigs(testVersionVal));
+  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters(
+    getTableConfigs(testVersionVal),
+  );
+  const { sortColumn, sortDirection, onToggleSort } = useTableSort(
+    getTableConfigs(testVersionVal),
+  );
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
@@ -62,7 +61,7 @@ export default function ResultsTable() {
     updateRawSearchParams(rawSearchParams);
   };
 
-  const onTestVersionChange = (testVersion: TestVersionName) => {
+  const onTestVersionChange = (testVersion: string) => {
     rawSearchParams.set('test_version', testVersion);
     setTestVersionVal(testVersion);
     updateRawSearchParams(rawSearchParams);

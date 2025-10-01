@@ -1,15 +1,15 @@
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-import { TestVersionName, ThemeMode } from '../../types/state';
+import { ThemeMode } from '../../types/state';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../utils/helpers';
 
 interface TestVersionDropdownProps {
-  testType: TestVersionName;
+  testType: string;
   size?: 'small' | 'medium';
   variant?: 'standard' | 'outlined' | 'filled';
   mode: ThemeMode;
-  onChange: (test_version: TestVersionName) => void;
+  onChange: (test_version: string) => void;
 }
 
 const TEST_VERSIONS = [
@@ -25,7 +25,7 @@ function TestVersionDropdown({
   mode,
 }: TestVersionDropdownProps) {
   const onValueChange = (event: SelectChangeEvent) => {
-    const test_version = event.target.value as TestVersionName;
+    const test_version = event.target.value;
     onChange(test_version);
   };
 
@@ -44,6 +44,7 @@ function TestVersionDropdown({
           paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
         },
       }}
+      defaultValue={STUDENT_T}
       inputProps={{
         'aria-label': 'Stats Test Version',
       }}

@@ -6,7 +6,7 @@ import RevisionRowMannWhitney from './RevisionRowMannWhitney';
 import TestHeader from './TestHeader';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
-import type { CompareResultItemType, TestVersionName } from '../../types/state';
+import type { CompareResultItemType } from '../../types/state';
 import { MANN_WHITNEY_U } from '../../utils/helpers';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
@@ -23,7 +23,8 @@ const styles = {
 };
 
 function TableRevisionContent(props: Props) {
-  const { results, view, rowGridTemplateColumns, replicates, testVersionVal } = props;
+  const { results, view, rowGridTemplateColumns, replicates, testVersionVal } =
+    props;
 
   if (!results.length) {
     return null;
@@ -49,23 +50,25 @@ function TableRevisionContent(props: Props) {
       {results.map(([revision, listOfResults]) => (
         <div className={styles.revisionBlock} key={revision}>
           {hasMoreThanOneNewRev && <LinkToRevision result={listOfResults[0]} />}
-          {listOfResults.map((result) => (
-            testVersionVal === MANN_WHITNEY_U ? 
-            <RevisionRowMannWhitney
-              key={result.platform}
-              result={result}
-              view={view}
-              gridTemplateColumns={rowGridTemplateColumns}
-              replicates={replicates}
-            />: 
-            <RevisionRow
-              key={result.platform}
-              result={result}
-              view={view}
-              gridTemplateColumns={rowGridTemplateColumns}
-              replicates={replicates}
-            />
-          ))}
+          {listOfResults.map((result) =>
+            testVersionVal === MANN_WHITNEY_U ? (
+              <RevisionRowMannWhitney
+                key={result.platform}
+                result={result}
+                view={view}
+                gridTemplateColumns={rowGridTemplateColumns}
+                replicates={replicates}
+              />
+            ) : (
+              <RevisionRow
+                key={result.platform}
+                result={result}
+                view={view}
+                gridTemplateColumns={rowGridTemplateColumns}
+                replicates={replicates}
+              />
+            ),
+          )}
         </div>
       ))}
     </div>
@@ -82,7 +85,7 @@ interface Props {
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
-  testVersionVal: TestVersionName;
+  testVersionVal: string;
 }
 
 export default TableRevisionContent;

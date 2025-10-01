@@ -119,7 +119,7 @@ export type BasicStatItem = {
   count: number;
   min: number;
   max: number;
-}
+};
 
 export type CompareResultsMannWhitneyItem = {
   base_rev: string;
@@ -163,10 +163,10 @@ export type CompareResultsMannWhitneyItem = {
   base_signature_id: number;
   new_signature_id: number;
   has_subtests: boolean;
+};
 
-}
-
-export type CompareResultItemType = CompareResultsItem & CompareResultsMannWhitneyItem;
+export type CompareResultItemType = CompareResultsItem &
+  CompareResultsMannWhitneyItem;
 
 export type HashToCommit = {
   baseRevision: string;
@@ -196,6 +196,5 @@ export type PlatformShortName =
   | 'Android'
   | 'iOS'
   | 'Unspecified';
-
 
 export type TestVersionName = 'mann-whitney-u' | 'student-t';

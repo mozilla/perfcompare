@@ -9,7 +9,10 @@ import { useAppSelector } from '../../hooks/app';
 import { filterResults } from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultItemType, CompareResultsItem, TestVersionName } from '../../types/state';
+import type {
+  CompareResultItemType,
+  CompareResultsItem,
+} from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
 
 // The data structure returned by processResults may look complex at first, so
@@ -91,7 +94,7 @@ function processResults(
 // This function implements the simple string search. It is passed to filterResults.
 // searchTerm needs to be lowerCased already.
 function resultMatchesSearchTerm(
-  result: CompareResultsItem,
+  result: CompareResultItemType,
   lowerCasedSearchTerm: string,
 ) {
   return (
@@ -135,7 +138,7 @@ type Props = {
   sortColumn: null | string;
   sortDirection: 'asc' | 'desc' | null;
   replicates: boolean;
-  testVersionVal: TestVersionName;
+  testVersionVal: string;
 };
 
 function TableContent({
@@ -148,7 +151,7 @@ function TableContent({
   sortColumn,
   sortDirection,
   replicates,
-  testVersionVal
+  testVersionVal,
 }: Props) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,

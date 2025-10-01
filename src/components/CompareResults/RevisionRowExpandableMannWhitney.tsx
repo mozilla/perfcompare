@@ -16,7 +16,9 @@ const { singleRun } = strings;
 // const formatNumberTwoDigits = (value: number) =>
 //   numberFormatterTwoDigits.format(value);
 
-function RevisionRowExpandableMannWhitney(props: RevisionRowExpandableMannWhitneyProps) {
+function RevisionRowExpandableMannWhitney(
+  props: RevisionRowExpandableMannWhitneyProps,
+) {
   const { result, id } = props;
 
   const {
@@ -27,7 +29,7 @@ function RevisionRowExpandableMannWhitney(props: RevisionRowExpandableMannWhitne
     platform,
     // base_standard_stats,
     // new_standard_stats,
-  
+
     base_app: baseApplication,
     new_app: newApplication,
     more_runs_are_needed: moreRunsAreNeeded,
@@ -60,10 +62,7 @@ function RevisionRowExpandableMannWhitney(props: RevisionRowExpandableMannWhitne
         <b>{platform}</b>
         <Grid container spacing={2}>
           <Grid size={8}>
-            <Stack spacing={2}>
-         
-
-            </Stack>
+            <Stack spacing={2}></Stack>
           </Grid>
           <Grid size={4}>
             <div>

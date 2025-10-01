@@ -15,7 +15,10 @@ import RevisionRowExpandableMannWhitney from './RevisionRowExpandableMannWhitney
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
-import type { CompareResultItemType, PlatformShortName } from '../../types/state';
+import type {
+  CompareResultItemType,
+  PlatformShortName,
+} from '../../types/state';
 import { formatNumber } from '../../utils/format';
 import {
   getPlatformShortName,
@@ -157,7 +160,7 @@ const getSubtestsCompareWithBaseLink = (result: CompareResultItemType) => {
   return `/subtests-compare-results?${params.toString()}`;
 };
 
-const getSubtestsCompareOverTimeLink = (result: CompareResultItemType ) => {
+const getSubtestsCompareOverTimeLink = (result: CompareResultItemType) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
   // problem, but because this component can have a lot of instances, this is a
@@ -207,11 +210,11 @@ function RevisionRowMannWhitney(props: RevisionRowMannWhitneyProps) {
     base_runs_replicates: baseRunsReplicates,
     cliffs_delta,
     base_standard_stats,
-    new_standard_stats
+    new_standard_stats,
   } = result;
 
-  const baseMean = base_standard_stats?.mean ?? 0
-  const newMean = new_standard_stats?.mean ?? 0
+  const baseMean = base_standard_stats?.mean ?? 0;
+  const newMean = new_standard_stats?.mean ?? 0;
   const platformShortName = getPlatformShortName(platform);
   const platformIcon = platformIcons[platformShortName];
   const platformNameAndVersion = getPlatformAndVersion(platform);
@@ -294,7 +297,7 @@ function RevisionRowMannWhitney(props: RevisionRowMannWhitneyProps) {
           {' '}
           {cliffs_delta} %{' '}
         </div>
-    
+
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>

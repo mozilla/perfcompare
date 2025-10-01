@@ -18,7 +18,11 @@ import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
-import type { CompareResultItemType, CompareResultsItem, PlatformShortName } from '../../types/state';
+import type {
+  CompareResultItemType,
+  CompareResultsItem,
+  PlatformShortName,
+} from '../../types/state';
 import { formatNumber } from '../../utils/format';
 import {
   getPlatformShortName,
