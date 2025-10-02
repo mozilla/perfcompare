@@ -1,11 +1,8 @@
 import { useId, useState, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
-import DragHandleIcon from '@mui/icons-material/DragHandle';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
@@ -14,13 +11,12 @@ import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
 import { RetriggerButton } from './Retrigger/RetriggerButton';
-import RevisionRowExpandable from './RevisionRowExpandable';
+import RevisionRowExpandableMannWhitney from './RevisionRowExpandableMannWhitney';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type {
   CompareResultItemType,
-  CompareResultsItem,
   PlatformShortName,
 } from '../../types/state';
 import { formatNumber } from '../../utils/format';
@@ -144,13 +140,13 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Unspecified: '',
 };
 
-const confidenceIcons = {
-  Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
-  Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
-  High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
-};
+// const confidenceIcons = {
+//   Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
+//   Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
+//   High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
+// };
 
-const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
+const getSubtestsCompareWithBaseLink = (result: CompareResultItemType) => {
   const params = new URLSearchParams({
     baseRev: result.base_rev,
     baseRepo: result.base_repository_name,
@@ -164,7 +160,7 @@ const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
   return `/subtests-compare-results?${params.toString()}`;
 };
 
-const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
+const getSubtestsCompareOverTimeLink = (result: CompareResultItemType) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
   // problem, but because this component can have a lot of instances, this is a
@@ -195,20 +191,16 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
   return `/subtests-compare-over-time-results?${params.toString()}`;
 };
 
-function RevisionRow(props: RevisionRowProps) {
+function RevisionRowMannWhitney(props: RevisionRowMannWhitneyProps) {
   const id = useId();
 
   const { result, view, gridTemplateColumns, replicates } = props;
   const {
     platform,
-    base_avg_value: baseAvgValue,
     base_measurement_unit: baseUnit,
-    new_avg_value: newAvgValue,
     new_measurement_unit: newUnit,
     is_improvement: improvement,
     is_regression: regression,
-    delta_percentage: deltaPercent,
-    confidence_text: confidenceText,
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
@@ -216,7 +208,13 @@ function RevisionRow(props: RevisionRowProps) {
     new_app: newApp,
     new_runs_replicates: newRunsReplicates,
     base_runs_replicates: baseRunsReplicates,
+    cliffs_delta,
+    base_standard_stats,
+    new_standard_stats,
   } = result;
+
+  const baseMean = base_standard_stats?.mean ?? 0;
+  const newMean = new_standard_stats?.mean ?? 0;
   const platformShortName = getPlatformShortName(platform);
   const platformIcon = platformIcons[platformShortName];
   const platformNameAndVersion = getPlatformAndVersion(platform);
@@ -262,16 +260,16 @@ function RevisionRow(props: RevisionRowProps) {
           </Tooltip>
         </div>
         <div className={`${browserName} cell`} role='cell'>
-          {formatNumber(baseAvgValue)} {baseUnit}
+          {formatNumber(baseMean)} {baseUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
             <span className={FontSize.xSmall}>({baseApp})</span>
           )}
         </div>
         <div className='comparison-sign cell' role='cell'>
-          {determineSign(baseAvgValue, newAvgValue)}
+          {determineSign(baseMean, newMean)}
         </div>
         <div className={`${browserName} cell`} role='cell'>
-          {formatNumber(newAvgValue)} {newUnit}
+          {formatNumber(baseMean)} {newUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
@@ -297,12 +295,9 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
         <div className='delta cell' role='cell'>
           {' '}
-          {deltaPercent} %{' '}
+          {cliffs_delta} %{' '}
         </div>
-        <div className='confidence cell' role='cell'>
-          {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText || '-'}
-        </div>
+
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
@@ -379,16 +374,16 @@ function RevisionRow(props: RevisionRowProps) {
           </div>
         </Box>
       </Box>
-      {expanded && <RevisionRowExpandable id={id} result={result} />}
+      {expanded && <RevisionRowExpandableMannWhitney id={id} result={result} />}
     </>
   );
 }
 
-interface RevisionRowProps {
+interface RevisionRowMannWhitneyProps {
   result: CompareResultItemType;
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
 }
 
-export default RevisionRow;
+export default RevisionRowMannWhitney;

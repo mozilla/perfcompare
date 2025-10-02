@@ -4,7 +4,11 @@ import {
   fetchFakeCompareResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
-import { Changeset, CompareResultsItem, Repository } from '../../types/state';
+import {
+  Changeset,
+  CompareResultItemType,
+  Repository,
+} from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -108,6 +112,7 @@ async function fetchCompareResultsOnTreeherder({
   newRepos,
   framework,
   replicates,
+  testVersion,
 }: {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -115,6 +120,7 @@ async function fetchCompareResultsOnTreeherder({
   newRepos: Repository['name'][];
   framework: Framework['id'];
   replicates: boolean;
+  testVersion: string;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareResults({
@@ -124,6 +130,7 @@ async function fetchCompareResultsOnTreeherder({
       newRepo: newRepos[i],
       framework,
       replicates,
+      testVersion,
     }),
   );
   return Promise.all(promises);
@@ -221,6 +228,7 @@ export async function getComparisonInformation(
   frameworkId: Framework['id'],
   frameworkName: Framework['name'],
   replicates: boolean,
+  testVersion: string,
 ) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
@@ -229,6 +237,7 @@ export async function getComparisonInformation(
     newRepos,
     framework: frameworkId,
     replicates,
+    testVersion,
   });
 
   // TODO what happens if there's no result?
@@ -265,7 +274,7 @@ export async function getComparisonInformation(
 }
 
 type DeferredLoaderData = {
-  results: Promise<CompareResultsItem[][]>;
+  results: Promise<CompareResultItemType[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];
@@ -277,6 +286,7 @@ type DeferredLoaderData = {
   view: typeof compareView;
   generation: number;
   replicates: boolean;
+  testVersion?: string;
 };
 
 // Be explicit with the returned type to control it better than if we were
