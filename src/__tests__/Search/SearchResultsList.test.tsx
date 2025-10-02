@@ -32,8 +32,11 @@ describe('SearchResultsList', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
+
+    const placeholder = Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(placeholder)[0];
     await user.click(searchInput);
     await screen.findByText(/flesh wound/);
     expect(document.body).toMatchSnapshot();
@@ -47,6 +50,9 @@ describe('SearchResultsList', () => {
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
+
+    // Wait for the dropdown to open and results to load
+    await screen.findByRole('listbox');
 
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
 
@@ -111,8 +117,11 @@ describe('SearchResultsList', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
+
+    const placeholder = Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+    
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[1];
+    const searchInput = screen.getAllByPlaceholderText(placeholder)[1];
     await user.click(searchInput);
 
     const noArmsLeft = await screen.findByText(/no arms left/);
@@ -139,6 +148,7 @@ describe('SearchResultsList', () => {
 
   it('Should apply dark and light mode styles when theme button is toggled', async () => {
     await renderComponent();
+    const placeholder = Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const darkModeToggle = screen.getByRole('checkbox', {
       name: /Dark mode switch/,
@@ -146,9 +156,9 @@ describe('SearchResultsList', () => {
 
     await user.click(darkModeToggle);
     expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(placeholder)[0];
     await user.click(searchInput);
-    const resultsList = screen.getByTestId('list-mode');
+    const resultsList = screen.getByRole('listbox');
     expect(resultsList).toMatchSnapshot('after toggling dark mode');
     expect(resultsList).toHaveClass('results-list-dark');
   });
