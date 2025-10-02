@@ -138,4 +138,4 @@ export type PlatformShortName =
   | 'iOS'
   | 'Unspecified';
 
-export type TestVersionName = 'mann-whitney-u' | 'student-t';
+
