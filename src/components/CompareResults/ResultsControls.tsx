@@ -7,7 +7,7 @@ import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem, TestVersionName } from '../../types/state';
+import type { CompareResultsItem } from '../../types/state';
 import type { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
 import TestVersionDropdown from '../Shared/TestVersionDropdown';
