@@ -178,7 +178,7 @@ export default function ResultsTable() {
     updateRawSearchParams(rawSearchParams);
   };
 
-  const onTestVersionChange = (testVersion: TestVersionName) => {
+  const onTestVersionChange = (testVersion: string) => {
     rawSearchParams.set('test_version', testVersion);
     setTestVersionVal(testVersion);
     updateRawSearchParams(rawSearchParams);
