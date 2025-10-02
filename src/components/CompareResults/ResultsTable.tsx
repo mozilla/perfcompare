@@ -12,7 +12,6 @@ import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
-import { TestVersionName } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
