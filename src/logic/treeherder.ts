@@ -8,6 +8,7 @@ import {
   CompareResultItemType,
 } from '../types/state';
 import { Framework, TimeRange } from '../types/types';
+import { STUDENT_T } from '../utils/helpers';
 
 // This file contains functions to request the Treeherder API
 

@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type { CompareResultsItem } from '../types/state';
+import type { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableColumn,
+  CompareResultsMannWhitneyTableConfig,
 } from '../types/types';
 
 // This hook handles the state that handles table filtering, and also takes care
@@ -129,8 +130,8 @@ export default useTableFilters;
 
 /* --- Functions used to implement the filtering --- */
 function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig,
-  result: CompareResultsItem,
+  columnsConfiguration: CompareResultsTableConfig | CompareResultsMannWhitneyTableConfig,
+  result: CompareResultsItem | MannWhitneyResultsItem,
   columnId: string,
   checkedValues: Set<string>,
 ): boolean {
@@ -148,7 +149,7 @@ function resultMatchesColumnFilter(
   }
 
   for (const filterValueKey of checkedValues) {
-    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
+    if ((columnConfiguration).matchesFunction(result, filterValueKey)) {
       return true;
     }
   }
@@ -164,11 +165,11 @@ function resultMatchesColumnFilter(
 // a "-" character.
 export function filterResults(
   columnsConfiguration: CompareResultsTableConfig,
-  results: CompareResultsItem[],
+  results: (CompareResultsItem | MannWhitneyResultsItem)[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
   resultMatchesSearchTerm: (
-    result: CompareResultsItem,
+    result: CompareResultsItem | MannWhitneyResultsItem,
     searchTerm: string,
   ) => boolean,
 ) {

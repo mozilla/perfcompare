@@ -110,7 +110,6 @@ export type CompareResultsItem = {
 };
 
 export type BasicStatItem = {
-  rev_data: number[];
   mean: number;
   median: number;
   stddev: number;
@@ -121,7 +120,31 @@ export type BasicStatItem = {
   max: number;
 };
 
-export type CompareResultsMannWhitneyItem = {
+export type StatisticsTestItem = {
+  name: string;
+  stat: number;
+  pvalue: number;
+  interpretation: string;
+}
+
+export type KDEItem = {
+  median: number;
+  sample_count: number;
+  kde_x: number[];
+  kde_y: number[];
+}
+
+export type CLESItem = {
+  cles: number;
+  cles_direction: string;
+  mann_whitney_u_cles: string,
+  p_value_cles: string;
+  cliffs_delta_cles: string;
+  effect_size: string;
+  cles_explanation: string;
+}
+
+export type MannWhitneyResultsItem = {
   base_rev: string;
   new_rev: string;
   base_app: string;
@@ -142,8 +165,17 @@ export type CompareResultsMannWhitneyItem = {
   base_runs_replicates: number[];
   base_standard_stats: BasicStatItem;
   new_standard_stats: BasicStatItem;
+  ks_test: StatisticsTestItem;
+  shapiro_wilk_test_base: StatisticsTestItem;
+  shapiro_wilk_test_new: StatisticsTestItem;
+  shapiro_wilk_warnings: string[];
+  mann_whitney_test: StatisticsTestItem; // p-value here
   cliffs_delta: number;
-  mann_pvalue: number;
+  cliffs_interpretation: string;
+  cles?: CLESItem;
+  kde_new: KDEItem;
+  kde_base: KDEItem;
+  kde_summary_text: string[];
   new_is_better: boolean;
   lower_is_better: boolean;
   is_improvement: boolean;
@@ -166,7 +198,7 @@ export type CompareResultsMannWhitneyItem = {
 };
 
 export type CompareResultItemType = CompareResultsItem &
-  CompareResultsMannWhitneyItem;
+  MannWhitneyResultsItem;
 
 export type HashToCommit = {
   baseRevision: string;

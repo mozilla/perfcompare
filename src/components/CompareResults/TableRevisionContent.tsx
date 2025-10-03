@@ -6,7 +6,7 @@ import RevisionRowMannWhitney from './RevisionRowMannWhitney';
 import TestHeader from './TestHeader';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
-import type { CompareResultItemType } from '../../types/state';
+import type { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
 import { MANN_WHITNEY_U } from '../../utils/helpers';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
@@ -23,7 +23,7 @@ const styles = {
 };
 
 function TableRevisionContent(props: Props) {
-  const { results, view, rowGridTemplateColumns, replicates, testVersionVal } =
+  const { results, view, rowGridTemplateColumns, replicates, testVersion } =
     props;
 
   if (!results.length) {
@@ -51,10 +51,10 @@ function TableRevisionContent(props: Props) {
         <div className={styles.revisionBlock} key={revision}>
           {hasMoreThanOneNewRev && <LinkToRevision result={listOfResults[0]} />}
           {listOfResults.map((result) =>
-            testVersionVal === MANN_WHITNEY_U ? (
+            testVersion === MANN_WHITNEY_U ? (
               <RevisionRowMannWhitney
                 key={result.platform}
-                result={result}
+                result={result as MannWhitneyResultsItem}
                 view={view}
                 gridTemplateColumns={rowGridTemplateColumns}
                 replicates={replicates}
@@ -62,7 +62,7 @@ function TableRevisionContent(props: Props) {
             ) : (
               <RevisionRow
                 key={result.platform}
-                result={result}
+                result={result as CompareResultsItem}
                 view={view}
                 gridTemplateColumns={rowGridTemplateColumns}
                 replicates={replicates}
@@ -81,11 +81,11 @@ interface Props {
   //              revision        list of results for one test and revision
   //                 |               |
   //                 v               v
-  results: Array<[string, CompareResultItemType[]]>;
+  results: Array<[string, (CompareResultsItem| MannWhitneyResultsItem)[]]>;
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
-  testVersionVal: string;
+  testVersion: string;
 }
 
 export default TableRevisionContent;

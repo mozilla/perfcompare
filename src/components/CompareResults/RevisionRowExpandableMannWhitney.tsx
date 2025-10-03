@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
-import { CompareResultsMannWhitneyItem } from '../../types/state';
+import { MannWhitneyResultsItem } from '../../types/state';
 
 const strings = Strings.components.expandableRow;
 const { singleRun } = strings;
@@ -90,7 +90,7 @@ function RevisionRowExpandableMannWhitney(
 }
 
 interface RevisionRowExpandableMannWhitneyProps {
-  result: CompareResultsMannWhitneyItem;
+  result: MannWhitneyResultsItem;
   id: string;
 }
 

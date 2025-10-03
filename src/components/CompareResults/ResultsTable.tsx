@@ -12,9 +12,8 @@ import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
-import { CompareResultItemType } from '../../types/state';
 import { Framework } from '../../types/types';
-import { getTableConfigs, STUDENT_T } from '../../utils/helpers';
+import { studentTConfigs, mannWhitneyConfig, STUDENT_T, MANN_WHITNEY_U } from '../../utils/helpers';
 
 type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 export default function ResultsTable() {
@@ -38,10 +37,10 @@ export default function ResultsTable() {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters(
-    getTableConfigs(testVersionVal),
+   testVersionVal? mannWhitneyConfig: studentTConfigs,
   );
   const { sortColumn, sortDirection, onToggleSort } = useTableSort(
-    getTableConfigs(testVersionVal),
+    testVersionVal === MANN_WHITNEY_U? mannWhitneyConfig: studentTConfigs,
   );
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
@@ -67,9 +66,12 @@ export default function ResultsTable() {
     updateRawSearchParams(rawSearchParams);
   };
 
-  const rowGridTemplateColumns = getTableConfigs(testVersionVal)
+  const getGridTemplateColumns = (testVersion: string): string => {
+    const configs = testVersion === MANN_WHITNEY_U? mannWhitneyConfig: studentTConfigs;
+    return configs
     .map((config) => config.gridWidth)
     .join(' ');
+  }
 
   return (
     <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>
@@ -91,14 +93,14 @@ export default function ResultsTable() {
           onTestVersionChange={onTestVersionChange}
         />
         <TableHeader
-          columnsConfiguration={getTableConfigs(testVersionVal)}
+          columnsConfiguration={testVersionVal === MANN_WHITNEY_U? mannWhitneyConfig: studentTConfigs}
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
           sortColumn={sortColumn}
           sortDirection={sortDirection}
           onToggleSort={onToggleSort}
-          testVersionVal={testVersionVal}
+          testVersion={testVersionVal}
         />
       </Box>
       {/* Using a key in Suspense makes it that it displays the fallback more
@@ -122,16 +124,16 @@ export default function ResultsTable() {
         <Await resolve={resultsPromise}>
           {(resolvedResults) => (
             <TableContent
-              columnsConfiguration={getTableConfigs(testVersionVal)}
-              results={resolvedResults as CompareResultItemType[][]}
+              columnsConfiguration={testVersionVal? mannWhitneyConfig: studentTConfigs}
+              results={resolvedResults}
               view={view}
               replicates={replicates}
-              rowGridTemplateColumns={rowGridTemplateColumns}
+              rowGridTemplateColumns={getGridTemplateColumns(testVersionVal)}
               filteringSearchTerm={searchTerm}
               tableFilters={tableFilters}
               sortColumn={sortColumn}
               sortDirection={sortDirection}
-              testVersionVal={testVersionVal}
+              testVersion={testVersionVal}
             />
           )}
         </Await>

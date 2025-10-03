@@ -1,5 +1,5 @@
 import SubtestsRevisionRow from './SubtestsRevisionRow';
-import type { CompareResultsItem } from '../../../types/state';
+import type { CompareResultsItem, MannWhitneyResultsItem } from '../../../types/state';
 
 function SubtestsTableContent(props: SubtestsTableContentProps) {
   const { results, identifier, rowGridTemplateColumns, replicates } = props;

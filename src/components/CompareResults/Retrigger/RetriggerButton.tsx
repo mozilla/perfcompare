@@ -17,7 +17,7 @@ import {
   fetchJobInformationFromJobId,
 } from '../../../logic/treeherder';
 import { Strings } from '../../../resources/Strings';
-import { CompareResultItemType } from '../../../types/state';
+import { CompareResultItemType, CompareResultsItem, MannWhitneyResultsItem } from '../../../types/state';
 import { getTreeherderURL } from '../../../utils/helpers';
 import SnackbarCloseButton from '../../Shared/SnackbarCloseButton';
 
@@ -38,7 +38,7 @@ export function DisabledRetriggerButton() {
 }
 
 interface RetriggerButtonProps {
-  result: CompareResultItemType;
+  result: CompareResultsItem | MannWhitneyResultsItem;
   variant: 'icon' | 'text';
 }
 

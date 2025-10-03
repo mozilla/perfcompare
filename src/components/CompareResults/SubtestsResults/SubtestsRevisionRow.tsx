@@ -244,7 +244,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           </IconButton>
         </Box>
       </Box>
-      {expanded && <RevisionRowExpandable id={id} result={result} />}
+      {expanded && <RevisionRowExpandable id={id} result={result as CompareResultsItem} />}
     </>
   );
 }

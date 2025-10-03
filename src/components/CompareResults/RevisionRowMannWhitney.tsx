@@ -16,7 +16,7 @@ import { compareView, compareOverTimeView } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type {
-  CompareResultItemType,
+  MannWhitneyResultsItem,
   PlatformShortName,
 } from '../../types/state';
 import { formatNumber } from '../../utils/format';
@@ -146,7 +146,7 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
 //   High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
 // };
 
-const getSubtestsCompareWithBaseLink = (result: CompareResultItemType) => {
+const getSubtestsCompareWithBaseLink = (result: MannWhitneyResultsItem) => {
   const params = new URLSearchParams({
     baseRev: result.base_rev,
     baseRepo: result.base_repository_name,
@@ -160,7 +160,7 @@ const getSubtestsCompareWithBaseLink = (result: CompareResultItemType) => {
   return `/subtests-compare-results?${params.toString()}`;
 };
 
-const getSubtestsCompareOverTimeLink = (result: CompareResultItemType) => {
+const getSubtestsCompareOverTimeLink = (result: MannWhitneyResultsItem) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
   // problem, but because this component can have a lot of instances, this is a
@@ -380,7 +380,7 @@ function RevisionRowMannWhitney(props: RevisionRowMannWhitneyProps) {
 }
 
 interface RevisionRowMannWhitneyProps {
-  result: CompareResultItemType;
+  result: MannWhitneyResultsItem;
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;

@@ -19,7 +19,6 @@ import { compareView, compareOverTimeView } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type {
-  CompareResultItemType,
   CompareResultsItem,
   PlatformShortName,
 } from '../../types/state';
@@ -385,7 +384,7 @@ function RevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  result: CompareResultItemType;
+  result: CompareResultsItem;
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;

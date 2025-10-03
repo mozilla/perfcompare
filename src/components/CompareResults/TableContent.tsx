@@ -10,10 +10,10 @@ import { filterResults } from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
 import type {
-  CompareResultItemType,
   CompareResultsItem,
+  MannWhitneyResultsItem,
 } from '../../types/state';
-import type { CompareResultsTableConfig } from '../../types/types';
+import type { CompareResultsMannWhitneyTableConfig, CompareResultsTableConfig } from '../../types/types';
 
 // The data structure returned by processResults may look complex at first, so
 // here are some extra explanation.
@@ -45,7 +45,7 @@ import type { CompareResultsTableConfig } from '../../types/types';
 //                                        revision      list of results for one test and revision
 //                                              |               |
 //                                              v               v
-type ListOfResultsGroupedByRevisions = Array<[string, CompareResultsItem[]]>;
+type ListOfResultsGroupedByRevisions = Array<[string, (CompareResultsItem | MannWhitneyResultsItem)[]]>;
 
 // This is the full type containing the list of all results grouped by test
 // first, and by revisions second.
@@ -57,14 +57,14 @@ type ListOfResultsGroupedByTest = Array<
 >;
 
 function processResults(
-  results: CompareResultItemType[],
+  results: (CompareResultsItem | MannWhitneyResultsItem)[],
 ): ListOfResultsGroupedByTest {
   // This map will make it possible to group all results by test header first,
   // and by revision then.
   // Map<header, Map<revision, array of results>>
   const processedResults: Map<
     string,
-    Map<string, CompareResultItemType[]>
+    Map<string, (CompareResultsItem | MannWhitneyResultsItem)[]>
   > = new Map();
 
   for (const result of results) {
@@ -94,7 +94,7 @@ function processResults(
 // This function implements the simple string search. It is passed to filterResults.
 // searchTerm needs to be lowerCased already.
 function resultMatchesSearchTerm(
-  result: CompareResultItemType,
+  result: CompareResultsItem | MannWhitneyResultsItem,
   lowerCasedSearchTerm: string,
 ) {
   return (
@@ -115,8 +115,8 @@ const stringComparisonCollator = new Intl.Collator('en', {
 // test and options), and platform, so that the order is stable when reloading
 // the page.
 function defaultSortFunction(
-  itemA: CompareResultItemType,
-  itemB: CompareResultItemType,
+  itemA: CompareResultsItem | MannWhitneyResultsItem,
+  itemB: CompareResultsItem | MannWhitneyResultsItem,
 ) {
   const keyA = itemA.header_name + ' ' + itemA.platform;
   const keyB = itemB.header_name + ' ' + itemB.platform;
@@ -127,8 +127,8 @@ const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
 type Props = {
-  columnsConfiguration: CompareResultsTableConfig;
-  results: CompareResultItemType[][];
+  columnsConfiguration: CompareResultsTableConfig | CompareResultsMannWhitneyTableConfig;
+  results: CompareResultsItem[][] | MannWhitneyResultsItem[][];
   view: typeof compareView | typeof compareOverTimeView;
   rowGridTemplateColumns: string;
   // Filtering properties
@@ -138,7 +138,7 @@ type Props = {
   sortColumn: null | string;
   sortDirection: 'asc' | 'desc' | null;
   replicates: boolean;
-  testVersionVal: string;
+  testVersion: string;
 };
 
 function TableContent({
@@ -151,7 +151,7 @@ function TableContent({
   sortColumn,
   sortDirection,
   replicates,
-  testVersionVal,
+  testVersion,
 }: Props) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
@@ -217,7 +217,7 @@ function TableContent({
           view={view}
           rowGridTemplateColumns={rowGridTemplateColumns}
           replicates={replicates}
-          testVersionVal={testVersionVal}
+          testVersion={testVersion}
         />
       )}
     />

@@ -69,7 +69,7 @@ function SortDirectionIcon({
 type FilterableColumnHeaderProps = {
   name: string;
   columnId: string;
-  testVersionVal: string;
+  testVersion: string;
   /* Properties for filtering */
   possibleValues: FilterableColumn['possibleValues'];
   checkedValues?: Set<string>;
@@ -250,7 +250,7 @@ function SortableColumnHeader({
 }
 
 type TableHeaderProps = {
-  testVersionVal: string;
+  testVersion: string;
   columnsConfiguration: CompareResultsTableConfig;
 
   // Filter properties
@@ -270,7 +270,7 @@ type TableHeaderProps = {
 function TableHeader({
   columnsConfiguration,
   filters,
-  testVersionVal,
+  testVersion,
   onToggleFilter,
   onClearFilter,
   sortColumn,
@@ -340,7 +340,7 @@ function TableHeader({
             }
           />
           <FilterableColumnHeader
-            testVersionVal={testVersionVal}
+            testVersion={testVersion}
             possibleValues={header.possibleValues}
             name={header.name}
             columnId={header.key}
@@ -367,7 +367,7 @@ function TableHeader({
     } else if ('filter' in header) {
       content = (
         <FilterableColumnHeader
-          testVersionVal={testVersionVal}
+          testVersion={testVersion}
           possibleValues={header.possibleValues}
           name={header.name}
           columnId={header.key}

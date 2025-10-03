@@ -3,6 +3,7 @@ import { compareView } from '../../common/constants';
 import { fetchRevisionFromLandoId } from '../../logic/lando';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { Framework } from '../../types/types';
+import { STUDENT_T } from '../../utils/helpers';
 
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-lando-results route is requested.
@@ -26,7 +27,8 @@ export async function loader({ request }: { request: Request }) {
     );
   }
   const replicates = url.searchParams.has('replicates');
-
+  const testVersionFromUrl = url.searchParams.get('test_version');
+  const testVersion = testVersionFromUrl ?? STUDENT_T
   const baseRevisionsFromLando =
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
   const newRevisionsFromLando =
@@ -48,6 +50,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion
   );
 }
 

@@ -286,7 +286,7 @@ type DeferredLoaderData = {
   view: typeof compareView;
   generation: number;
   replicates: boolean;
-  testVersion?: string;
+  testVersion: string;
 };
 
 // Be explicit with the returned type to control it better than if we were

@@ -204,6 +204,7 @@ function SubtestsResultsTable({
         sortColumn={sortColumn}
         sortDirection={sortDirection}
         onToggleSort={onToggleSort}
+        testVersion={''}
       />
       <Suspense
         fallback={
