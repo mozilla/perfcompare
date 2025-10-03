@@ -5,26 +5,27 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { Await } from 'react-router';
 
 import SubtestsTableContent from './SubtestsTableContent';
-import NoResultsFound from '.././NoResultsFound';
-import TableHeader from '.././TableHeader';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type {
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../../types/state';
-import type { CompareResultsTableConfig } from '../../../types/types';
+import type { CompareResultsMannWhitneyTableConfig } from '../../../types/types';
+import { CHANGES, EFFECT_SIZE } from '../../../utils/helpers';
+import NoResultsFound from '../NoResultsFound';
+import TableHeader from '../TableHeader';
 
 type SubtestsResults = {
   key: string;
   // By construction, there should be only one item in the array. But if more
   // than one subtests share the same name, then there will be more than one item.
   // Can this happen? We're not sure.
-  value: CompareResultsItem[];
+  value: MannWhitneyResultsItem[];
 };
 
-function processResults(results: CompareResultsItem[]) {
-  const processedResults = new Map<string, CompareResultsItem[]>();
+function processResults(results: MannWhitneyResultsItem[]) {
+  const processedResults = new Map<string, MannWhitneyResultsItem[]>();
   results.forEach((result) => {
     const { header_name: header } = result;
     const processedResult = processedResults.get(header);
@@ -52,13 +53,13 @@ const stringComparisonCollator = new Intl.Collator('en', {
   sensitivity: 'base',
 });
 function defaultSortFunction(
-  resultA: CompareResultsItem | MannWhitneyResultsItem,
-  resultB: CompareResultsItem | MannWhitneyResultsItem,
+  resultA: MannWhitneyResultsItem | CompareResultsItem,
+  resultB: MannWhitneyResultsItem | CompareResultsItem,
 ) {
   return stringComparisonCollator.compare(resultA.test, resultB.test);
 }
 
-const columnsConfiguration: CompareResultsTableConfig = [
+const columnsConfiguration: CompareResultsMannWhitneyTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
@@ -88,12 +89,8 @@ const columnsConfiguration: CompareResultsTableConfig = [
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
-    possibleValues: [
-      { label: 'No changes', key: 'none' },
-      { label: 'Improvement', key: 'improvement' },
-      { label: 'Regression', key: 'regression' },
-    ],
-    matchesFunction(result: CompareResultsItem, valueKey: string) {
+    possibleValues: CHANGES,
+    matchesFunction(result, valueKey) {
       switch (valueKey) {
         case 'improvement':
           return result.is_improvement;
@@ -105,51 +102,43 @@ const columnsConfiguration: CompareResultsTableConfig = [
     },
   },
   {
-    name: 'Delta',
-    key: 'delta',
+    name: "Cliff's Delta",
+    key: 'cliffs_delta',
     gridWidth: '1fr',
-    sortFunction(resultA: CompareResultsItem, resultB: CompareResultsItem) {
-      return (
-        Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
-      );
+    sortFunction(resultA, resultB) {
+      return Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta);
     },
     tooltip: 'The percentage difference between the Base and New values',
   },
   {
-    name: 'Confidence',
+    name: 'Effect Size',
     filter: true,
-    key: 'confidence',
+    key: 'effect_size',
     gridWidth: '1.8fr',
-    tooltip:
-      "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
-    possibleValues: [
-      { label: 'No value', key: 'none' },
-      { label: 'Low', key: 'low' },
-      { label: 'Medium', key: 'medium' },
-      { label: 'High', key: 'high' },
-    ],
-    matchesFunction(result: CompareResultsItem, valueKey: string) {
+    tooltip: 'Calculated using a Mann Whitney U Test',
+    possibleValues: EFFECT_SIZE,
+    matchesFunction(result, valueKey) {
       switch (valueKey) {
         case 'none':
-          return !result.confidence_text;
+          return !result.cles?.effect_size;
         default: {
           const label = this.possibleValues.find(
-            ({ key }: { key: string }) => key === valueKey,
+            ({ key }) => key === valueKey,
           )?.label;
-          return result.confidence_text === label;
+          return result.cles?.effect_size === label;
         }
       }
     },
-    sortFunction(resultA: CompareResultsItem, resultB: CompareResultsItem) {
-      const confidenceA =
-        resultA.confidence_text && resultA.confidence !== null
-          ? resultA.confidence
-          : -1;
-      const confidenceB =
-        resultB.confidence_text && resultB.confidence !== null
-          ? resultB.confidence
-          : -1;
-      return confidenceA - confidenceB;
+    sortFunction() {
+      // const confidenceA =
+      //   resultA.cles?.effect_size && resultA.cles?.effect_size !== null
+      //     ? resultA.cles?.effect_size
+      //     : -1;
+      // const confidenceB =
+      //   resultB.cles?.effect_size && resultB.cles?.effect_size !== null
+      //     ? resultB.cles?.effect_size
+      //     : -1;
+      return 0;
     },
   },
   {
@@ -172,12 +161,12 @@ function resultMatchesSearchTerm(
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
-  resultsPromise: CompareResultsItem[] | Promise<CompareResultsItem[]>;
+  resultsPromise: MannWhitneyResultsItem[] | Promise<MannWhitneyResultsItem[]>;
   replicates: boolean;
   testVersion: string;
 };
 
-function SubtestsResultsTable({
+function SubtestsResultsMannWhitneyTable({
   filteringSearchTerm,
   resultsPromise,
   replicates,
@@ -225,7 +214,7 @@ function SubtestsResultsTable({
         }
       >
         <Await resolve={resultsPromise}>
-          {(results: CompareResultsItem[]) => {
+          {(results: MannWhitneyResultsItem[]) => {
             const filteredResults = useMemo(() => {
               return filterResults(
                 columnsConfiguration,
@@ -249,7 +238,7 @@ function SubtestsResultsTable({
               filteredResults,
               sortColumn,
               sortDirection,
-            ]) as CompareResultsItem[];
+            ]) as MannWhitneyResultsItem[];
 
             const processedResults = useMemo(() => {
               return processResults(filteredAndSortedResults);
@@ -280,4 +269,4 @@ function SubtestsResultsTable({
   );
 }
 
-export default SubtestsResultsTable;
+export default SubtestsResultsMannWhitneyTable;

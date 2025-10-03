@@ -8,7 +8,12 @@ import {
   fetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
-import { Changeset, CompareResultsItem, Repository } from '../../types/state';
+import {
+  Changeset,
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+  Repository,
+} from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
 import { STUDENT_T } from '../../utils/helpers';
 
@@ -134,7 +139,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
       framework,
       interval,
       replicates,
-      testVersion
+      testVersion,
     }),
   );
   return Promise.all(promises);
@@ -164,7 +169,7 @@ export async function loader({ request }: { request: Request }) {
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const replicates = url.searchParams.has('replicates');
   const testVersionFromUrl = url.searchParams.get('test_version');
-  const testVersion = testVersionFromUrl ?? STUDENT_T
+  const testVersion = testVersionFromUrl ?? STUDENT_T;
 
   const {
     baseRepo,
@@ -189,7 +194,7 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkId,
     interval: intervalValue,
     replicates,
-    testVersion
+    testVersion,
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
@@ -218,7 +223,7 @@ export async function loader({ request }: { request: Request }) {
 }
 
 type DeferredLoaderData = {
-  results: Promise<CompareResultsItem[][]>;
+  results: Promise<(CompareResultsItem | MannWhitneyResultsItem)[][]>;
   baseRepo: Repository['name'];
   newRevs: string[];
   newRevsInfo: Changeset[];

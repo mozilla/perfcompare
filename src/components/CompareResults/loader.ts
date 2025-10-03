@@ -6,10 +6,12 @@ import {
 } from '../../logic/treeherder';
 import {
   Changeset,
-  CompareResultItemType,
+  CompareResultsItem,
+  MannWhitneyResultsItem,
   Repository,
 } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
+import { STUDENT_T } from '../../utils/helpers';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -199,6 +201,8 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const replicates = url.searchParams.has('replicates');
+  const testVersionFromUrl = url.searchParams.get('test_version');
+  const testVersion = testVersionFromUrl ?? STUDENT_T;
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
@@ -217,6 +221,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion,
   );
 }
 
@@ -274,7 +279,7 @@ export async function getComparisonInformation(
 }
 
 type DeferredLoaderData = {
-  results: Promise<CompareResultItemType[][]>;
+  results: Promise<(CompareResultsItem | MannWhitneyResultsItem)[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];

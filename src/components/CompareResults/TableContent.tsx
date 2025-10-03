@@ -13,7 +13,10 @@ import type {
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../types/state';
-import type { CompareResultsMannWhitneyTableConfig, CompareResultsTableConfig } from '../../types/types';
+import type {
+  CompareResultsMannWhitneyTableConfig,
+  CompareResultsTableConfig,
+} from '../../types/types';
 
 // The data structure returned by processResults may look complex at first, so
 // here are some extra explanation.
@@ -45,7 +48,9 @@ import type { CompareResultsMannWhitneyTableConfig, CompareResultsTableConfig } 
 //                                        revision      list of results for one test and revision
 //                                              |               |
 //                                              v               v
-type ListOfResultsGroupedByRevisions = Array<[string, (CompareResultsItem | MannWhitneyResultsItem)[]]>;
+type ListOfResultsGroupedByRevisions = Array<
+  [string, (CompareResultsItem | MannWhitneyResultsItem)[]]
+>;
 
 // This is the full type containing the list of all results grouped by test
 // first, and by revisions second.
@@ -127,8 +132,10 @@ const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
 type Props = {
-  columnsConfiguration: CompareResultsTableConfig | CompareResultsMannWhitneyTableConfig;
-  results: CompareResultsItem[][] | MannWhitneyResultsItem[][];
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareResultsMannWhitneyTableConfig;
+  results: (CompareResultsItem | MannWhitneyResultsItem)[][];
   view: typeof compareView | typeof compareOverTimeView;
   rowGridTemplateColumns: string;
   // Filtering properties
@@ -170,6 +177,7 @@ function TableContent({
       filteringSearchTerm,
       tableFilters,
       resultMatchesSearchTerm,
+      testVersion,
     );
     return filteredResults;
   }, [

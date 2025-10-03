@@ -125,24 +125,24 @@ export type StatisticsTestItem = {
   stat: number;
   pvalue: number;
   interpretation: string;
-}
+};
 
 export type KDEItem = {
   median: number;
   sample_count: number;
   kde_x: number[];
   kde_y: number[];
-}
+};
 
 export type CLESItem = {
   cles: number;
   cles_direction: string;
-  mann_whitney_u_cles: string,
+  mann_whitney_u_cles: string;
   p_value_cles: string;
   cliffs_delta_cles: string;
   effect_size: string;
   cles_explanation: string;
-}
+};
 
 export type MannWhitneyResultsItem = {
   base_rev: string;
@@ -196,9 +196,6 @@ export type MannWhitneyResultsItem = {
   new_signature_id: number;
   has_subtests: boolean;
 };
-
-export type CompareResultItemType = CompareResultsItem &
-  MannWhitneyResultsItem;
 
 export type HashToCommit = {
   baseRevision: string;

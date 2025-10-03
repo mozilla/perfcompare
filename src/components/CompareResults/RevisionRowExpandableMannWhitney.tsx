@@ -10,31 +10,19 @@ import { MannWhitneyResultsItem } from '../../types/state';
 const strings = Strings.components.expandableRow;
 const { singleRun } = strings;
 
-// const numberFormatterTwoDigits = new Intl.NumberFormat('en-US', {
-//   maximumFractionDigits: 2,
-// });
-// const formatNumberTwoDigits = (value: number) =>
-//   numberFormatterTwoDigits.format(value);
-
 function RevisionRowExpandableMannWhitney(
   props: RevisionRowExpandableMannWhitneyProps,
 ) {
   const { result, id } = props;
 
   const {
-    // base_runs: baseRuns,
-    // new_runs: newRuns,
-    // base_runs_replicates: baseRunsReplicates,
-    // new_runs_replicates: newRunsReplicates,
     platform,
-    // base_standard_stats,
-    // new_standard_stats,
-
     base_app: baseApplication,
     new_app: newApplication,
     more_runs_are_needed: moreRunsAreNeeded,
     lower_is_better: lowerIsBetter,
     new_is_better: newIsBetter,
+    cliffs_delta,
   } = result;
 
   return (
@@ -80,6 +68,9 @@ function RevisionRowExpandableMannWhitney(
               <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
                 <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
                 {lowerIsBetter ? 'lower' : 'higher'} is better)
+              </Box>
+              <Box sx={{ whiteSpace: 'nowrap' }}>
+                <b>Cliffs Delta</b>: {cliffs_delta}%
               </Box>
             </div>
           </Grid>

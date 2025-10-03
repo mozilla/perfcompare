@@ -4,6 +4,7 @@ import fetchMock from '@fetch-mock/jest';
 
 import { loader } from '../../components/CompareResults/loader';
 import SubtestsRevisionRow from '../../components/CompareResults/SubtestsResults/SubtestsRevisionRow';
+import { STUDENT_T } from '../../utils/helpers';
 import getTestData from '../utils/fixtures';
 import { screen, renderWithRouter } from '../utils/test-utils';
 
@@ -21,6 +22,8 @@ function renderWithRoute(component: ReactElement) {
   });
 }
 
+const testVersion = STUDENT_T;
+
 describe('SubtestsRevisionRow Component', () => {
   it('renders the component with correct data', async () => {
     const { subtestsResult } = getTestData();
@@ -30,6 +33,7 @@ describe('SubtestsRevisionRow Component', () => {
         result={subtestsResult[0]}
         gridTemplateColumns={mockGridTemplateColumns}
         replicates={false}
+        testVersion={testVersion}
       />,
     );
 
@@ -50,6 +54,7 @@ describe('SubtestsRevisionRow Component', () => {
         result={subtestsResult[2]}
         gridTemplateColumns={mockGridTemplateColumns}
         replicates={false}
+        testVersion={testVersion}
       />,
     );
 
@@ -66,6 +71,7 @@ describe('SubtestsRevisionRow Component', () => {
         result={subtestsResult[3]}
         gridTemplateColumns={mockGridTemplateColumns}
         replicates={false}
+        testVersion={testVersion}
       />,
     );
 
@@ -82,6 +88,7 @@ describe('SubtestsRevisionRow Component', () => {
         result={subtestsResult[4]}
         gridTemplateColumns={mockGridTemplateColumns}
         replicates={false}
+        testVersion={testVersion}
       />,
     );
 
@@ -101,6 +108,7 @@ describe('SubtestsRevisionRow Component', () => {
         result={subtestsResult[0]}
         gridTemplateColumns={mockGridTemplateColumns}
         replicates={false}
+        testVersion={testVersion}
       />,
     );
 

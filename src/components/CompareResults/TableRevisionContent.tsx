@@ -6,7 +6,10 @@ import RevisionRowMannWhitney from './RevisionRowMannWhitney';
 import TestHeader from './TestHeader';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
-import type { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../types/state';
 import { MANN_WHITNEY_U } from '../../utils/helpers';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
@@ -81,7 +84,7 @@ interface Props {
   //              revision        list of results for one test and revision
   //                 |               |
   //                 v               v
-  results: Array<[string, (CompareResultsItem| MannWhitneyResultsItem)[]]>;
+  results: Array<[string, (CompareResultsItem | MannWhitneyResultsItem)[]]>;
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;

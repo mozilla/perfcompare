@@ -1138,7 +1138,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="f75bkdv f1l733lh"
+                  class="fh2bys8 f1l733lh"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1331,26 +1331,6 @@ exports[`Results Table Should match snapshot 1`] = `
                       </button>
                     </div>
                   </div>
-                  <div
-                    class="cell runs-header"
-                    role="columnheader"
-                  >
-                    <span
-                      aria-label="The total number of tasks/jobs that ran for this metric."
-                      class="MuiBox-root css-4g6ai3"
-                      data-mui-internal-clone-element="true"
-                    >
-                      Total Runs
-                    </span>
-                  </div>
-                  <div
-                    class="cell buttons-header"
-                    role="columnheader"
-                  />
-                  <div
-                    class="cell expand-header"
-                    role="columnheader"
-                  />
                 </div>
               </div>
               <div
@@ -1464,7 +1444,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-1kfx5s7"
                             role="row"
                           >
                             <div
@@ -1655,7 +1635,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r13»"
+                                  aria-controls="«r12»"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1678,7 +1658,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-1kfx5s7"
                             role="row"
                           >
                             <div
@@ -1870,7 +1850,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r1a»"
+                                  aria-controls="«r19»"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1893,7 +1873,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-1kfx5s7"
                             role="row"
                           >
                             <div
@@ -2074,7 +2054,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r1h»"
+                                  aria-controls="«r1g»"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2178,7 +2158,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-1kfx5s7"
                             role="row"
                           >
                             <div
@@ -2348,7 +2328,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r1p»"
+                                  aria-controls="«r1o»"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2748,7 +2728,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+      class="revisionRow f1macqb f1dlt78d MuiBox-root css-1kfx5s7"
       role="row"
     >
       <div
@@ -2940,7 +2920,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="«r45»"
+            aria-controls="«r42»"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -3002,7 +2982,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+      class="revisionRow f1macqb f1dlt78d MuiBox-root css-1kfx5s7"
       role="row"
     >
       <div
@@ -3194,7 +3174,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="«r4d»"
+            aria-controls="«r4a»"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"

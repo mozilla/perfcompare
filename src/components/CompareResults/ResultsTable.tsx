@@ -13,7 +13,12 @@ import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework } from '../../types/types';
-import { studentTConfigs, mannWhitneyConfig, STUDENT_T, MANN_WHITNEY_U } from '../../utils/helpers';
+import {
+  studentTConfigs,
+  mannWhitneyConfig,
+  STUDENT_T,
+  MANN_WHITNEY_U,
+} from '../../utils/helpers';
 
 type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 export default function ResultsTable() {
@@ -37,10 +42,10 @@ export default function ResultsTable() {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters(
-   testVersionVal? mannWhitneyConfig: studentTConfigs,
+    testVersionVal ? mannWhitneyConfig : studentTConfigs,
   );
   const { sortColumn, sortDirection, onToggleSort } = useTableSort(
-    testVersionVal === MANN_WHITNEY_U? mannWhitneyConfig: studentTConfigs,
+    testVersionVal === MANN_WHITNEY_U ? mannWhitneyConfig : studentTConfigs,
   );
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
@@ -67,11 +72,10 @@ export default function ResultsTable() {
   };
 
   const getGridTemplateColumns = (testVersion: string): string => {
-    const configs = testVersion === MANN_WHITNEY_U? mannWhitneyConfig: studentTConfigs;
-    return configs
-    .map((config) => config.gridWidth)
-    .join(' ');
-  }
+    const configs =
+      testVersion === MANN_WHITNEY_U ? mannWhitneyConfig : studentTConfigs;
+    return configs.map((config) => config.gridWidth).join(' ');
+  };
 
   return (
     <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>
@@ -93,7 +97,11 @@ export default function ResultsTable() {
           onTestVersionChange={onTestVersionChange}
         />
         <TableHeader
-          columnsConfiguration={testVersionVal === MANN_WHITNEY_U? mannWhitneyConfig: studentTConfigs}
+          columnsConfiguration={
+            testVersionVal === MANN_WHITNEY_U
+              ? mannWhitneyConfig
+              : studentTConfigs
+          }
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
@@ -124,7 +132,9 @@ export default function ResultsTable() {
         <Await resolve={resultsPromise}>
           {(resolvedResults) => (
             <TableContent
-              columnsConfiguration={testVersionVal? mannWhitneyConfig: studentTConfigs}
+              columnsConfiguration={
+                testVersionVal ? mannWhitneyConfig : studentTConfigs
+              }
               results={resolvedResults}
               view={view}
               replicates={replicates}

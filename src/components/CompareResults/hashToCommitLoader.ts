@@ -5,7 +5,8 @@ import {
   Changeset,
   Repository,
   HashToCommit,
-  CompareResultItemType,
+  MannWhitneyResultsItem,
+  CompareResultsItem,
 } from '../../types/state';
 import { Framework } from '../../types/types';
 import { STUDENT_T } from '../../utils/helpers';
@@ -87,7 +88,7 @@ export async function loader({ request }: { request: Request }) {
 }
 
 type HashLoaderData = {
-  results: Promise<CompareResultItemType[][]>;
+  results: Promise<(CompareResultsItem | MannWhitneyResultsItem)[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];

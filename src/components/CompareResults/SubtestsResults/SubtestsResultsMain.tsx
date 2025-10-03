@@ -7,6 +7,7 @@ import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
 
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
+import SubtestsResultsMannWhitneyTable from './SubtestsResultsMannWhitneyTable';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 import { DownloadButton, DisabledDownloadButton } from '.././DownloadButton';
@@ -18,8 +19,10 @@ import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {
   CompareResultsItem,
+  MannWhitneyResultsItem,
   SubtestsRevisionsHeader,
 } from '../../../types/state';
+import { MANN_WHITNEY_U, STUDENT_T } from '../../../utils/helpers';
 import ToggleReplicatesButton from '../../Shared/ToggleReplicatesButton';
 import {
   RetriggerButton,
@@ -29,7 +32,7 @@ import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
 type SubtestsResultsHeaderProps = {
-  loadedResults: CompareResultsItem[];
+  loadedResults: (CompareResultsItem | MannWhitneyResultsItem)[];
   view: typeof subtestsView | typeof subtestsOverTimeView;
   initialSearchTerm: string;
   onSearchTermChange: (term: string) => void;
@@ -101,6 +104,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
+  const testVersion = rawSearchParams.get('test_version') ?? STUDENT_T;
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
 
   const themeColor100 =
@@ -185,7 +189,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
           }
         >
           <Await resolve={results}>
-            {(loadedResults: CompareResultsItem[]) => (
+            {(loadedResults) => (
               <SubtestsResultsHeader
                 loadedResults={loadedResults}
                 view={view}
@@ -196,11 +200,21 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
           </Await>
         </Suspense>
       </header>
-      <SubtestsResultsTable
-        filteringSearchTerm={searchTerm}
-        resultsPromise={results}
-        replicates={replicates}
-      />
+      {testVersion === MANN_WHITNEY_U ? (
+        <SubtestsResultsMannWhitneyTable
+          filteringSearchTerm={searchTerm}
+          resultsPromise={results as Promise<MannWhitneyResultsItem[]>}
+          replicates={replicates}
+          testVersion={testVersion}
+        />
+      ) : (
+        <SubtestsResultsTable
+          filteringSearchTerm={searchTerm}
+          resultsPromise={results as Promise<CompareResultsItem[]>}
+          replicates={replicates}
+          testVersion={testVersion}
+        />
+      )}
     </Container>
   );
 }

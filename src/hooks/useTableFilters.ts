@@ -1,12 +1,19 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../types/state';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableColumn,
   CompareResultsMannWhitneyTableConfig,
+  FilterableColumn,
+  FilterableMannWhitneyColumn,
+  CompareResultsMannWhitneyTableColumn,
 } from '../types/types';
+import { MANN_WHITNEY_U } from '../utils/helpers';
 
 // This hook handles the state that handles table filtering, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -31,12 +38,18 @@ import type {
 // * "filter_confidence=" means that no line will be displayed, which isn't
 //   super useful actually (but is supported).
 
-const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
-  const columnIdToConfiguration: Map<string, CompareResultsTableColumn> =
-    useMemo(
-      () => new Map(columnsConfiguration.map((val) => [val.key, val])),
-      [columnsConfiguration],
-    );
+const useTableFilters = (
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareResultsMannWhitneyTableConfig,
+) => {
+  const columnIdToConfiguration: Map<
+    string,
+    CompareResultsTableColumn | CompareResultsMannWhitneyTableColumn
+  > = useMemo(
+    () => new Map(columnsConfiguration.map((val) => [val.key, val])),
+    [columnsConfiguration],
+  );
 
   const keepValuesBySet = (
     values: Array<{ key: string }>,
@@ -130,10 +143,13 @@ export default useTableFilters;
 
 /* --- Functions used to implement the filtering --- */
 function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig | CompareResultsMannWhitneyTableConfig,
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareResultsMannWhitneyTableConfig,
   result: CompareResultsItem | MannWhitneyResultsItem,
   columnId: string,
   checkedValues: Set<string>,
+  testVersion?: string,
 ): boolean {
   const columnConfiguration = columnsConfiguration.find(
     (column) => column.key === columnId,
@@ -142,14 +158,31 @@ function resultMatchesColumnFilter(
     return true;
   }
 
-  if (checkedValues.size === columnConfiguration.possibleValues.length) {
+  if (
+    checkedValues.size ===
+    (columnConfiguration as FilterableColumn).possibleValues.length
+  ) {
     // Return all values if all the checkboxes are set. This makes it possible
     // to return values that are different.
     return true;
   }
 
   for (const filterValueKey of checkedValues) {
-    if ((columnConfiguration).matchesFunction(result, filterValueKey)) {
+    if (
+      testVersion === MANN_WHITNEY_U &&
+      (columnConfiguration as FilterableMannWhitneyColumn).matchesFunction(
+        result as MannWhitneyResultsItem,
+        filterValueKey,
+      )
+    ) {
+      return true;
+    } else if (
+      testVersion !== MANN_WHITNEY_U &&
+      (columnConfiguration as FilterableColumn).matchesFunction(
+        result as CompareResultsItem,
+        filterValueKey,
+      )
+    ) {
       return true;
     }
   }
@@ -164,7 +197,9 @@ function resultMatchesColumnFilter(
 // This also supports negative filtering if one of the search terms starts with
 // a "-" character.
 export function filterResults(
-  columnsConfiguration: CompareResultsTableConfig,
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareResultsMannWhitneyTableConfig,
   results: (CompareResultsItem | MannWhitneyResultsItem)[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
@@ -172,6 +207,7 @@ export function filterResults(
     result: CompareResultsItem | MannWhitneyResultsItem,
     searchTerm: string,
   ) => boolean,
+  testVersion?: string,
 ) {
   if (!searchTerm && !tableFilters.size) {
     return results;
@@ -204,6 +240,7 @@ export function filterResults(
           result,
           columnId,
           checkedValues,
+          testVersion,
         )
       ) {
         return false;

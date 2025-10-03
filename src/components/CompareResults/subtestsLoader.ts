@@ -130,7 +130,7 @@ export function loader({ request }: { request: Request }) {
   const replicates = url.searchParams.has('replicates');
 
   const testVersionFromUrl = url.searchParams.get('test_version');
-  const testVersion = testVersionFromUrl ?? STUDENT_T
+  const testVersion = testVersionFromUrl ?? STUDENT_T;
 
   const {
     baseRev,
@@ -141,7 +141,6 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     newParentSignature,
     baseParentSignature,
-    
   } = checkValues({
     baseRev: baseRevFromUrl,
     baseRepo: baseRepoFromUrl,
@@ -161,7 +160,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     replicates,
-    testVersion
+    testVersion,
   });
 
   const subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(

@@ -1,7 +1,12 @@
 import { checkValues, getComparisonInformation } from './loader';
 import { compareView } from '../../common/constants';
 import { fetchRevisionFromLandoId } from '../../logic/lando';
-import { Changeset, CompareResultsItem, Repository } from '../../types/state';
+import {
+  Changeset,
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+  Repository,
+} from '../../types/state';
 import { Framework } from '../../types/types';
 import { STUDENT_T } from '../../utils/helpers';
 
@@ -28,7 +33,7 @@ export async function loader({ request }: { request: Request }) {
   }
   const replicates = url.searchParams.has('replicates');
   const testVersionFromUrl = url.searchParams.get('test_version');
-  const testVersion = testVersionFromUrl ?? STUDENT_T
+  const testVersion = testVersionFromUrl ?? STUDENT_T;
   const baseRevisionsFromLando =
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
   const newRevisionsFromLando =
@@ -50,12 +55,12 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
-    testVersion
+    testVersion,
   );
 }
 
 type LandoLoaderData = {
-  results: Promise<CompareResultsItem[][]>;
+  results: Promise<(CompareResultsItem | MannWhitneyResultsItem)[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];

@@ -1,8 +1,17 @@
 import SubtestsRevisionRow from './SubtestsRevisionRow';
-import type { CompareResultsItem, MannWhitneyResultsItem } from '../../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../../types/state';
 
 function SubtestsTableContent(props: SubtestsTableContentProps) {
-  const { results, identifier, rowGridTemplateColumns, replicates } = props;
+  const {
+    results,
+    identifier,
+    rowGridTemplateColumns,
+    replicates,
+    testVersion,
+  } = props;
 
   if (!results.length) {
     return null;
@@ -16,6 +25,7 @@ function SubtestsTableContent(props: SubtestsTableContentProps) {
           result={result}
           gridTemplateColumns={rowGridTemplateColumns}
           replicates={replicates}
+          testVersion={testVersion}
         />
       ))}
     </>
@@ -23,10 +33,11 @@ function SubtestsTableContent(props: SubtestsTableContentProps) {
 }
 
 interface SubtestsTableContentProps {
-  results: CompareResultsItem[];
+  results: (CompareResultsItem | MannWhitneyResultsItem)[];
   identifier: string;
   rowGridTemplateColumns: string;
   replicates: boolean;
+  testVersion: string;
 }
 
 export default SubtestsTableContent;

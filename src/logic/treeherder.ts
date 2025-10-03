@@ -5,10 +5,10 @@ import {
   Repository,
   Changeset,
   HashToCommit,
-  CompareResultItemType,
+  CompareResultsItem,
+  MannWhitneyResultsItem,
 } from '../types/state';
 import { Framework, TimeRange } from '../types/types';
-import { STUDENT_T } from '../utils/helpers';
 
 // This file contains functions to request the Treeherder API
 
@@ -117,7 +117,9 @@ export async function fetchCompareResults({
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
 
-  return response.json() as Promise<CompareResultItemType[]>;
+  return response.json() as Promise<
+    (CompareResultsItem | MannWhitneyResultsItem)[]
+  >;
 }
 
 // This API returns the results of compare over time between new revisions.
@@ -143,7 +145,9 @@ export async function fetchCompareOverTimeResults({
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
 
-  return response.json() as Promise<CompareResultItemType[]>;
+  return response.json() as Promise<
+    (CompareResultsItem | MannWhitneyResultsItem)[]
+  >;
 }
 
 // This API returns the subtests results of a particular comparison result between 2 revisions.
@@ -173,7 +177,9 @@ export async function fetchSubtestsCompareResults({
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
 
-  return response.json() as Promise<CompareResultItemType[]>;
+  return response.json() as Promise<
+    (CompareResultsItem | MannWhitneyResultsItem)[]
+  >;
 }
 
 // This API returns the subtests results of a particular comparison result between 2 revisions.
@@ -203,13 +209,15 @@ export async function fetchSubtestsCompareOverTimeResults({
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
 
-  return response.json() as Promise<CompareResultItemType[]>;
+  return response.json() as Promise<
+    (CompareResultsItem | MannWhitneyResultsItem)[]
+  >;
 }
 
 // This function returns fake comparison results from mock files.
 export async function fetchFakeCompareResults(commitHash: string) {
   const module = (await import(`../mockData/${commitHash}`)) as {
-    comparisonResults: CompareResultItemType[];
+    comparisonResults: (CompareResultsItem | MannWhitneyResultsItem)[];
   };
   return module.comparisonResults;
 }

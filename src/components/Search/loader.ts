@@ -95,7 +95,7 @@ export async function loader({ request }: { request: Request }) {
   });
 
   const testVersionFromUrl = url.searchParams.get('test_version');
-  const testVersion = testVersionFromUrl ?? STUDENT_T
+  const testVersion = testVersionFromUrl ?? STUDENT_T;
 
   if (!newRevInfo) {
     // The search returned no result.
@@ -108,7 +108,7 @@ export async function loader({ request }: { request: Request }) {
     newRepo,
     frameworkId,
     frameworkName,
-    testVersion
+    testVersion,
   };
 }
 
@@ -120,5 +120,5 @@ export type LoaderReturnValue = {
   newRepo: Repository['name'];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
-  testVersion: string,
+  testVersion: string;
 };
