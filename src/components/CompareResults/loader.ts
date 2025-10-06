@@ -215,7 +215,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
-    testVersion
+    testVersion,
   );
 }
 
@@ -236,7 +236,7 @@ export async function getComparisonInformation(
     newRepos,
     framework: frameworkId,
     replicates,
-    testVersion
+    testVersion,
   });
 
   // TODO what happens if there's no result?
