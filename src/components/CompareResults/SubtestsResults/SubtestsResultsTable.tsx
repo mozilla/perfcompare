@@ -14,6 +14,7 @@ import type {
   MannWhitneyResultsItem,
 } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
+import { STUDENT_T } from '../../../utils/helpers';
 
 type SubtestsResults = {
   key: string;
@@ -209,7 +210,7 @@ function SubtestsResultsTable({
         sortColumn={sortColumn}
         sortDirection={sortDirection}
         onToggleSort={onToggleSort}
-        testVersion={''}
+        testVersion={STUDENT_T}
       />
       <Suspense
         fallback={

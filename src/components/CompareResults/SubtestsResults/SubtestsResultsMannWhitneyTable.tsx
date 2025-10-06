@@ -12,7 +12,7 @@ import type {
   MannWhitneyResultsItem,
 } from '../../../types/state';
 import type { CompareResultsMannWhitneyTableConfig } from '../../../types/types';
-import { CHANGES, EFFECT_SIZE } from '../../../utils/helpers';
+import { CHANGES, EFFECT_SIZE, MANN_WHITNEY_U } from '../../../utils/helpers';
 import NoResultsFound from '../NoResultsFound';
 import TableHeader from '../TableHeader';
 
@@ -198,7 +198,7 @@ function SubtestsResultsMannWhitneyTable({
         sortColumn={sortColumn}
         sortDirection={sortDirection}
         onToggleSort={onToggleSort}
-        testVersion={''}
+        testVersion={MANN_WHITNEY_U}
       />
       <Suspense
         fallback={
