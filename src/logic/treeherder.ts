@@ -8,6 +8,7 @@ import {
   HashToCommit,
 } from '../types/state';
 import { Framework, TimeRange } from '../types/types';
+import { STUDENT_T } from '../utils/helpers';
 
 // This file contains functions to request the Treeherder API
 
@@ -103,7 +104,7 @@ export async function fetchCompareResults({
   newRepo,
   framework,
   replicates,
-  testVersion,
+  testVersion = STUDENT_T,
 }: FetchProps) {
   const searchParams = new URLSearchParams({
     base_repository: baseRepo,
