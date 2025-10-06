@@ -6,6 +6,7 @@ import {
 } from '../../logic/treeherder';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
+import { STUDENT_T } from '../../utils/helpers';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -108,6 +109,7 @@ async function fetchCompareResultsOnTreeherder({
   newRepos,
   framework,
   replicates,
+  testVersion = STUDENT_T,
 }: {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -115,6 +117,7 @@ async function fetchCompareResultsOnTreeherder({
   newRepos: Repository['name'][];
   framework: Framework['id'];
   replicates: boolean;
+  testVersion: string;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareResults({
@@ -124,6 +127,7 @@ async function fetchCompareResultsOnTreeherder({
       newRepo: newRepos[i],
       framework,
       replicates,
+      testVersion,
     }),
   );
   return Promise.all(promises);
@@ -192,6 +196,7 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const replicates = url.searchParams.has('replicates');
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
@@ -210,6 +215,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion
   );
 }
 
@@ -221,6 +227,7 @@ export async function getComparisonInformation(
   frameworkId: Framework['id'],
   frameworkName: Framework['name'],
   replicates: boolean,
+  testVersion: string = STUDENT_T,
 ) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
@@ -229,6 +236,7 @@ export async function getComparisonInformation(
     newRepos,
     framework: frameworkId,
     replicates,
+    testVersion
   });
 
   // TODO what happens if there's no result?
@@ -277,6 +285,7 @@ type DeferredLoaderData = {
   view: typeof compareView;
   generation: number;
   replicates: boolean;
+  testVersion: string;
 };
 
 // Be explicit with the returned type to control it better than if we were

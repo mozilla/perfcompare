@@ -8,6 +8,7 @@ import {
   HashToCommit,
 } from '../../types/state';
 import { Framework } from '../../types/types';
+import { STUDENT_T } from '../../utils/helpers';
 
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-hash-results route is requested.
@@ -28,6 +29,7 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
   const pushed_today =
     new Date(newHashDateFromUrl).toISOString().split('T')[0] ==
     new Date().toISOString().split('T')[0];
@@ -52,6 +54,7 @@ export async function loader({ request }: { request: Request }) {
       newHashFromUrl,
       newHashDateFromUrl,
       'try',
+      testVersion,
     );
   } catch (e) {
     if (pushed_today) {
@@ -79,6 +82,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion,
   );
 }
 

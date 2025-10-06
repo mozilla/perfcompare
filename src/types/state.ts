@@ -216,7 +216,7 @@ export type MannWhitneyResultsItem = {
   kde_summary_text: string[];
   silverman_warnings: string[]; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
-  is_fit_good: boolean; // short form summary based on former tests shapiro, silverman, etc...
+  is_fit_good: boolean; // short form interpretation of KS test goodness of fit
   is_significant: boolean; // is the result statistically significant
   is_new_better: boolean; // is the new revision better than the base revision
   performance_intepretation: string; // short text interpretation of the performance change

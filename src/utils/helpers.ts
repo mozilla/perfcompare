@@ -116,6 +116,9 @@ const swapArrayElements = <T>(
   return array;
 };
 
+export const MANN_WHITNEY_U = 'mann-whitney-u';
+export const STUDENT_T = 'student-t';
+
 export {
   formatDate,
   getLatestCommitMessage,

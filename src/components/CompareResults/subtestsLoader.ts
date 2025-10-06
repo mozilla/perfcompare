@@ -5,6 +5,7 @@ import {
 } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework } from '../../types/types';
+import { STUDENT_T } from '../../utils/helpers';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -127,6 +128,7 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
 
   const {
     baseRev,
@@ -156,6 +158,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     replicates,
+    testVersion,
   });
 
   const subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(
@@ -180,6 +183,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature,
     subtestsViewPerfherderURL,
     replicates,
+    testVersion,
   };
 }
 
