@@ -174,7 +174,7 @@ export type SilvermanKDEItem = {
   is_regression: boolean;
   is_improvement: boolean;
   ci_warning: string;
-}
+};
 
 /*
   Results from the Mann-Whitney U test comparing two sets of runs.
