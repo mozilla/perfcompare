@@ -1,4 +1,9 @@
-import { repoMap, frameworks, compareView, STUDENT_T } from '../../common/constants';
+import {
+  repoMap,
+  frameworks,
+  compareView,
+  STUDENT_T,
+} from '../../common/constants';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,

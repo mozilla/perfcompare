@@ -1,11 +1,15 @@
-import { repoMap, frameworks, timeRanges, STUDENT_T } from '../../common/constants';
+import {
+  repoMap,
+  frameworks,
+  timeRanges,
+  STUDENT_T,
+} from '../../common/constants';
 import {
   fetchSubtestsCompareOverTimeResults,
   getPerfherderSubtestsCompareOverTimeViewURL,
 } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
-
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
