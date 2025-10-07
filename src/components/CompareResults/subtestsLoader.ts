@@ -1,11 +1,10 @@
-import { repoMap, frameworks } from '../../common/constants';
+import { repoMap, frameworks, STUDENT_T } from '../../common/constants';
 import {
   fetchSubtestsCompareResults,
   getPerfherderSubtestsCompareWithBaseViewURL,
 } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework } from '../../types/types';
-import { STUDENT_T } from '../../utils/helpers';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
