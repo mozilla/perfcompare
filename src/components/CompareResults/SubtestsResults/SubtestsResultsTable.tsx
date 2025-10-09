@@ -171,12 +171,14 @@ type ResultsTableProps = {
   filteringSearchTerm: string;
   resultsPromise: CompareResultsItem[] | Promise<CompareResultsItem[]>;
   replicates: boolean;
+  testVersion: string;
 };
 
 function SubtestsResultsTable({
   filteringSearchTerm,
   resultsPromise,
   replicates,
+  testVersion,
 }: ResultsTableProps) {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
@@ -257,6 +259,7 @@ function SubtestsResultsTable({
                     results={res.value}
                     rowGridTemplateColumns={rowGridTemplateColumns}
                     replicates={replicates}
+                    testVersion={testVersion}
                   />
                 ))}
               </>

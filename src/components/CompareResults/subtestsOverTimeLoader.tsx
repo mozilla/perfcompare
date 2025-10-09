@@ -208,6 +208,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature,
     subtestsViewPerfherderURL,
     replicates,
+    testVersion,
   };
 }
 
