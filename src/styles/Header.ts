@@ -32,7 +32,7 @@ export const HeaderStyles = (mode: string, isHome: boolean) => {
         '.perfcompare-header': {
           marginBottom: isHome
             ? `${Spacing.Large}px`
-            : `${Spacing.xxLarge - 6}px`,
+            : `${Spacing.xLarge - 6}px`,
         },
         '.perfcompare-tagline': {
           marginBottom: `${Spacing.xxLarge}px`,

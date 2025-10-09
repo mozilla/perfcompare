@@ -8,7 +8,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
       data-testid="beta-version-compare-subtests-results"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -1862,7 +1862,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
