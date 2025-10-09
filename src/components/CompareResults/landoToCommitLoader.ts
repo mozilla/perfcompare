@@ -64,6 +64,7 @@ type LandoLoaderData = {
   frameworkName: Framework['name'];
   view: typeof compareView;
   generation: number;
+  testVersion: string;
 };
 
 export type LandoLoaderReturnValue = LandoLoaderData;

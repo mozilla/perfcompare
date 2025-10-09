@@ -163,7 +163,7 @@ export async function loader({ request }: { request: Request }) {
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
+  const testVersion = url.searchParams.get('test_version') ?? STUDENT_T;
 
   const {
     baseRepo,
@@ -213,6 +213,7 @@ export async function loader({ request }: { request: Request }) {
     view: compareOverTimeView,
     generation: generationCounter++,
     replicates,
+    testVersion,
   };
 }
 
@@ -229,6 +230,7 @@ type DeferredLoaderData = {
   view: typeof compareOverTimeView;
   generation: number;
   replicates: boolean;
+  testVersion: string;
 };
 
 // Be explicit with the returned type to control it better than if we were

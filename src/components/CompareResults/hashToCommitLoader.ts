@@ -97,6 +97,7 @@ type HashLoaderData = {
   frameworkName: Framework['name'];
   view: typeof compareView;
   generation: number;
+  testVersion: string;
 };
 
 export type HashLoaderReturnValue = HashLoaderData;

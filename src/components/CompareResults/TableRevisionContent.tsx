@@ -54,6 +54,7 @@ function TableRevisionContent(props: Props) {
               view={view}
               gridTemplateColumns={rowGridTemplateColumns}
               replicates={replicates}
+              testVersion={props.testVersion}
             />
           ))}
         </div>
@@ -72,6 +73,7 @@ interface Props {
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
+  testVersion: string;
 }
 
 export default TableRevisionContent;

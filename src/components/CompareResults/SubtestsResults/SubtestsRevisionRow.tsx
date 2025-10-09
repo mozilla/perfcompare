@@ -244,7 +244,13 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           </IconButton>
         </Box>
       </Box>
-      {expanded && <RevisionRowExpandable id={id} result={result} />}
+      {expanded && (
+        <RevisionRowExpandable
+          id={id}
+          result={result}
+          testVersion={props.testVersion}
+        />
+      )}
     </>
   );
 }
@@ -253,6 +259,7 @@ interface RevisionRowProps {
   result: CompareResultsItem;
   gridTemplateColumns: string;
   replicates: boolean;
+  testVersion: string;
 }
 
 export default SubtestsRevisionRow;
