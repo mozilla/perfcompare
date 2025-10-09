@@ -194,7 +194,7 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
 function RevisionRow(props: RevisionRowProps) {
   const id = useId();
 
-  const { result, view, gridTemplateColumns, replicates } = props;
+  const { result, view, gridTemplateColumns, replicates, testVersion } = props;
   const {
     platform,
     base_avg_value: baseAvgValue,
@@ -375,7 +375,13 @@ function RevisionRow(props: RevisionRowProps) {
           </div>
         </Box>
       </Box>
-      {expanded && <RevisionRowExpandable id={id} result={result} />}
+      {expanded && (
+        <RevisionRowExpandable
+          id={id}
+          result={result}
+          testVersion={testVersion}
+        />
+      )}
     </>
   );
 }
@@ -385,6 +391,7 @@ interface RevisionRowProps {
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
+  testVersion: string;
 }
 
 export default RevisionRow;

@@ -142,6 +142,7 @@ export default function ResultsTable() {
     frameworkId,
     generation,
     replicates,
+    testVersion,
   } = useLoaderData<CombinedLoaderReturnValue>();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -158,11 +159,10 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [testVersionVal, setTestVersionVal] = useState('student-t');
+  const [testVersionVal, setTestVersionVal] = useState(testVersion);
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
-
     searchParams.set('framework', newFrameworkId.toString());
     setSearchParams(searchParams);
   };
@@ -178,8 +178,8 @@ export default function ResultsTable() {
   };
 
   const onTestVersionChange = (testVersion: string) => {
-    rawSearchParams.set('test_version', testVersion);
     setTestVersionVal(testVersion);
+    rawSearchParams.set('test_version', testVersion);
     updateRawSearchParams(rawSearchParams);
   };
 
@@ -246,6 +246,7 @@ export default function ResultsTable() {
               tableFilters={tableFilters}
               sortColumn={sortColumn}
               sortDirection={sortDirection}
+              testVersion={testVersionVal}
             />
           )}
         </Await>

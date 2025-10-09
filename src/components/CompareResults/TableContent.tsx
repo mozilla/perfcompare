@@ -135,6 +135,7 @@ type Props = {
   sortColumn: null | string;
   sortDirection: 'asc' | 'desc' | null;
   replicates: boolean;
+  testVersion: string;
 };
 
 function TableContent({
@@ -147,6 +148,7 @@ function TableContent({
   sortColumn,
   sortDirection,
   replicates,
+  testVersion,
 }: Props) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
@@ -212,6 +214,7 @@ function TableContent({
           view={view}
           rowGridTemplateColumns={rowGridTemplateColumns}
           replicates={replicates}
+          testVersion={testVersion}
         />
       )}
     />
