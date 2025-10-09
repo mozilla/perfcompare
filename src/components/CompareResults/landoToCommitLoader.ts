@@ -1,5 +1,5 @@
 import { checkValues, getComparisonInformation } from './loader';
-import { compareView } from '../../common/constants';
+import { compareView, STUDENT_T } from '../../common/constants';
 import { fetchRevisionFromLandoId } from '../../logic/lando';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { Framework } from '../../types/types';
@@ -31,7 +31,7 @@ export async function loader({ request }: { request: Request }) {
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
   const newRevisionsFromLando =
     await fetchRevisionFromLandoId(newLandoIDFromUrl);
-
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
       baseRev: baseRevisionsFromLando.commit_id,
@@ -48,6 +48,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion,
   );
 }
 

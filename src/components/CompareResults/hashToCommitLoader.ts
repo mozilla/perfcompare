@@ -1,5 +1,5 @@
 import { checkValues, getComparisonInformation } from './loader';
-import { compareView } from '../../common/constants';
+import { compareView, STUDENT_T } from '../../common/constants';
 import { fetchRevisionFromHash } from '../../logic/treeherder';
 import {
   Changeset,
@@ -28,6 +28,7 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
   const pushed_today =
     new Date(newHashDateFromUrl).toISOString().split('T')[0] ==
     new Date().toISOString().split('T')[0];
@@ -52,6 +53,7 @@ export async function loader({ request }: { request: Request }) {
       newHashFromUrl,
       newHashDateFromUrl,
       'try',
+      testVersion,
     );
   } catch (e) {
     if (pushed_today) {
@@ -79,6 +81,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion,
   );
 }
 

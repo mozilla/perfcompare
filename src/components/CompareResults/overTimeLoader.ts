@@ -3,6 +3,7 @@ import {
   frameworks,
   timeRanges,
   compareOverTimeView,
+  STUDENT_T,
 } from '../../common/constants';
 import {
   fetchCompareOverTimeResults,
@@ -115,6 +116,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   framework,
   interval,
   replicates,
+  testVersion,
 }: {
   baseRepo: Repository['name'];
   newRevs: string[];
@@ -122,6 +124,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   framework: Framework['id'];
   interval: TimeRange['value'];
   replicates: boolean;
+  testVersion: string;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareOverTimeResults({
@@ -131,6 +134,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
       framework,
       interval,
       replicates,
+      testVersion,
     }),
   );
   return Promise.all(promises);
@@ -159,6 +163,7 @@ export async function loader({ request }: { request: Request }) {
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const replicates = url.searchParams.has('replicates');
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
 
   const {
     baseRepo,
@@ -183,6 +188,7 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkId,
     interval: intervalValue,
     replicates,
+    testVersion,
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>

@@ -1,4 +1,9 @@
-import { repoMap, frameworks, timeRanges } from '../../common/constants';
+import {
+  repoMap,
+  frameworks,
+  timeRanges,
+  STUDENT_T,
+} from '../../common/constants';
 import {
   fetchSubtestsCompareOverTimeResults,
   getPerfherderSubtestsCompareOverTimeViewURL,
@@ -147,7 +152,7 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
-
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
   const {
     baseRepo,
     newRev,
@@ -177,6 +182,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     replicates,
+    testVersion,
   });
 
   const subtestsViewPerfherderURL = getPerfherderSubtestsCompareOverTimeViewURL(
