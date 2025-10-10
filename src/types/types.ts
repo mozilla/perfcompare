@@ -1,5 +1,4 @@
 import { CompareResultsItem } from './state';
-import { STUDENT_T, MANN_WHITNEY_U } from '../common/constants';
 
 /* --- Types for configuring the behavior and styles of the results tables columns --- */
 
