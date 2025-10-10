@@ -189,7 +189,7 @@ export type MannWhitneyResultsItem = {
   new_retriggerable_job_ids: number[];
   base_measurement_unit: MeasurementUnit;
   new_measurement_unit: MeasurementUnit;
-  platform: Platform | string;
+  platform: Platform;
   suite: string;
   framework_id: Framework['id'];
   new_repository_name: Repository['name'];
