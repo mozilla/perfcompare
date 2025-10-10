@@ -1,4 +1,5 @@
 import { CompareResultsItem } from './state';
+import { STUDENT_T, MANN_WHITNEY_U } from '../common/constants';
 
 /* --- Types for configuring the behavior and styles of the results tables columns --- */
 
@@ -338,3 +339,5 @@ export type TokenBearer = {
   access_token: string;
   token_type: 'Bearer';
 };
+
+export type TestVersion = 'student-t' | 'mann-whitney-u';

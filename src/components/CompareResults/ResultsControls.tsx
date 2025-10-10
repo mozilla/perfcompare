@@ -8,7 +8,7 @@ import SearchInput from './SearchInput';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
-import type { Framework } from '../../types/types';
+import type { Framework, TestVersion } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
 import TestVersionDropdown from '../Shared/TestVersionDropdown';
 
@@ -25,7 +25,7 @@ interface Props {
   resultsPromise: Promise<CompareResultsItem[][]>;
   onSearchTermChange: (searchTerm: string) => unknown;
   onFrameworkChange: (frameworkId: Framework['id']) => unknown;
-  onTestVersionChange: (testType: string) => void;
+  onTestVersionChange: (testType: TestVersion) => void;
 }
 export default function ResultsControls({
   initialSearchTerm,

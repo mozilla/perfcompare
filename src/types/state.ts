@@ -165,15 +165,15 @@ export type SilvermanKDEItem = {
   new_mode_count: number;
   mode_comments: string[];
   warnings: string[];
-  mode_summary: string[];
-  median_shift_summary: string[];
+  mode_summary: string;
+  median_shift_summary: string[] | null;
   ci_low: number | null;
   ci_high: number | null;
   shift: number | null;
-  shift_summary: string;
-  is_regression: boolean;
-  is_improvement: boolean;
-  ci_warning: string;
+  shift_summary: string | null;
+  is_regression: boolean | null;
+  is_improvement: boolean | null;
+  ci_warning: string | null;
 };
 
 /*
@@ -189,7 +189,7 @@ export type MannWhitneyResultsItem = {
   new_retriggerable_job_ids: number[];
   base_measurement_unit: MeasurementUnit;
   new_measurement_unit: MeasurementUnit;
-  platform: Platform;
+  platform: Platform | string;
   suite: string;
   framework_id: Framework['id'];
   new_repository_name: Repository['name'];
@@ -216,21 +216,21 @@ export type MannWhitneyResultsItem = {
   kde_summary_text: string[];
   silverman_warnings: string[]; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
-  is_fit_good: boolean; // short form interpretation of KS test goodness of fit
-  is_significant: boolean; // is the result statistically significant
-  is_new_better: boolean; // is the new revision better than the base revision
+  is_fit_good: boolean | null; // short form interpretation of KS test goodness of fit
+  is_significant: boolean| null; // is the result statistically significant
+  is_new_better: boolean| null; // is the new revision better than the base revision
   performance_intepretation: string; // short text interpretation of the performance change
-  direction_of_change: 'neutral' | 'better' | 'worse'; // 'neutral', 'better', or 'worse'
-  new_is_better: boolean;
-  lower_is_better: boolean;
-  is_improvement: boolean;
+  direction_of_change: 'neutral' | 'better' | 'worse' | null; // 'neutral', 'better', or 'worse'
+  new_is_better: boolean| null;
+  lower_is_better: boolean| null;
+  is_improvement: boolean| null;
   test: string;
   option_name: string;
   extra_options: string;
   graphs_link: string;
-  is_regression: boolean;
-  is_meaningful: boolean;
-  more_runs_are_needed: boolean;
+  is_regression: boolean | null;
+  is_meaningful: boolean | null;
+  more_runs_are_needed: boolean | null;
   /*
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
@@ -240,6 +240,7 @@ export type MannWhitneyResultsItem = {
   base_signature_id: number;
   new_signature_id: number;
   has_subtests: boolean;
+  is_complete: boolean | null;
 };
 
 export type HashToCommit = {

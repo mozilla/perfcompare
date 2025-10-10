@@ -8,7 +8,7 @@ import {
   Changeset,
   HashToCommit,
 } from '../types/state';
-import { Framework, TimeRange } from '../types/types';
+import { Framework, TestVersion, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
@@ -21,7 +21,7 @@ type FetchProps = {
   newRev: string;
   framework: Framework['id'];
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 };
 
 type FetchOverTimeProps = {
@@ -31,7 +31,7 @@ type FetchOverTimeProps = {
   framework: Framework['id'];
   interval: TimeRange['value'];
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 };
 
 type FetchSubtestsProps = {
@@ -43,7 +43,7 @@ type FetchSubtestsProps = {
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 };
 
 type FetchSubtestsOverTimeProps = {
@@ -55,7 +55,7 @@ type FetchSubtestsOverTimeProps = {
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 };
 
 export async function fetchRevisionFromHash(
@@ -64,14 +64,14 @@ export async function fetchRevisionFromHash(
   newhash: string,
   newhashdate: string,
   repo: string,
-  testVersion?: string,
+  testVersion?: TestVersion,
 ) {
   const searchParams = new URLSearchParams({
     basehash: basehash,
     newhash: newhash,
     basehashdate: basehashdate,
     newhashdate: newhashdate,
-    testVersion: testVersion ?? STUDENT_T,
+    testVersion: (testVersion ?? STUDENT_T) as TestVersion,
   });
   const url = `${treeherderBaseURL}/api/project/${repo}/hash/tocommit/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
