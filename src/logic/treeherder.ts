@@ -71,7 +71,7 @@ export async function fetchRevisionFromHash(
     newhash: newhash,
     basehashdate: basehashdate,
     newhashdate: newhashdate,
-    testVersion: (testVersion ?? STUDENT_T) as TestVersion,
+    testVersion: testVersion ?? STUDENT_T,
   });
   const url = `${treeherderBaseURL}/api/project/${repo}/hash/tocommit/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
@@ -305,84 +305,4 @@ export async function fetchDecisionTaskIdFromPushId(
   }
 
   return decisionTaskId;
-}
-
-export function getPerfherderCompareWithBaseViewURL(
-  originalProject: Repository['name'],
-  originalRevision: Changeset['revision'],
-  newProject: Repository['name'],
-  newRevision: Changeset['revision'],
-  framework: Framework['id'],
-) {
-  const searchParams = new URLSearchParams({
-    originalProject: originalProject,
-    originalRevision: originalRevision,
-    newProject: newProject,
-    newRevision: newRevision,
-    framework: String(framework),
-    page: '1',
-  });
-  return `${treeherderBaseURL}/perfherder/compare?${searchParams.toString()}`;
-}
-
-export function getPerfherderSubtestsCompareWithBaseViewURL(
-  originalProject: Repository['name'],
-  originalRevision: Changeset['revision'],
-  newProject: Repository['name'],
-  newRevision: Changeset['revision'],
-  framework: Framework['id'],
-  originalSignature: number,
-  newSignature: number,
-) {
-  const searchParams = new URLSearchParams({
-    originalProject: originalProject,
-    originalRevision: originalRevision,
-    newProject: newProject,
-    newRevision: newRevision,
-    framework: String(framework),
-    originalSignature: String(originalSignature),
-    newSignature: String(newSignature),
-    page: '1',
-  });
-  return `${treeherderBaseURL}/perfherder/comparesubtest?${searchParams.toString()}`;
-}
-
-export function getPerfherderCompareOverTimeViewURL(
-  originalProject: Repository['name'],
-  newProject: Repository['name'],
-  newRevision: Changeset['revision'],
-  framework: Framework['id'],
-  selectedTimeRange: TimeRange['value'],
-) {
-  const searchParams = new URLSearchParams({
-    originalProject: originalProject,
-    newProject: newProject,
-    newRevision: newRevision,
-    framework: String(framework),
-    selectedTimeRange: String(selectedTimeRange),
-    page: '1',
-  });
-  return `${treeherderBaseURL}/perfherder/compare?${searchParams.toString()}`;
-}
-
-export function getPerfherderSubtestsCompareOverTimeViewURL(
-  originalProject: Repository['name'],
-  newProject: Repository['name'],
-  newRevision: Changeset['revision'],
-  framework: Framework['id'],
-  selectedTimeRange: TimeRange['value'],
-  originalSignature: number,
-  newSignature: number,
-) {
-  const searchParams = new URLSearchParams({
-    originalProject: originalProject,
-    newProject: newProject,
-    newRevision: newRevision,
-    framework: String(framework),
-    selectedTimeRange: String(selectedTimeRange),
-    originalSignature: String(originalSignature),
-    newSignature: String(newSignature),
-    page: '1',
-  });
-  return `${treeherderBaseURL}/perfherder/comparesubtest?${searchParams.toString()}`;
 }

@@ -1,7 +1,6 @@
-import { Fragment, useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
-import { Button, Grid, Link } from '@mui/material';
-import Alert from '@mui/material/Alert';
+import { Button, Grid } from '@mui/material';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
@@ -9,23 +8,13 @@ import { style } from 'typestyle';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
-import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
-import {
-  getPerfherderCompareWithBaseViewURL,
-  getPerfherderCompareOverTimeViewURL,
-} from '../../logic/treeherder';
 import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
-import { truncateHash } from '../../utils/helpers';
 import EditTitleInput from '../CompareResults/EditTitleInput';
 import ToggleReplicatesButton from '../Shared/ToggleReplicatesButton';
-
-function getPunctuationMark(index: number, newRevs: string[]) {
-  return index != newRevs.length - 1 ? ', ' : '.';
-}
 
 type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 
@@ -82,27 +71,6 @@ function ResultsMain() {
     'compare-over-time-results': 'Compare over time',
   };
 
-  function getCompareViewURL(index: number, rev: string): string | undefined {
-    if (loaderData.view === compareView) {
-      const { frameworkId, baseRepo, baseRev, newRepos } = loaderData;
-      return getPerfherderCompareWithBaseViewURL(
-        baseRepo,
-        baseRev,
-        newRepos[index],
-        rev,
-        frameworkId,
-      );
-    } else {
-      const { frameworkId, baseRepo, newRepos, intervalValue } = loaderData;
-      return getPerfherderCompareOverTimeViewURL(
-        baseRepo,
-        newRepos[index],
-        rev,
-        frameworkId,
-        intervalValue,
-      );
-    }
-  }
   /************************************************/
   /********** Edit Results Title Section **********/
   /************************************************/
@@ -192,19 +160,6 @@ function ResultsMain() {
             <ToggleReplicatesButton />
           </Grid>
         </Grid>
-        <Grid container sx={titleContainerSx}>
-          <Alert severity='info' className={styles.alert}>
-            Perfherder links are available for:{' '}
-            {loaderData.newRevs.map((rev, index) => (
-              <Fragment key={rev}>
-                <Link href={getCompareViewURL(index, rev)} target='_blank'>
-                  {`comparison ${truncateHash(rev)}`}
-                </Link>
-                {getPunctuationMark(index, loaderData.newRevs)}
-              </Fragment>
-            ))}
-          </Alert>
-        </Grid>
       </header>
       <ResultsTable />
     </Container>
@@ -212,3 +167,5 @@ function ResultsMain() {
 }
 
 export default ResultsMain;
+
+

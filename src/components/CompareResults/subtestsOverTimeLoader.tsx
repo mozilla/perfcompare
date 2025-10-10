@@ -4,10 +4,7 @@ import {
   timeRanges,
   STUDENT_T,
 } from '../../common/constants';
-import {
-  fetchSubtestsCompareOverTimeResults,
-  getPerfherderSubtestsCompareOverTimeViewURL,
-} from '../../logic/treeherder';
+import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework, TestVersion, TimeRange } from '../../types/types';
 
@@ -185,16 +182,6 @@ export function loader({ request }: { request: Request }) {
     testVersion,
   });
 
-  const subtestsViewPerfherderURL = getPerfherderSubtestsCompareOverTimeViewURL(
-    baseRepo,
-    newRepo,
-    newRev,
-    frameworkId,
-    intervalValue,
-    Number(baseParentSignature),
-    Number(newParentSignature),
-  );
-
   return {
     results,
     baseRepo,
@@ -206,7 +193,6 @@ export function loader({ request }: { request: Request }) {
     intervalText,
     baseParentSignature,
     newParentSignature,
-    subtestsViewPerfherderURL,
     replicates,
   };
 }
