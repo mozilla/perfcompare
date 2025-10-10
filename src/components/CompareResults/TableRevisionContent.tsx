@@ -6,6 +6,7 @@ import TestHeader from './TestHeader';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
+import { TestVersion } from '../../types/types';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
 // MUI's sx prop for these numerous elements.
@@ -54,6 +55,7 @@ function TableRevisionContent(props: Props) {
               view={view}
               gridTemplateColumns={rowGridTemplateColumns}
               replicates={replicates}
+              testVersion={props.testVersion}
             />
           ))}
         </div>
@@ -72,6 +74,7 @@ interface Props {
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
+  testVersion: TestVersion;
 }
 
 export default TableRevisionContent;

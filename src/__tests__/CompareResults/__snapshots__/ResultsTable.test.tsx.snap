@@ -788,45 +788,6 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </h2>
               </div>
-              <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
-              >
-                <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard f1q43ty0 css-st68mf-MuiPaper-root-MuiAlert-root"
-                  role="alert"
-                  style="--Paper-shadow: none;"
-                >
-                  <div
-                    class="MuiAlert-icon css-vab54s-MuiAlert-icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                      data-testid="InfoOutlinedIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="MuiAlert-message css-zioonp-MuiAlert-message"
-                  >
-                    Perfherder links are available for:
-                     
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-                      href="https://treeherder.mozilla.org/perfherder/compare?originalProject=try&originalRevision=spam&newProject=try&newRevision=spam&framework=1&page=1"
-                      target="_blank"
-                    >
-                      comparison spam
-                    </a>
-                    .
-                  </div>
-                </div>
-              </div>
             </header>
             <div
               class="MuiBox-root css-hshm0p"
@@ -998,9 +959,9 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-label="Stats Test Version"
-                          aria-labelledby="test-version-type mui-component-select-test-version"
+                          aria-labelledby="test-version-type mui-component-select-test_version"
                           class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="mui-component-select-test-version"
+                          id="mui-component-select-test_version"
                           role="combobox"
                           tabindex="0"
                         >
@@ -1010,7 +971,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-hidden="true"
                           aria-invalid="false"
                           class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                          name="test-version"
+                          name="test_version"
                           tabindex="-1"
                           value="student-t"
                         />

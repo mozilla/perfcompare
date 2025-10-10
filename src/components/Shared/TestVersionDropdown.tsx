@@ -36,7 +36,7 @@ function TestVersionDropdown({
       labelId={'test-version-type'}
       className='test-version-select'
       onChange={onValueChange}
-      name='test-version'
+      name='test_version'
       variant={variant}
       size={size}
       MenuProps={{

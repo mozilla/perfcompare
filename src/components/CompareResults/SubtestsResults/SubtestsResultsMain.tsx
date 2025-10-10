@@ -1,7 +1,6 @@
 import { useState, Suspense } from 'react';
 
-import { Grid, Skeleton, Stack, Link } from '@mui/material';
-import Alert from '@mui/material/Alert';
+import { Grid, Skeleton, Stack } from '@mui/material';
 import { Container } from '@mui/system';
 import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
@@ -93,7 +92,7 @@ type SubtestsResultsMainProps = {
 type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
-  const { results, subtestsViewPerfherderURL, replicates } =
+  const { results, replicates, testVersion } =
     useLoaderData<CombinedLoaderReturnValue>();
 
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -139,14 +138,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <Grid sx={{ marginRight: '10px' }}>
           <ToggleReplicatesButton />
         </Grid>
-        <Alert severity='info' className={styles.title}>
-          A Perfherder link is available for{' '}
-          <Link href={subtestsViewPerfherderURL} target='_blank'>
-            the same results
-          </Link>
-          {'.'}
-        </Alert>
-
         <Suspense
           fallback={
             <>
@@ -200,6 +191,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         filteringSearchTerm={searchTerm}
         resultsPromise={results}
         replicates={replicates}
+        testVersion={testVersion}
       />
     </Container>
   );

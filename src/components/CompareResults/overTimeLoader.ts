@@ -214,6 +214,7 @@ export async function loader({ request }: { request: Request }) {
     view: compareOverTimeView,
     generation: generationCounter++,
     replicates,
+    testVersion,
   };
 }
 
@@ -230,6 +231,7 @@ type DeferredLoaderData = {
   view: typeof compareOverTimeView;
   generation: number;
   replicates: boolean;
+  testVersion: TestVersion;
 };
 
 // Be explicit with the returned type to control it better than if we were

@@ -163,7 +163,6 @@ export default function ResultsTable() {
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
-
     searchParams.set('framework', newFrameworkId.toString());
     setSearchParams(searchParams);
   };
@@ -179,8 +178,8 @@ export default function ResultsTable() {
   };
 
   const onTestVersionChange = (testVersion: TestVersion): void => {
-    rawSearchParams.set('test_version', testVersion);
     setTestVersionVal(testVersion);
+    rawSearchParams.set('test_version', testVersion);
     updateRawSearchParams(rawSearchParams);
   };
 
@@ -247,6 +246,7 @@ export default function ResultsTable() {
               tableFilters={tableFilters}
               sortColumn={sortColumn}
               sortDirection={sortDirection}
+              testVersion={testVersionVal}
             />
           )}
         </Await>
