@@ -28,7 +28,8 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
-  const testVersion = (url.searchParams.get('testVersion') ?? STUDENT_T) as TestVersion;
+  const testVersion = (url.searchParams.get('testVersion') ??
+    STUDENT_T) as TestVersion;
   const pushed_today =
     new Date(newHashDateFromUrl).toISOString().split('T')[0] ==
     new Date().toISOString().split('T')[0];

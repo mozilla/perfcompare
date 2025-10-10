@@ -200,7 +200,8 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = (url.searchParams.get('testVersion') ?? STUDENT_T) as TestVersion;
+  const testVersion = (url.searchParams.get('testVersion') ??
+    STUDENT_T) as TestVersion;
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({

@@ -163,7 +163,8 @@ export async function loader({ request }: { request: Request }) {
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = (url.searchParams.get('testVersion') ?? STUDENT_T) as TestVersion;
+  const testVersion = (url.searchParams.get('testVersion') ??
+    STUDENT_T) as TestVersion;
 
   const {
     baseRepo,

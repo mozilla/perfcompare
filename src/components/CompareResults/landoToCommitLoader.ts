@@ -31,7 +31,8 @@ export async function loader({ request }: { request: Request }) {
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
   const newRevisionsFromLando =
     await fetchRevisionFromLandoId(newLandoIDFromUrl);
-  const testVersion = (url.searchParams.get('testVersion') ?? STUDENT_T) as TestVersion;
+  const testVersion = (url.searchParams.get('testVersion') ??
+    STUDENT_T) as TestVersion;
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
       baseRev: baseRevisionsFromLando.commit_id,

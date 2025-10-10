@@ -217,13 +217,13 @@ export type MannWhitneyResultsItem = {
   silverman_warnings: string[]; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
   is_fit_good: boolean | null; // short form interpretation of KS test goodness of fit
-  is_significant: boolean| null; // is the result statistically significant
-  is_new_better: boolean| null; // is the new revision better than the base revision
+  is_significant: boolean | null; // is the result statistically significant
+  is_new_better: boolean | null; // is the new revision better than the base revision
   performance_intepretation: string; // short text interpretation of the performance change
   direction_of_change: 'neutral' | 'better' | 'worse' | null; // 'neutral', 'better', or 'worse'
-  new_is_better: boolean| null;
-  lower_is_better: boolean| null;
-  is_improvement: boolean| null;
+  new_is_better: boolean | null;
+  lower_is_better: boolean | null;
+  is_improvement: boolean | null;
   test: string;
   option_name: string;
   extra_options: string;

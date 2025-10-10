@@ -167,5 +167,3 @@ function ResultsMain() {
 }
 
 export default ResultsMain;
-
-

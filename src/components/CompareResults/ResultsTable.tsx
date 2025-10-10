@@ -9,13 +9,13 @@ import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeL
 import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
+import { STUDENT_T } from '../../common/constants';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig, TestVersion } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
-import { STUDENT_T } from '../../common/constants';
 
 const columnsConfiguration: CompareResultsTableConfig = [
   {
