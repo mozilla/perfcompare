@@ -11,11 +11,8 @@ export const StatisticsWarnings = ({
   result: MannWhitneyResultsItem;
 }) => {
   function getStyles(theme: string) {
-    const backgroundColor =
-      theme === 'light' ? Colors.Background300 : Colors.Background300Dark;
-
     return {
-      backgroundColor,
+      backgroundColor: 'transparent',
       marginTop: 2,
       marginBottom: 2,
       display: 'flex',
