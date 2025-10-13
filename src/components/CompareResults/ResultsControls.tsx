@@ -25,11 +25,7 @@ interface Props {
   resultsPromise: Promise<CompareResultsItem[][]>;
   onSearchTermChange: (searchTerm: string) => unknown;
   onFrameworkChange: (frameworkId: Framework['id']) => unknown;
-<<<<<<< HEAD
   onTestVersionChange: (testType: TestVersion) => void;
-=======
-  onTestVersionChange: (testType: string) => void;
->>>>>>> main
 }
 export default function ResultsControls({
   initialSearchTerm,

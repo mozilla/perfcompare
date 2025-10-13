@@ -124,12 +124,8 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
-<<<<<<< HEAD
   const testVersion = (url.searchParams.get('testVersion') ??
     STUDENT_T) as TestVersion;
-=======
-  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
->>>>>>> main
 
   const {
     baseRev,

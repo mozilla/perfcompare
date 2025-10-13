@@ -159,11 +159,7 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-<<<<<<< HEAD
   const [testVersionVal, setTestVersionVal] = useState<TestVersion>(STUDENT_T);
-=======
-  const [testVersionVal, setTestVersionVal] = useState('student-t');
->>>>>>> main
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
@@ -182,11 +178,7 @@ export default function ResultsTable() {
     updateRawSearchParams(rawSearchParams);
   };
 
-<<<<<<< HEAD
   const onTestVersionChange = (testVersion: TestVersion): void => {
-=======
-  const onTestVersionChange = (testVersion: string) => {
->>>>>>> main
     rawSearchParams.set('test_version', testVersion);
     setTestVersionVal(testVersion);
     updateRawSearchParams(rawSearchParams);

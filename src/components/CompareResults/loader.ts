@@ -121,11 +121,7 @@ async function fetchCompareResultsOnTreeherder({
   newRepos: Repository['name'][];
   framework: Framework['id'];
   replicates: boolean;
-<<<<<<< HEAD
   testVersion?: TestVersion;
-=======
-  testVersion?: string;
->>>>>>> main
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareResults({
@@ -204,12 +200,8 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const replicates = url.searchParams.has('replicates');
-<<<<<<< HEAD
   const testVersion = (url.searchParams.get('testVersion') ??
     STUDENT_T) as TestVersion;
-=======
-  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
->>>>>>> main
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
@@ -240,11 +232,7 @@ export async function getComparisonInformation(
   frameworkId: Framework['id'],
   frameworkName: Framework['name'],
   replicates: boolean,
-<<<<<<< HEAD
   testVersion?: TestVersion,
-=======
-  testVersion?: string,
->>>>>>> main
 ) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,

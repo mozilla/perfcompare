@@ -9,11 +9,7 @@ const DEFAULT_VALUES = {
   newRepo: 'try' as Repository['name'],
   frameworkId: 1 as Framework['id'],
   frameworkName: 'talos' as Framework['name'],
-<<<<<<< HEAD
-  testVersion: STUDENT_T,
-=======
-  testVersion: STUDENT_T as string,
->>>>>>> main
+  testVersion: STUDENT_T as TestVersion,
 };
 
 // This function checks and sanitizes the input values, then returns values that
@@ -119,9 +115,5 @@ export type LoaderReturnValue = {
   newRepo: Repository['name'];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
-<<<<<<< HEAD
   testVersion: TestVersion;
-=======
-  testVersion: string;
->>>>>>> main
 };

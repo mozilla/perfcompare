@@ -320,10 +320,6 @@ export const platformMap: Record<Platform, string> = {
     'Android 11.0 Samsung A51 Shippable AArch64',
 };
 
-<<<<<<< HEAD
 export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
 export const STUDENT_T = 'student-t' as TestVersion;
-=======
-export const MANN_WHITNEY_U = 'mann-whitney-u';
-export const STUDENT_T = 'student-t';
->>>>>>> main
+

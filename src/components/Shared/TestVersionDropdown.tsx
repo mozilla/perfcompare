@@ -2,21 +2,14 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { ThemeMode } from '../../types/state';
-<<<<<<< HEAD
 import { TestVersion } from '../../types/types';
-=======
->>>>>>> main
 
 interface TestVersionDropdownProps {
   testType: string;
   size?: 'small' | 'medium';
   variant?: 'standard' | 'outlined' | 'filled';
   mode: ThemeMode;
-<<<<<<< HEAD
   onChange: (test_version: TestVersion) => void;
-=======
-  onChange: (test_version: string) => void;
->>>>>>> main
 }
 
 const TEST_VERSIONS = [
@@ -32,11 +25,7 @@ function TestVersionDropdown({
   mode,
 }: TestVersionDropdownProps) {
   const onValueChange = (event: SelectChangeEvent) => {
-<<<<<<< HEAD
     const test_version = event.target.value as TestVersion;
-=======
-    const test_version = event.target.value;
->>>>>>> main
     onChange(test_version);
   };
 

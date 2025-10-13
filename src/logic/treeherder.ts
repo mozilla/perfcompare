@@ -21,11 +21,7 @@ type FetchProps = {
   newRev: string;
   framework: Framework['id'];
   replicates: boolean;
-<<<<<<< HEAD
   testVersion?: TestVersion;
-=======
-  testVersion?: string;
->>>>>>> main
 };
 
 type FetchOverTimeProps = {
@@ -35,11 +31,7 @@ type FetchOverTimeProps = {
   framework: Framework['id'];
   interval: TimeRange['value'];
   replicates: boolean;
-<<<<<<< HEAD
   testVersion?: TestVersion;
-=======
-  testVersion?: string;
->>>>>>> main
 };
 
 type FetchSubtestsProps = {
@@ -51,11 +43,7 @@ type FetchSubtestsProps = {
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
-<<<<<<< HEAD
   testVersion?: TestVersion;
-=======
-  testVersion?: string;
->>>>>>> main
 };
 
 type FetchSubtestsOverTimeProps = {
@@ -67,11 +55,7 @@ type FetchSubtestsOverTimeProps = {
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
-<<<<<<< HEAD
   testVersion?: TestVersion;
-=======
-  testVersion?: string;
->>>>>>> main
 };
 
 export async function fetchRevisionFromHash(
@@ -80,11 +64,7 @@ export async function fetchRevisionFromHash(
   newhash: string,
   newhashdate: string,
   repo: string,
-<<<<<<< HEAD
   testVersion?: TestVersion,
-=======
-  testVersion?: string,
->>>>>>> main
 ) {
   const searchParams = new URLSearchParams({
     basehash: basehash,
