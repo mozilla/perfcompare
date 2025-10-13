@@ -203,10 +203,10 @@ export type MannWhitneyResultsItem = {
   base_standard_stats: BasicStatItem;
   new_standard_stats: BasicStatItem;
   ks_test: StatisticsTestItem; // Kolmogorov-Smirnov: Test for goodness of fit
-  ks_warning: string; // warning about goodness of fit
+  ks_warning?: string | null; // warning about goodness of fit
   shapiro_wilk_test_base: StatisticsTestItem; // Shapiro-Wilk: Normality test
   shapiro_wilk_test_new: StatisticsTestItem; // Shapiro-Wilk: Normality test
-  shapiro_wilk_warnings: string[]; // warnings about normality for both base and new
+  shapiro_wilk_warnings?: string[] | null; // warnings about normality for both base and new
   mann_whitney_test: StatisticsTestItem; // Mann-Whitney-U: Tests the null hypothesis, p-value to display here
   cliffs_delta: number;
   cliffs_interpretation: string;
@@ -214,7 +214,7 @@ export type MannWhitneyResultsItem = {
   kde_new: KDEItem; // KDE plots and summary plot with ISJ bandwidth for new runs
   kde_base: KDEItem; // KDE plots and summary plot with ISJ bandwidth for base runs
   kde_summary_text: string[];
-  silverman_warnings: string[]; // silverman warnings about multimodal data
+  silverman_warnings?: string[] | null; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
   is_fit_good: boolean | null; // short form interpretation of KS test goodness of fit
   is_significant: boolean | null; // is the result statistically significant
