@@ -1,5 +1,6 @@
 import { Warning } from '@mui/icons-material';
 import { Box } from '@mui/system';
+
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles';
 import { MannWhitneyResultsItem } from '../../types/state';
