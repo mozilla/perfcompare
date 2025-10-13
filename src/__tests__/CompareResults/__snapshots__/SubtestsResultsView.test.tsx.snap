@@ -161,6 +161,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                         >
                           <input
                             class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                            role="switch"
                             type="checkbox"
                           />
                           <span
@@ -178,41 +179,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       </span>
                     </label>
                   </div>
-                </div>
-              </div>
-              <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard f12anyom css-st68mf-MuiPaper-root-MuiAlert-root"
-                role="alert"
-                style="--Paper-shadow: none;"
-              >
-                <div
-                  class="MuiAlert-icon css-vab54s-MuiAlert-icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                    data-testid="InfoOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="MuiAlert-message css-zioonp-MuiAlert-message"
-                >
-                  A Perfherder link is available for
-                   
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-                    href="https://treeherder.mozilla.org/perfherder/comparesubtest?originalProject=mozilla-central&originalRevision=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&newProject=mozilla-central&newRevision=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&framework=1&originalSignature=4774487&newSignature=4774487&page=1"
-                    target="_blank"
-                  >
-                    the same results
-                  </a>
-                  .
                 </div>
               </div>
               <div
@@ -2014,6 +1980,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                         >
                           <input
                             class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                            role="switch"
                             type="checkbox"
                           />
                           <span
@@ -2031,41 +1998,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       </span>
                     </label>
                   </div>
-                </div>
-              </div>
-              <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard f12anyom css-st68mf-MuiPaper-root-MuiAlert-root"
-                role="alert"
-                style="--Paper-shadow: none;"
-              >
-                <div
-                  class="MuiAlert-icon css-vab54s-MuiAlert-icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                    data-testid="InfoOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="MuiAlert-message css-zioonp-MuiAlert-message"
-                >
-                  A Perfherder link is available for
-                   
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-                    href="https://treeherder.mozilla.org/perfherder/comparesubtest?originalProject=mozilla-central&newProject=mozilla-central&newRevision=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&framework=1&selectedTimeRange=86400&originalSignature=4774487&newSignature=4774487&page=1"
-                    target="_blank"
-                  >
-                    the same results
-                  </a>
-                  .
                 </div>
               </div>
               <div

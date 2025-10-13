@@ -1,10 +1,12 @@
-import { repoMap, frameworks, timeRanges } from '../../common/constants';
 import {
-  fetchSubtestsCompareOverTimeResults,
-  getPerfherderSubtestsCompareOverTimeViewURL,
-} from '../../logic/treeherder';
+  repoMap,
+  frameworks,
+  timeRanges,
+  STUDENT_T,
+} from '../../common/constants';
+import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
-import { Framework, TimeRange } from '../../types/types';
+import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -147,7 +149,12 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
-
+<<<<<<< HEAD
+  const testVersion = (url.searchParams.get('testVersion') ??
+    STUDENT_T) as TestVersion;
+=======
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
+>>>>>>> main
   const {
     baseRepo,
     newRev,
@@ -177,17 +184,8 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     replicates,
+    testVersion,
   });
-
-  const subtestsViewPerfherderURL = getPerfherderSubtestsCompareOverTimeViewURL(
-    baseRepo,
-    newRepo,
-    newRev,
-    frameworkId,
-    intervalValue,
-    Number(baseParentSignature),
-    Number(newParentSignature),
-  );
 
   return {
     results,
@@ -200,7 +198,6 @@ export function loader({ request }: { request: Request }) {
     intervalText,
     baseParentSignature,
     newParentSignature,
-    subtestsViewPerfherderURL,
     replicates,
   };
 }

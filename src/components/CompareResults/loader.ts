@@ -1,11 +1,16 @@
-import { repoMap, frameworks, compareView } from '../../common/constants';
+import {
+  repoMap,
+  frameworks,
+  compareView,
+  STUDENT_T,
+} from '../../common/constants';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
-import { FakeCommitHash, Framework } from '../../types/types';
+import { FakeCommitHash, Framework, TestVersion } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -108,6 +113,7 @@ async function fetchCompareResultsOnTreeherder({
   newRepos,
   framework,
   replicates,
+  testVersion,
 }: {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -115,6 +121,11 @@ async function fetchCompareResultsOnTreeherder({
   newRepos: Repository['name'][];
   framework: Framework['id'];
   replicates: boolean;
+<<<<<<< HEAD
+  testVersion?: TestVersion;
+=======
+  testVersion?: string;
+>>>>>>> main
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareResults({
@@ -124,6 +135,7 @@ async function fetchCompareResultsOnTreeherder({
       newRepo: newRepos[i],
       framework,
       replicates,
+      testVersion,
     }),
   );
   return Promise.all(promises);
@@ -192,6 +204,12 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const replicates = url.searchParams.has('replicates');
+<<<<<<< HEAD
+  const testVersion = (url.searchParams.get('testVersion') ??
+    STUDENT_T) as TestVersion;
+=======
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
+>>>>>>> main
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
@@ -210,6 +228,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion,
   );
 }
 
@@ -221,6 +240,11 @@ export async function getComparisonInformation(
   frameworkId: Framework['id'],
   frameworkName: Framework['name'],
   replicates: boolean,
+<<<<<<< HEAD
+  testVersion?: TestVersion,
+=======
+  testVersion?: string,
+>>>>>>> main
 ) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
@@ -229,6 +253,7 @@ export async function getComparisonInformation(
     newRepos,
     framework: frameworkId,
     replicates,
+    testVersion,
   });
 
   // TODO what happens if there's no result?
@@ -277,6 +302,7 @@ type DeferredLoaderData = {
   view: typeof compareView;
   generation: number;
   replicates: boolean;
+  testVersion: TestVersion;
 };
 
 // Be explicit with the returned type to control it better than if we were
