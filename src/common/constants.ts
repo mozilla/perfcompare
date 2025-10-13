@@ -322,4 +322,3 @@ export const platformMap: Record<Platform, string> = {
 
 export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
 export const STUDENT_T = 'student-t' as TestVersion;
-

@@ -9,7 +9,7 @@ const DEFAULT_VALUES = {
   newRepo: 'try' as Repository['name'],
   frameworkId: 1 as Framework['id'],
   frameworkName: 'talos' as Framework['name'],
-  testVersion: STUDENT_T as TestVersion,
+  testVersion: STUDENT_T,
 };
 
 // This function checks and sanitizes the input values, then returns values that
