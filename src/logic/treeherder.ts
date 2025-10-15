@@ -8,7 +8,7 @@ import {
   Changeset,
   HashToCommit,
 } from '../types/state';
-import { Framework, TimeRange } from '../types/types';
+import { Framework, TestVersion, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
@@ -21,7 +21,7 @@ type FetchProps = {
   newRev: string;
   framework: Framework['id'];
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 };
 
 type FetchOverTimeProps = {
@@ -31,7 +31,7 @@ type FetchOverTimeProps = {
   framework: Framework['id'];
   interval: TimeRange['value'];
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 };
 
 type FetchSubtestsProps = {
@@ -43,7 +43,7 @@ type FetchSubtestsProps = {
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 };
 
 type FetchSubtestsOverTimeProps = {
@@ -64,7 +64,7 @@ export async function fetchRevisionFromHash(
   newhash: string,
   newhashdate: string,
   repo: string,
-  testVersion?: string,
+  testVersion?: TestVersion,
 ) {
   const searchParams = new URLSearchParams({
     basehash: basehash,
