@@ -137,7 +137,7 @@ export type StatisticsTestItem = {
  KDE plot values for base or new runs.
 */
 export type KDEItem = {
-  median: number | string | null;
+  median: number | null;
   sample_count: number;
   kde_x: number[];
   kde_y: number[];
