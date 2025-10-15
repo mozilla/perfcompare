@@ -127,17 +127,17 @@ export type BasicStatItem = {
  Basic statistics item for a statistical test (like Shapiro-Wilk or KS test).
 */
 export type StatisticsTestItem = {
-  name: string;
-  stat: number;
-  pvalue: number;
-  interpretation: string | null;
+  test_name: string;
+  stat: number | null;
+  pvalue: number | null;
+  interpretation?: string | null;
 } | null;
 
 /*
  KDE plot values for base or new runs.
 */
 export type KDEItem = {
-  median: number;
+  median: number | null;
   sample_count: number;
   kde_x: number[];
   kde_y: number[];

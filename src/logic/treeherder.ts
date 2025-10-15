@@ -55,7 +55,7 @@ type FetchSubtestsOverTimeProps = {
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 };
 
 export async function fetchRevisionFromHash(
