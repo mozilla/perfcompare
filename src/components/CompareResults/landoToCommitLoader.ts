@@ -31,7 +31,7 @@ export async function loader({ request }: { request: Request }) {
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
   const newRevisionsFromLando =
     await fetchRevisionFromLandoId(newLandoIDFromUrl);
-  const testVersion = (url.searchParams.get('testVersion') ??
+  const testVersion = (url.searchParams.get('test_version') ??
     STUDENT_T) as TestVersion;
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
@@ -65,6 +65,7 @@ type LandoLoaderData = {
   frameworkName: Framework['name'];
   view: typeof compareView;
   generation: number;
+  testVersion: TestVersion;
 };
 
 export type LandoLoaderReturnValue = LandoLoaderData;

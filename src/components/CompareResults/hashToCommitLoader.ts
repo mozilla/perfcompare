@@ -28,7 +28,7 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
-  const testVersion = (url.searchParams.get('testVersion') ??
+  const testVersion = (url.searchParams.get('test_version') ??
     STUDENT_T) as TestVersion;
   const pushed_today =
     new Date(newHashDateFromUrl).toISOString().split('T')[0] ==
@@ -98,6 +98,7 @@ type HashLoaderData = {
   frameworkName: Framework['name'];
   view: typeof compareView;
   generation: number;
+  testVersion: TestVersion;
 };
 
 export type HashLoaderReturnValue = HashLoaderData;
