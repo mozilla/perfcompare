@@ -338,3 +338,5 @@ export type TokenBearer = {
   access_token: string;
   token_type: 'Bearer';
 };
+
+export type TestVersion = 'student-t' | 'mann-whitney-u';

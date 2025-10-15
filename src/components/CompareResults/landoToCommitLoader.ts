@@ -2,7 +2,7 @@ import { checkValues, getComparisonInformation } from './loader';
 import { compareView, STUDENT_T } from '../../common/constants';
 import { fetchRevisionFromLandoId } from '../../logic/lando';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
-import { Framework } from '../../types/types';
+import { Framework, TestVersion } from '../../types/types';
 
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-lando-results route is requested.
@@ -31,7 +31,8 @@ export async function loader({ request }: { request: Request }) {
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
   const newRevisionsFromLando =
     await fetchRevisionFromLandoId(newLandoIDFromUrl);
-  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
+  const testVersion = (url.searchParams.get('test_version') ??
+    STUDENT_T) as TestVersion;
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
       baseRev: baseRevisionsFromLando.commit_id,
@@ -64,6 +65,7 @@ type LandoLoaderData = {
   frameworkName: Framework['name'];
   view: typeof compareView;
   generation: number;
+  testVersion: TestVersion;
 };
 
 export type LandoLoaderReturnValue = LandoLoaderData;
