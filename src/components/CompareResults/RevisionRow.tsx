@@ -19,6 +19,7 @@ import { compareView, compareOverTimeView } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
 import {
   getPlatformShortName,
@@ -194,7 +195,7 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
 function RevisionRow(props: RevisionRowProps) {
   const id = useId();
 
-  const { result, view, gridTemplateColumns, replicates } = props;
+  const { result, view, gridTemplateColumns, replicates, testVersion } = props;
   const {
     platform,
     base_avg_value: baseAvgValue,
@@ -375,7 +376,13 @@ function RevisionRow(props: RevisionRowProps) {
           </div>
         </Box>
       </Box>
-      {expanded && <RevisionRowExpandable id={id} result={result} />}
+      {expanded && (
+        <RevisionRowExpandable
+          id={id}
+          result={result}
+          testVersion={testVersion}
+        />
+      )}
     </>
   );
 }
@@ -385,6 +392,7 @@ interface RevisionRowProps {
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
+  testVersion: TestVersion;
 }
 
 export default RevisionRow;

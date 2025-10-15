@@ -5,9 +5,11 @@ import Stack from '@mui/material/Stack';
 
 import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
+import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
+import { TestVersion } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 
 const strings = Strings.components.expandableRow;
@@ -20,7 +22,7 @@ const formatNumberTwoDigits = (value: number) =>
   numberFormatterTwoDigits.format(value);
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
-  const { result, id } = props;
+  const { result, id, testVersion } = props;
 
   const {
     base_runs: baseRuns,
@@ -61,6 +63,52 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
 
   const newValues =
     newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
+
+  //////////// Conditional display of new stats design based on test version ///////////////
+  const renderPValCliffsDeltaComp = () => {
+    if (testVersion === MANN_WHITNEY_U) {
+      return (
+        <Box
+          sx={{
+            backgroundColor: '#FBFBFE',
+            padding: 1,
+            borderRadius: '5px',
+            minWidth: '287px',
+          }}
+        >
+          <table
+            style={{ borderCollapse: 'collapse', width: '100%', marginTop: 8 }}
+          >
+            <thead>
+              <tr>
+                <th style={{ textAlign: 'left' }}>Metric</th>
+                <th style={{ textAlign: 'left', paddingRight: 16 }}>Value</th>
+                <th style={{ textAlign: 'left' }}>Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={{ padding: 2 }}>{`Cliff's Delta`}</td>
+                <td style={{ padding: 2 }}></td>
+                <td style={{ padding: 2 }}></td>
+              </tr>
+              <tr>
+                <td style={{ padding: 2 }}>Confidence (p-value)</td>
+                <td style={{ padding: 2 }}></td>
+                <td style={{ padding: 2 }}></td>
+              </tr>
+              <tr>
+                <td style={{ padding: 2 }}>CLES</td>
+                <td style={{ padding: 2 }}></td>
+                <td style={{ padding: 2 }}></td>
+              </tr>
+            </tbody>
+          </table>
+        </Box>
+      );
+    }
+    return;
+  };
 
   return (
     <Box
@@ -113,38 +161,45 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
                 {lowerIsBetter ? 'lower' : 'higher'} is better)
               </Box>
-              <Box sx={{ whiteSpace: 'nowrap' }}>
-                <b>Difference of means</b>: {deltaPercent}% (
-                {formatNumber(delta)}
-                {deltaUnit ? ' ' + deltaUnit : null})
-              </Box>
-              {newMedian && baseMedian ? (
-                <Box sx={{ whiteSpace: 'nowrap' }}>
-                  <b>Difference of medians</b>: {medianPercentage}% (
-                  {medianDifference}
-                  {deltaUnit ? ' ' + deltaUnit : null})
-                </Box>
-              ) : null}
-              {confidenceText ? (
-                <div>
+              {/******* student t test rendering **************/}
+              {testVersion === STUDENT_T && (
+                <>
                   <Box sx={{ whiteSpace: 'nowrap' }}>
-                    <b>Confidence</b>: {confidenceText}
-                    {confidenceValue ? ' ' + `(${confidenceValue})` : null}
+                    <b>Difference of means</b>: {deltaPercent}% (
+                    {formatNumber(delta)}
+                    {deltaUnit ? ' ' + deltaUnit : null})
                   </Box>
-                  <Box
-                    sx={{
-                      fontSize: '10px',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    <b>**Note</b>: {confidenceNote}{' '}
-                  </Box>
-                </div>
-              ) : (
-                <Box sx={{ whiteSpace: 'nowrap' }}>
-                  <b>Confidence</b>: Not available{' '}
-                </Box>
+                  {newMedian && baseMedian ? (
+                    <Box sx={{ whiteSpace: 'nowrap' }}>
+                      <b>Difference of medians</b>: {medianPercentage}% (
+                      {medianDifference}
+                      {deltaUnit ? ' ' + deltaUnit : null})
+                    </Box>
+                  ) : null}
+                  {confidenceText ? (
+                    <div>
+                      <Box sx={{ whiteSpace: 'nowrap' }}>
+                        <b>Confidence</b>: {confidenceText}
+                        {confidenceValue ? ' ' + `(${confidenceValue})` : null}
+                      </Box>
+                      <Box
+                        sx={{
+                          fontSize: '10px',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        <b>**Note</b>: {confidenceNote}{' '}
+                      </Box>
+                    </div>
+                  ) : (
+                    <Box sx={{ whiteSpace: 'nowrap' }}>
+                      <b>Confidence</b>: Not available{' '}
+                    </Box>
+                  )}
+                </>
               )}
+              {/******* mann-whiteney rendering **************/}
+              {renderPValCliffsDeltaComp()}
             </div>
           </Grid>
         </Grid>
@@ -156,6 +211,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
 interface RevisionRowExpandableProps {
   result: CompareResultsItem;
   id: string;
+  testVersion: TestVersion;
 }
 
 export default RevisionRowExpandable;

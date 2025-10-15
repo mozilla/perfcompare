@@ -15,6 +15,7 @@ import RevisionRowExpandable from '.././RevisionRowExpandable';
 import { Strings } from '../../../resources/Strings';
 import { FontSize, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
+import { TestVersion } from '../../../types/types';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
 
@@ -244,7 +245,13 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           </IconButton>
         </Box>
       </Box>
-      {expanded && <RevisionRowExpandable id={id} result={result} />}
+      {expanded && (
+        <RevisionRowExpandable
+          id={id}
+          result={result}
+          testVersion={props.testVersion}
+        />
+      )}
     </>
   );
 }
@@ -253,6 +260,7 @@ interface RevisionRowProps {
   result: CompareResultsItem;
   gridTemplateColumns: string;
   replicates: boolean;
+  testVersion: TestVersion;
 }
 
 export default SubtestsRevisionRow;
