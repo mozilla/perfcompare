@@ -1,8 +1,5 @@
-import { repoMap, frameworks } from '../../common/constants';
-import {
-  fetchSubtestsCompareResults,
-  getPerfherderSubtestsCompareWithBaseViewURL,
-} from '../../logic/treeherder';
+import { repoMap, frameworks, STUDENT_T } from '../../common/constants';
+import { fetchSubtestsCompareResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework } from '../../types/types';
 
@@ -127,6 +124,7 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
+  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
 
   const {
     baseRev,
@@ -156,17 +154,8 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     replicates,
+    testVersion,
   });
-
-  const subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(
-    baseRepo,
-    baseRev,
-    baseRepo,
-    newRev,
-    frameworkId,
-    Number(baseParentSignature),
-    Number(newParentSignature),
-  );
 
   return {
     results,
@@ -178,8 +167,8 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     baseParentSignature,
     newParentSignature,
-    subtestsViewPerfherderURL,
     replicates,
+    testVersion,
   };
 }
 
