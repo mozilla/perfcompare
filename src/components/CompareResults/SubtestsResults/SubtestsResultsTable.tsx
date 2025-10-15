@@ -10,7 +10,10 @@ import TableHeader from '.././TableHeader';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
-import type { CompareResultsTableConfig } from '../../../types/types';
+import type {
+  CompareResultsTableConfig,
+  TestVersion,
+} from '../../../types/types';
 
 type SubtestsResults = {
   key: string;
@@ -171,12 +174,14 @@ type ResultsTableProps = {
   filteringSearchTerm: string;
   resultsPromise: CompareResultsItem[] | Promise<CompareResultsItem[]>;
   replicates: boolean;
+  testVersion: TestVersion;
 };
 
 function SubtestsResultsTable({
   filteringSearchTerm,
   resultsPromise,
   replicates,
+  testVersion,
 }: ResultsTableProps) {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
@@ -257,6 +262,7 @@ function SubtestsResultsTable({
                     results={res.value}
                     rowGridTemplateColumns={rowGridTemplateColumns}
                     replicates={replicates}
+                    testVersion={testVersion}
                   />
                 ))}
               </>

@@ -274,6 +274,7 @@ export async function getComparisonInformation(
     view: compareView,
     generation: generationCounter++,
     replicates,
+    testVersion,
   };
 }
 
