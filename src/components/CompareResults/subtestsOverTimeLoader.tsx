@@ -149,7 +149,7 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = (url.searchParams.get('testVersion') ??
+  const testVersion = (url.searchParams.get('test_version') ??
     STUDENT_T) as TestVersion;
   const {
     baseRepo,
@@ -195,6 +195,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     replicates,
+    testVersion,
   };
 }
 
