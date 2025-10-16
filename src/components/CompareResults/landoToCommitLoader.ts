@@ -1,5 +1,5 @@
 import { checkValues, getComparisonInformation } from './loader';
-import { compareView, STUDENT_T } from '../../common/constants';
+import { compareView } from '../../common/constants';
 import { fetchRevisionFromLandoId } from '../../logic/lando';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
@@ -31,16 +31,25 @@ export async function loader({ request }: { request: Request }) {
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
   const newRevisionsFromLando =
     await fetchRevisionFromLandoId(newLandoIDFromUrl);
-  const testVersion = (url.searchParams.get('test_version') ??
-    STUDENT_T) as TestVersion;
-  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
-    checkValues({
-      baseRev: baseRevisionsFromLando.commit_id,
-      baseRepo: baseRepoFromUrl,
-      newRevs: [newRevisionsFromLando.commit_id],
-      newRepos: newReposFromUrl,
-      framework: frameworkFromUrl,
-    });
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
+  const {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+    frameworkName,
+    testVersion,
+  } = checkValues({
+    baseRev: baseRevisionsFromLando.commit_id,
+    baseRepo: baseRepoFromUrl,
+    newRevs: [newRevisionsFromLando.commit_id],
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+    testVersion: testVersionFromUrl,
+  });
   return await getComparisonInformation(
     baseRev,
     baseRepo,
