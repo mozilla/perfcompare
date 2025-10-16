@@ -18,15 +18,18 @@ function checkValues({
   newRev,
   newRepo,
   frameworkName,
+  testVersion,
 }: {
   newRev: string | null;
   newRepo: Repository['name'] | null;
   frameworkName: Framework['name'] | null;
+  testVersion: TestVersion | null;
 }): null | {
   newRev: string;
   newRepo: Repository['name'];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
+  testVersion: TestVersion;
 } {
   if (newRev === null || newRepo === null) {
     return null;
@@ -54,12 +57,16 @@ function checkValues({
     frameworkId = DEFAULT_VALUES.frameworkId;
     frameworkName = DEFAULT_VALUES.frameworkName;
   }
+  if (!testVersion) {
+    testVersion = STUDENT_T;
+  }
 
   return {
     newRev,
     newRepo,
     frameworkId,
     frameworkName,
+    testVersion,
   };
 }
 
@@ -77,16 +84,22 @@ export async function loader({ request }: { request: Request }) {
     | Framework['name']
     | null;
 
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
+
   const checkedValues = checkValues({
     newRev: newRevFromUrl,
     newRepo: newRepoFromUrl,
     frameworkName: frameworkFromUrl,
+    testVersion: testVersionFromUrl,
   });
   if (!checkedValues) {
     return DEFAULT_VALUES;
   }
 
-  const { newRev, newRepo, frameworkId, frameworkName } = checkedValues;
+  const { newRev, newRepo, frameworkId, frameworkName, testVersion } =
+    checkedValues;
 
   const newRevInfo = await memoizedFetchRevisionForRepository({
     repository: newRepo,
@@ -104,6 +117,7 @@ export async function loader({ request }: { request: Request }) {
     newRepo,
     frameworkId,
     frameworkName,
+    testVersion,
   };
 }
 

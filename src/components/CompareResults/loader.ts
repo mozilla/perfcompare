@@ -20,12 +20,14 @@ export function checkValues({
   newRevs,
   newRepos,
   framework,
+  testVersion,
 }: {
   baseRev: string | null;
   baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
+  testVersion: TestVersion | null;
 }): {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -33,6 +35,7 @@ export function checkValues({
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
+  testVersion: TestVersion;
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -70,6 +73,9 @@ export function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
+  if (testVersion === null) {
+    testVersion = STUDENT_T;
+  }
   if (!newRevs.length) {
     return {
       baseRev,
@@ -78,6 +84,7 @@ export function checkValues({
       newRepos: [baseRepo],
       frameworkId,
       frameworkName,
+      testVersion,
     };
   }
 
@@ -101,6 +108,7 @@ export function checkValues({
     newRepos,
     frameworkId,
     frameworkName,
+    testVersion,
   };
 }
 
@@ -200,17 +208,26 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = (url.searchParams.get('test_version') ??
-    STUDENT_T) as TestVersion;
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
 
-  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
-    checkValues({
-      baseRev: baseRevFromUrl,
-      baseRepo: baseRepoFromUrl,
-      newRevs: newRevsFromUrl,
-      newRepos: newReposFromUrl,
-      framework: frameworkFromUrl,
-    });
+  const {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+    frameworkName,
+    testVersion,
+  } = checkValues({
+    baseRev: baseRevFromUrl,
+    baseRepo: baseRepoFromUrl,
+    newRevs: newRevsFromUrl,
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+    testVersion: testVersionFromUrl,
+  });
 
   return await getComparisonInformation(
     baseRev,

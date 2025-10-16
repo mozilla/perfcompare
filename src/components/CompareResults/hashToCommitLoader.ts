@@ -1,5 +1,5 @@
 import { checkValues, getComparisonInformation } from './loader';
-import { compareView, STUDENT_T } from '../../common/constants';
+import { compareView } from '../../common/constants';
 import { fetchRevisionFromHash } from '../../logic/treeherder';
 import {
   Changeset,
@@ -28,8 +28,9 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
-  const testVersion = (url.searchParams.get('test_version') ??
-    STUDENT_T) as TestVersion;
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
   const pushed_today =
     new Date(newHashDateFromUrl).toISOString().split('T')[0] ==
     new Date().toISOString().split('T')[0];
@@ -54,7 +55,7 @@ export async function loader({ request }: { request: Request }) {
       newHashFromUrl,
       newHashDateFromUrl,
       'try',
-      testVersion,
+      testVersionFromUrl,
     );
   } catch (e) {
     if (pushed_today) {
@@ -66,14 +67,22 @@ export async function loader({ request }: { request: Request }) {
   const baseRevsFromHash = commits_from_hashes.baseRevision;
   const newRevsFromHash = [commits_from_hashes.newRevision];
   const replicates = url.searchParams.has('replicates');
-  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
-    checkValues({
-      baseRev: baseRevsFromHash,
-      baseRepo: baseRepoFromUrl,
-      newRevs: newRevsFromHash,
-      newRepos: newReposFromUrl,
-      framework: frameworkFromUrl,
-    });
+  const {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+    frameworkName,
+    testVersion,
+  } = checkValues({
+    baseRev: baseRevsFromHash,
+    baseRepo: baseRepoFromUrl,
+    newRevs: newRevsFromHash,
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+    testVersion: testVersionFromUrl,
+  });
   return await getComparisonInformation(
     baseRev,
     baseRepo,
