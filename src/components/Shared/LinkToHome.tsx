@@ -14,7 +14,7 @@ export function LinkToHome() {
   };
 
   return (
-    <Box className={`${styles.box}`}>
+    <Box className={styles.box}>
       <Link href='/' aria-label='link to home'>
         <Stack
           direction='row'
