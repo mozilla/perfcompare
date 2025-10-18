@@ -4,7 +4,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="«raf»"
+  id="_r_af_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -305,7 +305,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="«r93»"
+  id="_r_93_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -719,7 +719,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 aria-invalid="false"
                 aria-label="Search by title, platform, revision or options"
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                id="«rg»"
+                id="_r_g_"
                 placeholder="Filter results"
                 type="search"
                 value=""
@@ -838,9 +838,9 @@ exports[`Results View The table should match snapshot and other elements should 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Stats Test Version"
-              aria-labelledby="test-version-type mui-component-select-test-version"
+              aria-labelledby="test-version-type mui-component-select-test_version"
               class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-              id="mui-component-select-test-version"
+              id="mui-component-select-test_version"
               role="combobox"
               tabindex="0"
             >
@@ -850,7 +850,7 @@ exports[`Results View The table should match snapshot and other elements should 
               aria-hidden="true"
               aria-invalid="false"
               class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-              name="test-version"
+              name="test_version"
               tabindex="-1"
               value="student-t"
             />
@@ -1495,7 +1495,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r13»"
+                      aria-controls="_r_13_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1710,7 +1710,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r1a»"
+                      aria-controls="_r_1a_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1903,7 +1903,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r1h»"
+                      aria-controls="_r_1h_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -2107,7 +2107,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="«r1o»"
+                      aria-controls="_r_1o_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -2158,9 +2158,9 @@ exports[`Results View renders test version dropdown defaults to student-t test 1
   aria-expanded="false"
   aria-haspopup="listbox"
   aria-label="Stats Test Version"
-  aria-labelledby="test-version-type mui-component-select-test-version"
+  aria-labelledby="test-version-type mui-component-select-test_version"
   class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-  id="mui-component-select-test-version"
+  id="mui-component-select-test_version"
   role="combobox"
   tabindex="0"
 >
@@ -2173,9 +2173,9 @@ exports[`Results View renders test version dropdown in closed condition 1`] = `
   aria-expanded="false"
   aria-haspopup="listbox"
   aria-label="Stats Test Version"
-  aria-labelledby="test-version-type mui-component-select-test-version"
+  aria-labelledby="test-version-type mui-component-select-test_version"
   class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-  id="mui-component-select-test-version"
+  id="mui-component-select-test_version"
   role="combobox"
   tabindex="0"
 >

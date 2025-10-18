@@ -10,7 +10,7 @@ import {
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
-import { Framework, TimeRange } from '../../types/types';
+import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -124,7 +124,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   framework: Framework['id'];
   interval: TimeRange['value'];
   replicates: boolean;
-  testVersion: string;
+  testVersion: TestVersion;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareOverTimeResults({
@@ -163,7 +163,8 @@ export async function loader({ request }: { request: Request }) {
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
+  const testVersion = (url.searchParams.get('test_version') ??
+    STUDENT_T) as TestVersion;
 
   const {
     baseRepo,
@@ -213,6 +214,7 @@ export async function loader({ request }: { request: Request }) {
     view: compareOverTimeView,
     generation: generationCounter++,
     replicates,
+    testVersion,
   };
 }
 
@@ -229,6 +231,7 @@ type DeferredLoaderData = {
   view: typeof compareOverTimeView;
   generation: number;
   replicates: boolean;
+  testVersion: TestVersion;
 };
 
 // Be explicit with the returned type to control it better than if we were

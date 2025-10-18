@@ -10,7 +10,7 @@ import {
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
-import { FakeCommitHash, Framework } from '../../types/types';
+import { FakeCommitHash, Framework, TestVersion } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -121,7 +121,7 @@ async function fetchCompareResultsOnTreeherder({
   newRepos: Repository['name'][];
   framework: Framework['id'];
   replicates: boolean;
-  testVersion?: string;
+  testVersion?: TestVersion;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareResults({
@@ -200,7 +200,8 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = url.searchParams.get('testVersion') ?? STUDENT_T;
+  const testVersion = (url.searchParams.get('test_version') ??
+    STUDENT_T) as TestVersion;
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
@@ -231,7 +232,7 @@ export async function getComparisonInformation(
   frameworkId: Framework['id'],
   frameworkName: Framework['name'],
   replicates: boolean,
-  testVersion?: string,
+  testVersion?: TestVersion,
 ) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
@@ -273,6 +274,7 @@ export async function getComparisonInformation(
     view: compareView,
     generation: generationCounter++,
     replicates,
+    testVersion,
   };
 }
 
@@ -289,7 +291,7 @@ type DeferredLoaderData = {
   view: typeof compareView;
   generation: number;
   replicates: boolean;
-  testVersion: string;
+  testVersion: TestVersion;
 };
 
 // Be explicit with the returned type to control it better than if we were

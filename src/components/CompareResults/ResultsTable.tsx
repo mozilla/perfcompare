@@ -9,11 +9,12 @@ import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeL
 import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
+import { STUDENT_T } from '../../common/constants';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework } from '../../types/types';
-import type { CompareResultsTableConfig } from '../../types/types';
+import type { CompareResultsTableConfig, TestVersion } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
 
 const columnsConfiguration: CompareResultsTableConfig = [
@@ -158,11 +159,10 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [testVersionVal, setTestVersionVal] = useState('student-t');
+  const [testVersionVal, setTestVersionVal] = useState<TestVersion>(STUDENT_T);
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
-
     searchParams.set('framework', newFrameworkId.toString());
     setSearchParams(searchParams);
   };
@@ -177,9 +177,9 @@ export default function ResultsTable() {
     updateRawSearchParams(rawSearchParams);
   };
 
-  const onTestVersionChange = (testVersion: string) => {
-    rawSearchParams.set('test_version', testVersion);
+  const onTestVersionChange = (testVersion: TestVersion): void => {
     setTestVersionVal(testVersion);
+    rawSearchParams.set('test_version', testVersion);
     updateRawSearchParams(rawSearchParams);
   };
 
@@ -246,6 +246,7 @@ export default function ResultsTable() {
               tableFilters={tableFilters}
               sortColumn={sortColumn}
               sortDirection={sortDirection}
+              testVersion={testVersionVal}
             />
           )}
         </Await>
