@@ -198,6 +198,9 @@ export type MannWhitneyResultsItem = {
   base_runs: number[];
   new_runs_replicates: number[];
   base_runs_replicates: number[];
+  base_avg_value: never;
+  new_avg_value: never;
+  confidence_text: never;
   delta_value: number;
   delta_percentage: number;
   base_standard_stats: BasicStatItem;
