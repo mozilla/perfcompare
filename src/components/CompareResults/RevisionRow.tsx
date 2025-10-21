@@ -288,15 +288,15 @@ function RevisionRow(props: RevisionRowProps) {
             <div className='comparison-sign cell' role='cell'>
               {determineSign(baseAvgValue, newAvgValue)}
             </div>
-          <div className={`${browserName} cell`} role='cell'>
-            {formatNumber(newAvgValue)} {newUnit}
-            {getBrowserDisplay(baseApp, newApp, expanded) && (
-              <span className={FontSize.xSmall}>({newApp})</span>
-            )}
-          </div>
-        </>
+            <div className={`${browserName} cell`} role='cell'>
+              {formatNumber(newAvgValue)} {newUnit}
+              {getBrowserDisplay(baseApp, newApp, expanded) && (
+                <span className={FontSize.xSmall}>({newApp})</span>
+              )}
+            </div>
+          </>
         )}
-         {testVersion === MANN_WHITNEY_U && (
+        {testVersion === MANN_WHITNEY_U && (
           <>
             <div className={`${browserName} cell`} role='cell'>
               {formatNumber(baseMean)} {baseUnit}
@@ -307,13 +307,13 @@ function RevisionRow(props: RevisionRowProps) {
             <div className='comparison-sign cell' role='cell'>
               {determineSign(baseMean, newMean)}
             </div>
-          <div className={`${browserName} cell`} role='cell'>
-            {formatNumber(newMean)} {newUnit}
-            {getBrowserDisplay(baseApp, newApp, expanded) && (
-              <span className={FontSize.xSmall}>({newApp})</span>
-            )}
-          </div>
-        </>
+            <div className={`${browserName} cell`} role='cell'>
+              {formatNumber(newMean)} {newUnit}
+              {getBrowserDisplay(baseApp, newApp, expanded) && (
+                <span className={FontSize.xSmall}>({newApp})</span>
+              )}
+            </div>
+          </>
         )}
         <div className='status cell' role='cell'>
           <Box
