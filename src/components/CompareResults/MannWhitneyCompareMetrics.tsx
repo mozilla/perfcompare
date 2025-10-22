@@ -56,12 +56,12 @@ export const MannWhitneyCompareMetrics = ({
     min: baseMin,
     max: baseMax,
   } = result?.base_standard_stats ?? {
-    mean: '',
-    median: '',
-    variance: '',
-    stddev: '',
-    min: '',
-    max: '',
+    mean: null,
+    median: null,
+    variance: null,
+    stddev: null,
+    min: null,
+    max: null,
   };
   const {
     mean: newMean,
@@ -71,12 +71,12 @@ export const MannWhitneyCompareMetrics = ({
     min: newMin,
     max: newMax,
   } = result?.new_standard_stats ?? {
-    mean: '',
-    median: '',
-    variance: '',
-    stddev: '',
-    min: '',
-    max: '',
+    mean: null,
+    median: null,
+    variance: null,
+    stddev: null,
+    min: null,
+    max: null,
   };
   const baseShapiroWilkInterpretation = result?.shapiro_wilk_test_base?.stat
     ? `${result?.shapiro_wilk_test_base?.stat} ${result.shapiro_wilk_test_base?.interpretation}`
@@ -84,8 +84,8 @@ export const MannWhitneyCompareMetrics = ({
   const newShapiroWilkInterpretation = result?.shapiro_wilk_test_new?.stat
     ? `${result?.shapiro_wilk_test_new?.stat} ${result.shapiro_wilk_test_new?.interpretation}`
     : 'N/A';
-  const baseMode = result?.silverman_kde?.base_mode_count ?? '';
-  const newMode = result?.silverman_kde?.new_mode_count ?? '';
+  const baseMode = result?.silverman_kde?.base_mode_count ?? null;
+  const newMode = result?.silverman_kde?.new_mode_count ?? null;
   return (
     <Box sx={{ ...styles[mode] }}>
       <table
@@ -111,38 +111,38 @@ export const MannWhitneyCompareMetrics = ({
         <tbody>
           <tr className='test-row-container'>
             <td>Mean</td>
-            <td>{baseMean?.toFixed(2)}</td>
-            <td>{newMean?.toFixed(2)}</td>
+            <td>{baseMean?.toFixed(2)?? 'N/A'}</td>
+            <td>{newMean?.toFixed(2)?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Median</td>
-            <td>{baseMedian?.toFixed(2)}</td>
-            <td>{newMedian?.toFixed(2)}</td>
+            <td>{baseMedian?.toFixed(2)?? 'N/A'}</td>
+            <td>{newMedian?.toFixed(2)?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Variance</td>
-            <td>{baseVariance?.toFixed(2)}</td>
-            <td>{newVariance?.toFixed(2)}</td>
+            <td>{baseVariance?.toFixed(2)?? 'N/A'}</td>
+            <td>{newVariance?.toFixed(2)?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Standard Deviation</td>
-            <td>{baseStandardDev?.toFixed(2)}</td>
-            <td>{newStandardDev?.toFixed(2)}</td>
+            <td>{baseStandardDev?.toFixed(2)?? 'N/A'}</td>
+            <td>{newStandardDev?.toFixed(2)?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Min</td>
-            <td>{baseMin?.toFixed(2)}</td>
-            <td>{newMin?.toFixed(2)}</td>
+            <td>{baseMin?.toFixed(2)?? 'N/A'}</td>
+            <td>{newMin?.toFixed(2)?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container' style={{ marginBottom: 2 }}>
             <td>Max</td>
-            <td>{baseMax?.toFixed(2)}</td>
-            <td>{newMax?.toFixed(2)}</td>
+            <td>{baseMax?.toFixed(2)?? 'N/A'}</td>
+            <td>{newMax?.toFixed(2)?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-label-row'>
