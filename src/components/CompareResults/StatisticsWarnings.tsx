@@ -1,14 +1,18 @@
 import { Warning } from '@mui/icons-material';
 import { Box } from '@mui/system';
-
 import { Colors } from '../../styles';
 import { MannWhitneyResultsItem } from '../../types/state';
+import { TestVersion } from '../../types/types';
+import { MANN_WHITNEY_U } from '../../common/constants';
 
 export const StatisticsWarnings = ({
   result,
+  testVersion,
 }: {
   result: MannWhitneyResultsItem;
+  testVersion: TestVersion;
 }) => {
+  if (testVersion !== MANN_WHITNEY_U) return null;
   const componentStyles = {
     backgroundColor: 'transparent',
     marginTop: 2,
