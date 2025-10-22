@@ -1,9 +1,10 @@
 import { Warning } from '@mui/icons-material';
 import { Box } from '@mui/system';
+
+import { MANN_WHITNEY_U } from '../../common/constants';
 import { Colors } from '../../styles';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { TestVersion } from '../../types/types';
-import { MANN_WHITNEY_U } from '../../common/constants';
 
 export const StatisticsWarnings = ({
   result,

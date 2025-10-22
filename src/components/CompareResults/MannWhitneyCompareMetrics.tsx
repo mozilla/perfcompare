@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+
 import { MANN_WHITNEY_U } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
@@ -84,7 +85,7 @@ export const MannWhitneyCompareMetrics = ({
     ? `${result?.shapiro_wilk_test_new?.stat} ${result.shapiro_wilk_test_new?.interpretation}`
     : 'N/A';
   const baseMode = result?.silverman_kde?.base_mode_count ?? '';
-  const newMode = result?.silverman_kde?.new_mode_count?? '';
+  const newMode = result?.silverman_kde?.new_mode_count ?? '';
   return (
     <Box sx={{ ...styles[mode] }}>
       <table
