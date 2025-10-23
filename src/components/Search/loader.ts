@@ -18,7 +18,6 @@ function checkValues({
   newRev,
   newRepo,
   frameworkName,
-  testVersion,
 }: {
   newRev: string | null;
   newRepo: Repository['name'] | null;
@@ -29,7 +28,6 @@ function checkValues({
   newRepo: Repository['name'];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
-  testVersion: TestVersion;
 } {
   if (newRev === null || newRepo === null) {
     return null;
@@ -57,16 +55,12 @@ function checkValues({
     frameworkId = DEFAULT_VALUES.frameworkId;
     frameworkName = DEFAULT_VALUES.frameworkName;
   }
-  if (!testVersion) {
-    testVersion = STUDENT_T;
-  }
 
   return {
     newRev,
     newRepo,
     frameworkId,
     frameworkName,
-    testVersion,
   };
 }
 
