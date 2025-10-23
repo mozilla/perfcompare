@@ -111,38 +111,38 @@ export const MannWhitneyCompareMetrics = ({
         <tbody>
           <tr className='test-row-container'>
             <td>Mean</td>
-            <td>{baseMean?.toFixed(2)?? 'N/A'}</td>
-            <td>{newMean?.toFixed(2)?? 'N/A'}</td>
+            <td>{baseMean?.toFixed(2) ?? 'N/A'}</td>
+            <td>{newMean?.toFixed(2) ?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Median</td>
-            <td>{baseMedian?.toFixed(2)?? 'N/A'}</td>
-            <td>{newMedian?.toFixed(2)?? 'N/A'}</td>
+            <td>{baseMedian?.toFixed(2) ?? 'N/A'}</td>
+            <td>{newMedian?.toFixed(2) ?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Variance</td>
-            <td>{baseVariance?.toFixed(2)?? 'N/A'}</td>
-            <td>{newVariance?.toFixed(2)?? 'N/A'}</td>
+            <td>{baseVariance?.toFixed(2) ?? 'N/A'}</td>
+            <td>{newVariance?.toFixed(2) ?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Standard Deviation</td>
-            <td>{baseStandardDev?.toFixed(2)?? 'N/A'}</td>
-            <td>{newStandardDev?.toFixed(2)?? 'N/A'}</td>
+            <td>{baseStandardDev?.toFixed(2) ?? 'N/A'}</td>
+            <td>{newStandardDev?.toFixed(2) ?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Min</td>
-            <td>{baseMin?.toFixed(2)?? 'N/A'}</td>
-            <td>{newMin?.toFixed(2)?? 'N/A'}</td>
+            <td>{baseMin?.toFixed(2) ?? 'N/A'}</td>
+            <td>{newMin?.toFixed(2) ?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-row-container' style={{ marginBottom: 2 }}>
             <td>Max</td>
-            <td>{baseMax?.toFixed(2)?? 'N/A'}</td>
-            <td>{newMax?.toFixed(2)?? 'N/A'}</td>
+            <td>{baseMax?.toFixed(2) ?? 'N/A'}</td>
+            <td>{newMax?.toFixed(2) ?? 'N/A'}</td>
             <td></td>
           </tr>
           <tr className='test-label-row'>
