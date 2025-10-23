@@ -92,8 +92,7 @@ export async function loader({ request }: { request: Request }) {
     return DEFAULT_VALUES;
   }
 
-  const { newRev, newRepo, frameworkId, frameworkName, testVersion } =
-    checkedValues;
+  const { newRev, newRepo, frameworkId, frameworkName } = checkedValues;
 
   const newRevInfo = await memoizedFetchRevisionForRepository({
     repository: newRepo,
@@ -111,7 +110,6 @@ export async function loader({ request }: { request: Request }) {
     newRepo,
     frameworkId,
     frameworkName,
-    testVersion,
   };
 }
 
