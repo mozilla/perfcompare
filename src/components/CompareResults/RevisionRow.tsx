@@ -277,7 +277,7 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </Tooltip>
         </div>
-        {testVersion === STUDENT_T && (
+        {testVersion === STUDENT_T && !!baseAvgValue && !!newAvgValue && (
           <>
             <div className={`${browserName} cell`} role='cell'>
               {formatNumber(baseAvgValue)} {baseUnit}
@@ -423,10 +423,10 @@ function RevisionRow(props: RevisionRowProps) {
           </div>
         </Box>
       </Box>
-      {expanded && testVersion === STUDENT_T && (
+      {expanded && (
         <RevisionRowExpandable
           id={id}
-          result={result as CompareResultsItem}
+          result={result}
           testVersion={testVersion}
         />
       )}

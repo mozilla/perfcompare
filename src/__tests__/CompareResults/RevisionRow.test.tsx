@@ -117,6 +117,34 @@ describe('Expanded row', () => {
     expect(showLessButton).toBeInTheDocument();
   });
 
+  it('should display new stats for mann-whitney-u testVersion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const normalityTestHeader = await screen.findByText(/Normality Test/);
+    expect(normalityTestHeader).toBeInTheDocument();
+
+    const goodnessFitTestHeader =
+      await screen.findByText(/Goodness of Fit Test/);
+    expect(goodnessFitTestHeader).toBeInTheDocument();
+
+    const cliffsDeltaHeader = await screen.findByText(/Cliff's Delta/);
+    expect(cliffsDeltaHeader).toBeInTheDocument();
+  });
+
   it('should copy run values when "Copy values" is clicked', async () => {
     const writeTextMock = jest
       .spyOn(navigator.clipboard, 'writeText')
