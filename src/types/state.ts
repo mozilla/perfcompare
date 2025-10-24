@@ -244,6 +244,11 @@ export type MannWhitneyResultsItem = {
   new_signature_id: number;
   has_subtests: boolean;
   is_complete: boolean | null;
+  // values on CompareResultsItem Type not to be rendered on MannWhitneyResultsItem type
+  confidence_text: never;
+  confidence: never;
+  base_median_value: never;
+  new_median_value: never;
 };
 
 export type HashToCommit = {
