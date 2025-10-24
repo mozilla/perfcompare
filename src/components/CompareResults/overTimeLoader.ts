@@ -20,12 +20,14 @@ function checkValues({
   newRepos,
   framework,
   interval,
+  testVersion,
 }: {
   baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
   interval: string | number | null;
+  testVersion?: TestVersion | null;
 }): {
   baseRepo: Repository['name'];
   newRevs: string[];
@@ -34,6 +36,7 @@ function checkValues({
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
+  testVersion: TestVersion;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -95,6 +98,9 @@ function checkValues({
       `The parameter interval isn't a valid value: "${interval}".`,
     );
   }
+  if (!testVersion) {
+    testVersion = STUDENT_T;
+  }
 
   return {
     baseRepo,
@@ -104,6 +110,7 @@ function checkValues({
     frameworkName,
     intervalText,
     intervalValue,
+    testVersion,
   };
 }
 
@@ -163,8 +170,9 @@ export async function loader({ request }: { request: Request }) {
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = (url.searchParams.get('test_version') ??
-    STUDENT_T) as TestVersion;
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
 
   const {
     baseRepo,
@@ -174,12 +182,14 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
+    testVersion,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRevs: newRevsFromUrl,
     newRepos: newReposFromUrl,
     framework: frameworkFromUrl,
     interval: intervalFromUrl,
+    testVersion: testVersionFromUrl,
   });
 
   const resultsTimePromise = fetchCompareOverTimeResultsOnTreeherder({
