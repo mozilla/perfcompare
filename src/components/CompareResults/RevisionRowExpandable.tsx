@@ -16,6 +16,7 @@ import { TestVersion } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
 import { StatisticsWarnings } from './StatisticsWarnings';
+import { ModeInterpretation } from './ModeInterpretation';
 
 const strings = Strings.components.expandableRow;
 const { singleRun, confidenceNote } = strings;
@@ -224,6 +225,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               )}
               {/******* mann-whiteney rendering **************/}
               {renderPValCliffsDeltaComp(result as MannWhitneyResultsItem)}
+              <ModeInterpretation result={result as MannWhitneyResultsItem} testVersion={testVersion}/>
             </div>
           </Grid>
         </Grid>
