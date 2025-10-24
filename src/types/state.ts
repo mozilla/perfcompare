@@ -127,10 +127,10 @@ export type BasicStatItem = {
  Basic statistics item for a statistical test (like Shapiro-Wilk or KS test).
 */
 export type StatisticsTestItem = {
-  name: string;
-  stat: number;
-  pvalue: number;
-  interpretation: string | null;
+  test_name: string;
+  stat: number | null;
+  pvalue: number | null;
+  interpretation?: string | null;
 } | null;
 
 /*
@@ -242,10 +242,12 @@ export type MannWhitneyResultsItem = {
   has_subtests: boolean;
   is_complete: boolean | null;
   // values on CompareResultsItem Type not to be rendered on MannWhitneyResultsItem type
-  confidence_text: never;
-  confidence: never;
-  base_median_value: never;
-  new_median_value: never;
+  base_avg_value?: number;
+  new_avg_value?: number;
+  confidence_text?: ConfidenceText | null;
+  confidence?: number;
+  base_median_value?: number;
+  new_median_value?: number;
 };
 
 export type HashToCommit = {
