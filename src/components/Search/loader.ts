@@ -1,7 +1,7 @@
-import { repoMap, frameworks, STUDENT_T } from '../../common/constants';
+import { repoMap, frameworks } from '../../common/constants';
 import { memoizedFetchRevisionForRepository } from '../../logic/treeherder';
 import { Changeset, Repository } from '../../types/state';
-import { Framework, TestVersion } from '../../types/types';
+import { Framework } from '../../types/types';
 
 const DEFAULT_VALUES = {
   newRev: null,
@@ -9,7 +9,6 @@ const DEFAULT_VALUES = {
   newRepo: 'try' as Repository['name'],
   frameworkId: 1 as Framework['id'],
   frameworkName: 'talos' as Framework['name'],
-  testVersion: STUDENT_T,
 };
 
 // This function checks and sanitizes the input values, then returns values that
@@ -115,5 +114,4 @@ export type LoaderReturnValue = {
   newRepo: Repository['name'];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
-  testVersion: TestVersion;
 };
