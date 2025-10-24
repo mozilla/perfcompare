@@ -24,7 +24,6 @@ function TestVersionDropdown({
   onChange,
   mode,
 }: TestVersionDropdownProps) {
-  console.log(testType, 'testType');
   const onValueChange = (event: SelectChangeEvent) => {
     const test_version = event.target.value as TestVersion;
     onChange(test_version);
