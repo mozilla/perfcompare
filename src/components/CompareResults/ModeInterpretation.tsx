@@ -1,12 +1,18 @@
 import { Box } from '@mui/material';
 
+import { MANN_WHITNEY_U } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { TestVersion } from '../../types/types';
-import { MANN_WHITNEY_U } from '../../common/constants';
 
-export const ModeInterpretation = ({result, testVersion}:{result: MannWhitneyResultsItem, testVersion: TestVersion}) => {
+export const ModeInterpretation = ({
+  result,
+  testVersion,
+}: {
+  result: MannWhitneyResultsItem;
+  testVersion: TestVersion;
+}) => {
   if (!result || !result.silverman_kde || testVersion !== MANN_WHITNEY_U) {
     return null;
   }
@@ -17,36 +23,48 @@ export const ModeInterpretation = ({result, testVersion}:{result: MannWhitneyRes
 
     return {
       backgroundColor,
-      display: 'grid',
-      gridTemplateColumns: '1.5fr 1fr 2fr',
-      gap: '10px',
+      display: 'block',
       alignItems: 'center',
+      margin: '15px',
+      borderRadius: '5px',
+      padding: 2,
     };
   }
   const mode = useAppSelector((state) => state.theme.mode);
+
+  // const result?.silverman_kde?.mode_comments
   return (
     <Box sx={getStyles(mode)}>
-      <table
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1.5fr 1fr 2fr',
-          gap: '10px',
-          alignItems: 'center',
-        }}
-      >
+      <table>
         <thead>
-          <td>
-            <tr></tr>
-            <tr>Median Shift</tr>
-            <tr>Interpretation</tr>
-          </td>
+          <tr
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '2.75fr 1fr 1.25fr',
+              gap: 4,
+              textAlign: 'left',
+            }}
+          >
+            <th></th>
+            <th>Median Shift</th>
+            <th>Interpretation</th>
+          </tr>
         </thead>
         <tbody>
-          <td>
-            <tr>{result.silverman_kde.mode_summary}</tr>
-            <tr>{result.silverman_kde.shift}</tr>
-            <tr>{result.silverman_kde.shift_summary ?? 'No significant shift'}</tr>
-          </td>
+          <tr
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '2.75fr 1fr 1.25fr',
+              gap: 4,
+              textAlign: 'left',
+            }}
+          >
+            <td>{result.silverman_kde.mode_summary}</td>
+            <td>{result.silverman_kde.shift}</td>
+            <td>
+              {result.silverman_kde.shift_summary ?? 'No significant shift'}
+            </td>
+          </tr>
         </tbody>
       </table>
     </Box>

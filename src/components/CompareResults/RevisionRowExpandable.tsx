@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 
 import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
+import { ModeInterpretation } from './ModeInterpretation';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
@@ -16,7 +17,6 @@ import { TestVersion } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
 import { StatisticsWarnings } from './StatisticsWarnings';
-import { ModeInterpretation } from './ModeInterpretation';
 
 const strings = Strings.components.expandableRow;
 const { singleRun, confidenceNote } = strings;
@@ -87,6 +87,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
             padding: 1,
             borderRadius: '5px',
             minWidth: '287px',
+            marginTop: 2,
           }}
         >
           <table
@@ -158,15 +159,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               {testVersion === STUDENT_T && (
                 <Distribution result={result as CompareResultsItem} />
               )}
-              {/******* mann-whiteney rendering **************/}
-              <StatisticsWarnings
-                result={result as MannWhitneyResultsItem}
-                testVersion={testVersion}
-              />
-              <MannWhitneyCompareMetrics
-                result={result as MannWhitneyResultsItem}
-                testVersion={testVersion}
-              />
             </Stack>
           </Grid>
           <Grid size={4}>
@@ -225,10 +217,32 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               )}
               {/******* mann-whiteney rendering **************/}
               {renderPValCliffsDeltaComp(result as MannWhitneyResultsItem)}
-              <ModeInterpretation result={result as MannWhitneyResultsItem} testVersion={testVersion}/>
             </div>
           </Grid>
         </Grid>
+        <Stack>
+          {/******* mann-whiteney rendering **************/}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '.75fr 1fr',
+              gap: 1,
+            }}
+          >
+            <StatisticsWarnings
+              result={result as MannWhitneyResultsItem}
+              testVersion={testVersion}
+            />
+            <ModeInterpretation
+              result={result as MannWhitneyResultsItem}
+              testVersion={testVersion}
+            />
+          </div>
+          <MannWhitneyCompareMetrics
+            result={result as MannWhitneyResultsItem}
+            testVersion={testVersion}
+          />
+        </Stack>
       </Stack>
     </Box>
   );
