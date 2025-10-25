@@ -22,7 +22,7 @@ export const StatisticsWarnings = ({
     flexDirection: 'column',
     flexWrap: 'wrap',
     borderRadius: 1,
-    padding: 2,
+    padding: 1,
     '& .warning-row': {
       verticalAlign: 'bottom',
       display: 'flex',

@@ -27,7 +27,7 @@ export const MannWhitneyCompareMetrics = ({
     return {
       backgroundColor,
       marginBottom: 2,
-      width: '100%',
+      width: '85%',
       borderRadius: '5px',
       padding: 2,
       '& .test-row-container': {
@@ -86,6 +86,39 @@ export const MannWhitneyCompareMetrics = ({
     : 'N/A';
   const baseMode = result?.silverman_kde?.base_mode_count ?? null;
   const newMode = result?.silverman_kde?.new_mode_count ?? null;
+
+  // Mode interpretation base on mode counts
+  const getModeInterpretation = (
+    baseModeCount: number | null,
+    newModeCount: number | null,
+  ) => {
+    if (!baseModeCount && !newModeCount)
+      return 'Base and New mode counts are null, cannot run silverman test';
+    if (baseModeCount === 1 && newModeCount === 1)
+      return 'Base and New revisions unimodal';
+    if (baseModeCount && newModeCount && baseModeCount > 1 && newModeCount > 1)
+      return 'Base and New revisions is multimodal';
+    if (
+      baseModeCount &&
+      newModeCount &&
+      baseModeCount === 1 &&
+      newModeCount > 1
+    )
+      return 'Base is unimodal and New is multimodal';
+    if (
+      baseModeCount &&
+      newModeCount &&
+      baseModeCount > 1 &&
+      newModeCount === 1
+    )
+      return 'Base is multimodal and New is unimodal';
+    if (baseModeCount && baseModeCount === 1) return 'Base is unimodal';
+    if (baseModeCount && baseModeCount > 1) return 'Base is multimodal';
+    if (newModeCount && newModeCount > 1) return 'New is multimodal';
+    if (newModeCount && newModeCount === 1) return 'New is unimodal';
+    return '';
+  };
+
   return (
     <Box sx={{ ...styles[mode] }}>
       <table
@@ -177,7 +210,7 @@ export const MannWhitneyCompareMetrics = ({
             <td>Estimated Modes</td>
             <td>{baseMode}</td>
             <td>{newMode}</td>
-            <td>{result?.silverman_kde?.mode_summary ?? null}</td>
+            <td>{getModeInterpretation(baseMode, newMode)}</td>
           </tr>
         </tbody>
       </table>
