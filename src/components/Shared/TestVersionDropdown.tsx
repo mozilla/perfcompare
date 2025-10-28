@@ -47,6 +47,7 @@ function TestVersionDropdown({
       inputProps={{
         'aria-label': 'Stats Test Version',
       }}
+      disabled
     >
       {TEST_VERSIONS.map(({ label, type }) => (
         <MenuItem value={type} key={type} className={`statistic-test-item`}>

@@ -98,7 +98,7 @@ describe('Results View', () => {
     expect(testVersionDropdown).toMatchSnapshot();
     await user.click(testVersionDropdown);
 
-    expect(screen.getByText('Mann-Whitney-U')).toBeInTheDocument();
+    // expect(screen.getByText('Mann-Whitney-U')).toBeInTheDocument();
   });
 
   it('Should render revision header with link to suite docs', async () => {

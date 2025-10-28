@@ -164,18 +164,18 @@ exports[`Results View The table should match snapshot and other elements should 
           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
         >
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall test-version-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-sizeSmall test-version-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             data-testid="test-version-select"
           >
             <div
+              aria-disabled="true"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Stats Test Version"
               aria-labelledby="test-version-type mui-component-select-test_version"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined Mui-disabled MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-component-select-test_version"
               role="combobox"
-              tabindex="0"
             >
               Student-T
             </div>
@@ -183,13 +183,14 @@ exports[`Results View The table should match snapshot and other elements should 
               aria-hidden="true"
               aria-invalid="false"
               class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+              disabled=""
               name="test_version"
               tabindex="-1"
               value="student-t"
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined Mui-disabled css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
