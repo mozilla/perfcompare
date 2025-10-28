@@ -805,7 +805,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 f1wpas00 css-13620ud-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-4 MuiGrid-grid-xs-12 css-1mujxwq-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-6 MuiGrid-grid-xs-12 css-dq0w3o-MuiGrid-root"
                   >
                     <form
                       aria-label="Search by title, platform, revision or options"
@@ -891,7 +891,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     </form>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-t3of1j-MuiGrid-root"
                   >
                     <div
                       class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -923,66 +923,6 @@ exports[`Results Table Should match snapshot 1`] = `
                         <svg
                           aria-hidden="true"
                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
-                          data-testid="ArrowDropDownIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M7 10l5 5 5-5z"
-                          />
-                        </svg>
-                        <fieldset
-                          aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                        >
-                          <legend
-                            class="css-1nf2c5d-MuiNotchedOutlined-root"
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="notranslate"
-                            >
-                              ​
-                            </span>
-                          </legend>
-                        </fieldset>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiFormControl-root css-7549ua-MuiFormControl-root"
-                    >
-                      <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-sizeSmall test-version-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                        data-testid="test-version-select"
-                      >
-                        <div
-                          aria-disabled="true"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="Stats Test Version"
-                          aria-labelledby="test-version-type mui-component-select-test_version"
-                          class="MuiSelect-select MuiSelect-outlined Mui-disabled MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="mui-component-select-test_version"
-                          role="combobox"
-                        >
-                          Student-T
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          aria-invalid="false"
-                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                          disabled=""
-                          name="test_version"
-                          tabindex="-1"
-                          value="student-t"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined Mui-disabled css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1621,7 +1561,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_13_"
+                                  aria-controls="_r_12_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1836,7 +1776,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1a_"
+                                  aria-controls="_r_19_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2040,7 +1980,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1h_"
+                                  aria-controls="_r_1g_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2314,7 +2254,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1p_"
+                                  aria-controls="_r_1o_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2906,7 +2846,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_45_"
+            aria-controls="_r_42_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -3160,7 +3100,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_4d_"
+            aria-controls="_r_4a_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
