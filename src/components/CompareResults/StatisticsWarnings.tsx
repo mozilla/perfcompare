@@ -25,7 +25,7 @@ export const StatisticsWarnings = ({
     flexWrap: 'wrap',
     borderRadius: 1,
     padding: 1,
-    maxWidth: '48%',
+    maxWidth: '55%',
     '& .warning-row': {
       verticalAlign: 'bottom',
       display: 'flex',

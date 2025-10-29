@@ -34,36 +34,25 @@ export const ModeInterpretation = ({
   }
   const mode = useAppSelector((state) => state.theme.mode);
 
-  // const result?.silverman_kde?.mode_comments
   return (
     <Box sx={getStyles(mode)}>
       <table>
         <thead>
-          <tr
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '2.75fr 1fr 1.25fr',
-              gap: 4,
-              textAlign: 'left',
-            }}
-          >
-            <th></th>
-            <th>Median Shift</th>
-            <th>Interpretation</th>
+          <tr style={{ textAlign: 'left' }}>
+            <th style={{ padding: 2, paddingRight: 16 }}></th>
+            <th style={{ padding: 2, paddingRight: 16 }}>Median Shift</th>
+            <th style={{ padding: 2 }}>Interpretation</th>
           </tr>
         </thead>
         <tbody>
-          <tr
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '2.75fr 1fr 1.25fr',
-              gap: 4,
-              textAlign: 'left',
-            }}
-          >
-            <td>{result.silverman_kde.mode_summary}</td>
-            <td>{result.silverman_kde.shift ?? +0}</td>
-            <td>
+          <tr style={{ textAlign: 'left' }}>
+            <td style={{ padding: 2, paddingRight: 16 }}>
+              {result.silverman_kde.mode_summary}
+            </td>
+            <td style={{ padding: 2, paddingRight: 16 }}>
+              {result.silverman_kde.shift ?? +0}
+            </td>
+            <td style={{ padding: 2 }}>
               {result.silverman_kde.shift_summary ?? 'No significant shift'}
             </td>
           </tr>
