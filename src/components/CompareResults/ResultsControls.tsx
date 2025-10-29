@@ -10,7 +10,7 @@ import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
 import type { Framework, TestVersion } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
-import TestVersionDropdown from '../Shared/TestVersionDropdown';
+// import TestVersionDropdown from '../Shared/TestVersionDropdown';
 
 const controlsStyles = style({
   display: 'flex',
@@ -30,18 +30,19 @@ interface Props {
 export default function ResultsControls({
   initialSearchTerm,
   frameworkId,
-  testType,
+  // testType,
   resultsPromise,
   onSearchTermChange,
   onFrameworkChange,
-  onTestVersionChange,
+  // onTestVersionChange,
 }: Props) {
   const mode = useAppSelector((state) => state.theme.mode);
   return (
     <Grid container className={controlsStyles} spacing={2}>
       <Grid
         size={{
-          md: 4,
+          // md: 4,
+          md: 6,
           xs: 12,
         }}
       >
@@ -52,10 +53,11 @@ export default function ResultsControls({
         />
       </Grid>
       <Grid
-        size={{
-          md: 2,
-          xs: 6,
-        }}
+        // size={{
+        //   md: 2,
+        //   xs: 6,
+        // }}
+        size='grow'
       >
         <FormControl sx={{ width: '100%' }}>
           <FrameworkDropdown
@@ -67,7 +69,7 @@ export default function ResultsControls({
           />
         </FormControl>
       </Grid>
-      <Grid
+      {/* <Grid
         size={{
           md: 2,
           xs: 6,
@@ -82,7 +84,7 @@ export default function ResultsControls({
             onChange={onTestVersionChange}
           />
         </FormControl>
-      </Grid>
+      </Grid> */}
       <Grid size='grow'>
         <RevisionSelect />
       </Grid>
