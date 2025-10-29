@@ -68,38 +68,38 @@ describe('Results View', () => {
     expect(screen.getByText(/awsy/i)).toBeInTheDocument();
   });
 
-  // it('renders test version dropdown defaults to student-t test', async () => {
-  //   renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+  it('renders test version dropdown defaults to student-t test', async () => {
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
-  //   const header = await screen.findByText('Results');
+    const header = await screen.findByText('Results');
 
-  //   expect(header).toBeInTheDocument();
+    expect(header).toBeInTheDocument();
 
-  //   const testVersionDropdown = screen.getByRole('combobox', {
-  //     name: 'Stats Test Version',
-  //   });
+    const testVersionDropdown = screen.getByRole('combobox', {
+      name: 'Stats Test Version',
+    });
 
-  //   expect(testVersionDropdown).toMatchSnapshot();
-  //   expect(screen.getByText('Student-T')).toBeInTheDocument();
-  // });
+    expect(testVersionDropdown).toMatchSnapshot();
+    expect(screen.getByText('Student-T')).toBeInTheDocument();
+  });
 
-  // it('renders test version dropdown in closed condition', async () => {
-  //   const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-  //   renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+  it('renders test version dropdown in closed condition', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
-  //   const header = await screen.findByText('Results');
+    const header = await screen.findByText('Results');
 
-  //   expect(header).toBeInTheDocument();
+    expect(header).toBeInTheDocument();
 
-  //   const testVersionDropdown = screen.getByRole('combobox', {
-  //     name: 'Stats Test Version',
-  //   });
+    const testVersionDropdown = screen.getByRole('combobox', {
+      name: 'Stats Test Version',
+    });
 
-  //   expect(testVersionDropdown).toMatchSnapshot();
-  //   await user.click(testVersionDropdown);
+    expect(testVersionDropdown).toMatchSnapshot();
+    await user.click(testVersionDropdown);
 
-  //   expect(screen.getByText('Mann-Whitney-U')).toBeInTheDocument();
-  // });
+    expect(screen.getByText('Mann-Whitney-U')).toBeInTheDocument();
+  });
 
   it('Should render revision header with link to suite docs', async () => {
     const revisionHeader = {
