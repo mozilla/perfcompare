@@ -805,7 +805,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 f1wpas00 css-13620ud-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-6 MuiGrid-grid-xs-12 css-dq0w3o-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-4 MuiGrid-grid-xs-12 css-1mujxwq-MuiGrid-root"
                   >
                     <form
                       aria-label="Search by title, platform, revision or options"
