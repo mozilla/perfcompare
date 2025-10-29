@@ -25,9 +25,11 @@ export const ModeInterpretation = ({
       backgroundColor,
       display: 'block',
       alignItems: 'center',
-      margin: '15px',
+      marginLeft: 1,
+      marginBottom: '16px',
       borderRadius: '5px',
-      padding: 2,
+      padding: 1,
+      flexGrow: 1,
     };
   }
   const mode = useAppSelector((state) => state.theme.mode);
@@ -60,7 +62,7 @@ export const ModeInterpretation = ({
             }}
           >
             <td>{result.silverman_kde.mode_summary}</td>
-            <td>{result.silverman_kde.shift}</td>
+            <td>{result.silverman_kde.shift ?? +0}</td>
             <td>
               {result.silverman_kde.shift_summary ?? 'No significant shift'}
             </td>

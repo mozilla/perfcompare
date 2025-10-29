@@ -229,9 +229,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           {/******* mann-whiteney rendering **************/}
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: '.75fr 1fr',
-              gap: 1,
+              display: 'flex',
             }}
           >
             <StatisticsWarnings

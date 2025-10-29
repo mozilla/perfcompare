@@ -17,12 +17,15 @@ export const StatisticsWarnings = ({
   const componentStyles = {
     backgroundColor: 'transparent',
     marginTop: 2,
+    marginLeft: 1,
+    marginRight: 1,
     marginBottom: 2,
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
     borderRadius: 1,
     padding: 1,
+    maxWidth: '48%',
     '& .warning-row': {
       verticalAlign: 'bottom',
       display: 'flex',
