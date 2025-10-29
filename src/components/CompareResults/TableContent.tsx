@@ -173,7 +173,7 @@ function TableContent({
     const resultsForCurrentComparison =
       activeComparison === allRevisionsOption
         ? results.flat()
-        : (results.find((result) => result[0].new_rev === activeComparison) ??
+        : (results?.find((result) => result[0]?.new_rev === activeComparison) ??
           []);
 
     const filteredResults = filterResults(

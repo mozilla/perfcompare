@@ -41,7 +41,7 @@ const formatDownloadData = (
 
   const transformedGroups = Object.keys(groupedResults).map((header_name) => {
     const key = `${header_name} ${truncateHash(
-      groupedResults[header_name][0].new_rev,
+      groupedResults[header_name][0]?.new_rev,
     )}`;
     const value = groupedResults[header_name];
 
@@ -61,7 +61,7 @@ function generateJsonDataFromComparisonResults(
     activeComparison ===
     Strings.components.comparisonRevisionDropdown.allRevisions.key
       ? results.flat()
-      : (results.find((result) => result[0].new_rev === activeComparison) ??
+      : (results.find((result) => result[0]?.new_rev === activeComparison) ??
         []);
   return JSON.stringify(
     formatDownloadData(resultsForCurrentComparison),
