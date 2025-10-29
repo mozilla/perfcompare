@@ -60,14 +60,18 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       ((newMedian - baseMedian) / baseMedian) * 100,
     );
   }
+  const kde_new_x = (result as MannWhitneyResultsItem)?.kde_new?.kde_x ?? [];
+  const kde_base_x = (result as MannWhitneyResultsItem)?.kde_base?.kde_x ?? [];
 
   const baseValues =
-    baseRunsReplicates && baseRunsReplicates.length
+    baseRunsReplicates && (baseRunsReplicates ?? []).length
       ? baseRunsReplicates
       : baseRuns;
 
   const newValues =
-    newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
+    newRunsReplicates && (newRunsReplicates ?? []).length
+      ? newRunsReplicates
+      : newRuns;
 
   //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
@@ -151,6 +155,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               <CommonGraph
                 baseValues={baseValues}
                 newValues={newValues}
+                baseKDE_x={kde_base_x}
+                newKDE_x={kde_new_x}
+                testVersion={testVersion}
                 unit={baseUnit || newUnit}
               />
               {/******* student t test rendering **************/}

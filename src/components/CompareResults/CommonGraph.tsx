@@ -12,7 +12,9 @@ import 'chart.js/auto';
 import * as kde from 'fast-kde';
 import { Line } from 'react-chartjs-2';
 
+import { MANN_WHITNEY_U } from "../../common/constants";
 import { Colors } from '../../styles/Colors';
+import { TestVersion } from "../../types/types";
 
 ChartJS.register(LinearScale, LineElement);
 
@@ -80,13 +82,22 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
+function CommonGraph({ baseValues, newValues, unit, baseKDE_x, newKDE_x, testVersion }: CommonGraphProps) {
+  // Student-T stats
   const statsForBase = computeStatisticsForRuns(baseValues);
   const statsForNew = computeStatisticsForRuns(newValues);
 
   // Compute the global min and max with some grace value.
   const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
   const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
+
+  // Mann-Whitney-U stats
+  const statsForBaseMannWHitney = computeStatisticsForRuns(baseKDE_x);
+  const statsForNewMannWHitney  = computeStatisticsForRuns(newKDE_x);
+
+  // Compute the global min and max with some grace value.
+  const minMannWHitney  = computeMin(statsForBaseMannWHitney?.min, statsForNew?.min) * 0.95;
+  const maxMannWHitney  = computeMax(statsForNewMannWHitney?.max, statsForNew?.max) * 1.05;
 
   // The KDE line chart and categorical bubble chart share an x-axis but use
   // entirely different y-scales, making the composition flexible but
@@ -267,6 +278,7 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
   };
 
   ///////////////// START SHOW VALUES ////////////////////////
+  //Student-T
   const baseValuesData = baseValues.map((v) => {
     return { x: v, y: 'Base' };
   });
@@ -275,6 +287,16 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
   });
 
   const allValuesData = [...baseValuesData, ...newValuesData];
+
+  // Mann-
+  const baseMannWhitneyValuesData = baseKDE_x.map((v) => {
+    return { x: v, y: 'Base' };
+  });
+  const newMannWhitneyValuesData = newKDE_x.map((v) => {
+    return { x: v, y: 'New' };
+  });
+
+  const allMannWhitneyValuesData = [...baseMannWhitneyValuesData, ...newMannWhitneyValuesData];
 
   //////////////////// START FAST KDE ////////////////////////
   // So that the 2 KDE graphs are visually comparable, it's important to use the
@@ -291,6 +313,20 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
     kde.density1d(newValues, {
       bandwidth,
       extent: [min, max],
+    }),
+  );
+
+
+  const baseRunsMannWhitneyDensity = Array.from(
+    kde.density1d(baseKDE_x, {
+      bandwidth,
+      extent: [minMannWHitney, maxMannWHitney],
+    }),
+  );
+  const newRunsMannWhitneyDensity = Array.from(
+    kde.density1d(newKDE_x, {
+      bandwidth,
+      extent: [minMannWHitney, maxMannWHitney],
     }),
   );
   //////////////////// END FAST KDE   ////////////////////////
@@ -319,6 +355,41 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
         type: 'scatter',
         pointStyle: 'triangle',
         // Adjust point size based on dataset size (smaller points if there's a lot of data)
+        pointRadius: allMannWhitneyValuesData.length < 20 ? 7 : 5,
+        data: allMannWhitneyValuesData,
+        // Color code points by category using dynamic function
+        backgroundColor: (context: ScriptableContext<'scatter'>) =>
+          ((context.raw as { y: 'Base' | 'New' }).y === 'Base'
+            ? Colors.ChartBase
+            : Colors.ChartNew) + '99', // Add 60% transparency to the hexadecimal color
+      },
+    ],
+  };
+
+  const dataMannWhitney = {
+    datasets: [
+      {
+        // First KDE line: density of the "Base" distribution
+        yAxisID: 'yKde',
+        label: 'Base',
+        data: baseRunsMannWhitneyDensity,
+        fill: false,
+        borderColor: Colors.ChartBase,
+      },
+      {
+        // Second KDE line: density of the "New" distribution
+        yAxisID: 'yKde',
+        label: 'New',
+        data: newRunsMannWhitneyDensity,
+        fill: false,
+        borderColor: Colors.ChartNew,
+      },
+      {
+        // Bubble chart layer: raw values from both distributions (shown as points)
+        yAxisID: 'yValues',
+        type: 'scatter',
+        pointStyle: 'triangle',
+        // Adjust point size based on dataset size (smaller points if there's a lot of data)
         pointRadius: allValuesData.length < 20 ? 7 : 5,
         data: allValuesData,
         // Color code points by category using dynamic function
@@ -337,7 +408,9 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
       </Typography>
       <Box sx={{ flex: 0 }}>
         {/* @ts-expect-error the types for chart.js do not seem great and do not support all options. */}
-        <Line height={300} options={options} data={data} />
+        { testVersion !== MANN_WHITNEY_U && <Line height={300} options={options} data={data} />}
+        {/* @ts-expect-error the types for chart.js do not seem great and do not support all options. */}
+        { testVersion === MANN_WHITNEY_U && <Line height={300} options={options} data={dataMannWhitney} />}
       </Box>
     </>
   );
@@ -346,6 +419,9 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
 interface CommonGraphProps {
   baseValues: number[];
   newValues: number[];
+  baseKDE_x: number[];
+  newKDE_x: number[];
+  testVersion: TestVersion;
   unit: string | null;
 }
 

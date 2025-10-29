@@ -18,6 +18,7 @@ function checkValues({
   interval,
   baseParentSignature,
   newParentSignature,
+  testVersion,
 }: {
   baseRepo: Repository['name'] | null;
   newRev: string | null;
@@ -26,6 +27,7 @@ function checkValues({
   interval: string | number | null;
   baseParentSignature: string | null;
   newParentSignature: string | null;
+  testVersion?: TestVersion | null;
 }): {
   baseRepo: Repository['name'];
   newRev: string;
@@ -36,6 +38,7 @@ function checkValues({
   intervalText: TimeRange['text'];
   baseParentSignature: string;
   newParentSignature: string;
+  testVersion: TestVersion;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -114,6 +117,9 @@ function checkValues({
       `The parameter interval isn't a valid value: "${interval}".`,
     );
   }
+  if (!testVersion) {
+    testVersion = STUDENT_T;
+  }
 
   return {
     baseRepo,
@@ -125,6 +131,7 @@ function checkValues({
     intervalValue,
     baseParentSignature,
     newParentSignature,
+    testVersion,
   };
 }
 
@@ -149,8 +156,9 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = (url.searchParams.get('test_version') ??
-    STUDENT_T) as TestVersion;
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
   const {
     baseRepo,
     newRev,
@@ -161,6 +169,7 @@ export function loader({ request }: { request: Request }) {
     intervalText,
     baseParentSignature,
     newParentSignature,
+    testVersion,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRev: newRevFromUrl,
@@ -169,6 +178,7 @@ export function loader({ request }: { request: Request }) {
     interval: intervalFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
+    testVersion: testVersionFromUrl,
   });
 
   const results = fetchSubtestsCompareOverTimeResults({

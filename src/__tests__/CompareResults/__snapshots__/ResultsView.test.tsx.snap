@@ -253,54 +253,6 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 </section>
 `;
 
-exports[`Results View Should display Base, New and Common graphs with replicates: Dataset for scatter 1`] = `
-{
-  "backgroundColor": [Function],
-  "data": [
-    {
-      "x": 587.15,
-      "y": "Base",
-    },
-    {
-      "x": 593.04,
-      "y": "Base",
-    },
-    {
-      "x": 600.7,
-      "y": "Base",
-    },
-    {
-      "x": 602.04,
-      "y": "Base",
-    },
-    {
-      "x": 605.16,
-      "y": "New",
-    },
-    {
-      "x": 605.31,
-      "y": "New",
-    },
-    {
-      "x": 605.61,
-      "y": "New",
-    },
-    {
-      "x": 605.81,
-      "y": "New",
-    },
-    {
-      "x": 607.27,
-      "y": "New",
-    },
-  ],
-  "pointRadius": 7,
-  "pointStyle": "triangle",
-  "type": "scatter",
-  "yAxisID": "yValues",
-}
-`;
-
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
 <section
   aria-label="Revision Row Details"
@@ -557,44 +509,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 exports[`Results View Should display Base, New and Common graphs with tooltips: Dataset for scatter 1`] = `
 {
   "backgroundColor": [Function],
-  "data": [
-    {
-      "x": 587.15,
-      "y": "Base",
-    },
-    {
-      "x": 593.04,
-      "y": "Base",
-    },
-    {
-      "x": 600.7,
-      "y": "Base",
-    },
-    {
-      "x": 602.04,
-      "y": "Base",
-    },
-    {
-      "x": 605.16,
-      "y": "New",
-    },
-    {
-      "x": 605.31,
-      "y": "New",
-    },
-    {
-      "x": 605.61,
-      "y": "New",
-    },
-    {
-      "x": 605.81,
-      "y": "New",
-    },
-    {
-      "x": 607.27,
-      "y": "New",
-    },
-  ],
+  "data": [],
   "pointRadius": 7,
   "pointStyle": "triangle",
   "type": "scatter",
