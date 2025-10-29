@@ -3,6 +3,7 @@ import {
   Framework,
   Platform,
   SupportedPerfdocsFramework,
+  TestVersion,
   TimeRange,
 } from '../types/types';
 
@@ -318,3 +319,6 @@ export const platformMap: Record<Platform, string> = {
   'android-hw-a51-11-0-aarch64-shippable-qr':
     'Android 11.0 Samsung A51 Shippable AArch64',
 };
+
+export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
+export const STUDENT_T = 'student-t' as TestVersion;

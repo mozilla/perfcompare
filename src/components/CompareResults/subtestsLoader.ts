@@ -1,10 +1,7 @@
-import { repoMap, frameworks } from '../../common/constants';
-import {
-  fetchSubtestsCompareResults,
-  getPerfherderSubtestsCompareWithBaseViewURL,
-} from '../../logic/treeherder';
+import { repoMap, frameworks, STUDENT_T } from '../../common/constants';
+import { fetchSubtestsCompareResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
-import { Framework } from '../../types/types';
+import { Framework, TestVersion } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -127,6 +124,8 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
+  const testVersion = (url.searchParams.get('test_version') ??
+    STUDENT_T) as TestVersion;
 
   const {
     baseRev,
@@ -156,17 +155,8 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     replicates,
+    testVersion,
   });
-
-  const subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(
-    baseRepo,
-    baseRev,
-    baseRepo,
-    newRev,
-    frameworkId,
-    Number(baseParentSignature),
-    Number(newParentSignature),
-  );
 
   return {
     results,
@@ -178,8 +168,8 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     baseParentSignature,
     newParentSignature,
-    subtestsViewPerfherderURL,
     replicates,
+    testVersion,
   };
 }
 

@@ -7,7 +7,7 @@ import {
   Repository,
   HashToCommit,
 } from '../../types/state';
-import { Framework } from '../../types/types';
+import { Framework, TestVersion } from '../../types/types';
 
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-hash-results route is requested.
@@ -28,6 +28,9 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
   const pushed_today =
     new Date(newHashDateFromUrl).toISOString().split('T')[0] ==
     new Date().toISOString().split('T')[0];
@@ -52,6 +55,7 @@ export async function loader({ request }: { request: Request }) {
       newHashFromUrl,
       newHashDateFromUrl,
       'try',
+      testVersionFromUrl,
     );
   } catch (e) {
     if (pushed_today) {
@@ -63,14 +67,22 @@ export async function loader({ request }: { request: Request }) {
   const baseRevsFromHash = commits_from_hashes.baseRevision;
   const newRevsFromHash = [commits_from_hashes.newRevision];
   const replicates = url.searchParams.has('replicates');
-  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
-    checkValues({
-      baseRev: baseRevsFromHash,
-      baseRepo: baseRepoFromUrl,
-      newRevs: newRevsFromHash,
-      newRepos: newReposFromUrl,
-      framework: frameworkFromUrl,
-    });
+  const {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+    frameworkName,
+    testVersion,
+  } = checkValues({
+    baseRev: baseRevsFromHash,
+    baseRepo: baseRepoFromUrl,
+    newRevs: newRevsFromHash,
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+    testVersion: testVersionFromUrl,
+  });
   return await getComparisonInformation(
     baseRev,
     baseRepo,
@@ -79,6 +91,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    testVersion,
   );
 }
 
@@ -94,6 +107,7 @@ type HashLoaderData = {
   frameworkName: Framework['name'];
   view: typeof compareView;
   generation: number;
+  testVersion: TestVersion;
 };
 
 export type HashLoaderReturnValue = HashLoaderData;

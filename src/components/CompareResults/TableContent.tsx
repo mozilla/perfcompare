@@ -10,7 +10,7 @@ import { filterResults } from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
-import type { CompareResultsTableConfig } from '../../types/types';
+import type { CompareResultsTableConfig, TestVersion } from '../../types/types';
 
 // The data structure returned by processResults may look complex at first, so
 // here are some extra explanation.
@@ -135,6 +135,7 @@ type Props = {
   sortColumn: null | string;
   sortDirection: 'asc' | 'desc' | null;
   replicates: boolean;
+  testVersion: TestVersion;
 };
 
 function TableContent({
@@ -147,6 +148,7 @@ function TableContent({
   sortColumn,
   sortDirection,
   replicates,
+  testVersion,
 }: Props) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
@@ -156,7 +158,7 @@ function TableContent({
     const resultsForCurrentComparison =
       activeComparison === allRevisionsOption
         ? results.flat()
-        : (results.find((result) => result[0].new_rev === activeComparison) ??
+        : (results?.find((result) => result[0]?.new_rev === activeComparison) ??
           []);
 
     const filteredResults = filterResults(
@@ -212,6 +214,7 @@ function TableContent({
           view={view}
           rowGridTemplateColumns={rowGridTemplateColumns}
           replicates={replicates}
+          testVersion={testVersion}
         />
       )}
     />

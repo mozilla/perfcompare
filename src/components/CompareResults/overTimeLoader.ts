@@ -3,13 +3,14 @@ import {
   frameworks,
   timeRanges,
   compareOverTimeView,
+  STUDENT_T,
 } from '../../common/constants';
 import {
   fetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
-import { Framework, TimeRange } from '../../types/types';
+import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -19,12 +20,14 @@ function checkValues({
   newRepos,
   framework,
   interval,
+  testVersion,
 }: {
   baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
   interval: string | number | null;
+  testVersion?: TestVersion | null;
 }): {
   baseRepo: Repository['name'];
   newRevs: string[];
@@ -33,6 +36,7 @@ function checkValues({
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
+  testVersion: TestVersion;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -94,6 +98,9 @@ function checkValues({
       `The parameter interval isn't a valid value: "${interval}".`,
     );
   }
+  if (!testVersion) {
+    testVersion = STUDENT_T;
+  }
 
   return {
     baseRepo,
@@ -103,6 +110,7 @@ function checkValues({
     frameworkName,
     intervalText,
     intervalValue,
+    testVersion,
   };
 }
 
@@ -115,6 +123,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   framework,
   interval,
   replicates,
+  testVersion,
 }: {
   baseRepo: Repository['name'];
   newRevs: string[];
@@ -122,6 +131,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   framework: Framework['id'];
   interval: TimeRange['value'];
   replicates: boolean;
+  testVersion: TestVersion;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareOverTimeResults({
@@ -131,6 +141,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
       framework,
       interval,
       replicates,
+      testVersion,
     }),
   );
   return Promise.all(promises);
@@ -159,6 +170,9 @@ export async function loader({ request }: { request: Request }) {
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const replicates = url.searchParams.has('replicates');
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
 
   const {
     baseRepo,
@@ -168,12 +182,14 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
+    testVersion,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRevs: newRevsFromUrl,
     newRepos: newReposFromUrl,
     framework: frameworkFromUrl,
     interval: intervalFromUrl,
+    testVersion: testVersionFromUrl,
   });
 
   const resultsTimePromise = fetchCompareOverTimeResultsOnTreeherder({
@@ -183,6 +199,7 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkId,
     interval: intervalValue,
     replicates,
+    testVersion,
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
@@ -207,6 +224,7 @@ export async function loader({ request }: { request: Request }) {
     view: compareOverTimeView,
     generation: generationCounter++,
     replicates,
+    testVersion,
   };
 }
 
@@ -223,6 +241,7 @@ type DeferredLoaderData = {
   view: typeof compareOverTimeView;
   generation: number;
   replicates: boolean;
+  testVersion: TestVersion;
 };
 
 // Be explicit with the returned type to control it better than if we were

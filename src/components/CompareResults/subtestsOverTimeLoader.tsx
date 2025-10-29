@@ -1,10 +1,12 @@
-import { repoMap, frameworks, timeRanges } from '../../common/constants';
 import {
-  fetchSubtestsCompareOverTimeResults,
-  getPerfherderSubtestsCompareOverTimeViewURL,
-} from '../../logic/treeherder';
+  repoMap,
+  frameworks,
+  timeRanges,
+  STUDENT_T,
+} from '../../common/constants';
+import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
-import { Framework, TimeRange } from '../../types/types';
+import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -16,6 +18,7 @@ function checkValues({
   interval,
   baseParentSignature,
   newParentSignature,
+  testVersion,
 }: {
   baseRepo: Repository['name'] | null;
   newRev: string | null;
@@ -24,6 +27,7 @@ function checkValues({
   interval: string | number | null;
   baseParentSignature: string | null;
   newParentSignature: string | null;
+  testVersion?: TestVersion | null;
 }): {
   baseRepo: Repository['name'];
   newRev: string;
@@ -34,6 +38,7 @@ function checkValues({
   intervalText: TimeRange['text'];
   baseParentSignature: string;
   newParentSignature: string;
+  testVersion: TestVersion;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -112,6 +117,9 @@ function checkValues({
       `The parameter interval isn't a valid value: "${interval}".`,
     );
   }
+  if (!testVersion) {
+    testVersion = STUDENT_T;
+  }
 
   return {
     baseRepo,
@@ -123,6 +131,7 @@ function checkValues({
     intervalValue,
     baseParentSignature,
     newParentSignature,
+    testVersion,
   };
 }
 
@@ -147,7 +156,9 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
-
+  const testVersionFromUrl = url.searchParams.get(
+    'test_version',
+  ) as TestVersion;
   const {
     baseRepo,
     newRev,
@@ -158,6 +169,7 @@ export function loader({ request }: { request: Request }) {
     intervalText,
     baseParentSignature,
     newParentSignature,
+    testVersion,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRev: newRevFromUrl,
@@ -166,6 +178,7 @@ export function loader({ request }: { request: Request }) {
     interval: intervalFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
+    testVersion: testVersionFromUrl,
   });
 
   const results = fetchSubtestsCompareOverTimeResults({
@@ -177,17 +190,8 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     newParentSignature,
     replicates,
+    testVersion,
   });
-
-  const subtestsViewPerfherderURL = getPerfherderSubtestsCompareOverTimeViewURL(
-    baseRepo,
-    newRepo,
-    newRev,
-    frameworkId,
-    intervalValue,
-    Number(baseParentSignature),
-    Number(newParentSignature),
-  );
 
   return {
     results,
@@ -200,8 +204,8 @@ export function loader({ request }: { request: Request }) {
     intervalText,
     baseParentSignature,
     newParentSignature,
-    subtestsViewPerfherderURL,
     replicates,
+    testVersion,
   };
 }
 

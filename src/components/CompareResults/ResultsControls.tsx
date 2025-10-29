@@ -8,8 +8,9 @@ import SearchInput from './SearchInput';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
-import type { Framework } from '../../types/types';
+import type { Framework, TestVersion } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
+// import TestVersionDropdown from '../Shared/TestVersionDropdown';
 
 const controlsStyles = style({
   display: 'flex',
@@ -20,22 +21,27 @@ const controlsStyles = style({
 interface Props {
   initialSearchTerm: string;
   frameworkId: Framework['id'];
+  testType: string;
   resultsPromise: Promise<CompareResultsItem[][]>;
   onSearchTermChange: (searchTerm: string) => unknown;
   onFrameworkChange: (frameworkId: Framework['id']) => unknown;
+  onTestVersionChange: (testType: TestVersion) => void;
 }
 export default function ResultsControls({
   initialSearchTerm,
   frameworkId,
+  // testType,
   resultsPromise,
   onSearchTermChange,
   onFrameworkChange,
+  // onTestVersionChange,
 }: Props) {
   const mode = useAppSelector((state) => state.theme.mode);
   return (
     <Grid container className={controlsStyles} spacing={2}>
       <Grid
         size={{
+          // md: 4,
           md: 6,
           xs: 12,
         }}
@@ -46,7 +52,13 @@ export default function ResultsControls({
           strings={Strings.components.searchResultsInput}
         />
       </Grid>
-      <Grid size='grow'>
+      <Grid
+        // size={{
+        //   md: 2,
+        //   xs: 6,
+        // }}
+        size='grow'
+      >
         <FormControl sx={{ width: '100%' }}>
           <FrameworkDropdown
             frameworkId={frameworkId}
@@ -57,6 +69,22 @@ export default function ResultsControls({
           />
         </FormControl>
       </Grid>
+      {/* <Grid
+        size={{
+          md: 2,
+          xs: 6,
+        }}
+      >
+        <FormControl sx={{ width: '100%' }}>
+          <TestVersionDropdown
+            testType={testType}
+            size='small'
+            variant='outlined'
+            mode={mode}
+            onChange={onTestVersionChange}
+          />
+        </FormControl>
+      </Grid> */}
       <Grid size='grow'>
         <RevisionSelect />
       </Grid>

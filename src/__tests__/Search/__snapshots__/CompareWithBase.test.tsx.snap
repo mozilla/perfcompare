@@ -653,7 +653,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 <ul
   aria-labelledby="select-framework-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="«r21»"
+  id="_r_21_"
   role="listbox"
   tabindex="-1"
 >
@@ -4642,7 +4642,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="«r5c»"
+  id="_r_5c_"
   role="listbox"
   tabindex="-1"
 >

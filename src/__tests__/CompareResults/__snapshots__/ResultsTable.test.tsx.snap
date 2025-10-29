@@ -8,7 +8,7 @@ exports[`Results Table Should match snapshot 1`] = `
       data-testid="beta-version-compare-results"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f1ocj467 css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -62,30 +62,34 @@ exports[`Results Table Should match snapshot 1`] = `
       <section
         class="container_f1h7ern2"
       >
-        <a
-          aria-label="link to home"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-          href="/"
+        <div
+          class="fgqequq MuiBox-root css-0"
         >
-          <div
-            class="MuiStack-root css-1d9cypr-MuiStack-root"
+          <a
+            aria-label="link to home"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="/"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-              data-testid="ChevronLeftIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <div
+              class="MuiStack-root css-1d9cypr-MuiStack-root"
             >
-              <path
-                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-              />
-            </svg>
-            <p>
-              Home
-            </p>
-          </div>
-        </a>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                data-testid="ChevronLeftIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
+              <p>
+                Home
+              </p>
+            </div>
+          </a>
+        </div>
         <div
           class="compare-card-container content-base content-base--expanded container_fi9fvil wrapper--withbase fcdpsbx"
         >
@@ -767,6 +771,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           >
                             <input
                               class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                              role="switch"
                               type="checkbox"
                             />
                             <span
@@ -786,45 +791,6 @@ exports[`Results Table Should match snapshot 1`] = `
                     </div>
                   </div>
                 </h2>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
-              >
-                <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard f1q43ty0 css-st68mf-MuiPaper-root-MuiAlert-root"
-                  role="alert"
-                  style="--Paper-shadow: none;"
-                >
-                  <div
-                    class="MuiAlert-icon css-vab54s-MuiAlert-icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                      data-testid="InfoOutlinedIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="MuiAlert-message css-zioonp-MuiAlert-message"
-                  >
-                    Perfherder links are available for:
-                     
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-                      href="https://treeherder.mozilla.org/perfherder/compare?originalProject=try&originalRevision=spam&newProject=try&newRevision=spam&framework=1&page=1"
-                      target="_blank"
-                    >
-                      comparison spam
-                    </a>
-                    .
-                  </div>
-                </div>
               </div>
             </header>
             <div
@@ -878,7 +844,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             aria-invalid="false"
                             aria-label="Search by title, platform, revision or options"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="«rg»"
+                            id="_r_g_"
                             placeholder="Filter results"
                             type="search"
                             value=""
@@ -1595,7 +1561,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r12»"
+                                  aria-controls="_r_12_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1810,7 +1776,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r19»"
+                                  aria-controls="_r_19_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2014,7 +1980,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r1g»"
+                                  aria-controls="_r_1g_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2288,7 +2254,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="«r1o»"
+                                  aria-controls="_r_1o_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2880,7 +2846,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="«r42»"
+            aria-controls="_r_42_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -3134,7 +3100,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="«r4a»"
+            aria-controls="_r_4a_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"

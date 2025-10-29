@@ -118,6 +118,9 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
             switch (tooltipItem.dataset.yAxisID) {
               case 'yKde': {
                 // KDE line: show only the x-value with optional unit
+                if (tooltipItem.parsed.x === null) {
+                  return '';
+                }
                 const x = tooltipItem.parsed.x.toFixed(2);
                 return `@ ${x}` + (unit ? ` (${unit})` : '');
               }
