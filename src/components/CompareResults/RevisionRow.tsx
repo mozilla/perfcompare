@@ -30,6 +30,7 @@ import type {
 } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
+import { capitalize, cliffsDeltaPercentage } from '../../utils/helpers';
 import {
   getPlatformShortName,
   getPlatformAndVersion,
@@ -331,17 +332,28 @@ function RevisionRow(props: RevisionRowProps) {
           >
             {improvement ? <ThumbUpIcon color='success' /> : null}
             {regression ? <ThumbDownIcon color='error' /> : null}
-            {determineStatus(!!improvement, !!regression)}
+            {testVersion === MANN_WHITNEY_U
+              ? capitalize(
+                  (result as MannWhitneyResultsItem).direction_of_change ?? '',
+                )
+              : determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
         <div className='delta cell' role='cell'>
           {' '}
-          {deltaPercent} %{' '}
+          {testVersion === MANN_WHITNEY_U
+            ? `${cliffsDeltaPercentage((result as MannWhitneyResultsItem).cliffs_delta)} %`
+            : ` ${deltaPercent} % `}
         </div>
         {testVersion === STUDENT_T && (
           <div className='confidence cell' role='cell'>
             {confidenceText && confidenceIcons[confidenceText]}
             {confidenceText || '-'}
+          </div>
+        )}
+        {testVersion === MANN_WHITNEY_U && (
+          <div className='confidence cell' role='cell'>
+            {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
           </div>
         )}
         <div className='total-runs cell' role='cell'>

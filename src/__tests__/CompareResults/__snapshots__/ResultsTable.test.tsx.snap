@@ -1505,9 +1505,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                                
-                              1.85
-                               %
-                               
+                               1.85 % 
                             </div>
                             <div
                               class="confidence cell"
@@ -1720,9 +1718,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                                
-                              1.08
-                               %
-                               
+                               1.08 % 
                             </div>
                             <div
                               class="confidence cell"
@@ -1924,9 +1920,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                                
-                              -2.4
-                               %
-                               
+                               -2.4 % 
                             </div>
                             <div
                               class="confidence cell"
@@ -2209,9 +2203,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                                
-                              -24
-                               %
-                               
+                               -24 % 
                             </div>
                             <div
                               class="confidence cell"
@@ -2790,9 +2782,7 @@ exports[`Results Table should render different blocks when rendering several rev
         role="cell"
       >
          
-        1.08
-         %
-         
+         1.08 % 
       </div>
       <div
         class="confidence cell"
@@ -3044,9 +3034,7 @@ exports[`Results Table should render different blocks when rendering several rev
         role="cell"
       >
          
-        1.08
-         %
-         
+         1.08 % 
       </div>
       <div
         class="confidence cell"

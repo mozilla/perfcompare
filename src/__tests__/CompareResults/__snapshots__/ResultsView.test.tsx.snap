@@ -1380,9 +1380,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                    
-                  1.85
-                   %
-                   
+                   1.85 % 
                 </div>
                 <div
                   class="confidence cell"
@@ -1595,9 +1593,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                    
-                  1.08
-                   %
-                   
+                   1.08 % 
                 </div>
                 <div
                   class="confidence cell"
@@ -1799,9 +1795,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                    
-                  -24
-                   %
-                   
+                   -24 % 
                 </div>
                 <div
                   class="confidence cell"
@@ -1992,9 +1986,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                    
-                  -2.4
-                   %
-                   
+                   -2.4 % 
                 </div>
                 <div
                   class="confidence cell"
