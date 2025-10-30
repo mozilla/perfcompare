@@ -342,7 +342,8 @@ function RevisionRow(props: RevisionRowProps) {
         <div className='delta cell' role='cell'>
           {' '}
           {testVersion === MANN_WHITNEY_U
-            ? `${cliffsDeltaPercentage((result as MannWhitneyResultsItem).cliffs_delta)} %`
+            ? (result as MannWhitneyResultsItem).cliffs_delta &&
+              `${cliffsDeltaPercentage((result as MannWhitneyResultsItem).cliffs_delta)} %`
             : ` ${deltaPercent} % `}
         </div>
         {testVersion === STUDENT_T && (
