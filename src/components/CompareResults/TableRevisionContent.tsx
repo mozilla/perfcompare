@@ -22,7 +22,8 @@ const styles = {
 };
 
 function TableRevisionContent(props: Props) {
-  const { results, view, rowGridTemplateColumns, replicates, testVersion } = props;
+  const { results, view, rowGridTemplateColumns, replicates, testVersion } =
+    props;
 
   if (!results.length) {
     return null;
