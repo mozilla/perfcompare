@@ -5,6 +5,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { TestVersion } from '../../types/types';
+import { getModeInterpretation } from '../../utils/helpers';
 
 const METRIC_HEADERS = ['Metric', 'Base', 'New', 'Interpretation'];
 
@@ -27,7 +28,7 @@ export const MannWhitneyCompareMetrics = ({
     return {
       backgroundColor,
       marginBottom: 2,
-      width: '100%',
+      width: '85%',
       borderRadius: '5px',
       padding: 2,
       '& .test-row-container': {
@@ -86,6 +87,7 @@ export const MannWhitneyCompareMetrics = ({
     : 'N/A';
   const baseMode = result?.silverman_kde?.base_mode_count ?? null;
   const newMode = result?.silverman_kde?.new_mode_count ?? null;
+
   return (
     <Box sx={{ ...styles[mode] }}>
       <table
@@ -177,7 +179,7 @@ export const MannWhitneyCompareMetrics = ({
             <td>Estimated Modes</td>
             <td>{baseMode}</td>
             <td>{newMode}</td>
-            <td>{result?.silverman_kde?.mode_summary ?? null}</td>
+            <td>{getModeInterpretation(baseMode, newMode)}</td>
           </tr>
         </tbody>
       </table>
