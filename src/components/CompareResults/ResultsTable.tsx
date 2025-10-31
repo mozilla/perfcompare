@@ -164,8 +164,9 @@ export default function ResultsTable() {
 
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [testVersionVal, setTestVersionVal] =
-    useState<TestVersion>(initialTestVersion);
+  const [testVersionVal, setTestVersionVal] = useState<TestVersion>(
+    testVersion ?? STUDENT_T,
+  );
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
