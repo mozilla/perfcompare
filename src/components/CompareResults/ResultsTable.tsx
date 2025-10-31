@@ -158,10 +158,6 @@ export default function ResultsTable() {
     useTableSort(columnsConfiguration);
 
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
-  const initialTestVersion =
-    testVersion ??
-    ((rawSearchParams.get('test_version') ?? STUDENT_T) as TestVersion);
-
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
   const [testVersionVal, setTestVersionVal] = useState<TestVersion>(
@@ -186,8 +182,8 @@ export default function ResultsTable() {
 
   const onTestVersionChange = (testVersion: TestVersion): void => {
     setTestVersionVal(testVersion);
-    rawSearchParams.set('test_version', testVersion);
-    updateRawSearchParams(rawSearchParams);
+    searchParams.set('test_version', testVersion);
+    setSearchParams(searchParams);
   };
 
   const rowGridTemplateColumns = columnsConfiguration

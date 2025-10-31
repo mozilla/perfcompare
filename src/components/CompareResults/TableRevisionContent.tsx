@@ -25,7 +25,8 @@ const styles = {
 };
 
 function TableRevisionContent(props: Props) {
-  const { results, view, rowGridTemplateColumns, replicates } = props;
+  const { results, view, rowGridTemplateColumns, replicates, testVersion } =
+    props;
 
   if (!results.length) {
     return null;
@@ -58,7 +59,7 @@ function TableRevisionContent(props: Props) {
               view={view}
               gridTemplateColumns={rowGridTemplateColumns}
               replicates={replicates}
-              testVersion={props.testVersion}
+              testVersion={testVersion}
             />
           ))}
         </div>
