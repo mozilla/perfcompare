@@ -7,6 +7,9 @@ import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
 import { screen, within, renderWithRouter } from '../utils/test-utils';
 
+const searchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
 async function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader,
@@ -31,10 +34,13 @@ describe('SelectedRevision', () => {
 
     await renderComponent();
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
+    // const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
 
-    const noArmsLeft = await screen.findByRole('button', {
+    const noArmsLeft = await screen.findByTestId('button', {
       name: /you've got no arms left!/,
     });
     const noArmsLeftCheckbox = within(noArmsLeft).getByRole('radio');
