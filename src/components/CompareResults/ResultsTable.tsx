@@ -182,8 +182,8 @@ export default function ResultsTable() {
 
   const onTestVersionChange = (testVersion: TestVersion): void => {
     setTestVersionVal(testVersion);
-    rawSearchParams.set('test_version', testVersion);
-    updateRawSearchParams(rawSearchParams);
+    searchParams.set('test_version', testVersion);
+    setSearchParams(searchParams);
   };
 
   const rowGridTemplateColumns = columnsConfiguration
