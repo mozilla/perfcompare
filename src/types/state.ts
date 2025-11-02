@@ -214,6 +214,7 @@ export type MannWhitneyResultsItem = {
   kde_new: KDEItem; // KDE plots and summary plot with ISJ bandwidth for new runs
   kde_base: KDEItem; // KDE plots and summary plot with ISJ bandwidth for base runs
   kde_summary_text: string[];
+  kde_warnings: string[];
   silverman_warnings?: string[] | null; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
   is_fit_good: boolean | null; // short form interpretation of KS test goodness of fit

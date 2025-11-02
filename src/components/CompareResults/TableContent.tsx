@@ -175,6 +175,7 @@ function TableContent({
     filteringSearchTerm,
     tableFilters,
     columnsConfiguration,
+    testVersion, // trigger refetch for new testVersion selection
   ]);
 
   const sortedResults = useMemo(() => {

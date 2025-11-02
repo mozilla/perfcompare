@@ -64,12 +64,12 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const kde_base_x = (result as MannWhitneyResultsItem)?.kde_base?.kde_x ?? [];
 
   const baseValues =
-    baseRunsReplicates && (baseRunsReplicates ?? []).length
+    baseRunsReplicates && (baseRunsReplicates ?? [])?.length
       ? baseRunsReplicates
       : baseRuns;
 
   const newValues =
-    newRunsReplicates && (newRunsReplicates ?? []).length
+    newRunsReplicates && (newRunsReplicates ?? [])?.length
       ? newRunsReplicates
       : newRuns;
 
@@ -153,11 +153,16 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           <Grid size={8}>
             <Stack spacing={2}>
               <CommonGraph
-                baseValues={baseValues}
-                newValues={newValues}
-                baseKDE_x={kde_base_x}
-                newKDE_x={kde_new_x}
-                testVersion={testVersion}
+                baseValues={
+                  testVersion === MANN_WHITNEY_U && kde_base_x.length
+                    ? kde_base_x
+                    : baseValues
+                }
+                newValues={
+                  testVersion === MANN_WHITNEY_U && kde_new_x.length
+                    ? kde_new_x
+                    : newValues
+                }
                 unit={baseUnit || newUnit}
               />
               {/******* student t test rendering **************/}
