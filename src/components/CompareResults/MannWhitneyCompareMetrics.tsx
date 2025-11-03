@@ -28,7 +28,8 @@ export const MannWhitneyCompareMetrics = ({
     return {
       backgroundColor,
       marginBottom: 2,
-      width: '85%',
+      maxWidth: '85%',
+      width: '100%',
       borderRadius: '5px',
       padding: 2,
       '& .test-row-container': {
@@ -170,7 +171,7 @@ export const MannWhitneyCompareMetrics = ({
             <td>Kolmogorov-Smirnov Test</td>
             <td></td>
             <td></td>
-            <td>{`${result?.ks_test?.interpretation ?? null}`}</td>
+            <td>{`${result?.ks_test?.interpretation ?? ''}`}</td>
           </tr>
           <tr className='test-label-row' style={{ marginTop: 2 }}>
             <td>Distribution</td>

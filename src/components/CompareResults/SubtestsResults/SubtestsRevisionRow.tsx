@@ -116,7 +116,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 
 function SubtestsRevisionRow(props: RevisionRowProps) {
   const id = useId();
-  const { result, gridTemplateColumns, replicates } = props;
+  const { result, gridTemplateColumns, replicates, testVersion } = props;
   const {
     test,
     base_avg_value: baseAvgValue,
@@ -249,7 +249,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <RevisionRowExpandable
           id={id}
           result={result}
-          testVersion={props.testVersion}
+          testVersion={testVersion}
         />
       )}
     </>

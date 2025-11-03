@@ -34,28 +34,33 @@ export const ModeInterpretation = ({
   }
   const mode = useAppSelector((state) => state.theme.mode);
 
+  const kdeModes = result.silverman_kde.modes ?? [];
+  if (kdeModes.length === 0) return null;
+
   return (
     <Box sx={getStyles(mode)}>
       <table>
         <thead>
           <tr style={{ textAlign: 'left' }}>
-            <th style={{ padding: 2, paddingRight: 16 }}></th>
+            <th style={{ padding: 2, paddingRight: 16 }}>Mode Start </th>
+            <th style={{ padding: 2, paddingRight: 16 }}>Mode End </th>
             <th style={{ padding: 2, paddingRight: 16 }}>Median Shift</th>
             <th style={{ padding: 2 }}>Interpretation</th>
           </tr>
         </thead>
         <tbody>
-          <tr style={{ textAlign: 'left' }}>
-            <td style={{ padding: 2, paddingRight: 16 }}>
-              {result.silverman_kde.mode_summary}
-            </td>
-            <td style={{ padding: 2, paddingRight: 16 }}>
-              {result.silverman_kde.shift ?? +0}
-            </td>
-            <td style={{ padding: 2 }}>
-              {result.silverman_kde.shift_summary ?? 'No significant shift'}
-            </td>
-          </tr>
+          {kdeModes?.map(
+            ({ mode_start, mode_end, shift, shift_summary, mode_name }) => (
+              <tr style={{ textAlign: 'left' }} key={mode_name}>
+                <td style={{ padding: 2, paddingRight: 16 }}>{mode_start}</td>
+                <td style={{ padding: 2, paddingRight: 16 }}>{mode_end}</td>
+                <td style={{ padding: 2, paddingRight: 16 }}>
+                  {shift ?? 'N/A'}
+                </td>
+                <td style={{ padding: 2 }}>{shift_summary ?? 'N/A'}</td>
+              </tr>
+            ),
+          )}
         </tbody>
       </table>
     </Box>
