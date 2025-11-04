@@ -281,7 +281,7 @@ function RevisionRow(props: RevisionRowProps) {
           <>
             <div className={`${browserName} cell`} role='cell'>
               {baseAvgValue
-                ? `${formatNumber(baseAvgValue)} ${baseUnit}`
+                ? `${formatNumber(baseAvgValue)} ${baseUnit ?? ''}`
                 : 'N/A'}
               {getBrowserDisplay(baseApp, newApp, expanded) && (
                 <span className={FontSize.xSmall}>({baseApp})</span>
@@ -293,7 +293,9 @@ function RevisionRow(props: RevisionRowProps) {
                 : '  '}
             </div>
             <div className={`${browserName} cell`} role='cell'>
-              {newAvgValue ? `${formatNumber(newAvgValue)} ${newUnit}` : 'N/A'}
+              {newAvgValue
+                ? `${formatNumber(newAvgValue)} ${newUnit ?? ''}`
+                : 'N/A'}
               {getBrowserDisplay(baseApp, newApp, expanded) && (
                 <span className={FontSize.xSmall}>({newApp})</span>
               )}
