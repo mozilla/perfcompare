@@ -125,6 +125,29 @@ const cliffsDeltaPercentage = (cliffs_delta: number) => {
   return ((cliffs_delta + 1) / 2) * 100;
 };
 
+const getModeInterpretation = (
+  baseModeCount: number | null,
+  newModeCount: number | null,
+) => {
+  const interpretModeCount = (modeCount: number) => {
+    if (modeCount === 1) return 'unimodal';
+    if (modeCount > 1) return 'multimodal';
+    return '';
+  };
+
+  if (
+    (!baseModeCount && !newModeCount) ||
+    (baseModeCount === 0 && newModeCount === 0)
+  )
+    return 'Base and New mode counts are null or 0, possible oversmoothing, KDE evaluation failed, no data or data constant.';
+  if (baseModeCount && newModeCount && baseModeCount === newModeCount)
+    return `Base and New revisions are ${interpretModeCount(baseModeCount)}`;
+  if (baseModeCount && newModeCount && baseModeCount !== newModeCount) {
+    return `Base is ${interpretModeCount(baseModeCount)} and New is ${interpretModeCount(newModeCount)}`;
+  }
+  return '';
+};
+
 export {
   formatDate,
   getLatestCommitMessage,
@@ -135,4 +158,5 @@ export {
   getDocsURL,
   capitalize,
   cliffsDeltaPercentage,
+  getModeInterpretation,
 };

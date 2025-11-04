@@ -156,6 +156,18 @@ export type CLESItem = {
   cles_explanation: string;
 } | null;
 
+export type ModeItem = {
+  mode_name: string;
+  mode_start: string | null;
+  mode_end: string | null;
+  median_shift_summary: string[] | null;
+  ci_low: number | null;
+  ci_high: number | null;
+  ci_warning: string | null;
+  shift: number | null;
+  shift_summary: string | null;
+};
+
 /*
   Results from Silverman KDE test for multimodal data.
 */
@@ -165,15 +177,7 @@ export type SilvermanKDEItem = {
   new_mode_count: number;
   mode_comments: string[];
   warnings: string[];
-  mode_summary: string;
-  median_shift_summary: string[] | null;
-  ci_low: number | null;
-  ci_high: number | null;
-  shift: number | null;
-  shift_summary: string | null;
-  is_regression: boolean | null;
-  is_improvement: boolean | null;
-  ci_warning: string | null;
+  modes: ModeItem[];
 };
 
 /*
@@ -213,7 +217,7 @@ export type MannWhitneyResultsItem = {
   cles?: CLESItem; // CLES: Common Language Effect Size, statistical effect interpretation from Mann-Whitney U
   kde_new: KDEItem; // KDE plots and summary plot with ISJ bandwidth for new runs
   kde_base: KDEItem; // KDE plots and summary plot with ISJ bandwidth for base runs
-  kde_summary_text: string[];
+  kde_warnings: string[];
   silverman_warnings?: string[] | null; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
   is_fit_good: boolean | null; // short form interpretation of KS test goodness of fit

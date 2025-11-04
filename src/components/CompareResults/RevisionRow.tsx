@@ -18,7 +18,6 @@ import RevisionRowExpandable from './RevisionRowExpandable';
 import {
   compareView,
   compareOverTimeView,
-  STUDENT_T,
   MANN_WHITNEY_U,
 } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
@@ -278,19 +277,23 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </Tooltip>
         </div>
-        {testVersion === STUDENT_T && !!baseAvgValue && !!newAvgValue && (
+        {testVersion !== MANN_WHITNEY_U && (
           <>
             <div className={`${browserName} cell`} role='cell'>
-              {formatNumber(baseAvgValue)} {baseUnit}
+              {baseAvgValue
+                ? `${formatNumber(baseAvgValue)} ${baseUnit}`
+                : 'N/A'}
               {getBrowserDisplay(baseApp, newApp, expanded) && (
                 <span className={FontSize.xSmall}>({baseApp})</span>
               )}
             </div>
             <div className='comparison-sign cell' role='cell'>
-              {determineSign(baseAvgValue, newAvgValue)}
+              {baseAvgValue && newAvgValue
+                ? determineSign(baseAvgValue, newAvgValue)
+                : '  '}
             </div>
             <div className={`${browserName} cell`} role='cell'>
-              {formatNumber(newAvgValue)} {newUnit}
+              {newAvgValue ? `${formatNumber(newAvgValue)} ${newUnit}` : 'N/A'}
               {getBrowserDisplay(baseApp, newApp, expanded) && (
                 <span className={FontSize.xSmall}>({newApp})</span>
               )}
@@ -346,15 +349,14 @@ function RevisionRow(props: RevisionRowProps) {
               `${cliffsDeltaPercentage((result as MannWhitneyResultsItem).cliffs_delta)} %`
             : ` ${deltaPercent} % `}
         </div>
-        {testVersion === STUDENT_T && (
+        {testVersion === MANN_WHITNEY_U ? (
+          <div className='confidence cell' role='cell'>
+            {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
+          </div>
+        ) : (
           <div className='confidence cell' role='cell'>
             {confidenceText && confidenceIcons[confidenceText]}
             {confidenceText || '-'}
-          </div>
-        )}
-        {testVersion === MANN_WHITNEY_U && (
-          <div className='confidence cell' role='cell'>
-            {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
           </div>
         )}
         <div className='total-runs cell' role='cell'>
