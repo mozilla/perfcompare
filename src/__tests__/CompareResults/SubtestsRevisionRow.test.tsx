@@ -138,4 +138,21 @@ describe('SubtestsRevisionRow Component', () => {
     ).toBeInTheDocument();
     expect(await screen.findByText(/Normality Test/i)).toBeInTheDocument();
   });
+
+  it('renders subtests results defaulting to student-t with no testVersion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { subtestsResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsResult[0]}
+        gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
+      />,
+    );
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    expect(await screen.findByText(/Difference of means/i)).toBeInTheDocument();
+  });
 });

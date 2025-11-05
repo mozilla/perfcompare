@@ -1,7 +1,7 @@
 import SubtestsRevisionRow from './SubtestsRevisionRow';
+import { STUDENT_T } from '../../../common/constants';
 import type { CompareResultsItem } from '../../../types/state';
 import { TestVersion } from '../../../types/types';
-import { STUDENT_T } from '../../../common/constants';
 
 function SubtestsTableContent(props: SubtestsTableContentProps) {
   const {
@@ -24,7 +24,7 @@ function SubtestsTableContent(props: SubtestsTableContentProps) {
           result={result}
           gridTemplateColumns={rowGridTemplateColumns}
           replicates={replicates}
-          testVersion={testVersion?? STUDENT_T}
+          testVersion={testVersion ?? STUDENT_T}
         />
       ))}
     </>
