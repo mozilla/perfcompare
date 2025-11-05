@@ -155,4 +155,23 @@ describe('SubtestsRevisionRow Component', () => {
 
     expect(await screen.findByText(/Difference of means/i)).toBeInTheDocument();
   });
+
+  it('should display baseMean and newMean in subtests for student-t testVersion', async () => {
+    const { subtestsResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsResult[0]}
+        gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const baseMean = roles[1]?.childNodes[0];
+    expect(baseMean).toHaveTextContent('971.38');
+
+    const newMean = roles[3]?.childNodes[0];
+    expect(newMean).toHaveTextContent('982.41');
+  });
 });
