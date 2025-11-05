@@ -15,10 +15,18 @@ import { style } from 'typestyle';
 
 import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
-import { compareView, compareOverTimeView, MANN_WHITNEY_U } from '../../common/constants';
+import {
+  compareView,
+  compareOverTimeView,
+  MANN_WHITNEY_U,
+} from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
-import type { CompareResultsItem, MannWhitneyResultsItem, PlatformShortName } from '../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+  PlatformShortName,
+} from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
 import {
@@ -147,7 +155,10 @@ const confidenceIcons = {
   High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
 };
 
-const getSubtestsCompareWithBaseLink = (result: CompareResultsItem | MannWhitneyResultsItem, testVersion: TestVersion) => {
+const getSubtestsCompareWithBaseLink = (
+  result: CompareResultsItem | MannWhitneyResultsItem,
+  testVersion: TestVersion,
+) => {
   const params = new URLSearchParams({
     baseRev: result.base_rev,
     baseRepo: result.base_repository_name,
@@ -162,7 +173,10 @@ const getSubtestsCompareWithBaseLink = (result: CompareResultsItem | MannWhitney
   return `/subtests-compare-results?${params.toString()}`;
 };
 
-const getSubtestsCompareOverTimeLink = (result: CompareResultsItem| MannWhitneyResultsItem, testVersion: TestVersion) => {
+const getSubtestsCompareOverTimeLink = (
+  result: CompareResultsItem | MannWhitneyResultsItem,
+  testVersion: TestVersion,
+) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
   // problem, but because this component can have a lot of instances, this is a
@@ -221,8 +235,14 @@ function RevisionRow(props: RevisionRowProps) {
     ? baseRunsReplicates.length
     : baseRuns.length;
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
-  const baseAvgValue = testVersion === MANN_WHITNEY_U? (result as MannWhitneyResultsItem).base_standard_stats.mean: (result as CompareResultsItem).base_avg_value;
-  const newAvgValue = testVersion === MANN_WHITNEY_U? (result as MannWhitneyResultsItem).new_standard_stats.mean: (result as CompareResultsItem).new_avg_value;
+  const baseAvgValue =
+    testVersion === MANN_WHITNEY_U
+      ? (result as MannWhitneyResultsItem).base_standard_stats.mean
+      : (result as CompareResultsItem).base_avg_value;
+  const newAvgValue =
+    testVersion === MANN_WHITNEY_U
+      ? (result as MannWhitneyResultsItem).new_standard_stats.mean
+      : (result as CompareResultsItem).new_avg_value;
   const [expanded, setExpanded] = useState(false);
 
   const toggleIsExpanded = () => {
@@ -347,7 +367,10 @@ function RevisionRow(props: RevisionRowProps) {
             data-testid='retrigger-jobs-button'
           >
             <div className='retrigger-button-container'>
-              <RetriggerButton result={result as CompareResultsItem} variant='icon' />
+              <RetriggerButton
+                result={result as CompareResultsItem}
+                variant='icon'
+              />
             </div>
           </div>
         </div>

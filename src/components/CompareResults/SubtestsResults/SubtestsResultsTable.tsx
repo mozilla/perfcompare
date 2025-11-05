@@ -174,7 +174,7 @@ type ResultsTableProps = {
   filteringSearchTerm: string;
   resultsPromise: CompareResultsItem[] | Promise<CompareResultsItem[]>;
   replicates: boolean;
-  testVersion: TestVersion;
+  testVersion?: TestVersion;
 };
 
 function SubtestsResultsTable({

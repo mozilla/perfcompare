@@ -32,7 +32,7 @@ function checkValues({
   frameworkName: Framework['name'];
   baseParentSignature: string;
   newParentSignature: string;
-  testVersion?:TestVersion;
+  testVersion?: TestVersion;
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -93,7 +93,7 @@ function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
-  if(!testVersion){
+  if (!testVersion) {
     testVersion = STUDENT_T;
   }
 
@@ -106,7 +106,7 @@ function checkValues({
     frameworkName,
     baseParentSignature,
     newParentSignature,
-    testVersion
+    testVersion,
   };
 }
 
@@ -143,7 +143,7 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     newParentSignature,
     baseParentSignature,
-    testVersion
+    testVersion,
   } = checkValues({
     baseRev: baseRevFromUrl,
     baseRepo: baseRepoFromUrl,
@@ -152,7 +152,7 @@ export function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
-    testVersion: testVersionFromUrl
+    testVersion: testVersionFromUrl,
   });
 
   const results = fetchSubtestsCompareResults({

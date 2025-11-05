@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 
 import fetchMock from '@fetch-mock/jest';
+import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/loader';
 import SubtestsRevisionRow from '../../components/CompareResults/SubtestsResults/SubtestsRevisionRow';
@@ -115,5 +116,26 @@ describe('SubtestsRevisionRow Component', () => {
     expect(document.body).toMatchSnapshot();
     expect(screen.queryByText(/firefox/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/chrome/i)).not.toBeInTheDocument();
+  });
+
+  it('renders subtests results with mann-whitney-u testVersion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { subtestsResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsResult[0]}
+        gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    expect(
+      await screen.findByText(/Goodness of Fit Test/i),
+    ).toBeInTheDocument();
+    expect(await screen.findByText(/Normality Test/i)).toBeInTheDocument();
   });
 });
