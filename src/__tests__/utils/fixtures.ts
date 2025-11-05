@@ -399,7 +399,7 @@ const getTestData = () => {
       shapiro_wilk_test_base: null,
       shapiro_wilk_test_new: null,
       mann_whitney_test: null,
-      cliffs_delta: 0,
+      cliffs_delta: 0.1,
       cliffs_interpretation: '',
       kde_new: {
         median: 0,
@@ -426,7 +426,7 @@ const getTestData = () => {
       is_significant: null,
       is_new_better: null,
       performance_intepretation: '',
-      direction_of_change: null,
+      direction_of_change: 'better',
       kde_warnings: [],
     },
     {

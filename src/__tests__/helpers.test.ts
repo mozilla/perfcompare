@@ -1,3 +1,5 @@
+import { capitalize } from '@mui/material';
+
 import {
   formatDate,
   getLatestCommitMessage,
@@ -5,6 +7,8 @@ import {
   truncateHash,
   swapArrayElements,
   getDocsURL,
+  cliffsDeltaPercentage,
+  getModeInterpretation,
 } from '../utils/helpers';
 import getTestData from './utils/fixtures';
 
@@ -118,5 +122,74 @@ describe('swapArrayElements', () => {
   it('should return initial copy of inital array', () => {
     const swappedArray = swapArrayElements(array, 5, 0);
     swappedArray.forEach((el, index) => expect(el).toEqual(array[index]));
+  });
+});
+
+describe('capitalize', () => {
+  const string1 = 'i love my dog.';
+  const string2 = 'monkey';
+  const string3 = '';
+
+  it('should capitalize first letter of a string', () => {
+    const capializedString1 = capitalize(string1);
+    expect(capializedString1).toBe('I love my dog.');
+    const capializedString2 = capitalize(string2);
+    expect(capializedString2).toBe('Monkey');
+    const capializedString3 = capitalize(string3);
+    expect(capializedString3).toBe('');
+  });
+
+  it('should handle empty string', () => {
+    const capializedString3 = capitalize(string3);
+    expect(capializedString3).toBe('');
+  });
+});
+
+describe('cliffsDeltaPercentage', () => {
+  const cliffs_delta1 = 0.1;
+  const cliffs_delta2 = -1;
+  const cliffs_delta3 = 1;
+
+  it('should calculate cliffs delta percentage', () => {
+    const expectedValue = cliffsDeltaPercentage(cliffs_delta1);
+    expect(expectedValue).toBe('55.00');
+    const expectedValue2 = cliffsDeltaPercentage(cliffs_delta2);
+    expect(expectedValue2).toBe('0.00');
+    const expectedValue3 = cliffsDeltaPercentage(cliffs_delta3);
+    expect(expectedValue3).toBe('100.00');
+  });
+});
+
+describe('getModeInterpretation', () => {
+  const baseMode1 = 1;
+  const newMode1 = 1;
+  const baseMode2 = 2;
+  const newMode2 = 2;
+  const baseMode0 = null;
+  const newMode0 = 0;
+
+  it('should handle same mode count interpretation for base and new', () => {
+    const expectedStr = getModeInterpretation(baseMode1, newMode1);
+    expect(expectedStr).toBe('Base and New revisions are unimodal');
+    const expectedStr2 = getModeInterpretation(baseMode2, newMode2);
+    expect(expectedStr2).toBe('Base and New revisions are multimodal');
+  });
+
+  it('should handle different mode count interpretation for base and new', () => {
+    const expectedStr2 = getModeInterpretation(baseMode2, newMode1);
+    expect(expectedStr2).toBe('Base is multimodal and New is unimodal');
+    const expectedStr3 = getModeInterpretation(baseMode1, newMode2);
+    expect(expectedStr3).toBe('Base is unimodal and New is multimodal');
+  });
+
+  it('should get mode interpretation with 0 or null mode count', () => {
+    const expectedStr4 = getModeInterpretation(baseMode0, newMode0);
+    expect(expectedStr4).toBe(
+      'No modes or data for Base and New, possible oversmoothing, KDE evaluation failed',
+    );
+    const expectedStr0 = getModeInterpretation(baseMode0, newMode1);
+    expect(expectedStr0).toBe('Base is N/A and New is unimodal');
+    const expectedStr1 = getModeInterpretation(baseMode2, newMode0);
+    expect(expectedStr1).toBe('Base is multimodal and New is N/A');
   });
 });

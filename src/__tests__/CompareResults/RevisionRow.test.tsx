@@ -146,9 +146,7 @@ describe('Expanded row', () => {
   });
 
   it('should display mean for base or new in row headers for mann-whitney-u testVersion', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData: rowData } = getTestData();
-
     renderWithRoute(
       <RevisionRow
         result={rowData[0]}
@@ -156,6 +154,32 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const baseMean = roles[1]?.childNodes[0];
+    expect(baseMean).toHaveTextContent('704.84');
+
+    const newMean = roles[3]?.childNodes[0];
+    expect(newMean).toHaveTextContent('712.44');
+
+    const directionOfChange = roles[4]?.childNodes[0];
+    expect(directionOfChange).toHaveTextContent('Better');
+
+    const cliffsDelta = roles[5]?.childNodes[1];
+    expect(cliffsDelta).toHaveTextContent('55.00 %');
+  });
+
+  it('should display mean for base or new in row headers for student-t testVersion', async () => {
+    const { testCompareData: rowData } = getTestData();
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
       />,
     );
 
