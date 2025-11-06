@@ -15,10 +15,18 @@ import { style } from 'typestyle';
 
 import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
-import { compareView, compareOverTimeView } from '../../common/constants';
+import {
+  compareView,
+  compareOverTimeView,
+  MANN_WHITNEY_U,
+} from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
-import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+  PlatformShortName,
+} from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
 import {
@@ -147,7 +155,10 @@ const confidenceIcons = {
   High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
 };
 
-const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
+const getSubtestsCompareWithBaseLink = (
+  result: CompareResultsItem | MannWhitneyResultsItem,
+  testVersion: TestVersion,
+) => {
   const params = new URLSearchParams({
     baseRev: result.base_rev,
     baseRepo: result.base_repository_name,
@@ -156,12 +167,16 @@ const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
     framework: String(result.framework_id),
     baseParentSignature: String(result.base_signature_id),
     newParentSignature: String(result.new_signature_id),
+    test_version: testVersion,
   });
 
   return `/subtests-compare-results?${params.toString()}`;
 };
 
-const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
+const getSubtestsCompareOverTimeLink = (
+  result: CompareResultsItem | MannWhitneyResultsItem,
+  testVersion: TestVersion,
+) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
   // problem, but because this component can have a lot of instances, this is a
@@ -187,6 +202,7 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
     selectedTimeRange: interval,
     baseParentSignature: String(result.base_signature_id),
     newParentSignature: String(result.new_signature_id),
+    test_version: testVersion,
   });
 
   return `/subtests-compare-over-time-results?${params.toString()}`;
@@ -198,9 +214,7 @@ function RevisionRow(props: RevisionRowProps) {
   const { result, view, gridTemplateColumns, replicates, testVersion } = props;
   const {
     platform,
-    base_avg_value: baseAvgValue,
     base_measurement_unit: baseUnit,
-    new_avg_value: newAvgValue,
     new_measurement_unit: newUnit,
     is_improvement: improvement,
     is_regression: regression,
@@ -221,7 +235,14 @@ function RevisionRow(props: RevisionRowProps) {
     ? baseRunsReplicates.length
     : baseRuns.length;
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
-
+  const baseAvgValue =
+    testVersion === MANN_WHITNEY_U
+      ? (result as MannWhitneyResultsItem).base_standard_stats.mean
+      : (result as CompareResultsItem).base_avg_value;
+  const newAvgValue =
+    testVersion === MANN_WHITNEY_U
+      ? (result as MannWhitneyResultsItem).new_standard_stats.mean
+      : (result as CompareResultsItem).new_avg_value;
   const [expanded, setExpanded] = useState(false);
 
   const toggleIsExpanded = () => {
@@ -231,8 +252,8 @@ function RevisionRow(props: RevisionRowProps) {
   // Note that the return type is different depending on the view we're in
   const subtestsCompareLink =
     view === compareView
-      ? getSubtestsCompareWithBaseLink(result)
-      : getSubtestsCompareOverTimeLink(result);
+      ? getSubtestsCompareWithBaseLink(result, testVersion)
+      : getSubtestsCompareOverTimeLink(result, testVersion);
 
   return (
     <>
@@ -283,13 +304,13 @@ function RevisionRow(props: RevisionRowProps) {
                   : 'none',
             }}
             className={`status-hint ${determineStatusHintClass(
-              improvement,
-              regression,
+              !!improvement,
+              !!regression,
             )}`}
           >
             {improvement ? <ThumbUpIcon color='success' /> : null}
             {regression ? <ThumbDownIcon color='error' /> : null}
-            {determineStatus(improvement, regression)}
+            {determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
         <div className='delta cell' role='cell'>
@@ -346,7 +367,10 @@ function RevisionRow(props: RevisionRowProps) {
             data-testid='retrigger-jobs-button'
           >
             <div className='retrigger-button-container'>
-              <RetriggerButton result={result} variant='icon' />
+              <RetriggerButton
+                result={result as CompareResultsItem}
+                variant='icon'
+              />
             </div>
           </div>
         </div>
@@ -388,7 +412,7 @@ function RevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  result: CompareResultsItem;
+  result: CompareResultsItem | MannWhitneyResultsItem;
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
