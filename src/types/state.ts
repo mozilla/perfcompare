@@ -156,6 +156,19 @@ export type CLESItem = {
   cles_explanation: string;
 } | null;
 
+
+export type ModeItem = {
+  mode_name: string;
+  mode_start: string | null;
+  mode_end: string | null;
+  median_shift_summary: string[] | null;
+  ci_low: number | null;
+  ci_high: number | null;
+  ci_warning: string | null;
+  shift: number | null;
+  shift_summary: string | null;
+};
+
 /*
   Results from Silverman KDE test for multimodal data.
 */
@@ -165,15 +178,9 @@ export type SilvermanKDEItem = {
   new_mode_count: number;
   mode_comments: string[];
   warnings: string[];
-  mode_summary: string;
-  median_shift_summary: string[] | null;
-  ci_low: number | null;
-  ci_high: number | null;
-  shift: number | null;
-  shift_summary: string | null;
-  is_regression: boolean | null;
-  is_improvement: boolean | null;
-  ci_warning: string | null;
+  modes: ModeItem[];
+  //TODO: to be removed soon in another PR
+  mode_summary?: string;
 };
 
 /*
