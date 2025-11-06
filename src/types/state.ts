@@ -177,7 +177,6 @@ export type SilvermanKDEItem = {
   new_location: number;
   base_prominence: number;
   new_prominence: number;
-  mode_comments: string[];
   warnings: string[];
   modes: ModeItem[];
   is_regression: boolean | null;
