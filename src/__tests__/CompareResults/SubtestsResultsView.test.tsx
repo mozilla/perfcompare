@@ -89,6 +89,30 @@ describe('SubtestsResultsView Component Tests', () => {
     expect(document.body).toMatchSnapshot();
   });
 
+  it('should render the subtests results view with mann-whitney-u testVersions in url', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { subtestsResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult,
+    });
+
+    const expandRowButton = await screen.findAllByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton[0]);
+    expect(
+      await screen.findByText(/Goodness of Fit Test/i),
+    ).toBeInTheDocument();
+
+    await user.click(expandRowButton[1]);
+    const openedSubtests = await screen.findAllByText(/Normality Test/i);
+    expect(openedSubtests).toHaveLength(2);
+  });
+
   it('should request authorization code when "Retrigger" button is clicked', async () => {
     const { subtestsResult } = getTestData();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });

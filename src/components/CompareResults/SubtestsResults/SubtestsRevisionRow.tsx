@@ -12,6 +12,7 @@ import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
 import RevisionRowExpandable from '.././RevisionRowExpandable';
+import { STUDENT_T } from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
 import { FontSize, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
@@ -249,7 +250,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <RevisionRowExpandable
           id={id}
           result={result}
-          testVersion={testVersion}
+          testVersion={testVersion ?? STUDENT_T}
         />
       )}
     </>
@@ -260,7 +261,7 @@ interface RevisionRowProps {
   result: CompareResultsItem;
   gridTemplateColumns: string;
   replicates: boolean;
-  testVersion: TestVersion;
+  testVersion?: TestVersion;
 }
 
 export default SubtestsRevisionRow;

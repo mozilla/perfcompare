@@ -13,6 +13,7 @@ function checkValues({
   framework,
   baseParentSignature,
   newParentSignature,
+  testVersion,
 }: {
   baseRev: string | null;
   baseRepo: Repository['name'] | null;
@@ -21,6 +22,7 @@ function checkValues({
   framework: string | number | null;
   baseParentSignature: string | null;
   newParentSignature: string | null;
+  testVersion?: TestVersion;
 }): {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -30,6 +32,7 @@ function checkValues({
   frameworkName: Framework['name'];
   baseParentSignature: string;
   newParentSignature: string;
+  testVersion?: TestVersion;
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -90,6 +93,9 @@ function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
+  if (!testVersion) {
+    testVersion = STUDENT_T;
+  }
 
   return {
     baseRev,
@@ -100,6 +106,7 @@ function checkValues({
     frameworkName,
     baseParentSignature,
     newParentSignature,
+    testVersion,
   };
 }
 
@@ -124,7 +131,7 @@ export function loader({ request }: { request: Request }) {
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
   const replicates = url.searchParams.has('replicates');
-  const testVersion = (url.searchParams.get('test_version') ??
+  const testVersionFromUrl = (url.searchParams.get('test_version') ??
     STUDENT_T) as TestVersion;
 
   const {
@@ -136,6 +143,7 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     newParentSignature,
     baseParentSignature,
+    testVersion,
   } = checkValues({
     baseRev: baseRevFromUrl,
     baseRepo: baseRepoFromUrl,
@@ -144,6 +152,7 @@ export function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
+    testVersion: testVersionFromUrl,
   });
 
   const results = fetchSubtestsCompareResults({
