@@ -127,9 +127,9 @@ export type BasicStatItem = {
  Basic statistics item for a statistical test (like Shapiro-Wilk or KS test).
 */
 export type StatisticsTestItem = {
-  name: string;
-  stat: number;
-  pvalue: number;
+  test_name: string;
+  stat: number | null;
+  pvalue: number | null;
   interpretation: string | null;
 } | null;
 
@@ -158,12 +158,14 @@ export type CLESItem = {
 
 export type ModeItem = {
   mode_name: string;
-  mode_start: number;
-  mode_end: number;
-  ci_low: number | null;
-  ci_high: number | null;
-  shift: number | null;
-  shift_summary: string | null;
+  mode_start?: string;
+  mode_end?: string;
+  ci_low?: number | null;
+  ci_high?: number | null;
+  ci_warning?: string | null;
+  shift?: number | null;
+  shift_summary?: string | null;
+  median_shift_summary?: string | null;
 };
 
 /*
@@ -173,15 +175,14 @@ export type SilvermanKDEItem = {
   bandwidth: string;
   base_mode_count: number;
   new_mode_count: number;
-  base_location: number;
-  new_location: number;
+  base_locations: number[];
+  new_locations: number[];
   base_prominence: number;
   new_prominence: number;
   warnings: string[];
   modes: ModeItem[];
   is_regression: boolean | null;
   is_improvement: boolean | null;
-  ci_warning: string | null;
 };
 
 /*
@@ -221,14 +222,14 @@ export type MannWhitneyResultsItem = {
   cles?: CLESItem; // CLES: Common Language Effect Size, statistical effect interpretation from Mann-Whitney U
   kde_new: KDEItem; // KDE plots and summary plot with ISJ bandwidth for new runs
   kde_base: KDEItem; // KDE plots and summary plot with ISJ bandwidth for base runs
-  kde_summary_text: string[];
+  kde_warnings: string[];
   silverman_warnings?: string[] | null; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
   is_fit_good: boolean | null; // short form interpretation of KS test goodness of fit
   is_significant: boolean | null; // is the result statistically significant
   is_new_better: boolean | null; // is the new revision better than the base revision
   performance_intepretation: string; // short text interpretation of the performance change
-  direction_of_change: 'neutral' | 'better' | 'worse' | null; // 'neutral', 'better', or 'worse'
+  direction_of_change?: 'no change' | 'neutral' | 'better' | 'worse' | null; // 'neutral', 'better', or 'worse'
   new_is_better: boolean | null;
   lower_is_better: boolean | null;
   is_improvement: boolean | null;
@@ -239,6 +240,7 @@ export type MannWhitneyResultsItem = {
   is_regression: boolean | null;
   is_meaningful: boolean | null;
   more_runs_are_needed: boolean | null;
+  warning_c_delta?: string | null;
   /*
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
@@ -250,10 +252,10 @@ export type MannWhitneyResultsItem = {
   has_subtests: boolean;
   is_complete: boolean | null;
   // values on CompareResultsItem Type not to be rendered on MannWhitneyResultsItem type
-  confidence_text: never;
-  confidence: never;
-  base_median_value: never;
-  new_median_value: never;
+  confidence_text?: ConfidenceText | null;
+  confidence?: number | null;
+  base_median_value?: number | null;
+  new_median_value?: number | null;
 };
 
 export type HashToCommit = {

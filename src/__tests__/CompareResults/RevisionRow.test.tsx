@@ -117,6 +117,48 @@ describe('Expanded row', () => {
     expect(showLessButton).toBeInTheDocument();
   });
 
+  it('should display direction of change for in RevisionRowExpandable mann-whitney-u testVersion when expanded', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { mockMannWhitneyResultData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={mockMannWhitneyResultData}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const noChangeText = await screen.findByText(/no change/);
+    expect(noChangeText).toBeInTheDocument();
+  });
+
+  it('should display direction of change in RevisionRowExpandable for student-t testVersion when expanded', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={testCompareData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const betterText = await screen.findByText(/better/);
+    expect(betterText).toBeInTheDocument();
+  });
+
   it('should copy run values when "Copy values" is clicked', async () => {
     const writeTextMock = jest
       .spyOn(navigator.clipboard, 'writeText')
