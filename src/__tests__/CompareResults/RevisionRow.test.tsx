@@ -157,6 +157,22 @@ describe('Expanded row', () => {
 
     const betterText = await screen.findByText(/better/);
     expect(betterText).toBeInTheDocument();
+
+    renderWithRoute(
+      <RevisionRow
+        result={testCompareData[2]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+      />,
+    );
+
+    const expandRow = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRow);
+
+    const worseText = await screen.findByText(/worse/);
+    expect(worseText).toBeInTheDocument();
   });
 
   it('should copy run values when "Copy values" is clicked', async () => {
