@@ -5,7 +5,6 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { TestVersion } from '../../types/types';
-import { getModeInterpretation } from '../../utils/helpers';
 
 const METRIC_HEADERS = ['Metric', 'Base', 'New', 'Interpretation'];
 
@@ -178,7 +177,7 @@ export const MannWhitneyCompareMetrics = ({
             <td>Estimated Modes</td>
             <td>{baseMode}</td>
             <td>{newMode}</td>
-            <td>{getModeInterpretation(baseMode, newMode) ?? null}</td>
+            <td>{''}</td>
           </tr>
         </tbody>
       </table>

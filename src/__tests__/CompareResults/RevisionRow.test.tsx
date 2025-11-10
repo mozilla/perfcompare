@@ -171,6 +171,26 @@ describe('Expanded row', () => {
     expect(cliffsDelta).toHaveTextContent('55.00 %');
   });
 
+  it('should display N/A mean for missing baseAvgValue and newAvgValue in row headers for mann-whitney-u testVersion', async () => {
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[3]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const baseAvgValueNA = roles[1]?.childNodes[0];
+    expect(baseAvgValueNA).toHaveTextContent('N/A');
+    const newAvgValueNA = roles[3]?.childNodes[0];
+    expect(newAvgValueNA).toHaveTextContent('N/A');
+  });
+
   it('should display mean for base or new in row headers for student-t testVersion', async () => {
     const { testCompareData: rowData } = getTestData();
     renderWithRoute(
@@ -186,9 +206,11 @@ describe('Expanded row', () => {
     const roles = await screen.findAllByRole('cell');
     const baseMean = roles[1]?.childNodes[0];
     expect(baseMean).toHaveTextContent('704.84');
+    expect(baseMean).toHaveTextContent('ms');
 
     const newMean = roles[3]?.childNodes[0];
     expect(newMean).toHaveTextContent('712.44');
+    expect(newMean).toHaveTextContent('ms');
   });
 
   it('should copy run values when "Copy values" is clicked', async () => {

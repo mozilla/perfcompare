@@ -113,14 +113,14 @@ export type CompareResultsItem = {
  Basic statistics for base or new.
 */
 export type BasicStatItem = {
-  mean: number;
-  median: number;
-  stddev: number;
-  stddev_pct: number;
-  variance: number;
-  count: number;
-  min: number;
-  max: number;
+  mean?: number | null;
+  median?: number | null;
+  stddev?: number | null;
+  stddev_pct?: number | null;
+  variance?: number | null;
+  count?: number | null;
+  min?: number | null;
+  max?: number | null;
 };
 
 /*
@@ -176,7 +176,6 @@ export type SilvermanKDEItem = {
   base_mode_count: number;
   new_mode_count: number;
   mode_comments: string[];
-  warnings: string[];
   modes: ModeItem[];
 };
 

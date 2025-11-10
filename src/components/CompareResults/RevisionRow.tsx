@@ -158,6 +158,7 @@ const confidenceIcons = {
 
 const getSubtestsCompareWithBaseLink = (
   result: CompareResultsItem | MannWhitneyResultsItem,
+  testVersion: TestVersion,
 ) => {
   const params = new URLSearchParams({
     baseRev: result.base_rev,
@@ -167,6 +168,7 @@ const getSubtestsCompareWithBaseLink = (
     framework: String(result.framework_id),
     baseParentSignature: String(result.base_signature_id),
     newParentSignature: String(result.new_signature_id),
+    test_version: testVersion,
   });
 
   return `/subtests-compare-results?${params.toString()}`;
@@ -174,6 +176,7 @@ const getSubtestsCompareWithBaseLink = (
 
 const getSubtestsCompareOverTimeLink = (
   result: CompareResultsItem | MannWhitneyResultsItem,
+  testVersion: TestVersion,
 ) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
@@ -200,6 +203,7 @@ const getSubtestsCompareOverTimeLink = (
     selectedTimeRange: interval,
     baseParentSignature: String(result.base_signature_id),
     newParentSignature: String(result.new_signature_id),
+    test_version: testVersion,
   });
 
   return `/subtests-compare-over-time-results?${params.toString()}`;
@@ -211,9 +215,7 @@ function RevisionRow(props: RevisionRowProps) {
   const { result, view, gridTemplateColumns, replicates, testVersion } = props;
   const {
     platform,
-    base_avg_value: baseAvgValue,
     base_measurement_unit: baseUnit,
-    new_avg_value: newAvgValue,
     new_measurement_unit: newUnit,
     is_improvement: improvement,
     is_regression: regression,
@@ -228,11 +230,6 @@ function RevisionRow(props: RevisionRowProps) {
     base_runs_replicates: baseRunsReplicates,
   } = result;
 
-  const baseMean =
-    'base_standard_stats' in result ? result.base_standard_stats.mean : 0;
-  const newMean =
-    'new_standard_stats' in result ? result.new_standard_stats.mean : 0;
-
   const platformShortName = getPlatformShortName(platform);
   const platformIcon = platformIcons[platformShortName];
   const platformNameAndVersion = getPlatformAndVersion(platform);
@@ -240,7 +237,14 @@ function RevisionRow(props: RevisionRowProps) {
     ? baseRunsReplicates.length
     : baseRuns.length;
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
-
+  const baseAvgValue =
+    testVersion === MANN_WHITNEY_U
+      ? ((result as MannWhitneyResultsItem).base_standard_stats.mean ?? null)
+      : (result as CompareResultsItem).base_avg_value;
+  const newAvgValue =
+    testVersion === MANN_WHITNEY_U
+      ? ((result as MannWhitneyResultsItem).new_standard_stats.mean ?? null)
+      : (result as CompareResultsItem).new_avg_value;
   const [expanded, setExpanded] = useState(false);
 
   const toggleIsExpanded = () => {
@@ -250,8 +254,8 @@ function RevisionRow(props: RevisionRowProps) {
   // Note that the return type is different depending on the view we're in
   const subtestsCompareLink =
     view === compareView
-      ? getSubtestsCompareWithBaseLink(result)
-      : getSubtestsCompareOverTimeLink(result);
+      ? getSubtestsCompareWithBaseLink(result, testVersion)
+      : getSubtestsCompareOverTimeLink(result, testVersion);
 
   return (
     <>
@@ -305,16 +309,19 @@ function RevisionRow(props: RevisionRowProps) {
         {testVersion === MANN_WHITNEY_U && (
           <>
             <div className={`${browserName} cell`} role='cell'>
-              {formatNumber(baseMean)} {baseUnit}
+              {baseAvgValue ? formatNumber(baseAvgValue) : 'N/A'}{' '}
+              {baseUnit ?? ''}
               {getBrowserDisplay(baseApp, newApp, expanded) && (
                 <span className={FontSize.xSmall}>({baseApp})</span>
               )}
             </div>
             <div className='comparison-sign cell' role='cell'>
-              {determineSign(baseMean, newMean)}
+              {baseAvgValue && newAvgValue
+                ? determineSign(baseAvgValue, newAvgValue)
+                : '  '}
             </div>
             <div className={`${browserName} cell`} role='cell'>
-              {formatNumber(newMean)} {newUnit}
+              {newAvgValue ? formatNumber(newAvgValue) : 'N/A'} {newUnit ?? ''}
               {getBrowserDisplay(baseApp, newApp, expanded) && (
                 <span className={FontSize.xSmall}>({newApp})</span>
               )}
