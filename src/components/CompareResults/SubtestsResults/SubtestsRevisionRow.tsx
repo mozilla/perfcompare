@@ -12,10 +12,10 @@ import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
 import RevisionRowExpandable from '.././RevisionRowExpandable';
-import { STUDENT_T } from '../../../common/constants';
+import { MANN_WHITNEY_U, STUDENT_T } from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
 import { FontSize, Spacing } from '../../../styles';
-import type { CompareResultsItem } from '../../../types/state';
+import type { CompareResultsItem, MannWhitneyResultsItem } from '../../../types/state';
 import { TestVersion } from '../../../types/types';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
@@ -120,9 +120,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
   const { result, gridTemplateColumns, replicates, testVersion } = props;
   const {
     test,
-    base_avg_value: baseAvgValue,
     base_measurement_unit: baseUnit,
-    new_avg_value: newAvgValue,
     new_measurement_unit: newUnit,
     is_improvement: improvement,
     is_regression: regression,
@@ -136,6 +134,9 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     new_runs_replicates: newRunsReplicates,
     base_runs_replicates: baseRunsReplicates,
   } = result;
+
+  const baseAvgValue = (testVersion === MANN_WHITNEY_U? (result as MannWhitneyResultsItem).base_standard_stats.mean : (result as CompareResultsItem).base_avg_value) ?? 0;
+  const newAvgValue = (testVersion === MANN_WHITNEY_U? (result as MannWhitneyResultsItem).new_standard_stats.mean : (result as CompareResultsItem).new_avg_value) ?? 0;
 
   const baseRunsCount = replicates
     ? baseRunsReplicates.length
@@ -165,7 +166,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           )}
         </div>
         <div className='comparison-sign cell' role='cell'>
-          {determineSign(baseAvgValue, newAvgValue)}
+          {determineSign(baseAvgValue, newAvgValue ?? 0)}
         </div>
         <div className='browser-name cell' role='cell'>
           {formatNumber(newAvgValue)} {newUnit}
@@ -183,13 +184,13 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
                   : 'none',
             }}
             className={`status-hint ${determineStatusHintClass(
-              improvement,
-              regression,
+              !!improvement,
+              !!regression,
             )}`}
           >
             {improvement ? <ThumbUpIcon color='success' /> : null}
             {regression ? <ThumbDownIcon color='error' /> : null}
-            {determineStatus(improvement, regression)}
+            {determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
         <div className='delta cell' role='cell'>
@@ -200,6 +201,9 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText}
         </div>
+        {testVersion === MANN_WHITNEY_U && (<div className='effect cell' role='cell'>
+          {((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ?? 0) * 100} %{' '}
+        </div>)}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
@@ -258,7 +262,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  result: CompareResultsItem;
+  result: CompareResultsItem | MannWhitneyResultsItem;
   gridTemplateColumns: string;
   replicates: boolean;
   testVersion?: TestVersion;

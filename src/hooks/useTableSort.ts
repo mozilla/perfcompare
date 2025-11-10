@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type { CompareResultsItem } from '../types/state';
+import type { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
 import type {
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
+  TestVersion,
 } from '../types/types';
+import { MANN_WHITNEY_U } from '../common/constants';
 
 // This hook handles the state that handles table sorting, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -17,8 +19,8 @@ import type {
 
 const useTableSort = (
   columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
+    | CompareResultsTableConfig | CompareMannWhitneyResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig | CompareMannWhitneyResultsTableConfig
 ) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
@@ -75,18 +77,19 @@ export default useTableSort;
 // and direction. If no column is specified, the first column (the subtests)
 // is used.
 export function sortResults(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CompareResultsItem[],
+  columnsConfiguration: CompareResultsTableConfig | CompareMannWhitneyResultsTableConfig,
+  results: (CompareResultsItem | MannWhitneyResultsItem)[],
   columnId: string | null,
   direction: 'asc' | 'desc' | null,
-  defaultSortFunction: (
-    resultA: CompareResultsItem,
-    resultB: CompareResultsItem,
-  ) => number,
+  defaultSortFunction: ((
+    resultA: CompareResultsItem | MannWhitneyResultsItem,
+    resultB: CompareResultsItem | MannWhitneyResultsItem,
+  ) => number),
+  testVersion?: TestVersion,
 ) {
   let sortFunction = defaultSortFunction;
 
-  let columnConfiguration: CompareResultsTableConfig[number] | undefined;
+  let columnConfiguration: CompareResultsTableConfig[number] | CompareMannWhitneyResultsTableConfig[number] | undefined;
   if (columnId && direction) {
     columnConfiguration = columnsConfiguration.find(
       (column) => column.key === columnId,
@@ -103,13 +106,12 @@ export function sortResults(
       return results;
     }
 
-    sortFunction = columnConfiguration.sortFunction;
+    sortFunction = (columnConfiguration.sortFunction as any);
   }
 
   const directionedSortFunction =
     direction === 'desc'
-      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
-          sortFunction(itemB, itemA)
+      ? (itemA: CompareResultsItem | MannWhitneyResultsItem, itemB: CompareResultsItem | MannWhitneyResultsItem) => testVersion === MANN_WHITNEY_U ? sortFunction(itemB as MannWhitneyResultsItem, itemA as MannWhitneyResultsItem) : sortFunction(itemB as CompareResultsItem, itemA as CompareResultsItem)
       : sortFunction;
 
   return results.toSorted(directionedSortFunction);
