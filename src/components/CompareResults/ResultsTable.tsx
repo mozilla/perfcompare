@@ -9,12 +9,12 @@ import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeL
 import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
-import { STUDENT_T } from '../../common/constants';
+import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework } from '../../types/types';
-import type { CompareResultsTableConfig, TestVersion } from '../../types/types';
+import type { CompareMannWhitneyResultsTableConfig, CompareResultsTableConfig, TestVersion } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
 
 const columnsConfiguration: CompareResultsTableConfig = [
@@ -135,6 +135,138 @@ const columnsConfiguration: CompareResultsTableConfig = [
   { key: 'expand', gridWidth: '34px' }, // 1 button
 ];
 
+const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
+  {
+    name: 'Platform',
+    filter: true,
+    key: 'platform',
+    gridWidth: '1.5fr',
+    possibleValues: [
+      { label: 'Windows', key: 'windows' },
+      { label: 'macOS', key: 'osx' },
+      { label: 'Linux', key: 'linux' },
+      { label: 'Android', key: 'android' },
+      { label: 'iOS', key: 'ios' },
+    ],
+    matchesFunction(result, valueKey) {
+      const label = this.possibleValues.find(
+        ({ key }) => key === valueKey,
+      )?.label;
+      const platformName = getPlatformShortName(result.platform);
+      return platformName === label;
+    },
+  },
+  {
+    name: 'Base',
+    key: 'base',
+    gridWidth: '.5fr',
+    tooltip: 'A summary of all values from Base runs using a mean.',
+  },
+  {
+    key: 'comparisonSign',
+
+    gridWidth: '0.2fr',
+  },
+  {
+    name: 'New',
+    key: 'new',
+    gridWidth: '.5fr',
+    tooltip: 'A summary of all values from New runs using a mean.',
+  },
+  {
+    name: 'Status',
+    filter: true,
+    key: 'status',
+    gridWidth: '1fr',
+    possibleValues: [
+      { label: 'No changes', key: 'none' },
+      { label: 'Improvement', key: 'improvement' },
+      { label: 'Regression', key: 'regression' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'improvement':
+          return result.direction_of_change === 'better';
+        case 'regression':
+          return result.direction_of_change === 'worse';
+        default:
+          return false;
+      }
+    },
+  },
+  {
+    name: "Cliff's Delta",
+    key: 'cliffs_delta',
+    gridWidth: '1fr',
+    sortFunction(resultA, resultB) {
+      return (
+        Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta)
+      );
+    },
+    tooltip: 'Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values.',
+  },
+  {
+    name: 'Confidence',
+    filter: true,
+    key: 'confidence',
+    gridWidth: '1fr',
+    tooltip:
+      "",
+    possibleValues: [
+      { label: 'No value', key: 'none' },
+      { label: 'Low', key: 'low' },
+      { label: 'Medium', key: 'medium' },
+      { label: 'High', key: 'high' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'none':
+          return !result.confidence_text;
+        default: {
+          const label = this.possibleValues.find(
+            ({ key }) => key === valueKey,
+          )?.label;
+          return result.confidence_text === label;
+        }
+      }
+    },
+    sortFunction(resultA, resultB) {
+      const confidenceA =
+        resultA.cles?.cles && resultA.cles?.cles !== null
+          ? resultA?.cles?.cles
+          : -1;
+      const confidenceB =
+        resultB.cles?.cles && resultB.cles?.cles !== null
+          ? resultB?.cles?.cles
+          : -1;
+      return confidenceA - confidenceB;
+    },
+  },
+  {
+    name: "Effect Size (%)",
+    key: 'effect_size',
+    gridWidth: '1.25fr',
+    sortFunction(resultA, resultB) {
+      if(!resultA?.mann_whitney_test?.pvalue || !resultB?.mann_whitney_test?.pvalue) {
+        return 0;
+      }else{
+      return (Math.abs(resultA.mann_whitney_test.pvalue) - Math.abs(resultB.mann_whitney_test.pvalue));
+      }
+      
+    },
+    tooltip: 'Mann Whitney U test p-value indicating statistical significance.',
+  },
+  {
+    name: 'Total Runs',
+    key: 'runs',
+    gridWidth: '1fr',
+    tooltip: 'The total number of tasks/jobs that ran for this metric.',
+  },
+  // We use the real pixel value for the buttons, so that everything is better aligned.
+  { key: 'buttons', gridWidth: 'calc(2.25 * 34px)' }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
+  { key: 'expand', gridWidth: '34px' }, // 1 button
+];
+
 type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 export default function ResultsTable() {
   const {
@@ -186,7 +318,7 @@ export default function ResultsTable() {
     setSearchParams(searchParams);
   };
 
-  const rowGridTemplateColumns = columnsConfiguration
+  const rowGridTemplateColumns = (testVersion === MANN_WHITNEY_U? columnsMannWhitneyConfiguration: columnsConfiguration)
     .map((config) => config.gridWidth)
     .join(' ');
 
@@ -210,7 +342,7 @@ export default function ResultsTable() {
           onTestVersionChange={onTestVersionChange}
         />
         <TableHeader
-          columnsConfiguration={columnsConfiguration}
+          columnsConfiguration={testVersion === MANN_WHITNEY_U? columnsMannWhitneyConfiguration: columnsConfiguration}
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
@@ -240,7 +372,7 @@ export default function ResultsTable() {
         <Await resolve={resultsPromise}>
           {(resolvedResults) => (
             <TableContent
-              columnsConfiguration={columnsConfiguration}
+              columnsConfiguration={testVersion === MANN_WHITNEY_U? columnsMannWhitneyConfiguration: columnsConfiguration}
               results={resolvedResults}
               view={view}
               replicates={replicates}

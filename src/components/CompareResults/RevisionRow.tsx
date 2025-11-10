@@ -351,7 +351,7 @@ function RevisionRow(props: RevisionRowProps) {
               : determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
-        <div className='delta cell' role='cell'>
+        <div className='cliffs_delta cell' role='cell'>
           {' '}
           {testVersion === MANN_WHITNEY_U
             ? (result as MannWhitneyResultsItem).cliffs_delta &&
@@ -368,6 +368,10 @@ function RevisionRow(props: RevisionRowProps) {
             {confidenceText || '-'}
           </div>
         )}
+        {testVersion === MANN_WHITNEY_U && <div className='effects cell' role='cell'>
+          {(result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue &&
+              `${((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ?? 0) * 100} %`}
+        </div>}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
