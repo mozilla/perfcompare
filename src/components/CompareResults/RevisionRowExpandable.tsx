@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 
 import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
-import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
+import { MANN_WHITNEY_U } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type {
@@ -154,7 +154,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 unit={baseUnit || newUnit}
               />
               {/******* student t test rendering **************/}
-              {testVersion === STUDENT_T && (
+              {testVersion !== MANN_WHITNEY_U && (
                 <Distribution result={result as CompareResultsItem} />
               )}
               {/******* mann-whiteney rendering **************/}
@@ -186,7 +186,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 {lowerIsBetter ? 'lower' : 'higher'} is better)
               </Box>
               {/******* student t test rendering **************/}
-              {testVersion === STUDENT_T && (
+              {testVersion !== MANN_WHITNEY_U && (
                 <>
                   <Box sx={{ whiteSpace: 'nowrap' }}>
                     <b>Difference of means</b>: {deltaPercent}% (

@@ -6,7 +6,10 @@ import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../types/state';
 import type { Platform } from '../../types/types';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
@@ -25,7 +28,7 @@ function renderWithRoute(component: ReactElement, extraParameters?: string) {
 }
 
 function setupAndRender(
-  testCompareData: CompareResultsItem[],
+  testCompareData: CompareResultsItem[] | MannWhitneyResultsItem[],
   extraParameters?: string,
 ) {
   const { testData } = getTestData();
@@ -74,7 +77,11 @@ function summarizeVisibleRows() {
       const rows = within(revisionGroup).getAllByRole('row');
       for (const row of rows) {
         const rowString = ['.platform span', '.status', '.delta', '.confidence']
-          .map((selector) => row.querySelector(selector)!.textContent.trim())
+          .map(
+            (selector) =>
+              (selector && row.querySelector(selector)?.textContent?.trim()) ??
+              '',
+          )
           .join(', ');
 
         result.push('  - ' + rowString);
@@ -662,5 +669,245 @@ describe('Results Table', () => {
       '  - Linux 18.04, Regression, 1.85 %, Medium',
       '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
+  });
+});
+
+describe('Results Table with mann-whitney-u testVersion data', () => {
+  it('Should match snapshot', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+
+    const compareDataToChange = testCompareMannWhitneyData.at(-1)!;
+    Object.assign(compareDataToChange, {
+      extra_options: '',
+      header_name: `${compareDataToChange.suite} ${compareDataToChange.test} ${compareDataToChange.option_name}`,
+    });
+
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+
+    expect(await screen.findByRole('table')).toBeInTheDocument();
+    expect(document.body).toMatchSnapshot();
+  });
+
+  it('Display message for not finding results', async () => {
+    setupAndRender([], 'test_version=mann-whitney-u');
+    expect(await screen.findByText(/No results found/)).toBeInTheDocument();
+  });
+
+  it('should render different blocks when rendering several revisions', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    const simplerTestCompareData = [
+      testCompareMannWhitneyData[0],
+      { ...testCompareMannWhitneyData[0], new_rev: 'devilrabbit' },
+    ];
+
+    setupAndRender(simplerTestCompareData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - macOS 10.15, Better, 55.00 %, ',
+      '  rev: devilrabbit',
+      '  - macOS 10.15, Better, 55.00 %, ',
+    ]);
+    expect(screen.getByRole('rowgroup')).toMatchSnapshot();
+  });
+
+  it('should filter on the Platform column', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    testCompareMannWhitneyData.push(
+      {
+        ...testCompareMannWhitneyData[0],
+        platform: 'android-em-7-0-x86_64-lite-qr',
+      },
+      // This entry with an unknown platform will show up only when all values
+      // are checked.
+      {
+        ...testCompareMannWhitneyData[0],
+        platform: 'inexistant' as Platform,
+      },
+    );
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+
+    await screen.findByText('a11yr');
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Better, 55.00 %, ',
+      '  - inexistant, Better, 55.00 %, ',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+      '  - Windows 10, , 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await clickMenuItem(user, 'Platform', /Windows/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Better, 55.00 %, ',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      platform: ['osx', 'linux', 'android', 'ios'],
+    });
+
+    // Clicking Windows again should remove the search param and make the
+    // "inexitant" platform visible again.
+    await clickMenuItem(user, 'Platform', /Windows/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Better, 55.00 %, ',
+      '  - inexistant, Better, 55.00 %, ',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+      '  - Windows 10, , 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
+    await clickMenuItem(user, 'Platform', /Windows/);
+    await clickMenuItem(user, 'Platform', /Linux/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Better, 55.00 %, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      platform: ['osx', 'android', 'ios'],
+    });
+
+    await clickMenuItem(user, 'Platform', /Linux/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Better, 55.00 %, ',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      platform: ['osx', 'android', 'ios', 'linux'],
+    });
+
+    await clickMenuItem(user, 'Platform', 'Select all values');
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Better, 55.00 %, ',
+      '  - inexistant, Better, 55.00 %, ',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+      '  - Windows 10, , 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
+    await clickMenuItem(user, 'Platform', /macOS/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Better, 55.00 %, ',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - Windows 10, , 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      platform: ['windows', 'linux', 'android', 'ios'],
+    });
+
+    await clickMenuItem(user, 'Platform', /Android/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - Windows 10, , 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      platform: ['windows', 'linux', 'ios'],
+    });
+
+    await clickMenuItem(user, 'Platform', /Select only.*Android/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Better, 55.00 %, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      platform: ['android'],
+    });
+  });
+
+  it('should filter on the Status column', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+
+    await screen.findByText('a11yr');
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+      '  - Windows 10, , 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await clickMenuItem(user, 'Status', /No changes/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      status: ['improvement', 'regression'],
+    });
+
+    await clickMenuItem(user, 'Status', /Improvement/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      status: ['regression'],
+    });
+
+    await clickMenuItem(user, 'Status', /Select all values/);
+    await clickMenuItem(user, 'Status', /Regression/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - macOS 10.15, Better, 55.00 %, ',
+      '  - Windows 10, , 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      status: ['none', 'improvement'],
+    });
+
+    await clickMenuItem(user, 'Status', /Regression/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - macOS 10.15, Better, 55.00 %, ',
+      '  - Windows 10, , 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
+    await clickMenuItem(user, 'Status', /Select only.*Regression/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Worse, 0, ',
+      '  - Windows 10, Worse, 0, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      status: ['regression'],
+    });
+
+    await clickMenuItem(user, 'Status', /Select only.*Improvement/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - macOS 10.15, Better, 55.00 %, ',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      status: ['improvement'],
+    });
   });
 });

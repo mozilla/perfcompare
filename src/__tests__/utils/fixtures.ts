@@ -527,7 +527,7 @@ const getTestData = () => {
       is_significant: null,
       is_new_better: null,
       performance_intepretation: '',
-      direction_of_change: null,
+      direction_of_change: 'worse',
       shapiro_wilk_test_base: null,
       kde_warnings: [],
     },
@@ -620,7 +620,7 @@ const getTestData = () => {
       is_significant: null,
       is_new_better: null,
       performance_intepretation: '',
-      direction_of_change: null,
+      direction_of_change: 'worse',
       kde_warnings: [],
     },
     {
@@ -1248,6 +1248,30 @@ export function augmentCompareDataWithSeveralTests(
   return testCompareDataWithSeveralTests;
 }
 
+export function augmentCompareMannWhitneyDataWithSeveralTests(
+  testCompareData: MannWhitneyResultsItem[],
+): MannWhitneyResultsItem[] {
+  const testCompareDataWithSeveralTests = [
+    ...testCompareData,
+    // Add items with the same revision but a different test
+    ...testCompareData.map((item) => ({
+      ...item,
+      test: 'aria.html',
+      header_name: `${item.suite} aria.html ${item.option_name} ${item.extra_options}`,
+      // Different delta and confidence values, with some arbitrary changes
+      cliffs_delta: item.cliffs_delta + 1.2,
+      mann_whitney_test: {
+        ...(item?.mann_whitney_test ?? {}),
+        test_name: 'Mann Whitney U',
+        stat: 0,
+        pvalue: (item?.mann_whitney_test?.pvalue ?? 0) + 0.012,
+      },
+    })),
+  ];
+
+  return testCompareDataWithSeveralTests;
+}
+
 // This function takes an array of result items, and adds to it a copy of these
 // items where the "new" revision is changed. It also changes the delta and
 // confidence values so that a sorting operation can distinguish them.
@@ -1264,6 +1288,28 @@ export function augmentCompareDataWithSeveralRevisions(
       delta_value: item.delta_value + 0.8,
       delta_percentage: roundAtDigit(item.delta_percentage + 0.08, 2),
       confidence: item.confidence !== null ? item.confidence + 0.015 : null,
+    })),
+  ];
+
+  return testCompareDataWithSeveralRevisions;
+}
+
+export function augmentCompareMannWhitneyDataWithSeveralRevisions(
+  testCompareData: MannWhitneyResultsItem[],
+): MannWhitneyResultsItem[] {
+  const testCompareDataWithSeveralRevisions = [
+    ...testCompareData,
+    // Add items with the same tests, but a different revision
+    ...testCompareData.map((item) => ({
+      ...item,
+      new_rev: 'tictactoe',
+      cliffs_delta: item.cliffs_delta + 0.8,
+      mann_whitney_test: {
+        ...(item?.mann_whitney_test ?? {}),
+        test_name: 'Mann Whitney U',
+        stat: 0,
+        pvalue: (item?.mann_whitney_test?.pvalue ?? 0) + 0.012,
+      },
     })),
   ];
 

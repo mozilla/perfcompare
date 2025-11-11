@@ -19,6 +19,7 @@ import {
   compareView,
   compareOverTimeView,
   MANN_WHITNEY_U,
+  STUDENT_T,
 } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
@@ -239,11 +240,11 @@ function RevisionRow(props: RevisionRowProps) {
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
   const baseAvgValue =
     testVersion === MANN_WHITNEY_U
-      ? ((result as MannWhitneyResultsItem).base_standard_stats.mean ?? null)
+      ? ((result as MannWhitneyResultsItem)?.base_standard_stats?.mean ?? null)
       : (result as CompareResultsItem).base_avg_value;
   const newAvgValue =
     testVersion === MANN_WHITNEY_U
-      ? ((result as MannWhitneyResultsItem).new_standard_stats.mean ?? null)
+      ? ((result as MannWhitneyResultsItem)?.new_standard_stats?.mean ?? null)
       : (result as CompareResultsItem).new_avg_value;
   const [expanded, setExpanded] = useState(false);
 
@@ -328,30 +329,61 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </>
         )}
-        <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor: improvement
-                ? 'status.improvement'
-                : regression
-                  ? 'status.regression'
-                  : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              !!improvement,
-              !!regression,
-            )}`}
-          >
-            {improvement ? <ThumbUpIcon color='success' /> : null}
-            {regression ? <ThumbDownIcon color='error' /> : null}
-            {testVersion === MANN_WHITNEY_U
-              ? capitalize(
-                  (result as MannWhitneyResultsItem).direction_of_change ?? '',
-                )
-              : determineStatus(!!improvement, !!regression)}
-          </Box>
-        </div>
-        <div className='cliffs_delta cell' role='cell'>
+
+        {testVersion === MANN_WHITNEY_U ? (
+          <div className='status cell' role='cell'>
+            <Box
+              sx={{
+                bgcolor:
+                  (result as MannWhitneyResultsItem).direction_of_change ===
+                  'better'
+                    ? 'status.improvement'
+                    : (result as MannWhitneyResultsItem).direction_of_change ===
+                        'worse'
+                      ? 'status.regression'
+                      : 'none',
+              }}
+              className={`status-hint ${determineStatusHintClass(
+                (result as MannWhitneyResultsItem).direction_of_change ===
+                  'better',
+                (result as MannWhitneyResultsItem).direction_of_change ===
+                  'worse',
+              )}`}
+            >
+              {capitalize(
+                (result as MannWhitneyResultsItem).direction_of_change ?? '',
+              )}
+            </Box>
+          </div>
+        ) : (
+          <div className='status cell' role='cell'>
+            <Box
+              sx={{
+                bgcolor: improvement
+                  ? 'status.improvement'
+                  : regression
+                    ? 'status.regression'
+                    : 'none',
+              }}
+              className={`status-hint ${determineStatusHintClass(
+                (result as CompareResultsItem).is_improvement,
+                (result as CompareResultsItem).is_regression,
+              )}`}
+            >
+              {(result as CompareResultsItem).is_improvement ? (
+                <ThumbUpIcon color='success' />
+              ) : null}
+              {(result as CompareResultsItem).is_regression ? (
+                <ThumbDownIcon color='error' />
+              ) : null}
+              {determineStatus(
+                (result as CompareResultsItem).is_improvement,
+                (result as CompareResultsItem).is_regression,
+              )}
+            </Box>
+          </div>
+        )}
+        <div className='delta cell' role='cell'>
           {' '}
           {testVersion === MANN_WHITNEY_U
             ? (result as MannWhitneyResultsItem).cliffs_delta &&
@@ -359,7 +391,7 @@ function RevisionRow(props: RevisionRowProps) {
             : ` ${deltaPercent} % `}
         </div>
         {testVersion === MANN_WHITNEY_U ? (
-          <div className='confidence cell' role='cell'>
+          <div className='p_value cell' role='cell'>
             {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
           </div>
         ) : (
@@ -368,10 +400,12 @@ function RevisionRow(props: RevisionRowProps) {
             {confidenceText || '-'}
           </div>
         )}
-        {testVersion === MANN_WHITNEY_U && <div className='effects cell' role='cell'>
-          {(result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue &&
+        {testVersion === MANN_WHITNEY_U && (
+          <div className='effects cell' role='cell'>
+            {(result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue &&
               `${((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ?? 0) * 100} %`}
-        </div>}
+          </div>
+        )}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
@@ -455,7 +489,7 @@ function RevisionRow(props: RevisionRowProps) {
         <RevisionRowExpandable
           id={id}
           result={result}
-          testVersion={testVersion}
+          testVersion={testVersion ?? STUDENT_T}
         />
       )}
     </>
