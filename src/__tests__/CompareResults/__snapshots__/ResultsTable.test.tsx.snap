@@ -5460,6 +5460,126 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
 </body>
 `;
 
+exports[`Results Table with mann-whitney-u testVersion data can load the sort parameters from the URL for a descending sort 1`] = `
+<button
+  aria-label="Cliff's Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xn5agn-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Cliff's Delta in descending order
+    </title>
+  </svg>
+  Cliff's Delta
+</button>
+`;
+
+exports[`Results Table with mann-whitney-u testVersion data can load the sort parameters from the URL for an ascending sort 1`] = `
+<button
+  aria-label="Cliff's Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Cliff's Delta in ascending order
+    </title>
+  </svg>
+  Cliff's Delta
+</button>
+`;
+
+exports[`Results Table with mann-whitney-u testVersion data can sort the table and persist the sort parameters to the URL 1`] = `
+<button
+  aria-label="Delta (Click to sort by this column)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+    />
+    <title>
+      Not sorted by Delta
+    </title>
+  </svg>
+  Delta
+</button>
+`;
+
+exports[`Results Table with mann-whitney-u testVersion data can sort the table and persist the sort parameters to the URL 2`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xn5agn-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in descending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+      style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
+      />
+    </span>
+  </span>
+</button>
+`;
+
 exports[`Results Table with mann-whitney-u testVersion data should render different blocks when rendering several revisions 1`] = `
 <div
   class="f1k5y3nc"

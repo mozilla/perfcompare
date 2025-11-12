@@ -233,7 +233,7 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
       'Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values.',
   },
   {
-    name: 'Confidence (P-Value)',
+    name: 'Confidence',
     key: 'confidence',
     gridWidth: '1fr',
     tooltip:
