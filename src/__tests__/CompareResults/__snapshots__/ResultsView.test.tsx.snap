@@ -1396,7 +1396,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="delta cell"
+                  class="cliffs_delta cell"
                   role="cell"
                 >
                    
@@ -1605,7 +1605,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="delta cell"
+                  class="cliffs_delta cell"
                   role="cell"
                 >
                    
@@ -1803,7 +1803,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="delta cell"
+                  class="cliffs_delta cell"
                   role="cell"
                 >
                    
@@ -1990,7 +1990,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="delta cell"
+                  class="cliffs_delta cell"
                   role="cell"
                 >
                    

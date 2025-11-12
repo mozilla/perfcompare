@@ -1497,7 +1497,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="delta cell"
+                              class="cliffs_delta cell"
                               role="cell"
                             >
                                
@@ -1706,7 +1706,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="delta cell"
+                              class="cliffs_delta cell"
                               role="cell"
                             >
                                
@@ -1904,7 +1904,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="delta cell"
+                              class="cliffs_delta cell"
                               role="cell"
                             >
                                
@@ -2183,7 +2183,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="delta cell"
+                              class="cliffs_delta cell"
                               role="cell"
                             >
                                

@@ -1,13 +1,15 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type { CompareResultsItem } from '../types/state';
+import type { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableColumn,
   CompareMannWhitneyResultsTableConfig,
   CompareMannWhitneyResultsTableColumn,
+  TestVersion,
 } from '../types/types';
+import { MANN_WHITNEY_U } from '../common/constants';
 
 // This hook handles the state that handles table filtering, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -137,12 +139,13 @@ export default useTableFilters;
 
 /* --- Functions used to implement the filtering --- */
 function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig,
-  result: CompareResultsItem,
+  columnsConfiguration: CompareResultsTableConfig | CompareMannWhitneyResultsTableConfig,
+  result: CompareResultsItem | MannWhitneyResultsItem,
   columnId: string,
   checkedValues: Set<string>,
+  testVersion?: TestVersion,
 ): boolean {
-  const columnConfiguration = columnsConfiguration.find(
+  const columnConfiguration = (testVersion === MANN_WHITNEY_U ? (columnsConfiguration as CompareMannWhitneyResultsTableConfig) : (columnsConfiguration as CompareResultsTableConfig)).find(
     (column) => column.key === columnId,
   );
   if (!columnConfiguration || !('filter' in columnConfiguration)) {
@@ -156,7 +159,7 @@ function resultMatchesColumnFilter(
   }
 
   for (const filterValueKey of checkedValues) {
-    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
+    if (columnConfiguration.matchesFunction(result as CompareResultsItem, filterValueKey)) {
       return true;
     }
   }
@@ -172,11 +175,11 @@ function resultMatchesColumnFilter(
 // a "-" character.
 export function filterResults(
   columnsConfiguration: CompareResultsTableConfig,
-  results: CompareResultsItem[],
+  results: (CompareResultsItem | MannWhitneyResultsItem)[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
   resultMatchesSearchTerm: (
-    result: CompareResultsItem,
+    result: CompareResultsItem | MannWhitneyResultsItem,
     searchTerm: string,
   ) => boolean,
 ) {

@@ -106,7 +106,7 @@ function processResults(
 // This function implements the simple string search. It is passed to filterResults.
 // searchTerm needs to be lowerCased already.
 function resultMatchesSearchTerm(
-  result: CompareResultsItem,
+  result: CompareResultsItem | MannWhitneyResultsItem,
   lowerCasedSearchTerm: string,
 ) {
   return (
@@ -127,8 +127,8 @@ const stringComparisonCollator = new Intl.Collator('en', {
 // test and options), and platform, so that the order is stable when reloading
 // the page.
 function defaultSortFunction(
-  itemA: CompareResultsItem,
-  itemB: CompareResultsItem,
+  itemA: CompareResultsItem | MannWhitneyResultsItem,
+  itemB: CompareResultsItem | MannWhitneyResultsItem,
 ) {
   const keyA = itemA.header_name + ' ' + itemA.platform;
   const keyB = itemB.header_name + ' ' + itemB.platform;
@@ -204,7 +204,7 @@ function TableContent({
   }, [columnsConfiguration, filteredResults, sortColumn, sortDirection]);
 
   const processedResults = useMemo(() => {
-    return processResults(sortedResults);
+    return processResults(sortedResults as any);
   }, [sortedResults]);
 
   if (!filteredResults.length) {
