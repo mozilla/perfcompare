@@ -142,11 +142,11 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
   const baseAvgValue =
     (testVersion === MANN_WHITNEY_U
       ? (result as MannWhitneyResultsItem)?.base_standard_stats?.mean
-      : (result as CompareResultsItem).base_avg_value) ?? 0;
+      : (result as CompareResultsItem)?.base_avg_value) ?? 0;
   const newAvgValue =
     (testVersion === MANN_WHITNEY_U
       ? (result as MannWhitneyResultsItem)?.new_standard_stats?.mean
-      : (result as CompareResultsItem).new_avg_value) ?? 0;
+      : (result as CompareResultsItem)?.new_avg_value) ?? 0;
 
   const baseRunsCount = replicates
     ? baseRunsReplicates.length
