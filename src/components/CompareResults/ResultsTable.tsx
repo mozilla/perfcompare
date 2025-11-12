@@ -196,7 +196,7 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
   },
   {
     name: "Cliff's Delta",
-    key: 'cliffs_delta',
+    key: 'delta',
     gridWidth: '1fr',
     sortFunction(resultA, resultB) {
       return (

@@ -239,11 +239,11 @@ function RevisionRow(props: RevisionRowProps) {
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
   const baseAvgValue =
     testVersion === MANN_WHITNEY_U
-      ? ((result as MannWhitneyResultsItem).base_standard_stats.mean ?? null)
+      ? ((result as MannWhitneyResultsItem)?.base_standard_stats?.mean ?? null)
       : (result as CompareResultsItem).base_avg_value;
   const newAvgValue =
     testVersion === MANN_WHITNEY_U
-      ? ((result as MannWhitneyResultsItem).new_standard_stats.mean ?? null)
+      ? ((result as MannWhitneyResultsItem)?.new_standard_stats?.mean ?? null)
       : (result as CompareResultsItem).new_avg_value;
   const [expanded, setExpanded] = useState(false);
 
@@ -351,7 +351,7 @@ function RevisionRow(props: RevisionRowProps) {
               : determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
-        <div className='cliffs_delta cell' role='cell'>
+        <div className='delta cell' role='cell'>
           {' '}
           {testVersion === MANN_WHITNEY_U
             ? (result as MannWhitneyResultsItem).cliffs_delta &&
