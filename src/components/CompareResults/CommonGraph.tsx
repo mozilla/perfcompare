@@ -293,8 +293,8 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
       extent: [min, max],
     }),
   );
-  //////////////////// END FAST KDE   ////////////////////////
 
+  //////////////////// END FAST KDE   ////////////////////////
   const data = {
     datasets: [
       {
@@ -323,7 +323,7 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
         data: allValuesData,
         // Color code points by category using dynamic function
         backgroundColor: (context: ScriptableContext<'scatter'>) =>
-          ((context.raw as { y: 'Base' | 'New' }).y === 'Base'
+          ((context.raw as { y: 'Base' | 'New' })?.y === 'Base'
             ? Colors.ChartBase
             : Colors.ChartNew) + '99', // Add 60% transparency to the hexadecimal color
       },
