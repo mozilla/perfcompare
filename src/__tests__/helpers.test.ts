@@ -1,3 +1,5 @@
+import { capitalize } from '@mui/material';
+
 import {
   formatDate,
   getLatestCommitMessage,
@@ -6,6 +8,7 @@ import {
   swapArrayElements,
   getDocsURL,
   getModeInterpretation,
+  cliffsDeltaPercentage,
 } from '../utils/helpers';
 import getTestData from './utils/fixtures';
 
@@ -178,5 +181,40 @@ describe('getModeInterpretation', () => {
     expect(expectedStr0).toBe('Base is N/A and New is unimodal');
     const expectedStr3 = getModeInterpretation(baseMode1, newModenull);
     expect(expectedStr3).toBe('Base is unimodal and New is N/A');
+  });
+});
+
+describe('capitalize', () => {
+  const string1 = 'i love my dog.';
+  const string2 = 'monkey';
+  const string3 = '';
+
+  it('should capitalize first letter of a string', () => {
+    const capializedString1 = capitalize(string1);
+    expect(capializedString1).toBe('I love my dog.');
+    const capializedString2 = capitalize(string2);
+    expect(capializedString2).toBe('Monkey');
+    const capializedString3 = capitalize(string3);
+    expect(capializedString3).toBe('');
+  });
+
+  it('should handle empty string', () => {
+    const capializedString3 = capitalize(string3);
+    expect(capializedString3).toBe('');
+  });
+});
+
+describe('cliffsDeltaPercentage', () => {
+  const cliffs_delta1 = 0.1;
+  const cliffs_delta2 = -1;
+  const cliffs_delta3 = 1;
+
+  it('should calculate cliffs delta percentage', () => {
+    const expectedValue = cliffsDeltaPercentage(cliffs_delta1);
+    expect(expectedValue).toBe('55.00');
+    const expectedValue2 = cliffsDeltaPercentage(cliffs_delta2);
+    expect(expectedValue2).toBe('0.00');
+    const expectedValue3 = cliffsDeltaPercentage(cliffs_delta3);
+    expect(expectedValue3).toBe('100.00');
   });
 });

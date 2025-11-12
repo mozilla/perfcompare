@@ -113,14 +113,14 @@ export type CompareResultsItem = {
  Basic statistics for base or new.
 */
 export type BasicStatItem = {
-  mean: number;
-  median: number;
-  stddev: number;
-  stddev_pct: number;
-  variance: number;
-  count: number;
-  min: number;
-  max: number;
+  mean?: number | null;
+  median?: number | null;
+  stddev?: number | null;
+  stddev_pct?: number | null;
+  variance?: number | null;
+  count?: number | null;
+  min?: number | null;
+  max?: number | null;
 };
 
 /*
@@ -130,7 +130,7 @@ export type StatisticsTestItem = {
   test_name: string;
   stat: number | null;
   pvalue: number | null;
-  interpretation: string | null;
+  interpretation?: string | null;
 } | null;
 
 /*
@@ -229,7 +229,7 @@ export type MannWhitneyResultsItem = {
   is_significant: boolean | null; // is the result statistically significant
   is_new_better: boolean | null; // is the new revision better than the base revision
   performance_intepretation: string; // short text interpretation of the performance change
-  direction_of_change?: 'no change' | 'neutral' | 'better' | 'worse' | null; // 'neutral', 'better', or 'worse'
+  direction_of_change: 'no change' | 'better' | 'worse' | null; // 'no change', 'better', or 'worse'
   new_is_better: boolean | null;
   lower_is_better: boolean | null;
   is_improvement: boolean | null;
@@ -252,10 +252,12 @@ export type MannWhitneyResultsItem = {
   has_subtests: boolean;
   is_complete: boolean | null;
   // values on CompareResultsItem Type not to be rendered on MannWhitneyResultsItem type
+  base_avg_value?: number;
+  new_avg_value?: number;
   confidence_text?: ConfidenceText | null;
-  confidence?: number | null;
-  base_median_value?: number | null;
-  new_median_value?: number | null;
+  confidence?: number;
+  base_median_value?: number;
+  new_median_value?: number;
 };
 
 export type HashToCommit = {
