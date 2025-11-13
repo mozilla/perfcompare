@@ -236,34 +236,8 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
     gridWidth: '1fr',
     tooltip:
       "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
-    possibleValues: [
-      { label: 'No value', key: 'none' },
-      { label: 'Low', key: 'low' },
-      { label: 'Medium', key: 'medium' },
-      { label: 'High', key: 'high' },
-    ],
-    matchesFunction(result, valueKey) {
-      switch (valueKey) {
-        case 'none':
-          return !result.confidence_text;
-        default: {
-          const label = this.possibleValues.find(
-            ({ key }) => key === valueKey,
-          )?.label;
-          return result.confidence_text === label;
-        }
-      }
-    },
     sortFunction(resultA, resultB) {
-      const confidenceA =
-        resultA?.cles?.cles && resultA?.cles?.cles !== null
-          ? resultA?.cles?.cles
-          : -1;
-      const confidenceB =
-        resultB?.cles?.cles && resultB?.cles?.cles !== null
-          ? resultB?.cles?.cles
-          : -1;
-      return confidenceA - confidenceB;
+      return Math.abs(resultA?.mann_whitney_test?.pvalue ?? 0) - Math.abs(resultB?.mann_whitney_test?.pvalue ?? 0);
     },
   },
   {
