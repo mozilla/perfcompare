@@ -6,6 +6,7 @@ import {
   nonDocumentedTestsDevTools,
   supportedPerfdocsFrameworks,
 } from '../common/constants';
+import { treeherderBaseURL } from '../logic/treeherder';
 import type { Repository, Changeset } from '../types/state';
 import type { Framework, SupportedPerfdocsFramework } from '../types/types';
 
@@ -49,7 +50,7 @@ const getTreeherderURL = (
   revision: Changeset['revision'],
   repository: Repository['name'],
 ) =>
-  `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;
+  `${treeherderBaseURL}/jobs?repo=${repository}&revision=${revision}`;
 
 const createDevtoolsDocsUrl = (
   supportedFramework: string,

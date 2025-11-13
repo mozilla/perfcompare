@@ -12,7 +12,9 @@ import { Framework, TestVersion, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
-export const treeherderBaseURL = 'https://treeherder.mozilla.org';
+// export const treeherderBaseURL = 'https://treeherder.mozilla.org';
+//TODO: to be swapped out of staging after backend deployment
+export const treeherderBaseURL = 'https://treeherder.allizom.org';
 
 type FetchProps = {
   baseRepo: Repository['name'];
