@@ -91,7 +91,6 @@ export function sortResults(
     resultA: CompareResultsItem | MannWhitneyResultsItem,
     resultB: CompareResultsItem | MannWhitneyResultsItem,
   ) => number,
-  testVersion?: TestVersion,
 ) {
   let sortFunction = defaultSortFunction;
 

@@ -14,7 +14,6 @@ import { Framework, TestVersion, TimeRange } from '../types/types';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
-
 type FetchProps = {
   baseRepo: Repository['name'];
   baseRev: string;

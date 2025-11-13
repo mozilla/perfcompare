@@ -392,7 +392,8 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
         {testVersion === MANN_WHITNEY_U ? (
           <div className='confidence cell' role='cell'>
-            {(result as MannWhitneyResultsItem).mann_whitney_test?.pvalue || '-'}
+            {(result as MannWhitneyResultsItem).mann_whitney_test?.pvalue ||
+              '-'}
           </div>
         ) : (
           <div className='confidence cell' role='cell'>
