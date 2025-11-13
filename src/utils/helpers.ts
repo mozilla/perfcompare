@@ -6,7 +6,6 @@ import {
   nonDocumentedTestsDevTools,
   supportedPerfdocsFrameworks,
 } from '../common/constants';
-import { treeherderBaseURL } from '../logic/treeherder';
 import type { Repository, Changeset } from '../types/state';
 import type { Framework, SupportedPerfdocsFramework } from '../types/types';
 
@@ -50,7 +49,7 @@ const getTreeherderURL = (
   revision: Changeset['revision'],
   repository: Repository['name'],
 ) =>
-  `${treeherderBaseURL}/jobs?repo=${repository}&revision=${revision}`;
+  `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;
 
 const createDevtoolsDocsUrl = (
   supportedFramework: string,
@@ -142,7 +141,6 @@ const getModeInterpretation = (
   }
 };
 
-// Capitalize first letter in string
 const capitalize = (str: string) => {
   if (str === '') return '';
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -160,7 +158,7 @@ export {
   swapArrayElements,
   truncateHash,
   getDocsURL,
-  getModeInterpretation,
   capitalize,
   cliffsDeltaPercentage,
+  getModeInterpretation
 };

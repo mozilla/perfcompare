@@ -15,7 +15,10 @@ import RevisionRowExpandable from '.././RevisionRowExpandable';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
 import { FontSize, Spacing } from '../../../styles';
-import type { CompareResultsItem, MannWhitneyResultsItem } from '../../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../../types/state';
 import { TestVersion } from '../../../types/types';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
@@ -135,8 +138,14 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     base_runs_replicates: baseRunsReplicates,
   } = result;
 
-  const baseAvgValue = (testVersion === MANN_WHITNEY_U? (result as MannWhitneyResultsItem)?.base_standard_stats?.mean : (result as CompareResultsItem).base_avg_value) ?? 0;
-  const newAvgValue = (testVersion === MANN_WHITNEY_U? (result as MannWhitneyResultsItem)?.new_standard_stats?.mean : (result as CompareResultsItem).new_avg_value) ?? 0;
+  const baseAvgValue =
+    (testVersion === MANN_WHITNEY_U
+      ? (result as MannWhitneyResultsItem)?.base_standard_stats?.mean
+      : (result as CompareResultsItem).base_avg_value) ?? 0;
+  const newAvgValue =
+    (testVersion === MANN_WHITNEY_U
+      ? (result as MannWhitneyResultsItem)?.new_standard_stats?.mean
+      : (result as CompareResultsItem).new_avg_value) ?? 0;
 
   const baseRunsCount = replicates
     ? baseRunsReplicates.length
@@ -201,9 +210,13 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText}
         </div>
-        {testVersion === MANN_WHITNEY_U && (<div className='effect cell' role='cell'>
-          {((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ?? 0) * 100} %{' '}
-        </div>)}
+        {testVersion === MANN_WHITNEY_U && (
+          <div className='effect cell' role='cell'>
+            {((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ??
+              0) * 100}{' '}
+            %{' '}
+          </div>
+        )}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>

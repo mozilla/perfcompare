@@ -368,10 +368,12 @@ function RevisionRow(props: RevisionRowProps) {
             {confidenceText || '-'}
           </div>
         )}
-        {testVersion === MANN_WHITNEY_U && <div className='effects cell' role='cell'>
-          {(result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue &&
+        {testVersion === MANN_WHITNEY_U && (
+          <div className='effects cell' role='cell'>
+            {(result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue &&
               `${((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ?? 0) * 100} %`}
-        </div>}
+          </div>
+        )}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>

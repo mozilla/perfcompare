@@ -14,7 +14,11 @@ import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework } from '../../types/types';
-import type { CompareMannWhitneyResultsTableConfig, CompareResultsTableConfig, TestVersion } from '../../types/types';
+import type {
+  CompareMannWhitneyResultsTableConfig,
+  CompareResultsTableConfig,
+  TestVersion,
+} from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
 
 const columnsConfiguration: CompareResultsTableConfig = [
@@ -199,19 +203,17 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
     key: 'delta',
     gridWidth: '1fr',
     sortFunction(resultA, resultB) {
-      return (
-        Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta)
-      );
+      return Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta);
     },
-    tooltip: 'Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values.',
+    tooltip:
+      'Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values.',
   },
   {
     name: 'Confidence',
     filter: true,
     key: 'confidence',
     gridWidth: '1fr',
-    tooltip:
-      "",
+    tooltip: '',
     possibleValues: [
       { label: 'No value', key: 'none' },
       { label: 'Low', key: 'low' },
@@ -243,16 +245,21 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
     },
   },
   {
-    name: "Effect Size (%)",
+    name: 'Effect Size (%)',
     key: 'effect_size',
     gridWidth: '1.25fr',
     sortFunction(resultA, resultB) {
-      if(!resultA?.mann_whitney_test?.pvalue || !resultB?.mann_whitney_test?.pvalue) {
+      if (
+        !resultA?.mann_whitney_test?.pvalue ||
+        !resultB?.mann_whitney_test?.pvalue
+      ) {
         return 0;
-      }else{
-      return (Math.abs(resultA.mann_whitney_test.pvalue) - Math.abs(resultB.mann_whitney_test.pvalue));
+      } else {
+        return (
+          Math.abs(resultA.mann_whitney_test.pvalue) -
+          Math.abs(resultB.mann_whitney_test.pvalue)
+        );
       }
-      
     },
     tooltip: 'Mann Whitney U test p-value indicating statistical significance.',
   },
@@ -318,7 +325,11 @@ export default function ResultsTable() {
     setSearchParams(searchParams);
   };
 
-  const rowGridTemplateColumns = (testVersion === MANN_WHITNEY_U? columnsMannWhitneyConfiguration: columnsConfiguration)
+  const rowGridTemplateColumns = (
+    testVersion === MANN_WHITNEY_U
+      ? columnsMannWhitneyConfiguration
+      : columnsConfiguration
+  )
     .map((config) => config.gridWidth)
     .join(' ');
 
@@ -342,7 +353,11 @@ export default function ResultsTable() {
           onTestVersionChange={onTestVersionChange}
         />
         <TableHeader
-          columnsConfiguration={testVersion === MANN_WHITNEY_U? columnsMannWhitneyConfiguration: columnsConfiguration}
+          columnsConfiguration={
+            testVersion === MANN_WHITNEY_U
+              ? columnsMannWhitneyConfiguration
+              : columnsConfiguration
+          }
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
@@ -372,7 +387,11 @@ export default function ResultsTable() {
         <Await resolve={resultsPromise}>
           {(resolvedResults) => (
             <TableContent
-              columnsConfiguration={testVersion === MANN_WHITNEY_U? columnsMannWhitneyConfiguration: columnsConfiguration}
+              columnsConfiguration={
+                testVersion === MANN_WHITNEY_U
+                  ? columnsMannWhitneyConfiguration
+                  : columnsConfiguration
+              }
               results={resolvedResults}
               view={view}
               replicates={replicates}

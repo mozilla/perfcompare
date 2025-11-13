@@ -74,7 +74,9 @@ function summarizeVisibleRows() {
       const rows = within(revisionGroup).getAllByRole('row');
       for (const row of rows) {
         const rowString = ['.platform span', '.status', '.delta', '.confidence']
-          .map((selector) => (selector? row.querySelector(selector)?.textContent?.trim(): ''))
+          .map((selector) =>
+            selector ? row.querySelector(selector)?.textContent?.trim() : '',
+          )
           .join(', ');
 
         result.push('  - ' + rowString);

@@ -69,14 +69,14 @@ type ListOfResultsGroupedByTest = Array<
 >;
 
 function processResults(
-  results: CompareResultsItem[],
+  results: (CompareResultsItem | MannWhitneyResultsItem)[],
 ): ListOfResultsGroupedByTest {
   // This map will make it possible to group all results by test header first,
   // and by revision then.
   // Map<header, Map<revision, array of results>>
   const processedResults: Map<
     string,
-    Map<string, CompareResultsItem[]>
+    Map<string, (CompareResultsItem | MannWhitneyResultsItem)[]>
   > = new Map();
 
   for (const result of results) {
@@ -178,7 +178,7 @@ function TableContent({
 
     const filteredResults = filterResults(
       columnsConfiguration,
-      resultsForCurrentComparison as CompareResultsItem[],
+      resultsForCurrentComparison,
       filteringSearchTerm,
       tableFilters,
       resultMatchesSearchTerm,
@@ -204,7 +204,7 @@ function TableContent({
   }, [columnsConfiguration, filteredResults, sortColumn, sortDirection]);
 
   const processedResults = useMemo(() => {
-    return processResults(sortedResults as any);
+    return processResults(sortedResults);
   }, [sortedResults]);
 
   if (!filteredResults.length) {

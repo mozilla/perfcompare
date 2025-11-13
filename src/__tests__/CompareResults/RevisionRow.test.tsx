@@ -195,7 +195,8 @@ describe('Expanded row', () => {
     const normalityTestHeader = await screen.findByText(/Normality Test/);
     expect(normalityTestHeader).toBeInTheDocument();
 
-    const goodnessFitTestHeader = await screen.findByText(/Goodness of Fit Test/);
+    const goodnessFitTestHeader =
+      await screen.findByText(/Goodness of Fit Test/);
     expect(goodnessFitTestHeader).toBeInTheDocument();
 
     const cliffsDeltaHeader = await screen.findByText(/Cliff's Delta/);

@@ -7,15 +7,18 @@ import { Await } from 'react-router';
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
+import { MANN_WHITNEY_U } from '../../../common/constants';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
-import type { CompareResultsItem, MannWhitneyResultsItem } from '../../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../../types/state';
 import type {
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
   TestVersion,
 } from '../../../types/types';
-import { MANN_WHITNEY_U } from '../../../common/constants';
 
 type SubtestsResults = {
   key: string;
@@ -25,8 +28,13 @@ type SubtestsResults = {
   value: (CompareResultsItem | MannWhitneyResultsItem)[];
 };
 
-function processResults(results: (CompareResultsItem | MannWhitneyResultsItem)[]) {
-  const processedResults = new Map<string, (CompareResultsItem | MannWhitneyResultsItem)[]>();
+function processResults(
+  results: (CompareResultsItem | MannWhitneyResultsItem)[],
+) {
+  const processedResults = new Map<
+    string,
+    (CompareResultsItem | MannWhitneyResultsItem)[]
+  >();
   results.forEach((result) => {
     const { header_name: header } = result;
     const processedResult = processedResults.get(header);
@@ -216,11 +224,10 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
     key: 'delta',
     gridWidth: '1.25fr',
     sortFunction(resultA, resultB) {
-      return (
-        Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta)
-      );
+      return Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta);
     },
-    tooltip: 'Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values.',
+    tooltip:
+      'Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values.',
   },
   {
     name: 'Confidence',
@@ -260,16 +267,24 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
     },
   },
   {
-    name: "Effect Size (%)",
+    name: 'Effect Size (%)',
     key: 'effect_size',
     gridWidth: '1.25fr',
-    sortFunction(resultA: MannWhitneyResultsItem, resultB: MannWhitneyResultsItem) {
-      if(!resultA.mann_whitney_test?.pvalue || !resultB.mann_whitney_test?.pvalue) {
+    sortFunction(
+      resultA: MannWhitneyResultsItem,
+      resultB: MannWhitneyResultsItem,
+    ) {
+      if (
+        !resultA.mann_whitney_test?.pvalue ||
+        !resultB.mann_whitney_test?.pvalue
+      ) {
         return 0;
-      }else{
-      return (Math.abs(resultA.mann_whitney_test.pvalue) - Math.abs(resultB.mann_whitney_test.pvalue?? 0));
+      } else {
+        return (
+          Math.abs(resultA.mann_whitney_test.pvalue) -
+          Math.abs(resultB.mann_whitney_test.pvalue ?? 0)
+        );
       }
-      
     },
     tooltip: 'Mann Whitney U test p-value indicating statistical significance.',
   },
@@ -293,7 +308,9 @@ function resultMatchesSearchTerm(
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
-  resultsPromise: (CompareResultsItem | MannWhitneyResultsItem)[] | Promise<(CompareResultsItem | MannWhitneyResultsItem)[]>;
+  resultsPromise:
+    | (CompareResultsItem | MannWhitneyResultsItem)[]
+    | Promise<(CompareResultsItem | MannWhitneyResultsItem)[]>;
   replicates: boolean;
   testVersion?: TestVersion;
 };
@@ -306,12 +323,22 @@ function SubtestsResultsTable({
 }: ResultsTableProps) {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
-  const { tableFilters, onClearFilter, onToggleFilter } =
-    useTableFilters((testVersion === MANN_WHITNEY_U ? columnsMannWhitneyConfiguration : columnsConfiguration));
-  const { sortColumn, sortDirection, onToggleSort } =
-    useTableSort((testVersion === MANN_WHITNEY_U ? columnsMannWhitneyConfiguration : columnsConfiguration));
+  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters(
+    testVersion === MANN_WHITNEY_U
+      ? columnsMannWhitneyConfiguration
+      : columnsConfiguration,
+  );
+  const { sortColumn, sortDirection, onToggleSort } = useTableSort(
+    testVersion === MANN_WHITNEY_U
+      ? columnsMannWhitneyConfiguration
+      : columnsConfiguration,
+  );
 
-  const rowGridTemplateColumns = (testVersion === MANN_WHITNEY_U ? columnsMannWhitneyConfiguration : columnsConfiguration)
+  const rowGridTemplateColumns = (
+    testVersion === MANN_WHITNEY_U
+      ? columnsMannWhitneyConfiguration
+      : columnsConfiguration
+  )
     .map((config) => config.gridWidth)
     .join(' ');
 
@@ -323,7 +350,11 @@ function SubtestsResultsTable({
     >
       {/* Using the same TableHeader component as the CompareResults components but with different columnsConfiguration */}
       <TableHeader
-        columnsConfiguration={testVersion === MANN_WHITNEY_U ? columnsMannWhitneyConfiguration : columnsConfiguration}
+        columnsConfiguration={
+          testVersion === MANN_WHITNEY_U
+            ? columnsMannWhitneyConfiguration
+            : columnsConfiguration
+        }
         filters={tableFilters}
         onToggleFilter={onToggleFilter}
         onClearFilter={onClearFilter}

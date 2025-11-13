@@ -1,7 +1,11 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
+import { MANN_WHITNEY_U } from '../common/constants';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../types/state';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableColumn,
@@ -9,7 +13,6 @@ import type {
   CompareMannWhitneyResultsTableColumn,
   TestVersion,
 } from '../types/types';
-import { MANN_WHITNEY_U } from '../common/constants';
 
 // This hook handles the state that handles table filtering, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -139,15 +142,19 @@ export default useTableFilters;
 
 /* --- Functions used to implement the filtering --- */
 function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig | CompareMannWhitneyResultsTableConfig,
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig,
   result: CompareResultsItem | MannWhitneyResultsItem,
   columnId: string,
   checkedValues: Set<string>,
   testVersion?: TestVersion,
 ): boolean {
-  const columnConfiguration = (testVersion === MANN_WHITNEY_U ? (columnsConfiguration as CompareMannWhitneyResultsTableConfig) : (columnsConfiguration as CompareResultsTableConfig)).find(
-    (column) => column.key === columnId,
-  );
+  const columnConfiguration = (
+    testVersion === MANN_WHITNEY_U
+      ? (columnsConfiguration as CompareMannWhitneyResultsTableConfig)
+      : (columnsConfiguration as CompareResultsTableConfig)
+  ).find((column) => column.key === columnId);
   if (!columnConfiguration || !('filter' in columnConfiguration)) {
     return true;
   }
@@ -159,7 +166,12 @@ function resultMatchesColumnFilter(
   }
 
   for (const filterValueKey of checkedValues) {
-    if (columnConfiguration.matchesFunction(result as CompareResultsItem, filterValueKey)) {
+    if (
+      columnConfiguration.matchesFunction(
+        result as CompareResultsItem,
+        filterValueKey,
+      )
+    ) {
       return true;
     }
   }

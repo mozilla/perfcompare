@@ -1,6 +1,9 @@
 import SubtestsRevisionRow from './SubtestsRevisionRow';
 import { STUDENT_T } from '../../../common/constants';
-import type { CompareResultsItem, MannWhitneyResultsItem } from '../../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../../types/state';
 import { TestVersion } from '../../../types/types';
 
 function SubtestsTableContent(props: SubtestsTableContentProps) {
