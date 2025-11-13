@@ -168,7 +168,7 @@ describe('Expanded row', () => {
     expect(directionOfChange).toHaveTextContent('Better');
 
     const cliffsDelta = roles[5]?.childNodes[1];
-    expect(cliffsDelta).toHaveTextContent('55.00 %');
+    expect(cliffsDelta).toHaveTextContent('0.1');
   });
 
   it('should display N/A mean for missing baseAvgValue and newAvgValue in row headers for mann-whitney-u testVersion', async () => {

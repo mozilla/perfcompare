@@ -30,7 +30,7 @@ import type {
 } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
-import { capitalize, cliffsDeltaPercentage } from '../../utils/helpers';
+import { capitalize } from '../../utils/helpers';
 import {
   getPlatformShortName,
   getPlatformAndVersion,
@@ -386,8 +386,7 @@ function RevisionRow(props: RevisionRowProps) {
         <div className='delta cell' role='cell'>
           {' '}
           {testVersion === MANN_WHITNEY_U
-            ? (result as MannWhitneyResultsItem).cliffs_delta &&
-              `${cliffsDeltaPercentage((result as MannWhitneyResultsItem).cliffs_delta)} %`
+            ? (result as MannWhitneyResultsItem).cliffs_delta ?? 0
             : ` ${deltaPercent} % `}
         </div>
         {testVersion === MANN_WHITNEY_U ? (

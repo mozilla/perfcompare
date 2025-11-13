@@ -4848,7 +4848,7 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
                               role="cell"
                             >
                                
-                              55.00 %
+                              0.1
                             </div>
                             <div
                               class="p_value cell"
@@ -5739,7 +5739,7 @@ exports[`Results Table with mann-whitney-u testVersion data should render differ
         role="cell"
       >
          
-        55.00 %
+        0.1
       </div>
       <div
         class="p_value cell"
@@ -5973,7 +5973,7 @@ exports[`Results Table with mann-whitney-u testVersion data should render differ
         role="cell"
       >
          
-        55.00 %
+        0.1
       </div>
       <div
         class="p_value cell"
