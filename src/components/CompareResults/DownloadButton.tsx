@@ -4,10 +4,16 @@ import { style } from 'typestyle';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../types/state';
 import { truncateHash } from '../../utils/helpers';
 
-type ResultsGroupedByKey = Record<string, CompareResultsItem[]>;
+type ResultsGroupedByKey = Record<
+  string,
+  (CompareResultsItem | MannWhitneyResultsItem)[]
+>;
 
 /* This function transforms results into an array of objects, where each object
  * represents a array of objects grouped by their header_name as key. The keys
@@ -29,7 +35,7 @@ type ResultsGroupedByKey = Record<string, CompareResultsItem[]>;
  *   ]
  */
 const formatDownloadData = (
-  data: CompareResultsItem[],
+  data: (CompareResultsItem | MannWhitneyResultsItem)[],
 ): Array<ResultsGroupedByKey> => {
   const groupedResults = data.reduce((grouped, result) => {
     if (!grouped[result.header_name]) {
@@ -55,7 +61,7 @@ const formatDownloadData = (
 
 function generateJsonDataFromComparisonResults(
   activeComparison: string,
-  results: CompareResultsItem[][],
+  results: CompareResultsItem[][] | MannWhitneyResultsItem[][],
 ) {
   const resultsForCurrentComparison =
     activeComparison ===
@@ -94,7 +100,11 @@ export function DisabledDownloadButton() {
 }
 
 interface DownloadButtonProps {
-  resultsPromise: Promise<CompareResultsItem[][]> | CompareResultsItem[][];
+  resultsPromise:
+    | Promise<CompareResultsItem[][]>
+    | CompareResultsItem[][]
+    | Promise<MannWhitneyResultsItem[][]>
+    | MannWhitneyResultsItem[][];
 }
 
 export function DownloadButton({ resultsPromise }: DownloadButtonProps) {

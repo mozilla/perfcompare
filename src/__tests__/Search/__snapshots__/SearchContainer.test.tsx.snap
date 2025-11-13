@@ -138,7 +138,7 @@ exports[`Search Containter should match snapshot 1`] = `
                           class="MuiFormControl-root MuiTextField-root search-text-field base css-1xp5r68-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
                               class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
@@ -156,8 +156,7 @@ exports[`Search Containter should match snapshot 1`] = `
                               </svg>
                             </div>
                             <input
-                              aria-describedby="search-base-input-helper-text"
-                              aria-invalid="true"
+                              aria-invalid="false"
                               aria-label="Search by revision ID or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-base-input"
@@ -180,12 +179,6 @@ exports[`Search Containter should match snapshot 1`] = `
                               </legend>
                             </fieldset>
                           </div>
-                          <p
-                            class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-pw52lh-MuiFormHelperText-root"
-                            id="search-base-input-helper-text"
-                          >
-                            Error when requesting treeherder: (404) Not Found
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -290,7 +283,7 @@ exports[`Search Containter should match snapshot 1`] = `
                           class="MuiFormControl-root MuiTextField-root search-text-field new css-1xp5r68-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
                               class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
@@ -308,8 +301,7 @@ exports[`Search Containter should match snapshot 1`] = `
                               </svg>
                             </div>
                             <input
-                              aria-describedby="search-new-input-helper-text"
-                              aria-invalid="true"
+                              aria-invalid="false"
                               aria-label="Search by revision ID or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
@@ -332,12 +324,6 @@ exports[`Search Containter should match snapshot 1`] = `
                               </legend>
                             </fieldset>
                           </div>
-                          <p
-                            class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-pw52lh-MuiFormHelperText-root"
-                            id="search-new-input-helper-text"
-                          >
-                            Error when requesting treeherder: (404) Not Found
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -721,7 +707,7 @@ exports[`Search Containter should match snapshot 1`] = `
                           class="MuiFormControl-root MuiTextField-root search-text-field new css-1xp5r68-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-xbci7f-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
                               class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
@@ -739,8 +725,7 @@ exports[`Search Containter should match snapshot 1`] = `
                               </svg>
                             </div>
                             <input
-                              aria-describedby="search-new-input-helper-text"
-                              aria-invalid="true"
+                              aria-invalid="false"
                               aria-label="Search by revision ID or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1txnnwc-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
@@ -763,12 +748,6 @@ exports[`Search Containter should match snapshot 1`] = `
                               </legend>
                             </fieldset>
                           </div>
-                          <p
-                            class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-pw52lh-MuiFormHelperText-root"
-                            id="search-new-input-helper-text"
-                          >
-                            Error when requesting treeherder: (404) Not Found
-                          </p>
                         </div>
                       </div>
                     </div>

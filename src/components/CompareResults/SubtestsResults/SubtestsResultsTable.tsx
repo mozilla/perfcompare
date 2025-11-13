@@ -215,7 +215,10 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
         case 'regression':
           return result.direction_of_change === 'worse';
         default:
-          return false;
+          return (
+            result.direction_of_change !== 'worse' &&
+            result.direction_of_change !== 'better'
+          );
       }
     },
   },
@@ -231,19 +234,10 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
   },
   {
     name: 'Confidence',
-    filter: true,
     key: 'confidence',
     gridWidth: '1fr',
     tooltip:
-      "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
-    sortFunction(resultA, resultB) {
-      return Math.abs(resultA?.mann_whitney_test?.pvalue ?? 0) - Math.abs(resultB?.mann_whitney_test?.pvalue ?? 0);
-    },
-  },
-  {
-    name: 'Effect Size (%)',
-    key: 'effect_size',
-    gridWidth: '1.25fr',
+      'Mann Whitney U test p-value indicating statistical significance. Mann Whitney U p-value < .05 indicates a statistically significant difference between Base and New.',
     sortFunction(
       resultA: MannWhitneyResultsItem,
       resultB: MannWhitneyResultsItem,
@@ -260,7 +254,26 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
         );
       }
     },
-    tooltip: 'Mann Whitney U test p-value indicating statistical significance.',
+  },
+  {
+    name: 'Effect Size (%)',
+    key: 'effects',
+    gridWidth: '1.25fr',
+    sortFunction(
+      resultA: MannWhitneyResultsItem,
+      resultB: MannWhitneyResultsItem,
+    ) {
+      if (!resultA?.cles?.cles || !resultB?.cles?.cles) {
+        return 0;
+      } else {
+        return (
+          Math.abs(resultA?.cles?.cles) - Math.abs(resultB?.cles?.cles ?? 0)
+        );
+      }
+    },
+    // tooltip: 'Mann Whitney U test p-value indicating statistical significance.',
+    tooltip:
+      'Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New.',
   },
   {
     name: 'Total Runs',
@@ -308,13 +321,17 @@ function SubtestsResultsTable({
       : columnsConfiguration,
   );
 
-  const rowGridTemplateColumns = (
-    testVersion === MANN_WHITNEY_U
-      ? columnsMannWhitneyConfiguration
-      : columnsConfiguration
-  )
-    .map((config) => config.gridWidth)
-    .join(' ');
+  const getRowGridTemplateColumns = (testVersion?: TestVersion) => {
+    const rowGridTemplateColumns = (
+      testVersion === MANN_WHITNEY_U
+        ? columnsMannWhitneyConfiguration
+        : columnsConfiguration
+    )
+      .map((config) => config.gridWidth)
+      .join(' ');
+
+    return rowGridTemplateColumns;
+  };
 
   return (
     <Box
@@ -359,7 +376,7 @@ function SubtestsResultsTable({
                 tableFilters,
                 resultMatchesSearchTerm,
               );
-            }, [results, filteringSearchTerm, tableFilters]);
+            }, [results, filteringSearchTerm, tableFilters, testVersion]);
 
             const filteredAndSortedResults = useMemo(() => {
               return sortResults(
@@ -386,7 +403,9 @@ function SubtestsResultsTable({
                     key={res.key}
                     identifier={res.key}
                     results={res.value}
-                    rowGridTemplateColumns={rowGridTemplateColumns}
+                    rowGridTemplateColumns={getRowGridTemplateColumns(
+                      testVersion,
+                    )}
                     replicates={replicates}
                     testVersion={testVersion}
                   />

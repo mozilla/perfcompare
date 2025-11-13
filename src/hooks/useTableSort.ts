@@ -1,7 +1,6 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import { MANN_WHITNEY_U } from '../common/constants';
 import type {
   CompareResultsItem,
   MannWhitneyResultsItem,
@@ -25,6 +24,7 @@ const useTableSort = (
   columnsConfiguration:
     | CompareResultsTableConfig
     | CompareMannWhitneyResultsTableConfig,
+  testVersion?: TestVersion,
 ) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
@@ -49,7 +49,7 @@ const useTableSort = (
     }
 
     return [columnId, direction];
-  }, [sortFromUrl, columnsConfiguration]);
+  }, [sortFromUrl, columnsConfiguration, testVersion]);
 
   const [sortDirection, setSortDirection] = useState(
     direction as 'asc' | 'desc' | null,
@@ -123,16 +123,7 @@ export function sortResults(
       ? (
           itemA: CompareResultsItem | MannWhitneyResultsItem,
           itemB: CompareResultsItem | MannWhitneyResultsItem,
-        ) =>
-          testVersion === MANN_WHITNEY_U
-            ? sortFunction(
-                itemB as MannWhitneyResultsItem,
-                itemA as MannWhitneyResultsItem,
-              )
-            : sortFunction(
-                itemB as CompareResultsItem,
-                itemA as CompareResultsItem,
-              )
+        ) => sortFunction(itemB, itemA)
       : sortFunction;
 
   return results.toSorted(directionedSortFunction);

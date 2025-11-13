@@ -20,6 +20,7 @@ import type {
   MannWhitneyResultsItem,
 } from '../../../types/state';
 import { TestVersion } from '../../../types/types';
+import { capitalize } from '../../../utils/helpers';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
 
@@ -184,34 +185,68 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           )}
         </div>
         <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor: improvement
-                ? 'status.improvement'
-                : regression
-                  ? 'status.regression'
-                  : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              !!improvement,
-              !!regression,
-            )}`}
-          >
-            {improvement ? <ThumbUpIcon color='success' /> : null}
-            {regression ? <ThumbDownIcon color='error' /> : null}
-            {determineStatus(!!improvement, !!regression)}
-          </Box>
+          {testVersion === MANN_WHITNEY_U ? (
+            <Box
+              sx={{
+                bgcolor:
+                  (result as MannWhitneyResultsItem).direction_of_change ===
+                  'better'
+                    ? 'status.improvement'
+                    : (result as MannWhitneyResultsItem).direction_of_change ===
+                        'worse'
+                      ? 'status.regression'
+                      : 'none',
+              }}
+              className={`status-hint ${determineStatusHintClass(
+                (result as MannWhitneyResultsItem).direction_of_change ===
+                  'better',
+                (result as MannWhitneyResultsItem).direction_of_change ===
+                  'worse',
+              )}`}
+            >
+              {capitalize(
+                (result as MannWhitneyResultsItem).direction_of_change ?? '',
+              )}
+            </Box>
+          ) : (
+            <Box
+              sx={{
+                bgcolor: improvement
+                  ? 'status.improvement'
+                  : regression
+                    ? 'status.regression'
+                    : 'none',
+              }}
+              className={`status-hint ${determineStatusHintClass(
+                (result as CompareResultsItem).is_improvement,
+                (result as CompareResultsItem).is_regression,
+              )}`}
+            >
+              {improvement ? <ThumbUpIcon color='success' /> : null}
+              {regression ? <ThumbDownIcon color='error' /> : null}
+              {determineStatus(
+                (result as CompareResultsItem).is_improvement,
+                (result as CompareResultsItem).is_regression,
+              )}
+            </Box>
+          )}
         </div>
         <div className='delta cell' role='cell'>
           {' '}
           {deltaPercent} %{' '}
         </div>
-        <div className='confidence cell' role='cell'>
-          {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText}
-        </div>
+        {testVersion === MANN_WHITNEY_U ? (
+          <div className='p_value cell' role='cell'>
+            {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
+          </div>
+        ) : (
+          <div className='confidence cell' role='cell'>
+            {confidenceText && confidenceIcons[confidenceText]}
+            {confidenceText || '-'}
+          </div>
+        )}
         {testVersion === MANN_WHITNEY_U && (
-          <div className='effect cell' role='cell'>
+          <div className='effects cell' role='cell'>
             {((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ??
               0) * 100}{' '}
             %{' '}

@@ -13,6 +13,7 @@ import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
+import { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import type {
   CompareMannWhitneyResultsTableConfig,
@@ -168,7 +169,6 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
   },
   {
     key: 'comparisonSign',
-
     gridWidth: '0.2fr',
   },
   {
@@ -194,7 +194,10 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
         case 'regression':
           return result.direction_of_change === 'worse';
         default:
-          return false;
+          return (
+            result.direction_of_change !== 'worse' &&
+            result.direction_of_change !== 'better'
+          );
       }
     },
   },
@@ -210,38 +213,45 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
   },
   {
     name: 'Confidence',
-    filter: true,
     key: 'confidence',
-    gridWidth: '1fr',
-    tooltip: '',
-    possibleValues: [
-      { label: 'No value', key: 'none' },
-      { label: 'Low', key: 'low' },
-      { label: 'Medium', key: 'medium' },
-      { label: 'High', key: 'high' },
-    ],
-    sortFunction(resultA, resultB) {
-      return Math.abs(resultA?.mann_whitney_test?.pvalue ?? 0) - Math.abs(resultB?.mann_whitney_test?.pvalue ?? 0);
-    },
-  },
-  {
-    name: 'Effect Size (%)',
-    key: 'effect_size',
     gridWidth: '1.25fr',
-    sortFunction(resultA, resultB) {
+    tooltip:
+      'Mann Whitney U test p-value indicating statistical significance. Mann Whitney U p-value < .05 indicates a statistically significant difference between Base and New.',
+    sortFunction(
+      resultA: MannWhitneyResultsItem,
+      resultB: MannWhitneyResultsItem,
+    ) {
       if (
-        !resultA?.mann_whitney_test?.pvalue ||
-        !resultB?.mann_whitney_test?.pvalue
+        !resultA.mann_whitney_test?.pvalue ||
+        !resultB.mann_whitney_test?.pvalue
       ) {
         return 0;
       } else {
         return (
-          Math.abs(resultA.mann_whitney_test.pvalue) -
-          Math.abs(resultB.mann_whitney_test.pvalue)
+          Math.abs(resultA.mann_whitney_test.pvalue ?? 0) -
+          Math.abs(resultB.mann_whitney_test.pvalue ?? 0)
         );
       }
     },
-    tooltip: 'Mann Whitney U test p-value indicating statistical significance.',
+  },
+  {
+    name: 'Effect Size (%)',
+    key: 'effects',
+    gridWidth: '1.25fr',
+    sortFunction(
+      resultA: MannWhitneyResultsItem,
+      resultB: MannWhitneyResultsItem,
+    ) {
+      if (!resultA?.cles?.cles || !resultB?.cles?.cles) {
+        return 0;
+      } else {
+        return (
+          Math.abs(resultA?.cles?.cles) - Math.abs(resultB?.cles?.cles ?? 0)
+        );
+      }
+    },
+    tooltip:
+      'Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New.',
   },
   {
     name: 'Total Runs',
@@ -264,24 +274,32 @@ export default function ResultsTable() {
     replicates,
     testVersion,
   } = useLoaderData<CombinedLoaderReturnValue>();
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
+  const [testVersionVal, setTestVersionVal] = useState<TestVersion>(
+    testVersion ?? STUDENT_T,
+  );
+
+  const columnsConfig =
+    testVersionVal === MANN_WHITNEY_U
+      ? columnsMannWhitneyConfiguration
+      : columnsConfiguration;
 
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
-    useTableFilters(columnsConfiguration);
-  const { sortColumn, sortDirection, onToggleSort } =
-    useTableSort(columnsConfiguration);
+    useTableFilters(columnsConfig);
+  const { sortColumn, sortDirection, onToggleSort } = useTableSort(
+    columnsConfig,
+    testVersionVal,
+  );
 
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [testVersionVal, setTestVersionVal] = useState<TestVersion>(
-    testVersion ?? STUDENT_T,
-  );
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
@@ -305,13 +323,16 @@ export default function ResultsTable() {
     setSearchParams(searchParams);
   };
 
-  const rowGridTemplateColumns = (
-    testVersion === MANN_WHITNEY_U
-      ? columnsMannWhitneyConfiguration
-      : columnsConfiguration
-  )
-    .map((config) => config.gridWidth)
-    .join(' ');
+  const getRowString = (testVersion: TestVersion) => {
+    const rowGridTemplateColumns = (
+      testVersion === MANN_WHITNEY_U
+        ? columnsMannWhitneyConfiguration
+        : columnsConfiguration
+    )
+      .map((config) => config.gridWidth)
+      .join(' ');
+    return rowGridTemplateColumns;
+  };
 
   return (
     <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>
@@ -327,17 +348,17 @@ export default function ResultsTable() {
           initialSearchTerm={initialSearchTerm}
           frameworkId={frameworkIdVal}
           testType={testVersionVal}
-          resultsPromise={resultsPromise}
+          resultsPromise={
+            testVersion === MANN_WHITNEY_U
+              ? (resultsPromise as Promise<MannWhitneyResultsItem[][]>)
+              : (resultsPromise as Promise<CompareResultsItem[][]>)
+          }
           onSearchTermChange={onSearchTermChange}
           onFrameworkChange={onFrameworkChange}
           onTestVersionChange={onTestVersionChange}
         />
         <TableHeader
-          columnsConfiguration={
-            testVersion === MANN_WHITNEY_U
-              ? columnsMannWhitneyConfiguration
-              : columnsConfiguration
-          }
+          columnsConfiguration={columnsConfig}
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
@@ -367,15 +388,15 @@ export default function ResultsTable() {
         <Await resolve={resultsPromise}>
           {(resolvedResults) => (
             <TableContent
-              columnsConfiguration={
-                testVersion === MANN_WHITNEY_U
-                  ? columnsMannWhitneyConfiguration
-                  : columnsConfiguration
+              columnsConfiguration={columnsConfig}
+              results={
+                testVersionVal === MANN_WHITNEY_U
+                  ? (resolvedResults as MannWhitneyResultsItem[][])
+                  : (resolvedResults as CompareResultsItem[][])
               }
-              results={resolvedResults}
               view={view}
               replicates={replicates}
-              rowGridTemplateColumns={rowGridTemplateColumns}
+              rowGridTemplateColumns={getRowString(testVersionVal)}
               filteringSearchTerm={searchTerm}
               tableFilters={tableFilters}
               sortColumn={sortColumn}
