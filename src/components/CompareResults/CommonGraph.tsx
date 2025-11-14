@@ -294,7 +294,7 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
     }),
   );
   //////////////////// END FAST KDE   ////////////////////////
-
+  
   const data = {
     datasets: [
       {
