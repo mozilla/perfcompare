@@ -1261,10 +1261,10 @@ export function augmentCompareMannWhitneyDataWithSeveralTests(
       // Different delta and confidence values, with some arbitrary changes
       cliffs_delta: item.cliffs_delta + 1.2,
       mann_whitney_test: {
-        ...(item?.mann_whitney_test ?? {}),
+        ...(item.mann_whitney_test ?? {}),
         test_name: 'Mann Whitney U',
         stat: 0,
-        pvalue: (item?.mann_whitney_test?.pvalue ?? 0) + 0.012,
+        pvalue: (item.mann_whitney_test?.pvalue ?? 0) + 0.012,
       },
     })),
   ];
@@ -1305,10 +1305,10 @@ export function augmentCompareMannWhitneyDataWithSeveralRevisions(
       new_rev: 'tictactoe',
       cliffs_delta: item.cliffs_delta + 0.8,
       mann_whitney_test: {
-        ...(item?.mann_whitney_test ?? {}),
+        ...(item.mann_whitney_test ?? {}),
         test_name: 'Mann Whitney U',
         stat: 0,
-        pvalue: (item?.mann_whitney_test?.pvalue ?? 0) + 0.012,
+        pvalue: (item.mann_whitney_test?.pvalue ?? 0) + 0.012,
       },
     })),
   ];

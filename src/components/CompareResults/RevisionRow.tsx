@@ -240,11 +240,11 @@ function RevisionRow(props: RevisionRowProps) {
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
   const baseAvgValue =
     testVersion === MANN_WHITNEY_U
-      ? ((result as MannWhitneyResultsItem)?.base_standard_stats?.mean ?? null)
+      ? ((result as MannWhitneyResultsItem).base_standard_stats?.mean ?? null)
       : (result as CompareResultsItem).base_avg_value;
   const newAvgValue =
     testVersion === MANN_WHITNEY_U
-      ? ((result as MannWhitneyResultsItem)?.new_standard_stats?.mean ?? null)
+      ? ((result as MannWhitneyResultsItem).new_standard_stats?.mean ?? null)
       : (result as CompareResultsItem).new_avg_value;
   const [expanded, setExpanded] = useState(false);
 
@@ -401,8 +401,8 @@ function RevisionRow(props: RevisionRowProps) {
         )}
         {testVersion === MANN_WHITNEY_U && (
           <div className='effects cell' role='cell'>
-            {(result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue &&
-              `${((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ?? 0) * 100} %`}
+            {(result as MannWhitneyResultsItem).mann_whitney_test?.pvalue &&
+              `${((result as MannWhitneyResultsItem).mann_whitney_test?.pvalue ?? 0) * 100} %`}
           </div>
         )}
         <div className='total-runs cell' role='cell'>

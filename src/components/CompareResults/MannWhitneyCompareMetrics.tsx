@@ -55,7 +55,7 @@ export const MannWhitneyCompareMetrics = ({
     stddev: baseStandardDev,
     min: baseMin,
     max: baseMax,
-  } = result?.base_standard_stats ?? {
+  } = result.base_standard_stats ?? {
     mean: null,
     median: null,
     variance: null,
@@ -70,7 +70,7 @@ export const MannWhitneyCompareMetrics = ({
     stddev: newStandardDev,
     min: newMin,
     max: newMax,
-  } = result?.new_standard_stats ?? {
+  } = result.new_standard_stats ?? {
     mean: null,
     median: null,
     variance: null,
@@ -78,14 +78,14 @@ export const MannWhitneyCompareMetrics = ({
     min: null,
     max: null,
   };
-  const baseShapiroWilkInterpretation = result?.shapiro_wilk_test_base?.stat
-    ? `${result?.shapiro_wilk_test_base?.stat} ${result.shapiro_wilk_test_base?.interpretation}`
+  const baseShapiroWilkInterpretation = result.shapiro_wilk_test_base?.stat
+    ? `${result.shapiro_wilk_test_base?.stat} ${result.shapiro_wilk_test_base?.interpretation}`
     : 'N/A';
-  const newShapiroWilkInterpretation = result?.shapiro_wilk_test_new?.stat
-    ? `${result?.shapiro_wilk_test_new?.stat} ${result.shapiro_wilk_test_new?.interpretation}`
+  const newShapiroWilkInterpretation = result.shapiro_wilk_test_new?.stat
+    ? `${result.shapiro_wilk_test_new?.stat} ${result.shapiro_wilk_test_new?.interpretation}`
     : 'N/A';
-  const baseMode = result?.silverman_kde?.base_mode_count ?? null;
-  const newMode = result?.silverman_kde?.new_mode_count ?? null;
+  const baseMode = result.silverman_kde?.base_mode_count ?? null;
+  const newMode = result.silverman_kde?.new_mode_count ?? null;
   return (
     <Box sx={{ ...styles[mode] }}>
       <table

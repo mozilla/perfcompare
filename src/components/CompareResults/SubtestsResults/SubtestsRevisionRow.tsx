@@ -141,12 +141,12 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 
   const baseAvgValue =
     (testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem)?.base_standard_stats?.mean
-      : (result as CompareResultsItem)?.base_avg_value) ?? 0;
+      ? (result as MannWhitneyResultsItem).base_standard_stats.mean
+      : (result as CompareResultsItem).base_avg_value) ?? 0;
   const newAvgValue =
     (testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem)?.new_standard_stats?.mean
-      : (result as CompareResultsItem)?.new_avg_value) ?? 0;
+      ? (result as MannWhitneyResultsItem).new_standard_stats.mean
+      : (result as CompareResultsItem).new_avg_value) ?? 0;
 
   const baseRunsCount = replicates
     ? baseRunsReplicates.length
@@ -247,7 +247,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         )}
         {testVersion === MANN_WHITNEY_U && (
           <div className='effects cell' role='cell'>
-            {((result as MannWhitneyResultsItem)?.mann_whitney_test?.pvalue ??
+            {((result as MannWhitneyResultsItem).mann_whitney_test?.pvalue ??
               0) * 100}{' '}
             %{' '}
           </div>

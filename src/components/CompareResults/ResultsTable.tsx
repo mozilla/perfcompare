@@ -242,11 +242,11 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
       resultA: MannWhitneyResultsItem,
       resultB: MannWhitneyResultsItem,
     ) {
-      if (!resultA?.cles?.cles || !resultB?.cles?.cles) {
+      if (!resultA.cles?.cles || !resultB.cles?.cles) {
         return 0;
       } else {
         return (
-          Math.abs(resultA?.cles?.cles) - Math.abs(resultB?.cles?.cles ?? 0)
+          Math.abs(resultA.cles.cles) - Math.abs(resultB.cles.cles ?? 0)
         );
       }
     },

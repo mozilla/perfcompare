@@ -97,7 +97,7 @@ function FilterableColumnHeader({
   const onClickFilter = (valueKey: string) => {
     const newCheckedValues = checkedValues
       ? new Set(checkedValues)
-      : new Set(possibleValues?.map(({ key }) => key));
+      : new Set(possibleValues.map(({ key }) => key));
     if (newCheckedValues.has(valueKey)) {
       newCheckedValues.delete(valueKey);
     } else {
@@ -150,7 +150,7 @@ function FilterableColumnHeader({
           Select all values
         </MenuItem>
         <Divider />
-        {possibleValues?.map((possibleValue) => (
+        {possibleValues.map((possibleValue) => (
           <MenuItem
             sx={{ fontSize: '16px' }}
             dense={true}
@@ -161,7 +161,7 @@ function FilterableColumnHeader({
           </MenuItem>
         ))}
         <Divider />
-        {possibleValues?.map((possibleValue) => {
+        {possibleValues.map((possibleValue) => {
           const isChecked =
             !checkedValues || checkedValues.has(possibleValue.key);
           return (
