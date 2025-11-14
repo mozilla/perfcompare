@@ -19,6 +19,7 @@ import {
   compareView,
   compareOverTimeView,
   MANN_WHITNEY_U,
+  STUDENT_T,
 } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
@@ -29,6 +30,7 @@ import type {
 } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
+import { capitalize } from '../../utils/helpers';
 import {
   getPlatformShortName,
   getPlatformAndVersion,
@@ -228,6 +230,7 @@ function RevisionRow(props: RevisionRowProps) {
     new_runs_replicates: newRunsReplicates,
     base_runs_replicates: baseRunsReplicates,
   } = result;
+
   const platformShortName = getPlatformShortName(platform);
   const platformIcon = platformIcons[platformShortName];
   const platformNameAndVersion = getPlatformAndVersion(platform);
@@ -237,11 +240,11 @@ function RevisionRow(props: RevisionRowProps) {
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
   const baseAvgValue =
     testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem).base_standard_stats.mean
+      ? ((result as MannWhitneyResultsItem).base_standard_stats?.mean ?? null)
       : (result as CompareResultsItem).base_avg_value;
   const newAvgValue =
     testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem).new_standard_stats.mean
+      ? ((result as MannWhitneyResultsItem).new_standard_stats?.mean ?? null)
       : (result as CompareResultsItem).new_avg_value;
   const [expanded, setExpanded] = useState(false);
 
@@ -279,48 +282,129 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </Tooltip>
         </div>
-        <div className={`${browserName} cell`} role='cell'>
-          {formatNumber(baseAvgValue)} {baseUnit}
-          {getBrowserDisplay(baseApp, newApp, expanded) && (
-            <span className={FontSize.xSmall}>({baseApp})</span>
-          )}
-        </div>
-        <div className='comparison-sign cell' role='cell'>
-          {determineSign(baseAvgValue, newAvgValue)}
-        </div>
-        <div className={`${browserName} cell`} role='cell'>
-          {formatNumber(newAvgValue)} {newUnit}
-          {getBrowserDisplay(baseApp, newApp, expanded) && (
-            <span className={FontSize.xSmall}>({newApp})</span>
-          )}
-        </div>
-        <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor: improvement
-                ? 'status.improvement'
-                : regression
-                  ? 'status.regression'
-                  : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              !!improvement,
-              !!regression,
-            )}`}
-          >
-            {improvement ? <ThumbUpIcon color='success' /> : null}
-            {regression ? <ThumbDownIcon color='error' /> : null}
-            {determineStatus(!!improvement, !!regression)}
-          </Box>
-        </div>
+        {testVersion !== MANN_WHITNEY_U && (
+          <>
+            <div className={`${browserName} cell`} role='cell'>
+              {baseAvgValue
+                ? `${formatNumber(baseAvgValue)} ${baseUnit ?? ''}`
+                : 'N/A'}
+              {getBrowserDisplay(baseApp, newApp, expanded) && (
+                <span className={FontSize.xSmall}>({baseApp})</span>
+              )}
+            </div>
+            <div className='comparison-sign cell' role='cell'>
+              {baseAvgValue && newAvgValue
+                ? determineSign(baseAvgValue, newAvgValue)
+                : '  '}
+            </div>
+            <div className={`${browserName} cell`} role='cell'>
+              {newAvgValue
+                ? `${formatNumber(newAvgValue)} ${newUnit ?? ''}`
+                : 'N/A'}
+              {getBrowserDisplay(baseApp, newApp, expanded) && (
+                <span className={FontSize.xSmall}>({newApp})</span>
+              )}
+            </div>
+          </>
+        )}
+        {testVersion === MANN_WHITNEY_U && (
+          <>
+            <div className={`${browserName} cell`} role='cell'>
+              {baseAvgValue ? formatNumber(baseAvgValue) : 'N/A'}{' '}
+              {baseUnit ?? ''}
+              {getBrowserDisplay(baseApp, newApp, expanded) && (
+                <span className={FontSize.xSmall}>({baseApp})</span>
+              )}
+            </div>
+            <div className='comparison-sign cell' role='cell'>
+              {baseAvgValue && newAvgValue
+                ? determineSign(baseAvgValue, newAvgValue)
+                : '  '}
+            </div>
+            <div className={`${browserName} cell`} role='cell'>
+              {newAvgValue ? formatNumber(newAvgValue) : 'N/A'} {newUnit ?? ''}
+              {getBrowserDisplay(baseApp, newApp, expanded) && (
+                <span className={FontSize.xSmall}>({newApp})</span>
+              )}
+            </div>
+          </>
+        )}
+
+        {testVersion === MANN_WHITNEY_U ? (
+          <div className='status cell' role='cell'>
+            <Box
+              sx={{
+                bgcolor:
+                  (result as MannWhitneyResultsItem).direction_of_change ===
+                  'better'
+                    ? 'status.improvement'
+                    : (result as MannWhitneyResultsItem).direction_of_change ===
+                        'worse'
+                      ? 'status.regression'
+                      : 'none',
+              }}
+              className={`status-hint ${determineStatusHintClass(
+                (result as MannWhitneyResultsItem).direction_of_change ===
+                  'better',
+                (result as MannWhitneyResultsItem).direction_of_change ===
+                  'worse',
+              )}`}
+            >
+              {capitalize(
+                (result as MannWhitneyResultsItem).direction_of_change ?? '',
+              )}
+            </Box>
+          </div>
+        ) : (
+          <div className='status cell' role='cell'>
+            <Box
+              sx={{
+                bgcolor: improvement
+                  ? 'status.improvement'
+                  : regression
+                    ? 'status.regression'
+                    : 'none',
+              }}
+              className={`status-hint ${determineStatusHintClass(
+                (result as CompareResultsItem).is_improvement,
+                (result as CompareResultsItem).is_regression,
+              )}`}
+            >
+              {(result as CompareResultsItem).is_improvement ? (
+                <ThumbUpIcon color='success' />
+              ) : null}
+              {(result as CompareResultsItem).is_regression ? (
+                <ThumbDownIcon color='error' />
+              ) : null}
+              {determineStatus(
+                (result as CompareResultsItem).is_improvement,
+                (result as CompareResultsItem).is_regression,
+              )}
+            </Box>
+          </div>
+        )}
         <div className='delta cell' role='cell'>
           {' '}
-          {deltaPercent} %{' '}
+          {testVersion === MANN_WHITNEY_U
+            ? (result as MannWhitneyResultsItem).cliffs_delta ?? 0
+            : ` ${deltaPercent} % `}
         </div>
-        <div className='confidence cell' role='cell'>
-          {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText || '-'}
-        </div>
+        {testVersion === MANN_WHITNEY_U ? (
+          <div className='p_value cell' role='cell'>
+            {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
+          </div>
+        ) : (
+          <div className='confidence cell' role='cell'>
+            {confidenceText && confidenceIcons[confidenceText]}
+            {confidenceText || '-'}
+          </div>
+        )}
+        {testVersion === MANN_WHITNEY_U && (
+          <div className='effects cell' role='cell'>
+            {(result as MannWhitneyResultsItem).mann_whitney_test?.pvalue &&
+              `${((result as MannWhitneyResultsItem).mann_whitney_test?.pvalue ?? 0) * 100} %`}
+          </div>
+        )}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
@@ -404,7 +488,7 @@ function RevisionRow(props: RevisionRowProps) {
         <RevisionRowExpandable
           id={id}
           result={result}
-          testVersion={testVersion}
+          testVersion={testVersion ?? STUDENT_T}
         />
       )}
     </>

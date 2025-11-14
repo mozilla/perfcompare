@@ -24,6 +24,8 @@ import type {
   CompareResultsTableConfig,
   FilterableColumn,
   CompareResultsTableColumn,
+  CompareMannWhitneyResultsTableConfig,
+  FilterableMannWhitneyColumn,
 } from '../../types/types';
 
 function SortDirectionIcon({
@@ -71,7 +73,9 @@ type FilterableColumnHeaderProps = {
   columnId: string;
 
   /* Properties for filtering */
-  possibleValues: FilterableColumn['possibleValues'];
+  possibleValues:
+    | FilterableColumn['possibleValues']
+    | FilterableMannWhitneyColumn['possibleValues'];
   checkedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
@@ -88,7 +92,7 @@ function FilterableColumnHeader({
   tooltip,
 }: FilterableColumnHeaderProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
-  const possibleCheckedValues = checkedValues?.size ?? possibleValues.length;
+  const possibleCheckedValues = checkedValues?.size ?? possibleValues?.length;
 
   const onClickFilter = (valueKey: string) => {
     const newCheckedValues = checkedValues
@@ -108,7 +112,7 @@ function FilterableColumnHeader({
   };
 
   const hasFilteredValues =
-    checkedValues && checkedValues.size < possibleValues.length;
+    checkedValues && checkedValues.size < possibleValues?.length;
   const buttonAriaLabel = hasFilteredValues
     ? `${name} (Click to filter values. Some filters are active.)`
     : `${name} (Click to filter values)`;
@@ -250,7 +254,9 @@ function SortableColumnHeader({
 }
 
 type TableHeaderProps = {
-  columnsConfiguration: CompareResultsTableConfig;
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig;
 
   // Filter properties
   filters: Map<string, Set<string>>;
