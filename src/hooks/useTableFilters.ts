@@ -1,10 +1,17 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type { CompareResultsItem } from '../types/state';
+import { MANN_WHITNEY_U } from '../common/constants';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../types/state';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableColumn,
+  CompareMannWhitneyResultsTableConfig,
+  CompareMannWhitneyResultsTableColumn,
+  TestVersion,
 } from '../types/types';
 
 // This hook handles the state that handles table filtering, and also takes care
@@ -30,12 +37,18 @@ import type {
 // * "filter_confidence=" means that no line will be displayed, which isn't
 //   super useful actually (but is supported).
 
-const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
-  const columnIdToConfiguration: Map<string, CompareResultsTableColumn> =
-    useMemo(
-      () => new Map(columnsConfiguration.map((val) => [val.key, val])),
-      [columnsConfiguration],
-    );
+const useTableFilters = (
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig,
+) => {
+  const columnIdToConfiguration: Map<
+    string,
+    CompareResultsTableColumn | CompareMannWhitneyResultsTableColumn
+  > = useMemo(
+    () => new Map(columnsConfiguration.map((val) => [val.key, val])),
+    [columnsConfiguration],
+  );
 
   const keepValuesBySet = (
     values: Array<{ key: string }>,
@@ -129,14 +142,19 @@ export default useTableFilters;
 
 /* --- Functions used to implement the filtering --- */
 function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig,
-  result: CompareResultsItem,
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig,
+  result: CompareResultsItem | MannWhitneyResultsItem,
   columnId: string,
   checkedValues: Set<string>,
+  testVersion?: TestVersion,
 ): boolean {
-  const columnConfiguration = columnsConfiguration.find(
-    (column) => column.key === columnId,
-  );
+  const columnConfiguration = (
+    testVersion === MANN_WHITNEY_U
+      ? (columnsConfiguration as CompareMannWhitneyResultsTableConfig)
+      : (columnsConfiguration as CompareResultsTableConfig)
+  ).find((column) => column.key === columnId);
   if (!columnConfiguration || !('filter' in columnConfiguration)) {
     return true;
   }
@@ -148,7 +166,12 @@ function resultMatchesColumnFilter(
   }
 
   for (const filterValueKey of checkedValues) {
-    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
+    if (
+      columnConfiguration.matchesFunction(
+        result as CompareResultsItem,
+        filterValueKey,
+      )
+    ) {
       return true;
     }
   }
@@ -163,12 +186,14 @@ function resultMatchesColumnFilter(
 // This also supports negative filtering if one of the search terms starts with
 // a "-" character.
 export function filterResults(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CompareResultsItem[],
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig,
+  results: (CompareResultsItem | MannWhitneyResultsItem)[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
   resultMatchesSearchTerm: (
-    result: CompareResultsItem,
+    result: CompareResultsItem | MannWhitneyResultsItem,
     searchTerm: string,
   ) => boolean,
 ) {

@@ -6,6 +6,7 @@ import {
   nonDocumentedTestsDevTools,
   supportedPerfdocsFrameworks,
 } from '../common/constants';
+import { treeherderBaseURL } from '../logic/treeherder';
 import type { Repository, Changeset } from '../types/state';
 import type { Framework, SupportedPerfdocsFramework } from '../types/types';
 
@@ -48,8 +49,7 @@ const formatDate = (timestamp: number): string => {
 const getTreeherderURL = (
   revision: Changeset['revision'],
   repository: Repository['name'],
-) =>
-  `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;
+) => `${treeherderBaseURL}/jobs?repo=${repository}&revision=${revision}`;
 
 const createDevtoolsDocsUrl = (
   supportedFramework: string,
@@ -116,6 +116,40 @@ const swapArrayElements = <T>(
   return array;
 };
 
+// Mode interpretation base on mode counts
+const getModeInterpretation = (
+  baseModeCount: number | null,
+  newModeCount: number | null,
+) => {
+  const interpretModeCount = (modeCount: number | null) => {
+    if (!modeCount) return 'N/A';
+    if (modeCount === 1) return 'unimodal';
+    if (modeCount > 1) return 'multimodal';
+    return 'N/A';
+  };
+  if (
+    (!baseModeCount && !newModeCount) ||
+    (baseModeCount === 0 && newModeCount === 0) ||
+    (!baseModeCount && newModeCount === 0) ||
+    (baseModeCount === 0 && !newModeCount)
+  )
+    return 'No modes or data for Base and New, possible oversmoothing, KDE evaluation failed';
+  if (baseModeCount && newModeCount && baseModeCount === newModeCount)
+    return `Base and New revisions are ${interpretModeCount(baseModeCount)}`;
+  else {
+    return `Base is ${interpretModeCount(baseModeCount)} and New is ${interpretModeCount(newModeCount)}`;
+  }
+};
+
+const capitalize = (str: string) => {
+  if (str === '') return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+const cliffsDeltaPercentage = (cliffs_delta: number) => {
+  return (((cliffs_delta + 1) / 2) * 100).toFixed(2);
+};
+
 export {
   formatDate,
   getLatestCommitMessage,
@@ -124,4 +158,7 @@ export {
   swapArrayElements,
   truncateHash,
   getDocsURL,
+  capitalize,
+  cliffsDeltaPercentage,
+  getModeInterpretation,
 };

@@ -24,6 +24,8 @@ import type {
   CompareResultsTableConfig,
   FilterableColumn,
   CompareResultsTableColumn,
+  CompareMannWhitneyResultsTableConfig,
+  FilterableMannWhitneyColumn,
 } from '../../types/types';
 
 function SortDirectionIcon({
@@ -71,7 +73,9 @@ type FilterableColumnHeaderProps = {
   columnId: string;
 
   /* Properties for filtering */
-  possibleValues: FilterableColumn['possibleValues'];
+  possibleValues:
+    | FilterableColumn['possibleValues']
+    | FilterableMannWhitneyColumn['possibleValues'];
   checkedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
@@ -88,12 +92,12 @@ function FilterableColumnHeader({
   tooltip,
 }: FilterableColumnHeaderProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
-  const possibleCheckedValues = checkedValues?.size ?? possibleValues.length;
+  const possibleCheckedValues = checkedValues?.size ?? possibleValues?.length;
 
   const onClickFilter = (valueKey: string) => {
     const newCheckedValues = checkedValues
       ? new Set(checkedValues)
-      : new Set(possibleValues.map(({ key }) => key));
+      : new Set(possibleValues?.map(({ key }) => key));
     if (newCheckedValues.has(valueKey)) {
       newCheckedValues.delete(valueKey);
     } else {
@@ -108,7 +112,7 @@ function FilterableColumnHeader({
   };
 
   const hasFilteredValues =
-    checkedValues && checkedValues.size < possibleValues.length;
+    checkedValues && checkedValues.size < possibleValues?.length;
   const buttonAriaLabel = hasFilteredValues
     ? `${name} (Click to filter values. Some filters are active.)`
     : `${name} (Click to filter values)`;
@@ -146,7 +150,7 @@ function FilterableColumnHeader({
           Select all values
         </MenuItem>
         <Divider />
-        {possibleValues.map((possibleValue) => (
+        {possibleValues?.map((possibleValue) => (
           <MenuItem
             sx={{ fontSize: '16px' }}
             dense={true}
@@ -157,7 +161,7 @@ function FilterableColumnHeader({
           </MenuItem>
         ))}
         <Divider />
-        {possibleValues.map((possibleValue) => {
+        {possibleValues?.map((possibleValue) => {
           const isChecked =
             !checkedValues || checkedValues.has(possibleValue.key);
           return (
@@ -250,7 +254,9 @@ function SortableColumnHeader({
 }
 
 type TableHeaderProps = {
-  columnsConfiguration: CompareResultsTableConfig;
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig;
 
   // Filter properties
   filters: Map<string, Set<string>>;

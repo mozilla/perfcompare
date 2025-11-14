@@ -5,7 +5,8 @@ import Stack from '@mui/material/Stack';
 
 import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
-import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
+import { ModeInterpretation } from './ModeInterpretation';
+import { MANN_WHITNEY_U } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type {
@@ -60,14 +61,18 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       ((newMedian - baseMedian) / baseMedian) * 100,
     );
   }
+  const kde_new_x = (result as MannWhitneyResultsItem)?.kde_new?.kde_x ?? [];
+  const kde_base_x = (result as MannWhitneyResultsItem)?.kde_base?.kde_x ?? [];
 
   const baseValues =
-    baseRunsReplicates && baseRunsReplicates.length
+    baseRunsReplicates && (baseRunsReplicates ?? [])?.length
       ? baseRunsReplicates
       : baseRuns;
 
   const newValues =
-    newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
+    newRunsReplicates && (newRunsReplicates ?? [])?.length
+      ? newRunsReplicates
+      : newRuns;
 
   //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
@@ -86,6 +91,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
             padding: 1,
             borderRadius: '5px',
             minWidth: '287px',
+            marginTop: 2,
           }}
         >
           <table
@@ -149,23 +155,22 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           <Grid size={8}>
             <Stack spacing={2}>
               <CommonGraph
-                baseValues={baseValues}
-                newValues={newValues}
+                baseValues={
+                  testVersion === MANN_WHITNEY_U && kde_base_x.length
+                    ? kde_base_x
+                    : baseValues
+                }
+                newValues={
+                  testVersion === MANN_WHITNEY_U && kde_new_x.length
+                    ? kde_new_x
+                    : newValues
+                }
                 unit={baseUnit || newUnit}
               />
               {/******* student t test rendering **************/}
-              {testVersion === STUDENT_T && (
+              {testVersion !== MANN_WHITNEY_U && (
                 <Distribution result={result as CompareResultsItem} />
               )}
-              {/******* mann-whiteney rendering **************/}
-              <StatisticsWarnings
-                result={result as MannWhitneyResultsItem}
-                testVersion={testVersion}
-              />
-              <MannWhitneyCompareMetrics
-                result={result as MannWhitneyResultsItem}
-                testVersion={testVersion}
-              />
             </Stack>
           </Grid>
           <Grid size={4}>
@@ -182,11 +187,16 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 </div>
               )}
               <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
-                <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
-                {lowerIsBetter ? 'lower' : 'higher'} is better)
+                <b>Comparison result</b>:{' '}
+                {testVersion === MANN_WHITNEY_U
+                  ? (result as MannWhitneyResultsItem).direction_of_change
+                  : newIsBetter
+                    ? 'better'
+                    : 'worse'}{' '}
+                ({lowerIsBetter ? 'lower' : 'higher'} is better)
               </Box>
               {/******* student t test rendering **************/}
-              {testVersion === STUDENT_T && (
+              {testVersion !== MANN_WHITNEY_U && (
                 <>
                   <Box sx={{ whiteSpace: 'nowrap' }}>
                     <b>Difference of means</b>: {deltaPercent}% (
@@ -227,6 +237,27 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
             </div>
           </Grid>
         </Grid>
+        <Stack>
+          {/******* mann-whiteney rendering **************/}
+          <div
+            style={{
+              display: 'flex',
+            }}
+          >
+            <StatisticsWarnings
+              result={result as MannWhitneyResultsItem}
+              testVersion={testVersion}
+            />
+            <ModeInterpretation
+              result={result as MannWhitneyResultsItem}
+              testVersion={testVersion}
+            />
+          </div>
+          <MannWhitneyCompareMetrics
+            result={result as MannWhitneyResultsItem}
+            testVersion={testVersion}
+          />
+        </Stack>
       </Stack>
     </Box>
   );

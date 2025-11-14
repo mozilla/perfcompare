@@ -7,7 +7,10 @@ import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../types/state';
 import type { Framework, TestVersion } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
 import TestVersionDropdown from '../Shared/TestVersionDropdown';
@@ -21,8 +24,10 @@ const controlsStyles = style({
 interface Props {
   initialSearchTerm: string;
   frameworkId: Framework['id'];
-  testType: string;
-  resultsPromise: Promise<CompareResultsItem[][]>;
+  testType?: TestVersion;
+  resultsPromise:
+    | Promise<CompareResultsItem[][]>
+    | Promise<MannWhitneyResultsItem[][]>;
   onSearchTermChange: (searchTerm: string) => unknown;
   onFrameworkChange: (frameworkId: Framework['id']) => unknown;
   onTestVersionChange: (testType: TestVersion) => void;

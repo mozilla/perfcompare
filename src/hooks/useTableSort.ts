@@ -1,8 +1,16 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type { CompareResultsItem } from '../types/state';
-import type { CompareResultsTableConfig } from '../types/types';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../types/state';
+import type {
+  CompareMannWhitneyResultsTableConfig,
+  CompareResultsTableConfig,
+  SortFunc,
+  TestVersion,
+} from '../types/types';
 
 // This hook handles the state that handles table sorting, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -12,7 +20,12 @@ import type { CompareResultsTableConfig } from '../types/types';
 // * otherwise, a single sort parameter contains both the column and the
 // direction, separated by a character |.
 
-const useTableSort = (columnsConfiguration: CompareResultsTableConfig) => {
+const useTableSort = (
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig,
+  testVersion?: TestVersion,
+) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
@@ -36,7 +49,7 @@ const useTableSort = (columnsConfiguration: CompareResultsTableConfig) => {
     }
 
     return [columnId, direction];
-  }, [sortFromUrl, columnsConfiguration]);
+  }, [sortFromUrl, columnsConfiguration, testVersion]);
 
   const [sortDirection, setSortDirection] = useState(
     direction as 'asc' | 'desc' | null,
@@ -68,18 +81,23 @@ export default useTableSort;
 // and direction. If no column is specified, the first column (the subtests)
 // is used.
 export function sortResults(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CompareResultsItem[],
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig,
+  results: (CompareResultsItem | MannWhitneyResultsItem)[],
   columnId: string | null,
   direction: 'asc' | 'desc' | null,
   defaultSortFunction: (
-    resultA: CompareResultsItem,
-    resultB: CompareResultsItem,
+    resultA: CompareResultsItem | MannWhitneyResultsItem,
+    resultB: CompareResultsItem | MannWhitneyResultsItem,
   ) => number,
 ) {
   let sortFunction = defaultSortFunction;
 
-  let columnConfiguration: CompareResultsTableConfig[number] | undefined;
+  let columnConfiguration:
+    | CompareResultsTableConfig[number]
+    | CompareMannWhitneyResultsTableConfig[number]
+    | undefined;
   if (columnId && direction) {
     columnConfiguration = columnsConfiguration.find(
       (column) => column.key === columnId,
@@ -96,13 +114,15 @@ export function sortResults(
       return results;
     }
 
-    sortFunction = columnConfiguration.sortFunction;
+    sortFunction = columnConfiguration.sortFunction as SortFunc;
   }
 
   const directionedSortFunction =
     direction === 'desc'
-      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
-          sortFunction(itemB, itemA)
+      ? (
+          itemA: CompareResultsItem | MannWhitneyResultsItem,
+          itemB: CompareResultsItem | MannWhitneyResultsItem,
+        ) => sortFunction(itemB, itemA)
       : sortFunction;
 
   return results.toSorted(directionedSortFunction);
