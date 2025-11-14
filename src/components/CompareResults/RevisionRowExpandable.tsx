@@ -15,6 +15,7 @@ import type {
 import { TestVersion } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
+import PValCliffsDeltaComp from './PValCliffsDeltaComp';
 import { StatisticsWarnings } from './StatisticsWarnings';
 
 const strings = Strings.components.expandableRow;
@@ -80,43 +81,14 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       const { cliffs_delta, cliffs_interpretation } = result;
       const pValue = result?.mann_whitney_test?.pvalue;
       return (
-        <Box
-          sx={{
-            backgroundColor: '#FBFBFE',
-            padding: 1,
-            borderRadius: '5px',
-            minWidth: '287px',
-          }}
-        >
-          <table
-            style={{ borderCollapse: 'collapse', width: '100%', marginTop: 8 }}
-          >
-            <thead>
-              <tr>
-                <th style={{ textAlign: 'left' }}>Metric</th>
-                <th style={{ textAlign: 'left', paddingRight: 16 }}>Value</th>
-                <th style={{ textAlign: 'left' }}>Interpretation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style={{ padding: 2 }}>{`Cliff's Delta`}</td>
-                <td style={{ padding: 2 }}>{cliffs_delta}</td>
-                <td style={{ padding: 2 }}>{cliffs_interpretation}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: 2 }}>Confidence (p-value)</td>
-                <td style={{ padding: 2 }}>{pValue}</td>
-                <td style={{ padding: 2 }}>{p_value_cles}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: 2 }}>CLES</td>
-                <td style={{ padding: 2 }}>{cles}</td>
-                <td style={{ padding: 2 }}>{cles_direction}</td>
-              </tr>
-            </tbody>
-          </table>
-        </Box>
+        <PValCliffsDeltaComp
+          cliffs_delta={cliffs_delta}
+          cliffs_interpretation={cliffs_interpretation}
+          pValue={pValue}
+          p_value_cles={p_value_cles}
+          cles={cles}
+          cles_direction={cles_direction}
+        />
       );
     }
     return;
