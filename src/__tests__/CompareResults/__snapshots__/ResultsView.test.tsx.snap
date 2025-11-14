@@ -194,9 +194,11 @@ exports[`Results View Should display Base, New and Common graphs with replicates
             <b>
               Comparison result
             </b>
-            : 
+            :
+             
             worse
-             (
+             
+            (
             lower
              is better)
           </div>
@@ -248,6 +250,16 @@ exports[`Results View Should display Base, New and Common graphs with replicates
           </div>
         </div>
       </div>
+    </div>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
+    <div
+      class="MuiStack-root css-nen11g-MuiStack-root"
+    >
+      <div
+        style="display: flex;"
+      />
     </div>
   </div>
 </section>
@@ -495,9 +507,11 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
             <b>
               Comparison result
             </b>
-            : 
+            :
+             
             worse
-             (
+             
+            (
             lower
              is better)
           </div>
@@ -549,6 +563,16 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
           </div>
         </div>
       </div>
+    </div>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-lhgpb-MuiDivider-root"
+    />
+    <div
+      class="MuiStack-root css-nen11g-MuiStack-root"
+    >
+      <div
+        style="display: flex;"
+      />
     </div>
   </div>
 </section>
