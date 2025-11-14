@@ -24,6 +24,7 @@ import type {
   CompareResultsTableConfig,
   FilterableColumn,
   CompareResultsTableColumn,
+  CompareMannWhitneyResultsTableConfig,
 } from '../../types/types';
 
 function SortDirectionIcon({
@@ -250,7 +251,9 @@ function SortableColumnHeader({
 }
 
 type TableHeaderProps = {
-  columnsConfiguration: CompareResultsTableConfig;
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig;
 
   // Filter properties
   filters: Map<string, Set<string>>;

@@ -4,12 +4,18 @@ import { Virtuoso } from 'react-virtuoso';
 
 import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
-import type { compareView, compareOverTimeView } from '../../common/constants';
+import {
+  type compareView,
+  type compareOverTimeView,
+} from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { filterResults } from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../types/state';
 import type { CompareResultsTableConfig, TestVersion } from '../../types/types';
 
 // The data structure returned by processResults may look complex at first, so
@@ -43,6 +49,9 @@ import type { CompareResultsTableConfig, TestVersion } from '../../types/types';
 //                                              |               |
 //                                              v               v
 type ListOfResultsGroupedByRevisions = Array<[string, CompareResultsItem[]]>;
+type ListOfMannWhitneyResultsGroupedByRevisions = Array<
+  [string, MannWhitneyResultsItem[]]
+>;
 
 // This is the full type containing the list of all results grouped by test
 // first, and by revisions second.
@@ -50,7 +59,13 @@ type ListOfResultsGroupedByRevisions = Array<[string, CompareResultsItem[]]>;
 //     |                                    |
 //     v                                    v
 type ListOfResultsGroupedByTest = Array<
-  [string, ListOfResultsGroupedByRevisions]
+  [
+    string,
+    (
+      | ListOfResultsGroupedByRevisions
+      | ListOfMannWhitneyResultsGroupedByRevisions
+    ),
+  ]
 >;
 
 function processResults(
@@ -125,7 +140,7 @@ const allRevisionsOption =
 
 type Props = {
   columnsConfiguration: CompareResultsTableConfig;
-  results: CompareResultsItem[][];
+  results: CompareResultsItem[][] | MannWhitneyResultsItem[][];
   view: typeof compareView | typeof compareOverTimeView;
   rowGridTemplateColumns: string;
   // Filtering properties
@@ -163,7 +178,7 @@ function TableContent({
 
     const filteredResults = filterResults(
       columnsConfiguration,
-      resultsForCurrentComparison,
+      resultsForCurrentComparison as CompareResultsItem[],
       filteringSearchTerm,
       tableFilters,
       resultMatchesSearchTerm,
