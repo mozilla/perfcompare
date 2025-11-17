@@ -139,6 +139,8 @@ const getModeInterpretation = (
   else {
     return `Base is ${interpretModeCount(baseModeCount)} and New is ${interpretModeCount(newModeCount)}`;
   }
+};
+
 const capitalize = (str: string) => {
   if (str === '') return '';
   return str.charAt(0).toUpperCase() + str.slice(1);

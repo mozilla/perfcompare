@@ -130,7 +130,6 @@ export type StatisticsTestItem = {
   test_name: string;
   stat: number | null;
   pvalue: number | null;
-  interpretation: string | null;
   interpretation?: string | null;
 } | null;
 

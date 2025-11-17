@@ -133,7 +133,7 @@ describe('Expanded row', () => {
 
     const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRowButton);
-      
+
     const noChangeText = await screen.findByText(/no change/);
     expect(noChangeText).toBeInTheDocument();
   });
@@ -161,12 +161,19 @@ describe('Expanded row', () => {
     renderWithRoute(
       <RevisionRow
         result={testCompareData[2]}
-        const expandRow = await screen.findByTestId(/ExpandMoreIcon/);
-        await user.click(expandRow);
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+      />,
+    );
+    const expandRow = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRow);
 
-        const worseText = await screen.findByText(/worse/);
-        expect(worseText).toBeInTheDocument();
-  
+    const worseText = await screen.findByText(/worse/);
+    expect(worseText).toBeInTheDocument();
+  });
+
   it('should display new stats for mann-whitney-u testVersion', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData: rowData } = getTestData();
