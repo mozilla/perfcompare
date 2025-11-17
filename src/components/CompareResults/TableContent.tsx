@@ -64,7 +64,13 @@ type ListOfMannWhitneyResultsGroupedByRevisions = Array<
 //     |                                    |
 //     v                                    v
 type ListOfResultsGroupedByTest = Array<
-  [string, ListOfResultsGroupedByRevisions]
+  [
+    string,
+    (
+      | ListOfResultsGroupedByRevisions
+      | ListOfMannWhitneyResultsGroupedByRevisions
+    ),
+  ]
 >;
 
 type ListOfMannWhitneyResultsGroupedByTest = Array<
@@ -189,7 +195,7 @@ function TableContent({
 
     const filteredResults = filterResults(
       columnsConfiguration,
-      resultsForCurrentComparison,
+      resultsForCurrentComparison as CompareResultsItem[],
       filteringSearchTerm,
       tableFilters,
       resultMatchesSearchTerm,

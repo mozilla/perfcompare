@@ -8,6 +8,8 @@ import type {
 import type {
   CompareResultsTableConfig,
   CompareResultsTableColumn,
+  CompareMannWhitneyResultsTableConfig,
+  CompareMannWhitneyResultsTableColumn,
 } from '../types/types';
 
 // This hook handles the state that handles table filtering, and also takes care
@@ -33,12 +35,18 @@ import type {
 // * "filter_confidence=" means that no line will be displayed, which isn't
 //   super useful actually (but is supported).
 
-const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
-  const columnIdToConfiguration: Map<string, CompareResultsTableColumn> =
-    useMemo(
-      () => new Map(columnsConfiguration.map((val) => [val.key, val])),
-      [columnsConfiguration],
-    );
+const useTableFilters = (
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig,
+) => {
+  const columnIdToConfiguration: Map<
+    string,
+    CompareResultsTableColumn | CompareMannWhitneyResultsTableColumn
+  > = useMemo(
+    () => new Map(columnsConfiguration.map((val) => [val.key, val])),
+    [columnsConfiguration],
+  );
 
   const keepValuesBySet = (
     values: Array<{ key: string }>,
