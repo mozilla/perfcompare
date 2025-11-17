@@ -2,7 +2,10 @@ import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
 import type { CompareResultsItem } from '../types/state';
-import type { CompareResultsTableConfig } from '../types/types';
+import type {
+  CompareMannWhitneyResultsTableConfig,
+  CompareResultsTableConfig,
+} from '../types/types';
 
 // This hook handles the state that handles table sorting, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -12,7 +15,11 @@ import type { CompareResultsTableConfig } from '../types/types';
 // * otherwise, a single sort parameter contains both the column and the
 // direction, separated by a character |.
 
-const useTableSort = (columnsConfiguration: CompareResultsTableConfig) => {
+const useTableSort = (
+  columnsConfiguration:
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig,
+) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 

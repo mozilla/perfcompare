@@ -1360,9 +1360,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fmc7z2v cell"
                   role="cell"
                 >
-                  776.97
-                   
-                  ms
+                  776.97 ms
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1374,9 +1372,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fmc7z2v cell"
                   role="cell"
                 >
-                  791.34
-                   
-                  ms
+                  791.34 ms
                 </div>
                 <div
                   class="status cell"
@@ -1404,9 +1400,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                    
-                  1.85
-                   %
-                   
+                   1.85 % 
                 </div>
                 <div
                   class="confidence cell"
@@ -1575,9 +1569,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fmc7z2v cell"
                   role="cell"
                 >
-                  704.84
-                   
-                  ms
+                  704.84 ms
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1589,9 +1581,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fmc7z2v cell"
                   role="cell"
                 >
-                  712.44
-                   
-                  ms
+                  712.44 ms
                 </div>
                 <div
                   class="status cell"
@@ -1619,9 +1609,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                    
-                  1.08
-                   %
-                   
+                   1.08 % 
                 </div>
                 <div
                   class="confidence cell"
@@ -1790,9 +1778,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fmc7z2v cell"
                   role="cell"
                 >
-                  643.54
-                   
-                  ms
+                  643.54 ms
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1804,9 +1790,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fmc7z2v cell"
                   role="cell"
                 >
-                  628.09
-                   
-                  ms
+                  628.09 ms
                 </div>
                 <div
                   class="status cell"
@@ -1823,9 +1807,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                    
-                  -24
-                   %
-                   
+                   -24 % 
                 </div>
                 <div
                   class="confidence cell"
@@ -1983,9 +1965,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fmc7z2v cell"
                   role="cell"
                 >
-                  643.54
-                   
-                  ms
+                  643.54 ms
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1997,9 +1977,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fmc7z2v cell"
                   role="cell"
                 >
-                  628.09
-                   
-                  ms
+                  628.09 ms
                 </div>
                 <div
                   class="status cell"
@@ -2016,9 +1994,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                    
-                  -2.4
-                   %
-                   
+                   -2.4 % 
                 </div>
                 <div
                   class="confidence cell"

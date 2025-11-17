@@ -1,3 +1,5 @@
+import { capitalize } from '@mui/material';
+
 import {
   formatDate,
   getLatestCommitMessage,
@@ -6,6 +8,7 @@ import {
   swapArrayElements,
   getDocsURL,
   getModeInterpretation,
+  cliffsDeltaPercentage,
 } from '../utils/helpers';
 import getTestData from './utils/fixtures';
 
