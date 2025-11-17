@@ -116,6 +116,15 @@ const swapArrayElements = <T>(
   return array;
 };
 
+const capitalize = (str: string) => {
+  if (str === '') return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+const cliffsDeltaPercentage = (cliffs_delta: number) => {
+  return (((cliffs_delta + 1) / 2) * 100).toFixed(2);
+};
+
 export {
   formatDate,
   getLatestCommitMessage,
@@ -124,4 +133,6 @@ export {
   swapArrayElements,
   truncateHash,
   getDocsURL,
+  capitalize,
+  cliffsDeltaPercentage,
 };

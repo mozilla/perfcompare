@@ -21,7 +21,7 @@ const controlsStyles = style({
 interface Props {
   initialSearchTerm: string;
   frameworkId: Framework['id'];
-  testType: string;
+  testType?: TestVersion;
   resultsPromise: Promise<CompareResultsItem[][]>;
   onSearchTermChange: (searchTerm: string) => unknown;
   onFrameworkChange: (frameworkId: Framework['id']) => unknown;

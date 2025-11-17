@@ -113,24 +113,24 @@ export type CompareResultsItem = {
  Basic statistics for base or new.
 */
 export type BasicStatItem = {
-  mean: number;
-  median: number;
-  stddev: number;
-  stddev_pct: number;
-  variance: number;
-  count: number;
-  min: number;
-  max: number;
+  mean?: number | null;
+  median?: number | null;
+  stddev?: number | null;
+  stddev_pct?: number | null;
+  variance?: number | null;
+  count?: number | null;
+  min?: number | null;
+  max?: number | null;
 };
 
 /*
  Basic statistics item for a statistical test (like Shapiro-Wilk or KS test).
 */
 export type StatisticsTestItem = {
-  name: string;
-  stat: number;
-  pvalue: number;
-  interpretation: string | null;
+  test_name: string;
+  stat: number | null;
+  pvalue: number | null;
+  interpretation?: string | null;
 } | null;
 
 /*
@@ -156,6 +156,18 @@ export type CLESItem = {
   cles_explanation: string;
 } | null;
 
+export type ModeItem = {
+  mode_name: string;
+  mode_start: string | null;
+  mode_end: string | null;
+  median_shift_summary: string[] | null;
+  ci_low: number | null;
+  ci_high: number | null;
+  ci_warning: string | null;
+  shift: number | null;
+  shift_summary: string | null;
+};
+
 /*
   Results from Silverman KDE test for multimodal data.
 */
@@ -164,16 +176,7 @@ export type SilvermanKDEItem = {
   base_mode_count: number;
   new_mode_count: number;
   mode_comments: string[];
-  warnings: string[];
-  mode_summary: string;
-  median_shift_summary: string[] | null;
-  ci_low: number | null;
-  ci_high: number | null;
-  shift: number | null;
-  shift_summary: string | null;
-  is_regression: boolean | null;
-  is_improvement: boolean | null;
-  ci_warning: string | null;
+  modes: ModeItem[];
 };
 
 /*
@@ -213,14 +216,14 @@ export type MannWhitneyResultsItem = {
   cles?: CLESItem; // CLES: Common Language Effect Size, statistical effect interpretation from Mann-Whitney U
   kde_new: KDEItem; // KDE plots and summary plot with ISJ bandwidth for new runs
   kde_base: KDEItem; // KDE plots and summary plot with ISJ bandwidth for base runs
-  kde_summary_text: string[];
+  kde_warnings: string[];
   silverman_warnings?: string[] | null; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
   is_fit_good: boolean | null; // short form interpretation of KS test goodness of fit
   is_significant: boolean | null; // is the result statistically significant
   is_new_better: boolean | null; // is the new revision better than the base revision
   performance_intepretation: string; // short text interpretation of the performance change
-  direction_of_change: 'neutral' | 'better' | 'worse' | null; // 'neutral', 'better', or 'worse'
+  direction_of_change: 'no change' | 'better' | 'worse' | null; // 'no change', 'better', or 'worse'
   new_is_better: boolean | null;
   lower_is_better: boolean | null;
   is_improvement: boolean | null;
@@ -242,10 +245,12 @@ export type MannWhitneyResultsItem = {
   has_subtests: boolean;
   is_complete: boolean | null;
   // values on CompareResultsItem Type not to be rendered on MannWhitneyResultsItem type
-  confidence_text: never;
-  confidence: never;
-  base_median_value: never;
-  new_median_value: never;
+  base_avg_value?: number;
+  new_avg_value?: number;
+  confidence_text?: ConfidenceText | null;
+  confidence?: number;
+  base_median_value?: number;
+  new_median_value?: number;
 };
 
 export type HashToCommit = {
