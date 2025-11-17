@@ -220,13 +220,13 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                   )}
                 </>
               )}
-              {/******* mann-whiteney rendering **************/}
+              {/******* mann-whitney rendering **************/}
               {renderPValCliffsDeltaComp(result as MannWhitneyResultsItem)}
             </div>
           </Grid>
         </Grid>
         <Stack>
-          {/******* mann-whiteney rendering **************/}
+          {/******* mann-whitney rendering **************/}
           <div
             style={{
               display: 'flex',
