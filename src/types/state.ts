@@ -158,14 +158,14 @@ export type CLESItem = {
 
 export type ModeItem = {
   mode_name: string;
-  mode_start: string | null;
-  mode_end: string | null;
-  median_shift_summary: string[] | null;
-  ci_low: number | null;
-  ci_high: number | null;
-  ci_warning: string | null;
-  shift: number | null;
-  shift_summary: string | null;
+  mode_start?: string;
+  mode_end?: string;
+  ci_low?: number | null;
+  ci_high?: number | null;
+  ci_warning?: string | null;
+  shift?: number | null;
+  shift_summary?: string | null;
+  median_shift_summary?: string | null;
 };
 
 /*
@@ -175,8 +175,14 @@ export type SilvermanKDEItem = {
   bandwidth: string;
   base_mode_count: number;
   new_mode_count: number;
-  mode_comments: string[];
+  base_locations: number[];
+  new_locations: number[];
+  base_prominence: number;
+  new_prominence: number;
+  warnings: string[];
   modes: ModeItem[];
+  is_regression: boolean | null;
+  is_improvement: boolean | null;
 };
 
 /*
@@ -234,6 +240,7 @@ export type MannWhitneyResultsItem = {
   is_regression: boolean | null;
   is_meaningful: boolean | null;
   more_runs_are_needed: boolean | null;
+  warning_c_delta?: string | null;
   /*
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
