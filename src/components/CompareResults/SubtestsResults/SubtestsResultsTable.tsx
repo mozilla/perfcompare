@@ -211,13 +211,13 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
     matchesFunction(result, valueKey) {
       switch (valueKey) {
         case 'improvement':
-          return result.direction_of_change === 'better';
+          return result.direction_of_change === 'improvement';
         case 'regression':
-          return result.direction_of_change === 'worse';
+          return result.direction_of_change === 'regression';
         default:
           return (
-            result.direction_of_change !== 'worse' &&
-            result.direction_of_change !== 'better'
+            result.direction_of_change !== 'regression' &&
+            result.direction_of_change !== 'improvement'
           );
       }
     },

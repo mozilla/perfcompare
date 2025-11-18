@@ -6,7 +6,7 @@ import { loader as subtestsOverTimeLoader } from '../../components/CompareResult
 import SubtestsOverTimeResultsView from '../../components/CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsView from '../../components/CompareResults/SubtestsResults/SubtestsResultsView';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, screen } from '../utils/test-utils';
@@ -23,7 +23,7 @@ const setup = ({
   element: React.ReactElement;
   route: string;
   search: string;
-  subtestsResult: CompareResultsItem[];
+  subtestsResult: (CompareResultsItem | MannWhitneyResultsItem)[];
 }): void => {
   // Mock fetch data
   fetchMock.get(
@@ -47,7 +47,7 @@ const setup = ({
 // This handy function parses the results page and returns an array of visible
 // rows. It makes it easy to assert visible rows when filtering them in a
 // user-friendly way without using snapshots.
-function summarizeVisibleRows() {
+function summarizeVisibleRows(test_version?:string) {
   const rows = screen.getAllByRole('row');
   const result = [];
   for (const row of rows) {
@@ -55,8 +55,8 @@ function summarizeVisibleRows() {
     if (!subtest) {
       continue;
     }
-
-    const rowString = ['.delta', '.confidence']
+    const rowClasses = test_version === 'mann-whitney-u'? ['.delta', '.p_value', '.effects']: ['.delta', '.confidence']
+    const rowString = rowClasses
       .map((selector) => row.querySelector(selector ?? '')!.textContent?.trim())
       .join(', ');
     result.push(`${subtest}: ${rowString}`);
@@ -91,7 +91,7 @@ describe('SubtestsResultsView Component Tests', () => {
 
   it('should render the subtests results view with mann-whitney-u testVersions in url', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const { subtestsResult } = getTestData();
+    const { subtestsMannWhitneyResult } = getTestData();
     setup({
       element: (
         <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
@@ -99,7 +99,7 @@ describe('SubtestsResultsView Component Tests', () => {
       route: '/subtests-compare-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
-      subtestsResult,
+      subtestsResult: subtestsMannWhitneyResult,
     });
 
     const expandRowButton = await screen.findAllByTestId(/ExpandMoreIcon/);
@@ -358,11 +358,33 @@ describe('SubtestsResultsView Component Tests', () => {
       expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
     });
   });
-});
 
-describe('SubtestsViewCompareOverTime Component Tests for mann-whitney-u testVersion', () => {
-  it('should render the subtests over time results view and match snapshot', async () => {
-    const { subtestsResult } = getTestData();
+  it('renders correctly when backend returns MannWhitneyResultsItem[] for mann-whitney-u test_version', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+     const { subtestsMannWhitneyResult } = getTestData();
+
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+
+    // Expand first row to expose mann-whitney details
+    const expandRowButton = await screen.findAllByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton[0]);
+
+    expect(
+      await screen.findByText(/Goodness of Fit Test/i),
+    ).toBeInTheDocument();
+  });
+
+  it('renders over-time view when backend returns MannWhitneyResultsItem[]', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+
     setup({
       element: (
         <SubtestsOverTimeResultsView
@@ -372,10 +394,163 @@ describe('SubtestsViewCompareOverTime Component Tests for mann-whitney-u testVer
       route: '/subtests-compare-over-time-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
-      subtestsResult,
+      subtestsResult: subtestsMannWhitneyResult,
     });
 
     await screen.findByText('dhtml.html');
     expect(document.body).toMatchSnapshot();
   });
 });
+
+describe('table sorting for mann-whitney-u test version', () => {
+    async function setupForSorting({
+      extraParameters,
+    }: Partial<{
+      extraParameters: string;
+    }> = {}) {
+      let searchParameters =
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u';
+      if (extraParameters) {
+        searchParameters += '&' + extraParameters;
+      }
+
+      // Render the component
+      const { subtestsMannWhitneyResult } = getTestData();
+      setup({
+        element: (
+          <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+        ),
+        route: '/subtests-compare-results/',
+        search: searchParameters,
+        subtestsResult: subtestsMannWhitneyResult,
+      });
+      await screen.findByText('dhtml.html');
+    }
+
+    it('can sort the table and persist the information to the URL', async () => {
+      await setupForSorting();
+      // Initial view (alphabetical ordered, even if "sort by subtests" isn't specified
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'browser.html: -1.43 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'improvement.html: -1.44 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+
+      // Sort by Delta
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+      const deltaButton = screen.getByRole('button', { name: /Delta/ });
+      expect(deltaButton).toMatchSnapshot();
+      expect(window.location.search).not.toContain('sort=');
+      // Sort descending
+      await user.click(deltaButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'improvement.html: -1.44 %, Low',
+        'browser.html: -1.43 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+      // It should have the "descending" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'delta|desc');
+
+      // Sort ascending
+      await user.click(deltaButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'tablemutation.html: 0.98 %, Low',
+        'regression.html: 1.04 %, High',
+        'dhtml.html: 1.14 %, Low',
+        'browser.html: -1.43 %, Low',
+        'improvement.html: -1.44 %, Low',
+      ]);
+      // It should have the "ascending" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'delta|asc');
+
+      // Sort by Confidence descending
+      const confidenceButton = screen.getByRole('button', {
+        name: /Confidence.*sort/,
+      });
+      await user.click(confidenceButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'regression.html: 1.04 %, High',
+        'improvement.html: -1.44 %, Low',
+        'browser.html: -1.43 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+      // It should have the "no sort" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should have the "descending" SVG.
+      expect(confidenceButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'confidence|desc');
+
+      // Sort by subtest name descending
+      const subtestsButton = screen.getByRole('button', { name: /Subtests/ });
+      await user.click(subtestsButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'tablemutation.html: 0.98 %, Low',
+        'regression.html: 1.04 %, High',
+        'improvement.html: -1.44 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'browser.html: -1.43 %, Low',
+      ]);
+      // It should have the "no sort" SVG.
+      expect(confidenceButton).toMatchSnapshot();
+      // It should have the "descending" SVG.
+      expect(subtestsButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'subtests|desc');
+
+      // Clicking twice more should reset the URL.
+      await user.click(subtestsButton);
+      await user.click(subtestsButton);
+      expect(window.location.search).not.toContain('sort=');
+    });
+
+    it('initializes the sort from the URL at load time for an ascending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta|asc' });
+      await screen.findByText('dhtml.html');
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'tablemutation.html: 0.98 %, Low',
+        'regression.html: 1.04 %, High',
+        'dhtml.html: 1.14 %, Low',
+        'browser.html: -1.43 %, Low',
+        'improvement.html: -1.44 %, Low',
+      ]);
+      // It should have the "ascending" SVG.
+      expect(screen.getByRole('button', { name: /Cliff's Delta/ })).toMatchSnapshot();
+    });
+
+    it('initializes the sort from the URL at load time for an implicit descending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta' });
+      await screen.findByText('dhtml.html');
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'improvement.html: -1.44 %, Low',
+        'browser.html: -1.43 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+      // It should have the "descending" SVG.
+      expect(screen.getByRole('button', { name: /Cliff's Delta/ })).toMatchSnapshot();
+    });
+
+    it('initializes the sort from the URL at load time for a descending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta|desc' });
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'improvement.html: -1.44 %, Low',
+        'browser.html: -1.43 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+      // It should have the "descending" SVG.
+      expect(screen.getByRole('button', { name: /Cliff's Delta/ })).toMatchSnapshot();
+    });
+  });

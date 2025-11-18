@@ -135,7 +135,7 @@ const columnsConfiguration: CompareResultsTableConfig = [
     gridWidth: '1fr',
     tooltip: 'The total number of tasks/jobs that ran for this metric.',
   },
-  // We use the real pixel value for the buttons, so that everything is better aligned.
+  // We use the real pixel value for the buttons, so that everything is improvement aligned.
   { key: 'buttons', gridWidth: `calc(3.5 * 34px)` }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
   { key: 'expand', gridWidth: '34px' }, // 1 button
 ];
@@ -190,13 +190,13 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
     matchesFunction(result, valueKey) {
       switch (valueKey) {
         case 'improvement':
-          return result.direction_of_change === 'better';
+          return result.direction_of_change === 'improvement';
         case 'regression':
-          return result.direction_of_change === 'worse';
+          return result.direction_of_change === 'regression';
         default:
           return (
-            result.direction_of_change !== 'worse' &&
-            result.direction_of_change !== 'better'
+            result.direction_of_change !== 'regression' &&
+            result.direction_of_change !== 'improvement'
           );
       }
     },
@@ -259,7 +259,7 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
     gridWidth: '1fr',
     tooltip: 'The total number of tasks/jobs that ran for this metric.',
   },
-  // We use the real pixel value for the buttons, so that everything is better aligned.
+  // We use the real pixel value for the buttons, so that everything is improvement aligned.
   { key: 'buttons', gridWidth: 'calc(2.25 * 34px)' }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
   { key: 'expand', gridWidth: '34px' }, // 1 button
 ];

@@ -141,11 +141,11 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 
   const baseAvgValue =
     (testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem).base_standard_stats.mean
+      ? (result as MannWhitneyResultsItem).base_standard_stats?.mean
       : (result as CompareResultsItem).base_avg_value) ?? 0;
   const newAvgValue =
     (testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem).new_standard_stats.mean
+      ? (result as MannWhitneyResultsItem).new_standard_stats?.mean
       : (result as CompareResultsItem).new_avg_value) ?? 0;
 
   const baseRunsCount = replicates
@@ -190,18 +190,18 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
               sx={{
                 bgcolor:
                   (result as MannWhitneyResultsItem).direction_of_change ===
-                  'better'
+                  'improvement'
                     ? 'status.improvement'
                     : (result as MannWhitneyResultsItem).direction_of_change ===
-                        'worse'
+                        'regression'
                       ? 'status.regression'
                       : 'none',
               }}
               className={`status-hint ${determineStatusHintClass(
                 (result as MannWhitneyResultsItem).direction_of_change ===
-                  'better',
+                  'improvement',
                 (result as MannWhitneyResultsItem).direction_of_change ===
-                  'worse',
+                  'regression',
               )}`}
             >
               {capitalize(
@@ -218,15 +218,15 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
                     : 'none',
               }}
               className={`status-hint ${determineStatusHintClass(
-                (result as CompareResultsItem).is_improvement,
-                (result as CompareResultsItem).is_regression,
+                !!improvement,
+                !!regression,
               )}`}
             >
               {improvement ? <ThumbUpIcon color='success' /> : null}
               {regression ? <ThumbDownIcon color='error' /> : null}
               {determineStatus(
-                (result as CompareResultsItem).is_improvement,
-                (result as CompareResultsItem).is_regression,
+                 !!improvement,
+                !!regression,
               )}
             </Box>
           )}

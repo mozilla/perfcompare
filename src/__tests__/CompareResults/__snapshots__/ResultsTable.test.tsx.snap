@@ -4643,7 +4643,7 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
                               <div
                                 class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
                               >
-                                Worse
+                                Regression
                               </div>
                             </div>
                             <div
@@ -4838,7 +4838,7 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
                               role="cell"
                             >
                               <div
-                                class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                                class="status-hint MuiBox-root css-1dj4wrv"
                               >
                                 Better
                               </div>
@@ -5035,7 +5035,7 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
                               <div
                                 class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
                               >
-                                Worse
+                                Regression
                               </div>
                             </div>
                             <div
@@ -5729,7 +5729,7 @@ exports[`Results Table with mann-whitney-u testVersion data should render differ
         role="cell"
       >
         <div
-          class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+          class="status-hint MuiBox-root css-1dj4wrv"
         >
           Better
         </div>
@@ -5963,7 +5963,7 @@ exports[`Results Table with mann-whitney-u testVersion data should render differ
         role="cell"
       >
         <div
-          class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+          class="status-hint MuiBox-root css-1dj4wrv"
         >
           Better
         </div>

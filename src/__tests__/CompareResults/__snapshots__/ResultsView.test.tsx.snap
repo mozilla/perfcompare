@@ -195,7 +195,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               Comparison result
             </b>
             : 
-            worse
+            regression
              (
             lower
              is better)
@@ -496,7 +496,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               Comparison result
             </b>
             : 
-            worse
+            regression
              (
             lower
              is better)

@@ -182,7 +182,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 </div>
               )}
               <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
-                <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
+                <b>Comparison result</b>: {newIsBetter ? 'improvement' : 'regression'} (
                 {lowerIsBetter ? 'lower' : 'higher'} is better)
               </Box>
               {/******* student t test rendering **************/}

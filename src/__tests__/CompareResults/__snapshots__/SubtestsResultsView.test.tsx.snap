@@ -1,5 +1,1223 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`SubtestsResultsView Component Tests renders over-time view when backend returns MannWhitneyResultsItem[] 1`] = `
+<body
+  style=""
+>
+  <div>
+    <div
+      class="fcndgf6"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+      >
+        <div
+          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+        >
+          <div
+            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+          >
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            >
+              <span
+                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              >
+                <span
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                >
+                  <input
+                    aria-label="Dark mode switch"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                    id="Dark mode"
+                    name="toggle-dark-mode"
+                    type="checkbox"
+                  />
+                  <span
+                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                  />
+                </span>
+                <span
+                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
+                />
+              </span>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+              >
+                Dark mode
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="header-text MuiBox-root css-0"
+        >
+          <h1
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
+            style="--Typography-textAlign: center;"
+          >
+            PerfCompare
+          </h1>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-5c1adp-MuiContainer-root"
+            data-testid="subtests-main"
+          >
+            <header>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
+              >
+                <nav
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                >
+                  <ol
+                    class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
+                  >
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <span
+                        role="presentation"
+                      />
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="ChevronLeftIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                        />
+                      </svg>
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        href="/"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="ChevronLeftIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                        />
+                      </svg>
+                    </li>
+                    <li
+                      class="MuiBreadcrumbs-li"
+                    >
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
+                      >
+                        All results
+                      </a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
+              >
+                <div
+                  class="f1qbk2gm MuiBox-root css-0"
+                >
+                  <div
+                    class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+                  >
+                    <label
+                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
+                    >
+                      <span
+                        class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
+                      >
+                        <span
+                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                        >
+                          <input
+                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                            role="switch"
+                            type="checkbox"
+                          />
+                          <span
+                            class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                          />
+                        </span>
+                        <span
+                          class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
+                        />
+                      </span>
+                      <span
+                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                      >
+                        Replicates
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="fcqhb81"
+              >
+                <div
+                  class="f1l733lh"
+                >
+                  <strong>
+                    <a
+                      aria-label="link to suite documentation"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
+                      target="_blank"
+                      title="Link to suite documentation  "
+                    >
+                      a11yr
+                    </a>
+                  </strong>
+                   |
+                   Base (mozilla-central) Last day 
+                   - New (mozilla-central) 
+                  <a
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
+                    target="_blank"
+                    title="open treeherder view for 22f4cf67e8ad"
+                  >
+                    22f4cf67e8ad
+                  </a>
+                   | 
+                  talos
+                   |
+                   
+                  <span
+                    aria-label="linux1804-64-shippable-qr"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 34 34"
+                    >
+                      <path
+                        d="M15.6 8.1c0 .1-.1.1-.1.1h-.1c-.1 0-.1-.1-.2-.2 0 0-.1-.1-.1-.2s0-.1.1-.1l.2.1c.1.1.2.2.2.3m-1.9-1c0-.5-.2-.8-.5-.8 0 0 0 .1-.1.1v.2h.3c0 .2.1.3.1.5h.2m3.6-.5c.2 0 .3.2.4.5h.2c-.1-.1-.1-.2-.1-.3 0-.1 0-.2-.1-.3-.1-.1-.2-.2-.3-.2 0 0-.1.1-.2.1 0 .1.1.1.1.2m-3.1 1.6c-.1 0-.1 0-.1-.1s0-.2.1-.3c.2 0 .3-.1.3-.1.1 0 .1.1.1.1 0 .1-.1.2-.3.4h-.1m-1.1-.1c-.4-.2-.5-.5-.5-1 0-.3 0-.5.2-.7.1-.2.3-.3.5-.3s.3.1.5.3c.1.3.2.6.2.9v.2h.1v-.1c.1 0 .1-.2.1-.6 0-.3 0-.6-.2-.9-.2-.3-.4-.5-.8-.5-.3 0-.6.2-.7.5-.2.4-.2.7-.2 1.2 0 .4.1.8.6 1.2 0-.1.1-.1.2-.2m12.8 14.5c.1 0 .1 0 .1-.1 0-.2-.1-.5-.4-.8-.3-.3-.8-.5-1.4-.6h-.4c-.1 0-.3 0-.4-.1.3-1 .4-1.8.4-2.5 0-1-.2-1.7-.6-2.4-.4-.6-.8-.9-1.3-1-.1.1-.1.1-.1.2.5.2 1 .6 1.3 1.2.3.7.4 1.3.4 2.1 0 .6-.1 1.4-.5 2.5-.4.2-.8.5-1.1 1.1 0 .1 0 .1.1.1 0 0 .1-.1.2-.3l.5-.5c.3-.2.5-.3.8-.3.5 0 1 .1 1.3.2.4.1.6.3.7.4.1.2.2.3.3.4 0 .3.1.4.1.4M16.5 7.7c-.1-.1-.1-.3-.1-.5 0-.4 0-.6.2-.9.2-.2.4-.3.6-.3.3 0 .5.2.7.4.1.3.2.5.2.8 0 .5-.2.8-.6.9 0 0 .1.1.2.1.2 0 .3.1.5.2.1-.6.2-1 .2-1.5 0-.6-.1-1-.3-1.3-.3-.3-.6-.4-1-.4-.3 0-.6.1-.9.3-.2.3-.3.5-.3.8 0 .5.1.9.3 1.3.1 0 .2.1.3.1m1.2 1.7c-1.3.9-2.4 1.3-3.2 1.3-.7 0-1.4-.3-2.1-.8.1.2.2.4.3.5l.6.6c.4.4.9.6 1.4.6.7 0 1.5-.4 2.6-1.1l.9-.6c.2-.2.4-.4.4-.7 0-.1 0-.2-.1-.2 0-.3-.5-.6-1.5-.9-.9-.4-1.6-.6-2.1-.6-.3 0-.8.2-1.5.6-.6.4-1 .8-1 1.2 0 0 .1.1.2.3.6.5 1.2.8 1.8.8.8 0 1.8-.4 3.2-1.4v.2c.1.1.1.2.1.2m2.4 20.7c.4.8 1.1 1.2 1.9 1.2.2 0 .4 0 .6-.1.2 0 .4-.1.5-.2.1-.1.2-.1.3-.2.2-.1.2-.1.3-.2l1.7-1.5c.4-.3.8-.6 1.3-.9l1-.5c.3-.1.5-.2.7-.4.1-.2.2-.3.2-.6s-.2-.5-.4-.7c-.2-.2-.4-.3-.6-.3-.2-.1-.4-.2-.7-.5-.2-.3-.4-.6-.5-1.1l-.1-.6c-.1-.3-.1-.5-.2-.6H26c-.1 0-.3.1-.4.3l-.6.6c-.1.2-.4.4-.6.6-.3.2-.6.3-.8.3-.8 0-1.2-.2-1.5-.7-.2-.3-.3-.7-.4-1.1-.2-.2-.3-.3-.5-.3-.5 0-.7.5-.7 1.6V27.3c0 .1-.1.3-.1.6-.1.3-.1.7-.1 1.1l-.2 1.1m-14.9-.6c1 .1 2.1.4 3.3.9 1.2.5 2 .7 2.3.7.7 0 1.3-.3 1.8-.9.1-.2.1-.4.1-.7 0-1-.6-2.2-1.8-3.7l-.7-.9c-.1-.2-.3-.5-.5-.9s-.4-.7-.6-.9c-.1-.2-.3-.5-.6-.7-.3-.2-.6-.4-.9-.5-.4.1-.7.2-.9.4s-.2.4-.2.6c0 .2-.1.4-.2.4-.1.1-.3.1-.5.2h-.6c-.5 0-.9.1-1.1.2-.3.3-.4.6-.4 1 0 .2 0 .4.1.8s.1.7.1.9c0 .4-.1.8-.4 1.3-.3.4-.4.8-.4 1 .2.4.9.7 2.1.8m3.4-9.3c0-.7.2-1.5.6-2.4.4-.9.7-1.5 1.1-1.9 0-.1-.1-.1-.2-.1l-.1-.2c-.3.3-.7 1-1.1 2.1-.4.9-.7 1.8-.7 2.4 0 .5.1.9.3 1.2.2.3.8.8 1.6 1.5l1.1.7c1.2 1 1.8 1.7 1.8 2.1 0 .2-.1.4-.4.7-.2.2-.5.4-.7.4v.1l.3.6c.4.6 1.4.9 2.6.9 2.3 0 4-.9 5.3-2.8 0-.5 0-.8-.1-1v-.4c0-.7.1-1.2.3-1.5.2-.3.4-.5.7-.5.2 0 .4.1.6.2.1-.8.1-1.5.1-2.1 0-.9 0-1.7-.2-2.4-.1-.6-.3-1.1-.5-1.5l-.6-.9c-.2-.3-.3-.6-.5-.9-.1-.4-.2-.7-.2-1.2-.3-.5-.5-1-.8-1.5-.2-.5-.4-1-.6-1.4l-.9.7c-1 .7-1.8 1-2.6 1-.6 0-1.1-.1-1.4-.5l-.6-.5c0 .3-.1.7-.3 1.1l-.6 1.2c-.3.7-.4 1.1-.5 1.4 0 .2-.1.4-.1.4l-.8 1.5c-.8 1.5-1.3 3-1.3 4.1 0 .2 0 .5.1.7-.5-.3-.7-.7-.7-1.3m7.4 9.7c-1.3 0-2.4.2-3.1.5-.5.6-1.1.9-1.9.9-.5 0-1.3-.2-2.4-.6-1.1-.4-2-.7-2.9-.8-.1 0-.3-.1-.6-.1s-.6-.1-.8-.1c-.2 0-.5-.1-.7-.2-.3-.1-.5-.2-.6-.3-.1-.1-.2-.3-.2-.4 0-.2 0-.3.1-.5s.2-.3.3-.4c.1-.1.1-.2.2-.3.1-.1.1-.2.1-.3 0-.1.1-.2.1-.3v-.3s0-.4-.1-1c-.1-.5-.1-.9-.1-1 0-.5.1-.8.3-1.1.2-.3.4-.4.7-.4h1.2c.1 0 .2-.1.5-.2.1-.2.1-.3.2-.4.1-.1.1-.2.1-.3 0-.1 0-.1.1-.2 0-.1.1-.2.2-.2-.1-.1-.1-.2-.1-.4v-.3c0-.4.2-.9.5-1.6l.4-.6.7-1.4c.2-.4.4-1 .6-1.8.2-.7.6-1.4 1.2-2.2l.8-.9c.5-.6.9-1.1 1.1-1.5.2-.4.3-.9.3-1.3 0-.2-.1-.8-.2-1.8s-.2-2.1-.2-3c0-.7.1-1.2.2-1.7s.4-1 .7-1.4c.3-.4.7-.8 1.3-1 .6-.2 1.3-.3 2.2-.3.3 0 .6 0 .9.1.3 0 .7.1 1.2.3.4.2.8.4 1.1.7.2.2.6.7.9 1.2.2.6.4 1.2.5 2.1.1.5.1 1 .2 1.7 0 .6.1 1 .1 1.3.1.3.1.7.2 1.2.1.4.2.8.4 1.1.2.4.4.8.7 1.2.3.5.7 1 1.1 1.6.9 1 1.6 2.2 2.1 3.3.5 1 .8 2.4.8 3.8 0 .7-.1 1.4-.3 2.1.2 0 .3.1.4.2s.2.5.3.9l.1.8c.1.2.2.4.5.6.2.2.4.3.7.5.2.1.5.2.7.4.2.2.3.4.3.6 0 .3-.1.6-.3.8-.2.2-.4.3-.7.4l-1.2.6c-.5.3-1 .7-1.5 1.1l-1 .9c-.4.4-.8.7-1.1.9-.3.2-.7.3-1.1.3l-.7-.1c-.8-.2-1.3-.6-1.6-1.3-1.8 0-3.1-.1-3.9-.1"
+                      />
+                    </svg>
+                    <span>
+                      Linux 18.04
+                    </span>
+                  </span>
+                </div>
+                <div
+                  class="f1oxa67k"
+                >
+                  <span
+                    class="f1rpr1m5"
+                  >
+                    opt
+                  </span>
+                  <span
+                    class="f1rpr1m5"
+                  >
+                    e10s
+                  </span>
+                  <span
+                    class="f1rpr1m5"
+                  >
+                    fission
+                  </span>
+                  <span
+                    class="f1rpr1m5"
+                  >
+                    stylo
+                  </span>
+                  <span
+                    class="f1rpr1m5"
+                  >
+                    webrender
+                  </span>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1eexwk7-MuiGrid-root"
+                >
+                  <form
+                    aria-label="Search by title"
+                    class="MuiBox-root css-1wxqtyp"
+                  >
+                    <div
+                      class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
+                      >
+                        <div
+                          class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1nowbqt-MuiInputAdornment-root"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="notranslate"
+                          >
+                            ​
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                            data-testid="SearchIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
+                          aria-invalid="false"
+                          aria-label="Search by title"
+                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
+                          id="_r_cc_"
+                          placeholder="Filter results"
+                          type="search"
+                          value=""
+                        />
+                        <div
+                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-elo8k2-MuiInputAdornment-root"
+                        >
+                          <button
+                            aria-label="Clear the search input"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeSmall css-13mnts1-MuiButtonBase-root-MuiIconButton-root"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                              data-testid="CloseIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <fieldset
+                          aria-hidden="true"
+                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                        >
+                          <legend
+                            class="css-1nf2c5d-MuiNotchedOutlined-root"
+                          >
+                            <span
+                              aria-hidden="true"
+                              class="notranslate"
+                            >
+                              ​
+                            </span>
+                          </legend>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
+                >
+                  <div
+                    class="f6hg2jo"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      Download JSON
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    title="retrigger jobs"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1v1j2p3-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                        data-testid="RefreshOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"
+                        />
+                      </svg>
+                    </span>
+                    Retrigger test
+                  </button>
+                </div>
+              </div>
+            </header>
+            <div
+              class="MuiBox-root css-10qup14"
+              data-testid="subtests-results-table"
+              role="table"
+            >
+              <div
+                class="f8j0fxz f1l733lh"
+                data-testid="table-header"
+                role="row"
+              >
+                <div
+                  class="cell subtests-header"
+                  role="columnheader"
+                >
+                  <button
+                    aria-label="Subtests (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+                      />
+                      <title>
+                        Not sorted by Subtests
+                      </title>
+                    </svg>
+                    Subtests
+                  </button>
+                </div>
+                <div
+                  class="cell base-header"
+                  role="columnheader"
+                >
+                  <span
+                    aria-label="A summary of all values from Base runs using a mean."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    Base
+                  </span>
+                </div>
+                <div
+                  class="cell comparisonSign-header"
+                  role="columnheader"
+                />
+                <div
+                  class="cell new-header"
+                  role="columnheader"
+                >
+                  <span
+                    aria-label="A summary of all values from New runs using a mean."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    New
+                  </span>
+                </div>
+                <div
+                  class="cell status-header"
+                  role="columnheader"
+                >
+                  <button
+                    aria-haspopup="true"
+                    aria-label="Status (Click to filter values)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                    data-mui-internal-clone-element="true"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Status
+                    <div
+                      aria-label="3 items selected"
+                      class="MuiBox-root css-18uhbjh"
+                    >
+                      (
+                      3
+                      )
+                    </div>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="cell delta-header"
+                  role="columnheader"
+                >
+                  <span
+                    aria-label="Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    <button
+                      aria-label="Cliff's Delta (Click to sort by this column)"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+                        data-testid="SwapVertIcon"
+                        focusable="false"
+                        role="img"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+                        />
+                        <title>
+                          Not sorted by Cliff's Delta
+                        </title>
+                      </svg>
+                      Cliff's Delta
+                    </button>
+                  </span>
+                </div>
+                <div
+                  class="cell confidence-header"
+                  role="columnheader"
+                >
+                  <span
+                    aria-label="Mann Whitney U test p-value indicating statistical significance. Mann Whitney U p-value < .05 indicates a statistically significant difference between Base and New."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    <button
+                      aria-label="Confidence (Click to sort by this column)"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+                        data-testid="SwapVertIcon"
+                        focusable="false"
+                        role="img"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+                        />
+                        <title>
+                          Not sorted by Confidence
+                        </title>
+                      </svg>
+                      Confidence
+                    </button>
+                  </span>
+                </div>
+                <div
+                  class="cell effects-header"
+                  role="columnheader"
+                >
+                  <span
+                    aria-label="Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    <button
+                      aria-label="Effect Size (%) (Click to sort by this column)"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+                        data-testid="SwapVertIcon"
+                        focusable="false"
+                        role="img"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+                        />
+                        <title>
+                          Not sorted by Effect Size (%)
+                        </title>
+                      </svg>
+                      Effect Size (%)
+                    </button>
+                  </span>
+                </div>
+                <div
+                  class="cell runs-header"
+                  role="columnheader"
+                >
+                  <span
+                    aria-label="The total number of tasks/jobs that ran for this metric."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    Total Runs
+                  </span>
+                </div>
+                <div
+                  class="cell buttons-header"
+                  role="columnheader"
+                />
+                <div
+                  class="cell expand-header"
+                  role="columnheader"
+                />
+              </div>
+              <div
+                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
+                role="row"
+              >
+                <div
+                  class="subtests"
+                  role="cell"
+                  title="dhtml.html"
+                >
+                  dhtml.html
+                </div>
+                <div
+                  class="browser-name cell"
+                  role="cell"
+                >
+                  971.38
+                   
+                  ms
+                </div>
+                <div
+                  class="comparison-sign cell"
+                  role="cell"
+                >
+                  &lt;
+                </div>
+                <div
+                  class="browser-name cell"
+                  role="cell"
+                >
+                  982.41
+                   
+                  ms
+                </div>
+                <div
+                  class="status cell"
+                  role="cell"
+                >
+                  <div
+                    class="status-hint MuiBox-root css-1dj4wrv"
+                  />
+                </div>
+                <div
+                  class="delta cell"
+                  role="cell"
+                >
+                   
+                  1.14
+                   %
+                   
+                </div>
+                <div
+                  class="p_value cell"
+                  role="cell"
+                >
+                  -
+                </div>
+                <div
+                  class="effects cell"
+                  role="cell"
+                >
+                  42
+                   
+                  %
+                   
+                </div>
+                <div
+                  class="total-runs cell"
+                  role="cell"
+                >
+                  <span>
+                    <span
+                      title="Base runs"
+                    >
+                      B:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                  <span>
+                    <span
+                      title="New runs"
+                    >
+                      N:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                </div>
+                <div
+                  class="row-buttons cell"
+                >
+                  <div
+                    class="graph"
+                    role="cell"
+                  >
+                    <div
+                      class="graph-link-button-container"
+                    >
+                      <a
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        tabindex="0"
+                        target="_blank"
+                        title="open the evolution graph for this job in treeherder"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                          data-testid="TimelineIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="cell MuiBox-root css-172osot"
+                  role="cell"
+                >
+                  <button
+                    aria-controls="_r_ci_"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    title="expand this row"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
+                role="row"
+              >
+                <div
+                  class="subtests"
+                  role="cell"
+                  title="improvement.html"
+                >
+                  improvement.html
+                </div>
+                <div
+                  class="browser-name cell"
+                  role="cell"
+                >
+                  973.66
+                   
+                  ms
+                </div>
+                <div
+                  class="comparison-sign cell"
+                  role="cell"
+                >
+                  &lt;
+                </div>
+                <div
+                  class="browser-name cell"
+                  role="cell"
+                >
+                  984.16
+                   
+                  ms
+                </div>
+                <div
+                  class="status cell"
+                  role="cell"
+                >
+                  <div
+                    class="status-hint MuiBox-root css-1dj4wrv"
+                  />
+                </div>
+                <div
+                  class="delta cell"
+                  role="cell"
+                >
+                   
+                  -1.44
+                   %
+                   
+                </div>
+                <div
+                  class="p_value cell"
+                  role="cell"
+                >
+                  -
+                </div>
+                <div
+                  class="effects cell"
+                  role="cell"
+                >
+                  1
+                   
+                  %
+                   
+                </div>
+                <div
+                  class="total-runs cell"
+                  role="cell"
+                >
+                  <span>
+                    <span
+                      title="Base runs"
+                    >
+                      B:
+                    </span>
+                    <strong>
+                      3
+                    </strong>
+                  </span>
+                  <span>
+                    <span
+                      title="New runs"
+                    >
+                      N:
+                    </span>
+                    <strong>
+                      3
+                    </strong>
+                  </span>
+                </div>
+                <div
+                  class="row-buttons cell"
+                >
+                  <div
+                    class="graph"
+                    role="cell"
+                  >
+                    <div
+                      class="graph-link-button-container"
+                    >
+                      <a
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        tabindex="0"
+                        target="_blank"
+                        title="open the evolution graph for this job in treeherder"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                          data-testid="TimelineIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="cell MuiBox-root css-172osot"
+                  role="cell"
+                >
+                  <button
+                    aria-controls="_r_cl_"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    title="expand this row"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
+                role="row"
+              >
+                <div
+                  class="subtests"
+                  role="cell"
+                  title="regression.html"
+                >
+                  regression.html
+                </div>
+                <div
+                  class="browser-name cell"
+                  role="cell"
+                >
+                  971.38
+                   
+                  ms
+                </div>
+                <div
+                  class="comparison-sign cell"
+                  role="cell"
+                >
+                  &lt;
+                </div>
+                <div
+                  class="browser-name cell"
+                  role="cell"
+                >
+                  982.41
+                   
+                  ms
+                </div>
+                <div
+                  class="status cell"
+                  role="cell"
+                >
+                  <div
+                    class="status-hint MuiBox-root css-1dj4wrv"
+                  />
+                </div>
+                <div
+                  class="delta cell"
+                  role="cell"
+                >
+                   
+                  1.04
+                   %
+                   
+                </div>
+                <div
+                  class="p_value cell"
+                  role="cell"
+                >
+                  -
+                </div>
+                <div
+                  class="effects cell"
+                  role="cell"
+                >
+                  3
+                   
+                  %
+                   
+                </div>
+                <div
+                  class="total-runs cell"
+                  role="cell"
+                >
+                  <span>
+                    <span
+                      title="Base runs"
+                    >
+                      B:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                  <span>
+                    <span
+                      title="New runs"
+                    >
+                      N:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                </div>
+                <div
+                  class="row-buttons cell"
+                >
+                  <div
+                    class="graph"
+                    role="cell"
+                  >
+                    <div
+                      class="graph-link-button-container"
+                    >
+                      <a
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        tabindex="0"
+                        target="_blank"
+                        title="open the evolution graph for this job in treeherder"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                          data-testid="TimelineIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="cell MuiBox-root css-172osot"
+                  role="cell"
+                >
+                  <button
+                    aria-controls="_r_co_"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    title="expand this row"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
+                role="row"
+              >
+                <div
+                  class="subtests"
+                  role="cell"
+                  title="tablemutation.html"
+                >
+                  tablemutation.html
+                </div>
+                <div
+                  class="browser-name cell"
+                  role="cell"
+                >
+                  316.35
+                   
+                  ms
+                </div>
+                <div
+                  class="comparison-sign cell"
+                  role="cell"
+                >
+                  &lt;
+                </div>
+                <div
+                  class="browser-name cell"
+                  role="cell"
+                >
+                  319.45
+                   
+                  ms
+                </div>
+                <div
+                  class="status cell"
+                  role="cell"
+                >
+                  <div
+                    class="status-hint MuiBox-root css-1dj4wrv"
+                  />
+                </div>
+                <div
+                  class="delta cell"
+                  role="cell"
+                >
+                   
+                  0.98
+                   %
+                   
+                </div>
+                <div
+                  class="p_value cell"
+                  role="cell"
+                >
+                  -
+                </div>
+                <div
+                  class="effects cell"
+                  role="cell"
+                >
+                  73
+                   
+                  %
+                   
+                </div>
+                <div
+                  class="total-runs cell"
+                  role="cell"
+                >
+                  <span>
+                    <span
+                      title="Base runs"
+                    >
+                      B:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                  <span>
+                    <span
+                      title="New runs"
+                    >
+                      N:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                </div>
+                <div
+                  class="row-buttons cell"
+                >
+                  <div
+                    class="graph"
+                    role="cell"
+                  >
+                    <div
+                      class="graph-link-button-container"
+                    >
+                      <a
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
+                        tabindex="0"
+                        target="_blank"
+                        title="open the evolution graph for this job in treeherder"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                          data-testid="TimelineIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="cell MuiBox-root css-172osot"
+                  role="cell"
+                >
+                  <button
+                    aria-controls="_r_cr_"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    title="expand this row"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`SubtestsResultsView Component Tests should render the subtests results view and match snapshot 1`] = `
 <body>
   <div>
@@ -1816,1374 +3034,4 @@ exports[`SubtestsResultsView Component Tests table sorting initializes the sort 
   </svg>
   Delta
 </button>
-`;
-
-exports[`SubtestsViewCompareOverTime Component Tests for mann-whitney-u testVersion should render the subtests over time results view and match snapshot 1`] = `
-<body
-  style=""
->
-  <div>
-    <div
-      class="fcndgf6"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
-      >
-        <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
-        >
-          <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-          >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
-            >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
-              >
-                <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
-                  <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                  />
-                </span>
-                <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-              >
-                Dark mode
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
-      >
-        <div
-          class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
-        >
-          <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-5c1adp-MuiContainer-root"
-            data-testid="subtests-main"
-          >
-            <header>
-              <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
-              >
-                <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
-                >
-                  <ol
-                    class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
-                  >
-                    <li
-                      class="MuiBreadcrumbs-li"
-                    >
-                      <span
-                        role="presentation"
-                      />
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                        data-testid="ChevronLeftIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                        />
-                      </svg>
-                    </li>
-                    <li
-                      class="MuiBreadcrumbs-li"
-                    >
-                      <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-                        href="/"
-                      >
-                        Home
-                      </a>
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                        data-testid="ChevronLeftIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                        />
-                      </svg>
-                    </li>
-                    <li
-                      class="MuiBreadcrumbs-li"
-                    >
-                      <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
-                      >
-                        All results
-                      </a>
-                    </li>
-                  </ol>
-                </nav>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
-              >
-                <div
-                  class="f1qbk2gm MuiBox-root css-0"
-                >
-                  <div
-                    class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-                  >
-                    <label
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
-                    >
-                      <span
-                        class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
-                      >
-                        <span
-                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                        >
-                          <input
-                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                            role="switch"
-                            type="checkbox"
-                          />
-                          <span
-                            class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                          />
-                        </span>
-                        <span
-                          class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                        />
-                      </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-                      >
-                        Replicates
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="fcqhb81"
-              >
-                <div
-                  class="f1l733lh"
-                >
-                  <strong>
-                    <a
-                      aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
-                      href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
-                      target="_blank"
-                      title="Link to suite documentation  "
-                    >
-                      a11yr
-                    </a>
-                  </strong>
-                   |
-                   Base (mozilla-central) Last day 
-                   - New (mozilla-central) 
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-                    href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
-                    target="_blank"
-                    title="open treeherder view for 22f4cf67e8ad"
-                  >
-                    22f4cf67e8ad
-                  </a>
-                   | 
-                  talos
-                   |
-                   
-                  <span
-                    aria-label="linux1804-64-shippable-qr"
-                    class=""
-                    data-mui-internal-clone-element="true"
-                    style="cursor: pointer;"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 34 34"
-                    >
-                      <path
-                        d="M15.6 8.1c0 .1-.1.1-.1.1h-.1c-.1 0-.1-.1-.2-.2 0 0-.1-.1-.1-.2s0-.1.1-.1l.2.1c.1.1.2.2.2.3m-1.9-1c0-.5-.2-.8-.5-.8 0 0 0 .1-.1.1v.2h.3c0 .2.1.3.1.5h.2m3.6-.5c.2 0 .3.2.4.5h.2c-.1-.1-.1-.2-.1-.3 0-.1 0-.2-.1-.3-.1-.1-.2-.2-.3-.2 0 0-.1.1-.2.1 0 .1.1.1.1.2m-3.1 1.6c-.1 0-.1 0-.1-.1s0-.2.1-.3c.2 0 .3-.1.3-.1.1 0 .1.1.1.1 0 .1-.1.2-.3.4h-.1m-1.1-.1c-.4-.2-.5-.5-.5-1 0-.3 0-.5.2-.7.1-.2.3-.3.5-.3s.3.1.5.3c.1.3.2.6.2.9v.2h.1v-.1c.1 0 .1-.2.1-.6 0-.3 0-.6-.2-.9-.2-.3-.4-.5-.8-.5-.3 0-.6.2-.7.5-.2.4-.2.7-.2 1.2 0 .4.1.8.6 1.2 0-.1.1-.1.2-.2m12.8 14.5c.1 0 .1 0 .1-.1 0-.2-.1-.5-.4-.8-.3-.3-.8-.5-1.4-.6h-.4c-.1 0-.3 0-.4-.1.3-1 .4-1.8.4-2.5 0-1-.2-1.7-.6-2.4-.4-.6-.8-.9-1.3-1-.1.1-.1.1-.1.2.5.2 1 .6 1.3 1.2.3.7.4 1.3.4 2.1 0 .6-.1 1.4-.5 2.5-.4.2-.8.5-1.1 1.1 0 .1 0 .1.1.1 0 0 .1-.1.2-.3l.5-.5c.3-.2.5-.3.8-.3.5 0 1 .1 1.3.2.4.1.6.3.7.4.1.2.2.3.3.4 0 .3.1.4.1.4M16.5 7.7c-.1-.1-.1-.3-.1-.5 0-.4 0-.6.2-.9.2-.2.4-.3.6-.3.3 0 .5.2.7.4.1.3.2.5.2.8 0 .5-.2.8-.6.9 0 0 .1.1.2.1.2 0 .3.1.5.2.1-.6.2-1 .2-1.5 0-.6-.1-1-.3-1.3-.3-.3-.6-.4-1-.4-.3 0-.6.1-.9.3-.2.3-.3.5-.3.8 0 .5.1.9.3 1.3.1 0 .2.1.3.1m1.2 1.7c-1.3.9-2.4 1.3-3.2 1.3-.7 0-1.4-.3-2.1-.8.1.2.2.4.3.5l.6.6c.4.4.9.6 1.4.6.7 0 1.5-.4 2.6-1.1l.9-.6c.2-.2.4-.4.4-.7 0-.1 0-.2-.1-.2 0-.3-.5-.6-1.5-.9-.9-.4-1.6-.6-2.1-.6-.3 0-.8.2-1.5.6-.6.4-1 .8-1 1.2 0 0 .1.1.2.3.6.5 1.2.8 1.8.8.8 0 1.8-.4 3.2-1.4v.2c.1.1.1.2.1.2m2.4 20.7c.4.8 1.1 1.2 1.9 1.2.2 0 .4 0 .6-.1.2 0 .4-.1.5-.2.1-.1.2-.1.3-.2.2-.1.2-.1.3-.2l1.7-1.5c.4-.3.8-.6 1.3-.9l1-.5c.3-.1.5-.2.7-.4.1-.2.2-.3.2-.6s-.2-.5-.4-.7c-.2-.2-.4-.3-.6-.3-.2-.1-.4-.2-.7-.5-.2-.3-.4-.6-.5-1.1l-.1-.6c-.1-.3-.1-.5-.2-.6H26c-.1 0-.3.1-.4.3l-.6.6c-.1.2-.4.4-.6.6-.3.2-.6.3-.8.3-.8 0-1.2-.2-1.5-.7-.2-.3-.3-.7-.4-1.1-.2-.2-.3-.3-.5-.3-.5 0-.7.5-.7 1.6V27.3c0 .1-.1.3-.1.6-.1.3-.1.7-.1 1.1l-.2 1.1m-14.9-.6c1 .1 2.1.4 3.3.9 1.2.5 2 .7 2.3.7.7 0 1.3-.3 1.8-.9.1-.2.1-.4.1-.7 0-1-.6-2.2-1.8-3.7l-.7-.9c-.1-.2-.3-.5-.5-.9s-.4-.7-.6-.9c-.1-.2-.3-.5-.6-.7-.3-.2-.6-.4-.9-.5-.4.1-.7.2-.9.4s-.2.4-.2.6c0 .2-.1.4-.2.4-.1.1-.3.1-.5.2h-.6c-.5 0-.9.1-1.1.2-.3.3-.4.6-.4 1 0 .2 0 .4.1.8s.1.7.1.9c0 .4-.1.8-.4 1.3-.3.4-.4.8-.4 1 .2.4.9.7 2.1.8m3.4-9.3c0-.7.2-1.5.6-2.4.4-.9.7-1.5 1.1-1.9 0-.1-.1-.1-.2-.1l-.1-.2c-.3.3-.7 1-1.1 2.1-.4.9-.7 1.8-.7 2.4 0 .5.1.9.3 1.2.2.3.8.8 1.6 1.5l1.1.7c1.2 1 1.8 1.7 1.8 2.1 0 .2-.1.4-.4.7-.2.2-.5.4-.7.4v.1l.3.6c.4.6 1.4.9 2.6.9 2.3 0 4-.9 5.3-2.8 0-.5 0-.8-.1-1v-.4c0-.7.1-1.2.3-1.5.2-.3.4-.5.7-.5.2 0 .4.1.6.2.1-.8.1-1.5.1-2.1 0-.9 0-1.7-.2-2.4-.1-.6-.3-1.1-.5-1.5l-.6-.9c-.2-.3-.3-.6-.5-.9-.1-.4-.2-.7-.2-1.2-.3-.5-.5-1-.8-1.5-.2-.5-.4-1-.6-1.4l-.9.7c-1 .7-1.8 1-2.6 1-.6 0-1.1-.1-1.4-.5l-.6-.5c0 .3-.1.7-.3 1.1l-.6 1.2c-.3.7-.4 1.1-.5 1.4 0 .2-.1.4-.1.4l-.8 1.5c-.8 1.5-1.3 3-1.3 4.1 0 .2 0 .5.1.7-.5-.3-.7-.7-.7-1.3m7.4 9.7c-1.3 0-2.4.2-3.1.5-.5.6-1.1.9-1.9.9-.5 0-1.3-.2-2.4-.6-1.1-.4-2-.7-2.9-.8-.1 0-.3-.1-.6-.1s-.6-.1-.8-.1c-.2 0-.5-.1-.7-.2-.3-.1-.5-.2-.6-.3-.1-.1-.2-.3-.2-.4 0-.2 0-.3.1-.5s.2-.3.3-.4c.1-.1.1-.2.2-.3.1-.1.1-.2.1-.3 0-.1.1-.2.1-.3v-.3s0-.4-.1-1c-.1-.5-.1-.9-.1-1 0-.5.1-.8.3-1.1.2-.3.4-.4.7-.4h1.2c.1 0 .2-.1.5-.2.1-.2.1-.3.2-.4.1-.1.1-.2.1-.3 0-.1 0-.1.1-.2 0-.1.1-.2.2-.2-.1-.1-.1-.2-.1-.4v-.3c0-.4.2-.9.5-1.6l.4-.6.7-1.4c.2-.4.4-1 .6-1.8.2-.7.6-1.4 1.2-2.2l.8-.9c.5-.6.9-1.1 1.1-1.5.2-.4.3-.9.3-1.3 0-.2-.1-.8-.2-1.8s-.2-2.1-.2-3c0-.7.1-1.2.2-1.7s.4-1 .7-1.4c.3-.4.7-.8 1.3-1 .6-.2 1.3-.3 2.2-.3.3 0 .6 0 .9.1.3 0 .7.1 1.2.3.4.2.8.4 1.1.7.2.2.6.7.9 1.2.2.6.4 1.2.5 2.1.1.5.1 1 .2 1.7 0 .6.1 1 .1 1.3.1.3.1.7.2 1.2.1.4.2.8.4 1.1.2.4.4.8.7 1.2.3.5.7 1 1.1 1.6.9 1 1.6 2.2 2.1 3.3.5 1 .8 2.4.8 3.8 0 .7-.1 1.4-.3 2.1.2 0 .3.1.4.2s.2.5.3.9l.1.8c.1.2.2.4.5.6.2.2.4.3.7.5.2.1.5.2.7.4.2.2.3.4.3.6 0 .3-.1.6-.3.8-.2.2-.4.3-.7.4l-1.2.6c-.5.3-1 .7-1.5 1.1l-1 .9c-.4.4-.8.7-1.1.9-.3.2-.7.3-1.1.3l-.7-.1c-.8-.2-1.3-.6-1.6-1.3-1.8 0-3.1-.1-3.9-.1"
-                      />
-                    </svg>
-                    <span>
-                      Linux 18.04
-                    </span>
-                  </span>
-                </div>
-                <div
-                  class="f1oxa67k"
-                >
-                  <span
-                    class="f1rpr1m5"
-                  >
-                    opt
-                  </span>
-                  <span
-                    class="f1rpr1m5"
-                  >
-                    e10s
-                  </span>
-                  <span
-                    class="f1rpr1m5"
-                  >
-                    fission
-                  </span>
-                  <span
-                    class="f1rpr1m5"
-                  >
-                    stylo
-                  </span>
-                  <span
-                    class="f1rpr1m5"
-                  >
-                    webrender
-                  </span>
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1eexwk7-MuiGrid-root"
-                >
-                  <form
-                    aria-label="Search by title"
-                    class="MuiBox-root css-1wxqtyp"
-                  >
-                    <div
-                      class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
-                      >
-                        <div
-                          class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1nowbqt-MuiInputAdornment-root"
-                        >
-                          <span
-                            aria-hidden="true"
-                            class="notranslate"
-                          >
-                            ​
-                          </span>
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                            data-testid="SearchIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
-                          aria-invalid="false"
-                          aria-label="Search by title"
-                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_b9_"
-                          placeholder="Filter results"
-                          type="search"
-                          value=""
-                        />
-                        <div
-                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-elo8k2-MuiInputAdornment-root"
-                        >
-                          <button
-                            aria-label="Clear the search input"
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeSmall css-13mnts1-MuiButtonBase-root-MuiIconButton-root"
-                            tabindex="0"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                              data-testid="CloseIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                        <fieldset
-                          aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                        >
-                          <legend
-                            class="css-1nf2c5d-MuiNotchedOutlined-root"
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="notranslate"
-                            >
-                              ​
-                            </span>
-                          </legend>
-                        </fieldset>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
-                >
-                  <div
-                    class="f6hg2jo"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Download JSON
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
-                    tabindex="0"
-                    title="retrigger jobs"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1v1j2p3-MuiButton-startIcon"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                        data-testid="RefreshOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"
-                        />
-                      </svg>
-                    </span>
-                    Retrigger test
-                  </button>
-                </div>
-              </div>
-            </header>
-            <div
-              class="MuiBox-root css-10qup14"
-              data-testid="subtests-results-table"
-              role="table"
-            >
-              <div
-                class="f8j0fxz f1l733lh"
-                data-testid="table-header"
-                role="row"
-              >
-                <div
-                  class="cell subtests-header"
-                  role="columnheader"
-                >
-                  <button
-                    aria-label="Subtests (Click to sort by this column)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
-                      data-testid="SwapVertIcon"
-                      focusable="false"
-                      role="img"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
-                      />
-                      <title>
-                        Not sorted by Subtests
-                      </title>
-                    </svg>
-                    Subtests
-                  </button>
-                </div>
-                <div
-                  class="cell base-header"
-                  role="columnheader"
-                >
-                  <span
-                    aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    Base
-                  </span>
-                </div>
-                <div
-                  class="cell comparisonSign-header"
-                  role="columnheader"
-                />
-                <div
-                  class="cell new-header"
-                  role="columnheader"
-                >
-                  <span
-                    aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    New
-                  </span>
-                </div>
-                <div
-                  class="cell status-header"
-                  role="columnheader"
-                >
-                  <button
-                    aria-haspopup="true"
-                    aria-label="Status (Click to filter values)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
-                    data-mui-internal-clone-element="true"
-                    tabindex="0"
-                    type="button"
-                  >
-                    Status
-                    <div
-                      aria-label="3 items selected"
-                      class="MuiBox-root css-18uhbjh"
-                    >
-                      (
-                      3
-                      )
-                    </div>
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                      data-testid="KeyboardArrowDownIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <div
-                  class="cell delta-header"
-                  role="columnheader"
-                >
-                  <span
-                    aria-label="Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    <button
-                      aria-label="Cliff's Delta (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
-                        data-testid="SwapVertIcon"
-                        focusable="false"
-                        role="img"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
-                        />
-                        <title>
-                          Not sorted by Cliff's Delta
-                        </title>
-                      </svg>
-                      Cliff's Delta
-                    </button>
-                  </span>
-                </div>
-                <div
-                  class="cell confidence-header"
-                  role="columnheader"
-                >
-                  <span
-                    aria-label="Mann Whitney U test p-value indicating statistical significance. Mann Whitney U p-value < .05 indicates a statistically significant difference between Base and New."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    <button
-                      aria-label="Confidence (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
-                        data-testid="SwapVertIcon"
-                        focusable="false"
-                        role="img"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
-                        />
-                        <title>
-                          Not sorted by Confidence
-                        </title>
-                      </svg>
-                      Confidence
-                    </button>
-                  </span>
-                </div>
-                <div
-                  class="cell effects-header"
-                  role="columnheader"
-                >
-                  <span
-                    aria-label="Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    <button
-                      aria-label="Effect Size (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
-                        data-testid="SwapVertIcon"
-                        focusable="false"
-                        role="img"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
-                        />
-                        <title>
-                          Not sorted by Effect Size (%)
-                        </title>
-                      </svg>
-                      Effect Size (%)
-                    </button>
-                  </span>
-                </div>
-                <div
-                  class="cell runs-header"
-                  role="columnheader"
-                >
-                  <span
-                    aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    Total Runs
-                  </span>
-                </div>
-                <div
-                  class="cell buttons-header"
-                  role="columnheader"
-                />
-                <div
-                  class="cell expand-header"
-                  role="columnheader"
-                />
-              </div>
-              <div
-                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
-                role="row"
-              >
-                <div
-                  class="subtests"
-                  role="cell"
-                  title="browser.html"
-                >
-                  browser.html
-                </div>
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                  <span
-                    class="fq5j3k2"
-                  >
-                    (
-                    firefox
-                    )
-                  </span>
-                </div>
-                <div
-                  class="comparison-sign cell"
-                  role="cell"
-                />
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                  <span
-                    class="fq5j3k2"
-                  >
-                    (
-                    chrome
-                    )
-                  </span>
-                </div>
-                <div
-                  class="status cell"
-                  role="cell"
-                >
-                  <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
-                </div>
-                <div
-                  class="delta cell"
-                  role="cell"
-                >
-                   
-                  -1.43
-                   %
-                   
-                </div>
-                <div
-                  class="p_value cell"
-                  role="cell"
-                >
-                  -
-                </div>
-                <div
-                  class="effects cell"
-                  role="cell"
-                >
-                  0
-                   
-                  %
-                   
-                </div>
-                <div
-                  class="total-runs cell"
-                  role="cell"
-                >
-                  <span>
-                    <span
-                      title="Base runs"
-                    >
-                      B:
-                    </span>
-                    <strong>
-                      3
-                    </strong>
-                  </span>
-                  <span>
-                    <span
-                      title="New runs"
-                    >
-                      N:
-                    </span>
-                    <strong>
-                      3
-                    </strong>
-                  </span>
-                </div>
-                <div
-                  class="row-buttons cell"
-                >
-                  <div
-                    class="graph"
-                    role="cell"
-                  >
-                    <div
-                      class="graph-link-button-container"
-                    >
-                      <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
-                        tabindex="0"
-                        target="_blank"
-                        title="open the evolution graph for this job in treeherder"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                          data-testid="TimelineIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="cell MuiBox-root css-172osot"
-                  role="cell"
-                >
-                  <button
-                    aria-controls="_r_bf_"
-                    aria-expanded="false"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="expand this row"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                      data-testid="ExpandMoreIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div
-                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
-                role="row"
-              >
-                <div
-                  class="subtests"
-                  role="cell"
-                  title="dhtml.html"
-                >
-                  dhtml.html
-                </div>
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                </div>
-                <div
-                  class="comparison-sign cell"
-                  role="cell"
-                />
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                </div>
-                <div
-                  class="status cell"
-                  role="cell"
-                >
-                  <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
-                </div>
-                <div
-                  class="delta cell"
-                  role="cell"
-                >
-                   
-                  1.14
-                   %
-                   
-                </div>
-                <div
-                  class="p_value cell"
-                  role="cell"
-                >
-                  -
-                </div>
-                <div
-                  class="effects cell"
-                  role="cell"
-                >
-                  0
-                   
-                  %
-                   
-                </div>
-                <div
-                  class="total-runs cell"
-                  role="cell"
-                >
-                  <span>
-                    <span
-                      title="Base runs"
-                    >
-                      B:
-                    </span>
-                    <strong>
-                      2
-                    </strong>
-                  </span>
-                  <span>
-                    <span
-                      title="New runs"
-                    >
-                      N:
-                    </span>
-                    <strong>
-                      2
-                    </strong>
-                  </span>
-                </div>
-                <div
-                  class="row-buttons cell"
-                >
-                  <div
-                    class="graph"
-                    role="cell"
-                  >
-                    <div
-                      class="graph-link-button-container"
-                    >
-                      <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
-                        tabindex="0"
-                        target="_blank"
-                        title="open the evolution graph for this job in treeherder"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                          data-testid="TimelineIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="cell MuiBox-root css-172osot"
-                  role="cell"
-                >
-                  <button
-                    aria-controls="_r_bi_"
-                    aria-expanded="false"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="expand this row"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                      data-testid="ExpandMoreIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div
-                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
-                role="row"
-              >
-                <div
-                  class="subtests"
-                  role="cell"
-                  title="improvement.html"
-                >
-                  improvement.html
-                </div>
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                </div>
-                <div
-                  class="comparison-sign cell"
-                  role="cell"
-                />
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                </div>
-                <div
-                  class="status cell"
-                  role="cell"
-                >
-                  <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
-                </div>
-                <div
-                  class="delta cell"
-                  role="cell"
-                >
-                   
-                  -1.44
-                   %
-                   
-                </div>
-                <div
-                  class="p_value cell"
-                  role="cell"
-                >
-                  -
-                </div>
-                <div
-                  class="effects cell"
-                  role="cell"
-                >
-                  0
-                   
-                  %
-                   
-                </div>
-                <div
-                  class="total-runs cell"
-                  role="cell"
-                >
-                  <span>
-                    <span
-                      title="Base runs"
-                    >
-                      B:
-                    </span>
-                    <strong>
-                      3
-                    </strong>
-                  </span>
-                  <span>
-                    <span
-                      title="New runs"
-                    >
-                      N:
-                    </span>
-                    <strong>
-                      3
-                    </strong>
-                  </span>
-                </div>
-                <div
-                  class="row-buttons cell"
-                >
-                  <div
-                    class="graph"
-                    role="cell"
-                  >
-                    <div
-                      class="graph-link-button-container"
-                    >
-                      <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
-                        tabindex="0"
-                        target="_blank"
-                        title="open the evolution graph for this job in treeherder"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                          data-testid="TimelineIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="cell MuiBox-root css-172osot"
-                  role="cell"
-                >
-                  <button
-                    aria-controls="_r_bl_"
-                    aria-expanded="false"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="expand this row"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                      data-testid="ExpandMoreIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div
-                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
-                role="row"
-              >
-                <div
-                  class="subtests"
-                  role="cell"
-                  title="regression.html"
-                >
-                  regression.html
-                </div>
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                </div>
-                <div
-                  class="comparison-sign cell"
-                  role="cell"
-                />
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                </div>
-                <div
-                  class="status cell"
-                  role="cell"
-                >
-                  <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
-                </div>
-                <div
-                  class="delta cell"
-                  role="cell"
-                >
-                   
-                  1.04
-                   %
-                   
-                </div>
-                <div
-                  class="p_value cell"
-                  role="cell"
-                >
-                  -
-                </div>
-                <div
-                  class="effects cell"
-                  role="cell"
-                >
-                  0
-                   
-                  %
-                   
-                </div>
-                <div
-                  class="total-runs cell"
-                  role="cell"
-                >
-                  <span>
-                    <span
-                      title="Base runs"
-                    >
-                      B:
-                    </span>
-                    <strong>
-                      2
-                    </strong>
-                  </span>
-                  <span>
-                    <span
-                      title="New runs"
-                    >
-                      N:
-                    </span>
-                    <strong>
-                      2
-                    </strong>
-                  </span>
-                </div>
-                <div
-                  class="row-buttons cell"
-                >
-                  <div
-                    class="graph"
-                    role="cell"
-                  >
-                    <div
-                      class="graph-link-button-container"
-                    >
-                      <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
-                        tabindex="0"
-                        target="_blank"
-                        title="open the evolution graph for this job in treeherder"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                          data-testid="TimelineIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="cell MuiBox-root css-172osot"
-                  role="cell"
-                >
-                  <button
-                    aria-controls="_r_bo_"
-                    aria-expanded="false"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="expand this row"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                      data-testid="ExpandMoreIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div
-                class="revisionRow f1l4wgcn f161t6v MuiBox-root css-eew4vb"
-                role="row"
-              >
-                <div
-                  class="subtests"
-                  role="cell"
-                  title="tablemutation.html"
-                >
-                  tablemutation.html
-                </div>
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                </div>
-                <div
-                  class="comparison-sign cell"
-                  role="cell"
-                />
-                <div
-                  class="browser-name cell"
-                  role="cell"
-                >
-                  0
-                   
-                  ms
-                </div>
-                <div
-                  class="status cell"
-                  role="cell"
-                >
-                  <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
-                </div>
-                <div
-                  class="delta cell"
-                  role="cell"
-                >
-                   
-                  0.98
-                   %
-                   
-                </div>
-                <div
-                  class="p_value cell"
-                  role="cell"
-                >
-                  -
-                </div>
-                <div
-                  class="effects cell"
-                  role="cell"
-                >
-                  0
-                   
-                  %
-                   
-                </div>
-                <div
-                  class="total-runs cell"
-                  role="cell"
-                >
-                  <span>
-                    <span
-                      title="Base runs"
-                    >
-                      B:
-                    </span>
-                    <strong>
-                      2
-                    </strong>
-                  </span>
-                  <span>
-                    <span
-                      title="New runs"
-                    >
-                      N:
-                    </span>
-                    <strong>
-                      2
-                    </strong>
-                  </span>
-                </div>
-                <div
-                  class="row-buttons cell"
-                >
-                  <div
-                    class="graph"
-                    role="cell"
-                  >
-                    <div
-                      class="graph-link-button-container"
-                    >
-                      <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
-                        tabindex="0"
-                        target="_blank"
-                        title="open the evolution graph for this job in treeherder"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                          data-testid="TimelineIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="cell MuiBox-root css-172osot"
-                  role="cell"
-                >
-                  <button
-                    aria-controls="_r_br_"
-                    aria-expanded="false"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="expand this row"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                      data-testid="ExpandMoreIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
 `;
