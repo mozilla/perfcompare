@@ -5,7 +5,6 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { TestVersion } from '../../types/types';
-import { minWidth } from '@mui/system';
 
 export const ModeInterpretation = ({
   result,
@@ -51,10 +50,16 @@ export const ModeInterpretation = ({
       <table>
         <thead>
           <tr style={{ textAlign: 'left' }}>
-            <th style={{ padding: 2, verticalAlign: 'top', paddingRight: 12 }}>Mode Start </th>
-            <th style={{ padding: 2, verticalAlign: 'top', paddingRight: 12 }}>Mode End </th>
-            <th style={{ padding: 2, verticalAlign: 'top', paddingRight: 12 }}>Median Shift</th>
-            <th style={{ padding: 2, verticalAlign: 'top'}}>Interpretation</th>
+            <th style={{ padding: 2, verticalAlign: 'top', paddingRight: 12 }}>
+              Mode Start{' '}
+            </th>
+            <th style={{ padding: 2, verticalAlign: 'top', paddingRight: 12 }}>
+              Mode End{' '}
+            </th>
+            <th style={{ padding: 2, verticalAlign: 'top', paddingRight: 12 }}>
+              Median Shift
+            </th>
+            <th style={{ padding: 2, verticalAlign: 'top' }}>Interpretation</th>
           </tr>
         </thead>
         <tbody>
