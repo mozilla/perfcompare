@@ -51,6 +51,38 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
     expect(modeInterpretation).toBeInTheDocument();
   });
 
+  it('should render N/A values for MannWhitneyResultsItem with empty result.silverman_kde.modes list. for mann-whitney-u', async () => {
+    const { mockMannWhitneyResultData } = getTestData();
+
+    const noModes = {
+      ...mockMannWhitneyResultData,
+      silverman_kde: {
+        ...(mockMannWhitneyResultData['silverman_kde'] ?? {}),
+        base_locations: [465888.0],
+        new_locations: [465888.0, 235888.2],
+        modes: [],
+      },
+    };
+    renderWithRoute(
+      <RevisionRowExpandable
+        result={noModes}
+        testVersion='mann-whitney-u'
+        id={'666'}
+      />,
+    );
+
+    const modeStartHeader = await screen.findByText(/Mode Start/);
+    const modeEndHeader = await screen.findByText(/Mode End/);
+    const medianShiftHeader = await screen.findByText(/Median Shift/);
+    expect(modeStartHeader).toBeInTheDocument();
+    expect(modeEndHeader).toBeInTheDocument();
+    expect(medianShiftHeader).toBeInTheDocument();
+    const modeInterpretation = await screen.findByText(
+      /Cannot calculate shift/,
+    );
+    expect(modeInterpretation).toBeInTheDocument();
+  });
+
   it('should display warnings', async () => {
     const { mockMannWhitneyResultData } = getTestData();
 

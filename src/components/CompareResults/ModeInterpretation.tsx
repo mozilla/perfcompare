@@ -35,7 +35,15 @@ export const ModeInterpretation = ({
   const mode = useAppSelector((state) => state.theme.mode);
 
   const kdeModes = result.silverman_kde.modes ?? [];
-  if (kdeModes.length === 0) return null;
+  if (kdeModes.length === 0) {
+    kdeModes.push({
+      mode_name: 'N/A',
+      mode_start: 'N/A',
+      mode_end: 'N/A',
+      shift: null,
+      shift_summary: 'Cannot calculate shift',
+    });
+  }
 
   return (
     <Box sx={getStyles(mode)}>
