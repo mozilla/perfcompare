@@ -5,6 +5,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { TestVersion } from '../../types/types';
+import { getModeInterpretation } from '../../utils/helpers';
 
 const METRIC_HEADERS = ['Metric', 'Base', 'New', 'Interpretation'];
 
@@ -27,6 +28,7 @@ export const MannWhitneyCompareMetrics = ({
     return {
       backgroundColor,
       marginBottom: 2,
+      maxWidth: '85%',
       width: '100%',
       borderRadius: '5px',
       padding: 2,
@@ -84,8 +86,9 @@ export const MannWhitneyCompareMetrics = ({
   const newShapiroWilkInterpretation = result.shapiro_wilk_test_new?.stat
     ? `${result.shapiro_wilk_test_new?.stat} ${result.shapiro_wilk_test_new?.interpretation}`
     : 'N/A';
-  const baseMode = result.silverman_kde?.base_mode_count ?? null;
-  const newMode = result.silverman_kde?.new_mode_count ?? null;
+  const baseMode = result?.silverman_kde?.base_mode_count ?? null;
+  const newMode = result?.silverman_kde?.new_mode_count ?? null;
+
   return (
     <Box sx={{ ...styles[mode] }}>
       <table
@@ -168,7 +171,7 @@ export const MannWhitneyCompareMetrics = ({
             <td>Kolmogorov-Smirnov Test</td>
             <td></td>
             <td></td>
-            <td>{`${result?.ks_test?.interpretation ?? null}`}</td>
+            <td>{`${result?.ks_test?.interpretation ?? ''}`}</td>
           </tr>
           <tr className='test-label-row' style={{ marginTop: 2 }}>
             <td>Distribution</td>
@@ -177,7 +180,7 @@ export const MannWhitneyCompareMetrics = ({
             <td>Estimated Modes</td>
             <td>{baseMode}</td>
             <td>{newMode}</td>
-            <td>{''}</td>
+            <td>{getModeInterpretation(baseMode, newMode)}</td>
           </tr>
         </tbody>
       </table>

@@ -224,10 +224,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
             >
               {improvement ? <ThumbUpIcon color='success' /> : null}
               {regression ? <ThumbDownIcon color='error' /> : null}
-              {determineStatus(
-                 !!improvement,
-                !!regression,
-              )}
+              {determineStatus(!!improvement, !!regression)}
             </Box>
           )}
         </div>

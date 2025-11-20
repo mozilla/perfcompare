@@ -386,3 +386,5 @@ export type SortFunc = (
   resultA: CompareResultsItem | MannWhitneyResultsItem,
   resultB: CompareResultsItem | MannWhitneyResultsItem,
 ) => number;
+
+export type CombinedResultsType = CompareResultsItem | MannWhitneyResultsItem;

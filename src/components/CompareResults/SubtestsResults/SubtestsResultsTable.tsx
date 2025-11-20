@@ -15,6 +15,7 @@ import type {
   MannWhitneyResultsItem,
 } from '../../../types/state';
 import type {
+  CombinedResultsType,
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
   TestVersion,
@@ -25,15 +26,15 @@ type SubtestsResults = {
   // By construction, there should be only one item in the array. But if more
   // than one subtests share the same name, then there will be more than one item.
   // Can this happen? We're not sure.
-  value: (CompareResultsItem | MannWhitneyResultsItem)[];
+  value: CombinedResultsType[];
 };
 
 function processResults(
-  results: (CompareResultsItem | MannWhitneyResultsItem)[],
+  results: CombinedResultsType[],
 ) {
   const processedResults = new Map<
     string,
-    (CompareResultsItem | MannWhitneyResultsItem)[]
+    CombinedResultsType[]
   >();
   results.forEach((result) => {
     const { header_name: header } = result;
@@ -62,8 +63,8 @@ const stringComparisonCollator = new Intl.Collator('en', {
   sensitivity: 'base',
 });
 function defaultSortFunction(
-  resultA: CompareResultsItem | MannWhitneyResultsItem,
-  resultB: CompareResultsItem | MannWhitneyResultsItem,
+  resultA: CombinedResultsType,
+  resultB: CombinedResultsType,
 ) {
   return stringComparisonCollator.compare(resultA.test, resultB.test);
 }
@@ -266,9 +267,7 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
       if (!resultA.cles?.cles || !resultB.cles?.cles) {
         return 0;
       } else {
-        return (
-          Math.abs(resultA.cles?.cles) - Math.abs(resultB.cles?.cles ?? 0)
-        );
+        return Math.abs(resultA.cles?.cles) - Math.abs(resultB.cles?.cles ?? 0);
       }
     },
     // tooltip: 'Mann Whitney U test p-value indicating statistical significance.',
@@ -287,7 +286,7 @@ const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
 ];
 
 function resultMatchesSearchTerm(
-  result: CompareResultsItem | MannWhitneyResultsItem,
+  result: CombinedResultsType,
   lowerCasedSearchTerm: string,
 ) {
   return result.test.toLowerCase().includes(lowerCasedSearchTerm);
@@ -296,8 +295,8 @@ function resultMatchesSearchTerm(
 type ResultsTableProps = {
   filteringSearchTerm: string;
   resultsPromise:
-    | (CompareResultsItem | MannWhitneyResultsItem)[]
-    | Promise<(CompareResultsItem | MannWhitneyResultsItem)[]>;
+    | CombinedResultsType[]
+    | Promise<CombinedResultsType[]>;
   replicates: boolean;
   testVersion?: TestVersion;
 };
@@ -367,7 +366,7 @@ function SubtestsResultsTable({
         }
       >
         <Await resolve={resultsPromise}>
-          {(results: (CompareResultsItem | MannWhitneyResultsItem)[]) => {
+          {(results: CombinedResultsType[]) => {
             const filteredResults = useMemo(() => {
               return filterResults(
                 columnsConfiguration,

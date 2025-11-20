@@ -10,6 +10,7 @@ import type { CompareResultsItem, MannWhitneyResultsItem } from '../../types/sta
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, screen } from '../utils/test-utils';
+import { CombinedResultsType } from '../../types/types';
 
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
@@ -23,7 +24,7 @@ const setup = ({
   element: React.ReactElement;
   route: string;
   search: string;
-  subtestsResult: (CompareResultsItem | MannWhitneyResultsItem)[];
+  subtestsResult: CombinedResultsType[];
 }): void => {
   // Mock fetch data
   fetchMock.get(
@@ -361,7 +362,7 @@ describe('SubtestsResultsView Component Tests', () => {
 
   it('renders correctly when backend returns MannWhitneyResultsItem[] for mann-whitney-u test_version', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-     const { subtestsMannWhitneyResult } = getTestData();
+    const { subtestsMannWhitneyResult } = getTestData();
 
     setup({
       element: (

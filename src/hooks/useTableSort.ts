@@ -2,10 +2,7 @@ import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
 import type {
-  CompareResultsItem,
-  MannWhitneyResultsItem,
-} from '../types/state';
-import type {
+  CombinedResultsType,
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
   SortFunc,
@@ -84,12 +81,12 @@ export function sortResults(
   columnsConfiguration:
     | CompareResultsTableConfig
     | CompareMannWhitneyResultsTableConfig,
-  results: (CompareResultsItem | MannWhitneyResultsItem)[],
+  results: CombinedResultsType[],
   columnId: string | null,
   direction: 'asc' | 'desc' | null,
   defaultSortFunction: (
-    resultA: CompareResultsItem | MannWhitneyResultsItem,
-    resultB: CompareResultsItem | MannWhitneyResultsItem,
+    resultA: CombinedResultsType,
+    resultB: CombinedResultsType,
   ) => number,
 ) {
   let sortFunction = defaultSortFunction;
@@ -120,8 +117,8 @@ export function sortResults(
   const directionedSortFunction =
     direction === 'desc'
       ? (
-          itemA: CompareResultsItem | MannWhitneyResultsItem,
-          itemB: CompareResultsItem | MannWhitneyResultsItem,
+          itemA: CombinedResultsType,
+          itemB: CombinedResultsType,
         ) => sortFunction(itemB, itemA)
       : sortFunction;
 

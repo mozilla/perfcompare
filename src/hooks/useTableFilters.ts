@@ -10,6 +10,7 @@ import type {
   CompareResultsTableColumn,
   CompareMannWhitneyResultsTableConfig,
   CompareMannWhitneyResultsTableColumn,
+  CombinedResultsType,
 } from '../types/types';
 
 // This hook handles the state that handles table filtering, and also takes care
@@ -180,7 +181,7 @@ function resultMatchesColumnFilter(
 // a "-" character.
 export function filterResults(
   columnsConfiguration: CompareResultsTableConfig,
-  results: (CompareResultsItem | MannWhitneyResultsItem)[],
+  results: CombinedResultsType[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
   resultMatchesSearchTerm: (

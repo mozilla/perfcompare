@@ -4,7 +4,7 @@ import type {
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../../types/state';
-import { TestVersion } from '../../../types/types';
+import { CombinedResultsType, TestVersion } from '../../../types/types';
 
 function SubtestsTableContent(props: SubtestsTableContentProps) {
   const {
@@ -35,7 +35,7 @@ function SubtestsTableContent(props: SubtestsTableContentProps) {
 }
 
 interface SubtestsTableContentProps {
-  results: (CompareResultsItem | MannWhitneyResultsItem)[];
+  results: CombinedResultsType[];
   identifier: string;
   rowGridTemplateColumns: string;
   replicates: boolean;

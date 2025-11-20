@@ -17,12 +17,15 @@ export const StatisticsWarnings = ({
   const componentStyles = {
     backgroundColor: 'transparent',
     marginTop: 2,
+    marginLeft: 1,
+    marginRight: 1,
     marginBottom: 2,
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
     borderRadius: 1,
-    padding: 2,
+    padding: 1,
+    width: '55%',
     '& .warning-row': {
       verticalAlign: 'bottom',
       display: 'flex',
@@ -33,10 +36,10 @@ export const StatisticsWarnings = ({
 
   // Combine all warnings into a single list
   const warnings: string[] = [
-    ...(result.shapiro_wilk_warnings ?? []),
-    ...(result.silverman_warnings ?? []),
-    ...(result.ks_warning ? [result?.ks_warning] : []),
-    ...(result.silverman_warnings ?? []),
+    ...(result?.shapiro_wilk_warnings ?? []),
+    ...(result?.silverman_warnings ?? []),
+    ...(result?.ks_warning ? [result?.ks_warning] : []),
+    ...(result?.kde_warnings ?? []),
   ];
   return (
     <>

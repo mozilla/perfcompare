@@ -18,6 +18,7 @@ import type {
   MannWhitneyResultsItem,
 } from '../../types/state';
 import type {
+  CombinedResultsType,
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
   TestVersion,
@@ -78,7 +79,7 @@ type ListOfMannWhitneyResultsGroupedByTest = Array<
 >;
 
 function processResults(
-  results: CompareResultsItem[] | MannWhitneyResultsItem[],
+  results: CombinedResultsType[],
   testVersion?: TestVersion,
 ): ListOfResultsGroupedByTest | ListOfMannWhitneyResultsGroupedByTest {
   // This map will make it possible to group all results by test header first,
@@ -86,7 +87,7 @@ function processResults(
   // Map<header, Map<revision, array of results>>
   const processedResults: Map<
     string,
-    Map<string, (CompareResultsItem | MannWhitneyResultsItem)[]>
+    Map<string, CombinedResultsType[]>
   > = new Map();
 
   for (const result of results) {

@@ -376,17 +376,14 @@ function RevisionRow(props: RevisionRowProps) {
               {(result as CompareResultsItem).is_regression ? (
                 <ThumbDownIcon color='error' />
               ) : null}
-              {determineStatus(
-                !!improvement,
-                !!regression,
-              )}
+              {determineStatus(!!improvement, !!regression)}
             </Box>
           </div>
         )}
         <div className='delta cell' role='cell'>
           {' '}
           {testVersion === MANN_WHITNEY_U
-            ? (result as MannWhitneyResultsItem).cliffs_delta ?? 0
+            ? ((result as MannWhitneyResultsItem).cliffs_delta ?? 0)
             : ` ${deltaPercent} % `}
         </div>
         {testVersion === MANN_WHITNEY_U ? (

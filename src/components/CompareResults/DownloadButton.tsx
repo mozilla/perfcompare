@@ -9,10 +9,11 @@ import type {
   MannWhitneyResultsItem,
 } from '../../types/state';
 import { truncateHash } from '../../utils/helpers';
+import { CombinedResultsType } from '../../types/types';
 
 type ResultsGroupedByKey = Record<
   string,
-  (CompareResultsItem | MannWhitneyResultsItem)[]
+  CombinedResultsType[]
 >;
 
 /* This function transforms results into an array of objects, where each object
@@ -35,7 +36,7 @@ type ResultsGroupedByKey = Record<
  *   ]
  */
 const formatDownloadData = (
-  data: (CompareResultsItem | MannWhitneyResultsItem)[],
+  data: CombinedResultsType[],
 ): Array<ResultsGroupedByKey> => {
   const groupedResults = data.reduce((grouped, result) => {
     if (!grouped[result.header_name]) {
