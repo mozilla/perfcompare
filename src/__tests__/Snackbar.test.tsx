@@ -14,6 +14,9 @@ import {
   waitForElementToBeRemoved,
 } from './utils/test-utils';
 
+const searchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
 describe('Snackbar', () => {
   beforeEach(() => {
     const { testData } = getTestData();
@@ -32,7 +35,10 @@ describe('Snackbar', () => {
     render(<App />);
 
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[1];
+    // const searchInput = screen.getAllByRole('textbox')[1];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[1];
     await user.click(searchInput);
 
     await user.click(await screen.findByTestId('checkbox-0'));
@@ -56,7 +62,10 @@ describe('Snackbar', () => {
     render(<App />);
 
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
+    // const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
 
     await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
@@ -76,7 +85,10 @@ describe('Snackbar', () => {
     });
 
     // focus input to show results
-    const searchInput = (await screen.findAllByRole('textbox'))[1];
+    // const searchInput = (await screen.findAllByRole('textbox'))[1];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[1];
     await user.click(searchInput);
 
     await user.click(await screen.findByTestId('checkbox-0'));
