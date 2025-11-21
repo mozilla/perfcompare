@@ -4684,7 +4684,7 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
                               class="significance cell"
                               role="cell"
                             >
-                              -
+                              not significant
                             </div>
                             <div
                               class="effects cell"
@@ -4881,7 +4881,7 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
                               class="significance cell"
                               role="cell"
                             >
-                              -
+                              not significant
                             </div>
                             <div
                               class="effects cell"
@@ -5078,7 +5078,7 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
                               class="significance cell"
                               role="cell"
                             >
-                              -
+                              significant
                             </div>
                             <div
                               class="effects cell"
@@ -5354,7 +5354,7 @@ exports[`Results Table with mann-whitney-u testVersion data Should match snapsho
                               class="significance cell"
                               role="cell"
                             >
-                              -
+                              significant
                             </div>
                             <div
                               class="effects cell"
@@ -5658,7 +5658,7 @@ exports[`Results Table with mann-whitney-u testVersion data should render differ
         class="significance cell"
         role="cell"
       >
-        -
+        not significant
       </div>
       <div
         class="effects cell"
@@ -5894,7 +5894,7 @@ exports[`Results Table with mann-whitney-u testVersion data should render differ
         class="significance cell"
         role="cell"
       >
-        -
+        not significant
       </div>
       <div
         class="effects cell"

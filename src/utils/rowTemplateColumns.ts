@@ -348,8 +348,6 @@ export const getColumnsConfiguration = (
   switch (true) {
     case testVersion === MANN_WHITNEY_U:
       return columnsMannWhitneyConfiguration;
-    case testVersion === STUDENT_T:
-      return columnsConfiguration;
     default:
       return columnsConfiguration;
   }

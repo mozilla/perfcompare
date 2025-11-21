@@ -715,9 +715,9 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
       '  rev: devilrabbit',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
     ]);
     expect(screen.getByRole('rowgroup')).toMatchSnapshot();
   });
@@ -741,12 +741,12 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, -, 25.00 %',
-      '  - inexistant, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, , -, -, 100.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Android, Improvement, 0.1, not significant, 25.00 %',
+      '  - inexistant, Improvement, 0.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
 
     expect(summarizeTableFiltersFromUrl()).toEqual({});
@@ -755,9 +755,9 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Platform', /Windows/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
+      '  - Android, Improvement, 0.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android', 'ios'],
@@ -768,12 +768,12 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Platform', /Windows/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, -, 25.00 %',
-      '  - inexistant, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, , -, -, 100.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Android, Improvement, 0.1, not significant, 25.00 %',
+      '  - inexistant, Improvement, 0.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -781,8 +781,8 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, -, 25.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
+      '  - Android, Improvement, 0.1, not significant, 25.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'ios'],
@@ -791,9 +791,9 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
+      '  - Android, Improvement, 0.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'ios', 'linux'],
@@ -802,22 +802,22 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Platform', 'Select all values');
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, -, 25.00 %',
-      '  - inexistant, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, , -, -, 100.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Android, Improvement, 0.1, not significant, 25.00 %',
+      '  - inexistant, Improvement, 0.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     await clickMenuItem(user, 'Platform', /macOS/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - Windows 10, , -, -, 100.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Android, Improvement, 0.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'android', 'ios'],
@@ -826,9 +826,9 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Platform', /Android/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - Windows 10, , -, -, 100.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'ios'],
@@ -837,7 +837,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Platform', /Select only.*Android/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, -, 25.00 %',
+      '  - Android, Improvement, 0.1, not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['android'],
@@ -851,10 +851,10 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, , -, -, 100.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -862,9 +862,9 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Status', /No changes/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement', 'regression'],
@@ -873,8 +873,8 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Status', /Improvement/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['regression'],
@@ -884,8 +884,8 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Status', /Regression/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, , -, -, 100.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['none', 'improvement'],
@@ -894,18 +894,18 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Status', /Regression/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, , -, -, 100.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     await clickMenuItem(user, 'Status', /Select only.*Regression/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, -, 45.00 %',
-      '  - Windows 10, Regression, -, -, 50.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['regression'],
@@ -914,11 +914,42 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     await clickMenuItem(user, 'Status', /Select only.*Improvement/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement'],
     });
+  });
+
+  it('should filter on the Significance column', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, '?baseRev=spam&baseRepo=try&framework=1&test_version=mann-whitney-u');
+
+    // const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    // await screen.findByRole('menuitem', { name: 'Significance' });
+    const significanceMenu = await screen.findAllByText(/Significance/)
+    expect(significanceMenu.length).toBe(2)
+    // await clickMenuItem(user, 'Significance', /Select all values/);
+    // expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    //   'a11yr dhtml.html spam opt e10s fission stylo webrender',
+    //   '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+    //   '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+    //   '  - Windows 10, Regression, -, significant, 50.00 %',
+    // ]);
+    // expect(summarizeTableFiltersFromUrl()).toEqual({
+    //   significance: ['significant', 'not significant'],
+    // });
+    // await clickMenuItem(user, 'Significance', /Select all values/);
+    // await clickMenuItem(user, 'Significance', /Not Significant/);
+    // expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    //   'a11yr dhtml.html spam opt e10s fission stylo webrender',
+    //   '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+    //   '  - Windows 10, Regression, -, significant, 50.00 %',
+    // ]);
+    // expect(summarizeTableFiltersFromUrl()).toEqual({
+    //   significance: ['not significant'],
+    // });
+
   });
 
   it('can load the filter parameters from the URL', async () => {
@@ -931,7 +962,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
 
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, Improvement, 0.1, -, 25.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
     ]);
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(await summarizeTableFiltersFromCheckboxes(user)).toEqual({
