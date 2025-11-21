@@ -25,6 +25,7 @@ import type {
   FilterableColumn,
   CompareResultsTableColumn,
   CompareMannWhitneyResultsTableConfig,
+  FilterableMannWhitneyColumn,
 } from '../../types/types';
 
 function SortDirectionIcon({
@@ -72,7 +73,9 @@ type FilterableColumnHeaderProps = {
   columnId: string;
 
   /* Properties for filtering */
-  possibleValues: FilterableColumn['possibleValues'];
+  possibleValues:
+    | FilterableColumn['possibleValues']
+    | FilterableMannWhitneyColumn['possibleValues'];
   checkedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;

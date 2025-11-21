@@ -1,7 +1,6 @@
 import SubtestsRevisionRow from './SubtestsRevisionRow';
 import { STUDENT_T } from '../../../common/constants';
-import type { CompareResultsItem } from '../../../types/state';
-import { TestVersion } from '../../../types/types';
+import { CombinedResultsType, TestVersion } from '../../../types/types';
 
 function SubtestsTableContent(props: SubtestsTableContentProps) {
   const {
@@ -32,7 +31,7 @@ function SubtestsTableContent(props: SubtestsTableContentProps) {
 }
 
 interface SubtestsTableContentProps {
-  results: CompareResultsItem[];
+  results: CombinedResultsType[];
   identifier: string;
   rowGridTemplateColumns: string;
   replicates: boolean;

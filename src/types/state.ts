@@ -229,7 +229,7 @@ export type MannWhitneyResultsItem = {
   is_significant: boolean | null; // is the result statistically significant
   is_new_better: boolean | null; // is the new revision better than the base revision
   performance_intepretation: string; // short text interpretation of the performance change
-  direction_of_change: 'no change' | 'better' | 'worse' | null; // 'no change', 'better', or 'worse'
+  direction_of_change: 'no change' | 'improvement' | 'regression' | null;
   new_is_better: boolean | null;
   lower_is_better: boolean | null;
   is_improvement: boolean | null;

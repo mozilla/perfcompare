@@ -108,4 +108,67 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
     const swWarning2 = await screen.findByText(shapiroWarning2);
     expect(swWarning2).toBeInTheDocument();
   });
+
+  it('should render tests Shapiro-Wilk Test results in MannWhitneyCompareMetrics for Normality Test', async () => {
+    const { mockMannWhitneyResultData } = getTestData();
+
+    const shapiro_wilk_tests = {
+      ...mockMannWhitneyResultData,
+      shapiro_wilk_test_base: {
+        ...(mockMannWhitneyResultData['shapiro_wilk_test_base'] ?? {}),
+        test_name: 'Shapiro Wilk',
+        stat: 0.2,
+        pvalue: 0.24,
+        interpretation: 'Base is likely not normal',
+      },
+      shapiro_wilk_test_new: {
+        ...(mockMannWhitneyResultData['shapiro_wilk_test_new'] ?? {}),
+        test_name: 'Shapiro Wilk',
+        stat: 0.01,
+        pvalue: 0.02,
+        interpretation: 'New is likely normal',
+      },
+    };
+    renderWithRoute(
+      <RevisionRowExpandable
+        result={shapiro_wilk_tests}
+        testVersion='mann-whitney-u'
+        id={'666'}
+      />,
+    );
+
+    const newNormal = await screen.findByText(/New is likely normal/);
+    expect(newNormal).toBeInTheDocument();
+    const baseNotNormal = await screen.findByText(/Base is likely not normal/);
+    expect(baseNotNormal).toBeInTheDocument();
+    const pvalue_new = await screen.findByText(/0.24/);
+    expect(pvalue_new).toBeInTheDocument();
+    const pvalue_base = await screen.findByText(/0.02/);
+    expect(pvalue_base).toBeInTheDocument();
+  });
+
+  it('should render tests Kolmogorov-Smirnov Test results in MannWhitneyCompareMetrics for Goodness of Fit test', async () => {
+    const { mockMannWhitneyResultData } = getTestData();
+
+    const ks_tests = {
+      ...mockMannWhitneyResultData,
+      ks_test: {
+        ...(mockMannWhitneyResultData['shapiro_wilk_test_base'] ?? {}),
+        test_name: 'Shapiro Wilk',
+        stat: 1,
+        pvalue: 1,
+        interpretation: 'KS test p-value: 1.000, good fit',
+      },
+    };
+    renderWithRoute(
+      <RevisionRowExpandable
+        result={ks_tests}
+        testVersion='mann-whitney-u'
+        id={'666'}
+      />,
+    );
+
+    const goodFit = await screen.findByText(/KS test p-value: 1.000, good fit/);
+    expect(goodFit).toBeInTheDocument();
+  });
 });

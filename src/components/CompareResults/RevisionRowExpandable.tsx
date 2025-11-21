@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
 import { ModeInterpretation } from './ModeInterpretation';
-import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
+import { MANN_WHITNEY_U } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type {
@@ -74,13 +74,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
     if (testVersion === MANN_WHITNEY_U && result) {
-      const { cles, cles_direction, p_value_cles } = result?.cles ?? {
-        cles: '',
-        cles_direction: '',
-        p_value_cles: '',
-      };
+      const cles = result.cles?.cles.toFixed(2) ?? '';
+      const cles_direction = result.cles?.cles_direction ?? '';
       const { cliffs_delta, cliffs_interpretation } = result;
-      const pValue = result?.mann_whitney_test?.pvalue;
+      const pValue = result.mann_whitney_test?.pvalue;
+      const pval_interpretation = result.mann_whitney_test?.interpretation;
       return (
         <Box
           sx={{
@@ -108,9 +106,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 <td style={{ padding: 2 }}>{cliffs_interpretation}</td>
               </tr>
               <tr>
-                <td style={{ padding: 2 }}>Confidence (p-value)</td>
+                <td style={{ padding: 2 }}>Significance (p-value)</td>
                 <td style={{ padding: 2 }}>{pValue}</td>
-                <td style={{ padding: 2 }}>{p_value_cles}</td>
+                <td style={{ padding: 2 }}>{pval_interpretation}</td>
               </tr>
               <tr>
                 <td style={{ padding: 2 }}>CLES</td>
@@ -157,7 +155,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 unit={baseUnit || newUnit}
               />
               {/******* student t test rendering **************/}
-              {testVersion === STUDENT_T && (
+              {testVersion !== MANN_WHITNEY_U && (
                 <Distribution result={result as CompareResultsItem} />
               )}
             </Stack>
@@ -179,13 +177,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 <b>Comparison result</b>:{' '}
                 {testVersion === MANN_WHITNEY_U
                   ? (result as MannWhitneyResultsItem).direction_of_change
-                  : newIsBetter
-                    ? 'better'
-                    : 'worse'}{' '}
+                  : newIsBetter}{' '}
                 ({lowerIsBetter ? 'lower' : 'higher'} is better)
               </Box>
               {/******* student t test rendering **************/}
-              {testVersion === STUDENT_T && (
+              {testVersion !== MANN_WHITNEY_U && (
                 <>
                   <Box sx={{ whiteSpace: 'nowrap' }}>
                     <b>Difference of means</b>: {deltaPercent}% (

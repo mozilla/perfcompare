@@ -381,3 +381,10 @@ export type TokenBearer = {
 };
 
 export type TestVersion = 'student-t' | 'mann-whitney-u';
+
+export type CombinedResultsType = CompareResultsItem | MannWhitneyResultsItem;
+
+export type SortFunc = (
+  resultA: CombinedResultsType,
+  resultB: CombinedResultsType,
+) => number;
