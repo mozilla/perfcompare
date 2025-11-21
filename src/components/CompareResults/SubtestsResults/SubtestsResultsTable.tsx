@@ -134,7 +134,7 @@ function SubtestsResultsTable({
                 tableFilters,
                 resultMatchesSearchTerm,
               );
-            }, [results, filteringSearchTerm, tableFilters, testVersion]);
+            }, [results, filteringSearchTerm, tableFilters]);
 
             const filteredAndSortedResults = useMemo(() => {
               return sortResults(

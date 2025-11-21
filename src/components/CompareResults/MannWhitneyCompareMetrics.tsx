@@ -80,11 +80,13 @@ export const MannWhitneyCompareMetrics = ({
     min: null,
     max: null,
   };
-  const baseShapiroWilkInterpretation = result.shapiro_wilk_test_base?.stat
-    ? `${result.shapiro_wilk_test_base?.stat} ${result.shapiro_wilk_test_base?.interpretation}`
+  const baseShapiroWilkPVal = result.shapiro_wilk_test_base?.pvalue ?? 'N/A';
+  const newShapiroWilkPVal = result.shapiro_wilk_test_new?.pvalue ?? 'N/A';
+  const baseShapiroWilkInterpretation = result.shapiro_wilk_test_base?.pvalue
+    ? `${result.shapiro_wilk_test_base?.interpretation}`
     : 'N/A';
-  const newShapiroWilkInterpretation = result.shapiro_wilk_test_new?.stat
-    ? `${result.shapiro_wilk_test_new?.stat} ${result.shapiro_wilk_test_new?.interpretation}`
+  const newShapiroWilkInterpretation = result.shapiro_wilk_test_new?.pvalue
+    ? `${result.shapiro_wilk_test_new?.interpretation}`
     : 'N/A';
   const baseMode = result?.silverman_kde?.base_mode_count ?? null;
   const newMode = result?.silverman_kde?.new_mode_count ?? null;
@@ -153,8 +155,8 @@ export const MannWhitneyCompareMetrics = ({
           </tr>
           <tr className='test-row-container'>
             <td>Shapiro-Wilk</td>
-            <td>{baseShapiroWilkInterpretation}</td>
-            <td>{newShapiroWilkInterpretation}</td>
+            <td>{baseShapiroWilkPVal}</td>
+            <td>{newShapiroWilkPVal}</td>
             <td
               style={{
                 gridTemplateColumns: '1fr',
@@ -162,7 +164,11 @@ export const MannWhitneyCompareMetrics = ({
                 gap: 1,
                 flexDirection: 'column',
               }}
-            >{`${result.shapiro_wilk_test_base?.interpretation || result.shapiro_wilk_test_new?.interpretation}`}</td>
+            >
+              {`${baseShapiroWilkInterpretation}`}
+              <br />
+              {`${newShapiroWilkInterpretation}`}
+            </td>
           </tr>
           <tr className='test-label-row'>
             <td>Goodness of Fit Test</td>
