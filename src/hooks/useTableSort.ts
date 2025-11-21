@@ -6,9 +6,7 @@ import type {
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
   SortFunc,
-  TestVersion,
 } from '../types/types';
-
 
 // This hook handles the state that handles table sorting, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -22,7 +20,6 @@ const useTableSort = (
   columnsConfiguration:
     | CompareResultsTableConfig
     | CompareMannWhitneyResultsTableConfig,
-  testVersion?: TestVersion,
 ) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
