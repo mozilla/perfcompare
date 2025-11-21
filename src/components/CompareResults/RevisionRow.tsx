@@ -383,12 +383,13 @@ function RevisionRow(props: RevisionRowProps) {
         <div className='delta cell' role='cell'>
           {' '}
           {testVersion === MANN_WHITNEY_U
-            ? ((result as MannWhitneyResultsItem).cliffs_delta ?? 0)
+            ? (result as MannWhitneyResultsItem).cliffs_delta || '-'
             : ` ${deltaPercent} % `}
         </div>
         {testVersion === MANN_WHITNEY_U ? (
-          <div className='p_value cell' role='cell'>
-            {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
+          <div className='significance cell' role='cell'>
+            {(result as MannWhitneyResultsItem).mann_whitney_test
+              ?.interpretation || '-'}
           </div>
         ) : (
           <div className='confidence cell' role='cell'>
@@ -398,8 +399,11 @@ function RevisionRow(props: RevisionRowProps) {
         )}
         {testVersion === MANN_WHITNEY_U && (
           <div className='effects cell' role='cell'>
-            {(result as MannWhitneyResultsItem).mann_whitney_test?.pvalue &&
-              `${((result as MannWhitneyResultsItem).mann_whitney_test?.pvalue ?? 0) * 100} %`}
+            {(result as MannWhitneyResultsItem).cles?.cles
+              ? `${(
+                  ((result as MannWhitneyResultsItem).cles?.cles ?? 0) * 100
+                ).toFixed(2)} %`
+              : '-'}
           </div>
         )}
         <div className='total-runs cell' role='cell'>

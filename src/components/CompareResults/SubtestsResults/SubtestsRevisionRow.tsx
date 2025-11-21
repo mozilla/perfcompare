@@ -230,11 +230,14 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         </div>
         <div className='delta cell' role='cell'>
           {' '}
-          {deltaPercent} %{' '}
+          {testVersion === MANN_WHITNEY_U
+            ? `${(result as MannWhitneyResultsItem).cliffs_delta || '-'}`
+            : `${deltaPercent} % `}
         </div>
         {testVersion === MANN_WHITNEY_U ? (
-          <div className='p_value cell' role='cell'>
-            {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
+          <div className='significance cell' role='cell'>
+            {(result as MannWhitneyResultsItem).mann_whitney_test
+              ?.interpretation || '-'}
           </div>
         ) : (
           <div className='confidence cell' role='cell'>
@@ -244,8 +247,9 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         )}
         {testVersion === MANN_WHITNEY_U && (
           <div className='effects cell' role='cell'>
-            {((result as MannWhitneyResultsItem).mann_whitney_test?.pvalue ??
-              0) * 100}{' '}
+            {(
+              ((result as MannWhitneyResultsItem).cles?.cles ?? 0) * 100
+            ).toFixed(2)}{' '}
             %{' '}
           </div>
         )}

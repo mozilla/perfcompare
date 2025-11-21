@@ -116,10 +116,8 @@ export function sortResults(
 
   const directionedSortFunction =
     direction === 'desc'
-      ? (
-          itemA: CombinedResultsType,
-          itemB: CombinedResultsType,
-        ) => sortFunction(itemB, itemA)
+      ? (itemA: CombinedResultsType, itemB: CombinedResultsType) =>
+          sortFunction(itemB, itemA)
       : sortFunction;
 
   return results.toSorted(directionedSortFunction);

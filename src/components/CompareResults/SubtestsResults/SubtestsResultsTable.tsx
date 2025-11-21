@@ -7,19 +7,14 @@ import { Await } from 'react-router';
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
-import { MANN_WHITNEY_U } from '../../../common/constants';
+import { STUDENT_T } from '../../../common/constants';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
-import type {
-  CompareResultsItem,
-  MannWhitneyResultsItem,
-} from '../../../types/state';
-import type {
-  CombinedResultsType,
-  CompareMannWhitneyResultsTableConfig,
-  CompareResultsTableConfig,
-  TestVersion,
-} from '../../../types/types';
+import type { CombinedResultsType, TestVersion } from '../../../types/types';
+import {
+  getColumnsConfiguration,
+  getRowGridTemplateColumns,
+} from '../../../utils/rowTemplateColumns';
 
 type SubtestsResults = {
   key: string;
@@ -29,13 +24,8 @@ type SubtestsResults = {
   value: CombinedResultsType[];
 };
 
-function processResults(
-  results: CombinedResultsType[],
-) {
-  const processedResults = new Map<
-    string,
-    CombinedResultsType[]
-  >();
+function processResults(results: CombinedResultsType[]) {
+  const processedResults = new Map<string, CombinedResultsType[]>();
   results.forEach((result) => {
     const { header_name: header } = result;
     const processedResult = processedResults.get(header);
@@ -69,222 +59,6 @@ function defaultSortFunction(
   return stringComparisonCollator.compare(resultA.test, resultB.test);
 }
 
-const columnsConfiguration: CompareResultsTableConfig = [
-  {
-    name: 'Subtests',
-    key: 'subtests',
-    gridWidth: '3fr',
-    sortFunction: defaultSortFunction,
-  },
-  {
-    name: 'Base',
-    key: 'base',
-    gridWidth: '1fr',
-    tooltip: 'A summary of all values from Base runs using a mean.',
-  },
-  {
-    key: 'comparisonSign',
-
-    gridWidth: '0.2fr',
-  },
-  {
-    name: 'New',
-    key: 'new',
-
-    gridWidth: '1fr',
-    tooltip: 'A summary of all values from New runs using a mean.',
-  },
-  {
-    name: 'Status',
-    filter: true,
-    key: 'status',
-    gridWidth: '1.5fr',
-    possibleValues: [
-      { label: 'No changes', key: 'none' },
-      { label: 'Improvement', key: 'improvement' },
-      { label: 'Regression', key: 'regression' },
-    ],
-    matchesFunction(result, valueKey) {
-      switch (valueKey) {
-        case 'improvement':
-          return result.is_improvement;
-        case 'regression':
-          return result.is_regression;
-        default:
-          return !result.is_improvement && !result.is_regression;
-      }
-    },
-  },
-  {
-    name: 'Delta',
-    key: 'delta',
-    gridWidth: '1fr',
-    sortFunction(resultA, resultB) {
-      return (
-        Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
-      );
-    },
-    tooltip: 'The percentage difference between the Base and New values',
-  },
-  {
-    name: 'Confidence',
-    filter: true,
-    key: 'confidence',
-    gridWidth: '1.8fr',
-    tooltip:
-      "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
-    possibleValues: [
-      { label: 'No value', key: 'none' },
-      { label: 'Low', key: 'low' },
-      { label: 'Medium', key: 'medium' },
-      { label: 'High', key: 'high' },
-    ],
-    matchesFunction(result, valueKey) {
-      switch (valueKey) {
-        case 'none':
-          return !result.confidence_text;
-        default: {
-          const label = this.possibleValues.find(
-            ({ key }) => key === valueKey,
-          )?.label;
-          return result.confidence_text === label;
-        }
-      }
-    },
-    sortFunction(resultA, resultB) {
-      const confidenceA =
-        resultA.confidence_text && resultA.confidence !== null
-          ? resultA.confidence
-          : -1;
-      const confidenceB =
-        resultB.confidence_text && resultB.confidence !== null
-          ? resultB.confidence
-          : -1;
-      return confidenceA - confidenceB;
-    },
-  },
-  {
-    name: 'Total Runs',
-    key: 'runs',
-    gridWidth: '1fr',
-    tooltip: 'The total number of tasks/jobs that ran for this metric.',
-  },
-  // The 2 icons are 24px wide, and they have 5px padding.
-  { key: 'buttons', gridWidth: '34px' },
-  { key: 'expand', gridWidth: '34px' },
-];
-
-const columnsMannWhitneyConfiguration: CompareMannWhitneyResultsTableConfig = [
-  {
-    name: 'Subtests',
-    key: 'subtests',
-    gridWidth: '1.5fr',
-    sortFunction: defaultSortFunction,
-  },
-  {
-    name: 'Base',
-    key: 'base',
-    gridWidth: '.5fr',
-    tooltip: 'A summary of all values from Base runs using a mean.',
-  },
-  {
-    key: 'comparisonSign',
-
-    gridWidth: '0.2fr',
-  },
-  {
-    name: 'New',
-    key: 'new',
-
-    gridWidth: '.75fr',
-    tooltip: 'A summary of all values from New runs using a mean.',
-  },
-  {
-    name: 'Status',
-    filter: true,
-    key: 'status',
-    gridWidth: '1fr',
-    possibleValues: [
-      { label: 'No changes', key: 'none' },
-      { label: 'Improvement', key: 'improvement' },
-      { label: 'Regression', key: 'regression' },
-    ],
-    matchesFunction(result, valueKey) {
-      switch (valueKey) {
-        case 'improvement':
-          return result.direction_of_change === 'improvement';
-        case 'regression':
-          return result.direction_of_change === 'regression';
-        default:
-          return (
-            result.direction_of_change !== 'regression' &&
-            result.direction_of_change !== 'improvement'
-          );
-      }
-    },
-  },
-  {
-    name: "Cliff's Delta",
-    key: 'delta',
-    gridWidth: '1.25fr',
-    sortFunction(resultA, resultB) {
-      return Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta);
-    },
-    tooltip:
-      'Cliff’s Delta effect size quantifies the magnitude of the difference between Base and New values.',
-  },
-  {
-    name: 'Confidence',
-    key: 'confidence',
-    gridWidth: '1fr',
-    tooltip:
-      'Mann Whitney U test p-value indicating statistical significance. Mann Whitney U p-value < .05 indicates a statistically significant difference between Base and New.',
-    sortFunction(
-      resultA: MannWhitneyResultsItem,
-      resultB: MannWhitneyResultsItem,
-    ) {
-      if (
-        !resultA.mann_whitney_test?.pvalue ||
-        !resultB.mann_whitney_test?.pvalue
-      ) {
-        return 0;
-      } else {
-        return (
-          Math.abs(resultA.mann_whitney_test.pvalue) -
-          Math.abs(resultB.mann_whitney_test.pvalue ?? 0)
-        );
-      }
-    },
-  },
-  {
-    name: 'Effect Size (%)',
-    key: 'effects',
-    gridWidth: '1.25fr',
-    sortFunction(
-      resultA: MannWhitneyResultsItem,
-      resultB: MannWhitneyResultsItem,
-    ) {
-      if (!resultA.cles?.cles || !resultB.cles?.cles) {
-        return 0;
-      } else {
-        return Math.abs(resultA.cles?.cles) - Math.abs(resultB.cles?.cles ?? 0);
-      }
-    },
-    // tooltip: 'Mann Whitney U test p-value indicating statistical significance.',
-    tooltip:
-      'Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New.',
-  },
-  {
-    name: 'Total Runs',
-    key: 'runs',
-    gridWidth: '1fr',
-    tooltip: 'The total number of tasks/jobs that ran for this metric.',
-  },
-  // The 2 icons are 24px wide, and they have 5px padding.
-  { key: 'buttons', gridWidth: '34px' },
-  { key: 'expand', gridWidth: '34px' },
-];
-
 function resultMatchesSearchTerm(
   result: CombinedResultsType,
   lowerCasedSearchTerm: string,
@@ -294,9 +68,7 @@ function resultMatchesSearchTerm(
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
-  resultsPromise:
-    | CombinedResultsType[]
-    | Promise<CombinedResultsType[]>;
+  resultsPromise: CombinedResultsType[] | Promise<CombinedResultsType[]>;
   replicates: boolean;
   testVersion?: TestVersion;
 };
@@ -307,30 +79,21 @@ function SubtestsResultsTable({
   replicates,
   testVersion,
 }: ResultsTableProps) {
+  const columnsConfiguration = getColumnsConfiguration(
+    true,
+    testVersion ?? STUDENT_T,
+  );
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
-  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters(
-    testVersion === MANN_WHITNEY_U
-      ? columnsMannWhitneyConfiguration
-      : columnsConfiguration,
-  );
-  const { sortColumn, sortDirection, onToggleSort } = useTableSort(
-    testVersion === MANN_WHITNEY_U
-      ? columnsMannWhitneyConfiguration
-      : columnsConfiguration,
-  );
+  const { tableFilters, onClearFilter, onToggleFilter } =
+    useTableFilters(columnsConfiguration);
+  const { sortColumn, sortDirection, onToggleSort } =
+    useTableSort(columnsConfiguration);
 
-  const getRowGridTemplateColumns = (testVersion?: TestVersion) => {
-    const rowGridTemplateColumns = (
-      testVersion === MANN_WHITNEY_U
-        ? columnsMannWhitneyConfiguration
-        : columnsConfiguration
-    )
-      .map((config) => config.gridWidth)
-      .join(' ');
-
-    return rowGridTemplateColumns;
-  };
+  const rowGridTemplateColumns = getRowGridTemplateColumns(
+    true,
+    testVersion ?? STUDENT_T,
+  );
 
   return (
     <Box
@@ -340,11 +103,7 @@ function SubtestsResultsTable({
     >
       {/* Using the same TableHeader component as the CompareResults components but with different columnsConfiguration */}
       <TableHeader
-        columnsConfiguration={
-          testVersion === MANN_WHITNEY_U
-            ? columnsMannWhitneyConfiguration
-            : columnsConfiguration
-        }
+        columnsConfiguration={columnsConfiguration}
         filters={tableFilters}
         onToggleFilter={onToggleFilter}
         onClearFilter={onClearFilter}
@@ -402,9 +161,7 @@ function SubtestsResultsTable({
                     key={res.key}
                     identifier={res.key}
                     results={res.value}
-                    rowGridTemplateColumns={getRowGridTemplateColumns(
-                      testVersion,
-                    )}
+                    rowGridTemplateColumns={rowGridTemplateColumns}
                     replicates={replicates}
                     testVersion={testVersion}
                   />

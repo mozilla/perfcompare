@@ -8,13 +8,10 @@ import type {
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../types/state';
-import { truncateHash } from '../../utils/helpers';
 import { CombinedResultsType } from '../../types/types';
+import { truncateHash } from '../../utils/helpers';
 
-type ResultsGroupedByKey = Record<
-  string,
-  CombinedResultsType[]
->;
+type ResultsGroupedByKey = Record<string, CombinedResultsType[]>;
 
 /* This function transforms results into an array of objects, where each object
  * represents a array of objects grouped by their header_name as key. The keys

@@ -170,7 +170,7 @@ describe('Expanded row', () => {
     const expandRow = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRow);
 
-    const worseText = await screen.findByText(/worse/);
+    const worseText = await screen.findByText(/Improvement/);
     expect(worseText).toBeInTheDocument();
   });
 
@@ -222,7 +222,7 @@ describe('Expanded row', () => {
     expect(newMean).toHaveTextContent('712.44');
 
     const directionOfChange = roles[4]?.childNodes[0];
-    expect(directionOfChange).toHaveTextContent('Better');
+    expect(directionOfChange).toHaveTextContent('Improvement');
 
     const cliffsDelta = roles[5]?.childNodes[1];
     expect(cliffsDelta).toHaveTextContent('0.1');

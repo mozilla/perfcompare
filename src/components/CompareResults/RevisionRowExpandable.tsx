@@ -73,13 +73,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
     if (testVersion === MANN_WHITNEY_U && result) {
-      const { cles, cles_direction, p_value_cles } = result?.cles ?? {
-        cles: '',
-        cles_direction: '',
-        p_value_cles: '',
-      };
+      const cles = result.cles?.cles.toFixed(2) ?? '';
+      const cles_direction = result.cles?.cles_direction ?? '';
       const { cliffs_delta, cliffs_interpretation } = result;
-      const pValue = result?.mann_whitney_test?.pvalue;
+      const pValue = result.mann_whitney_test?.pvalue;
+      const pval_interpretation = result.mann_whitney_test?.interpretation;
       return (
         <Box
           sx={{
@@ -107,9 +105,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 <td style={{ padding: 2 }}>{cliffs_interpretation}</td>
               </tr>
               <tr>
-                <td style={{ padding: 2 }}>Confidence (p-value)</td>
+                <td style={{ padding: 2 }}>Significance (p-value)</td>
                 <td style={{ padding: 2 }}>{pValue}</td>
-                <td style={{ padding: 2 }}>{p_value_cles}</td>
+                <td style={{ padding: 2 }}>{pval_interpretation}</td>
               </tr>
               <tr>
                 <td style={{ padding: 2 }}>CLES</td>

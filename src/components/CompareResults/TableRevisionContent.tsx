@@ -5,10 +5,6 @@ import RevisionRow from './RevisionRow';
 import TestHeader from './TestHeader';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
-import type {
-  CompareResultsItem,
-  MannWhitneyResultsItem,
-} from '../../types/state';
 import { CombinedResultsType, TestVersion } from '../../types/types';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
