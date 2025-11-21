@@ -431,7 +431,7 @@ const getTestData = () => {
       is_significant: null,
       is_new_better: null,
       performance_intepretation: '',
-      direction_of_change: 'better',
+      direction_of_change: 'improvement',
       kde_warnings: [],
     },
     {
