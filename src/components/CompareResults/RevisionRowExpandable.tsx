@@ -108,7 +108,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 <td style={{ padding: 2 }}>{cliffs_interpretation}</td>
               </tr>
               <tr>
-                <td style={{ padding: 2 }}>Confidence (p-value)</td>
+                <td style={{ padding: 2 }}>Significance (p-value)</td>
                 <td style={{ padding: 2 }}>{pValue}</td>
                 <td style={{ padding: 2 }}>{p_value_cles}</td>
               </tr>
