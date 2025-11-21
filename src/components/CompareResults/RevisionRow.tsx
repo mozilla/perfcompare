@@ -19,7 +19,6 @@ import {
   compareView,
   compareOverTimeView,
   MANN_WHITNEY_U,
-  STUDENT_T,
 } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
@@ -28,7 +27,7 @@ import type {
   MannWhitneyResultsItem,
   PlatformShortName,
 } from '../../types/state';
-import { TestVersion } from '../../types/types';
+import { CombinedResultsType, TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
 import {
@@ -489,7 +488,7 @@ function RevisionRow(props: RevisionRowProps) {
         <RevisionRowExpandable
           id={id}
           result={result}
-          testVersion={testVersion ?? STUDENT_T}
+          testVersion={testVersion}
         />
       )}
     </>
@@ -497,7 +496,7 @@ function RevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  result: CompareResultsItem | MannWhitneyResultsItem;
+  result: CombinedResultsType;
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;

@@ -4,10 +4,7 @@ import { style } from 'typestyle';
 import LinkToRevision from './LinkToRevision';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
-import type {
-  CompareResultsItem,
-  MannWhitneyResultsItem,
-} from '../../types/state';
+import { CombinedResultsType } from '../../types/types';
 import { getDocsURL } from '../../utils/helpers';
 
 const styles = {
@@ -62,7 +59,7 @@ const styles = {
 };
 
 type HeaderProperties = Pick<
-  CompareResultsItem | MannWhitneyResultsItem,
+  CombinedResultsType,
   | 'extra_options'
   | 'framework_id'
   | 'option_name'

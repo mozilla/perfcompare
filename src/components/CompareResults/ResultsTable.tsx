@@ -40,7 +40,10 @@ export default function ResultsTable() {
     testVersion ?? STUDENT_T,
   );
 
-  const columnsConfig = getColumnsConfiguration(false, testVersion);
+  const columnsConfig = getColumnsConfiguration(
+    false,
+    testVersion ?? STUDENT_T,
+  );
 
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.

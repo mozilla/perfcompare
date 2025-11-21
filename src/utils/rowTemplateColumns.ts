@@ -2,6 +2,7 @@ import { getPlatformShortName } from './platform';
 import { MANN_WHITNEY_U, STUDENT_T } from '../common/constants';
 import { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
 import {
+  CombinedResultsType,
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
   TestVersion,
@@ -16,8 +17,8 @@ export const stringComparisonCollator = new Intl.Collator('en', {
 // test and options), and platform, so that the order is stable when reloading
 // the page.
 export function defaultSortFunction(
-  itemA: CompareResultsItem | MannWhitneyResultsItem,
-  itemB: CompareResultsItem | MannWhitneyResultsItem,
+  itemA: CombinedResultsType,
+  itemB: CombinedResultsType,
 ) {
   const keyA = itemA.header_name + ' ' + itemA.platform;
   const keyB = itemB.header_name + ' ' + itemB.platform;
@@ -279,8 +280,8 @@ export const getColumnsConfiguration = (
         tooltip:
           'Mann Whitney U test p-value indicating statistical significance. Mann Whitney U p-value < .05 indicates a statistically significant difference between Base and New.',
         possibleValues: [
-          { label: 'Signficant', key: 'significant' },
-          { label: 'Not Signficant', key: 'not significant' },
+          { label: 'Significant', key: 'significant' },
+          { label: 'Not Significant', key: 'not significant' },
         ],
         matchesFunction(result, valueKey) {
           switch (valueKey) {
@@ -294,28 +295,22 @@ export const getColumnsConfiguration = (
             }
           }
         },
-        sortFunction(resultA, resultB) {
-          return (
-            (resultA.mann_whitney_test?.pvalue ?? 0) -
-            (resultB.mann_whitney_test?.pvalue ?? 0)
-          );
+        sortFunction(
+          resultA: MannWhitneyResultsItem,
+          resultB: MannWhitneyResultsItem,
+        ) {
+          if (
+            !resultA.mann_whitney_test?.pvalue ||
+            !resultB.mann_whitney_test?.pvalue
+          ) {
+            return 0;
+          } else {
+            return (
+              Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
+              Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
+            );
+          }
         },
-        // sortFunction(
-        //   resultA: MannWhitneyResultsItem,
-        //   resultB: MannWhitneyResultsItem,
-        // ) {
-        //   if (
-        //     !resultA.mann_whitney_test?.pvalue ||
-        //     !resultB.mann_whitney_test?.pvalue
-        //   ) {
-        //     return 0;
-        //   } else {
-        //     return (
-        //       Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-        //       Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-        //     );
-        //   }
-        // },
       },
       {
         name: 'Effect Size (%)',

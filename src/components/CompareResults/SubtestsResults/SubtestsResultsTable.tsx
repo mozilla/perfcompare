@@ -70,7 +70,7 @@ type ResultsTableProps = {
   filteringSearchTerm: string;
   resultsPromise: CombinedResultsType[] | Promise<CombinedResultsType[]>;
   replicates: boolean;
-  testVersion?: TestVersion;
+  testVersion: TestVersion;
 };
 
 function SubtestsResultsTable({
@@ -79,10 +79,7 @@ function SubtestsResultsTable({
   replicates,
   testVersion,
 }: ResultsTableProps) {
-  const columnsConfiguration = getColumnsConfiguration(
-    true,
-    testVersion ?? STUDENT_T,
-  );
+  const columnsConfiguration = getColumnsConfiguration(true, testVersion);
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
@@ -90,10 +87,7 @@ function SubtestsResultsTable({
   const { sortColumn, sortDirection, onToggleSort } =
     useTableSort(columnsConfiguration);
 
-  const rowGridTemplateColumns = getRowGridTemplateColumns(
-    true,
-    testVersion ?? STUDENT_T,
-  );
+  const rowGridTemplateColumns = getRowGridTemplateColumns(true, testVersion);
 
   return (
     <Box
@@ -163,7 +157,7 @@ function SubtestsResultsTable({
                     results={res.value}
                     rowGridTemplateColumns={rowGridTemplateColumns}
                     replicates={replicates}
-                    testVersion={testVersion}
+                    testVersion={testVersion ?? STUDENT_T}
                   />
                 ))}
               </>

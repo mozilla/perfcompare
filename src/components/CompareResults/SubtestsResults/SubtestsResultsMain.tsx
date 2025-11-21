@@ -10,7 +10,11 @@ import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 import { DownloadButton, DisabledDownloadButton } from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
-import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
+import {
+  subtestsView,
+  subtestsOverTimeView,
+  STUDENT_T,
+} from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
 import { Strings } from '../../../resources/Strings';
@@ -191,7 +195,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         filteringSearchTerm={searchTerm}
         resultsPromise={results}
         replicates={replicates}
-        testVersion={testVersion}
+        testVersion={testVersion ?? STUDENT_T}
       />
     </Container>
   );

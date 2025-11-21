@@ -936,7 +936,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(await summarizeTableFiltersFromCheckboxes(user)).toEqual({
       'Platform(2)': ['macOS', 'Android'],
-      'Significance(2)': ['Signficant', 'Not Signficant'],
+      'Significance(2)': ['Significant', 'Not Significant'],
       'Status(3)': ['No changes', 'Improvement', 'Regression'],
     });
 
