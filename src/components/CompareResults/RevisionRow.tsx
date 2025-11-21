@@ -245,8 +245,16 @@ export const renderDifferingTestVersionColumns = (
           {' '}
           {(result as MannWhitneyResultsItem).cliffs_delta || '-'}
         </div>
-        <div className='confidence cell' role='cell'>
-          {(result as MannWhitneyResultsItem).cles?.p_value_cles || '-'}
+        <div className='significance cell' role='cell'>
+          {(result as MannWhitneyResultsItem).mann_whitney_test
+            ?.interpretation || '-'}
+        </div>
+        <div className='effects cell' role='cell'>
+          {(result as MannWhitneyResultsItem).cles?.cles
+            ? `${(
+                ((result as MannWhitneyResultsItem).cles?.cles ?? 0) * 100
+              ).toFixed(2)} %`
+            : '-'}
         </div>
       </>
     );

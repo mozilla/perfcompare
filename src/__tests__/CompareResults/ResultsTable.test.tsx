@@ -6,7 +6,7 @@ import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
-import type { CombinedResultsItemType, CompareResultsItem } from '../../types/state';
+import type { CombinedResultsItemType } from '../../types/state';
 import type { Platform } from '../../types/types';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
@@ -739,7 +739,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
       '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
       '  - Windows 10, , -, significant, 100.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
     ]);
 
     expect(summarizeTableFiltersFromUrl()).toEqual({});
@@ -766,7 +766,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
       '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
       '  - Windows 10, , -, significant, 100.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -800,7 +800,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
       '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
       '  - Windows 10, , -, significant, 100.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -810,7 +810,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       '  - Android, Improvement, 0.1, not significant, 25.00 %',
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
       '  - Windows 10, , -, significant, 100.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'android', 'ios'],
@@ -821,7 +821,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
       '  - Windows 10, , -, significant, 100.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'ios'],
@@ -847,7 +847,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
       '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
       '  - Windows 10, , -, significant, 100.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -857,7 +857,6 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
       '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement', 'regression'],
@@ -867,7 +866,6 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['regression'],
@@ -879,6 +877,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
       '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['none', 'improvement'],
@@ -890,7 +889,7 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
       '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
       '  - Windows 10, , -, significant, 100.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -898,7 +897,6 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, -, not significant, 45.00 %',
-      '  - Windows 10, Regression, -, significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['regression'],
