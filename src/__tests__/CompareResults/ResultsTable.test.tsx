@@ -6,7 +6,7 @@ import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type { CombinedResultsItemType } from '../../types/state';
 import type { Platform } from '../../types/types';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
@@ -25,7 +25,7 @@ function renderWithRoute(component: ReactElement, extraParameters?: string) {
 }
 
 function setupAndRender(
-  testCompareData: CompareResultsItem[],
+  testCompareData: CombinedResultsItemType[],
   extraParameters?: string,
 ) {
   const { testData } = getTestData();
@@ -662,5 +662,22 @@ describe('Results Table', () => {
       '  - Linux 18.04, Regression, 1.85 %, Medium',
       '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
+  });
+});
+
+describe('Results Table for MannWhitneyResultsItem', () => {
+  it('Should match snapshot', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+
+    const compareDataToChange = testCompareMannWhitneyData.at(-1)!;
+    Object.assign(compareDataToChange, {
+      extra_options: '',
+      header_name: `${compareDataToChange.suite} ${compareDataToChange.test} ${compareDataToChange.option_name}`,
+    });
+
+    setupAndRender(testCompareMannWhitneyData);
+    const table = await screen.findByRole('table');
+    expect(table).toBeInTheDocument();
+    expect(document.body).toMatchSnapshot();
   });
 });

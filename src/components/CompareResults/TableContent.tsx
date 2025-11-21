@@ -7,7 +7,6 @@ import TableRevisionContent from './TableRevisionContent';
 import {
   type compareView,
   type compareOverTimeView,
-  MANN_WHITNEY_U,
 } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { filterResults } from '../../hooks/useTableFilters';
@@ -80,7 +79,6 @@ type ListOfMannWhitneyResultsGroupedByTest = Array<
 
 function processResults(
   results: CombinedResultsItemType[],
-  testVersion?: TestVersion,
 ): ListOfResultsGroupedByTest | ListOfMannWhitneyResultsGroupedByTest {
   // This map will make it possible to group all results by test header first,
   // and by revision then.
@@ -108,15 +106,10 @@ function processResults(
   }
 
   // This command converts the Map of maps in an array of arrays.
-  return testVersion === MANN_WHITNEY_U
-    ? (Array.from(processedResults, ([header, resultsForHeader]) => [
-        header,
-        [...resultsForHeader],
-      ]) as ListOfMannWhitneyResultsGroupedByTest)
-    : (Array.from(processedResults, ([header, resultsForHeader]) => [
-        header,
-        [...resultsForHeader],
-      ]) as ListOfResultsGroupedByTest);
+  return Array.from(processedResults, ([header, resultsForHeader]) => [
+    header,
+    [...resultsForHeader],
+  ]) as ListOfResultsGroupedByTest | ListOfMannWhitneyResultsGroupedByTest;
 }
 
 // This function implements the simple string search. It is passed to filterResults.
@@ -222,11 +215,7 @@ function TableContent({
   }, [columnsConfiguration, filteredResults, sortColumn, sortDirection]);
 
   const processedResults = useMemo(() => {
-    const sortedRes =
-      testVersion === MANN_WHITNEY_U
-        ? (sortedResults as MannWhitneyResultsItem[])
-        : (sortedResults as CompareResultsItem[]);
-    return processResults(sortedRes, testVersion);
+    return processResults(sortedResults);
   }, [sortedResults]);
 
   if (!filteredResults.length) {
