@@ -5,7 +5,8 @@ import RevisionRow from './RevisionRow';
 import TestHeader from './TestHeader';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
-import { CombinedResultsType, TestVersion } from '../../types/types';
+import type { CombinedResultsItemType } from '../../types/state';
+import { TestVersion } from '../../types/types';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
 // MUI's sx prop for these numerous elements.
@@ -70,7 +71,7 @@ interface Props {
   //              revision        list of results for one test and revision
   //                 |               |
   //                 v               v
-  results: Array<[string, CombinedResultsType[]]>;
+  results: Array<[string, CombinedResultsItemType[]]>;
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;

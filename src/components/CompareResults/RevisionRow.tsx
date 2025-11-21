@@ -23,6 +23,7 @@ import {
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type {
+  CombinedResultsItemType,
   CompareResultsItem,
   MannWhitneyResultsItem,
   PlatformShortName,
@@ -157,7 +158,7 @@ const confidenceIcons = {
 };
 
 const getSubtestsCompareWithBaseLink = (
-  result: CompareResultsItem | MannWhitneyResultsItem,
+  result: CombinedResultsItemType,
   testVersion: TestVersion,
 ) => {
   const params = new URLSearchParams({
@@ -175,7 +176,7 @@ const getSubtestsCompareWithBaseLink = (
 };
 
 const getSubtestsCompareOverTimeLink = (
-  result: CompareResultsItem | MannWhitneyResultsItem,
+  result: CombinedResultsItemType,
   testVersion: TestVersion,
 ) => {
   // Fetching the interval value directly from the URL avoids a
@@ -496,7 +497,7 @@ function RevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  result: CombinedResultsType;
+  result: CombinedResultsItemType;
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;

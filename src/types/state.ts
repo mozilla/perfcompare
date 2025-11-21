@@ -288,3 +288,7 @@ export type PlatformShortName =
   | 'Android'
   | 'iOS'
   | 'Unspecified';
+
+export type CombinedResultsItemType =
+  | CompareResultsItem
+  | MannWhitneyResultsItem;

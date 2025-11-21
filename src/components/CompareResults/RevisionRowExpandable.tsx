@@ -10,6 +10,7 @@ import { MANN_WHITNEY_U } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type {
+  CombinedResultsItemType,
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../types/state';
@@ -248,7 +249,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
 }
 
 interface RevisionRowExpandableProps {
-  result: CompareResultsItem | MannWhitneyResultsItem;
+  result: CombinedResultsItemType;
   id: string;
   testVersion: TestVersion;
 }
