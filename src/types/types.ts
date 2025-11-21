@@ -1,4 +1,8 @@
-import { CompareResultsItem, MannWhitneyResultsItem } from './state';
+import {
+  CombinedResultsItemType,
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from './state';
 
 /* --- Types for configuring the behavior and styles of the results tables columns --- */
 
@@ -381,3 +385,8 @@ export type TokenBearer = {
 };
 
 export type TestVersion = 'student-t' | 'mann-whitney-u';
+
+export type SortFunc = (
+  resultA: CombinedResultsItemType,
+  resultB: CombinedResultsItemType,
+) => number;

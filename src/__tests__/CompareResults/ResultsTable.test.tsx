@@ -675,7 +675,7 @@ describe('Results Table', () => {
   });
 });
 
-describe('Results Table with mann-whitney-u testVersion data', () => {
+describe('Results Table for MannWhitneyResultsItem', () => {
   it('Should match snapshot', async () => {
     const { testCompareMannWhitneyData } = getTestData();
 
