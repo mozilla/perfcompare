@@ -1,5 +1,5 @@
 import { getPlatformShortName } from './platform';
-import { MANN_WHITNEY_U, STUDENT_T } from '../common/constants';
+import { MANN_WHITNEY_U } from '../common/constants';
 import { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
 import {
   CombinedResultsType,

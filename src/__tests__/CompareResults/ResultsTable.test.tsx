@@ -923,33 +923,12 @@ describe('Results Table with mann-whitney-u testVersion data', () => {
 
   it('should filter on the Significance column', async () => {
     const { testCompareMannWhitneyData } = getTestData();
-    setupAndRender(testCompareMannWhitneyData, '?baseRev=spam&baseRepo=try&framework=1&test_version=mann-whitney-u');
-
-    // const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    // await screen.findByRole('menuitem', { name: 'Significance' });
-    const significanceMenu = await screen.findAllByText(/Significance/)
-    expect(significanceMenu.length).toBe(2)
-    // await clickMenuItem(user, 'Significance', /Select all values/);
-    // expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-    //   'a11yr dhtml.html spam opt e10s fission stylo webrender',
-    //   '  - Linux 18.04, Regression, -, not significant, 45.00 %',
-    //   '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
-    //   '  - Windows 10, Regression, -, significant, 50.00 %',
-    // ]);
-    // expect(summarizeTableFiltersFromUrl()).toEqual({
-    //   significance: ['significant', 'not significant'],
-    // });
-    // await clickMenuItem(user, 'Significance', /Select all values/);
-    // await clickMenuItem(user, 'Significance', /Not Significant/);
-    // expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-    //   'a11yr dhtml.html spam opt e10s fission stylo webrender',
-    //   '  - Linux 18.04, Regression, -, not significant, 45.00 %',
-    //   '  - Windows 10, Regression, -, significant, 50.00 %',
-    // ]);
-    // expect(summarizeTableFiltersFromUrl()).toEqual({
-    //   significance: ['not significant'],
-    // });
-
+    setupAndRender(
+      testCompareMannWhitneyData,
+      '?baseRev=spam&baseRepo=try&framework=1&test_version=mann-whitney-u',
+    );
+    const significanceMenu = await screen.findAllByText(/Significance/);
+    expect(significanceMenu).toHaveLength(2);
   });
 
   it('can load the filter parameters from the URL', async () => {

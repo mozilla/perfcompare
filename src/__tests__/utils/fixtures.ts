@@ -399,10 +399,10 @@ const getTestData = () => {
       shapiro_wilk_test_base: null,
       shapiro_wilk_test_new: null,
       mann_whitney_test: {
-        test_name: "Mann-Whitney U",
+        test_name: 'Mann-Whitney U',
         stat: null,
         pvalue: 1.0,
-        interpretation: "not significant"
+        interpretation: 'not significant',
       },
       cliffs_delta: 0.1,
       cliffs_interpretation: '',
@@ -521,7 +521,7 @@ const getTestData = () => {
         test_name: 'Mann-Whitney U',
         stat: 0.5,
         pvalue: 1.0,
-        interpretation: 'not significant'
+        interpretation: 'not significant',
       },
       cliffs_delta: 0.0,
       cliffs_interpretation: 'negligible',
@@ -631,10 +631,10 @@ const getTestData = () => {
       shapiro_wilk_test_base: null,
       shapiro_wilk_test_new: null,
       mann_whitney_test: {
-        test_name: "Mann-Whitney U",
+        test_name: 'Mann-Whitney U',
         stat: null,
-        pvalue: .02,
-        interpretation: "significant"
+        pvalue: 0.02,
+        interpretation: 'significant',
       },
       cliffs_delta: 0,
       cliffs_interpretation: '',
@@ -742,10 +742,10 @@ const getTestData = () => {
       shapiro_wilk_test_base: null,
       shapiro_wilk_test_new: null,
       mann_whitney_test: {
-        test_name: "Mann-Whitney U",
+        test_name: 'Mann-Whitney U',
         stat: null,
-        pvalue: .15,
-        interpretation: "significant"
+        pvalue: 0.15,
+        interpretation: 'significant',
       },
       cliffs_delta: 0,
       cliffs_interpretation: '',
