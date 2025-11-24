@@ -151,7 +151,7 @@ type Props = {
   columnsConfiguration:
     | CompareResultsTableConfig
     | CompareMannWhitneyResultsTableConfig;
-  results: CompareResultsItem[][] | MannWhitneyResultsItem[][];
+  results: CombinedResultsItemType[][];
   view: typeof compareView | typeof compareOverTimeView;
   rowGridTemplateColumns: string;
   // Filtering properties
@@ -189,7 +189,7 @@ function TableContent({
 
     const filteredResults = filterResults(
       columnsConfiguration,
-      resultsForCurrentComparison as CompareResultsItem[],
+      resultsForCurrentComparison,
       filteringSearchTerm,
       tableFilters,
       resultMatchesSearchTerm,

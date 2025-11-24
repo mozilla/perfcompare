@@ -9,7 +9,11 @@ import {
   fetchFakeCompareResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
-import { Changeset, CompareResultsItem, Repository } from '../../types/state';
+import {
+  Changeset,
+  CombinedResultsItemType,
+  Repository,
+} from '../../types/state';
 import { FakeCommitHash, Framework, TestVersion } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -296,7 +300,7 @@ export async function getComparisonInformation(
 }
 
 type DeferredLoaderData = {
-  results: Promise<CompareResultsItem[][]>;
+  results: Promise<CombinedResultsItemType[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];

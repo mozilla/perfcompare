@@ -216,8 +216,15 @@ export const renderDifferingTestVersionColumns = (
   result: CombinedResultsItemType,
 ) => {
   if (testVersion === MANN_WHITNEY_U) {
-    const { is_improvement: improvement, is_regression: regression } =
-      result as MannWhitneyResultsItem;
+    const {
+      is_improvement: improvement,
+      is_regression: regression,
+      cliffs_delta,
+      direction_of_change,
+      mann_whitney_test,
+      cles,
+    } = result as MannWhitneyResultsItem;
+    const clesValue = cles?.cles ? `${(cles?.cles * 100).toFixed(2)} %` : '-';
     return (
       <>
         <div className='status cell' role='cell'>
@@ -236,25 +243,18 @@ export const renderDifferingTestVersionColumns = (
           >
             {improvement ? <ThumbUpIcon color='success' /> : null}
             {regression ? <ThumbDownIcon color='error' /> : null}
-            {capitalize(
-              (result as MannWhitneyResultsItem).direction_of_change ?? '',
-            )}
+            {capitalize(direction_of_change ?? '')}
           </Box>
         </div>
         <div className='delta cell' role='cell'>
           {' '}
-          {(result as MannWhitneyResultsItem).cliffs_delta || '-'}
+          {cliffs_delta || '-'}
         </div>
         <div className='significance cell' role='cell'>
-          {(result as MannWhitneyResultsItem).mann_whitney_test
-            ?.interpretation || '-'}
+          {mann_whitney_test?.interpretation || '-'}
         </div>
         <div className='effects cell' role='cell'>
-          {(result as MannWhitneyResultsItem).cles?.cles
-            ? `${(
-                ((result as MannWhitneyResultsItem).cles?.cles ?? 0) * 100
-              ).toFixed(2)} %`
-            : '-'}
+          {clesValue}
         </div>
       </>
     );

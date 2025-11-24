@@ -1494,3 +1494,57 @@ export function augmentCompareDataWithSeveralRevisions(
 
   return testCompareDataWithSeveralRevisions;
 }
+
+export function augmentCompareMannWhitneyDataWithSeveralTests(
+  testCompareData: MannWhitneyResultsItem[],
+): MannWhitneyResultsItem[] {
+  const testCompareDataWithSeveralTests = [
+    ...testCompareData,
+    // Add items with the same revision but a different test
+    ...testCompareData.map((item) => ({
+      ...item,
+      test: 'aria.html',
+      header_name: `${item.suite} aria.html ${item.option_name} ${item.extra_options}`,
+      // Different delta and confidence values, with some arbitrary changes
+      cliffs_delta: item.cliffs_delta + 1.2,
+      mann_whitney_test: {
+        ...(item.mann_whitney_test ?? {}),
+        test_name: 'Mann Whitney U',
+        stat: 0,
+        pvalue: (item.mann_whitney_test?.pvalue ?? 0) + 0.012,
+      },
+      cles: {
+        ...(item.cles ?? {}),
+        cles: (item.cles?.cles ?? 0) + .01
+      }
+    })),
+  ];
+
+  return testCompareDataWithSeveralTests;
+}
+
+export function augmentCompareMannWhitneyDataWithSeveralRevisions(
+  testCompareData: MannWhitneyResultsItem[],
+): MannWhitneyResultsItem[] {
+  const testCompareDataWithSeveralRevisions = [
+    ...testCompareData,
+    // Add items with the same tests, but a different revision
+    ...testCompareData.map((item) => ({
+      ...item,
+      new_rev: 'tictactoe',
+      cliffs_delta: item.cliffs_delta + 0.8,
+      mann_whitney_test: {
+        ...(item.mann_whitney_test ?? {}),
+        test_name: 'Mann Whitney U',
+        stat: 0,
+        pvalue: (item.mann_whitney_test?.pvalue ?? 0) + 0.012,
+      },
+      cles: {
+        ...(item.cles ?? {}),
+        cles: (item.cles?.cles ?? 0) + .01
+      }
+    })),
+  ];
+
+  return testCompareDataWithSeveralRevisions;
+}

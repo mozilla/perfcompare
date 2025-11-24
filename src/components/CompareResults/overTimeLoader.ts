@@ -9,7 +9,11 @@ import {
   fetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
-import { Changeset, CompareResultsItem, Repository } from '../../types/state';
+import {
+  Changeset,
+  CombinedResultsItemType,
+  Repository,
+} from '../../types/state';
 import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -229,7 +233,7 @@ export async function loader({ request }: { request: Request }) {
 }
 
 type DeferredLoaderData = {
-  results: Promise<CompareResultsItem[][]>;
+  results: Promise<CombinedResultsItemType[][]>;
   baseRepo: Repository['name'];
   newRevs: string[];
   newRevsInfo: Changeset[];

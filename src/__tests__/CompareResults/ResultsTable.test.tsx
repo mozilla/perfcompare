@@ -7,10 +7,12 @@ import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
 import type { CombinedResultsItemType } from '../../types/state';
-import type { Platform } from '../../types/types';
+import type { Platform, TestVersion } from '../../types/types';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
   augmentCompareDataWithSeveralRevisions,
+  augmentCompareMannWhitneyDataWithSeveralRevisions,
+  augmentCompareMannWhitneyDataWithSeveralTests,
 } from '../utils/fixtures';
 import { renderWithRouter, screen, within } from '../utils/test-utils';
 
@@ -46,7 +48,7 @@ function setupAndRender(
 // This handy function parses the results page and returns an array of visible
 // rows. It makes it easy to assert visible rows when filtering them in a
 // user-friendly way without using snapshots.
-function summarizeVisibleRows(test_version?: string) {
+function summarizeVisibleRows(testVersion?: TestVersion) {
   const rowGroups = screen.getAllByRole('rowgroup');
   const result = [];
 
@@ -74,7 +76,7 @@ function summarizeVisibleRows(test_version?: string) {
       const rows = within(revisionGroup).getAllByRole('row');
       for (const row of rows) {
         const rowClasses =
-          test_version === 'mann-whitney-u'
+          testVersion === 'mann-whitney-u'
             ? [
                 '.platform span',
                 '.status',
@@ -922,7 +924,7 @@ describe('Results Table for MannWhitneyResultsItem', () => {
     expect(significanceMenu).toHaveLength(2);
   });
 
-  it('can load the filter parameters from the URL', async () => {
+  it('can load the filter parameters from the URL on mann-whitney-u test_version', async () => {
     const { testCompareMannWhitneyData } = getTestData();
     setupAndRender(
       testCompareMannWhitneyData,
@@ -946,5 +948,152 @@ describe('Results Table for MannWhitneyResultsItem', () => {
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'linux'],
     });
+  });
+
+  it('can sort params from the URL on mann-whitney-u test_version', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    const testCompareDataForSorting =
+      augmentCompareMannWhitneyDataWithSeveralRevisions(
+        augmentCompareMannWhitneyDataWithSeveralTests(
+          testCompareMannWhitneyData,
+        ),
+      );
+    setupAndRender(testCompareDataForSorting, 'test_version=mann-whitney-u');
+    await screen.findByText('dhtml.html');
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // Sort by Cliff's Delta
+    const deltaButton = screen.getByRole('button', { name: /Cliff's Delta/ });
+    expect(deltaButton).toMatchSnapshot();
+
+    // // Sort descending
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr aria.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - Linux 18.04, Regression, 1.2, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 1.3, not significant, 25.00 %',
+      '  - Windows 10, , 1.2, significant, 100.00 %',
+      '  - Windows 10, , 1.2, significant, 50.00 %',
+      '  rev: tictactoe',
+      '  - Linux 18.04, Regression, 2, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 2.1, not significant, 25.00 %',
+      '  - Windows 10, , 2, significant, 100.00 %',
+      '  - Windows 10, , 2, significant, 50.00 %',
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
+      '  rev: tictactoe',
+      '  - Linux 18.04, Regression, 0.8, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.9, not significant, 25.00 %',
+      '  - Windows 10, , 0.8, significant, 100.00 %',
+      '  - Windows 10, , 0.8, significant, 50.00 %',
+    ]);
+    // It should have the "descending" SVG.
+    expect(deltaButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expect(window.location.search).not.toContain('sort=');
+
+    // sort ascending
+    await user.click(deltaButton);
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr aria.html opt e10s fission stylo webrender',
+      '  rev: tictactoe',
+      '  - macOS 10.15, Improvement, 2.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, 2, not significant, 45.00 %',
+      '  - Windows 10, , 2, significant, 50.00 %',
+      '  - Windows 10, , 2, significant, 100.00 %',
+      '  rev: spam',
+      '  - macOS 10.15, Improvement, 1.3, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, 1.2, not significant, 45.00 %',
+      '  - Windows 10, , 1.2, significant, 50.00 %',
+      '  - Windows 10, , 1.2, significant, 100.00 %',
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: tictactoe',
+      '  - macOS 10.15, Improvement, 0.9, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, 0.8, not significant, 45.00 %',
+      '  - Windows 10, , 0.8, significant, 50.00 %',
+      '  - Windows 10, , 0.8, significant, 100.00 %',
+      '  rev: spam',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+    ]);
+    // It should have the "ascending" SVG.
+    expect(deltaButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expectParameterToHaveValue('sort', 'delta|desc');
+
+    // Sort by Significance descending
+    const significanceButton = screen.getByRole('button', {
+      name: /Significance.*sort/,
+    });
+    await user.click(significanceButton);
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    "a11yr aria.html opt e10s fission stylo webrender",
+      "  rev: tictactoe",
+      "  - macOS 10.15, Improvement, 2.1, not significant, 25.00 %",
+      "  - Linux 18.04, Regression, 2, not significant, 45.00 %",
+      "  - Windows 10, , 2, significant, 100.00 %",
+      "  - Windows 10, , 2, significant, 50.00 %",
+      "  rev: spam",
+      "  - macOS 10.15, Improvement, 1.3, not significant, 25.00 %",
+      "  - Linux 18.04, Regression, 1.2, not significant, 45.00 %",
+      "  - Windows 10, , 1.2, significant, 100.00 %",
+      "  - Windows 10, , 1.2, significant, 50.00 %",
+    "a11yr dhtml.html opt e10s fission stylo webrender",
+      "  rev: tictactoe",
+        "  - macOS 10.15, Improvement, 0.9, not significant, 25.00 %",
+        "  - Linux 18.04, Regression, 0.8, not significant, 45.00 %",
+        "  - Windows 10, , 0.8, significant, 100.00 %",
+        "  - Windows 10, , 0.8, significant, 50.00 %",
+      "  rev: spam",
+        "  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %",
+        "  - Linux 18.04, Regression, -, not significant, 45.00 %",
+        "  - Windows 10, , -, significant, 100.00 %",
+        "  - Windows 10, , -, significant, 50.00 %",
+    ]);
+    // It should have the "no sort" SVG.
+    expect(deltaButton).toMatchSnapshot();
+    // It should have the "descending" SVG.
+    expect(significanceButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expectParameterToHaveValue('sort', 'significance|desc');
+
+    // Sort by Significance ascending
+    await user.click(significanceButton);
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      "a11yr dhtml.html opt e10s fission stylo webrender",
+        "  rev: spam",
+          "  - Windows 10, , -, significant, 50.00 %",
+          "  - Windows 10, , -, significant, 100.00 %",
+          "  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %",
+          "  - Linux 18.04, Regression, -, not significant, 45.00 %",
+        "  rev: tictactoe",
+          "  - Windows 10, , 0.8, significant, 50.00 %",
+          "  - Windows 10, , 0.8, significant, 100.00 %",
+          "  - macOS 10.15, Improvement, 0.9, not significant, 25.00 %",
+          "  - Linux 18.04, Regression, 0.8, not significant, 45.00 %",
+    "a11yr aria.html opt e10s fission stylo webrender",
+        "  rev: spam",
+          "  - Windows 10, , 1.2, significant, 50.00 %",
+          "  - Windows 10, , 1.2, significant, 100.00 %",
+          "  - macOS 10.15, Improvement, 1.3, not significant, 25.00 %",
+          "  - Linux 18.04, Regression, 1.2, not significant, 45.00 %",
+        "  rev: tictactoe",
+          "  - Windows 10, , 2, significant, 50.00 %",
+          "  - Windows 10, , 2, significant, 100.00 %",
+          "  - macOS 10.15, Improvement, 2.1, not significant, 25.00 %",
+          "  - Linux 18.04, Regression, 2, not significant, 45.00 %",
+      ]);
+    // It should have the "no sort" SVG.
+    expect(deltaButton).toMatchSnapshot();
+    // It should have the "descending" SVG.
+    expect(significanceButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expectParameterToHaveValue('sort', 'significance|asc');
   });
 });
