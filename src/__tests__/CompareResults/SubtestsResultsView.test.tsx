@@ -577,6 +577,35 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
         'browser.html: -0.04, not significant, 15.00%',
       ]);
       expectParameterToHaveValue('sort', 'significance|asc');
+
+      // Sort by Effect Size descending
+      const effectButton = screen.getByRole('button', {
+        name: /Effect Size \(%\).*sort/,
+      });
+      await user.click(effectButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'dhtml.html: 0.02, significant, 60.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+        'tablemutation.html: 0.01, -, 45.00%',
+        'regression.html: 0.12, significant, 25.00%',
+        'browser.html: -0.04, not significant, 15.00%',
+      ]);
+
+      // It should have the "descending" SVG.
+      expect(effectButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'effects|desc');
+
+      // Sort by Effect Size ascending
+      await user.click(effectButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'browser.html: -0.04, not significant, 15.00%',
+        'regression.html: 0.12, significant, 25.00%',
+        'tablemutation.html: 0.01, -, 45.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+      ]);
+      expectParameterToHaveValue('sort', 'effects|asc');
     });
 
     it('initializes the sort from the URL at load time for an ascending sort', async () => {
