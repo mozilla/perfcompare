@@ -1056,8 +1056,6 @@ describe('Results Table for MannWhitneyResultsItem', () => {
       '  - Windows 10, , -, significant, 100.00 %',
       '  - Windows 10, , -, significant, 50.00 %',
     ]);
-    // It should have the "no sort" SVG.
-    expect(deltaButton).toMatchSnapshot();
     // It should have the "descending" SVG.
     expect(significanceButton).toMatchSnapshot();
     // It should be persisted in the URL
@@ -1089,11 +1087,73 @@ describe('Results Table for MannWhitneyResultsItem', () => {
       '  - macOS 10.15, Improvement, 2.1, not significant, 23.00 %',
       '  - Linux 18.04, Regression, 2, not significant, 43.00 %',
     ]);
-    // It should have the "no sort" SVG.
-    expect(deltaButton).toMatchSnapshot();
     // It should have the "descending" SVG.
     expect(significanceButton).toMatchSnapshot();
     // It should be persisted in the URL
     expectParameterToHaveValue('sort', 'significance|asc');
+
+    // Sort by Effect Size (%) descending
+    const effectSizeButton = screen.getByRole('button', {
+      name: /Effect Size \(%\).*sort/,
+    });
+    await user.click(effectSizeButton);
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - Windows 10, , -, significant, 100.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  rev: tictactoe',
+      '  - Windows 10, , 0.8, significant, 99.00 %',
+      '  - Windows 10, , 0.8, significant, 49.00 %',
+      '  - Linux 18.04, Regression, 0.8, not significant, 44.00 %',
+      '  - macOS 10.15, Improvement, 0.9, not significant, 24.00 %',
+      'a11yr aria.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - Windows 10, , 1.2, significant, 99.00 %',
+      '  - Windows 10, , 1.2, significant, 49.00 %',
+      '  - Linux 18.04, Regression, 1.2, not significant, 44.00 %',
+      '  - macOS 10.15, Improvement, 1.3, not significant, 24.00 %',
+      '  rev: tictactoe',
+      '  - Windows 10, , 2, significant, 98.00 %',
+      '  - Windows 10, , 2, significant, 48.00 %',
+      '  - Linux 18.04, Regression, 2, not significant, 43.00 %',
+      '  - macOS 10.15, Improvement, 2.1, not significant, 23.00 %',
+    ]);
+
+    expect(effectSizeButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expectParameterToHaveValue('sort', 'effects|desc');
+
+    // Sort by Effect Size (%) ascending
+    await user.click(effectSizeButton);
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr aria.html opt e10s fission stylo webrender',
+      '  rev: tictactoe',
+      '  - macOS 10.15, Improvement, 2.1, not significant, 23.00 %',
+      '  - Linux 18.04, Regression, 2, not significant, 43.00 %',
+      '  - Windows 10, , 2, significant, 48.00 %',
+      '  - Windows 10, , 2, significant, 98.00 %',
+      '  rev: spam',
+      '  - macOS 10.15, Improvement, 1.3, not significant, 24.00 %',
+      '  - Linux 18.04, Regression, 1.2, not significant, 44.00 %',
+      '  - Windows 10, , 1.2, significant, 49.00 %',
+      '  - Windows 10, , 1.2, significant, 99.00 %',
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: tictactoe',
+      '  - macOS 10.15, Improvement, 0.9, not significant, 24.00 %',
+      '  - Linux 18.04, Regression, 0.8, not significant, 44.00 %',
+      '  - Windows 10, , 0.8, significant, 49.00 %',
+      '  - Windows 10, , 0.8, significant, 99.00 %',
+      '  rev: spam',
+      '  - macOS 10.15, Improvement, 0.1, not significant, 25.00 %',
+      '  - Linux 18.04, Regression, -, not significant, 45.00 %',
+      '  - Windows 10, , -, significant, 50.00 %',
+      '  - Windows 10, , -, significant, 100.00 %',
+    ]);
+    expect(effectSizeButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expectParameterToHaveValue('sort', 'effects|asc');
   });
 });
