@@ -1462,6 +1462,8 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               776.97 ms
+                               
+                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1474,6 +1476,8 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               791.34 ms
+                               
+                              ms
                             </div>
                             <div
                               class="status cell"
@@ -1671,6 +1675,8 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               704.84 ms
+                               
+                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1683,6 +1689,8 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               712.44 ms
+                               
+                              ms
                             </div>
                             <div
                               class="status cell"
@@ -1880,6 +1888,8 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               643.54 ms
+                               
+                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1892,6 +1902,8 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               628.09 ms
+                               
+                              ms
                             </div>
                             <div
                               class="status cell"
@@ -2159,6 +2171,8 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               643.54 ms
+                               
+                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -2171,6 +2185,8 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               628.09 ms
+                               
+                              ms
                             </div>
                             <div
                               class="status cell"
@@ -4092,7 +4108,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                               class="fmc7z2v cell"
                               role="cell"
                             >
-                              776.97
+                              776.97 ms
                                
                               ms
                             </div>
@@ -4106,7 +4122,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                               class="fmc7z2v cell"
                               role="cell"
                             >
-                              791.34
+                              791.34 ms
                                
                               ms
                             </div>
@@ -4300,7 +4316,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                               class="fmc7z2v cell"
                               role="cell"
                             >
-                              704.84
+                              704.84 ms
                                
                               ms
                             </div>
@@ -4314,7 +4330,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                               class="fmc7z2v cell"
                               role="cell"
                             >
-                              712.44
+                              712.44 ms
                                
                               ms
                             </div>
@@ -4508,7 +4524,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                               class="fmc7z2v cell"
                               role="cell"
                             >
-                              643.54
+                              643.54 ms
                                
                               ms
                             </div>
@@ -4522,7 +4538,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                               class="fmc7z2v cell"
                               role="cell"
                             >
-                              628.09
+                              628.09 ms
                                
                               ms
                             </div>
@@ -5367,7 +5383,7 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
         class="fmc7z2v cell"
         role="cell"
       >
-        704.84
+        704.84 ms
          
         ms
       </div>
@@ -5381,7 +5397,7 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
         class="fmc7z2v cell"
         role="cell"
       >
-        712.44
+        712.44 ms
          
         ms
       </div>
@@ -5614,7 +5630,7 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
         class="fmc7z2v cell"
         role="cell"
       >
-        704.84
+        704.84 ms
          
         ms
       </div>
@@ -5628,7 +5644,7 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
         class="fmc7z2v cell"
         role="cell"
       >
-        712.44
+        712.44 ms
          
         ms
       </div>
@@ -5919,6 +5935,8 @@ exports[`Results Table should render different blocks when rendering several rev
         role="cell"
       >
         704.84 ms
+         
+        ms
       </div>
       <div
         class="comparison-sign cell"
@@ -5931,6 +5949,8 @@ exports[`Results Table should render different blocks when rendering several rev
         role="cell"
       >
         712.44 ms
+         
+        ms
       </div>
       <div
         class="status cell"
@@ -6167,6 +6187,8 @@ exports[`Results Table should render different blocks when rendering several rev
         role="cell"
       >
         704.84 ms
+         
+        ms
       </div>
       <div
         class="comparison-sign cell"
@@ -6179,6 +6201,8 @@ exports[`Results Table should render different blocks when rendering several rev
         role="cell"
       >
         712.44 ms
+         
+        ms
       </div>
       <div
         class="status cell"

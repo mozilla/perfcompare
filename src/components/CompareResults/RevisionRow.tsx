@@ -367,53 +367,29 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </Tooltip>
         </div>
-        {testVersion !== MANN_WHITNEY_U && (
-          <>
-            <div className={`${browserName} cell`} role='cell'>
-              {baseAvgValue
-                ? `${formatNumber(baseAvgValue)} ${baseUnit ?? ''}`
-                : 'N/A'}
-              {getBrowserDisplay(baseApp, newApp, expanded) && (
-                <span className={FontSize.xSmall}>({baseApp})</span>
-              )}
-            </div>
-            <div className='comparison-sign cell' role='cell'>
-              {baseAvgValue && newAvgValue
-                ? determineSign(baseAvgValue, newAvgValue)
-                : '  '}
-            </div>
-            <div className={`${browserName} cell`} role='cell'>
-              {newAvgValue
-                ? `${formatNumber(newAvgValue)} ${newUnit ?? ''}`
-                : 'N/A'}
-              {getBrowserDisplay(baseApp, newApp, expanded) && (
-                <span className={FontSize.xSmall}>({newApp})</span>
-              )}
-            </div>
-          </>
-        )}
-        {testVersion === MANN_WHITNEY_U && (
-          <>
-            <div className={`${browserName} cell`} role='cell'>
-              {baseAvgValue ? formatNumber(baseAvgValue) : 'N/A'}{' '}
-              {baseUnit ?? ''}
-              {getBrowserDisplay(baseApp, newApp, expanded) && (
-                <span className={FontSize.xSmall}>({baseApp})</span>
-              )}
-            </div>
-            <div className='comparison-sign cell' role='cell'>
-              {baseAvgValue && newAvgValue
-                ? determineSign(baseAvgValue, newAvgValue)
-                : '  '}
-            </div>
-            <div className={`${browserName} cell`} role='cell'>
-              {newAvgValue ? formatNumber(newAvgValue) : 'N/A'} {newUnit ?? ''}
-              {getBrowserDisplay(baseApp, newApp, expanded) && (
-                <span className={FontSize.xSmall}>({newApp})</span>
-              )}
-            </div>
-          </>
-        )}
+        <div className={`${browserName} cell`} role='cell'>
+          {baseAvgValue
+            ? `${formatNumber(baseAvgValue)} ${baseUnit ?? ''}`
+            : 'N/A'}{' '}
+          {baseUnit ?? ''}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({baseApp})</span>
+          )}
+        </div>
+        <div className='comparison-sign cell' role='cell'>
+          {baseAvgValue && newAvgValue
+            ? determineSign(baseAvgValue, newAvgValue)
+            : '  '}
+        </div>
+        <div className={`${browserName} cell`} role='cell'>
+          {newAvgValue
+            ? `${formatNumber(newAvgValue)} ${baseUnit ?? ''}`
+            : 'N/A'}{' '}
+          {newUnit ?? ''}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({newApp})</span>
+          )}
+        </div>
         {renderDifferingTestVersionColumns(testVersion ?? STUDENT_T, result)}
         <div className='total-runs cell' role='cell'>
           <span>
