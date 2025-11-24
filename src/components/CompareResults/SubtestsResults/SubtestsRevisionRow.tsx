@@ -133,7 +133,8 @@ export const renderSubtestColumnsBasedOnTestVersion = (
     return (
       <>
         <div className='delta cell' role='cell'>
-          ? ` ${cliffs_delta || '-'}`
+          {' '}
+          {cliffs_delta || '-'}
         </div>
         <div className='significance cell' role='cell'>
           {mann_whitney_interpretation}

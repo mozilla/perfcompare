@@ -61,7 +61,7 @@ function summarizeVisibleRows(testVersion?: TestVersion) {
         ? ['.delta', '.significance', '.effects']
         : ['.delta', '.confidence'];
     const rowString = rowClasses
-      .map((selector) => row.querySelector(selector)!.textContent.trim())
+      .map((selector) => row.querySelector(selector)?.textContent.trim())
       .join(', ');
     result.push(`${subtest}: ${rowString}`);
   }
@@ -377,6 +377,264 @@ describe('SubtestsViewCompareOverTime Component Tests', () => {
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487',
       subtestsResult,
+    });
+
+    await screen.findByText('dhtml.html');
+    expect(document.body).toMatchSnapshot();
+  });
+
+  it('renders correctly when backend returns MannWhitneyResultsItem[] for mann-whitney-u test_version', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { subtestsMannWhitneyResult } = getTestData();
+
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+
+    // Expand first row to expose mann-whitney details
+    const expandRowButton = await screen.findAllByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton[0]);
+
+    expect(
+      await screen.findByText(/Goodness of Fit Test/i),
+    ).toBeInTheDocument();
+  });
+
+  it('renders over-time view when backend returns MannWhitneyResultsItem[]', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+
+    setup({
+      element: (
+        <SubtestsOverTimeResultsView
+          title={Strings.metaData.pageTitle.subtests}
+        />
+      ),
+      route: '/subtests-compare-over-time-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+
+    await screen.findByText('dhtml.html');
+    expect(document.body).toMatchSnapshot();
+  });
+});
+
+describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', () => {
+  it('should render the subtests results view with mann-whitney-u testVersions in url', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { subtestsMannWhitneyResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+
+    const expandRowButton = await screen.findAllByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton[0]);
+    expect(
+      await screen.findByText(/Goodness of Fit Test/i),
+    ).toBeInTheDocument();
+
+    await user.click(expandRowButton[1]);
+    const openedSubtests = await screen.findAllByText(/Normality Test/i);
+    expect(openedSubtests).toHaveLength(2);
+  });
+
+  it('should make blobUrl available when "Download JSON" button is clicked', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    const createObjectURLMock = jest.fn().mockReturnValue('blob:');
+    global.URL.createObjectURL = createObjectURLMock;
+    const revokeObjectURLMock = jest.fn();
+    global.URL.revokeObjectURL = revokeObjectURLMock;
+
+    // Render the component
+    const { subtestsMannWhitneyResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+
+    const button = await screen.findByText('Download JSON');
+    await user.click(button);
+
+    expect(createObjectURLMock).toHaveBeenCalled();
+    expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
+  });
+
+  describe('table sorting', () => {
+    async function setupForSorting({
+      extraParameters,
+    }: Partial<{
+      extraParameters: string;
+    }> = {}) {
+      let searchParameters =
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u';
+      if (extraParameters) {
+        searchParameters += '&' + extraParameters;
+      }
+
+      // Render the component
+      const { subtestsMannWhitneyResult } = getTestData();
+      setup({
+        element: (
+          <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+        ),
+        route: '/subtests-compare-results/',
+        search: searchParameters,
+        subtestsResult: subtestsMannWhitneyResult,
+      });
+      await screen.findByText('dhtml.html');
+    }
+
+    it('can sort the table and persist the information to the URL of mann-whitney-u values', async () => {
+      await setupForSorting();
+      // Initial view (alphabetical ordered, even if "sort by subtests" isn't specified
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'browser.html: -0.04, not significant, 15.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+        'regression.html: 0.12, significant, 25.00%',
+        'tablemutation.html: 0.01, -, 45.00%',
+      ]);
+
+      // Sort by Delta
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+      const deltaButton = screen.getByRole('button', { name: /Delta/ });
+      expect(deltaButton).toMatchSnapshot();
+      expect(window.location.search).not.toContain('sort=');
+      // Sort descending
+      await user.click(deltaButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'regression.html: 0.12, significant, 25.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+        'browser.html: -0.04, not significant, 15.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+        'tablemutation.html: 0.01, -, 45.00%',
+      ]);
+
+      // It should have the "descending" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'delta|desc');
+
+      // Sort ascending
+      await user.click(deltaButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'tablemutation.html: 0.01, -, 45.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+        'browser.html: -0.04, not significant, 15.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+        'regression.html: 0.12, significant, 25.00%',
+      ]);
+      // It should have the "ascending" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'delta|asc');
+
+      // Sort by Significance descending
+      const significanceButton = screen.getByRole('button', {
+        name: /Significance.*sort/,
+      });
+      await user.click(significanceButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'browser.html: -0.04, not significant, 15.00%',
+        'tablemutation.html: 0.01, -, 45.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+        'regression.html: 0.12, significant, 25.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+      ]);
+      // It should have the "no sort" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should have the "descending" SVG.
+      expect(significanceButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'significance|desc');
+
+      // Sort by Significance ascending
+      await user.click(significanceButton);
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'improvement.html: -0.05, significant, 50.00%',
+        'regression.html: 0.12, significant, 25.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+        'tablemutation.html: 0.01, -, 45.00%',
+        'browser.html: -0.04, not significant, 15.00%',
+      ]);
+      expectParameterToHaveValue('sort', 'significance|asc');
+    });
+
+    it('initializes the sort from the URL at load time for an ascending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta|asc' });
+      await screen.findByText('dhtml.html');
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'tablemutation.html: 0.01, -, 45.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+        'browser.html: -0.04, not significant, 15.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+        'regression.html: 0.12, significant, 25.00%',
+      ]);
+      // It should have the "ascending" SVG.
+      expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
+    });
+
+    it('initializes the sort from the URL at load time for an implicit descending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta' });
+      await screen.findByText('dhtml.html');
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'regression.html: 0.12, significant, 25.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+        'browser.html: -0.04, not significant, 15.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+        'tablemutation.html: 0.01, -, 45.00%',
+      ]);
+      // It should have the "descending" SVG.
+      expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
+    });
+
+    it('initializes the sort from the URL at load time for a descending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta|desc' });
+      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+        'regression.html: 0.12, significant, 25.00%',
+        'improvement.html: -0.05, significant, 50.00%',
+        'browser.html: -0.04, not significant, 15.00%',
+        'dhtml.html: 0.02, significant, 60.00%',
+        'tablemutation.html: 0.01, -, 45.00%',
+      ]);
+      // It should have the "descending" SVG.
+      expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
+    });
+  });
+});
+
+describe('SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersion', () => {
+  it('should render the subtests over time results view and match snapshot', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsOverTimeResultsView
+          title={Strings.metaData.pageTitle.subtests}
+        />
+      ),
+      route: '/subtests-compare-over-time-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
     });
 
     await screen.findByText('dhtml.html');
