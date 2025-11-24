@@ -6,7 +6,8 @@ import { loader as subtestsOverTimeLoader } from '../../components/CompareResult
 import SubtestsOverTimeResultsView from '../../components/CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsView from '../../components/CompareResults/SubtestsResults/SubtestsResultsView';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type { CombinedResultsItemType } from '../../types/state';
+import { TestVersion } from '../../types/types';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, screen } from '../utils/test-utils';
@@ -23,7 +24,7 @@ const setup = ({
   element: React.ReactElement;
   route: string;
   search: string;
-  subtestsResult: CompareResultsItem[];
+  subtestsResult: CombinedResultsItemType[];
 }): void => {
   // Mock fetch data
   fetchMock.get(
@@ -47,7 +48,7 @@ const setup = ({
 // This handy function parses the results page and returns an array of visible
 // rows. It makes it easy to assert visible rows when filtering them in a
 // user-friendly way without using snapshots.
-function summarizeVisibleRows() {
+function summarizeVisibleRows(testVersion?: TestVersion) {
   const rows = screen.getAllByRole('row');
   const result = [];
   for (const row of rows) {
@@ -55,8 +56,11 @@ function summarizeVisibleRows() {
     if (!subtest) {
       continue;
     }
-
-    const rowString = ['.delta', '.confidence']
+    const rowClasses =
+      testVersion === 'mann-whitney-u'
+        ? ['.delta', '.significance', '.effects']
+        : ['.delta', '.confidence'];
+    const rowString = rowClasses
       .map((selector) => row.querySelector(selector)!.textContent.trim())
       .join(', ');
     result.push(`${subtest}: ${rowString}`);
@@ -91,7 +95,7 @@ describe('SubtestsResultsView Component Tests', () => {
 
   it('should render the subtests results view with mann-whitney-u testVersions in url', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const { subtestsResult } = getTestData();
+    const { subtestsMannWhitneyResult } = getTestData();
     setup({
       element: (
         <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
@@ -99,7 +103,7 @@ describe('SubtestsResultsView Component Tests', () => {
       route: '/subtests-compare-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
-      subtestsResult,
+      subtestsResult: subtestsMannWhitneyResult,
     });
 
     const expandRowButton = await screen.findAllByTestId(/ExpandMoreIcon/);
@@ -373,6 +377,48 @@ describe('SubtestsViewCompareOverTime Component Tests', () => {
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487',
       subtestsResult,
+    });
+
+    await screen.findByText('dhtml.html');
+    expect(document.body).toMatchSnapshot();
+  });
+
+  it('renders correctly when backend returns MannWhitneyResultsItem[] for mann-whitney-u test_version', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { subtestsMannWhitneyResult } = getTestData();
+
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+
+    // Expand first row to expose mann-whitney details
+    const expandRowButton = await screen.findAllByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton[0]);
+
+    expect(
+      await screen.findByText(/Goodness of Fit Test/i),
+    ).toBeInTheDocument();
+  });
+
+  it('renders over-time view when backend returns MannWhitneyResultsItem[]', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+
+    setup({
+      element: (
+        <SubtestsOverTimeResultsView
+          title={Strings.metaData.pageTitle.subtests}
+        />
+      ),
+      route: '/subtests-compare-over-time-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
     });
 
     await screen.findByText('dhtml.html');

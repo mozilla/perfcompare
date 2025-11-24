@@ -21,6 +21,7 @@ import type {
   MannWhitneyResultsItem,
 } from '../../../types/state';
 import { TestVersion } from '../../../types/types';
+import { capitalize } from '../../../utils/helpers';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
 
@@ -119,6 +120,48 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
+export const renderSubtestColumnsBasedOnTestVersion = (
+  testVersion: TestVersion,
+  result: CombinedResultsItemType,
+) => {
+  if (testVersion === MANN_WHITNEY_U) {
+    const { cliffs_delta, mann_whitney_test, cles } =
+      result as MannWhitneyResultsItem;
+    const mann_whitney_interpretation =
+      mann_whitney_test?.interpretation || '-';
+    const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
+    return (
+      <>
+        <div className='delta cell' role='cell'>
+          ? ` ${cliffs_delta || '-'}`
+        </div>
+        <div className='significance cell' role='cell'>
+          {mann_whitney_interpretation}
+        </div>
+        <div className='effects cell' role='cell'>
+          {clesVal ? `${clesVal}% ` : '-'}
+        </div>
+      </>
+    );
+  } else {
+    const { delta_percentage: deltaPercent, confidence_text: confidenceText } =
+      result as CompareResultsItem;
+
+    return (
+      <>
+        <div className='delta cell' role='cell'>
+          {' '}
+          {`${deltaPercent} % `}
+        </div>
+        <div className='confidence cell' role='cell'>
+          {confidenceText && confidenceIcons[confidenceText]}
+          {confidenceText || '-'}
+        </div>
+      </>
+    );
+  }
+};
+
 function SubtestsRevisionRow(props: RevisionRowProps) {
   const id = useId();
   const { result, gridTemplateColumns, replicates, testVersion } = props;
@@ -128,8 +171,6 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     new_measurement_unit: newUnit,
     is_improvement: improvement,
     is_regression: regression,
-    delta_percentage: deltaPercent,
-    confidence_text: confidenceText,
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
@@ -152,6 +193,9 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     ? baseRunsReplicates.length
     : baseRuns.length;
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
+
+  const direction_of_change = (result as MannWhitneyResultsItem)
+    .direction_of_change;
 
   const [expanded, setExpanded] = useState(false);
 
@@ -185,32 +229,47 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           )}
         </div>
         <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor: improvement
-                ? 'status.improvement'
-                : regression
-                  ? 'status.regression'
-                  : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              !!improvement,
-              !!regression,
-            )}`}
-          >
-            {improvement ? <ThumbUpIcon color='success' /> : null}
-            {regression ? <ThumbDownIcon color='error' /> : null}
-            {determineStatus(!!improvement, !!regression)}
-          </Box>
+          {testVersion === MANN_WHITNEY_U ? (
+            <Box
+              sx={{
+                bgcolor:
+                  direction_of_change === 'improvement'
+                    ? 'status.improvement'
+                    : direction_of_change === 'regression'
+                      ? 'status.regression'
+                      : 'none',
+              }}
+              className={`status-hint ${determineStatusHintClass(
+                direction_of_change === 'improvement',
+                direction_of_change === 'regression',
+              )}`}
+            >
+              {capitalize(direction_of_change ?? '')}
+            </Box>
+          ) : (
+            <Box
+              sx={{
+                bgcolor: improvement
+                  ? 'status.improvement'
+                  : regression
+                    ? 'status.regression'
+                    : 'none',
+              }}
+              className={`status-hint ${determineStatusHintClass(
+                !!improvement,
+                !!regression,
+              )}`}
+            >
+              {improvement ? <ThumbUpIcon color='success' /> : null}
+              {regression ? <ThumbDownIcon color='error' /> : null}
+              {determineStatus(!!improvement, !!regression)}
+            </Box>
+          )}
         </div>
-        <div className='delta cell' role='cell'>
-          {' '}
-          {deltaPercent} %{' '}
-        </div>
-        <div className='confidence cell' role='cell'>
-          {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText}
-        </div>
+        {renderSubtestColumnsBasedOnTestVersion(
+          testVersion ?? STUDENT_T,
+          result,
+        )}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
