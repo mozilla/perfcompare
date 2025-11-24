@@ -174,4 +174,27 @@ describe('SubtestsRevisionRow Component', () => {
     const newMean = roles[3]?.childNodes[0];
     expect(newMean).toHaveTextContent('982.41');
   });
+
+  it('should display cliffs delta, significance, and effects size in subtests for mann-whitney-u testVersion', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsMannWhitneyResult[0]}
+        gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const effects = roles[7]?.childNodes[0];
+    expect(effects).toHaveTextContent('60.00%');
+
+    const significance = roles[6]?.childNodes[0];
+    expect(significance).toHaveTextContent('significant');
+
+    const cliffs_delta = roles[5]?.childNodes[1];
+    expect(cliffs_delta).toHaveTextContent('0.02');
+  });
 });
