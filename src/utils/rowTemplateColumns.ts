@@ -304,17 +304,10 @@ export const getColumnsConfiguration = (
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          if (
-            !resultA.mann_whitney_test?.pvalue ||
-            !resultB.mann_whitney_test?.pvalue
-          ) {
-            return 0;
-          } else {
-            return (
-              Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-              Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-            );
-          }
+          return (
+            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
+            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
+          );
         },
       },
       {
@@ -350,10 +343,8 @@ export const getColumnsConfiguration = (
       { key: 'expand', gridWidth: '34px' }, // 1 button
     ];
 
-  switch (true) {
-    case testVersion === MANN_WHITNEY_U:
-      return columnsMannWhitneyConfiguration;
-    default:
-      return columnsConfiguration;
+  if (testVersion === MANN_WHITNEY_U) {
+    return columnsMannWhitneyConfiguration;
   }
+  return columnsConfiguration;
 };

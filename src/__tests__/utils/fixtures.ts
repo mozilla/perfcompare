@@ -1515,8 +1515,9 @@ export function augmentCompareMannWhitneyDataWithSeveralTests(
       },
       cles: {
         ...(item.cles ?? {}),
-        cles: (item.cles?.cles ?? 0) + .01
-      }
+        cles: (item.cles?.cles ?? 0) - 0.01,
+        cles_direction: item.cles?.cles_direction ?? '',
+      },
     })),
   ];
 
@@ -1541,8 +1542,9 @@ export function augmentCompareMannWhitneyDataWithSeveralRevisions(
       },
       cles: {
         ...(item.cles ?? {}),
-        cles: (item.cles?.cles ?? 0) + .01
-      }
+        cles: (item.cles?.cles ?? 0) - 0.01,
+        cles_direction: item.cles?.cles_direction ?? '',
+      },
     })),
   ];
 
