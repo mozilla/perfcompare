@@ -16,6 +16,7 @@ import { MANN_WHITNEY_U, STUDENT_T } from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
 import { FontSize, Spacing } from '../../../styles';
 import type {
+  CombinedResultsItemType,
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../../types/state';
@@ -311,7 +312,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  result: CompareResultsItem | MannWhitneyResultsItem;
+  result: CombinedResultsItemType;
   gridTemplateColumns: string;
   replicates: boolean;
   testVersion?: TestVersion;

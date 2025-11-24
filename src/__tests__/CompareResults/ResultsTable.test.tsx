@@ -6,10 +6,7 @@ import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
-import type {
-  CompareResultsItem,
-  MannWhitneyResultsItem,
-} from '../../types/state';
+import type { CombinedResultsItemType } from '../../types/state';
 import type { Platform } from '../../types/types';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
@@ -28,7 +25,7 @@ function renderWithRoute(component: ReactElement, extraParameters?: string) {
 }
 
 function setupAndRender(
-  testCompareData: CompareResultsItem[] | MannWhitneyResultsItem[],
+  testCompareData: CombinedResultsItemType[],
   extraParameters?: string,
 ) {
   const { testData } = getTestData();
@@ -682,7 +679,7 @@ describe('Results Table', () => {
   });
 });
 
-describe('Results Table with mann-whitney-u testVersion data', () => {
+describe('Results Table for MannWhitneyResultsItem', () => {
   it('Should match snapshot', async () => {
     const { testCompareMannWhitneyData } = getTestData();
 

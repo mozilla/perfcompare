@@ -1,7 +1,10 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type { CompareResultsItem } from '../types/state';
+import type {
+  CombinedResultsItemType,
+  CompareResultsItem,
+} from '../types/state';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableColumn,
@@ -139,7 +142,7 @@ export default useTableFilters;
 /* --- Functions used to implement the filtering --- */
 function resultMatchesColumnFilter(
   columnsConfiguration: CompareResultsTableConfig,
-  result: CombinedResultsType,
+  result: CombinedResultsItemType,
   columnId: string,
   checkedValues: Set<string>,
 ): boolean {
@@ -178,11 +181,11 @@ function resultMatchesColumnFilter(
 // a "-" character.
 export function filterResults(
   columnsConfiguration: CompareResultsTableConfig,
-  results: CombinedResultsType[],
+  results: CombinedResultsItemType[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
   resultMatchesSearchTerm: (
-    result: CombinedResultsType,
+    result: CombinedResultsItemType,
     searchTerm: string,
   ) => boolean,
 ) {

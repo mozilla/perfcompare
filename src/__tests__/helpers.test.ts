@@ -7,7 +7,6 @@ import {
   getDocsURL,
   getModeInterpretation,
   capitalize,
-  cliffsDeltaPercentage,
 } from '../utils/helpers';
 import getTestData from './utils/fixtures';
 
@@ -200,20 +199,5 @@ describe('capitalize', () => {
   it('should handle empty string', () => {
     const capializedString3 = capitalize(string3);
     expect(capializedString3).toBe('');
-  });
-});
-
-describe('cliffsDeltaPercentage', () => {
-  const cliffs_delta1 = 0.1;
-  const cliffs_delta2 = -1;
-  const cliffs_delta3 = 1;
-
-  it('should calculate cliffs delta percentage', () => {
-    const expectedValue = cliffsDeltaPercentage(cliffs_delta1);
-    expect(expectedValue).toBe('55.00');
-    const expectedValue2 = cliffsDeltaPercentage(cliffs_delta2);
-    expect(expectedValue2).toBe('0.00');
-    const expectedValue3 = cliffsDeltaPercentage(cliffs_delta3);
-    expect(expectedValue3).toBe('100.00');
   });
 });

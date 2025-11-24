@@ -14,11 +14,11 @@ import { filterResults } from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
 import type {
+  CombinedResultsItemType,
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../types/state';
 import type {
-  CombinedResultsType,
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
   TestVersion,
@@ -79,15 +79,14 @@ type ListOfMannWhitneyResultsGroupedByTest = Array<
 >;
 
 function processResults(
-  results: CombinedResultsType[],
-  testVersion?: TestVersion,
+  results: CombinedResultsItemType[],
 ): ListOfResultsGroupedByTest | ListOfMannWhitneyResultsGroupedByTest {
   // This map will make it possible to group all results by test header first,
   // and by revision then.
   // Map<header, Map<revision, array of results>>
   const processedResults: Map<
     string,
-    Map<string, CombinedResultsType[]>
+    Map<string, CombinedResultsItemType[]>
   > = new Map();
 
   for (const result of results) {
@@ -108,21 +107,16 @@ function processResults(
   }
 
   // This command converts the Map of maps in an array of arrays.
-  return testVersion === MANN_WHITNEY_U
-    ? (Array.from(processedResults, ([header, resultsForHeader]) => [
-        header,
-        [...resultsForHeader],
-      ]) as ListOfMannWhitneyResultsGroupedByTest)
-    : (Array.from(processedResults, ([header, resultsForHeader]) => [
-        header,
-        [...resultsForHeader],
-      ]) as ListOfResultsGroupedByTest);
+  return Array.from(processedResults, ([header, resultsForHeader]) => [
+    header,
+    [...resultsForHeader],
+  ]) as ListOfResultsGroupedByTest | ListOfMannWhitneyResultsGroupedByTest;
 }
 
 // This function implements the simple string search. It is passed to filterResults.
 // searchTerm needs to be lowerCased already.
 function resultMatchesSearchTerm(
-  result: CombinedResultsType,
+  result: CombinedResultsItemType,
   lowerCasedSearchTerm: string,
 ) {
   return (
@@ -143,8 +137,8 @@ const stringComparisonCollator = new Intl.Collator('en', {
 // test and options), and platform, so that the order is stable when reloading
 // the page.
 function defaultSortFunction(
-  itemA: CombinedResultsType,
-  itemB: CombinedResultsType,
+  itemA: CombinedResultsItemType,
+  itemB: CombinedResultsItemType,
 ) {
   const keyA = itemA.header_name + ' ' + itemA.platform;
   const keyB = itemB.header_name + ' ' + itemB.platform;

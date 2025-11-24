@@ -1,12 +1,12 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
+import { CombinedResultsItemType } from '../types/state';
 import type {
   CombinedResultsType,
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
   SortFunc,
-  TestVersion,
 } from '../types/types';
 
 // This hook handles the state that handles table sorting, and also takes care
@@ -81,12 +81,12 @@ export function sortResults(
   columnsConfiguration:
     | CompareResultsTableConfig
     | CompareMannWhitneyResultsTableConfig,
-  results: CombinedResultsType[],
+  results: CombinedResultsItemType[],
   columnId: string | null,
   direction: 'asc' | 'desc' | null,
   defaultSortFunction: (
-    resultA: CombinedResultsType,
-    resultB: CombinedResultsType,
+    resultA: CombinedResultsItemType,
+    resultB: CombinedResultsItemType,
   ) => number,
 ) {
   let sortFunction = defaultSortFunction;
@@ -116,7 +116,7 @@ export function sortResults(
 
   const directionedSortFunction =
     direction === 'desc'
-      ? (itemA: CombinedResultsType, itemB: CombinedResultsType) =>
+      ? (itemA: CombinedResultsItemType, itemB: CombinedResultsItemType) =>
           sortFunction(itemB, itemA)
       : sortFunction;
 
