@@ -7,8 +7,9 @@ import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
 import { ModeInterpretation } from './ModeInterpretation';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Spacing } from '../../styles';
+import { Colors, Spacing } from '../../styles';
 import type {
   CombinedResultsItemType,
   CompareResultsItem,
@@ -72,6 +73,26 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const newValues =
     newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
 
+  const mode = useAppSelector((state) => state.theme.mode);
+
+  function getStyles(theme: string) {
+    const backgroundColor =
+      theme === 'light' ? Colors.Background300 : Colors.Background300Dark;
+
+    return {
+      backgroundColor,
+      padding: 1,
+      borderRadius: '5px',
+      minWidth: '287px',
+      marginTop: 2,
+    };
+  }
+
+  const styles = {
+    light: getStyles('light'),
+    dark: getStyles('dark'),
+  };
+
   //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
     if (testVersion === MANN_WHITNEY_U && result) {
@@ -83,15 +104,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       const { cliffs_delta, cliffs_interpretation } = result;
       const pValue = result?.mann_whitney_test?.pvalue;
       return (
-        <Box
-          sx={{
-            backgroundColor: '#FBFBFE',
-            padding: 1,
-            borderRadius: '5px',
-            minWidth: '287px',
-            marginTop: 2,
-          }}
-        >
+        <Box sx={styles[mode]}>
           <table
             style={{ borderCollapse: 'collapse', width: '100%', marginTop: 8 }}
           >
