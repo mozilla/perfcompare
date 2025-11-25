@@ -20,7 +20,6 @@ import { formatNumber } from './../../utils/format';
 import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
 import { StatisticsWarnings } from './StatisticsWarnings';
 import { capitalize } from '../../utils/helpers';
-import { useAppSelector } from '../../hooks/app';
 
 const strings = Strings.components.expandableRow;
 const { singleRun, confidenceNote } = strings;

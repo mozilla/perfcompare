@@ -3907,7 +3907,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     role="columnheader"
                   >
                     <span
-                      aria-label="Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New."
+                      aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
                       class="MuiBox-root css-4g6ai3"
                       data-mui-internal-clone-element="true"
                     >

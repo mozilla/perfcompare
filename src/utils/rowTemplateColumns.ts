@@ -290,22 +290,18 @@ export const getColumnsConfiguration = (
         filter: true,
         gridWidth: tableMannWhitneyConfigTestSubtestDiff.significanceGridWidth,
         tooltip:
-          'Mann Whitney U test p-value indicating statistical significance. Mann Whitney U p-value < .05 indicates a statistically significant difference between Base and New.',
+          'Significance of the comparison as determined by a Mann Whitney U test. A significant comparison has a p-value of less than 0.05.',
         possibleValues: [
           { label: 'Significant', key: 'significant' },
           { label: 'Not Significant', key: 'not significant' },
         ],
         matchesFunction(result, valueKey) {
-          switch (valueKey) {
-            case 'none':
-              return !result.mann_whitney_test?.interpretation;
-            default: {
-              const label = this.possibleValues.find(
-                ({ key }) => key === valueKey?.toLowerCase(),
-              )?.label;
-              return result.mann_whitney_test?.interpretation === label;
-            }
-          }
+          const label = this.possibleValues.find(
+            ({ key }) => key === valueKey?.toLowerCase(),
+          )?.label;
+          return (
+            result.mann_whitney_test?.interpretation === label?.toLowerCase()
+          );
         },
         sortFunction(
           resultA: MannWhitneyResultsItem,
@@ -331,7 +327,7 @@ export const getColumnsConfiguration = (
           );
         },
         tooltip:
-          'Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New.',
+          'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.',
       },
       {
         name: 'Total Runs',

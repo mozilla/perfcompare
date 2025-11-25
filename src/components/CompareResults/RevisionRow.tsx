@@ -216,33 +216,32 @@ export const renderDifferingTestVersionColumns = (
   result: CombinedResultsItemType,
 ) => {
   if (testVersion === MANN_WHITNEY_U) {
-    const {
-      is_improvement: improvement,
-      is_regression: regression,
-      cliffs_delta,
-      direction_of_change,
-      mann_whitney_test,
-      cles,
-    } = result as MannWhitneyResultsItem;
+    const { cliffs_delta, direction_of_change, mann_whitney_test, cles } =
+      result as MannWhitneyResultsItem;
     const clesValue = cles?.cles ? `${(cles?.cles * 100).toFixed(2)} %` : '-';
     return (
       <>
         <div className='status cell' role='cell'>
           <Box
             sx={{
-              bgcolor: improvement
-                ? 'status.improvement'
-                : regression
-                  ? 'status.regression'
-                  : 'none',
+              bgcolor:
+                direction_of_change === 'improvement'
+                  ? 'status.improvement'
+                  : direction_of_change === 'regression'
+                    ? 'status.regression'
+                    : 'none',
             }}
             className={`status-hint ${determineStatusHintClass(
-              !!improvement,
-              !!regression,
+              direction_of_change === 'improvement',
+              direction_of_change === 'regression',
             )}`}
           >
-            {improvement ? <ThumbUpIcon color='success' /> : null}
-            {regression ? <ThumbDownIcon color='error' /> : null}
+            {direction_of_change === 'improvement' ? (
+              <ThumbUpIcon color='success' />
+            ) : null}
+            {direction_of_change === 'regression' ? (
+              <ThumbDownIcon color='error' />
+            ) : null}
             {capitalize(direction_of_change ?? '')}
           </Box>
         </div>
