@@ -1362,7 +1362,6 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   776.97 ms
                    
-                  ms
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1376,7 +1375,6 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   791.34 ms
                    
-                  ms
                 </div>
                 <div
                   class="status cell"
@@ -1575,7 +1573,6 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   704.84 ms
                    
-                  ms
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1589,7 +1586,6 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   712.44 ms
                    
-                  ms
                 </div>
                 <div
                   class="status cell"
@@ -1788,7 +1784,6 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   643.54 ms
                    
-                  ms
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1802,7 +1797,6 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   628.09 ms
                    
-                  ms
                 </div>
                 <div
                   class="status cell"
@@ -1979,7 +1973,6 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   643.54 ms
                    
-                  ms
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1993,7 +1986,6 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   628.09 ms
                    
-                  ms
                 </div>
                 <div
                   class="status cell"

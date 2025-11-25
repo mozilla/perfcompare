@@ -146,12 +146,14 @@ async function clickMenuItem(
   const columnButton = screen.getByRole('button', {
     name: new RegExp(`${menuMatcher}.*filter`),
   });
+
   await user.click(columnButton);
 
   const menu = screen.getByRole('menu');
   let menuItem = within(menu).queryByRole('menuitemcheckbox', {
     name: itemMatcher,
   });
+
   if (!menuItem) {
     menuItem = within(menu).getByRole('menuitem', {
       name: itemMatcher,
@@ -677,7 +679,7 @@ describe('Results Table', () => {
   });
 });
 
-describe('Results Table for MannWhitneyResultsItem', () => {
+describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion', () => {
   it('Should match snapshot', async () => {
     const { testCompareMannWhitneyData } = getTestData();
 
@@ -717,7 +719,7 @@ describe('Results Table for MannWhitneyResultsItem', () => {
     expect(screen.getByRole('rowgroup')).toMatchSnapshot();
   });
 
-  it('should filter on the Platform column', async () => {
+  it('should filter on the Platform column for mann-whitney-u test_version', async () => {
     const { testCompareMannWhitneyData } = getTestData();
     testCompareMannWhitneyData.push(
       {
@@ -839,6 +841,29 @@ describe('Results Table for MannWhitneyResultsItem', () => {
     });
   });
 
+  it('should filter on the Significance column', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // Filter only "Significant"
+    const signifianceMenu = await screen.findAllByText(/Significance/);
+    await user.click(signifianceMenu[1]);
+    expect(signifianceMenu).toMatchSnapshot();
+
+    // significant item 0 and not significant item 1
+    const significantOptions = await screen.findAllByRole('menuitemcheckbox', {
+      name: /Significant/,
+    });
+    await user.click(significantOptions[1]);
+    await user.keyboard('[Escape]');
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      significance: ['significant'],
+    });
+  });
+
   it('should filter on the Status column', async () => {
     const { testCompareMannWhitneyData } = getTestData();
     setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
@@ -912,16 +937,6 @@ describe('Results Table for MannWhitneyResultsItem', () => {
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement'],
     });
-  });
-
-  it('should filter on the Significance column', async () => {
-    const { testCompareMannWhitneyData } = getTestData();
-    setupAndRender(
-      testCompareMannWhitneyData,
-      '?baseRev=spam&baseRepo=try&framework=1&test_version=mann-whitney-u',
-    );
-    const significanceMenu = await screen.findAllByText(/Significance/);
-    expect(significanceMenu).toHaveLength(2);
   });
 
   it('can load the filter parameters from the URL on mann-whitney-u test_version', async () => {

@@ -1463,7 +1463,6 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               776.97 ms
                                
-                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1477,7 +1476,6 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               791.34 ms
                                
-                              ms
                             </div>
                             <div
                               class="status cell"
@@ -1676,7 +1674,6 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               704.84 ms
                                
-                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1690,7 +1687,6 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               712.44 ms
                                
-                              ms
                             </div>
                             <div
                               class="status cell"
@@ -1889,7 +1885,6 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               643.54 ms
                                
-                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1903,7 +1898,6 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               628.09 ms
                                
-                              ms
                             </div>
                             <div
                               class="status cell"
@@ -2172,7 +2166,6 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               643.54 ms
                                
-                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -2186,7 +2179,6 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               628.09 ms
                                
-                              ms
                             </div>
                             <div
                               class="status cell"
@@ -2612,7 +2604,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 </button>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion Should match snapshot 1`] = `
 <body
   style=""
 >
@@ -3717,7 +3709,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="f1o86e5 f1l733lh"
+                  class="f10k6cdw f1l733lh"
                   data-testid="table-header"
                   role="row"
                 >
@@ -4076,7 +4068,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-y4zx2x"
+                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-18vcm48"
                             role="row"
                           >
                             <div
@@ -4110,7 +4102,6 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             >
                               776.97 ms
                                
-                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -4124,7 +4115,6 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             >
                               791.34 ms
                                
-                              ms
                             </div>
                             <div
                               class="status cell"
@@ -4283,7 +4273,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-y4zx2x"
+                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-18vcm48"
                             role="row"
                           >
                             <div
@@ -4318,7 +4308,6 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             >
                               704.84 ms
                                
-                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -4332,7 +4321,6 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             >
                               712.44 ms
                                
-                              ms
                             </div>
                             <div
                               class="status cell"
@@ -4491,7 +4479,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-y4zx2x"
+                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-18vcm48"
                             role="row"
                           >
                             <div
@@ -4526,7 +4514,6 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             >
                               643.54 ms
                                
-                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -4540,7 +4527,6 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             >
                               628.09 ms
                                
-                              ms
                             </div>
                             <div
                               class="status cell"
@@ -4767,7 +4753,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-y4zx2x"
+                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-18vcm48"
                             role="row"
                           >
                             <div
@@ -4802,7 +4788,6 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             >
                               N/A
                                
-                              ms
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -4816,7 +4801,6 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             >
                               N/A
                                
-                              ms
                             </div>
                             <div
                               class="status cell"
@@ -4976,7 +4960,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
 </body>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem can sort params from the URL on mann-whitney-u test_version 1`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 1`] = `
 <button
   aria-label="Cliff's Delta (Click to sort by this column)"
   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
@@ -5001,7 +4985,7 @@ exports[`Results Table for MannWhitneyResultsItem can sort params from the URL o
 </button>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem can sort params from the URL on mann-whitney-u test_version 2`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 2`] = `
 <button
   aria-label="Cliff's Delta (Click to sort by this column)"
   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
@@ -5026,7 +5010,7 @@ exports[`Results Table for MannWhitneyResultsItem can sort params from the URL o
 </button>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem can sort params from the URL on mann-whitney-u test_version 3`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 3`] = `
 <button
   aria-label="Cliff's Delta (Currently sorted by this column. Click to change)"
   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
@@ -5071,7 +5055,7 @@ exports[`Results Table for MannWhitneyResultsItem can sort params from the URL o
 </button>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem can sort params from the URL on mann-whitney-u test_version 4`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 4`] = `
 <button
   aria-label="Significance (Currently sorted by this column. Click to change)"
   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
@@ -5115,7 +5099,7 @@ exports[`Results Table for MannWhitneyResultsItem can sort params from the URL o
 </button>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem can sort params from the URL on mann-whitney-u test_version 5`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 5`] = `
 <button
   aria-label="Significance (Currently sorted by this column. Click to change)"
   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
@@ -5167,7 +5151,7 @@ exports[`Results Table for MannWhitneyResultsItem can sort params from the URL o
 </button>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem can sort params from the URL on mann-whitney-u test_version 6`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 6`] = `
 <button
   aria-label="Effect Size (%) (Currently sorted by this column. Click to change)"
   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
@@ -5212,7 +5196,7 @@ exports[`Results Table for MannWhitneyResultsItem can sort params from the URL o
 </button>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem can sort params from the URL on mann-whitney-u test_version 7`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 7`] = `
 <button
   aria-label="Effect Size (%) (Currently sorted by this column. Click to change)"
   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
@@ -5265,7 +5249,65 @@ exports[`Results Table for MannWhitneyResultsItem can sort params from the URL o
 </button>
 `;
 
-exports[`Results Table for MannWhitneyResultsItem should render different blocks when rendering several revisions 1`] = `
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion should filter on the Significance column 1`] = `
+[
+  <title>
+    Not sorted by Significance
+  </title>,
+  <button
+    aria-controls="significance"
+    aria-haspopup="true"
+    aria-label="Significance (Click to filter values)"
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+    data-mui-internal-clone-element="true"
+    tabindex="0"
+    type="button"
+  >
+    Significance
+    <div
+      aria-label="2 items selected"
+      class="MuiBox-root css-18uhbjh"
+    >
+      (
+      2
+      )
+    </div>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+      data-testid="KeyboardArrowDownIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
+    >
+      <span
+        class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+        style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+      >
+        <span
+          class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        />
+      </span>
+      <span
+        class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+        style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+      >
+        <span
+          class="MuiTouchRipple-child MuiTouchRipple-childLeaving MuiTouchRipple-childPulsate"
+        />
+      </span>
+    </span>
+  </button>,
+]
+`;
+
+exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion should render different blocks when rendering several revisions 1`] = `
 <div
   class="f1k5y3nc"
   role="rowgroup"
@@ -5358,7 +5400,7 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
       </span>
     </div>
     <div
-      class="revisionRow f1macqb f1dlt78d MuiBox-root css-y4zx2x"
+      class="revisionRow f1macqb f1dlt78d MuiBox-root css-18vcm48"
       role="row"
     >
       <div
@@ -5393,7 +5435,6 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
       >
         704.84 ms
          
-        ms
       </div>
       <div
         class="comparison-sign cell"
@@ -5407,7 +5448,6 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
       >
         712.44 ms
          
-        ms
       </div>
       <div
         class="status cell"
@@ -5605,7 +5645,7 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
       </span>
     </div>
     <div
-      class="revisionRow f1macqb f1dlt78d MuiBox-root css-y4zx2x"
+      class="revisionRow f1macqb f1dlt78d MuiBox-root css-18vcm48"
       role="row"
     >
       <div
@@ -5640,7 +5680,6 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
       >
         704.84 ms
          
-        ms
       </div>
       <div
         class="comparison-sign cell"
@@ -5654,7 +5693,6 @@ exports[`Results Table for MannWhitneyResultsItem should render different blocks
       >
         712.44 ms
          
-        ms
       </div>
       <div
         class="status cell"
@@ -5944,7 +5982,6 @@ exports[`Results Table should render different blocks when rendering several rev
       >
         704.84 ms
          
-        ms
       </div>
       <div
         class="comparison-sign cell"
@@ -5958,7 +5995,6 @@ exports[`Results Table should render different blocks when rendering several rev
       >
         712.44 ms
          
-        ms
       </div>
       <div
         class="status cell"
@@ -6196,7 +6232,6 @@ exports[`Results Table should render different blocks when rendering several rev
       >
         704.84 ms
          
-        ms
       </div>
       <div
         class="comparison-sign cell"
@@ -6210,7 +6245,6 @@ exports[`Results Table should render different blocks when rendering several rev
       >
         712.44 ms
          
-        ms
       </div>
       <div
         class="status cell"

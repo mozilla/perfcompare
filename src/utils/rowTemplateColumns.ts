@@ -28,6 +28,13 @@ export function defaultSortFunction(
   return stringComparisonCollator.compare(keyA, keyB);
 }
 
+export function defaultSortSubtestFunction(
+  resultA: CombinedResultsItemType,
+  resultB: CombinedResultsItemType,
+) {
+  return stringComparisonCollator.compare(resultA.test, resultB.test);
+}
+
 // Since very little difference between subtest columns and main headers this function
 // will get column configuration based on test type and if it is a subtest or not
 export const getColumnsConfiguration = (
@@ -42,7 +49,7 @@ export const getColumnsConfiguration = (
           name: 'Subtests',
           key: 'subtests',
           gridWidth: '3fr',
-          sortFunction: defaultSortFunction,
+          sortFunction: defaultSortSubtestFunction,
         },
       }
     : {
@@ -194,7 +201,7 @@ export const getColumnsConfiguration = (
     : {
         colWidthMultiply: 2.5,
         newGridWidth: '.5fr',
-        cliffsDeltaGridWidth: '1fr',
+        cliffsDeltaGridWidth: '1.25fr',
         significanceGridWidth: '1.5fr',
         platformConfig: {
           name: 'Platform',
@@ -318,13 +325,10 @@ export const getColumnsConfiguration = (
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          if (!resultA.cles?.cles || !resultB.cles?.cles) {
-            return 0;
-          } else {
-            return (
-              Math.abs(resultA.cles?.cles) - Math.abs(resultB.cles?.cles ?? 0)
-            );
-          }
+          return (
+            Math.abs(resultA.cles?.cles ?? 0) -
+            Math.abs(resultB.cles?.cles ?? 0)
+          );
         },
         tooltip:
           'Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New.',
