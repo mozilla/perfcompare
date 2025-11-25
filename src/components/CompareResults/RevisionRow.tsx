@@ -251,7 +251,9 @@ export const renderDifferingTestVersionColumns = (
           {cliffs_delta || '-'}
         </div>
         <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation || '-'}
+          {mann_whitney_test?.interpretation
+            ? capitalize(mann_whitney_test?.interpretation)
+            : '-'}
         </div>
         <div className='effects cell' role='cell'>
           {clesValue}

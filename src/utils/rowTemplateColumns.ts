@@ -301,7 +301,7 @@ export const getColumnsConfiguration = (
               return !result.mann_whitney_test?.interpretation;
             default: {
               const label = this.possibleValues.find(
-                ({ key }) => key === valueKey,
+                ({ key }) => key === valueKey?.toLowerCase(),
               )?.label;
               return result.mann_whitney_test?.interpretation === label;
             }

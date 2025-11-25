@@ -4148,7 +4148,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              not significant
+                              Not significant
                             </div>
                             <div
                               class="effects cell"
@@ -4354,7 +4354,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              not significant
+                              Not significant
                             </div>
                             <div
                               class="effects cell"
@@ -4547,7 +4547,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              significant
+                              Significant
                             </div>
                             <div
                               class="effects cell"
@@ -4821,7 +4821,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              significant
+                              Significant
                             </div>
                             <div
                               class="effects cell"
@@ -5481,7 +5481,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="significance cell"
         role="cell"
       >
-        not significant
+        Not significant
       </div>
       <div
         class="effects cell"
@@ -5726,7 +5726,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="significance cell"
         role="cell"
       >
-        not significant
+        Not significant
       </div>
       <div
         class="effects cell"

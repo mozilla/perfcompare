@@ -1311,7 +1311,7 @@ const getTestData = () => {
     lower_is_better: true,
     is_fit_good: true,
     more_runs_are_needed: false,
-    direction_of_change: 'no change',
+    direction_of_change: 'regression',
     is_improvement: null,
     is_regression: null,
     is_meaningful: null,

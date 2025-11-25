@@ -134,8 +134,8 @@ describe('Expanded row', () => {
     const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRowButton);
 
-    const noChangeText = await screen.findByText(/no change/);
-    expect(noChangeText).toBeInTheDocument();
+    const noChangeText = await screen.findAllByText(/Regression/);
+    expect(noChangeText[0]).toBeInTheDocument();
   });
 
   it('should display direction of change in RevisionRowExpandable for student-t testVersion when expanded', async () => {
