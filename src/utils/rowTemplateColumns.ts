@@ -270,7 +270,7 @@ export const getColumnsConfiguration = (
           }
         },
         tooltip:
-          'Combination of if effect is meaningful (changes are small or greater), direction of change, and if significant',
+          'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.',
       },
       {
         name: "Cliff's Delta",
