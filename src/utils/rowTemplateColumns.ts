@@ -1,9 +1,9 @@
 import { getPlatformShortName } from './platform';
 import { MANN_WHITNEY_U } from '../common/constants';
 import {
+  CombinedResultsItemType,
   CompareResultsItem,
   MannWhitneyResultsItem,
-  CombinedResultsItemType,
 } from '../types/state';
 import {
   CompareMannWhitneyResultsTableConfig,
@@ -28,6 +28,15 @@ export function defaultSortFunction(
   return stringComparisonCollator.compare(keyA, keyB);
 }
 
+export function defaultSortSubtestFunction(
+  resultA: CombinedResultsItemType,
+  resultB: CombinedResultsItemType,
+) {
+  return stringComparisonCollator.compare(resultA.test, resultB.test);
+}
+
+// Since very little difference between subtest columns and main headers this function
+// will get column configuration based on test type and if it is a subtest or not
 export const getColumnsConfiguration = (
   isSubtestTable: boolean,
   testVersion: TestVersion,
@@ -40,7 +49,7 @@ export const getColumnsConfiguration = (
           name: 'Subtests',
           key: 'subtests',
           gridWidth: '3fr',
-          sortFunction: defaultSortFunction,
+          sortFunction: defaultSortSubtestFunction,
         },
       }
     : {
@@ -192,7 +201,7 @@ export const getColumnsConfiguration = (
     : {
         colWidthMultiply: 2.5,
         newGridWidth: '.5fr',
-        cliffsDeltaGridWidth: '1fr',
+        cliffsDeltaGridWidth: '1.25fr',
         significanceGridWidth: '1.5fr',
         platformConfig: {
           name: 'Platform',
@@ -261,7 +270,7 @@ export const getColumnsConfiguration = (
           }
         },
         tooltip:
-          'Combination of if effect is meaningful (changes are small or greater), direction of change, and if significant',
+          'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.',
       },
       {
         name: "Cliff's Delta",
@@ -281,7 +290,7 @@ export const getColumnsConfiguration = (
         filter: true,
         gridWidth: tableMannWhitneyConfigTestSubtestDiff.significanceGridWidth,
         tooltip:
-          'Mann Whitney U test p-value indicating statistical significance. Mann Whitney U p-value < .05 indicates a statistically significant difference between Base and New.',
+          'Significance of the comparison as determined by a Mann Whitney U test. A significant comparison has a p-value of less than 0.05.',
         possibleValues: [
           { label: 'Significant', key: 'significant' },
           { label: 'Not Significant', key: 'not significant' },
@@ -302,17 +311,10 @@ export const getColumnsConfiguration = (
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          if (
-            !resultA.mann_whitney_test?.pvalue ||
-            !resultB.mann_whitney_test?.pvalue
-          ) {
-            return 0;
-          } else {
-            return (
-              Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-              Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-            );
-          }
+          return (
+            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
+            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
+          );
         },
       },
       {
@@ -323,13 +325,10 @@ export const getColumnsConfiguration = (
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          if (!resultA.cles?.cles || !resultB.cles?.cles) {
-            return 0;
-          } else {
-            return (
-              Math.abs(resultA.cles?.cles) - Math.abs(resultB.cles?.cles ?? 0)
-            );
-          }
+          return (
+            Math.abs(resultA.cles?.cles ?? 0) -
+            Math.abs(resultB.cles?.cles ?? 0)
+          );
         },
         tooltip:
           'Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New.',
@@ -348,24 +347,8 @@ export const getColumnsConfiguration = (
       { key: 'expand', gridWidth: '34px' }, // 1 button
     ];
 
-  switch (true) {
-    case testVersion === MANN_WHITNEY_U:
-      return columnsMannWhitneyConfiguration;
-    default:
-      return columnsConfiguration;
+  if (testVersion === MANN_WHITNEY_U) {
+    return columnsMannWhitneyConfiguration;
   }
-};
-
-export const getRowGridTemplateColumns = (
-  isSubtestTable: boolean,
-  testVersion: TestVersion,
-) => {
-  const rowGridTemplateColumns = getColumnsConfiguration(
-    isSubtestTable,
-    testVersion,
-  )
-    .map((config) => config.gridWidth)
-    .join(' ');
-
-  return rowGridTemplateColumns;
+  return columnsConfiguration;
 };
