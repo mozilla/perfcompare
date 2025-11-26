@@ -1536,7 +1536,7 @@ const getTestData = () => {
       is_significant: null,
       is_new_better: null,
       performance_intepretation: '',
-      direction_of_change: null,
+      direction_of_change: 'regression',
     },
     {
       base_rev: 'd775409d7c6abb76362a3430e9880ec032ad4679',
@@ -1643,7 +1643,7 @@ const getTestData = () => {
       is_significant: null,
       is_new_better: null,
       performance_intepretation: '',
-      direction_of_change: null,
+      direction_of_change: 'improvement',
     },
     {
       base_rev: 'd775409d7c6abb76362a3430e9880ec032ad4679',

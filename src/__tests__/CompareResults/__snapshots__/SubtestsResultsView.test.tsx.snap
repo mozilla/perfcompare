@@ -2987,8 +2987,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
+                    class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
+                  >
+                    Regression
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -3416,8 +3418,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                  >
+                    Improvement
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -4369,8 +4373,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
+                    class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
+                  >
+                    Regression
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -4798,8 +4804,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                  >
+                    Improvement
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -5751,8 +5759,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
+                    class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
+                  >
+                    Regression
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -6180,8 +6190,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <div
-                    class="status-hint MuiBox-root css-1dj4wrv"
-                  />
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                  >
+                    Improvement
+                  </div>
                 </div>
                 <div
                   class="delta cell"
