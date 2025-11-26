@@ -54,6 +54,7 @@ const revisionRow = style({
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
+      maxWidth: '150px',
     },
     '.status': {
       justifyContent: 'center',
@@ -87,7 +88,8 @@ const revisionRow = style({
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
-      padding: '10px 0px',
+      padding: '10px 15px',
+      maxWidth: '80px',
     },
   },
 });
@@ -153,6 +155,12 @@ export const renderSubtestColumnsBasedOnTestVersion = (
               direction_of_change === 'regression',
             )}`}
           >
+            {direction_of_change === 'improvement' ? (
+              <ThumbUpIcon color='success' />
+            ) : null}
+            {direction_of_change === 'regression' ? (
+              <ThumbDownIcon color='error' />
+            ) : null}
             {capitalize(direction_of_change ?? '')}
           </Box>
         </div>
