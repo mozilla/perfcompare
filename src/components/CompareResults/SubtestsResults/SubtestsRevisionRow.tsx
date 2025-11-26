@@ -54,8 +54,17 @@ const revisionRow = style({
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
+    },
+    '.subtests-mannwhitney': {
+      borderRadius: '4px 0 0 4px',
+      paddingLeft: Spacing.Medium, // Synchronize with its header
+      justifyContent: 'left',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
       maxWidth: '150px',
     },
+    
     '.status': {
       justifyContent: 'center',
     },
@@ -93,9 +102,9 @@ const revisionRow = style({
     'mann-witney-browser-name': {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'start',
       flexDirection: 'column',
-      padding: '10px 15px',
+      padding: '10px 5px',
       maxWidth: '80px',
     },
   },
@@ -141,6 +150,7 @@ export const renderSubtestColumnsBasedOnTestVersion = (
 ) => {
   if (testVersion === MANN_WHITNEY_U) {
     const {
+      test,
       cliffs_delta,
       mann_whitney_test,
       cles,
@@ -160,6 +170,9 @@ export const renderSubtestColumnsBasedOnTestVersion = (
       (result as MannWhitneyResultsItem).new_standard_stats?.mean ?? 0;
     return (
       <>
+        <div title={test} className='subtests-mannwhitney' role='cell'>
+          {test}
+        </div>
         <div className='mann-witney-browser-name cell' role='cell'>
           {formatNumber(baseAvgValue)} {baseUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
@@ -213,6 +226,7 @@ export const renderSubtestColumnsBasedOnTestVersion = (
     );
   } else {
     const {
+      test,
       delta_percentage: deltaPercent,
       confidence_text: confidenceText,
       is_improvement: improvement,
@@ -227,6 +241,9 @@ export const renderSubtestColumnsBasedOnTestVersion = (
 
     return (
       <>
+        <div title={test} className='subtests' role='cell'>
+          {test}
+        </div>
         <div className='browser-name cell' role='cell'>
           {formatNumber(baseAvgValue)} {baseUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
@@ -304,9 +321,6 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         sx={{ gridTemplateColumns, backgroundColor: 'revisionRow.background' }}
         role='row'
       >
-        <div title={test} className='subtests' role='cell'>
-          {test}
-        </div>
         {renderSubtestColumnsBasedOnTestVersion(
           testVersion ?? STUDENT_T,
           result,
