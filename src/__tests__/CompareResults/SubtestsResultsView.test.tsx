@@ -52,7 +52,8 @@ function summarizeVisibleRows(testVersion?: TestVersion) {
   const rows = screen.getAllByRole('row');
   const result = [];
   for (const row of rows) {
-    const subtest = row.querySelector('.subtests')?.textContent;
+    const subtestClass = '.subtests';
+    const subtest = row.querySelector(subtestClass)?.textContent;
     if (!subtest) {
       continue;
     }

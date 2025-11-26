@@ -959,7 +959,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1134,7 +1134,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1284,7 +1284,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1445,7 +1445,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1606,7 +1606,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -2793,11 +2793,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="browser.html"
                 >
@@ -2950,11 +2950,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="dhtml.html"
                 >
@@ -3106,11 +3106,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="improvement.html"
                 >
@@ -3249,11 +3249,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="regression.html"
                 >
@@ -3392,11 +3392,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="tablemutation.html"
                 >
@@ -4201,11 +4201,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="browser.html"
                 >
@@ -4358,11 +4358,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="dhtml.html"
                 >
@@ -4514,11 +4514,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="improvement.html"
                 >
@@ -4657,11 +4657,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="regression.html"
                 >
@@ -4800,11 +4800,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="tablemutation.html"
                 >
@@ -5609,11 +5609,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 />
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="browser.html"
                 >
@@ -5766,11 +5766,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="dhtml.html"
                 >
@@ -5922,11 +5922,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="improvement.html"
                 >
@@ -6065,11 +6065,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="regression.html"
                 >
@@ -6208,11 +6208,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
-                  class="subtests"
+                  class="subtests subtests-mannwhitney"
                   role="cell"
                   title="tablemutation.html"
                 >
@@ -6984,7 +6984,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7159,7 +7159,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7309,7 +7309,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7470,7 +7470,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7631,7 +7631,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div

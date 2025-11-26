@@ -55,12 +55,6 @@ const revisionRow = style({
       textOverflow: 'ellipsis',
     },
     '.subtests-mannwhitney': {
-      borderRadius: '4px 0 0 4px',
-      paddingLeft: Spacing.Medium, // Synchronize with its header
-      justifyContent: 'left',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
       maxWidth: '150px',
     },
 
@@ -169,7 +163,7 @@ export const renderSubtestColumnsBasedOnTestVersion = (
       (result as MannWhitneyResultsItem).new_standard_stats?.mean ?? 0;
     return (
       <>
-        <div title={test} className='subtests-mannwhitney' role='cell'>
+        <div title={test} className='subtests subtests-mannwhitney' role='cell'>
           {test}
         </div>
         <div className='mann-witney-browser-name cell' role='cell'>
@@ -294,7 +288,6 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
   const id = useId();
   const { result, gridTemplateColumns, replicates, testVersion } = props;
   const {
-    test,
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
