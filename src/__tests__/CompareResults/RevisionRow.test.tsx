@@ -219,8 +219,8 @@ describe('Expanded row', () => {
     const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRowButton);
 
-    const notSignificant = await screen.findByText(/Not significant/);
-    expect(notSignificant).toBeInTheDocument();
+    const notSignificant = await screen.findAllByText(/Not significant/);
+    expect(notSignificant[0]).toBeInTheDocument();
   });
 
   it('should handle empty mann_whitney_test.interpretation for significance for mann-whitney-u testVersion', async () => {
