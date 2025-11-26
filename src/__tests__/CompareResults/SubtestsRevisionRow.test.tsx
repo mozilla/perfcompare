@@ -174,4 +174,63 @@ describe('SubtestsRevisionRow Component', () => {
     const newMean = roles[3]?.childNodes[0];
     expect(newMean).toHaveTextContent('982.41');
   });
+
+  it('should display cliffs delta, significance, and effects size in subtests for mann-whitney-u testVersion', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsMannWhitneyResult[0]}
+        gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const effects = roles[7]?.childNodes[0];
+    expect(effects).toHaveTextContent('60.00%');
+
+    const significance = roles[6]?.childNodes[0];
+    expect(significance).toHaveTextContent('Significant');
+
+    const cliffs_delta = roles[5]?.childNodes[1];
+    expect(cliffs_delta).toHaveTextContent('0.02');
+  });
+
+  it('should handle regression status and class for direction_of_change for results of  mann-whitney-u testVersion', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsMannWhitneyResult[0]}
+        gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const status = roles[4]?.childNodes[0];
+    expect(status).toHaveTextContent('Regression');
+    expect(status).toHaveClass('status-hint-regression');
+  });
+
+  it('should handle improvement status and class for direction_of_change for results of  mann-whitney-u testVersion', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsMannWhitneyResult[1]}
+        gridTemplateColumns={mockGridTemplateColumns}
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const roles1 = await screen.findAllByRole('cell');
+    const status1 = roles1[4]?.childNodes[0];
+    expect(status1).toHaveTextContent('Improvement');
+    expect(status1).toHaveClass('status-hint-improvement');
+  });
 });

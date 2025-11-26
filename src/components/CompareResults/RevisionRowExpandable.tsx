@@ -96,13 +96,15 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
     if (testVersion === MANN_WHITNEY_U && result) {
-      const { cles, cles_direction, p_value_cles } = result?.cles ?? {
+      const { cles, cles_direction } = result?.cles ?? {
         cles: '',
         cles_direction: '',
-        p_value_cles: '',
       };
       const { cliffs_delta, cliffs_interpretation } = result;
       const pValue = result?.mann_whitney_test?.pvalue;
+      const p_value_cles = result?.mann_whitney_test?.interpretation
+        ? capitalize(result.mann_whitney_test.interpretation)
+        : '';
       return (
         <Box sx={styles[mode]}>
           <table

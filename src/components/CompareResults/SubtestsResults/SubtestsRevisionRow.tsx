@@ -21,6 +21,7 @@ import type {
   MannWhitneyResultsItem,
 } from '../../../types/state';
 import { TestVersion } from '../../../types/types';
+import { capitalize } from '../../../utils/helpers';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
 
@@ -38,8 +39,12 @@ const revisionRow = style({
     },
     '.confidence': {
       gap: '10px',
-      justifyContent: 'start',
+      justifyContent: 'center',
       paddingInlineStart: '15%',
+    },
+    '.significance': {
+      gap: '10px',
+      justifyContent: 'left',
     },
     '.subtests': {
       borderRadius: '4px 0 0 4px',
@@ -49,6 +54,10 @@ const revisionRow = style({
       overflow: 'hidden',
       textOverflow: 'ellipsis',
     },
+    '.subtests-mannwhitney': {
+      maxWidth: '150px',
+    },
+
     '.status': {
       justifyContent: 'center',
     },
@@ -81,7 +90,15 @@ const revisionRow = style({
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
-      padding: '10px 0px',
+      padding: '10px 15px',
+    },
+    'mann-witney-browser-name': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'start',
+      flexDirection: 'column',
+      padding: '10px 5px',
+      maxWidth: '80px',
     },
   },
 });
@@ -119,53 +136,104 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
-function SubtestsRevisionRow(props: RevisionRowProps) {
-  const id = useId();
-  const { result, gridTemplateColumns, replicates, testVersion } = props;
-  const {
-    test,
-    base_measurement_unit: baseUnit,
-    new_measurement_unit: newUnit,
-    is_improvement: improvement,
-    is_regression: regression,
-    delta_percentage: deltaPercent,
-    confidence_text: confidenceText,
-    base_runs: baseRuns,
-    new_runs: newRuns,
-    graphs_link: graphLink,
-    base_app: baseApp,
-    new_app: newApp,
-    new_runs_replicates: newRunsReplicates,
-    base_runs_replicates: baseRunsReplicates,
-  } = result;
+export const renderSubtestColumnsBasedOnTestVersion = (
+  testVersion: TestVersion,
+  result: CombinedResultsItemType,
+  expanded: boolean,
+) => {
+  if (testVersion === MANN_WHITNEY_U) {
+    const {
+      test,
+      cliffs_delta,
+      mann_whitney_test,
+      cles,
+      direction_of_change,
+      base_measurement_unit: baseUnit,
+      new_measurement_unit: newUnit,
+      base_app: baseApp,
+      new_app: newApp,
+    } = result as MannWhitneyResultsItem;
+    const mann_whitney_interpretation = mann_whitney_test?.interpretation
+      ? capitalize(mann_whitney_test?.interpretation)
+      : '-';
+    const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
+    const baseAvgValue =
+      (result as MannWhitneyResultsItem).base_standard_stats?.mean ?? 0;
+    const newAvgValue =
+      (result as MannWhitneyResultsItem).new_standard_stats?.mean ?? 0;
+    return (
+      <>
+        <div title={test} className='subtests subtests-mannwhitney' role='cell'>
+          {test}
+        </div>
+        <div className='mann-witney-browser-name cell' role='cell'>
+          {formatNumber(baseAvgValue)} {baseUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({baseApp})</span>
+          )}
+        </div>
+        <div className='comparison-sign cell' role='cell'>
+          {determineSign(baseAvgValue, newAvgValue)}
+        </div>
+        <div className='mann-witney-browser-name cell' role='cell'>
+          {formatNumber(newAvgValue)} {newUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({newApp})</span>
+          )}
+        </div>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor:
+                direction_of_change === 'improvement'
+                  ? 'status.improvement'
+                  : direction_of_change === 'regression'
+                    ? 'status.regression'
+                    : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(
+              direction_of_change === 'improvement',
+              direction_of_change === 'regression',
+            )}`}
+          >
+            {direction_of_change === 'improvement' ? (
+              <ThumbUpIcon color='success' />
+            ) : null}
+            {direction_of_change === 'regression' ? (
+              <ThumbDownIcon color='error' />
+            ) : null}
+            {capitalize(direction_of_change ?? '')}
+          </Box>
+        </div>
+        <div className='delta cell' role='cell'>
+          {' '}
+          {cliffs_delta || '-'}
+        </div>
+        <div className='significance cell' role='cell'>
+          {mann_whitney_interpretation}
+        </div>
+        <div className='effects cell' role='cell'>
+          {clesVal ? `${clesVal}% ` : '-'}
+        </div>
+      </>
+    );
+  } else {
+    const {
+      test,
+      delta_percentage: deltaPercent,
+      confidence_text: confidenceText,
+      is_improvement: improvement,
+      is_regression: regression,
+      base_avg_value: baseAvgValue,
+      new_avg_value: newAvgValue,
+      base_app: baseApp,
+      new_app: newApp,
+      base_measurement_unit: baseUnit,
+      new_measurement_unit: newUnit,
+    } = result as CompareResultsItem;
 
-  const baseAvgValue =
-    (testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem).base_standard_stats?.mean
-      : (result as CompareResultsItem).base_avg_value) ?? 0;
-  const newAvgValue =
-    (testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem).new_standard_stats?.mean
-      : (result as CompareResultsItem).new_avg_value) ?? 0;
-
-  const baseRunsCount = replicates
-    ? baseRunsReplicates.length
-    : baseRuns.length;
-  const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
-
-  const [expanded, setExpanded] = useState(false);
-
-  const toggleIsExpanded = () => {
-    setExpanded(!expanded);
-  };
-
-  return (
-    <>
-      <Box
-        className={`revisionRow ${revisionRow} ${typography}`}
-        sx={{ gridTemplateColumns, backgroundColor: 'revisionRow.background' }}
-        role='row'
-      >
+    return (
+      <>
         <div title={test} className='subtests' role='cell'>
           {test}
         </div>
@@ -178,7 +246,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseAvgValue, newAvgValue)}
         </div>
-        <div className='browser-name cell' role='cell'>
+        <div className='mann-witney-browser-name cell' role='cell'>
           {formatNumber(newAvgValue)} {newUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
             <span className={FontSize.xSmall}>({newApp})</span>
@@ -205,12 +273,51 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         </div>
         <div className='delta cell' role='cell'>
           {' '}
-          {deltaPercent} %{' '}
+          {`${deltaPercent} % `}
         </div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText}
+          {confidenceText || '-'}
         </div>
+      </>
+    );
+  }
+};
+
+function SubtestsRevisionRow(props: RevisionRowProps) {
+  const id = useId();
+  const { result, gridTemplateColumns, replicates, testVersion } = props;
+  const {
+    base_runs: baseRuns,
+    new_runs: newRuns,
+    graphs_link: graphLink,
+    new_runs_replicates: newRunsReplicates,
+    base_runs_replicates: baseRunsReplicates,
+  } = result;
+
+  const baseRunsCount = replicates
+    ? baseRunsReplicates.length
+    : baseRuns.length;
+  const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
+
+  const [expanded, setExpanded] = useState(false);
+
+  const toggleIsExpanded = () => {
+    setExpanded(!expanded);
+  };
+
+  return (
+    <>
+      <Box
+        className={`revisionRow ${revisionRow} ${typography}`}
+        sx={{ gridTemplateColumns, backgroundColor: 'revisionRow.background' }}
+        role='row'
+      >
+        {renderSubtestColumnsBasedOnTestVersion(
+          testVersion ?? STUDENT_T,
+          result,
+          expanded,
+        )}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
