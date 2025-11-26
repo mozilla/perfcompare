@@ -1,5 +1,16 @@
 import { getPlatformShortName } from './platform';
-import { MANN_WHITNEY_U } from '../common/constants';
+import {
+  MANN_WHITNEY_U,
+  tooltipBaseMean,
+  tooltipCliffsDelta,
+  tooltipConfidence,
+  tooltipDelta,
+  tooltipEffectSize,
+  tooltipNewMean,
+  tooltipSignificance,
+  tooltipStatusMannWhitney,
+  tooltipTotalRuns,
+} from '../common/constants';
 import {
   CombinedResultsItemType,
   CompareResultsItem,
@@ -85,7 +96,7 @@ export const getColumnsConfiguration = (
       name: 'Base',
       key: 'base',
       gridWidth: '1fr',
-      tooltip: 'A summary of all values from Base runs using a mean.',
+      tooltip: tooltipBaseMean,
     },
     {
       key: 'comparisonSign',
@@ -97,7 +108,7 @@ export const getColumnsConfiguration = (
       key: 'new',
 
       gridWidth: '1fr',
-      tooltip: 'A summary of all values from New runs using a mean.',
+      tooltip: tooltipNewMean,
     },
     {
       name: 'Status',
@@ -130,15 +141,14 @@ export const getColumnsConfiguration = (
           Math.abs(resultB.delta_percentage)
         );
       },
-      tooltip: 'The percentage difference between the Base and New values',
+      tooltip: tooltipDelta,
     },
     {
       name: 'Confidence',
       filter: true,
       key: 'confidence',
       gridWidth: tableConfigTestSubtestDiff.confidenceGridWidth,
-      tooltip:
-        "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
+      tooltip: tooltipConfidence,
       possibleValues: [
         { label: 'No value', key: 'none' },
         { label: 'Low', key: 'low' },
@@ -173,7 +183,7 @@ export const getColumnsConfiguration = (
       name: 'Total Runs',
       key: 'runs',
       gridWidth: '1fr',
-      tooltip: 'The total number of tasks/jobs that ran for this metric.',
+      tooltip: tooltipTotalRuns,
     },
     // The 2 icons are 24px wide, and they have 5px padding for subtest columns.
     // We use the real pixel value for the buttons, so that everything is improvement aligned.
@@ -234,7 +244,7 @@ export const getColumnsConfiguration = (
         name: 'Base',
         key: 'base',
         gridWidth: '.5fr',
-        tooltip: 'A summary of all values from Base runs using a mean.',
+        tooltip: tooltipBaseMean,
       },
       {
         key: 'comparisonSign',
@@ -244,7 +254,7 @@ export const getColumnsConfiguration = (
         name: 'New',
         key: 'new',
         gridWidth: tableMannWhitneyConfigTestSubtestDiff.newGridWidth,
-        tooltip: 'A summary of all values from New runs using a mean.',
+        tooltip: tooltipNewMean,
       },
       {
         name: 'Status',
@@ -269,8 +279,7 @@ export const getColumnsConfiguration = (
               );
           }
         },
-        tooltip:
-          'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.',
+        tooltip: tooltipStatusMannWhitney,
       },
       {
         name: "Cliff's Delta",
@@ -281,16 +290,14 @@ export const getColumnsConfiguration = (
             Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta)
           );
         },
-        tooltip:
-          'Cliff’s Delta quantifies the magnitude of the difference between Base and New values.',
+        tooltip: tooltipCliffsDelta,
       },
       {
         name: 'Significance',
         key: 'significance',
         filter: true,
         gridWidth: tableMannWhitneyConfigTestSubtestDiff.significanceGridWidth,
-        tooltip:
-          'Significance of the comparison as determined by a Mann Whitney U test. A significant comparison has a p-value of less than 0.05.',
+        tooltip: tooltipSignificance,
         possibleValues: [
           { label: 'Significant', key: 'significant' },
           { label: 'Not Significant', key: 'not significant' },
@@ -326,14 +333,13 @@ export const getColumnsConfiguration = (
             Math.abs(resultB.cles?.cles ?? 0)
           );
         },
-        tooltip:
-          'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.',
+        tooltip: tooltipEffectSize,
       },
       {
         name: 'Total Runs',
         key: 'runs',
         gridWidth: '1fr',
-        tooltip: 'The total number of tasks/jobs that ran for this metric.',
+        tooltip: tooltipTotalRuns,
       },
       // We use the real pixel value for the buttons, so that everything is improvement aligned.
       {

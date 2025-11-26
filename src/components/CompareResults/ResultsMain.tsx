@@ -121,7 +121,7 @@ function ResultsMain() {
   return (
     <Container
       maxWidth={false}
-      sx={{ maxWidth: '1300px' }}
+      sx={{ maxWidth: '1400px' }}
       className={styles.container}
       data-testid='results-main'
     >

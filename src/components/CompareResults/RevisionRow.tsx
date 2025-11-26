@@ -71,7 +71,12 @@ const revisionRow = style({
     },
     '.confidence': {
       gap: '10px',
-      justifyContent: 'start',
+      justifyContent: 'center',
+      paddingInlineStart: '15%',
+    },
+    '.significance': {
+      gap: '10px',
+      justifyContent: 'center',
       paddingInlineStart: '15%',
     },
     '.expand-button-container': {
