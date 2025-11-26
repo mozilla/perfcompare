@@ -127,8 +127,9 @@ export const renderSubtestColumnsBasedOnTestVersion = (
   if (testVersion === MANN_WHITNEY_U) {
     const { cliffs_delta, mann_whitney_test, cles } =
       result as MannWhitneyResultsItem;
-    const mann_whitney_interpretation =
-      mann_whitney_test?.interpretation || '-';
+    const mann_whitney_interpretation = mann_whitney_test?.interpretation
+      ? capitalize(mann_whitney_test?.interpretation)
+      : '-';
     const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
     return (
       <>

@@ -192,7 +192,7 @@ describe('SubtestsRevisionRow Component', () => {
     expect(effects).toHaveTextContent('60.00%');
 
     const significance = roles[6]?.childNodes[0];
-    expect(significance).toHaveTextContent('significant');
+    expect(significance).toHaveTextContent('Significant');
 
     const cliffs_delta = roles[5]?.childNodes[1];
     expect(cliffs_delta).toHaveTextContent('0.02');

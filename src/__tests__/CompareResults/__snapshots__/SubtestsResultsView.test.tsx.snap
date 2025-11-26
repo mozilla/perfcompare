@@ -2858,7 +2858,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  not significant
+                  Not significant
                 </div>
                 <div
                   class="effects cell"
@@ -3001,7 +3001,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
@@ -3144,7 +3144,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
@@ -3287,7 +3287,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
@@ -4240,7 +4240,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  not significant
+                  Not significant
                 </div>
                 <div
                   class="effects cell"
@@ -4383,7 +4383,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
@@ -4526,7 +4526,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
@@ -4669,7 +4669,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
@@ -5622,7 +5622,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  not significant
+                  Not significant
                 </div>
                 <div
                   class="effects cell"
@@ -5765,7 +5765,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
@@ -5908,7 +5908,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
@@ -6051,7 +6051,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  significant
+                  Significant
                 </div>
                 <div
                   class="effects cell"
