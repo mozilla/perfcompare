@@ -198,9 +198,6 @@ export const getColumnsConfiguration = (
   const tableMannWhitneyConfigTestSubtestDiff = isSubtestTable
     ? {
         colWidthMultiply: 1,
-        newGridWidth: '.75fr',
-        cliffsDeltaGridWidth: '1.25fr',
-        significanceGridWidth: '1fr',
         platformConfig: {
           name: 'Subtests',
           key: 'subtests',
@@ -210,9 +207,6 @@ export const getColumnsConfiguration = (
       }
     : {
         colWidthMultiply: 2.5,
-        newGridWidth: '.5fr',
-        cliffsDeltaGridWidth: '1.25fr',
-        significanceGridWidth: '1.5fr',
         platformConfig: {
           name: 'Platform',
           filter: true,
@@ -248,19 +242,19 @@ export const getColumnsConfiguration = (
       },
       {
         key: 'comparisonSign',
-        gridWidth: '0.2fr',
+        gridWidth: '0.25fr',
       },
       {
         name: 'New',
         key: 'new',
-        gridWidth: tableMannWhitneyConfigTestSubtestDiff.newGridWidth,
+        gridWidth: '.75fr',
         tooltip: tooltipNewMean,
       },
       {
         name: 'Status',
         filter: true,
         key: 'status',
-        gridWidth: '1fr',
+        gridWidth: '1.25fr',
         possibleValues: [
           { label: 'No changes', key: 'none' },
           { label: 'Improvement', key: 'improvement' },
@@ -284,7 +278,7 @@ export const getColumnsConfiguration = (
       {
         name: "Cliff's Delta",
         key: 'delta',
-        gridWidth: tableMannWhitneyConfigTestSubtestDiff.cliffsDeltaGridWidth,
+        gridWidth: '1.25fr',
         sortFunction(resultA, resultB) {
           return (
             Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta)
@@ -296,7 +290,7 @@ export const getColumnsConfiguration = (
         name: 'Significance',
         key: 'significance',
         filter: true,
-        gridWidth: tableMannWhitneyConfigTestSubtestDiff.significanceGridWidth,
+        gridWidth: '1.5fr',
         tooltip: tooltipSignificance,
         possibleValues: [
           { label: 'Significant', key: 'significant' },
