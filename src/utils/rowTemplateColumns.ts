@@ -237,7 +237,7 @@ export const getColumnsConfiguration = (
       {
         name: 'Base',
         key: 'base',
-        gridWidth: '.5fr',
+        gridWidth: '.75fr',
         tooltip: tooltipBaseMean,
       },
       {

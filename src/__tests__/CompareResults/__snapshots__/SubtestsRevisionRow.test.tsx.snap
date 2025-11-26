@@ -4,7 +4,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
 <body>
   <div>
     <div
-      class="revisionRow fd0b4fc f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow fgrgwxo f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -36,7 +36,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         &lt;
       </div>
       <div
-        class="browser-name cell"
+        class="mann-witney-browser-name cell"
         role="cell"
       >
         984.16
@@ -186,7 +186,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
 <body>
   <div>
     <div
-      class="revisionRow fd0b4fc f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow fgrgwxo f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -211,7 +211,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         &lt;
       </div>
       <div
-        class="browser-name cell"
+        class="mann-witney-browser-name cell"
         role="cell"
       >
         982.41
@@ -343,7 +343,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
 <body>
   <div>
     <div
-      class="revisionRow fd0b4fc f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow fgrgwxo f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -368,7 +368,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         &lt;
       </div>
       <div
-        class="browser-name cell"
+        class="mann-witney-browser-name cell"
         role="cell"
       >
         982.41

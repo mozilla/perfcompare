@@ -89,6 +89,13 @@ const revisionRow = style({
       justifyContent: 'center',
       flexDirection: 'column',
       padding: '10px 15px',
+    },
+    'mann-witney-browser-name': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      padding: '10px 15px',
       maxWidth: '80px',
     },
   },
@@ -130,16 +137,44 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 export const renderSubtestColumnsBasedOnTestVersion = (
   testVersion: TestVersion,
   result: CombinedResultsItemType,
+  expanded: boolean,
 ) => {
   if (testVersion === MANN_WHITNEY_U) {
-    const { cliffs_delta, mann_whitney_test, cles, direction_of_change } =
-      result as MannWhitneyResultsItem;
+    const {
+      cliffs_delta,
+      mann_whitney_test,
+      cles,
+      direction_of_change,
+      base_measurement_unit: baseUnit,
+      new_measurement_unit: newUnit,
+      base_app: baseApp,
+      new_app: newApp,
+    } = result as MannWhitneyResultsItem;
     const mann_whitney_interpretation = mann_whitney_test?.interpretation
       ? capitalize(mann_whitney_test?.interpretation)
       : '-';
     const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
+    const baseAvgValue =
+      (result as MannWhitneyResultsItem).base_standard_stats?.mean ?? 0;
+    const newAvgValue =
+      (result as MannWhitneyResultsItem).new_standard_stats?.mean ?? 0;
     return (
       <>
+        <div className='mann-witney-browser-name cell' role='cell'>
+          {formatNumber(baseAvgValue)} {baseUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({baseApp})</span>
+          )}
+        </div>
+        <div className='comparison-sign cell' role='cell'>
+          {determineSign(baseAvgValue, newAvgValue)}
+        </div>
+        <div className='mann-witney-browser-name cell' role='cell'>
+          {formatNumber(newAvgValue)} {newUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({newApp})</span>
+          )}
+        </div>
         <div className='status cell' role='cell'>
           <Box
             sx={{
@@ -182,10 +217,31 @@ export const renderSubtestColumnsBasedOnTestVersion = (
       confidence_text: confidenceText,
       is_improvement: improvement,
       is_regression: regression,
+      base_avg_value: baseAvgValue,
+      new_avg_value: newAvgValue,
+      base_app: baseApp,
+      new_app: newApp,
+      base_measurement_unit: baseUnit,
+      new_measurement_unit: newUnit,
     } = result as CompareResultsItem;
 
     return (
       <>
+        <div className='browser-name cell' role='cell'>
+          {formatNumber(baseAvgValue)} {baseUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({baseApp})</span>
+          )}
+        </div>
+        <div className='comparison-sign cell' role='cell'>
+          {determineSign(baseAvgValue, newAvgValue)}
+        </div>
+        <div className='mann-witney-browser-name cell' role='cell'>
+          {formatNumber(newAvgValue)} {newUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({newApp})</span>
+          )}
+        </div>
         <div className='status cell' role='cell'>
           <Box
             sx={{
@@ -223,25 +279,12 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
   const { result, gridTemplateColumns, replicates, testVersion } = props;
   const {
     test,
-    base_measurement_unit: baseUnit,
-    new_measurement_unit: newUnit,
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
-    base_app: baseApp,
-    new_app: newApp,
     new_runs_replicates: newRunsReplicates,
     base_runs_replicates: baseRunsReplicates,
   } = result;
-
-  const baseAvgValue =
-    (testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem).base_standard_stats?.mean
-      : (result as CompareResultsItem).base_avg_value) ?? 0;
-  const newAvgValue =
-    (testVersion === MANN_WHITNEY_U
-      ? (result as MannWhitneyResultsItem).new_standard_stats?.mean
-      : (result as CompareResultsItem).new_avg_value) ?? 0;
 
   const baseRunsCount = replicates
     ? baseRunsReplicates.length
@@ -264,24 +307,10 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div title={test} className='subtests' role='cell'>
           {test}
         </div>
-        <div className='browser-name cell' role='cell'>
-          {formatNumber(baseAvgValue)} {baseUnit}
-          {getBrowserDisplay(baseApp, newApp, expanded) && (
-            <span className={FontSize.xSmall}>({baseApp})</span>
-          )}
-        </div>
-        <div className='comparison-sign cell' role='cell'>
-          {determineSign(baseAvgValue, newAvgValue)}
-        </div>
-        <div className='browser-name cell' role='cell'>
-          {formatNumber(newAvgValue)} {newUnit}
-          {getBrowserDisplay(baseApp, newApp, expanded) && (
-            <span className={FontSize.xSmall}>({newApp})</span>
-          )}
-        </div>
         {renderSubtestColumnsBasedOnTestVersion(
           testVersion ?? STUDENT_T,
           result,
+          expanded,
         )}
         <div className='total-runs cell' role='cell'>
           <span>

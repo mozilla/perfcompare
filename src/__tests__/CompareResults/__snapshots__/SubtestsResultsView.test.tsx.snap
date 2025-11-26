@@ -959,7 +959,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -991,7 +991,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -1134,7 +1134,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1159,7 +1159,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -1284,7 +1284,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1309,7 +1309,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -1445,7 +1445,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1470,7 +1470,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -1606,7 +1606,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1631,7 +1631,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   319.45
@@ -2552,7 +2552,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               role="table"
             >
               <div
-                class="fc4llnr f1l733lh"
+                class="fbdibrk f1l733lh"
                 data-testid="table-header"
                 role="row"
               >
@@ -2793,7 +2793,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -2804,7 +2804,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   browser.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   973.66
@@ -2825,7 +2825,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -2950,7 +2950,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -2961,7 +2961,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   dhtml.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   971.38
@@ -2975,7 +2975,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -3106,7 +3106,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -3117,7 +3117,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   improvement.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   973.66
@@ -3131,7 +3131,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -3249,7 +3249,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -3260,7 +3260,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   regression.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   971.38
@@ -3274,7 +3274,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -3392,7 +3392,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -3403,7 +3403,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   tablemutation.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   316.35
@@ -3417,7 +3417,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   319.45
@@ -3960,7 +3960,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               role="table"
             >
               <div
-                class="fc4llnr f1l733lh"
+                class="fbdibrk f1l733lh"
                 data-testid="table-header"
                 role="row"
               >
@@ -4201,7 +4201,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4212,7 +4212,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   browser.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   973.66
@@ -4233,7 +4233,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -4358,7 +4358,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4369,7 +4369,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   dhtml.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   971.38
@@ -4383,7 +4383,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -4514,7 +4514,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4525,7 +4525,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   improvement.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   973.66
@@ -4539,7 +4539,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -4657,7 +4657,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4668,7 +4668,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   regression.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   971.38
@@ -4682,7 +4682,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -4800,7 +4800,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4811,7 +4811,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   tablemutation.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   316.35
@@ -4825,7 +4825,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   319.45
@@ -5368,7 +5368,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
               role="table"
             >
               <div
-                class="fc4llnr f1l733lh"
+                class="fbdibrk f1l733lh"
                 data-testid="table-header"
                 role="row"
               >
@@ -5609,7 +5609,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 />
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -5620,7 +5620,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   browser.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   973.66
@@ -5641,7 +5641,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -5766,7 +5766,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -5777,7 +5777,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   dhtml.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   971.38
@@ -5791,7 +5791,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -5922,7 +5922,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -5933,7 +5933,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   improvement.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   973.66
@@ -5947,7 +5947,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -6065,7 +6065,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -6076,7 +6076,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   regression.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   971.38
@@ -6090,7 +6090,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -6208,7 +6208,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1k0gkjo"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -6219,7 +6219,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   tablemutation.html
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   316.35
@@ -6233,7 +6233,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   319.45
@@ -6984,7 +6984,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7016,7 +7016,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -7159,7 +7159,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7184,7 +7184,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -7309,7 +7309,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7334,7 +7334,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   984.16
@@ -7470,7 +7470,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7495,7 +7495,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   982.41
@@ -7631,7 +7631,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fd0b4fc f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fgrgwxo f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7656,7 +7656,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="mann-witney-browser-name cell"
                   role="cell"
                 >
                   319.45
