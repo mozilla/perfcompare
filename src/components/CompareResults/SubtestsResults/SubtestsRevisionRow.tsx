@@ -44,8 +44,7 @@ const revisionRow = style({
     },
     '.significance': {
       gap: '10px',
-      justifyContent: 'center',
-      paddingInlineStart: '15%',
+      justifyContent: 'left',
     },
     '.subtests': {
       borderRadius: '4px 0 0 4px',
@@ -64,7 +63,7 @@ const revisionRow = style({
       textOverflow: 'ellipsis',
       maxWidth: '150px',
     },
-    
+
     '.status': {
       justifyContent: 'center',
     },
