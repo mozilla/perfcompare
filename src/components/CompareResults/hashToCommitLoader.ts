@@ -3,9 +3,9 @@ import { compareView } from '../../common/constants';
 import { fetchRevisionFromHash } from '../../logic/treeherder';
 import {
   Changeset,
-  CompareResultsItem,
   Repository,
   HashToCommit,
+  CombinedResultsItemType,
 } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
 
@@ -96,7 +96,7 @@ export async function loader({ request }: { request: Request }) {
 }
 
 type HashLoaderData = {
-  results: Promise<CompareResultsItem[][]>;
+  results: Promise<CombinedResultsItemType[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];

@@ -149,11 +149,11 @@ export type KDEItem = {
 export type CLESItem = {
   cles: number;
   cles_direction: string;
-  mann_whitney_u_cles: string;
-  p_value_cles: string;
-  cliffs_delta_cles: string;
-  effect_size: string;
-  cles_explanation: string;
+  mann_whitney_u_cles?: string;
+  p_value_cles?: string;
+  cliffs_delta_cles?: string;
+  effect_size?: string;
+  cles_explanation?: string;
 } | null;
 
 export type ModeItem = {

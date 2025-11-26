@@ -7,8 +7,9 @@ import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
 import { ModeInterpretation } from './ModeInterpretation';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Spacing } from '../../styles';
+import { Colors, Spacing } from '../../styles';
 import type {
   CombinedResultsItemType,
   CompareResultsItem,
@@ -18,6 +19,7 @@ import { TestVersion } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
 import { StatisticsWarnings } from './StatisticsWarnings';
+import { capitalize } from '../../utils/helpers';
 
 const strings = Strings.components.expandableRow;
 const { singleRun, confidenceNote } = strings;
@@ -71,6 +73,26 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const newValues =
     newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
 
+  const mode = useAppSelector((state) => state.theme.mode);
+
+  function getStyles(theme: string) {
+    const backgroundColor =
+      theme === 'light' ? Colors.Background300 : Colors.Background300Dark;
+
+    return {
+      backgroundColor,
+      padding: 1,
+      borderRadius: '5px',
+      minWidth: '287px',
+      marginTop: 2,
+    };
+  }
+
+  const styles = {
+    light: getStyles('light'),
+    dark: getStyles('dark'),
+  };
+
   //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
     if (testVersion === MANN_WHITNEY_U && result) {
@@ -82,15 +104,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       const { cliffs_delta, cliffs_interpretation } = result;
       const pValue = result?.mann_whitney_test?.pvalue;
       return (
-        <Box
-          sx={{
-            backgroundColor: '#FBFBFE',
-            padding: 1,
-            borderRadius: '5px',
-            minWidth: '287px',
-            marginTop: 2,
-          }}
-        >
+        <Box sx={styles[mode]}>
           <table
             style={{ borderCollapse: 'collapse', width: '100%', marginTop: 8 }}
           >
@@ -105,17 +119,21 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               <tr>
                 <td style={{ padding: 2 }}>{`Cliff's Delta`}</td>
                 <td style={{ padding: 2 }}>{cliffs_delta}</td>
-                <td style={{ padding: 2 }}>{cliffs_interpretation}</td>
+                <td style={{ padding: 2 }}>
+                  {capitalize(cliffs_interpretation ?? '')}
+                </td>
               </tr>
               <tr>
-                <td style={{ padding: 2 }}>Confidence (p-value)</td>
+                <td style={{ padding: 2 }}>Significance (p-value)</td>
                 <td style={{ padding: 2 }}>{pValue}</td>
                 <td style={{ padding: 2 }}>{p_value_cles}</td>
               </tr>
               <tr>
                 <td style={{ padding: 2 }}>CLES</td>
                 <td style={{ padding: 2 }}>{cles}</td>
-                <td style={{ padding: 2 }}>{cles_direction}</td>
+                <td style={{ padding: 2 }}>
+                  {capitalize(cles_direction ?? '')}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -178,7 +196,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
                 <b>Comparison result</b>:{' '}
                 {testVersion === MANN_WHITNEY_U
-                  ? (result as MannWhitneyResultsItem).direction_of_change
+                  ? capitalize(
+                      (result as MannWhitneyResultsItem).direction_of_change ??
+                        '',
+                    )
                   : newIsBetter
                     ? 'better'
                     : 'worse'}{' '}

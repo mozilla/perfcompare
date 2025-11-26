@@ -189,7 +189,7 @@ function TableContent({
 
     const filteredResults = filterResults(
       columnsConfiguration,
-      resultsForCurrentComparison as CompareResultsItem[],
+      resultsForCurrentComparison,
       filteringSearchTerm,
       tableFilters,
       resultMatchesSearchTerm,
