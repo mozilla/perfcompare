@@ -39,7 +39,12 @@ const revisionRow = style({
     },
     '.confidence': {
       gap: '10px',
-      justifyContent: 'start',
+      justifyContent: 'center',
+      paddingInlineStart: '15%',
+    },
+    '.significance': {
+      gap: '10px',
+      justifyContent: 'center',
       paddingInlineStart: '15%',
     },
     '.subtests': {
@@ -125,7 +130,7 @@ export const renderSubtestColumnsBasedOnTestVersion = (
   result: CombinedResultsItemType,
 ) => {
   if (testVersion === MANN_WHITNEY_U) {
-    const { cliffs_delta, mann_whitney_test, cles } =
+    const { cliffs_delta, mann_whitney_test, cles, direction_of_change } =
       result as MannWhitneyResultsItem;
     const mann_whitney_interpretation = mann_whitney_test?.interpretation
       ? capitalize(mann_whitney_test?.interpretation)
@@ -133,6 +138,24 @@ export const renderSubtestColumnsBasedOnTestVersion = (
     const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
     return (
       <>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor:
+                direction_of_change === 'improvement'
+                  ? 'status.improvement'
+                  : direction_of_change === 'regression'
+                    ? 'status.regression'
+                    : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(
+              direction_of_change === 'improvement',
+              direction_of_change === 'regression',
+            )}`}
+          >
+            {capitalize(direction_of_change ?? '')}
+          </Box>
+        </div>
         <div className='delta cell' role='cell'>
           {' '}
           {cliffs_delta || '-'}
@@ -146,11 +169,34 @@ export const renderSubtestColumnsBasedOnTestVersion = (
       </>
     );
   } else {
-    const { delta_percentage: deltaPercent, confidence_text: confidenceText } =
-      result as CompareResultsItem;
+    const {
+      delta_percentage: deltaPercent,
+      confidence_text: confidenceText,
+      is_improvement: improvement,
+      is_regression: regression,
+    } = result as CompareResultsItem;
 
     return (
       <>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor: improvement
+                ? 'status.improvement'
+                : regression
+                  ? 'status.regression'
+                  : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(
+              !!improvement,
+              !!regression,
+            )}`}
+          >
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
+            {determineStatus(!!improvement, !!regression)}
+          </Box>
+        </div>
         <div className='delta cell' role='cell'>
           {' '}
           {`${deltaPercent} % `}
@@ -171,8 +217,6 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     test,
     base_measurement_unit: baseUnit,
     new_measurement_unit: newUnit,
-    is_improvement: improvement,
-    is_regression: regression,
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
@@ -195,9 +239,6 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     ? baseRunsReplicates.length
     : baseRuns.length;
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
-
-  const direction_of_change = (result as MannWhitneyResultsItem)
-    .direction_of_change;
 
   const [expanded, setExpanded] = useState(false);
 
@@ -228,44 +269,6 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {formatNumber(newAvgValue)} {newUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
             <span className={FontSize.xSmall}>({newApp})</span>
-          )}
-        </div>
-        <div className='status cell' role='cell'>
-          {testVersion === MANN_WHITNEY_U ? (
-            <Box
-              sx={{
-                bgcolor:
-                  direction_of_change === 'improvement'
-                    ? 'status.improvement'
-                    : direction_of_change === 'regression'
-                      ? 'status.regression'
-                      : 'none',
-              }}
-              className={`status-hint ${determineStatusHintClass(
-                direction_of_change === 'improvement',
-                direction_of_change === 'regression',
-              )}`}
-            >
-              {capitalize(direction_of_change ?? '')}
-            </Box>
-          ) : (
-            <Box
-              sx={{
-                bgcolor: improvement
-                  ? 'status.improvement'
-                  : regression
-                    ? 'status.regression'
-                    : 'none',
-              }}
-              className={`status-hint ${determineStatusHintClass(
-                !!improvement,
-                !!regression,
-              )}`}
-            >
-              {improvement ? <ThumbUpIcon color='success' /> : null}
-              {regression ? <ThumbDownIcon color='error' /> : null}
-              {determineStatus(!!improvement, !!regression)}
-            </Box>
           )}
         </div>
         {renderSubtestColumnsBasedOnTestVersion(

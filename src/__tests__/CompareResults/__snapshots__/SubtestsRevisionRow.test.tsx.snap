@@ -4,7 +4,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
 <body>
   <div>
     <div
-      class="revisionRow f1l4wgcn f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f19nxczk f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -186,7 +186,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
 <body>
   <div>
     <div
-      class="revisionRow f1l4wgcn f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f19nxczk f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -343,7 +343,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
 <body>
   <div>
     <div
-      class="revisionRow f1l4wgcn f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f19nxczk f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
