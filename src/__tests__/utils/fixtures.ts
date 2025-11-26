@@ -398,9 +398,23 @@ const getTestData = () => {
       ks_test: null,
       shapiro_wilk_test_base: null,
       shapiro_wilk_test_new: null,
-      mann_whitney_test: null,
+      mann_whitney_test: {
+        test_name: 'Mann-Whitney U',
+        stat: null,
+        pvalue: 1.0,
+        interpretation: 'not significant',
+      },
       cliffs_delta: 0.1,
       cliffs_interpretation: '',
+      cles: {
+        cles: 0.25,
+        cles_direction: '',
+        mann_whitney_u_cles: '',
+        p_value_cles: '',
+        cliffs_delta_cles: '',
+        effect_size: '',
+        cles_explanation: '',
+      },
       kde_new: {
         median: 0,
         sample_count: 0,
@@ -431,7 +445,7 @@ const getTestData = () => {
       is_significant: null,
       is_new_better: null,
       performance_intepretation: '',
-      direction_of_change: 'better',
+      direction_of_change: 'improvement',
       kde_warnings: [],
     },
     {
@@ -507,9 +521,19 @@ const getTestData = () => {
         test_name: 'Mann-Whitney U',
         stat: 0.5,
         pvalue: 1.0,
+        interpretation: 'not significant',
       },
       cliffs_delta: 0.0,
       cliffs_interpretation: 'negligible',
+      cles: {
+        cles: 0.45,
+        cles_direction: '',
+        mann_whitney_u_cles: '',
+        p_value_cles: '',
+        cliffs_delta_cles: '',
+        effect_size: '',
+        cles_explanation: '',
+      },
       kde_new: {
         median: 0,
         sample_count: 0,
@@ -539,7 +563,7 @@ const getTestData = () => {
       is_significant: null,
       is_new_better: null,
       performance_intepretation: '',
-      direction_of_change: null,
+      direction_of_change: 'regression',
       shapiro_wilk_test_base: null,
       kde_warnings: [],
     },
@@ -606,9 +630,23 @@ const getTestData = () => {
       ks_test: null,
       shapiro_wilk_test_base: null,
       shapiro_wilk_test_new: null,
-      mann_whitney_test: null,
+      mann_whitney_test: {
+        test_name: 'Mann-Whitney U',
+        stat: null,
+        pvalue: 0.02,
+        interpretation: 'significant',
+      },
       cliffs_delta: 0,
       cliffs_interpretation: '',
+      cles: {
+        cles: 0.5,
+        cles_direction: '',
+        mann_whitney_u_cles: '',
+        p_value_cles: '',
+        cliffs_delta_cles: '',
+        effect_size: '',
+        cles_explanation: '',
+      },
       kde_new: {
         median: 0,
         sample_count: 0,
@@ -703,9 +741,23 @@ const getTestData = () => {
       ks_test: null,
       shapiro_wilk_test_base: null,
       shapiro_wilk_test_new: null,
-      mann_whitney_test: null,
+      mann_whitney_test: {
+        test_name: 'Mann-Whitney U',
+        stat: null,
+        pvalue: 0.15,
+        interpretation: 'significant',
+      },
       cliffs_delta: 0,
       cliffs_interpretation: '',
+      cles: {
+        cles: 1,
+        cles_direction: '',
+        mann_whitney_u_cles: '',
+        p_value_cles: '',
+        cliffs_delta_cles: '',
+        effect_size: '',
+        cles_explanation: '',
+      },
       kde_new: {
         median: 0,
         sample_count: 0,
@@ -1259,7 +1311,7 @@ const getTestData = () => {
     lower_is_better: true,
     is_fit_good: true,
     more_runs_are_needed: false,
-    direction_of_change: 'no change',
+    direction_of_change: 'regression',
     is_improvement: null,
     is_regression: null,
     is_meaningful: null,
@@ -1320,7 +1372,15 @@ const getTestData = () => {
     cliffs_delta: 0.0,
     cliffs_interpretation: 'negligible',
     warning_c_delta: null,
-    cles: null,
+    cles: {
+      cles: 0.2,
+      cles_direction: '',
+      mann_whitney_u_cles: '',
+      p_value_cles: '',
+      cliffs_delta_cles: '',
+      effect_size: '',
+      cles_explanation: '',
+    },
     silverman_kde: {
       bandwidth: 'Silverman',
       base_mode_count: 1,
@@ -1429,6 +1489,62 @@ export function augmentCompareDataWithSeveralRevisions(
       delta_value: item.delta_value + 0.8,
       delta_percentage: roundAtDigit(item.delta_percentage + 0.08, 2),
       confidence: item.confidence !== null ? item.confidence + 0.015 : null,
+    })),
+  ];
+
+  return testCompareDataWithSeveralRevisions;
+}
+
+export function augmentCompareMannWhitneyDataWithSeveralTests(
+  testCompareData: MannWhitneyResultsItem[],
+): MannWhitneyResultsItem[] {
+  const testCompareDataWithSeveralTests = [
+    ...testCompareData,
+    // Add items with the same revision but a different test
+    ...testCompareData.map((item) => ({
+      ...item,
+      test: 'aria.html',
+      header_name: `${item.suite} aria.html ${item.option_name} ${item.extra_options}`,
+      // Different delta and confidence values, with some arbitrary changes
+      cliffs_delta: item.cliffs_delta + 1.2,
+      mann_whitney_test: {
+        ...(item.mann_whitney_test ?? {}),
+        test_name: 'Mann Whitney U',
+        stat: 0,
+        pvalue: (item.mann_whitney_test?.pvalue ?? 0) + 0.012,
+      },
+      cles: {
+        ...(item.cles ?? {}),
+        cles: (item.cles?.cles ?? 0) - 0.01,
+        cles_direction: item.cles?.cles_direction ?? '',
+      },
+    })),
+  ];
+
+  return testCompareDataWithSeveralTests;
+}
+
+export function augmentCompareMannWhitneyDataWithSeveralRevisions(
+  testCompareData: MannWhitneyResultsItem[],
+): MannWhitneyResultsItem[] {
+  const testCompareDataWithSeveralRevisions = [
+    ...testCompareData,
+    // Add items with the same tests, but a different revision
+    ...testCompareData.map((item) => ({
+      ...item,
+      new_rev: 'tictactoe',
+      cliffs_delta: item.cliffs_delta + 0.8,
+      mann_whitney_test: {
+        ...(item.mann_whitney_test ?? {}),
+        test_name: 'Mann Whitney U',
+        stat: 0,
+        pvalue: (item.mann_whitney_test?.pvalue ?? 0) + 0.012,
+      },
+      cles: {
+        ...(item.cles ?? {}),
+        cles: (item.cles?.cles ?? 0) - 0.01,
+        cles_direction: item.cles?.cles_direction ?? '',
+      },
     })),
   ];
 

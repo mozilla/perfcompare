@@ -1328,7 +1328,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1361,6 +1361,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   776.97 ms
+                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1373,6 +1374,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   791.34 ms
+                   
                 </div>
                 <div
                   class="status cell"
@@ -1536,7 +1538,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1570,6 +1572,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   704.84 ms
+                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1582,6 +1585,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   712.44 ms
+                   
                 </div>
                 <div
                   class="status cell"
@@ -1745,7 +1749,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1779,6 +1783,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   643.54 ms
+                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1791,6 +1796,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   628.09 ms
+                   
                 </div>
                 <div
                   class="status cell"
@@ -1932,7 +1938,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1966,6 +1972,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   643.54 ms
+                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1978,6 +1985,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   role="cell"
                 >
                   628.09 ms
+                   
                 </div>
                 <div
                   class="status cell"

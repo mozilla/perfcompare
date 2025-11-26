@@ -149,11 +149,11 @@ export type KDEItem = {
 export type CLESItem = {
   cles: number;
   cles_direction: string;
-  mann_whitney_u_cles: string;
-  p_value_cles: string;
-  cliffs_delta_cles: string;
-  effect_size: string;
-  cles_explanation: string;
+  mann_whitney_u_cles?: string;
+  p_value_cles?: string;
+  cliffs_delta_cles?: string;
+  effect_size?: string;
+  cles_explanation?: string;
 } | null;
 
 export type ModeItem = {
@@ -229,7 +229,7 @@ export type MannWhitneyResultsItem = {
   is_significant: boolean | null; // is the result statistically significant
   is_new_better: boolean | null; // is the new revision better than the base revision
   performance_intepretation: string; // short text interpretation of the performance change
-  direction_of_change: 'no change' | 'better' | 'worse' | null; // 'no change', 'better', or 'worse'
+  direction_of_change: 'no change' | 'improvement' | 'regression' | null;
   new_is_better: boolean | null;
   lower_is_better: boolean | null;
   is_improvement: boolean | null;

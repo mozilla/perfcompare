@@ -134,8 +134,8 @@ describe('Expanded row', () => {
     const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRowButton);
 
-    const noChangeText = await screen.findByText(/no change/);
-    expect(noChangeText).toBeInTheDocument();
+    const noChangeText = await screen.findAllByText(/Regression/);
+    expect(noChangeText[0]).toBeInTheDocument();
   });
 
   it('should display direction of change in RevisionRowExpandable for student-t testVersion when expanded', async () => {
@@ -155,7 +155,7 @@ describe('Expanded row', () => {
     const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRowButton);
 
-    const betterText = await screen.findByText(/better/);
+    const betterText = await screen.findByText(/Improvement/);
     expect(betterText).toBeInTheDocument();
 
     renderWithRoute(
@@ -170,8 +170,8 @@ describe('Expanded row', () => {
     const expandRow = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRow);
 
-    const worseText = await screen.findByText(/worse/);
-    expect(worseText).toBeInTheDocument();
+    const improveText = await screen.findByText(/Improvement/);
+    expect(improveText).toBeInTheDocument();
   });
 
   it('should display new stats for mann-whitney-u testVersion', async () => {
@@ -202,6 +202,47 @@ describe('Expanded row', () => {
     expect(cliffsDeltaHeader).toBeInTheDocument();
   });
 
+  it('should display mann_whitney_test.interpretation for significance for mann-whitney-u testVersion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const notSignificant = await screen.findByText(/Not significant/);
+    expect(notSignificant).toBeInTheDocument();
+  });
+
+  it('should handle empty mann_whitney_test.interpretation for significance for mann-whitney-u testVersion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+    const resultNoInterpretation = { ...rowData[0], mann_whitney_test: null };
+    renderWithRoute(
+      <RevisionRow
+        result={resultNoInterpretation}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+    const emptySignificant = await screen.findAllByText(/-/);
+    expect(emptySignificant[0]).toBeInTheDocument();
+  });
+
   it('should display mean for base or new in row headers for mann-whitney-u testVersion', async () => {
     const { testCompareMannWhitneyData: rowData } = getTestData();
     renderWithRoute(
@@ -222,7 +263,7 @@ describe('Expanded row', () => {
     expect(newMean).toHaveTextContent('712.44');
 
     const directionOfChange = roles[4]?.childNodes[0];
-    expect(directionOfChange).toHaveTextContent('Better');
+    expect(directionOfChange).toHaveTextContent('Improvement');
 
     const cliffsDelta = roles[5]?.childNodes[1];
     expect(cliffsDelta).toHaveTextContent('.1');

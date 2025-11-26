@@ -7,6 +7,7 @@ import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
 import { ModeInterpretation } from './ModeInterpretation';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type {
@@ -18,7 +19,7 @@ import { TestVersion } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
 import { StatisticsWarnings } from './StatisticsWarnings';
-import { useAppSelector } from '../../hooks/app';
+import { capitalize } from '../../utils/helpers';
 
 const strings = Strings.components.expandableRow;
 const { singleRun, confidenceNote } = strings;
@@ -118,17 +119,21 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               <tr>
                 <td style={{ padding: 2 }}>{`Cliff's Delta`}</td>
                 <td style={{ padding: 2 }}>{cliffs_delta}</td>
-                <td style={{ padding: 2 }}>{cliffs_interpretation}</td>
+                <td style={{ padding: 2 }}>
+                  {capitalize(cliffs_interpretation ?? '')}
+                </td>
               </tr>
               <tr>
-                <td style={{ padding: 2 }}>Confidence (p-value)</td>
+                <td style={{ padding: 2 }}>Significance (p-value)</td>
                 <td style={{ padding: 2 }}>{pValue}</td>
                 <td style={{ padding: 2 }}>{p_value_cles}</td>
               </tr>
               <tr>
                 <td style={{ padding: 2 }}>CLES</td>
                 <td style={{ padding: 2 }}>{cles}</td>
-                <td style={{ padding: 2 }}>{cles_direction}</td>
+                <td style={{ padding: 2 }}>
+                  {capitalize(cles_direction ?? '')}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -191,7 +196,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
                 <b>Comparison result</b>:{' '}
                 {testVersion === MANN_WHITNEY_U
-                  ? (result as MannWhitneyResultsItem).direction_of_change
+                  ? capitalize(
+                      (result as MannWhitneyResultsItem).direction_of_change ??
+                        '',
+                    )
                   : newIsBetter
                     ? 'better'
                     : 'worse'}{' '}
