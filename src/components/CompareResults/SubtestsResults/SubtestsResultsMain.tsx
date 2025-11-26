@@ -110,7 +110,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       backgroundColor: themeColor100,
       margin: '0 auto',
       marginBottom: '80px',
-      maxWidth: '1300px',
+      maxWidth: '1400px',
     }),
     title: style({
       margin: 0,

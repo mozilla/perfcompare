@@ -715,7 +715,7 @@ exports[`Results Table Should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-s3rkdd-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-1oyihlh-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -1429,7 +1429,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -1637,7 +1637,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -1846,7 +1846,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -2125,7 +2125,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -3313,7 +3313,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-s3rkdd-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-1oyihlh-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -4027,7 +4027,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -4224,7 +4224,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -4422,7 +4422,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -4701,7 +4701,7 @@ exports[`Results Table for MannWhitneyResultsItem Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -4995,7 +4995,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+      class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
       role="row"
     >
       <div
@@ -5243,7 +5243,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow f1macqb f1dlt78d MuiBox-root css-oluxz7"
+      class="revisionRow fiaef14 f1dlt78d MuiBox-root css-oluxz7"
       role="row"
     >
       <div

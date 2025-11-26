@@ -406,7 +406,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg frrbyj0 css-5c1adp-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -2215,7 +2215,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg frrbyj0 css-5c1adp-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -2743,7 +2743,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    aria-label="Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New."
+                    aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
                     class="MuiBox-root css-4g6ai3"
                     data-mui-internal-clone-element="true"
                   >
@@ -3597,7 +3597,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg frrbyj0 css-5c1adp-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -4125,7 +4125,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    aria-label="Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New."
+                    aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
                     class="MuiBox-root css-4g6ai3"
                     data-mui-internal-clone-element="true"
                   >
@@ -4979,7 +4979,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg frrbyj0 css-5c1adp-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -5507,7 +5507,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="columnheader"
                 >
                   <span
-                    aria-label="Common Language Effect Size (CLES) percentage is a measure of effect size. CLES >= 0.5 indicates probability Base > New."
+                    aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
                     class="MuiBox-root css-4g6ai3"
                     data-mui-internal-clone-element="true"
                   >
@@ -6361,7 +6361,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1wzaesr css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg frrbyj0 css-5c1adp-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>

@@ -322,3 +322,22 @@ export const platformMap: Record<Platform, string> = {
 
 export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
 export const STUDENT_T = 'student-t' as TestVersion;
+
+export const tooltipEffectSize =
+  'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.';
+export const tooltipSignificance =
+  'Significance of the comparison as determined by a Mann Whitney U test. A significant comparison has a p-value of less than 0.05.';
+export const tooltipCliffsDelta =
+  'Cliff’s Delta quantifies the magnitude of the difference between Base and New values.';
+export const tooltipStatusMannWhitney =
+  'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.';
+export const tooltipTotalRuns =
+  'The total number of tasks/jobs that ran for this metric.';
+export const tooltipBaseMean =
+  'A summary of all values from Base runs using a mean.';
+export const tooltipNewMean =
+  'A summary of all values from New runs using a mean.';
+export const tooltipConfidence =
+  "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.";
+export const tooltipDelta =
+  'The percentage difference between the Base and New values';
