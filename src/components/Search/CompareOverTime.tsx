@@ -22,7 +22,7 @@ const stringsOverTime = Strings.components.searchDefault.overTime;
 
 interface CompareWithTimeProps {
   hasEditButton: boolean;
-  newRevs: Changeset[] | [];
+  newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
   intervalValue: TimeRange['value'];
   newRepo: Repository['name'];
@@ -45,9 +45,7 @@ function CompareOverTime({
   const resultsView = location.pathname.includes(compareOverTimeView);
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
-  const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
-    newRevs,
-  );
+  const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
