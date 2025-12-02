@@ -1,4 +1,5 @@
 import { Box } from '@mui/system';
+
 import { capitalize } from '../../utils/helpers';
 
 interface PValCliffsDeltaCompProps {
@@ -22,7 +23,7 @@ function PValCliffsDeltaComp(props: PValCliffsDeltaCompProps) {
   return (
     <Box
       sx={{
-        backgroundColor: '#FBFBFE',
+        backgroundColor: 'secondary.main',
         padding: 1,
         borderRadius: '5px',
         width: '100%',
@@ -42,17 +43,19 @@ function PValCliffsDeltaComp(props: PValCliffsDeltaCompProps) {
           <tr>
             <td style={{ padding: 2 }}>{`Cliff's Delta`}</td>
             <td style={{ padding: 2 }}>{cliffs_delta}</td>
-            <td style={{ padding: 2 }}>{capitalize(cliffs_interpretation)}</td>
+            <td style={{ padding: 2 }}>
+              {capitalize(cliffs_interpretation ?? '')}
+            </td>
           </tr>
           <tr>
-            <td style={{ padding: 2 }}>Confidence (p-value)</td>
+            <td style={{ padding: 2 }}>Significance (p-value)</td>
             <td style={{ padding: 2 }}>{pValue}</td>
             <td style={{ padding: 2 }}>{p_value_cles}</td>
           </tr>
           <tr>
             <td style={{ padding: 2 }}>CLES</td>
             <td style={{ padding: 2 }}>{cles}</td>
-            <td style={{ padding: 2 }}> {capitalize(cles_direction ?? '')}</td>
+            <td style={{ padding: 2 }}>{capitalize(cles_direction ?? '')}</td>
           </tr>
         </tbody>
       </table>
