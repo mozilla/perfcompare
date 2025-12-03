@@ -3398,6 +3398,36 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   </div>
                 </h2>
               </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
+              >
+                <div
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f1q43ty0 css-gb7yta-MuiPaper-root-MuiAlert-root"
+                  role="alert"
+                  style="--Paper-shadow: none;"
+                >
+                  <div
+                    class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                      data-testid="ReportProblemOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiAlert-message css-zioonp-MuiAlert-message"
+                  >
+                    The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please report it on the Testing :: Perfcompare Bugzilla component.
+                  </div>
+                </div>
+              </div>
             </header>
             <div
               class="MuiBox-root css-hshm0p"
