@@ -213,15 +213,15 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               display: 'flex',
             }}
           >
+            <MannWhitneyCompareMetrics
+              result={result as MannWhitneyResultsItem}
+              testVersion={testVersion}
+            />
             <StatisticsWarnings
               result={result as MannWhitneyResultsItem}
               testVersion={testVersion}
             />
           </div>
-          <MannWhitneyCompareMetrics
-            result={result as MannWhitneyResultsItem}
-            testVersion={testVersion}
-          />
         </Stack>
       </Stack>
     </Box>
