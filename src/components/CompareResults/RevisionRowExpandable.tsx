@@ -256,11 +256,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               display: 'flex',
             }}
           >
-            <StatisticsWarnings
+            <ModeInterpretation
               result={result as MannWhitneyResultsItem}
               testVersion={testVersion}
             />
-            <ModeInterpretation
+            <StatisticsWarnings
               result={result as MannWhitneyResultsItem}
               testVersion={testVersion}
             />
