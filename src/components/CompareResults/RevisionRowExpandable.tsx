@@ -7,9 +7,8 @@ import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
 import { ModeInterpretation } from './ModeInterpretation';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Colors, Spacing } from '../../styles';
+import { Spacing } from '../../styles';
 import type {
   CombinedResultsItemType,
   CompareResultsItem,
@@ -18,6 +17,7 @@ import type {
 import { TestVersion } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
+import PValCliffsDeltaComp from './PValCliffsDeltaComp';
 import { StatisticsWarnings } from './StatisticsWarnings';
 import { capitalize } from '../../utils/helpers';
 
@@ -73,27 +73,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const newValues =
     newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
 
-  const mode = useAppSelector((state) => state.theme.mode);
-
-  function getStyles(theme: string) {
-    const backgroundColor =
-      theme === 'light' ? Colors.Background300 : Colors.Background300Dark;
-
-    return {
-      backgroundColor,
-      padding: 1,
-      borderRadius: '5px',
-      minWidth: '287px',
-      marginTop: 2,
-    };
-  }
-
-  const styles = {
-    light: getStyles('light'),
-    dark: getStyles('dark'),
-  };
-
-  //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
     if (testVersion === MANN_WHITNEY_U && result) {
       const { cles, cles_direction } = result?.cles ?? {
@@ -106,40 +85,14 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         ? capitalize(result.mann_whitney_test.interpretation)
         : '';
       return (
-        <Box sx={styles[mode]}>
-          <table
-            style={{ borderCollapse: 'collapse', width: '100%', marginTop: 8 }}
-          >
-            <thead>
-              <tr>
-                <th style={{ textAlign: 'left' }}>Metric</th>
-                <th style={{ textAlign: 'left', paddingRight: 16 }}>Value</th>
-                <th style={{ textAlign: 'left' }}>Interpretation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style={{ padding: 2 }}>{`Cliff's Delta`}</td>
-                <td style={{ padding: 2 }}>{cliffs_delta}</td>
-                <td style={{ padding: 2 }}>
-                  {capitalize(cliffs_interpretation ?? '')}
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: 2 }}>Significance (p-value)</td>
-                <td style={{ padding: 2 }}>{pValue}</td>
-                <td style={{ padding: 2 }}>{p_value_cles}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: 2 }}>CLES</td>
-                <td style={{ padding: 2 }}>{cles}</td>
-                <td style={{ padding: 2 }}>
-                  {capitalize(cles_direction ?? '')}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </Box>
+        <PValCliffsDeltaComp
+          cliffs_delta={cliffs_delta}
+          cliffs_interpretation={cliffs_interpretation}
+          pValue={pValue}
+          p_value_cles={p_value_cles}
+          cles={cles}
+          cles_direction={cles_direction}
+        />
       );
     }
     return;
