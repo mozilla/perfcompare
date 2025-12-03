@@ -23,7 +23,7 @@ function PValCliffsDeltaComp(props: PValCliffsDeltaCompProps) {
   return (
     <Box
       sx={{
-        backgroundColor: 'secondary.main',
+        backgroundColor: 'manWhitneyComps.background',
         padding: 1,
         borderRadius: '5px',
         width: '100%',

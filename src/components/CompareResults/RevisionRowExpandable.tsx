@@ -199,6 +199,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               )}
               {/******* mann-whitney rendering **************/}
               {renderPValCliffsDeltaComp(result as MannWhitneyResultsItem)}
+              <ModeInterpretation
+                result={result as MannWhitneyResultsItem}
+                testVersion={testVersion}
+              />
             </div>
           </Grid>
         </Grid>
@@ -209,10 +213,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               display: 'flex',
             }}
           >
-            <ModeInterpretation
-              result={result as MannWhitneyResultsItem}
-              testVersion={testVersion}
-            />
             <StatisticsWarnings
               result={result as MannWhitneyResultsItem}
               testVersion={testVersion}

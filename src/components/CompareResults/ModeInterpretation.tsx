@@ -1,8 +1,6 @@
 import { Box } from '@mui/material';
 
 import { MANN_WHITNEY_U } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
-import { Colors } from '../../styles/Colors';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { TestVersion } from '../../types/types';
 
@@ -17,23 +15,6 @@ export const ModeInterpretation = ({
     return null;
   }
 
-  function getStyles(theme: string) {
-    const backgroundColor =
-      theme === 'light' ? Colors.Background300 : Colors.Background300Dark;
-
-    return {
-      backgroundColor,
-      display: 'block',
-      alignItems: 'center',
-      marginLeft: 1,
-      marginBottom: '16px',
-      borderRadius: '5px',
-      padding: 1,
-      flexGrow: 1,
-    };
-  }
-  const mode = useAppSelector((state) => state.theme.mode);
-
   const kdeModes = result.silverman_kde.modes ?? [];
   if (kdeModes.length === 0) {
     kdeModes.push({
@@ -46,7 +27,17 @@ export const ModeInterpretation = ({
   }
 
   return (
-    <Box sx={getStyles(mode)}>
+    <Box
+      sx={{
+        backgroundColor: 'manWhitneyComps.background',
+        display: 'block',
+        alignItems: 'center',
+        marginLeft: 1,
+        marginBottom: '16px',
+        borderRadius: '5px',
+        flexGrow: 1,
+      }}
+    >
       <table>
         <thead>
           <tr style={{ textAlign: 'left' }}>
