@@ -1,6 +1,7 @@
 import { useState, Suspense } from 'react';
 
 import { Grid, Skeleton, Stack } from '@mui/material';
+import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
@@ -10,7 +11,11 @@ import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 import { DownloadButton, DisabledDownloadButton } from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
-import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
+import {
+  subtestsView,
+  subtestsOverTimeView,
+  MANN_WHITNEY_U,
+} from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
 import { Strings } from '../../../resources/Strings';
@@ -94,6 +99,7 @@ type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   const { results, replicates, testVersion } =
     useLoaderData<CombinedLoaderReturnValue>();
+  const displayMannWhitneyUWarning = testVersion === MANN_WHITNEY_U;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
@@ -138,6 +144,11 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <Grid sx={{ marginRight: '10px' }}>
           <ToggleReplicatesButton />
         </Grid>
+        {displayMannWhitneyUWarning && (
+          <Alert severity='warning' className={styles.title}>
+            {Strings.components.mannWhitneyUWarning.text}
+          </Alert>
+        )}
         <Suspense
           fallback={
             <>
