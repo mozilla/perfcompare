@@ -1,7 +1,11 @@
 import { checkValues, getComparisonInformation } from './loader';
 import { compareView } from '../../common/constants';
 import { fetchRevisionFromLandoId } from '../../logic/lando';
-import { Changeset, CompareResultsItem, Repository } from '../../types/state';
+import {
+  Changeset,
+  CombinedResultsItemType,
+  Repository,
+} from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
 
 // This function is responsible for fetching the data from the URL. It's called
@@ -63,7 +67,7 @@ export async function loader({ request }: { request: Request }) {
 }
 
 type LandoLoaderData = {
-  results: Promise<CompareResultsItem[][]>;
+  results: Promise<CombinedResultsItemType[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];

@@ -41,6 +41,11 @@ const lightMode = {
   expandedRow: {
     background: Colors.SecondaryDefault,
   },
+
+  manWhitneyComps: {
+    background: Colors.Background100,
+    compareMetricsBg: Colors.Background300,
+  },
 };
 
 const darkMode = {
@@ -76,6 +81,10 @@ const darkMode = {
   },
   expandedRow: {
     background: Colors.Background100Dark,
+  },
+  manWhitneyComps: {
+    background: Colors.Background100Dark,
+    compareMetricsBg: Colors.Background300Dark,
   },
 };
 

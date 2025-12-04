@@ -15,7 +15,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset, Repository } from '../../types/state';
-import { Framework } from '../../types/types';
+import { Framework, TestVersion } from '../../types/types';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -28,6 +28,7 @@ interface CompareWithBaseProps {
   baseRepo: Repository['name'];
   newRepo: Repository['name'];
   frameworkIdVal: Framework['id'];
+  testVersion: TestVersion;
   isExpanded: boolean;
   setIsExpanded?: () => unknown;
 }
@@ -74,6 +75,7 @@ function CompareWithBase({
   frameworkIdVal,
   baseRepo,
   newRepo,
+  testVersion,
   isExpanded,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
@@ -300,13 +302,20 @@ function CompareWithBase({
               />
             </Grid>
           )}
-          {/**** Hidden Input to capture framework when user updates revisions ****/}
+          {/**** Hidden Input to capture framework and testVersion when user updates revisions ****/}
           {hasEditButton && (
-            <input
-              type='hidden'
-              value={frameworkIdVal}
-              name='framework'
-            ></input>
+            <>
+              <input
+                type='hidden'
+                value={frameworkIdVal}
+                name='framework'
+              ></input>
+              <input
+                type='hidden'
+                value={testVersion}
+                name='test_version'
+              ></input>
+            </>
           )}
         </Form>
       </Box>

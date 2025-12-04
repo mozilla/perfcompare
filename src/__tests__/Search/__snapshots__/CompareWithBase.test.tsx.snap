@@ -646,6 +646,11 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     type="hidden"
     value="2"
   />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
+  />
 </form>
 `;
 
@@ -653,7 +658,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 <ul
   aria-labelledby="select-framework-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="_r_21_"
+  id="_r_22_"
   role="listbox"
   tabindex="-1"
 >
@@ -1271,6 +1276,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     name="framework"
     type="hidden"
     value="2"
+  />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
   />
 </form>
 `;
@@ -1965,6 +1975,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     type="hidden"
     value="2"
   />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
+  />
 </form>
 `;
 
@@ -2614,6 +2629,11 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     type="hidden"
     value="2"
   />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
+  />
 </form>
 `;
 
@@ -3154,6 +3174,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     name="framework"
     type="hidden"
     value="2"
+  />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
   />
 </form>
 `;
@@ -3703,6 +3728,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     name="framework"
     type="hidden"
     value="2"
+  />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
   />
 </form>
 `;
@@ -4642,7 +4672,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="_r_5c_"
+  id="_r_5e_"
   role="listbox"
   tabindex="-1"
 >

@@ -7,10 +7,10 @@ import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem } from '../../types/state';
+import type { CombinedResultsItemType } from '../../types/state';
 import type { Framework, TestVersion } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
-// import TestVersionDropdown from '../Shared/TestVersionDropdown';
+import TestVersionDropdown from '../Shared/TestVersionDropdown';
 
 const controlsStyles = style({
   display: 'flex',
@@ -21,8 +21,8 @@ const controlsStyles = style({
 interface Props {
   initialSearchTerm: string;
   frameworkId: Framework['id'];
-  testType: string;
-  resultsPromise: Promise<CompareResultsItem[][]>;
+  testType?: TestVersion;
+  resultsPromise: Promise<CombinedResultsItemType[][]>;
   onSearchTermChange: (searchTerm: string) => unknown;
   onFrameworkChange: (frameworkId: Framework['id']) => unknown;
   onTestVersionChange: (testType: TestVersion) => void;
@@ -30,19 +30,18 @@ interface Props {
 export default function ResultsControls({
   initialSearchTerm,
   frameworkId,
-  // testType,
+  testType,
   resultsPromise,
   onSearchTermChange,
   onFrameworkChange,
-  // onTestVersionChange,
+  onTestVersionChange,
 }: Props) {
   const mode = useAppSelector((state) => state.theme.mode);
   return (
     <Grid container className={controlsStyles} spacing={2}>
       <Grid
         size={{
-          // md: 4,
-          md: 6,
+          md: 4,
           xs: 12,
         }}
       >
@@ -53,11 +52,10 @@ export default function ResultsControls({
         />
       </Grid>
       <Grid
-        // size={{
-        //   md: 2,
-        //   xs: 6,
-        // }}
-        size='grow'
+        size={{
+          md: 2,
+          xs: 6,
+        }}
       >
         <FormControl sx={{ width: '100%' }}>
           <FrameworkDropdown
@@ -69,7 +67,7 @@ export default function ResultsControls({
           />
         </FormControl>
       </Grid>
-      {/* <Grid
+      <Grid
         size={{
           md: 2,
           xs: 6,
@@ -84,7 +82,7 @@ export default function ResultsControls({
             onChange={onTestVersionChange}
           />
         </FormControl>
-      </Grid> */}
+      </Grid>
       <Grid size='grow'>
         <RevisionSelect />
       </Grid>

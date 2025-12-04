@@ -5,17 +5,21 @@ import Stack from '@mui/material/Stack';
 
 import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
+import { ModeInterpretation } from './ModeInterpretation';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type {
+  CombinedResultsItemType,
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
+import PValCliffsDeltaComp from './PValCliffsDeltaComp';
 import { StatisticsWarnings } from './StatisticsWarnings';
+import { capitalize } from '../../utils/helpers';
 
 const strings = Strings.components.expandableRow;
 const { singleRun, confidenceNote } = strings;
@@ -69,54 +73,26 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const newValues =
     newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
 
-  //////////// Conditional display of new stats design based on test version ///////////////
   const renderPValCliffsDeltaComp = (result: MannWhitneyResultsItem) => {
     if (testVersion === MANN_WHITNEY_U && result) {
-      const { cles, cles_direction, p_value_cles } = result?.cles ?? {
+      const { cles, cles_direction } = result?.cles ?? {
         cles: '',
         cles_direction: '',
-        p_value_cles: '',
       };
       const { cliffs_delta, cliffs_interpretation } = result;
       const pValue = result?.mann_whitney_test?.pvalue;
+      const p_value_cles = result?.mann_whitney_test?.interpretation
+        ? capitalize(result.mann_whitney_test.interpretation)
+        : '';
       return (
-        <Box
-          sx={{
-            backgroundColor: '#FBFBFE',
-            padding: 1,
-            borderRadius: '5px',
-            minWidth: '287px',
-          }}
-        >
-          <table
-            style={{ borderCollapse: 'collapse', width: '100%', marginTop: 8 }}
-          >
-            <thead>
-              <tr>
-                <th style={{ textAlign: 'left' }}>Metric</th>
-                <th style={{ textAlign: 'left', paddingRight: 16 }}>Value</th>
-                <th style={{ textAlign: 'left' }}>Interpretation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style={{ padding: 2 }}>{`Cliff's Delta`}</td>
-                <td style={{ padding: 2 }}>{cliffs_delta}</td>
-                <td style={{ padding: 2 }}>{cliffs_interpretation}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: 2 }}>Confidence (p-value)</td>
-                <td style={{ padding: 2 }}>{pValue}</td>
-                <td style={{ padding: 2 }}>{p_value_cles}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: 2 }}>CLES</td>
-                <td style={{ padding: 2 }}>{cles}</td>
-                <td style={{ padding: 2 }}>{cles_direction}</td>
-              </tr>
-            </tbody>
-          </table>
-        </Box>
+        <PValCliffsDeltaComp
+          cliffs_delta={cliffs_delta}
+          cliffs_interpretation={cliffs_interpretation}
+          pValue={pValue}
+          p_value_cles={p_value_cles}
+          cles={cles}
+          cles_direction={cles_direction}
+        />
       );
     }
     return;
@@ -157,15 +133,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               {testVersion === STUDENT_T && (
                 <Distribution result={result as CompareResultsItem} />
               )}
-              {/******* mann-whiteney rendering **************/}
-              <StatisticsWarnings
-                result={result as MannWhitneyResultsItem}
-                testVersion={testVersion}
-              />
-              <MannWhitneyCompareMetrics
-                result={result as MannWhitneyResultsItem}
-                testVersion={testVersion}
-              />
             </Stack>
           </Grid>
           <Grid size={4}>
@@ -182,8 +149,16 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 </div>
               )}
               <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
-                <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
-                {lowerIsBetter ? 'lower' : 'higher'} is better)
+                <b>Comparison result</b>:{' '}
+                {testVersion === MANN_WHITNEY_U
+                  ? capitalize(
+                      (result as MannWhitneyResultsItem).direction_of_change ??
+                        '',
+                    )
+                  : newIsBetter
+                    ? 'better'
+                    : 'worse'}{' '}
+                ({lowerIsBetter ? 'lower' : 'higher'} is better)
               </Box>
               {/******* student t test rendering **************/}
               {testVersion === STUDENT_T && (
@@ -222,18 +197,39 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                   )}
                 </>
               )}
-              {/******* mann-whiteney rendering **************/}
+              {/******* mann-whitney rendering **************/}
               {renderPValCliffsDeltaComp(result as MannWhitneyResultsItem)}
+              <ModeInterpretation
+                result={result as MannWhitneyResultsItem}
+                testVersion={testVersion}
+              />
             </div>
           </Grid>
         </Grid>
+        <Stack>
+          {/******* mann-whitney rendering **************/}
+          <div
+            style={{
+              display: 'flex',
+            }}
+          >
+            <MannWhitneyCompareMetrics
+              result={result as MannWhitneyResultsItem}
+              testVersion={testVersion}
+            />
+            <StatisticsWarnings
+              result={result as MannWhitneyResultsItem}
+              testVersion={testVersion}
+            />
+          </div>
+        </Stack>
       </Stack>
     </Box>
   );
 }
 
 interface RevisionRowExpandableProps {
-  result: CompareResultsItem | MannWhitneyResultsItem;
+  result: CombinedResultsItemType;
   id: string;
   testVersion: TestVersion;
 }

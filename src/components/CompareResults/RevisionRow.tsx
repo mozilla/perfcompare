@@ -15,12 +15,23 @@ import { style } from 'typestyle';
 
 import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
-import { compareView, compareOverTimeView } from '../../common/constants';
+import {
+  compareView,
+  compareOverTimeView,
+  MANN_WHITNEY_U,
+  STUDENT_T,
+} from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
-import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import type {
+  CombinedResultsItemType,
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+  PlatformShortName,
+} from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
+import { capitalize } from '../../utils/helpers';
 import {
   getPlatformShortName,
   getPlatformAndVersion,
@@ -60,7 +71,12 @@ const revisionRow = style({
     },
     '.confidence': {
       gap: '10px',
-      justifyContent: 'start',
+      justifyContent: 'center',
+      paddingInlineStart: '15%',
+    },
+    '.significance': {
+      gap: '10px',
+      justifyContent: 'center',
       paddingInlineStart: '15%',
     },
     '.expand-button-container': {
@@ -147,7 +163,10 @@ const confidenceIcons = {
   High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
 };
 
-const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
+const getSubtestsCompareWithBaseLink = (
+  result: CombinedResultsItemType,
+  testVersion: TestVersion,
+) => {
   const params = new URLSearchParams({
     baseRev: result.base_rev,
     baseRepo: result.base_repository_name,
@@ -156,12 +175,16 @@ const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
     framework: String(result.framework_id),
     baseParentSignature: String(result.base_signature_id),
     newParentSignature: String(result.new_signature_id),
+    test_version: testVersion,
   });
 
   return `/subtests-compare-results?${params.toString()}`;
 };
 
-const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
+const getSubtestsCompareOverTimeLink = (
+  result: CombinedResultsItemType,
+  testVersion: TestVersion,
+) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
   // problem, but because this component can have a lot of instances, this is a
@@ -187,9 +210,99 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
     selectedTimeRange: interval,
     baseParentSignature: String(result.base_signature_id),
     newParentSignature: String(result.new_signature_id),
+    test_version: testVersion,
   });
 
   return `/subtests-compare-over-time-results?${params.toString()}`;
+};
+
+export const renderDifferingTestVersionColumns = (
+  testVersion: TestVersion,
+  result: CombinedResultsItemType,
+) => {
+  if (testVersion === MANN_WHITNEY_U) {
+    const { cliffs_delta, direction_of_change, mann_whitney_test, cles } =
+      result as MannWhitneyResultsItem;
+    const clesValue = cles?.cles ? `${(cles?.cles * 100).toFixed(2)} %` : '-';
+    return (
+      <>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor:
+                direction_of_change === 'improvement'
+                  ? 'status.improvement'
+                  : direction_of_change === 'regression'
+                    ? 'status.regression'
+                    : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(
+              direction_of_change === 'improvement',
+              direction_of_change === 'regression',
+            )}`}
+          >
+            {direction_of_change === 'improvement' ? (
+              <ThumbUpIcon color='success' />
+            ) : null}
+            {direction_of_change === 'regression' ? (
+              <ThumbDownIcon color='error' />
+            ) : null}
+            {capitalize(direction_of_change ?? '')}
+          </Box>
+        </div>
+        <div className='delta cell' role='cell'>
+          {' '}
+          {cliffs_delta || '-'}
+        </div>
+        <div className='significance cell' role='cell'>
+          {mann_whitney_test?.interpretation
+            ? capitalize(mann_whitney_test?.interpretation)
+            : '-'}
+        </div>
+        <div className='effects cell' role='cell'>
+          {clesValue}
+        </div>
+      </>
+    );
+  } else {
+    const {
+      is_improvement: improvement,
+      is_regression: regression,
+      confidence_text: confidenceText,
+      delta_percentage: deltaPercent,
+    } = result as CompareResultsItem;
+    return (
+      <>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor: improvement
+                ? 'status.improvement'
+                : regression
+                  ? 'status.regression'
+                  : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(
+              !!improvement,
+              !!regression,
+            )}`}
+          >
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
+            {determineStatus(!!improvement, !!regression)}
+          </Box>
+        </div>
+        <div className='delta cell' role='cell'>
+          {' '}
+          {` ${deltaPercent} % `}
+        </div>
+        <div className='confidence cell' role='cell'>
+          {confidenceText && confidenceIcons[confidenceText]}
+          {confidenceText || '-'}
+        </div>
+      </>
+    );
+  }
 };
 
 function RevisionRow(props: RevisionRowProps) {
@@ -198,14 +311,8 @@ function RevisionRow(props: RevisionRowProps) {
   const { result, view, gridTemplateColumns, replicates, testVersion } = props;
   const {
     platform,
-    base_avg_value: baseAvgValue,
     base_measurement_unit: baseUnit,
-    new_avg_value: newAvgValue,
     new_measurement_unit: newUnit,
-    is_improvement: improvement,
-    is_regression: regression,
-    delta_percentage: deltaPercent,
-    confidence_text: confidenceText,
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
@@ -214,6 +321,7 @@ function RevisionRow(props: RevisionRowProps) {
     new_runs_replicates: newRunsReplicates,
     base_runs_replicates: baseRunsReplicates,
   } = result;
+
   const platformShortName = getPlatformShortName(platform);
   const platformIcon = platformIcons[platformShortName];
   const platformNameAndVersion = getPlatformAndVersion(platform);
@@ -221,7 +329,14 @@ function RevisionRow(props: RevisionRowProps) {
     ? baseRunsReplicates.length
     : baseRuns.length;
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
-
+  const baseAvgValue =
+    testVersion === MANN_WHITNEY_U
+      ? ((result as MannWhitneyResultsItem).base_standard_stats?.mean ?? null)
+      : (result as CompareResultsItem).base_avg_value;
+  const newAvgValue =
+    testVersion === MANN_WHITNEY_U
+      ? ((result as MannWhitneyResultsItem).new_standard_stats?.mean ?? null)
+      : (result as CompareResultsItem).new_avg_value;
   const [expanded, setExpanded] = useState(false);
 
   const toggleIsExpanded = () => {
@@ -231,8 +346,8 @@ function RevisionRow(props: RevisionRowProps) {
   // Note that the return type is different depending on the view we're in
   const subtestsCompareLink =
     view === compareView
-      ? getSubtestsCompareWithBaseLink(result)
-      : getSubtestsCompareOverTimeLink(result);
+      ? getSubtestsCompareWithBaseLink(result, testVersion)
+      : getSubtestsCompareOverTimeLink(result, testVersion);
 
   return (
     <>
@@ -259,47 +374,27 @@ function RevisionRow(props: RevisionRowProps) {
           </Tooltip>
         </div>
         <div className={`${browserName} cell`} role='cell'>
-          {formatNumber(baseAvgValue)} {baseUnit}
+          {baseAvgValue
+            ? `${formatNumber(baseAvgValue)} ${baseUnit ?? ''}`
+            : 'N/A'}{' '}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
             <span className={FontSize.xSmall}>({baseApp})</span>
           )}
         </div>
         <div className='comparison-sign cell' role='cell'>
-          {determineSign(baseAvgValue, newAvgValue)}
+          {baseAvgValue && newAvgValue
+            ? determineSign(baseAvgValue, newAvgValue)
+            : '  '}
         </div>
         <div className={`${browserName} cell`} role='cell'>
-          {formatNumber(newAvgValue)} {newUnit}
+          {newAvgValue
+            ? `${formatNumber(newAvgValue)} ${newUnit ?? ''}`
+            : 'N/A'}{' '}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
         </div>
-        <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor: improvement
-                ? 'status.improvement'
-                : regression
-                  ? 'status.regression'
-                  : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              improvement,
-              regression,
-            )}`}
-          >
-            {improvement ? <ThumbUpIcon color='success' /> : null}
-            {regression ? <ThumbDownIcon color='error' /> : null}
-            {determineStatus(improvement, regression)}
-          </Box>
-        </div>
-        <div className='delta cell' role='cell'>
-          {' '}
-          {deltaPercent} %{' '}
-        </div>
-        <div className='confidence cell' role='cell'>
-          {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText || '-'}
-        </div>
+        {renderDifferingTestVersionColumns(testVersion ?? STUDENT_T, result)}
         <div className='total-runs cell' role='cell'>
           <span>
             <span title='Base runs'>B:</span>
@@ -346,7 +441,10 @@ function RevisionRow(props: RevisionRowProps) {
             data-testid='retrigger-jobs-button'
           >
             <div className='retrigger-button-container'>
-              <RetriggerButton result={result} variant='icon' />
+              <RetriggerButton
+                result={result as CompareResultsItem}
+                variant='icon'
+              />
             </div>
           </div>
         </div>
@@ -388,7 +486,7 @@ function RevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  result: CompareResultsItem;
+  result: CombinedResultsItemType;
   gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;

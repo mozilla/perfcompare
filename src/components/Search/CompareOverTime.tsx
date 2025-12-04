@@ -15,18 +15,19 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
-import { Framework, TimeRange } from '../../types/types';
+import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 const strings = Strings.components.searchDefault;
 const stringsOverTime = Strings.components.searchDefault.overTime;
 
 interface CompareWithTimeProps {
   hasEditButton: boolean;
-  newRevs: Changeset[] | [];
+  newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
   intervalValue: TimeRange['value'];
   newRepo: Repository['name'];
   baseRepo: Repository['name'];
+  testVersion: TestVersion;
   isExpanded: boolean;
   setIsExpanded?: () => unknown;
 }
@@ -39,15 +40,14 @@ function CompareOverTime({
   baseRepo,
   newRepo,
   isExpanded,
+  testVersion,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
   const location = useLocation();
   const resultsView = location.pathname.includes(compareOverTimeView);
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
-  const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
-    newRevs,
-  );
+  const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
@@ -212,13 +212,20 @@ function CompareOverTime({
             </Grid>
           )}
 
-          {/**** Hidden Input to capture framework when user updates revisions ****/}
+          {/**** Hidden Input to capture framework and testVersion when user updates revisions ****/}
           {hasEditButton && (
-            <input
-              value={frameworkIdVal}
-              name='framework'
-              type='hidden'
-            ></input>
+            <>
+              <input
+                value={frameworkIdVal}
+                name='framework'
+                type='hidden'
+              ></input>
+              <input
+                type='hidden'
+                value={testVersion}
+                name='test_version'
+              ></input>
+            </>
           )}
         </Form>
       </Box>

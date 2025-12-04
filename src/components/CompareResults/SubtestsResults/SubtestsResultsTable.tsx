@@ -7,24 +7,23 @@ import { Await } from 'react-router';
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
+import { STUDENT_T } from '../../../common/constants';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
-import type { CompareResultsItem } from '../../../types/state';
-import type {
-  CompareResultsTableConfig,
-  TestVersion,
-} from '../../../types/types';
+import type { CombinedResultsItemType } from '../../../types/state';
+import type { TestVersion } from '../../../types/types';
+import { getColumnsConfiguration } from '../../../utils/rowTemplateColumns';
 
 type SubtestsResults = {
   key: string;
   // By construction, there should be only one item in the array. But if more
   // than one subtests share the same name, then there will be more than one item.
   // Can this happen? We're not sure.
-  value: CompareResultsItem[];
+  value: CombinedResultsItemType[];
 };
 
-function processResults(results: CompareResultsItem[]) {
-  const processedResults = new Map<string, CompareResultsItem[]>();
+function processResults(results: CombinedResultsItemType[]) {
+  const processedResults = new Map<string, CombinedResultsItemType[]>();
   results.forEach((result) => {
     const { header_name: header } = result;
     const processedResult = processedResults.get(header);
@@ -52,119 +51,14 @@ const stringComparisonCollator = new Intl.Collator('en', {
   sensitivity: 'base',
 });
 function defaultSortFunction(
-  resultA: CompareResultsItem,
-  resultB: CompareResultsItem,
+  resultA: CombinedResultsItemType,
+  resultB: CombinedResultsItemType,
 ) {
   return stringComparisonCollator.compare(resultA.test, resultB.test);
 }
 
-const columnsConfiguration: CompareResultsTableConfig = [
-  {
-    name: 'Subtests',
-    key: 'subtests',
-    gridWidth: '3fr',
-    sortFunction: defaultSortFunction,
-  },
-  {
-    name: 'Base',
-    key: 'base',
-    gridWidth: '1fr',
-    tooltip: 'A summary of all values from Base runs using a mean.',
-  },
-  {
-    key: 'comparisonSign',
-
-    gridWidth: '0.2fr',
-  },
-  {
-    name: 'New',
-    key: 'new',
-
-    gridWidth: '1fr',
-    tooltip: 'A summary of all values from New runs using a mean.',
-  },
-  {
-    name: 'Status',
-    filter: true,
-    key: 'status',
-    gridWidth: '1.5fr',
-    possibleValues: [
-      { label: 'No changes', key: 'none' },
-      { label: 'Improvement', key: 'improvement' },
-      { label: 'Regression', key: 'regression' },
-    ],
-    matchesFunction(result, valueKey) {
-      switch (valueKey) {
-        case 'improvement':
-          return result.is_improvement;
-        case 'regression':
-          return result.is_regression;
-        default:
-          return !result.is_improvement && !result.is_regression;
-      }
-    },
-  },
-  {
-    name: 'Delta',
-    key: 'delta',
-    gridWidth: '1fr',
-    sortFunction(resultA, resultB) {
-      return (
-        Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
-      );
-    },
-    tooltip: 'The percentage difference between the Base and New values',
-  },
-  {
-    name: 'Confidence',
-    filter: true,
-    key: 'confidence',
-    gridWidth: '1.8fr',
-    tooltip:
-      "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
-    possibleValues: [
-      { label: 'No value', key: 'none' },
-      { label: 'Low', key: 'low' },
-      { label: 'Medium', key: 'medium' },
-      { label: 'High', key: 'high' },
-    ],
-    matchesFunction(result, valueKey) {
-      switch (valueKey) {
-        case 'none':
-          return !result.confidence_text;
-        default: {
-          const label = this.possibleValues.find(
-            ({ key }) => key === valueKey,
-          )?.label;
-          return result.confidence_text === label;
-        }
-      }
-    },
-    sortFunction(resultA, resultB) {
-      const confidenceA =
-        resultA.confidence_text && resultA.confidence !== null
-          ? resultA.confidence
-          : -1;
-      const confidenceB =
-        resultB.confidence_text && resultB.confidence !== null
-          ? resultB.confidence
-          : -1;
-      return confidenceA - confidenceB;
-    },
-  },
-  {
-    name: 'Total Runs',
-    key: 'runs',
-    gridWidth: '1fr',
-    tooltip: 'The total number of tasks/jobs that ran for this metric.',
-  },
-  // The 2 icons are 24px wide, and they have 5px padding.
-  { key: 'buttons', gridWidth: '34px' },
-  { key: 'expand', gridWidth: '34px' },
-];
-
 function resultMatchesSearchTerm(
-  result: CompareResultsItem,
+  result: CombinedResultsItemType,
   lowerCasedSearchTerm: string,
 ) {
   return result.test.toLowerCase().includes(lowerCasedSearchTerm);
@@ -172,9 +66,11 @@ function resultMatchesSearchTerm(
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
-  resultsPromise: CompareResultsItem[] | Promise<CompareResultsItem[]>;
+  resultsPromise:
+    | CombinedResultsItemType[]
+    | Promise<CombinedResultsItemType[]>;
   replicates: boolean;
-  testVersion: TestVersion;
+  testVersion?: TestVersion;
 };
 
 function SubtestsResultsTable({
@@ -183,6 +79,10 @@ function SubtestsResultsTable({
   replicates,
   testVersion,
 }: ResultsTableProps) {
+  const columnsConfiguration = getColumnsConfiguration(
+    true,
+    testVersion ?? STUDENT_T,
+  );
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
@@ -224,7 +124,7 @@ function SubtestsResultsTable({
         }
       >
         <Await resolve={resultsPromise}>
-          {(results: CompareResultsItem[]) => {
+          {(results: CombinedResultsItemType[]) => {
             const filteredResults = useMemo(() => {
               return filterResults(
                 columnsConfiguration,

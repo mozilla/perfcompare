@@ -117,6 +117,200 @@ describe('Expanded row', () => {
     expect(showLessButton).toBeInTheDocument();
   });
 
+  it('should display direction of change for in RevisionRowExpandable mann-whitney-u testVersion when expanded', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { mockMannWhitneyResultData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={mockMannWhitneyResultData}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const noChangeText = await screen.findAllByText(/Regression/);
+    expect(noChangeText[0]).toBeInTheDocument();
+  });
+
+  it('should display direction of change in RevisionRowExpandable for student-t testVersion when expanded', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={testCompareData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const betterText = await screen.findByText(/Improvement/);
+    expect(betterText).toBeInTheDocument();
+
+    renderWithRoute(
+      <RevisionRow
+        result={testCompareData[2]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+      />,
+    );
+    const expandRow = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRow);
+
+    const improveText = await screen.findByText(/Improvement/);
+    expect(improveText).toBeInTheDocument();
+  });
+
+  it('should display new stats for mann-whitney-u testVersion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const normalityTestHeader = await screen.findByText(/Normality Test/);
+    expect(normalityTestHeader).toBeInTheDocument();
+
+    const goodnessFitTestHeader =
+      await screen.findByText(/Goodness of Fit Test/);
+    expect(goodnessFitTestHeader).toBeInTheDocument();
+
+    const cliffsDeltaHeader = await screen.findByText(/Cliff's Delta/);
+    expect(cliffsDeltaHeader).toBeInTheDocument();
+  });
+
+  it('should display mann_whitney_test.interpretation for significance for mann-whitney-u testVersion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const notSignificant = await screen.findAllByText(/Not significant/);
+    expect(notSignificant[0]).toBeInTheDocument();
+  });
+
+  it('should handle empty mann_whitney_test.interpretation for significance for mann-whitney-u testVersion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+    const resultNoInterpretation = { ...rowData[0], mann_whitney_test: null };
+    renderWithRoute(
+      <RevisionRow
+        result={resultNoInterpretation}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+    const emptySignificant = await screen.findAllByText(/-/);
+    expect(emptySignificant[0]).toBeInTheDocument();
+  });
+
+  it('should display mean for base or new in row headers for mann-whitney-u testVersion', async () => {
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const baseMean = roles[1]?.childNodes[0];
+    expect(baseMean).toHaveTextContent('704.84');
+
+    const newMean = roles[3]?.childNodes[0];
+    expect(newMean).toHaveTextContent('712.44');
+
+    const directionOfChange = roles[4]?.childNodes[0];
+    expect(directionOfChange).toHaveTextContent('Improvement');
+
+    const cliffsDelta = roles[5]?.childNodes[1];
+    expect(cliffsDelta).toHaveTextContent('.1');
+  });
+
+  it('should display N/A mean for missing baseAvgValue and newAvgValue in row headers for mann-whitney-u testVersion', async () => {
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[3]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const baseAvgValueNA = roles[1]?.childNodes[0];
+    expect(baseAvgValueNA).toHaveTextContent('N/A');
+    const newAvgValueNA = roles[3]?.childNodes[0];
+    expect(newAvgValueNA).toHaveTextContent('N/A');
+  });
+
+  it('should display mean for base or new in row headers for student-t testVersion', async () => {
+    const { testCompareData: rowData } = getTestData();
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+      />,
+    );
+
+    const roles = await screen.findAllByRole('cell');
+    const baseMean = roles[1]?.childNodes[0];
+    expect(baseMean).toHaveTextContent('704.84');
+    expect(baseMean).toHaveTextContent('ms');
+
+    const newMean = roles[3]?.childNodes[0];
+    expect(newMean).toHaveTextContent('712.44');
+    expect(newMean).toHaveTextContent('ms');
+  });
+
   it('should copy run values when "Copy values" is clicked', async () => {
     const writeTextMock = jest
       .spyOn(navigator.clipboard, 'writeText')

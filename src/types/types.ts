@@ -1,4 +1,8 @@
-import { CompareResultsItem } from './state';
+import {
+  CombinedResultsItemType,
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from './state';
 
 /* --- Types for configuring the behavior and styles of the results tables columns --- */
 
@@ -28,6 +32,20 @@ interface FilterableColumnMixin {
   ) => boolean;
 }
 
+interface FilterableMannWhitneyColumnMixin {
+  name: string;
+  // Always true for filterable columns.
+  filter: true;
+  // All values this column might have.
+  possibleValues: Array<{ label: string; key: string }>;
+  // This function returns whether this result matches the value for this column.
+  matchesFunction: (
+    this: FilterableMannWhitneyColumnMixin,
+    result: MannWhitneyResultsItem,
+    value: string,
+  ) => boolean;
+}
+
 // This interface is used for a column that can be sorted.
 interface SortableColumnMixin {
   name: string;
@@ -37,6 +55,13 @@ interface SortableColumnMixin {
   ) => number;
 }
 
+interface SortableMannWhitneyColumnMixin {
+  name: string;
+  sortFunction: (
+    resultA: MannWhitneyResultsItem,
+    resultB: MannWhitneyResultsItem,
+  ) => number;
+}
 // These types represent actual column types, by mixing a BasicColumn with the
 // mixins for Filterable and Sortable columns.
 // The "&" intersection works better than interface "extends" here, because the
@@ -46,6 +71,12 @@ export type FilterableColumn = BasicColumn & FilterableColumnMixin;
 export type SortableColumn = BasicColumn & SortableColumnMixin;
 export type FilterableAndSortableColumn = FilterableColumn &
   SortableColumnMixin;
+export type FilterableMannWhitneyColumn = BasicColumn &
+  FilterableMannWhitneyColumnMixin;
+export type SortableMannWhitneyColumn = BasicColumn &
+  SortableMannWhitneyColumnMixin;
+export type FilterableAndSortableMannWhitneyColumn =
+  FilterableMannWhitneyColumn & SortableMannWhitneyColumnMixin;
 
 // A column can be one of these types.
 export type CompareResultsTableColumn =
@@ -54,8 +85,16 @@ export type CompareResultsTableColumn =
   | SortableColumn
   | FilterableAndSortableColumn;
 
+export type CompareMannWhitneyResultsTableColumn =
+  | BasicColumn
+  | FilterableMannWhitneyColumn
+  | SortableMannWhitneyColumn
+  | FilterableAndSortableMannWhitneyColumn;
+
 // The full configuration for a results table.
 export type CompareResultsTableConfig = CompareResultsTableColumn[];
+export type CompareMannWhitneyResultsTableConfig =
+  CompareMannWhitneyResultsTableColumn[];
 
 /* --- End of types for configuring the behavior and styles of the results tables columns --- */
 
@@ -111,6 +150,12 @@ export type ActiveFilters = {
 
 export type FilteredResults = {
   data: CompareResultsItem[];
+  activeFilters: ActiveFilters;
+  isFiltered: boolean;
+};
+
+export type FilteredMannWhitneyResults = {
+  data: MannWhitneyResultsItem[];
   activeFilters: ActiveFilters;
   isFiltered: boolean;
 };
@@ -340,3 +385,8 @@ export type TokenBearer = {
 };
 
 export type TestVersion = 'student-t' | 'mann-whitney-u';
+
+export type SortFunc = (
+  resultA: CombinedResultsItemType,
+  resultB: CombinedResultsItemType,
+) => number;

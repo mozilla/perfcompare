@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 
 import { Button, Grid } from '@mui/material';
+import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
@@ -8,8 +9,10 @@ import { style } from 'typestyle';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
+import { MANN_WHITNEY_U } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
+import { Strings } from '../../resources/Strings';
 import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
@@ -20,6 +23,7 @@ type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 
 function ResultsMain() {
   const loaderData = useLoaderData<CombinedLoaderReturnValue>();
+  const displayMannWhitneyUWarning = loaderData.testVersion === MANN_WHITNEY_U;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
@@ -121,7 +125,7 @@ function ResultsMain() {
   return (
     <Container
       maxWidth={false}
-      sx={{ maxWidth: '1300px' }}
+      sx={{ maxWidth: '1400px' }}
       className={styles.container}
       data-testid='results-main'
     >
@@ -160,6 +164,13 @@ function ResultsMain() {
             <ToggleReplicatesButton />
           </Grid>
         </Grid>
+        {displayMannWhitneyUWarning && (
+          <Grid container sx={titleContainerSx}>
+            <Alert severity='warning' className={styles.alert}>
+              {Strings.components.mannWhitneyUWarning.text}
+            </Alert>
+          </Grid>
+        )}
       </header>
       <ResultsTable />
     </Container>
