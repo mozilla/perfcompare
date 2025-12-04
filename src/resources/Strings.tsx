@@ -94,6 +94,9 @@ export const Strings = {
         },
       },
     },
+    mannWhitneyUWarning: {
+      text: 'The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please report it on the Testing :: Perfcompare Bugzilla component.',
+    },
     revisionRow: {
       title: {
         subtestsLink: 'open the subtests for this result',
