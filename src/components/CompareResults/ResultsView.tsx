@@ -23,8 +23,14 @@ type CombinedLoaderReturnValue =
   | HashLoaderReturnValue
   | LandoLoaderReturnValue;
 function ResultsView(props: ResultsViewProps) {
-  const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
-    useLoaderData<CombinedLoaderReturnValue>();
+  const {
+    baseRevInfo,
+    newRevsInfo,
+    frameworkId,
+    baseRepo,
+    newRepos,
+    testVersion,
+  } = useLoaderData<CombinedLoaderReturnValue>();
 
   const newRepo = newRepos[0];
   const { title } = props;
@@ -57,6 +63,7 @@ function ResultsView(props: ResultsViewProps) {
           isExpanded={true}
           baseRepo={baseRepo}
           newRepo={newRepo}
+          testVersion={testVersion}
         />
       </section>
       <Grid

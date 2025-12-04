@@ -704,6 +704,11 @@ exports[`Results Table Should match snapshot 1`] = `
                 type="hidden"
                 value="1"
               />
+              <input
+                name="test_version"
+                type="hidden"
+                value="student-t"
+              />
             </form>
           </div>
         </div>
@@ -3309,6 +3314,11 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                 name="framework"
                 type="hidden"
                 value="1"
+              />
+              <input
+                name="test_version"
+                type="hidden"
+                value="mann-whitney-u"
               />
             </form>
           </div>

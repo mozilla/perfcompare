@@ -15,7 +15,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
-import { Framework, TimeRange } from '../../types/types';
+import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 const strings = Strings.components.searchDefault;
 const stringsOverTime = Strings.components.searchDefault.overTime;
@@ -27,6 +27,7 @@ interface CompareWithTimeProps {
   intervalValue: TimeRange['value'];
   newRepo: Repository['name'];
   baseRepo: Repository['name'];
+  testVersion: TestVersion;
   isExpanded: boolean;
   setIsExpanded?: () => unknown;
 }
@@ -39,6 +40,7 @@ function CompareOverTime({
   baseRepo,
   newRepo,
   isExpanded,
+  testVersion,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
   const location = useLocation();
@@ -210,13 +212,20 @@ function CompareOverTime({
             </Grid>
           )}
 
-          {/**** Hidden Input to capture framework when user updates revisions ****/}
+          {/**** Hidden Input to capture framework and testVersion when user updates revisions ****/}
           {hasEditButton && (
-            <input
-              value={frameworkIdVal}
-              name='framework'
-              type='hidden'
-            ></input>
+            <>
+              <input
+                value={frameworkIdVal}
+                name='framework'
+                type='hidden'
+              ></input>
+              <input
+                type='hidden'
+                value={testVersion}
+                name='test_version'
+              ></input>
+            </>
           )}
         </Form>
       </Box>

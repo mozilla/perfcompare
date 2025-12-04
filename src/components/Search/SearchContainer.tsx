@@ -7,6 +7,7 @@ import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 import type { LoaderReturnValue } from './loader';
 import SearchFormHeader from './SearchFormHeader';
+import { STUDENT_T } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
@@ -48,6 +49,7 @@ function SearchContainer(props: SearchViewProps) {
           setIsExpanded={() => setIsBaseSearchExpanded(true)}
           baseRepo={newRepo}
           newRepo={newRepo}
+          testVersion={STUDENT_T}
         />
       </div>
       <div>
@@ -68,6 +70,7 @@ function SearchContainer(props: SearchViewProps) {
           intervalValue={86400 as TimeRange['value']}
           baseRepo={newRepo}
           newRepo={newRepo}
+          testVersion={STUDENT_T}
         />
       </div>
     </section>

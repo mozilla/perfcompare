@@ -688,6 +688,11 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
     type="hidden"
     value="2"
   />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
+  />
 </form>
 `;
 
@@ -1365,6 +1370,11 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
     type="hidden"
     value="2"
   />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
+  />
 </form>
 `;
 
@@ -1665,6 +1675,11 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
     name="framework"
     type="hidden"
     value="2"
+  />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
   />
 </form>
 `;
@@ -2516,6 +2531,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
     type="hidden"
     value="2"
   />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
+  />
 </form>
 `;
 
@@ -3038,6 +3058,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
     type="hidden"
     value="2"
   />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
+  />
 </form>
 `;
 
@@ -3338,6 +3363,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
     name="framework"
     type="hidden"
     value="2"
+  />
+  <input
+    name="test_version"
+    type="hidden"
+    value="student-t"
   />
 </form>
 `;
