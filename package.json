@@ -25,7 +25,7 @@
     "chart.js": "^4.5.1",
     "crypto-browserify": "^3.12.1",
     "dayjs": "^1.11.19",
-    "express": "^5.1.0",
+    "express": "^5.2.1",
     "fast-kde": "^0.2.2",
     "format": "^0.2.2",
     "json-e": "^4.8.0",
