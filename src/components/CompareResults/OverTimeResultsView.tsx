@@ -16,8 +16,14 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { newRevsInfo, frameworkId, intervalValue, baseRepo, newRepos } =
-    useLoaderData<LoaderReturnValue>();
+  const {
+    newRevsInfo,
+    frameworkId,
+    intervalValue,
+    baseRepo,
+    newRepos,
+    testVersion,
+  } = useLoaderData<LoaderReturnValue>();
   const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -49,6 +55,7 @@ function ResultsView(props: ResultsViewProps) {
           intervalValue={intervalValue}
           baseRepo={baseRepo}
           newRepo={newRepo}
+          testVersion={testVersion}
         />
       </section>
       <Grid
