@@ -1,8 +1,6 @@
 import { Box } from '@mui/material';
 
 import { MANN_WHITNEY_U } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
-import { Colors } from '../../styles/Colors';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { getModeInterpretation } from '../../utils/helpers';
@@ -21,34 +19,6 @@ export const MannWhitneyCompareMetrics = ({
   if (!result || testVersion !== MANN_WHITNEY_U) {
     return null;
   }
-  function getStyles(theme: string) {
-    const backgroundColor =
-      theme === 'light' ? Colors.Background300 : Colors.Background300Dark;
-
-    return {
-      backgroundColor,
-      marginBottom: 2,
-      maxWidth: '85%',
-      width: '100%',
-      borderRadius: '5px',
-      padding: 2,
-      '& .test-row-container': {
-        gridTemplateColumns: '1.5fr 1fr 1fr 2fr',
-        display: 'grid',
-        gap: 2,
-      },
-      '& .test-label-row': {
-        fontWeight: 'bold',
-        width: '100%',
-      },
-    };
-  }
-
-  const mode = useAppSelector((state) => state.theme.mode);
-  const styles = {
-    light: getStyles('light'),
-    dark: getStyles('dark'),
-  };
 
   const {
     mean: baseMean,
@@ -90,7 +60,25 @@ export const MannWhitneyCompareMetrics = ({
   const newMode = result?.silverman_kde?.new_mode_count ?? null;
 
   return (
-    <Box sx={{ ...styles[mode] }}>
+    <Box
+      sx={{
+        backgroundColor: 'manWhitneyComps.compareMetricsBg',
+        marginBottom: 2,
+        maxWidth: '85%',
+        width: '100%',
+        borderRadius: '5px',
+        padding: 2,
+        '& .test-row-container': {
+          gridTemplateColumns: '1.5fr 1fr 1fr 2fr',
+          display: 'grid',
+          gap: 2,
+        },
+        '& .test-label-row': {
+          fontWeight: 'bold',
+          width: '100%',
+        },
+      }}
+    >
       <table
         style={{
           display: 'grid',
