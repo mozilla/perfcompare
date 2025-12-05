@@ -3434,7 +3434,16 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   <div
                     class="MuiAlert-message css-zioonp-MuiAlert-message"
                   >
-                    The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please report it on the Testing :: Perfcompare Bugzilla component.
+                    The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
+                     
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                      target="_blank"
+                    >
+                      report it on Bugzilla
+                    </a>
+                    . 
                   </div>
                 </div>
               </div>

@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 
 import { Button, Grid } from '@mui/material';
 import Alert from '@mui/material/Alert';
+import Link from '@mui/material/Link';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
@@ -167,7 +168,14 @@ function ResultsMain() {
         {displayMannWhitneyUWarning && (
           <Grid container sx={titleContainerSx}>
             <Alert severity='warning' className={styles.alert}>
-              {Strings.components.mannWhitneyUWarning.text}
+              {Strings.components.mannWhitneyUWarning.text}{' '}
+              <Link
+                href={Strings.components.mannWhitneyUWarning.href}
+                target='_blank'
+              >
+                {Strings.components.mannWhitneyUWarning.linkText}
+              </Link>
+              {'. '}
             </Alert>
           </Grid>
         )}
