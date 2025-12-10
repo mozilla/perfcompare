@@ -1171,4 +1171,24 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     // It should be persisted in the URL
     expectParameterToHaveValue('sort', 'effects|asc');
   });
+
+  it('should switch between Student-T and Mann-Whitney-U test versions', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+    await screen.findByText('a11yr');
+    expectParameterToHaveValue('test_version', 'student-t');
+    const testVersionDropdown = screen.getByRole('combobox', {
+      name: 'Stats Test Version',
+    });
+    expect(testVersionDropdown).toBeInTheDocument();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(testVersionDropdown);
+    const mannWhitneyOption = await screen.findByRole('option', {
+      name: 'Mann-Whitney-U',
+    });
+    await user.click(mannWhitneyOption);
+
+    // The URL should be updated with the new test version
+    expectParameterToHaveValue('test_version', 'mann-whitney-u');
+  });
 });
