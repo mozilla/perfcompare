@@ -7,6 +7,9 @@ import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
 import { screen, act, renderWithRouter } from '../utils/test-utils';
 
+const searchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
 async function renderSearchViewComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader,
@@ -110,7 +113,9 @@ describe('SearchView/fetchRevisions', () => {
 
     await renderSearchViewComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'ericidle@python.com');
     act(() => void jest.runAllTimers());
 
@@ -143,7 +148,9 @@ describe('SearchView/fetchRevisions', () => {
 
     await renderSearchViewComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'grahamchapman@python.com');
     act(() => void jest.runAllTimers());
 
@@ -151,7 +158,9 @@ describe('SearchView/fetchRevisions', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?search=grahamchapman%40python.com',
       undefined,
     );
-    expect(await screen.findByText(errorMessage)).toBeInTheDocument();
+
+    const messages = await screen.findAllByText(errorMessage);
+    expect(messages[0]).toBeInTheDocument();
     expect(searchInput).toBeInvalid();
     expect(console.error).toHaveBeenCalledWith(
       'Error while fetching recent revisions:',
@@ -178,7 +187,9 @@ describe('SearchView/fetchRevisions', () => {
 
     await renderSearchViewComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'grahamchapman@python.com');
     act(() => void jest.runAllTimers());
 
@@ -186,9 +197,9 @@ describe('SearchView/fetchRevisions', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?search=grahamchapman%40python.com',
       undefined,
     );
-    expect(
-      await screen.findByText('An error has occurred'),
-    ).toBeInTheDocument();
+
+    const messages = await screen.findAllByText('An error has occurred');
+    expect(messages[0]).toBeInTheDocument();
     expect(searchInput).toBeInvalid();
     expect(console.error).toHaveBeenCalledWith(
       'Error while fetching recent revisions:',
