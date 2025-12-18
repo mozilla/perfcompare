@@ -243,7 +243,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -1179,7 +1179,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -2011,7 +2011,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -2951,7 +2951,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div

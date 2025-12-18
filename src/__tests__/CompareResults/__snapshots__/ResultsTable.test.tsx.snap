@@ -536,7 +536,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="MuiBox-root css-0"
                     >
                       <div
-                        class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                        class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
                         data-testid="autocomplete"
                       >
                         <div
@@ -3231,7 +3231,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       class="MuiBox-root css-0"
                     >
                       <div
-                        class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                        class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
                         data-testid="autocomplete"
                       >
                         <div
