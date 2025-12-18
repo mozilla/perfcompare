@@ -272,8 +272,8 @@ export default function SearchInputAndResults({
         options={recentRevisions ?? []}
         getOptionLabel={(options) => options.revision}
         isOptionEqualToValue={(option, value) => option.id === value.id}
-        multiple={listItemComponent === 'checkbox'}
-        disableCloseOnSelect={listItemComponent === 'checkbox'}
+        multiple={listItemComponent !== 'radio'}
+        disableCloseOnSelect={listItemComponent !== 'radio'}
         filterOptions={(options) => options}
         onInputChange={(_, value) => onValueChange(value)}
         onChange={(_, value) => {

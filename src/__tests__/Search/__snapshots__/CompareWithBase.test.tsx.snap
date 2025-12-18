@@ -458,7 +458,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -1342,7 +1342,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -1940,7 +1940,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -2702,7 +2702,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -3308,7 +3308,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -4106,7 +4106,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -4646,7 +4646,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
                           data-testid="autocomplete"
                         >
                           <div
@@ -5112,7 +5112,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
                           data-testid="autocomplete"
                         >
                           <div

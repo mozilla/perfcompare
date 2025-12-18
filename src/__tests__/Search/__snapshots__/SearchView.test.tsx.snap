@@ -394,7 +394,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
                           data-testid="autocomplete"
                         >
                           <div
@@ -860,7 +860,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
                           data-testid="autocomplete"
                         >
                           <div
@@ -1299,7 +1299,7 @@ exports[`With search parameters both search components are populated as expected
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -1903,7 +1903,7 @@ exports[`With search parameters both search components are populated as expected
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -2476,7 +2476,7 @@ exports[`With search parameters both search components are populated as expected
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -3080,7 +3080,7 @@ exports[`With search parameters both search components are populated as expected
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -3653,7 +3653,7 @@ exports[`With search parameters displays the default value for framework if the 
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -4257,7 +4257,7 @@ exports[`With search parameters displays the default value for framework if the 
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -4830,7 +4830,7 @@ exports[`With search parameters displays the default values if some values are b
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -5294,7 +5294,7 @@ exports[`With search parameters displays the default values if some values are b
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
