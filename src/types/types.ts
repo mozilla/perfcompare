@@ -123,7 +123,8 @@ export type Framework =
   | { id: 12; name: 'devtools' }
   | { id: 13; name: 'browsertime' }
   | { id: 15; name: 'mozperftest' }
-  | { id: 16; name: 'fxrecord' };
+  | { id: 16; name: 'fxrecord' }
+  | { id: 18; name: 'mozharness' };
 
 export type SupportedPerfdocsFramework = 'talos' | 'awsy' | 'devtools';
 
