@@ -69,12 +69,8 @@ export default function ResultsTable() {
 
   const onTestVersionChange = (testVersion: TestVersion): void => {
     setTestVersionVal(testVersion);
-    rawSearchParams.set('test_version', testVersion);
-    updateRawSearchParams(rawSearchParams);
-    // Also use setSearchParams to trigger React Router loader re-run
-    const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.set('test_version', testVersion);
-    setSearchParams(newSearchParams);
+    searchParams.set('test_version', testVersion);
+    setSearchParams(searchParams);
   };
 
   const rowGridTemplateColumns = columnsConfig
