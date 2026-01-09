@@ -53,8 +53,8 @@ export default function ResultsTable() {
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
-    rawSearchParams.set('framework', newFrameworkId.toString());
-    updateRawSearchParams(rawSearchParams);
+    searchParams.set('framework', newFrameworkId.toString());
+    setSearchParams(searchParams);
   };
 
   const onSearchTermChange = (newSearchTerm: string) => {
