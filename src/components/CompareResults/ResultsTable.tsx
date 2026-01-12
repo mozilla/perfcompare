@@ -63,7 +63,6 @@ export default function ResultsTable() {
       rawSearchParams.set('search', newSearchTerm);
     } else {
       rawSearchParams.delete('search');
-      searchParams.delete('search');
     }
     updateRawSearchParams(rawSearchParams);
   };
