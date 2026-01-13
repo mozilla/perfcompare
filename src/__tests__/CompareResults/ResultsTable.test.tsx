@@ -14,7 +14,7 @@ import getTestData, {
   augmentCompareMannWhitneyDataWithSeveralRevisions,
   augmentCompareMannWhitneyDataWithSeveralTests,
 } from '../utils/fixtures';
-import { renderWithRouter, screen, within } from '../utils/test-utils';
+import { renderWithRouter, screen, waitFor, within } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement, extraParameters?: string) {
   return renderWithRouter(component, {
@@ -1188,7 +1188,9 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     });
     await user.click(mannWhitneyOption);
 
-    // The URL should be updated with the new test version
-    expectParameterToHaveValue('test_version', 'mann-whitney-u');
+    // Wait for the URL to update with the new test version
+    await waitFor(() => {
+      expectParameterToHaveValue('test_version', 'mann-whitney-u');
+    });
   });
 });

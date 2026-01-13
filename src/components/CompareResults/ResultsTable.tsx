@@ -2,7 +2,7 @@ import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useLoaderData, Await } from 'react-router';
+import { useLoaderData, Await, useSearchParams } from 'react-router';
 
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
@@ -26,6 +26,8 @@ export default function ResultsTable() {
     replicates,
     testVersion,
   } = useLoaderData<CombinedLoaderReturnValue>();
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
@@ -51,8 +53,8 @@ export default function ResultsTable() {
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
-    rawSearchParams.set('framework', newFrameworkId.toString());
-    updateRawSearchParams(rawSearchParams);
+    searchParams.set('framework', newFrameworkId.toString());
+    setSearchParams(searchParams);
   };
 
   const onSearchTermChange = (newSearchTerm: string) => {
@@ -67,8 +69,8 @@ export default function ResultsTable() {
 
   const onTestVersionChange = (testVersion: TestVersion): void => {
     setTestVersionVal(testVersion);
-    rawSearchParams.set('test_version', testVersion);
-    updateRawSearchParams(rawSearchParams);
+    searchParams.set('test_version', testVersion);
+    setSearchParams(searchParams);
   };
 
   const rowGridTemplateColumns = columnsConfig
