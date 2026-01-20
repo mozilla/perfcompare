@@ -9,6 +9,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, Box } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
 import RevisionRowExpandable from '.././RevisionRowExpandable';
@@ -318,16 +319,18 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           result,
           expanded,
         )}
-        <div className='total-runs cell' role='cell'>
-          <span>
-            <span title='Base runs'>B:</span>
-            <strong>{baseRunsCount}</strong>
-          </span>
-          <span>
-            <span title='New runs'>N:</span>
-            <strong>{newRunsCount}</strong>
-          </span>
-        </div>
+        <Tooltip title={`Base runs: ${baseRunsCount}, New runs: ${newRunsCount}`} placement="bottom">
+          <div className='total-runs cell' role='cell'>
+            <span>
+              <span title='Base runs'>B:</span>
+              <strong>{baseRunsCount}</strong>
+            </span>
+            <span>
+              <span title='New runs'>N:</span>
+              <strong>{newRunsCount}</strong>
+            </span>
+          </div>
+        </Tooltip>
         <div className='row-buttons cell'>
           <div className='graph' role='cell'>
             <div className='graph-link-button-container'>
