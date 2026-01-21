@@ -59,7 +59,7 @@
     "test:update": "npm test -- -u",
     "test-all": "run-p test format:check lint tsc",
     "fix-all": "run-p test:update format lint:fix",
-    "tsc": "tsc"
+    "tsc": "tsc",
     "postinstall": "npm run fix-all"
   },
   "prettier": {
