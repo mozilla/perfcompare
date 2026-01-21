@@ -60,7 +60,7 @@
     "test-all": "run-p test format:check lint tsc",
     "fix-all": "run-p test:update format lint:fix",
     "tsc": "tsc",
-    "postinstall": "npm run fix-all"
+    "postinstall": "npm run test:update"
   },
   "prettier": {
     "tabWidth": 2,
