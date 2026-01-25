@@ -96,7 +96,9 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         Low
       </div>
       <div
+        aria-label="Base runs: 3, New runs: 3"
         class="total-runs cell"
+        data-mui-internal-clone-element="true"
         role="cell"
       >
         <span>
@@ -157,7 +159,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         role="cell"
       >
         <button
-          aria-controls="_r_d_"
+          aria-controls="_r_g_"
           aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
@@ -253,7 +255,9 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         Low
       </div>
       <div
+        aria-label="Base runs: 2, New runs: 2"
         class="total-runs cell"
+        data-mui-internal-clone-element="true"
         role="cell"
       >
         <span>
@@ -314,7 +318,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         role="cell"
       >
         <button
-          aria-controls="_r_h_"
+          aria-controls="_r_l_"
           aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
@@ -410,7 +414,9 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         Low
       </div>
       <div
+        aria-label="Base runs: 2, New runs: 2"
         class="total-runs cell"
+        data-mui-internal-clone-element="true"
         role="cell"
       >
         <span>

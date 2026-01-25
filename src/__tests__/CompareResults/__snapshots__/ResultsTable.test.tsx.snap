@@ -1528,7 +1528,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               Medium
                             </div>
                             <div
+                              aria-label="Base runs: 1, New runs: 1"
                               class="total-runs cell"
+                              data-mui-internal-clone-element="true"
                               role="cell"
                             >
                               <span>
@@ -1739,7 +1741,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               Low
                             </div>
                             <div
+                              aria-label="Base runs: 1, New runs: 1"
                               class="total-runs cell"
+                              data-mui-internal-clone-element="true"
                               role="cell"
                             >
                               <span>
@@ -1832,7 +1836,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1a_"
+                                  aria-controls="_r_1b_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1939,7 +1943,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               High
                             </div>
                             <div
+                              aria-label="Base runs: 1, New runs: 1"
                               class="total-runs cell"
+                              data-mui-internal-clone-element="true"
                               role="cell"
                             >
                               <span>
@@ -2032,7 +2038,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1h_"
+                                  aria-controls="_r_1j_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2209,7 +2215,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               -
                             </div>
                             <div
+                              aria-label="Base runs: 1, New runs: 1"
                               class="total-runs cell"
+                              data-mui-internal-clone-element="true"
                               role="cell"
                             >
                               <span>
@@ -2302,7 +2310,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1p_"
+                                  aria-controls="_r_1s_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -3499,7 +3507,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             aria-invalid="false"
                             aria-label="Search by title, platform, revision or options"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="_r_ot_"
+                            id="_r_qq_"
                             placeholder="Filter results"
                             type="search"
                             value=""
@@ -4206,7 +4214,9 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               45.00 %
                             </div>
                             <div
+                              aria-label="Base runs: 1, New runs: 1"
                               class="total-runs cell"
+                              data-mui-internal-clone-element="true"
                               role="cell"
                             >
                               <span>
@@ -4299,7 +4309,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_pi_"
+                                  aria-controls="_r_rf_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -4412,7 +4422,9 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               25.00 %
                             </div>
                             <div
+                              aria-label="Base runs: 1, New runs: 1"
                               class="total-runs cell"
+                              data-mui-internal-clone-element="true"
                               role="cell"
                             >
                               <span>
@@ -4505,7 +4517,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_pp_"
+                                  aria-controls="_r_rn_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -4605,7 +4617,9 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               50.00 %
                             </div>
                             <div
+                              aria-label="Base runs: 1, New runs: 1"
                               class="total-runs cell"
+                              data-mui-internal-clone-element="true"
                               role="cell"
                             >
                               <span>
@@ -4698,7 +4712,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_q0_"
+                                  aria-controls="_r_rv_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -4879,7 +4893,9 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               100.00 %
                             </div>
                             <div
+                              aria-label="Base runs: 0, New runs: 0"
                               class="total-runs cell"
+                              data-mui-internal-clone-element="true"
                               role="cell"
                             >
                               <span>
@@ -4972,7 +4988,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_q8_"
+                                  aria-controls="_r_s8_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -5539,7 +5555,9 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         25.00 %
       </div>
       <div
+        aria-label="Base runs: 1, New runs: 1"
         class="total-runs cell"
+        data-mui-internal-clone-element="true"
         role="cell"
       >
         <span>
@@ -5632,7 +5650,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_so_"
+            aria-controls="_r_up_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -5784,7 +5802,9 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         25.00 %
       </div>
       <div
+        aria-label="Base runs: 1, New runs: 1"
         class="total-runs cell"
+        data-mui-internal-clone-element="true"
         role="cell"
       >
         <span>
@@ -5877,7 +5897,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_t0_"
+            aria-controls="_r_v2_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -6091,7 +6111,9 @@ exports[`Results Table should render different blocks when rendering several rev
         Low
       </div>
       <div
+        aria-label="Base runs: 1, New runs: 1"
         class="total-runs cell"
+        data-mui-internal-clone-element="true"
         role="cell"
       >
         <span>
@@ -6184,7 +6206,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_45_"
+            aria-controls="_r_49_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -6341,7 +6363,9 @@ exports[`Results Table should render different blocks when rendering several rev
         Low
       </div>
       <div
+        aria-label="Base runs: 1, New runs: 1"
         class="total-runs cell"
+        data-mui-internal-clone-element="true"
         role="cell"
       >
         <span>
@@ -6434,7 +6458,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_4d_"
+            aria-controls="_r_4i_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
