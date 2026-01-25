@@ -395,21 +395,20 @@ function RevisionRow(props: RevisionRowProps) {
           )}
         </div>
         {renderDifferingTestVersionColumns(testVersion ?? STUDENT_T, result)}
-        <Tooltip
+        <div
+          className='total-runs cell'
           title={`Base runs: ${baseRunsCount}, New runs: ${newRunsCount}`}
-          placement='bottom'
+          role='cell'
         >
-          <div className='total-runs cell' role='cell'>
-            <span>
-              <span title='Base runs'>B:</span>
-              <strong>{baseRunsCount}</strong>
-            </span>
-            <span>
-              <span title='New runs'>N:</span>
-              <strong>{newRunsCount}</strong>
-            </span>
-          </div>
-        </Tooltip>
+          <span>
+            <span>B:</span>
+            <strong>{baseRunsCount}</strong>
+          </span>
+          <span>
+            <span>N:</span>
+            <strong>{newRunsCount}</strong>
+          </span>
+        </div>
         <div className='row-buttons cell'>
           {result.has_subtests && (
             <div className='subtests' role='cell'>
