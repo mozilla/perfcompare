@@ -1051,7 +1051,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -1201,7 +1203,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -1262,7 +1266,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_s_"
+                    aria-controls="_r_t_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1362,7 +1366,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -1423,7 +1429,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_v_"
+                    aria-controls="_r_11_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1523,7 +1529,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   High
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -1584,7 +1592,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_12_"
+                    aria-controls="_r_15_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1673,7 +1681,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -1734,7 +1744,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_15_"
+                    aria-controls="_r_19_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2491,7 +2501,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_pn_"
+                          id="_r_sm_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -2902,7 +2912,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   15.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -2963,7 +2975,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_pt_"
+                    aria-controls="_r_ss_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3058,7 +3070,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   60.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -3119,7 +3133,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q0_"
+                    aria-controls="_r_t0_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3201,7 +3215,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   50.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -3262,7 +3278,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q3_"
+                    aria-controls="_r_t4_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3344,7 +3360,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   25.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -3405,7 +3423,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q6_"
+                    aria-controls="_r_t8_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3500,7 +3518,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   45.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -3561,7 +3581,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q9_"
+                    aria-controls="_r_tc_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3934,7 +3954,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_n3_"
+                          id="_r_po_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -4345,7 +4365,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   15.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -4406,7 +4428,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_n9_"
+                    aria-controls="_r_pu_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4501,7 +4523,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   60.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -4562,7 +4586,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_nc_"
+                    aria-controls="_r_q2_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4644,7 +4668,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   50.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -4705,7 +4731,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_nf_"
+                    aria-controls="_r_q6_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4787,7 +4813,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   25.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -4848,7 +4876,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_ni_"
+                    aria-controls="_r_qa_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4943,7 +4971,9 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   45.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -5004,7 +5034,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_nl_"
+                    aria-controls="_r_qe_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5377,7 +5407,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_dt_"
+                          id="_r_ff_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -5788,7 +5818,9 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   15.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -5849,7 +5881,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_e3_"
+                    aria-controls="_r_fl_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5944,7 +5976,9 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   60.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -6005,7 +6039,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_e6_"
+                    aria-controls="_r_fp_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -6087,7 +6121,9 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   50.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -6148,7 +6184,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_e9_"
+                    aria-controls="_r_ft_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -6230,7 +6266,9 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   25.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -6291,7 +6329,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_ec_"
+                    aria-controls="_r_g1_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -6386,7 +6424,9 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   45.00% 
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -6447,7 +6487,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_ef_"
+                    aria-controls="_r_g5_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -6785,7 +6825,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_b9_"
+                          id="_r_ch_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -7181,7 +7221,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -7242,7 +7284,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_bf_"
+                    aria-controls="_r_cn_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -7331,7 +7373,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -7392,7 +7436,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_bi_"
+                    aria-controls="_r_cr_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -7492,7 +7536,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 3, New runs: 3"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -7553,7 +7599,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_bl_"
+                    aria-controls="_r_cv_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -7653,7 +7699,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   High
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -7714,7 +7762,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_bo_"
+                    aria-controls="_r_d3_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -7803,7 +7851,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 2, New runs: 2"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -7864,7 +7914,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_br_"
+                    aria-controls="_r_d7_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"

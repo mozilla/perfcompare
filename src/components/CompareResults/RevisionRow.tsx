@@ -395,7 +395,10 @@ function RevisionRow(props: RevisionRowProps) {
           )}
         </div>
         {renderDifferingTestVersionColumns(testVersion ?? STUDENT_T, result)}
-        <Tooltip title={`Base runs: ${baseRunsCount}, New runs: ${newRunsCount}`} placement="bottom">
+        <Tooltip
+          title={`Base runs: ${baseRunsCount}, New runs: ${newRunsCount}`}
+          placement='bottom'
+        >
           <div className='total-runs cell' role='cell'>
             <span>
               <span title='Base runs'>B:</span>

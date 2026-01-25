@@ -731,7 +731,9 @@ exports[`Results View The table should match snapshot and other elements should 
                   Medium
                 </div>
                 <div
+                  aria-label="Base runs: 1, New runs: 1"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -942,7 +944,9 @@ exports[`Results View The table should match snapshot and other elements should 
                   Low
                 </div>
                 <div
+                  aria-label="Base runs: 1, New runs: 1"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -1035,7 +1039,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_14_"
+                      aria-controls="_r_15_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1131,7 +1135,9 @@ exports[`Results View The table should match snapshot and other elements should 
                   -
                 </div>
                 <div
+                  aria-label="Base runs: 1, New runs: 1"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -1224,7 +1230,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1b_"
+                      aria-controls="_r_1d_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1331,7 +1337,9 @@ exports[`Results View The table should match snapshot and other elements should 
                   High
                 </div>
                 <div
+                  aria-label="Base runs: 1, New runs: 1"
                   class="total-runs cell"
+                  data-mui-internal-clone-element="true"
                   role="cell"
                 >
                   <span>
@@ -1424,7 +1432,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1i_"
+                      aria-controls="_r_1l_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
