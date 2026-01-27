@@ -12,6 +12,7 @@ import {
   subtestsOverTimeView,
   timeRangeMap,
 } from '../../../common/constants';
+import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {
@@ -32,50 +33,6 @@ import AndroidIcon from '../../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../../Shared/Icons/LinuxIcon';
 import WindowsIcon from '../../Shared/Icons/WindowsIcon';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
-
-const styles = {
-  revisionHeader: style({
-    display: 'flex',
-    alignItems: 'center',
-    paddingBottom: '12px',
-    marginBottom: '12px',
-  }),
-  tagsOptions: style({
-    textAlign: 'right',
-    $nest: {
-      'span:nth-child(3n)': {
-        background: '#592ACB',
-      },
-      'span:nth-child(3n+1)': {
-        background: '#005E5E',
-      },
-      'span:nth-child(3n+2)': {
-        background: '#0250BB',
-      },
-    },
-  }),
-  chip: style({
-    borderRadius: '4px',
-    color: Colors.Background300,
-    fontFamily: 'SF Pro',
-    fontStyle: 'normal',
-    fontWeight: 700,
-    fontSize: '8.2px',
-    gap: 10,
-    letterSpacing: '0.02em',
-    marginLeft: Spacing.xSmall,
-    padding: Spacing.xSmall,
-    textAlign: 'center',
-    textTransform: 'uppercase',
-  }),
-  typography: style({
-    fontFamily: 'SF Pro',
-    fontStyle: 'normal',
-    fontWeight: 590,
-    fontSize: '16px',
-    lineHeight: '1.5',
-  }),
-};
 
 function getSuite(
   header: SubtestsRevisionsHeader,
@@ -154,6 +111,62 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
     view === subtestsView
       ? getRevLink(header.base_rev, header.base_repo, 'Base')
       : getTimeRange(header.base_repo);
+
+  const themeMode = useAppSelector((state) => state.theme.mode);
+
+  const styles = {
+    revisionHeader: style({
+      display: 'flex',
+      alignItems: 'center',
+      paddingBottom: '12px',
+      marginBottom: '12px',
+    }),
+    tagsOptions: style({
+      textAlign: 'right',
+      $nest: {
+        'span:nth-child(3n)': {
+          background:
+            themeMode === 'light'
+              ? Colors.TagOptionBackground3n
+              : Colors.TagOptionBackground3nDark,
+        },
+        'span:nth-child(3n+1)': {
+          background:
+            themeMode === 'light'
+              ? Colors.TagOptionBackground3n1
+              : Colors.TagOptionBackground3n1Dark,
+        },
+        'span:nth-child(3n+2)': {
+          background:
+            themeMode === 'light'
+              ? Colors.TagOptionBackground3n2
+              : Colors.TagOptionBackground3n2Dark,
+        },
+      },
+    }),
+    chip: style({
+      borderRadius: '4px',
+      color:
+        themeMode === 'light' ? Colors.InvertedText : Colors.InvertedTextDark,
+      fontFamily: 'SF Pro',
+      fontStyle: 'normal',
+      fontWeight: 700,
+      fontSize: '8.2px',
+      gap: 10,
+      letterSpacing: '0.02em',
+      marginLeft: Spacing.xSmall,
+      padding: Spacing.xSmall,
+      textAlign: 'center',
+      textTransform: 'uppercase',
+    }),
+    typography: style({
+      fontFamily: 'SF Pro',
+      fontStyle: 'normal',
+      fontWeight: 590,
+      fontSize: '16px',
+      lineHeight: '1.5',
+    }),
+  };
 
   return (
     <div className={styles.revisionHeader}>
