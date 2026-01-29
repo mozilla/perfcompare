@@ -59,6 +59,16 @@ export enum Colors {
   Background500Dark = '#004725',
   BackgroundScrimDark = '#5b5b66 45%',
 
+  //tag option colors light theme
+  TagOptionBackground3n = '#592ACB',
+  TagOptionBackground3n1 = '#005E5E',
+  TagOptionBackground3n2 = '#0250BB',
+
+  //tag option colors dark theme
+  TagOptionBackground3nDark = '#E88CE8',
+  TagOptionBackground3n1Dark = '#97E6C1',
+  TagOptionBackground3n2Dark = '#00FFFFFC',
+
   //border colors light theme
   BorderDefault = '#8F8F9D',
   BorderDropdownMenu = '#CFCFD8',
