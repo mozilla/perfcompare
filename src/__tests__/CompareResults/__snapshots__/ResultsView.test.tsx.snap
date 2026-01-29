@@ -1328,7 +1328,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+                class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1424,11 +1424,10 @@ exports[`Results View The table should match snapshot and other elements should 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 1, New runs: 1"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -1436,9 +1435,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -1538,7 +1535,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+                class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1635,11 +1632,10 @@ exports[`Results View The table should match snapshot and other elements should 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 1, New runs: 1"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -1647,9 +1643,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -1749,7 +1743,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+                class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -1824,11 +1818,10 @@ exports[`Results View The table should match snapshot and other elements should 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 1, New runs: 1"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -1836,9 +1829,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -1938,7 +1929,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+                class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
                 role="row"
               >
                 <div
@@ -2024,11 +2015,10 @@ exports[`Results View The table should match snapshot and other elements should 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 1, New runs: 1"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -2036,9 +2026,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>

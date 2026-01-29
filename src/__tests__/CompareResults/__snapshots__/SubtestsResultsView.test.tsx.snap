@@ -959,7 +959,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1053,11 +1053,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -1065,9 +1064,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -1134,7 +1131,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1203,11 +1200,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -1215,9 +1211,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -1284,7 +1278,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1364,11 +1358,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -1376,9 +1369,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -1445,7 +1436,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1525,11 +1516,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -1537,9 +1527,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -1606,7 +1594,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -1675,11 +1663,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -1687,9 +1674,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -2828,7 +2813,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -2904,11 +2889,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -2916,9 +2900,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -2985,7 +2967,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -3060,11 +3042,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -3072,9 +3053,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -3141,7 +3120,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -3203,11 +3182,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -3215,9 +3193,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -3284,7 +3260,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -3346,11 +3322,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -3358,9 +3333,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -3427,7 +3400,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -3502,11 +3475,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -3514,9 +3486,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -4271,7 +4241,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4347,11 +4317,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -4359,9 +4328,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -4428,7 +4395,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4503,11 +4470,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -4515,9 +4481,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -4584,7 +4548,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4646,11 +4610,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -4658,9 +4621,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -4727,7 +4688,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4789,11 +4750,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -4801,9 +4761,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -4870,7 +4828,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -4945,11 +4903,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -4957,9 +4914,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -5714,7 +5669,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 />
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -5790,11 +5745,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -5802,9 +5756,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -5871,7 +5823,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -5946,11 +5898,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -5958,9 +5909,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -6027,7 +5976,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -6089,11 +6038,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -6101,9 +6049,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -6170,7 +6116,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -6232,11 +6178,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -6244,9 +6189,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -6313,7 +6256,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1ivx7uu"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1ivx7uu"
                 role="row"
               >
                 <div
@@ -6388,11 +6331,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -6400,9 +6342,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -7089,7 +7029,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7183,11 +7123,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -7195,9 +7134,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -7264,7 +7201,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7333,11 +7270,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -7345,9 +7281,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -7414,7 +7348,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7494,11 +7428,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 3, New runs: 3"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -7506,9 +7439,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -7575,7 +7506,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7655,11 +7586,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -7667,9 +7597,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
@@ -7736,7 +7664,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow ffduijv f161t6v MuiBox-root css-1tzk3e"
+                class="revisionRow fbf0zkr f161t6v MuiBox-root css-1tzk3e"
                 role="row"
               >
                 <div
@@ -7805,11 +7733,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="total-runs cell"
                   role="cell"
+                  title="Base runs: 2, New runs: 2"
                 >
                   <span>
-                    <span
-                      title="Base runs"
-                    >
+                    <span>
                       B:
                     </span>
                     <strong>
@@ -7817,9 +7744,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     </strong>
                   </span>
                   <span>
-                    <span
-                      title="New runs"
-                    >
+                    <span>
                       N:
                     </span>
                     <strong>
