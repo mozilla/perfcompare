@@ -17,6 +17,16 @@ export const Strings = {
       linkText: '#perfcompare:mozilla.org on Matrix',
       href: 'https://matrix.to/#/#perfcompare:mozilla.org',
     },
+    docs: {
+      text: 'View the docs at',
+      linkText: 'PerfCompare documentation',
+      href: 'https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html',
+    },
+    source: {
+      text: 'View the source code on',
+      linkText: 'GitHub',
+      href: 'https://github.com/mozilla/perfcompare',
+    },
     header: {
       title: 'PerfCompare',
       tagline:
