@@ -67,7 +67,7 @@ exports[`Results Table Should match snapshot 1`] = `
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
@@ -1246,7 +1246,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     role="columnheader"
                   >
                     <div
-                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
+                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
                       role="group"
                     >
                       <button
@@ -2678,7 +2678,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
@@ -3896,7 +3896,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     role="columnheader"
                   >
                     <div
-                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
+                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
                       role="group"
                     >
                       <button

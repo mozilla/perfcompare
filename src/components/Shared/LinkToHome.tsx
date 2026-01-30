@@ -15,7 +15,7 @@ export function LinkToHome() {
 
   return (
     <Box className={styles.box}>
-      <Link href='/' aria-label='link to home'>
+      <Link href='/' aria-label='link to home' sx={{ display: 'inline-flex' }}>
         <Stack
           direction='row'
           sx={{
