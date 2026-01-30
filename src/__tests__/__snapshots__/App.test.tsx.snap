@@ -120,7 +120,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
@@ -381,7 +381,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
@@ -537,7 +537,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
