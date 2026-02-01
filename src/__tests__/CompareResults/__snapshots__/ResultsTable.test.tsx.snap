@@ -71,7 +71,7 @@ exports[`Results Table Should match snapshot 1`] = `
             href="/"
           >
             <div
-              class="MuiStack-root css-1d9cypr-MuiStack-root"
+              class="MuiStack-root css-ljomt-MuiStack-root"
             >
               <svg
                 aria-hidden="true"
@@ -84,9 +84,11 @@ exports[`Results Table Should match snapshot 1`] = `
                   d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
                 />
               </svg>
-              <p>
+              <span
+                class="MuiBox-root css-0"
+              >
                 Home
-              </p>
+              </span>
             </div>
           </a>
         </div>
@@ -1246,7 +1248,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     role="columnheader"
                   >
                     <div
-                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
+                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
                       role="group"
                     >
                       <button
@@ -2682,7 +2684,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
             href="/"
           >
             <div
-              class="MuiStack-root css-1d9cypr-MuiStack-root"
+              class="MuiStack-root css-ljomt-MuiStack-root"
             >
               <svg
                 aria-hidden="true"
@@ -2695,9 +2697,11 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
                 />
               </svg>
-              <p>
+              <span
+                class="MuiBox-root css-0"
+              >
                 Home
-              </p>
+              </span>
             </div>
           </a>
         </div>
@@ -3896,7 +3900,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     role="columnheader"
                   >
                     <div
-                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
+                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
                       role="group"
                     >
                       <button

@@ -20,10 +20,12 @@ export function LinkToHome() {
           direction='row'
           sx={{
             alignItems: 'center',
+            gap: 0.5,
+            display: 'inline-flex',
           }}
         >
           <ChevronLeftIcon fontSize='small' />
-          <p>Home</p>
+          <Box component='span'>Home</Box>
         </Stack>
       </Link>
     </Box>
