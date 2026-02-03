@@ -63,6 +63,7 @@ const revisionRow = style({
     },
     '.total-runs': {
       gap: '8px',
+      cursor: 'pointer',
     },
     '.row-buttons': {
       borderRadius: '0px 4px 4px 0px',
@@ -318,13 +319,17 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           result,
           expanded,
         )}
-        <div className='total-runs cell' role='cell'>
+        <div
+          className='total-runs cell'
+          title={`Base runs: ${baseRunsCount}, New runs: ${newRunsCount}`}
+          role='cell'
+        >
           <span>
-            <span title='Base runs'>B:</span>
+            <span>B:</span>
             <strong>{baseRunsCount}</strong>
           </span>
           <span>
-            <span title='New runs'>N:</span>
+            <span>N:</span>
             <strong>{newRunsCount}</strong>
           </span>
         </div>

@@ -1434,7 +1434,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -1530,11 +1530,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             <div
                               class="total-runs cell"
                               role="cell"
+                              title="Base runs: 1, New runs: 1"
                             >
                               <span>
-                                <span
-                                  title="Base runs"
-                                >
+                                <span>
                                   B:
                                 </span>
                                 <strong>
@@ -1542,9 +1541,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 </strong>
                               </span>
                               <span>
-                                <span
-                                  title="New runs"
-                                >
+                                <span>
                                   N:
                                 </span>
                                 <strong>
@@ -1644,7 +1641,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -1741,11 +1738,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             <div
                               class="total-runs cell"
                               role="cell"
+                              title="Base runs: 1, New runs: 1"
                             >
                               <span>
-                                <span
-                                  title="Base runs"
-                                >
+                                <span>
                                   B:
                                 </span>
                                 <strong>
@@ -1753,9 +1749,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 </strong>
                               </span>
                               <span>
-                                <span
-                                  title="New runs"
-                                >
+                                <span>
                                   N:
                                 </span>
                                 <strong>
@@ -1855,7 +1849,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -1941,11 +1935,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             <div
                               class="total-runs cell"
                               role="cell"
+                              title="Base runs: 1, New runs: 1"
                             >
                               <span>
-                                <span
-                                  title="Base runs"
-                                >
+                                <span>
                                   B:
                                 </span>
                                 <strong>
@@ -1953,9 +1946,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 </strong>
                               </span>
                               <span>
-                                <span
-                                  title="New runs"
-                                >
+                                <span>
                                   N:
                                 </span>
                                 <strong>
@@ -2136,7 +2127,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
                             role="row"
                           >
                             <div
@@ -2211,11 +2202,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             <div
                               class="total-runs cell"
                               role="cell"
+                              title="Base runs: 1, New runs: 1"
                             >
                               <span>
-                                <span
-                                  title="Base runs"
-                                >
+                                <span>
                                   B:
                                 </span>
                                 <strong>
@@ -2223,9 +2213,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 </strong>
                               </span>
                               <span>
-                                <span
-                                  title="New runs"
-                                >
+                                <span>
                                   N:
                                 </span>
                                 <strong>
@@ -4117,7 +4105,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
                             role="row"
                           >
                             <div
@@ -4208,11 +4196,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             <div
                               class="total-runs cell"
                               role="cell"
+                              title="Base runs: 1, New runs: 1"
                             >
                               <span>
-                                <span
-                                  title="Base runs"
-                                >
+                                <span>
                                   B:
                                 </span>
                                 <strong>
@@ -4220,9 +4207,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 </strong>
                               </span>
                               <span>
-                                <span
-                                  title="New runs"
-                                >
+                                <span>
                                   N:
                                 </span>
                                 <strong>
@@ -4322,7 +4307,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
                             role="row"
                           >
                             <div
@@ -4414,11 +4399,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             <div
                               class="total-runs cell"
                               role="cell"
+                              title="Base runs: 1, New runs: 1"
                             >
                               <span>
-                                <span
-                                  title="Base runs"
-                                >
+                                <span>
                                   B:
                                 </span>
                                 <strong>
@@ -4426,9 +4410,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 </strong>
                               </span>
                               <span>
-                                <span
-                                  title="New runs"
-                                >
+                                <span>
                                   N:
                                 </span>
                                 <strong>
@@ -4528,7 +4510,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
                             role="row"
                           >
                             <div
@@ -4607,11 +4589,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             <div
                               class="total-runs cell"
                               role="cell"
+                              title="Base runs: 1, New runs: 1"
                             >
                               <span>
-                                <span
-                                  title="Base runs"
-                                >
+                                <span>
                                   B:
                                 </span>
                                 <strong>
@@ -4619,9 +4600,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 </strong>
                               </span>
                               <span>
-                                <span
-                                  title="New runs"
-                                >
+                                <span>
                                   N:
                                 </span>
                                 <strong>
@@ -4802,7 +4781,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
                             role="row"
                           >
                             <div
@@ -4881,11 +4860,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             <div
                               class="total-runs cell"
                               role="cell"
+                              title="Base runs: 0, New runs: 0"
                             >
                               <span>
-                                <span
-                                  title="Base runs"
-                                >
+                                <span>
                                   B:
                                 </span>
                                 <strong>
@@ -4893,9 +4871,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 </strong>
                               </span>
                               <span>
-                                <span
-                                  title="New runs"
-                                >
+                                <span>
                                   N:
                                 </span>
                                 <strong>
@@ -5449,7 +5425,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-1ovr9mp"
+      class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
       role="row"
     >
       <div
@@ -5541,11 +5517,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       <div
         class="total-runs cell"
         role="cell"
+        title="Base runs: 1, New runs: 1"
       >
         <span>
-          <span
-            title="Base runs"
-          >
+          <span>
             B:
           </span>
           <strong>
@@ -5553,9 +5528,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           </strong>
         </span>
         <span>
-          <span
-            title="New runs"
-          >
+          <span>
             N:
           </span>
           <strong>
@@ -5694,7 +5667,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-1ovr9mp"
+      class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
       role="row"
     >
       <div
@@ -5786,11 +5759,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       <div
         class="total-runs cell"
         role="cell"
+        title="Base runs: 1, New runs: 1"
       >
         <span>
-          <span
-            title="Base runs"
-          >
+          <span>
             B:
           </span>
           <strong>
@@ -5798,9 +5770,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           </strong>
         </span>
         <span>
-          <span
-            title="New runs"
-          >
+          <span>
             N:
           </span>
           <strong>
@@ -5996,7 +5966,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+      class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
       role="row"
     >
       <div
@@ -6093,11 +6063,10 @@ exports[`Results Table should render different blocks when rendering several rev
       <div
         class="total-runs cell"
         role="cell"
+        title="Base runs: 1, New runs: 1"
       >
         <span>
-          <span
-            title="Base runs"
-          >
+          <span>
             B:
           </span>
           <strong>
@@ -6105,9 +6074,7 @@ exports[`Results Table should render different blocks when rendering several rev
           </strong>
         </span>
         <span>
-          <span
-            title="New runs"
-          >
+          <span>
             N:
           </span>
           <strong>
@@ -6246,7 +6213,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow f1w6zz10 f1dlt78d MuiBox-root css-oluxz7"
+      class="revisionRow f15ninac f1dlt78d MuiBox-root css-oluxz7"
       role="row"
     >
       <div
@@ -6343,11 +6310,10 @@ exports[`Results Table should render different blocks when rendering several rev
       <div
         class="total-runs cell"
         role="cell"
+        title="Base runs: 1, New runs: 1"
       >
         <span>
-          <span
-            title="Base runs"
-          >
+          <span>
             B:
           </span>
           <strong>
@@ -6355,9 +6321,7 @@ exports[`Results Table should render different blocks when rendering several rev
           </strong>
         </span>
         <span>
-          <span
-            title="New runs"
-          >
+          <span>
             N:
           </span>
           <strong>

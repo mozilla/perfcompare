@@ -4,7 +4,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
 <body>
   <div>
     <div
-      class="revisionRow ffduijv f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow fbf0zkr f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -98,11 +98,10 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
       <div
         class="total-runs cell"
         role="cell"
+        title="Base runs: 3, New runs: 3"
       >
         <span>
-          <span
-            title="Base runs"
-          >
+          <span>
             B:
           </span>
           <strong>
@@ -110,9 +109,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
           </strong>
         </span>
         <span>
-          <span
-            title="New runs"
-          >
+          <span>
             N:
           </span>
           <strong>
@@ -186,7 +183,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
 <body>
   <div>
     <div
-      class="revisionRow ffduijv f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow fbf0zkr f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -255,11 +252,10 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
       <div
         class="total-runs cell"
         role="cell"
+        title="Base runs: 2, New runs: 2"
       >
         <span>
-          <span
-            title="Base runs"
-          >
+          <span>
             B:
           </span>
           <strong>
@@ -267,9 +263,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
           </strong>
         </span>
         <span>
-          <span
-            title="New runs"
-          >
+          <span>
             N:
           </span>
           <strong>
@@ -343,7 +337,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
 <body>
   <div>
     <div
-      class="revisionRow ffduijv f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow fbf0zkr f161t6v MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -412,11 +406,10 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
       <div
         class="total-runs cell"
         role="cell"
+        title="Base runs: 2, New runs: 2"
       >
         <span>
-          <span
-            title="Base runs"
-          >
+          <span>
             B:
           </span>
           <strong>
@@ -424,9 +417,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
           </strong>
         </span>
         <span>
-          <span
-            title="New runs"
-          >
+          <span>
             N:
           </span>
           <strong>
