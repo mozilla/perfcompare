@@ -63,7 +63,7 @@ exports[`Results Table Should match snapshot 1`] = `
         class="container_f1h7ern2"
       >
         <div
-          class="fgqequq MuiBox-root css-0"
+          class="MuiBox-root css-i3pbo"
         >
           <a
             aria-label="link to home"
@@ -2676,7 +2676,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="container_f1h7ern2"
       >
         <div
-          class="fgqequq MuiBox-root css-0"
+          class="MuiBox-root css-i3pbo"
         >
           <a
             aria-label="link to home"
