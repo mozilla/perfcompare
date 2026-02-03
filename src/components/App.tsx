@@ -45,6 +45,18 @@ const contact: InfoStrings = {
   href: Strings.components.contact.href,
 };
 
+const docs: InfoStrings = {
+  text: Strings.components.docs.text,
+  linkText: Strings.components.docs.linkText,
+  href: Strings.components.docs.href,
+};
+
+const source: InfoStrings = {
+  text: Strings.components.source.text,
+  linkText: Strings.components.source.linkText,
+  href: Strings.components.source.href,
+};
+
 type DivProps = React.HTMLProps<HTMLDivElement>;
 
 const AlertContainer = React.forwardRef<HTMLDivElement, DivProps>(
@@ -177,6 +189,16 @@ function App() {
               {contact.text}{' '}
               <Link href={contact.href} target='_blank'>
                 {contact.linkText}
+              </Link>
+              {'. '}
+              {docs.text}{' '}
+              <Link href={docs.href} target='_blank'>
+                {docs.linkText}
+              </Link>
+              {'. '}
+              {source.text}{' '}
+              <Link href={source.href} target='_blank'>
+                {source.linkText}
               </Link>
               .
             </div>

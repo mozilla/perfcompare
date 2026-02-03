@@ -53,6 +53,26 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           >
             #perfcompare:mozilla.org on Matrix
           </a>
+          . 
+          View the docs at
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+            target="_blank"
+          >
+            PerfCompare documentation
+          </a>
+          . 
+          View the source code on
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="https://github.com/mozilla/perfcompare"
+            target="_blank"
+          >
+            GitHub
+          </a>
           .
         </div>
       </div>
@@ -314,6 +334,26 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           >
             #perfcompare:mozilla.org on Matrix
           </a>
+          . 
+          View the docs at
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+            target="_blank"
+          >
+            PerfCompare documentation
+          </a>
+          . 
+          View the source code on
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="https://github.com/mozilla/perfcompare"
+            target="_blank"
+          >
+            GitHub
+          </a>
           .
         </div>
       </div>
@@ -469,6 +509,26 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             target="_blank"
           >
             #perfcompare:mozilla.org on Matrix
+          </a>
+          . 
+          View the docs at
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+            target="_blank"
+          >
+            PerfCompare documentation
+          </a>
+          . 
+          View the source code on
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            href="https://github.com/mozilla/perfcompare"
+            target="_blank"
+          >
+            GitHub
           </a>
           .
         </div>
