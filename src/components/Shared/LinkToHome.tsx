@@ -2,28 +2,21 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
-import { style } from 'typestyle';
-
-import { Spacing } from '../../styles';
 
 export function LinkToHome() {
-  const styles = {
-    box: style({
-      marginBottom: `${Spacing.Small + 1}px`,
-    }),
-  };
-
   return (
-    <Box className={styles.box}>
-      <Link href='/' aria-label='link to home'>
+    <Box sx={{ mb: 3 }}>
+      <Link href='/' aria-label='link to home' sx={{ display: 'inline-flex' }}>
         <Stack
           direction='row'
           sx={{
             alignItems: 'center',
+            gap: 0.5,
+            display: 'inline-flex',
           }}
         >
           <ChevronLeftIcon fontSize='small' />
-          <p>Home</p>
+          <Box component='span'>Home</Box>
         </Stack>
       </Link>
     </Box>

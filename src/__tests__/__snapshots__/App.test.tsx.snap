@@ -116,15 +116,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="container_f1h7ern2"
       >
         <div
-          class="fgqequq MuiBox-root css-0"
+          class="MuiBox-root css-i3pbo"
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
-              class="MuiStack-root css-1d9cypr-MuiStack-root"
+              class="MuiStack-root css-ljomt-MuiStack-root"
             >
               <svg
                 aria-hidden="true"
@@ -137,9 +137,11 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                   d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
                 />
               </svg>
-              <p>
+              <span
+                class="MuiBox-root css-0"
+              >
                 Home
-              </p>
+              </span>
             </div>
           </a>
         </div>
@@ -377,15 +379,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="container_f1h7ern2"
       >
         <div
-          class="fgqequq MuiBox-root css-0"
+          class="MuiBox-root css-i3pbo"
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
-              class="MuiStack-root css-1d9cypr-MuiStack-root"
+              class="MuiStack-root css-ljomt-MuiStack-root"
             >
               <svg
                 aria-hidden="true"
@@ -398,9 +400,11 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                   d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
                 />
               </svg>
-              <p>
+              <span
+                class="MuiBox-root css-0"
+              >
                 Home
-              </p>
+              </span>
             </div>
           </a>
         </div>
@@ -533,15 +537,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="container_f1h7ern2"
       >
         <div
-          class="fgqequq MuiBox-root css-0"
+          class="MuiBox-root css-i3pbo"
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
-              class="MuiStack-root css-1d9cypr-MuiStack-root"
+              class="MuiStack-root css-ljomt-MuiStack-root"
             >
               <svg
                 aria-hidden="true"
@@ -554,9 +558,11 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                   d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
                 />
               </svg>
-              <p>
+              <span
+                class="MuiBox-root css-0"
+              >
                 Home
-              </p>
+              </span>
             </div>
           </a>
         </div>
