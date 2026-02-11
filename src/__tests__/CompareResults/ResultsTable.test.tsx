@@ -1196,4 +1196,31 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
       expectParameterToHaveValue('test_version', 'mann-whitney-u');
     });
   });
+
+  it('should remove replicates parameter when switching from Mann-Whitney-U to Student-T', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=mann-whitney-u&replicates=');
+    await screen.findByText('a11yr');
+
+    // Verify initial state
+    expectParameterToHaveValue('test_version', 'mann-whitney-u');
+    expectParameterToHaveValue('replicates', '');
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const testVersionDropdown = screen.getByRole('combobox', {
+      name: 'Stats Test Version',
+    });
+    await user.click(testVersionDropdown);
+    const studentTOption = await screen.findByRole('option', {
+      name: 'Student-T',
+    });
+    await user.click(studentTOption);
+
+    // Wait for the URL to update - replicates should be removed
+    await waitFor(() => {
+      expectParameterToHaveValue('test_version', 'student-t');
+      const searchParams = new URLSearchParams(window.location.search);
+      expect(searchParams.has('replicates')).toBe(false);
+    });
+  });
 });
