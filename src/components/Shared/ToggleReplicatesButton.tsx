@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { FormControlLabel, FormGroup } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -23,6 +23,10 @@ function ToggleReplicatesButton() {
     loaderData.replicates,
   );
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    setToggleReplicates(loaderData.replicates);
+  }, [loaderData.replicates]);
 
   const onToggleReplicates = () => {
     setToggleReplicates(!toggleReplicates);

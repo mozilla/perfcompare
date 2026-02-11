@@ -1,4 +1,4 @@
-import { repoMap, frameworks, STUDENT_T } from '../../common/constants';
+import { repoMap, frameworks, MANN_WHITNEY_U } from '../../common/constants';
 import { fetchSubtestsCompareResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
@@ -13,6 +13,7 @@ function checkValues({
   framework,
   baseParentSignature,
   newParentSignature,
+  replicates,
   testVersion,
 }: {
   baseRev: string | null;
@@ -22,6 +23,7 @@ function checkValues({
   framework: string | number | null;
   baseParentSignature: string | null;
   newParentSignature: string | null;
+  replicates: boolean;
   testVersion?: TestVersion;
 }): {
   baseRev: string;
@@ -32,6 +34,7 @@ function checkValues({
   frameworkName: Framework['name'];
   baseParentSignature: string;
   newParentSignature: string;
+  replicates: boolean;
   testVersion?: TestVersion;
 } {
   if (baseRev === null) {
@@ -93,8 +96,13 @@ function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
+
+  if (testVersion === MANN_WHITNEY_U || testVersion === null) {
+    replicates = true;
+  }
+
   if (!testVersion) {
-    testVersion = STUDENT_T;
+    testVersion = MANN_WHITNEY_U;
   }
 
   return {
@@ -106,6 +114,7 @@ function checkValues({
     frameworkName,
     baseParentSignature,
     newParentSignature,
+    replicates,
     testVersion,
   };
 }
@@ -130,9 +139,9 @@ export function loader({ request }: { request: Request }) {
     'baseParentSignature',
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
-  const replicates = url.searchParams.has('replicates');
+  const replicatesFromUrl = url.searchParams.has('replicates');
   const testVersionFromUrl = (url.searchParams.get('test_version') ??
-    STUDENT_T) as TestVersion;
+    MANN_WHITNEY_U) as TestVersion;
 
   const {
     baseRev,
@@ -143,6 +152,7 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     newParentSignature,
     baseParentSignature,
+    replicates,
     testVersion,
   } = checkValues({
     baseRev: baseRevFromUrl,
@@ -152,6 +162,7 @@ export function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
+    replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
 

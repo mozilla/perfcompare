@@ -2,7 +2,7 @@ import {
   repoMap,
   frameworks,
   timeRanges,
-  STUDENT_T,
+  MANN_WHITNEY_U,
 } from '../../common/constants';
 import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
@@ -18,6 +18,7 @@ function checkValues({
   interval,
   baseParentSignature,
   newParentSignature,
+  replicates,
   testVersion,
 }: {
   baseRepo: Repository['name'] | null;
@@ -27,6 +28,7 @@ function checkValues({
   interval: string | number | null;
   baseParentSignature: string | null;
   newParentSignature: string | null;
+  replicates: boolean;
   testVersion?: TestVersion | null;
 }): {
   baseRepo: Repository['name'];
@@ -38,6 +40,7 @@ function checkValues({
   intervalText: TimeRange['text'];
   baseParentSignature: string;
   newParentSignature: string;
+  replicates: boolean;
   testVersion: TestVersion;
 } {
   if (baseRepo === null) {
@@ -117,8 +120,13 @@ function checkValues({
       `The parameter interval isn't a valid value: "${interval}".`,
     );
   }
+
+  if (testVersion === MANN_WHITNEY_U || testVersion === null) {
+    replicates = true;
+  }
+
   if (!testVersion) {
-    testVersion = STUDENT_T;
+    testVersion = MANN_WHITNEY_U;
   }
 
   return {
@@ -131,6 +139,7 @@ function checkValues({
     intervalValue,
     baseParentSignature,
     newParentSignature,
+    replicates,
     testVersion,
   };
 }
@@ -155,7 +164,7 @@ export function loader({ request }: { request: Request }) {
     'baseParentSignature',
   );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
-  const replicates = url.searchParams.has('replicates');
+  const replicatesFromUrl = url.searchParams.has('replicates');
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
@@ -169,6 +178,7 @@ export function loader({ request }: { request: Request }) {
     intervalText,
     baseParentSignature,
     newParentSignature,
+    replicates,
     testVersion,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
@@ -178,6 +188,7 @@ export function loader({ request }: { request: Request }) {
     interval: intervalFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
+    replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
 

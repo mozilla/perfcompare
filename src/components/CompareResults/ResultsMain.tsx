@@ -175,7 +175,7 @@ function ResultsMain() {
               >
                 {Strings.components.mannWhitneyUWarning.linkText}
               </Link>
-              {'. '}
+              {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}
             </Alert>
           </Grid>
         )}
