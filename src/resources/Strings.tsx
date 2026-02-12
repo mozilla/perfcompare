@@ -101,6 +101,9 @@ export const Strings = {
       text2:
         'The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.',
     },
+    studentTTestWarning: {
+      text: 'This performance comparison technique will be removed in the coming year. Mann-Whitney-U test option will still be available.',
+    },
     revisionRow: {
       title: {
         subtestsLink: 'open the subtests for this result',
