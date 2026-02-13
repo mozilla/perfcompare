@@ -19,9 +19,8 @@ const getLatestCommitMessage = (item: Changeset) => {
   const lastUsefulRevision =
     isTry && revisions.length > 1 ? revisions[1] : revisions[0];
 
-  // Fix for Bug 1999558: In case of single line commit message with no newline
-  // at the end, use the entire commit message and do not check for newline at
-  // the end
+  // In case of single line commit message with no newline at the end,
+  // use the entire commit message and do not check for newline character
   const lastUsefulSummaryLength =
     lastUsefulRevision.comments.indexOf('\n') === -1
       ? lastUsefulRevision.comments.length
