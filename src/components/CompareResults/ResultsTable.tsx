@@ -9,7 +9,7 @@ import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeL
 import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
-import { STUDENT_T } from '../../common/constants';
+import { MANN_WHITNEY_U } from '../../common/constants';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
@@ -34,7 +34,7 @@ export default function ResultsTable() {
 
   const columnsConfig = getColumnsConfiguration(
     false,
-    testVersion ?? STUDENT_T,
+    testVersion ?? MANN_WHITNEY_U,
   );
 
   // This is our custom hook that manages table filters
@@ -48,7 +48,7 @@ export default function ResultsTable() {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
   const [testVersionVal, setTestVersionVal] = useState<TestVersion>(
-    testVersion ?? STUDENT_T,
+    testVersion ?? MANN_WHITNEY_U,
   );
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
@@ -70,6 +70,9 @@ export default function ResultsTable() {
   const onTestVersionChange = (testVersion: TestVersion): void => {
     setTestVersionVal(testVersion);
     searchParams.set('test_version', testVersion);
+    if (testVersion !== MANN_WHITNEY_U) {
+      searchParams.delete('replicates');
+    }
     setSearchParams(searchParams);
   };
 

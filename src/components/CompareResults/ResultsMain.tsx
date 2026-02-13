@@ -10,13 +10,13 @@ import { style } from 'typestyle';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
-import { MANN_WHITNEY_U } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import { Strings } from '../../resources/Strings';
 import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
+import type { TestVersion } from '../../types/types';
 import EditTitleInput from '../CompareResults/EditTitleInput';
 import ToggleReplicatesButton from '../Shared/ToggleReplicatesButton';
 
@@ -24,8 +24,7 @@ type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 
 function ResultsMain() {
   const loaderData = useLoaderData<CombinedLoaderReturnValue>();
-  const displayMannWhitneyUWarning = loaderData.testVersion === MANN_WHITNEY_U;
-
+  const testVersion = loaderData.testVersion;
   const themeMode = useAppSelector((state) => state.theme.mode);
 
   const themeColor100 =
@@ -123,6 +122,26 @@ function ResultsMain() {
     />
   );
 
+  const testWarnings: Record<TestVersion, React.JSX.Element> = {
+    'mann-whitney-u': (
+      <Alert severity='warning' className={styles.alert}>
+        {Strings.components.mannWhitneyUWarning.text}{' '}
+        <Link
+          href={Strings.components.mannWhitneyUWarning.href}
+          target='_blank'
+        >
+          {Strings.components.mannWhitneyUWarning.linkText}
+        </Link>
+        {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}
+      </Alert>
+    ),
+    'student-t': (
+      <Alert severity='warning' className={styles.alert}>
+        {Strings.components.studentTTestWarning.text}
+      </Alert>
+    ),
+  };
+
   return (
     <Container
       maxWidth={false}
@@ -165,20 +184,10 @@ function ResultsMain() {
             <ToggleReplicatesButton />
           </Grid>
         </Grid>
-        {displayMannWhitneyUWarning && (
-          <Grid container sx={titleContainerSx}>
-            <Alert severity='warning' className={styles.alert}>
-              {Strings.components.mannWhitneyUWarning.text}{' '}
-              <Link
-                href={Strings.components.mannWhitneyUWarning.href}
-                target='_blank'
-              >
-                {Strings.components.mannWhitneyUWarning.linkText}
-              </Link>
-              {'. '}
-            </Alert>
-          </Grid>
-        )}
+
+        <Grid container sx={titleContainerSx}>
+          {testWarnings[testVersion] ?? testWarnings['mann-whitney-u']}
+        </Grid>
       </header>
       <ResultsTable />
     </Container>

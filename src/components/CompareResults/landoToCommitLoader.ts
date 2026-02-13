@@ -29,7 +29,7 @@ export async function loader({ request }: { request: Request }) {
       'Not all values were supplied please check you provided both baseLando and newLando',
     );
   }
-  const replicates = url.searchParams.has('replicates');
+  const replicatesFromUrl = url.searchParams.has('replicates');
 
   const baseRevisionsFromLando =
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
@@ -45,6 +45,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
     testVersion,
   } = checkValues({
     baseRev: baseRevisionsFromLando.commit_id,
@@ -52,6 +53,7 @@ export async function loader({ request }: { request: Request }) {
     newRevs: [newRevisionsFromLando.commit_id],
     newRepos: newReposFromUrl,
     framework: frameworkFromUrl,
+    replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
   return await getComparisonInformation(
