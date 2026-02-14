@@ -4681,7 +4681,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="_r_5f_"
+  id="_r_5j_"
   role="listbox"
   tabindex="-1"
 >
