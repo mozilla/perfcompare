@@ -14,7 +14,7 @@ import {
 } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
-import { Colors, Spacing } from '../../../styles';
+import { Spacing } from '../../../styles';
 import type {
   SubtestsRevisionsHeader,
   PlatformShortName,
@@ -24,6 +24,8 @@ import {
   getTreeherderURL,
   truncateHash,
   getDocsURL,
+  getOptionTagTextColor,
+  getOptionTagBackgroundColor,
 } from '../../../utils/helpers';
 import {
   getPlatformAndVersion,
@@ -113,6 +115,11 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
       : getTimeRange(header.base_repo);
 
   const themeMode = useAppSelector((state) => state.theme.mode);
+  const [
+    optionTagBackground3n,
+    optionTagBackground3n1,
+    optionTagBackground3n2,
+  ] = getOptionTagBackgroundColor(themeMode);
 
   const styles = {
     revisionHeader: style({
@@ -125,29 +132,19 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
       textAlign: 'right',
       $nest: {
         'span:nth-child(3n)': {
-          background:
-            themeMode === 'light'
-              ? Colors.TagOptionBackground3n
-              : Colors.TagOptionBackground3nDark,
+          background: optionTagBackground3n,
         },
         'span:nth-child(3n+1)': {
-          background:
-            themeMode === 'light'
-              ? Colors.TagOptionBackground3n1
-              : Colors.TagOptionBackground3n1Dark,
+          background: optionTagBackground3n1,
         },
         'span:nth-child(3n+2)': {
-          background:
-            themeMode === 'light'
-              ? Colors.TagOptionBackground3n2
-              : Colors.TagOptionBackground3n2Dark,
+          background: optionTagBackground3n2,
         },
       },
     }),
     chip: style({
       borderRadius: '4px',
-      color:
-        themeMode === 'light' ? Colors.InvertedText : Colors.InvertedTextDark,
+      color: getOptionTagTextColor(themeMode),
       fontFamily: 'SF Pro',
       fontStyle: 'normal',
       fontWeight: 700,

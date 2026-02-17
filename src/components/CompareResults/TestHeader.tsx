@@ -6,7 +6,11 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
-import { getDocsURL } from '../../utils/helpers';
+import {
+  getDocsURL,
+  getOptionTagTextColor,
+  getOptionTagBackgroundColor,
+} from '../../utils/helpers';
 
 type HeaderProperties = Pick<
   CompareResultsItem,
@@ -59,6 +63,12 @@ export default function TestHeader(props: TestHeaderProps) {
   const extraOptions = getExtraOptions(result.extra_options);
   const themeMode = useAppSelector((state) => state.theme.mode);
 
+  const [
+    optionTagBackground3n,
+    optionTagBackground3n1,
+    optionTagBackground3n2,
+  ] = getOptionTagBackgroundColor(themeMode);
+
   const styles = {
     revisionHeader: style({
       borderBottom: `0.5px solid ${Colors.BorderDropdownMenu}`,
@@ -76,29 +86,19 @@ export default function TestHeader(props: TestHeaderProps) {
       textAlign: 'right',
       $nest: {
         'span:nth-child(3n)': {
-          background:
-            themeMode === 'light'
-              ? Colors.TagOptionBackground3n
-              : Colors.TagOptionBackground3nDark,
+          background: optionTagBackground3n,
         },
         'span:nth-child(3n+1)': {
-          background:
-            themeMode === 'light'
-              ? Colors.TagOptionBackground3n1
-              : Colors.TagOptionBackground3n1Dark,
+          background: optionTagBackground3n1,
         },
         'span:nth-child(3n+2)': {
-          background:
-            themeMode === 'light'
-              ? Colors.TagOptionBackground3n2
-              : Colors.TagOptionBackground3n2Dark,
+          background: optionTagBackground3n2,
         },
       },
     }),
     chip: style({
       borderRadius: '4px',
-      color:
-        themeMode === 'light' ? Colors.InvertedText : Colors.InvertedTextDark,
+      color: getOptionTagTextColor(themeMode),
       // To be removed
       fontFamily: 'SF Pro',
       fontStyle: 'normal',

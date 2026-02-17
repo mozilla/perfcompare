@@ -6,6 +6,7 @@ import {
   nonDocumentedTestsDevTools,
   supportedPerfdocsFrameworks,
 } from '../common/constants';
+import { Colors } from '../styles/Colors';
 import type { Repository, Changeset } from '../types/state';
 import type { Framework, SupportedPerfdocsFramework } from '../types/types';
 
@@ -154,6 +155,32 @@ const capitalize = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
+// Get the Option Tag background for the given theme (light or dark)
+const getOptionTagBackgroundColor = (theme: string) => {
+  if (theme === 'light') {
+    return [
+      Colors.TagOptionBackground3n,
+      Colors.TagOptionBackground3n1,
+      Colors.TagOptionBackground3n2,
+    ];
+  } else {
+    return [
+      Colors.TagOptionBackground3nDark,
+      Colors.TagOptionBackground3n1Dark,
+      Colors.TagOptionBackground3n2Dark,
+    ];
+  }
+};
+
+// Get the Option Tag text color for the given theme (light or dark)
+const getOptionTagTextColor = (theme: string) => {
+  if (theme === 'light') {
+    return Colors.InvertedText;
+  } else {
+    return Colors.InvertedTextDark;
+  }
+};
+
 export {
   formatDate,
   getLatestCommitMessage,
@@ -164,4 +191,6 @@ export {
   getDocsURL,
   getModeInterpretation,
   capitalize,
+  getOptionTagBackgroundColor,
+  getOptionTagTextColor,
 };

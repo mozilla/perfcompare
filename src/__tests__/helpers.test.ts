@@ -7,8 +7,11 @@ import {
   getDocsURL,
   getModeInterpretation,
   capitalize,
+  getOptionTagTextColor,
+  getOptionTagBackgroundColor,
 } from '../utils/helpers';
 import getTestData from './utils/fixtures';
+import { Colors } from '../styles/Colors';
 
 describe('getDocsURL Helper', () => {
   it('should return the correct URL for a supported perfdocs framework', () => {
@@ -209,5 +212,37 @@ describe('capitalize', () => {
   it('should handle empty string', () => {
     const capializedString3 = capitalize(string3);
     expect(capializedString3).toBe('');
+  });
+});
+
+describe('getOptionTagTextColor', () => {
+  it('should return correct text color for light theme', () => {
+    const textColor = getOptionTagTextColor('light');
+    expect(textColor).toBe(Colors.InvertedText);
+  });
+
+  it('should return correct text color for dark theme', () => {
+    const textColor = getOptionTagTextColor('dark');
+    expect(textColor).toBe(Colors.InvertedTextDark);
+  });
+});
+
+describe('getOptionTagBackgroundColor', () => {
+  it('should return correct background color for light theme', () => {
+    const backgroundColors = getOptionTagBackgroundColor('light');
+    expect(backgroundColors).toEqual([
+      Colors.TagOptionBackground3n,
+      Colors.TagOptionBackground3n1,
+      Colors.TagOptionBackground3n2,
+    ]);
+  });
+
+  it('should return correct background color for dark theme', () => {
+    const backgroundColors = getOptionTagBackgroundColor('dark');
+    expect(backgroundColors).toEqual([
+      Colors.TagOptionBackground3nDark,
+      Colors.TagOptionBackground3n1Dark,
+      Colors.TagOptionBackground3n2Dark,
+    ]);
   });
 });
