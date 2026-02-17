@@ -2,6 +2,7 @@ import { useState, Suspense } from 'react';
 
 import { Grid, Skeleton, Stack } from '@mui/material';
 import Alert from '@mui/material/Alert';
+import Link from '@mui/material/Link';
 import { Container } from '@mui/system';
 import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
@@ -146,7 +147,14 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         </Grid>
         {displayMannWhitneyUWarning && (
           <Alert severity='warning' className={styles.title}>
-            {Strings.components.mannWhitneyUWarning.text}
+            {Strings.components.mannWhitneyUWarning.text}{' '}
+            <Link
+              href={Strings.components.mannWhitneyUWarning.href}
+              target='_blank'
+            >
+              {Strings.components.mannWhitneyUWarning.linkText}
+            </Link>
+            {'. '}
           </Alert>
         )}
         <Suspense

@@ -350,5 +350,36 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
     });
+
+    it('Should default testVersion to mann-whitney-u when not provided in URL', async () => {
+      const { testCompareMannWhitneyData } = getTestData();
+      fetchMock.get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareMannWhitneyData,
+      );
+
+      // Navigate without test_version parameter
+      await router.navigate(
+        '/compare-results/?baseRev=spam&baseRepo=try&framework=1',
+      );
+      render(<App />);
+
+      // Wait for the page to load
+      await screen.findByText('a11yr');
+
+      // Verify that Mann-Whitney-U specific columns are rendered
+      // (this indicates the testVersion defaulted to mann-whitney-u)
+      expect(screen.getByText("Cliff's Delta")).toBeInTheDocument();
+      expect(screen.getByText('Significance')).toBeInTheDocument();
+      expect(screen.getByText('Effect Size (%)')).toBeInTheDocument();
+
+      // Verify the Stats Test Version dropdown shows Mann-Whitney-U as selected
+      const testVersionDropdown = screen.getByRole('combobox', {
+        name: 'Stats Test Version',
+      });
+      expect(testVersionDropdown).toHaveTextContent('Mann-Whitney-U');
+
+      await waitForAllFetches();
+    });
   });
 });

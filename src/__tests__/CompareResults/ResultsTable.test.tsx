@@ -14,7 +14,7 @@ import getTestData, {
   augmentCompareMannWhitneyDataWithSeveralRevisions,
   augmentCompareMannWhitneyDataWithSeveralTests,
 } from '../utils/fixtures';
-import { renderWithRouter, screen, within } from '../utils/test-utils';
+import { renderWithRouter, screen, waitFor, within } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement, extraParameters?: string) {
   return renderWithRouter(component, {
@@ -191,7 +191,7 @@ describe('Results Table', () => {
       { ...testCompareData[0], new_rev: 'devilrabbit' },
     ];
 
-    setupAndRender(simplerTestCompareData);
+    setupAndRender(simplerTestCompareData, 'test_version=student-t');
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
@@ -217,7 +217,7 @@ describe('Results Table', () => {
         platform: 'inexistant' as Platform,
       },
     );
-    setupAndRender(testCompareData);
+    setupAndRender(testCompareData, 'test_version=student-t');
 
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
@@ -327,7 +327,7 @@ describe('Results Table', () => {
 
   it('should filter on the Status column', async () => {
     const { testCompareData } = getTestData();
-    setupAndRender(testCompareData);
+    setupAndRender(testCompareData, 'test_version=student-t');
 
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
@@ -384,7 +384,7 @@ describe('Results Table', () => {
 
   it('should filter on the Confidence column', async () => {
     const { testCompareData } = getTestData();
-    setupAndRender(testCompareData);
+    setupAndRender(testCompareData, 'test_version=student-t');
 
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
@@ -471,7 +471,10 @@ describe('Results Table', () => {
 
   it('can load the filter parameters from the URL', async () => {
     const { testCompareData } = getTestData();
-    setupAndRender(testCompareData, 'filter_platform=android,osx,foo');
+    setupAndRender(
+      testCompareData,
+      'filter_platform=android,osx,foo&test_version=student-t',
+    );
     await screen.findByText('dhtml.html');
 
     expect(summarizeVisibleRows()).toEqual([
@@ -497,7 +500,7 @@ describe('Results Table', () => {
     const testCompareDataForSorting = augmentCompareDataWithSeveralRevisions(
       augmentCompareDataWithSeveralTests(testCompareData),
     );
-    setupAndRender(testCompareDataForSorting);
+    setupAndRender(testCompareDataForSorting, 'test_version=student-t');
     await screen.findByText('dhtml.html');
 
     // This is the initial situation.
@@ -632,7 +635,7 @@ describe('Results Table', () => {
 
   it('can load the sort parameters from the URL for an ascending sort', async () => {
     const { testCompareData } = getTestData();
-    setupAndRender(testCompareData, 'sort=delta|asc');
+    setupAndRender(testCompareData, 'sort=delta|asc&test_version=student-t');
     await screen.findByText('dhtml.html');
 
     // It should have the "ascending" SVG.
@@ -662,7 +665,7 @@ describe('Results Table', () => {
 
   it('can load the sort parameters from the URL for a descending sort', async () => {
     const { testCompareData } = getTestData();
-    setupAndRender(testCompareData, 'sort=delta|desc');
+    setupAndRender(testCompareData, 'sort=delta|desc&test_version=student-t');
     await screen.findByText('dhtml.html');
 
     // It should have the "descending" SVG.
@@ -1170,5 +1173,54 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(effectSizeButton).toMatchSnapshot();
     // It should be persisted in the URL
     expectParameterToHaveValue('sort', 'effects|asc');
+  });
+
+  it('should switch between Student-T and Mann-Whitney-U test versions', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+    await screen.findByText('a11yr');
+    expectParameterToHaveValue('test_version', 'student-t');
+    const testVersionDropdown = screen.getByRole('combobox', {
+      name: 'Stats Test Version',
+    });
+    expect(testVersionDropdown).toBeInTheDocument();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(testVersionDropdown);
+    const mannWhitneyOption = await screen.findByRole('option', {
+      name: 'Mann-Whitney-U',
+    });
+    await user.click(mannWhitneyOption);
+
+    // Wait for the URL to update with the new test version
+    await waitFor(() => {
+      expectParameterToHaveValue('test_version', 'mann-whitney-u');
+    });
+  });
+
+  it('should remove replicates parameter when switching from Mann-Whitney-U to Student-T', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=mann-whitney-u&replicates=');
+    await screen.findByText('a11yr');
+
+    // Verify initial state
+    expectParameterToHaveValue('test_version', 'mann-whitney-u');
+    expectParameterToHaveValue('replicates', '');
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const testVersionDropdown = screen.getByRole('combobox', {
+      name: 'Stats Test Version',
+    });
+    await user.click(testVersionDropdown);
+    const studentTOption = await screen.findByRole('option', {
+      name: 'Student-T',
+    });
+    await user.click(studentTOption);
+
+    // Wait for the URL to update - replicates should be removed
+    await waitFor(() => {
+      expectParameterToHaveValue('test_version', 'student-t');
+      const searchParams = new URLSearchParams(window.location.search);
+      expect(searchParams.has('replicates')).toBe(false);
+    });
   });
 });

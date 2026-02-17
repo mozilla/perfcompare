@@ -35,6 +35,7 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   13: 'browsertime',
   15: 'mozperftest',
   16: 'fxrecord',
+  18: 'mozharness',
 };
 
 export const timeRangeMap: Record<TimeRange['value'], TimeRange['text']> = {
@@ -86,6 +87,7 @@ export const frameworks: Framework[] = [
   { id: 13, name: 'browsertime' },
   { id: 15, name: 'mozperftest' },
   { id: 16, name: 'fxrecord' },
+  { id: 18, name: 'mozharness' },
 ];
 
 export const timeRanges: TimeRange[] = [

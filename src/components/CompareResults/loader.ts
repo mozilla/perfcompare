@@ -2,7 +2,7 @@ import {
   repoMap,
   frameworks,
   compareView,
-  STUDENT_T,
+  MANN_WHITNEY_U,
 } from '../../common/constants';
 import {
   fetchCompareResults,
@@ -24,6 +24,7 @@ export function checkValues({
   newRevs,
   newRepos,
   framework,
+  replicates,
   testVersion,
 }: {
   baseRev: string | null;
@@ -31,6 +32,7 @@ export function checkValues({
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
+  replicates: boolean;
   testVersion: TestVersion | null;
 }): {
   baseRev: string;
@@ -39,6 +41,7 @@ export function checkValues({
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
+  replicates: boolean;
   testVersion: TestVersion;
 } {
   if (baseRev === null) {
@@ -77,9 +80,15 @@ export function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
-  if (testVersion === null) {
-    testVersion = STUDENT_T;
+
+  if (testVersion === MANN_WHITNEY_U || testVersion === null) {
+    replicates = true;
   }
+
+  if (testVersion === null) {
+    testVersion = MANN_WHITNEY_U;
+  }
+
   if (!newRevs.length) {
     return {
       baseRev,
@@ -88,6 +97,7 @@ export function checkValues({
       newRepos: [baseRepo],
       frameworkId,
       frameworkName,
+      replicates,
       testVersion,
     };
   }
@@ -112,6 +122,7 @@ export function checkValues({
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
     testVersion,
   };
 }
@@ -211,7 +222,7 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
-  const replicates = url.searchParams.has('replicates');
+  const replicatesFromUrl = url.searchParams.has('replicates');
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
@@ -223,6 +234,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
     testVersion,
   } = checkValues({
     baseRev: baseRevFromUrl,
@@ -230,6 +242,7 @@ export async function loader({ request }: { request: Request }) {
     newRevs: newRevsFromUrl,
     newRepos: newReposFromUrl,
     framework: frameworkFromUrl,
+    replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
 

@@ -66,7 +66,7 @@ export async function loader({ request }: { request: Request }) {
   }
   const baseRevsFromHash = commits_from_hashes.baseRevision;
   const newRevsFromHash = [commits_from_hashes.newRevision];
-  const replicates = url.searchParams.has('replicates');
+  const replicatesFromUrl = url.searchParams.has('replicates');
   const {
     baseRev,
     baseRepo,
@@ -74,6 +74,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    replicates,
     testVersion,
   } = checkValues({
     baseRev: baseRevsFromHash,
@@ -81,6 +82,7 @@ export async function loader({ request }: { request: Request }) {
     newRevs: newRevsFromHash,
     newRepos: newReposFromUrl,
     framework: frameworkFromUrl,
+    replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
   return await getComparisonInformation(

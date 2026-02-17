@@ -95,7 +95,14 @@ export const Strings = {
       },
     },
     mannWhitneyUWarning: {
-      text: 'The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please report it on the Testing :: Perfcompare Bugzilla component.',
+      text: 'The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please',
+      linkText: 'report it on Bugzilla',
+      href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
+      text2:
+        'The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.',
+    },
+    studentTTestWarning: {
+      text: 'This performance comparison technique will be removed in the coming year. Mann-Whitney-U test option will still be available.',
     },
     revisionRow: {
       title: {

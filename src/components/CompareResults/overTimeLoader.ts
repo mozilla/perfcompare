@@ -3,7 +3,7 @@ import {
   frameworks,
   timeRanges,
   compareOverTimeView,
-  STUDENT_T,
+  MANN_WHITNEY_U,
 } from '../../common/constants';
 import {
   fetchCompareOverTimeResults,
@@ -24,6 +24,7 @@ function checkValues({
   newRepos,
   framework,
   interval,
+  replicates,
   testVersion,
 }: {
   baseRepo: Repository['name'] | null;
@@ -31,6 +32,7 @@ function checkValues({
   newRepos: Repository['name'][];
   framework: string | number | null;
   interval: string | number | null;
+  replicates: boolean;
   testVersion?: TestVersion | null;
 }): {
   baseRepo: Repository['name'];
@@ -40,6 +42,7 @@ function checkValues({
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
+  replicates: boolean;
   testVersion: TestVersion;
 } {
   if (baseRepo === null) {
@@ -102,8 +105,13 @@ function checkValues({
       `The parameter interval isn't a valid value: "${interval}".`,
     );
   }
+
+  if (testVersion === MANN_WHITNEY_U || testVersion === null) {
+    replicates = true;
+  }
+
   if (!testVersion) {
-    testVersion = STUDENT_T;
+    testVersion = MANN_WHITNEY_U;
   }
 
   return {
@@ -114,6 +122,7 @@ function checkValues({
     frameworkName,
     intervalText,
     intervalValue,
+    replicates,
     testVersion,
   };
 }
@@ -173,7 +182,7 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
-  const replicates = url.searchParams.has('replicates');
+  const replicatesFromUrl = url.searchParams.has('replicates');
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
@@ -186,6 +195,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
+    replicates,
     testVersion,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
@@ -193,6 +203,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos: newReposFromUrl,
     framework: frameworkFromUrl,
     interval: intervalFromUrl,
+    replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
 

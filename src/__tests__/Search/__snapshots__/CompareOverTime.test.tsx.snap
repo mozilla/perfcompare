@@ -691,7 +691,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
   <input
     name="test_version"
     type="hidden"
-    value="student-t"
+    value="mann-whitney-u"
   />
 </form>
 `;
@@ -700,7 +700,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 <ul
   aria-labelledby="select-timerange-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="_r_4j_"
+  id="_r_4l_"
   role="listbox"
   tabindex="-1"
 >
@@ -1373,7 +1373,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
   <input
     name="test_version"
     type="hidden"
-    value="student-t"
+    value="mann-whitney-u"
   />
 </form>
 `;
@@ -1679,7 +1679,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
   <input
     name="test_version"
     type="hidden"
-    value="student-t"
+    value="mann-whitney-u"
   />
 </form>
 `;
@@ -2534,7 +2534,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   <input
     name="test_version"
     type="hidden"
-    value="student-t"
+    value="mann-whitney-u"
   />
 </form>
 `;
@@ -3061,7 +3061,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   <input
     name="test_version"
     type="hidden"
-    value="student-t"
+    value="mann-whitney-u"
   />
 </form>
 `;
@@ -3367,7 +3367,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   <input
     name="test_version"
     type="hidden"
-    value="student-t"
+    value="mann-whitney-u"
   />
 </form>
 `;
