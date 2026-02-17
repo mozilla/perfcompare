@@ -87,6 +87,16 @@ describe('getLatestCommitMessage Helper', () => {
   });
 });
 
+describe('getLatestCommitMessage with no newline Helper', () => {
+  it('correctly returns latest commit message when newline is missing', () => {
+    const { testData } = getTestData();
+
+    const commitMessage = getLatestCommitMessage(testData[6]);
+
+    expect(commitMessage).toBe('Commit message with no newline at the end');
+  });
+});
+
 describe('formateDate Helper', () => {
   it('correctly formats date', () => {
     const timestamp = 1649883600;

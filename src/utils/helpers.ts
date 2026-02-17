@@ -18,9 +18,17 @@ const getLatestCommitMessage = (item: Changeset) => {
   const isTry = repositoryId === 4;
   const lastUsefulRevision =
     isTry && revisions.length > 1 ? revisions[1] : revisions[0];
+
+  // In case of single line commit message with no newline at the end,
+  // use the entire commit message and do not check for newline character
+  const lastUsefulSummaryLength =
+    lastUsefulRevision.comments.indexOf('\n') === -1
+      ? lastUsefulRevision.comments.length
+      : lastUsefulRevision.comments.indexOf('\n');
+
   const lastUsefulSummary = lastUsefulRevision.comments.slice(
     0,
-    lastUsefulRevision.comments.indexOf('\n'),
+    lastUsefulSummaryLength,
   );
   return lastUsefulSummary;
 };
