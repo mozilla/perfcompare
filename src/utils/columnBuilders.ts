@@ -12,8 +12,17 @@ import {
 } from '../common/constants';
 import { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
 import {
+  BasicColumn,
   CompareMannWhitneyResultsTableConfig,
+  CompareMannWhitneyResultsTableColumn,
   CompareResultsTableConfig,
+  CompareResultsTableColumn,
+  FilterableAndSortableColumn,
+  FilterableAndSortableMannWhitneyColumn,
+  FilterableColumn,
+  FilterableMannWhitneyColumn,
+  SortableColumn,
+  SortableMannWhitneyColumn,
   TestVersion,
 } from '../types/types';
 
@@ -34,21 +43,27 @@ const COLUMN_SPECS: ColumnSpec[] = [
     key: 'base',
     name: 'Base',
     gridWidth: (config) =>
-      config.platformConfig.key === 'subtests' ? '.75fr' : '1fr',
+      config.platformConfig.key === 'subtests'
+        ? '.75fr'
+        : config.columnGridWidths.base,
     tooltip: tooltipBaseMean,
     versions: ['student-t', 'mann-whitney-u'],
   },
   {
     key: 'comparisonSign',
     gridWidth: (config) =>
-      config.platformConfig.key === 'subtests' ? '0.25fr' : '0.2fr',
+      config.platformConfig.key === 'subtests'
+        ? '0.25fr'
+        : config.columnGridWidths.comparisonSign,
     versions: ['student-t', 'mann-whitney-u'],
   },
   {
     key: 'new',
     name: 'New',
     gridWidth: (config) =>
-      config.platformConfig.key === 'subtests' ? '.75fr' : '1fr',
+      config.platformConfig.key === 'subtests'
+        ? '.75fr'
+        : config.columnGridWidths.new,
     tooltip: tooltipNewMean,
     versions: ['student-t', 'mann-whitney-u'],
   },
@@ -56,7 +71,9 @@ const COLUMN_SPECS: ColumnSpec[] = [
     key: 'status',
     name: 'Status',
     gridWidth: (config) =>
-      config.platformConfig.key === 'subtests' ? '1.25fr' : '1.5fr',
+      config.platformConfig.key === 'subtests'
+        ? '1.25fr'
+        : config.columnGridWidths.status,
     filter: true,
     versions: ['student-t', 'mann-whitney-u'],
     // Filter logic differs by version - handled in buildColumns
@@ -126,7 +143,9 @@ export function buildColumnsForVersion(
     spec.versions.includes(testVersion),
   );
 
-  const columns: any[] = [layoutConfig.platformConfig];
+  const columns: Array<
+    CompareResultsTableColumn | CompareMannWhitneyResultsTableColumn
+  > = [layoutConfig.platformConfig as BasicColumn];
 
   for (const spec of relevantColumns) {
     const gridWidth =
@@ -134,7 +153,7 @@ export function buildColumnsForVersion(
         ? spec.gridWidth(layoutConfig)
         : spec.gridWidth;
 
-    const baseColumn: any = {
+    const baseColumn: BasicColumn = {
       key: spec.key,
       name: spec.name,
       gridWidth,
@@ -174,12 +193,17 @@ export function buildColumnsForVersion(
   });
   columns.push({ key: 'expand', gridWidth: '34px' });
 
-  return columns;
+  return columns as
+    | CompareResultsTableConfig
+    | CompareMannWhitneyResultsTableConfig;
 }
 
 // Column builders with specific filter/sort logic
 
-function buildStatusColumn(testVersion: TestVersion, gridWidth: string): any {
+function buildStatusColumn(
+  testVersion: TestVersion,
+  gridWidth: string,
+): FilterableColumn | FilterableMannWhitneyColumn {
   const possibleValues = [
     { label: 'No changes', key: 'none' },
     { label: 'Improvement', key: 'improvement' },
@@ -230,7 +254,10 @@ function buildStatusColumn(testVersion: TestVersion, gridWidth: string): any {
   };
 }
 
-function buildDeltaColumn(testVersion: TestVersion, baseColumn: any): any {
+function buildDeltaColumn(
+  testVersion: TestVersion,
+  baseColumn: BasicColumn,
+): SortableColumn | SortableMannWhitneyColumn {
   if (testVersion === 'mann-whitney-u') {
     return {
       ...baseColumn,
@@ -240,7 +267,7 @@ function buildDeltaColumn(testVersion: TestVersion, baseColumn: any): any {
       ) {
         return Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta);
       },
-    };
+    } as SortableMannWhitneyColumn;
   }
 
   // Student-T
@@ -251,10 +278,10 @@ function buildDeltaColumn(testVersion: TestVersion, baseColumn: any): any {
         Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
       );
     },
-  };
+  } as SortableColumn;
 }
 
-function buildConfidenceColumn(gridWidth: string): any {
+function buildConfidenceColumn(gridWidth: string): FilterableAndSortableColumn {
   return {
     name: 'Confidence',
     filter: true,
@@ -293,7 +320,9 @@ function buildConfidenceColumn(gridWidth: string): any {
   };
 }
 
-function buildSignificanceColumn(gridWidth: string): any {
+function buildSignificanceColumn(
+  gridWidth: string,
+): FilterableAndSortableMannWhitneyColumn {
   return {
     name: 'Significance',
     key: 'significance',
@@ -322,7 +351,7 @@ function buildSignificanceColumn(gridWidth: string): any {
   };
 }
 
-function buildEffectSizeColumn(gridWidth: string): any {
+function buildEffectSizeColumn(gridWidth: string): SortableMannWhitneyColumn {
   return {
     name: 'Effect Size (%)',
     key: 'effects',

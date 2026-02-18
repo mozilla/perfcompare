@@ -3,14 +3,28 @@ import {
   defaultSortFunction,
   defaultSortSubtestFunction,
 } from './rowTemplateColumns';
-import { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
+import {
+  CombinedResultsItemType,
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../types/state';
 import { TestVersion } from '../types/types';
 
-//interface - Defines layout structure for tables
-//including column width and platform-specific configurations.
+/* 
+this interface defines the layout structure for tables
+including column width and platform-specific configurations.
+*/
+export interface ColumnGridWidths {
+  base: string;
+  new: string;
+  status: string;
+  comparisonSign: string;
+}
+
 export interface TableLayoutConfig {
   colWidthMultiply: number;
   confidenceGridWidth?: string;
+  columnGridWidths: ColumnGridWidths;
   platformConfig: PlatformColumnConfig;
 }
 
@@ -19,9 +33,15 @@ interface PlatformColumnConfig {
   key: string;
   gridWidth: string;
   filter?: boolean;
-  sortFunction?: (resultA: any, resultB: any) => number;
+  sortFunction?: (
+    resultA: CombinedResultsItemType,
+    resultB: CombinedResultsItemType,
+  ) => number;
   possibleValues?: Array<{ label: string; key: string }>;
-  matchesFunction?: (result: any, valueKey: string) => boolean;
+  matchesFunction?: (
+    result: CompareResultsItem | MannWhitneyResultsItem,
+    valueKey: string,
+  ) => boolean;
 }
 
 const PLATFORM_FILTER_VALUES = [
@@ -42,37 +62,89 @@ function platformMatchesFunction(
   return platformName === label;
 }
 
+/* 
+/* Captures the specific layout configurations for 
+/* each test version and table type (main/subtest).
+*/
+interface VersionLayout {
+  colWidthMultiply: number;
+  confidenceGridWidth?: string;
+  subtestGridWidth: string;
+  subtestSortFunction: (
+    resultA: CombinedResultsItemType,
+    resultB: CombinedResultsItemType,
+  ) => number;
+  platformGridWidth: string;
+  columnGridWidths: ColumnGridWidths;
+}
+
+//Adding a new test version is now just a new entry in this object.
+const VERSION_LAYOUT: Record<TestVersion, VersionLayout> = {
+  'student-t': {
+    colWidthMultiply: 3.5,
+    confidenceGridWidth: '1.5fr',
+    subtestGridWidth: '3fr',
+    subtestSortFunction: defaultSortSubtestFunction,
+    platformGridWidth: '2fr',
+    columnGridWidths: {
+      base: '1fr',
+      new: '1fr',
+      status: '1.5fr',
+      comparisonSign: '0.2fr',
+    },
+  },
+  'mann-whitney-u': {
+    colWidthMultiply: 2.5,
+    subtestGridWidth: '1.5fr',
+    subtestSortFunction: defaultSortFunction,
+    platformGridWidth: '1.5fr',
+    columnGridWidths: {
+      base: '.75fr',
+      new: '.75fr',
+      status: '1.25fr',
+      comparisonSign: '0.25fr',
+    },
+  },
+};
+
 export function getTableLayoutConfig(
   testVersion: TestVersion,
   isSubtestTable: boolean,
 ): TableLayoutConfig {
-  const isMannWhitney = testVersion === 'mann-whitney-u';
+  const layout = VERSION_LAYOUT[testVersion];
 
   if (isSubtestTable) {
     return {
       colWidthMultiply: 1,
-      ...(isMannWhitney ? {} : { confidenceGridWidth: '1.8fr' }),
+      ...(layout.confidenceGridWidth
+        ? { confidenceGridWidth: layout.confidenceGridWidth }
+        : {}),
+      columnGridWidths: layout.columnGridWidths,
       platformConfig: {
         name: 'Subtests',
         key: 'subtests',
-        gridWidth: isMannWhitney ? '1.5fr' : '3fr',
-        sortFunction: isMannWhitney
-          ? defaultSortFunction
-          : defaultSortSubtestFunction,
+        gridWidth: layout.subtestGridWidth,
+        sortFunction: layout.subtestSortFunction,
       },
     };
   }
 
   return {
-    colWidthMultiply: isMannWhitney ? 2.5 : 3.5,
-    ...(isMannWhitney ? {} : { confidenceGridWidth: '1.5fr' }),
+    colWidthMultiply: layout.colWidthMultiply,
+    ...(layout.confidenceGridWidth
+      ? { confidenceGridWidth: layout.confidenceGridWidth }
+      : {}),
+    columnGridWidths: layout.columnGridWidths,
     platformConfig: {
       name: 'Platform',
       filter: true,
       key: 'platform',
-      gridWidth: isMannWhitney ? '1.5fr' : '2fr',
+      gridWidth: layout.platformGridWidth,
       possibleValues: PLATFORM_FILTER_VALUES,
-      matchesFunction(result: any, valueKey: string) {
+      matchesFunction(
+        result: CompareResultsItem | MannWhitneyResultsItem,
+        valueKey: string,
+      ) {
         return platformMatchesFunction(result, valueKey, this.possibleValues!);
       },
     },
