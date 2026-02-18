@@ -13,16 +13,11 @@ import {
 import { CompareResultsItem, MannWhitneyResultsItem } from '../types/state';
 import {
   BasicColumn,
-  CompareMannWhitneyResultsTableConfig,
-  CompareMannWhitneyResultsTableColumn,
-  CompareResultsTableConfig,
-  CompareResultsTableColumn,
-  FilterableAndSortableColumn,
-  FilterableAndSortableMannWhitneyColumn,
-  FilterableColumn,
-  FilterableMannWhitneyColumn,
-  SortableColumn,
-  SortableMannWhitneyColumn,
+  GenericFilterableAndSortableColumn,
+  GenericFilterableColumn,
+  GenericSortableColumn,
+  TableColumn,
+  TableConfig,
   TestVersion,
 } from '../types/types';
 
@@ -138,14 +133,12 @@ const COLUMN_SPECS: ColumnSpec[] = [
 export function buildColumnsForVersion(
   testVersion: TestVersion,
   layoutConfig: TableLayoutConfig,
-): CompareResultsTableConfig | CompareMannWhitneyResultsTableConfig {
+): TableConfig {
   const relevantColumns = COLUMN_SPECS.filter((spec) =>
     spec.versions.includes(testVersion),
   );
 
-  const columns: Array<
-    CompareResultsTableColumn | CompareMannWhitneyResultsTableColumn
-  > = [layoutConfig.platformConfig as BasicColumn];
+  const columns: Array<TableColumn> = [layoutConfig.platformConfig as BasicColumn];
 
   for (const spec of relevantColumns) {
     const gridWidth =
@@ -193,9 +186,7 @@ export function buildColumnsForVersion(
   });
   columns.push({ key: 'expand', gridWidth: '34px' });
 
-  return columns as
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig;
+  return columns;
 }
 
 // Column builders with specific filter/sort logic
@@ -203,7 +194,7 @@ export function buildColumnsForVersion(
 function buildStatusColumn(
   testVersion: TestVersion,
   gridWidth: string,
-): FilterableColumn | FilterableMannWhitneyColumn {
+): GenericFilterableColumn {
   const possibleValues = [
     { label: 'No changes', key: 'none' },
     { label: 'Improvement', key: 'improvement' },
@@ -231,7 +222,7 @@ function buildStatusColumn(
         }
       },
       tooltip: tooltipStatusMannWhitney,
-    };
+    } as GenericFilterableColumn;
   }
 
   // Student-T
@@ -251,13 +242,13 @@ function buildStatusColumn(
           return !result.is_improvement && !result.is_regression;
       }
     },
-  };
+  } as GenericFilterableColumn;
 }
 
 function buildDeltaColumn(
   testVersion: TestVersion,
   baseColumn: BasicColumn,
-): SortableColumn | SortableMannWhitneyColumn {
+): GenericSortableColumn {
   if (testVersion === 'mann-whitney-u') {
     return {
       ...baseColumn,
@@ -267,7 +258,7 @@ function buildDeltaColumn(
       ) {
         return Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta);
       },
-    } as SortableMannWhitneyColumn;
+    } as GenericSortableColumn;
   }
 
   // Student-T
@@ -278,10 +269,10 @@ function buildDeltaColumn(
         Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
       );
     },
-  } as SortableColumn;
+  } as GenericSortableColumn;
 }
 
-function buildConfidenceColumn(gridWidth: string): FilterableAndSortableColumn {
+function buildConfidenceColumn(gridWidth: string): GenericFilterableAndSortableColumn {
   return {
     name: 'Confidence',
     filter: true,
@@ -317,12 +308,12 @@ function buildConfidenceColumn(gridWidth: string): FilterableAndSortableColumn {
           : -1;
       return confidenceA - confidenceB;
     },
-  };
+  } as GenericFilterableAndSortableColumn;
 }
 
 function buildSignificanceColumn(
   gridWidth: string,
-): FilterableAndSortableMannWhitneyColumn {
+): GenericFilterableAndSortableColumn {
   return {
     name: 'Significance',
     key: 'significance',
@@ -348,10 +339,10 @@ function buildSignificanceColumn(
         Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
       );
     },
-  };
+  } as GenericFilterableAndSortableColumn;
 }
 
-function buildEffectSizeColumn(gridWidth: string): SortableMannWhitneyColumn {
+function buildEffectSizeColumn(gridWidth: string): GenericSortableColumn {
   return {
     name: 'Effect Size (%)',
     key: 'effects',
@@ -365,5 +356,5 @@ function buildEffectSizeColumn(gridWidth: string): SortableMannWhitneyColumn {
       );
     },
     tooltip: tooltipEffectSize,
-  };
+  } as GenericSortableColumn;
 }

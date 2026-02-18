@@ -1,11 +1,7 @@
 import { buildColumnsForVersion } from './columnBuilders';
 import { getTableLayoutConfig } from './tableConfigs';
 import { CombinedResultsItemType } from '../types/state';
-import {
-  CompareMannWhitneyResultsTableConfig,
-  CompareResultsTableConfig,
-  TestVersion,
-} from '../types/types';
+import { TableConfig, TestVersion } from '../types/types';
 
 export const stringComparisonCollator = new Intl.Collator('en', {
   numeric: true,
@@ -43,7 +39,7 @@ export function defaultSortSubtestFunction(
 export const getColumnsConfiguration = (
   isSubtestTable: boolean,
   testVersion: TestVersion,
-): CompareResultsTableConfig | CompareMannWhitneyResultsTableConfig => {
+): TableConfig => {
   const layoutConfig = getTableLayoutConfig(testVersion, isSubtestTable);
   return buildColumnsForVersion(testVersion, layoutConfig);
 };

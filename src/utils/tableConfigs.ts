@@ -3,11 +3,7 @@ import {
   defaultSortFunction,
   defaultSortSubtestFunction,
 } from './rowTemplateColumns';
-import {
-  CombinedResultsItemType,
-  CompareResultsItem,
-  MannWhitneyResultsItem,
-} from '../types/state';
+import { CombinedResultsItemType } from '../types/state';
 import { TestVersion } from '../types/types';
 
 /* 
@@ -39,7 +35,7 @@ interface PlatformColumnConfig {
   ) => number;
   possibleValues?: Array<{ label: string; key: string }>;
   matchesFunction?: (
-    result: CompareResultsItem | MannWhitneyResultsItem,
+    result: CombinedResultsItemType,
     valueKey: string,
   ) => boolean;
 }
@@ -53,7 +49,7 @@ const PLATFORM_FILTER_VALUES = [
 ];
 
 function platformMatchesFunction(
-  result: CompareResultsItem | MannWhitneyResultsItem,
+  result: CombinedResultsItemType,
   valueKey: string,
   possibleValues: Array<{ label: string; key: string }>,
 ): boolean {
@@ -142,7 +138,7 @@ export function getTableLayoutConfig(
       gridWidth: layout.platformGridWidth,
       possibleValues: PLATFORM_FILTER_VALUES,
       matchesFunction(
-        result: CompareResultsItem | MannWhitneyResultsItem,
+        result: CombinedResultsItemType,
         valueKey: string,
       ) {
         return platformMatchesFunction(result, valueKey, this.possibleValues!);
