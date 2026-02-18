@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
-import { Link } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
@@ -12,9 +12,8 @@ import {
   subtestsOverTimeView,
   timeRangeMap,
 } from '../../../common/constants';
-import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
-import { Spacing } from '../../../styles';
+import { Colors, Spacing } from '../../../styles';
 import type {
   SubtestsRevisionsHeader,
   PlatformShortName,
@@ -24,8 +23,6 @@ import {
   getTreeherderURL,
   truncateHash,
   getDocsURL,
-  getOptionTagTextColor,
-  getOptionTagBackgroundColor,
 } from '../../../utils/helpers';
 import {
   getPlatformAndVersion,
@@ -35,6 +32,50 @@ import AndroidIcon from '../../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../../Shared/Icons/LinuxIcon';
 import WindowsIcon from '../../Shared/Icons/WindowsIcon';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
+
+const styles = {
+  revisionHeader: style({
+    display: 'flex',
+    alignItems: 'center',
+    paddingBottom: '12px',
+    marginBottom: '12px',
+  }),
+  tagsOptions: style({
+    textAlign: 'right',
+    $nest: {
+      'span:nth-child(3n)': {
+        background: '#592ACB',
+      },
+      'span:nth-child(3n+1)': {
+        background: '#005E5E',
+      },
+      'span:nth-child(3n+2)': {
+        background: '#0250BB',
+      },
+    },
+  }),
+  chip: style({
+    borderRadius: '4px',
+    color: Colors.Background300,
+    fontFamily: 'SF Pro',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    fontSize: '8.2px',
+    gap: 10,
+    letterSpacing: '0.02em',
+    marginLeft: Spacing.xSmall,
+    padding: Spacing.xSmall,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+  }),
+  typography: style({
+    fontFamily: 'SF Pro',
+    fontStyle: 'normal',
+    fontWeight: 590,
+    fontSize: '16px',
+    lineHeight: '1.5',
+  }),
+};
 
 function getSuite(
   header: SubtestsRevisionsHeader,
@@ -114,57 +155,6 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
       ? getRevLink(header.base_rev, header.base_repo, 'Base')
       : getTimeRange(header.base_repo);
 
-  const themeMode = useAppSelector((state) => state.theme.mode);
-  const [
-    optionTagBackground3n,
-    optionTagBackground3n1,
-    optionTagBackground3n2,
-  ] = getOptionTagBackgroundColor(themeMode);
-
-  const styles = {
-    revisionHeader: style({
-      display: 'flex',
-      alignItems: 'center',
-      paddingBottom: '12px',
-      marginBottom: '12px',
-    }),
-    tagsOptions: style({
-      textAlign: 'right',
-      $nest: {
-        'span:nth-child(3n)': {
-          background: optionTagBackground3n,
-        },
-        'span:nth-child(3n+1)': {
-          background: optionTagBackground3n1,
-        },
-        'span:nth-child(3n+2)': {
-          background: optionTagBackground3n2,
-        },
-      },
-    }),
-    chip: style({
-      borderRadius: '4px',
-      color: getOptionTagTextColor(themeMode),
-      fontFamily: 'SF Pro',
-      fontStyle: 'normal',
-      fontWeight: 700,
-      fontSize: '8.2px',
-      gap: 10,
-      letterSpacing: '0.02em',
-      marginLeft: Spacing.xSmall,
-      padding: Spacing.xSmall,
-      textAlign: 'center',
-      textTransform: 'uppercase',
-    }),
-    typography: style({
-      fontFamily: 'SF Pro',
-      fontStyle: 'normal',
-      fontWeight: 590,
-      fontSize: '16px',
-      lineHeight: '1.5',
-    }),
-  };
-
   return (
     <div className={styles.revisionHeader}>
       <div className={styles.typography}>
@@ -183,14 +173,34 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
           </span>
         </Tooltip>
       </div>
-      <div className={styles.tagsOptions}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '4px',
+          margin: '0 4px',
+          textAlign: 'right',
+          '& span': {
+            color: 'tagOptions.text',
+          },
+          '& span:nth-of-type(3n)': {
+            bgcolor: 'tagOptions.backgroundColorOption1',
+          },
+          '& span:nth-of-type(3n+1)': {
+            bgcolor: 'tagOptions.backgroundColorOption2',
+          },
+          '& span:nth-of-type(3n+2)': {
+            bgcolor: 'tagOptions.backgroundColorOption3',
+          },
+        }}
+      >
         <span className={styles.chip}>{header.option_name}</span>
         {extraOptions.map((option, index) => (
           <span className={styles.chip} key={index}>
             {option}
           </span>
         ))}
-      </div>
+      </Box>
     </div>
   );
 }

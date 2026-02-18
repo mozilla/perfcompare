@@ -46,6 +46,12 @@ const lightMode = {
     background: Colors.Background100,
     compareMetricsBg: Colors.Background300,
   },
+  tagOptions: {
+    text: Colors.InvertedText,
+    backgroundColorOption1: Colors.TagOptionBackground3n,
+    backgroundColorOption2: Colors.TagOptionBackground3n1,
+    backgroundColorOption3: Colors.TagOptionBackground3n2,
+  },
 };
 
 const darkMode = {
@@ -85,6 +91,12 @@ const darkMode = {
   manWhitneyComps: {
     background: Colors.Background100Dark,
     compareMetricsBg: Colors.Background300Dark,
+  },
+  tagOptions: {
+    text: Colors.InvertedTextDark,
+    backgroundColorOption1: Colors.TagOptionBackground3nDark,
+    backgroundColorOption2: Colors.TagOptionBackground3n1Dark,
+    backgroundColorOption3: Colors.TagOptionBackground3n2Dark,
   },
 };
 

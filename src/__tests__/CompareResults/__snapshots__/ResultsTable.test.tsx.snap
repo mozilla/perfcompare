@@ -1479,30 +1479,30 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="fexjzun"
+                            class="MuiBox-root css-56tgmi"
                           >
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               opt
                             </span>
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               e10s
                             </span>
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               fission
                             </span>
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               stylo
                             </span>
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               webrender
                             </span>
@@ -2149,10 +2149,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="fexjzun"
+                            class="MuiBox-root css-56tgmi"
                           >
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               opt
                             </span>
@@ -4117,30 +4117,30 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="fexjzun"
+                            class="MuiBox-root css-56tgmi"
                           >
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               opt
                             </span>
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               e10s
                             </span>
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               fission
                             </span>
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               stylo
                             </span>
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               webrender
                             </span>
@@ -4813,10 +4813,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="fexjzun"
+                            class="MuiBox-root css-56tgmi"
                           >
                             <span
-                              class="flhz31q"
+                              class="f1rpr1m5"
                             >
                               opt
                             </span>
@@ -5402,30 +5402,30 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </strong>
     </div>
     <div
-      class="fexjzun"
+      class="MuiBox-root css-56tgmi"
     >
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         opt
       </span>
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         e10s
       </span>
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         fission
       </span>
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         stylo
       </span>
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         webrender
       </span>
@@ -5943,30 +5943,30 @@ exports[`Results Table should render different blocks when rendering several rev
       </strong>
     </div>
     <div
-      class="fexjzun"
+      class="MuiBox-root css-56tgmi"
     >
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         opt
       </span>
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         e10s
       </span>
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         fission
       </span>
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         stylo
       </span>
       <span
-        class="flhz31q"
+        class="f1rpr1m5"
       >
         webrender
       </span>
