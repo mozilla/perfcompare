@@ -1479,7 +1479,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="fexjzun"
+                            class="MuiBox-root css-56tgmi"
                           >
                             <span
                               class="f1rpr1m5"
@@ -2149,7 +2149,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="fexjzun"
+                            class="MuiBox-root css-56tgmi"
                           >
                             <span
                               class="f1rpr1m5"
@@ -4117,7 +4117,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="fexjzun"
+                            class="MuiBox-root css-56tgmi"
                           >
                             <span
                               class="f1rpr1m5"
@@ -4813,7 +4813,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="fexjzun"
+                            class="MuiBox-root css-56tgmi"
                           >
                             <span
                               class="f1rpr1m5"
@@ -5402,7 +5402,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </strong>
     </div>
     <div
-      class="fexjzun"
+      class="MuiBox-root css-56tgmi"
     >
       <span
         class="f1rpr1m5"
@@ -5943,7 +5943,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </strong>
     </div>
     <div
-      class="fexjzun"
+      class="MuiBox-root css-56tgmi"
     >
       <span
         class="f1rpr1m5"

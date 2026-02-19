@@ -619,7 +619,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -2396,7 +2396,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -3825,7 +3825,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -5254,7 +5254,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -6683,7 +6683,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"

@@ -1,4 +1,4 @@
-import { Link } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import { style } from 'typestyle';
 
 import LinkToRevision from './LinkToRevision';
@@ -118,14 +118,34 @@ export default function TestHeader(props: TestHeaderProps) {
           </>
         )}
       </div>
-      <div className={styles.tagsOptions}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '4px',
+          margin: '0 4px',
+          textAlign: 'right',
+          '& span': {
+            color: 'tagOptions.text',
+          },
+          '& span:nth-of-type(3n)': {
+            bgcolor: 'tagOptions.backgroundColorOption1',
+          },
+          '& span:nth-of-type(3n+1)': {
+            bgcolor: 'tagOptions.backgroundColorOption2',
+          },
+          '& span:nth-of-type(3n+2)': {
+            bgcolor: 'tagOptions.backgroundColorOption3',
+          },
+        }}
+      >
         <span className={styles.chip}>{result.option_name}</span>
         {extraOptions.map((option, index) => (
           <span className={styles.chip} key={index}>
             {option}
           </span>
         ))}
-      </div>
+      </Box>
     </div>
   );
 }
