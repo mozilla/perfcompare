@@ -138,7 +138,9 @@ export function buildColumnsForVersion(
     spec.versions.includes(testVersion),
   );
 
-  const columns: Array<TableColumn> = [layoutConfig.platformConfig as BasicColumn];
+  const columns: Array<TableColumn> = [
+    layoutConfig.platformConfig as BasicColumn,
+  ];
 
   for (const spec of relevantColumns) {
     const gridWidth =
@@ -272,7 +274,9 @@ function buildDeltaColumn(
   } as GenericSortableColumn;
 }
 
-function buildConfidenceColumn(gridWidth: string): GenericFilterableAndSortableColumn {
+function buildConfidenceColumn(
+  gridWidth: string,
+): GenericFilterableAndSortableColumn {
   return {
     name: 'Confidence',
     filter: true,

@@ -137,10 +137,7 @@ export function getTableLayoutConfig(
       key: 'platform',
       gridWidth: layout.platformGridWidth,
       possibleValues: PLATFORM_FILTER_VALUES,
-      matchesFunction(
-        result: CombinedResultsItemType,
-        valueKey: string,
-      ) {
+      matchesFunction(result: CombinedResultsItemType, valueKey: string) {
         return platformMatchesFunction(result, valueKey, this.possibleValues!);
       },
     },
