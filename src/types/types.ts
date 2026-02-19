@@ -98,6 +98,56 @@ export type CompareMannWhitneyResultsTableConfig =
 
 /* --- End of types for configuring the behavior and styles of the results tables columns --- */
 
+/* --- Generic column types for column configuration ---
+ * These are generic, version-agnostic replacements for the version-specific
+ * column types above. Currently adopted in columnBuilders.ts and will
+ * gradually replace the version-specific types across the rest of the codebase.
+ * To support a new test version, extend CombinedResultsItemType in state.ts —
+ * no changes are needed in this section.
+ */
+interface FilterableColumnGenericMixin<
+  TResult extends CombinedResultsItemType,
+> {
+  name: string;
+  filter: true;
+  possibleValues: Array<{ label: string; key: string }>;
+  matchesFunction: (
+    this: FilterableColumnGenericMixin<TResult>,
+    result: TResult,
+    value: string,
+  ) => boolean;
+}
+
+interface SortableColumnGenericMixin<TResult extends CombinedResultsItemType> {
+  name: string;
+  sortFunction: (resultA: TResult, resultB: TResult) => number;
+}
+
+export type GenericFilterableColumn<
+  TResult extends CombinedResultsItemType = CombinedResultsItemType,
+> = BasicColumn & FilterableColumnGenericMixin<TResult>;
+
+export type GenericSortableColumn<
+  TResult extends CombinedResultsItemType = CombinedResultsItemType,
+> = BasicColumn & SortableColumnGenericMixin<TResult>;
+
+export type GenericFilterableAndSortableColumn<
+  TResult extends CombinedResultsItemType = CombinedResultsItemType,
+> = GenericFilterableColumn<TResult> & SortableColumnGenericMixin<TResult>;
+
+export type TableColumn<
+  TResult extends CombinedResultsItemType = CombinedResultsItemType,
+> =
+  | BasicColumn
+  | GenericFilterableColumn<TResult>
+  | GenericSortableColumn<TResult>
+  | GenericFilterableAndSortableColumn<TResult>;
+
+export type TableConfig<
+  TResult extends CombinedResultsItemType = CombinedResultsItemType,
+> = TableColumn<TResult>[];
+/* --- End of generic column types for column configuration --- */
+
 export type ConfidenceText = 'High' | 'Medium' | 'Low' | '';
 
 export type MeasurementUnit =
