@@ -1,13 +1,8 @@
 import { useId, useState, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
-import DragHandleIcon from '@mui/icons-material/DragHandle';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
@@ -15,23 +10,17 @@ import { style } from 'typestyle';
 
 import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
-import {
-  compareView,
-  compareOverTimeView,
-  MANN_WHITNEY_U,
-  STUDENT_T,
-} from '../../common/constants';
+import { compareView, compareOverTimeView } from '../../common/constants';
+import { getStrategy } from '../../common/testVersions';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type {
   CombinedResultsItemType,
   CompareResultsItem,
-  MannWhitneyResultsItem,
   PlatformShortName,
 } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
-import { capitalize } from '../../utils/helpers';
 import {
   getPlatformShortName,
   getPlatformAndVersion,
@@ -131,18 +120,6 @@ const revisionRow = style({
   },
 });
 
-function determineStatus(improvement: boolean, regression: boolean) {
-  if (improvement) return 'Improvement';
-  if (regression) return 'Regression';
-  return '-';
-}
-
-function determineStatusHintClass(improvement: boolean, regression: boolean) {
-  if (improvement) return 'status-hint-improvement';
-  if (regression) return 'status-hint-regression';
-  return '';
-}
-
 function determineSign(baseMedianValue: number, newMedianValue: number) {
   if (baseMedianValue > newMedianValue) return '>';
   if (baseMedianValue < newMedianValue) return '<';
@@ -156,12 +133,6 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Windows: <WindowsIcon />,
   Android: <AndroidIcon />,
   Unspecified: '',
-};
-
-const confidenceIcons = {
-  Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
-  Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
-  High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
 };
 
 const getSubtestsCompareWithBaseLink = (
@@ -217,95 +188,6 @@ const getSubtestsCompareOverTimeLink = (
   return `/subtests-compare-over-time-results?${params.toString()}`;
 };
 
-export const renderDifferingTestVersionColumns = (
-  testVersion: TestVersion,
-  result: CombinedResultsItemType,
-) => {
-  if (testVersion === MANN_WHITNEY_U) {
-    const { cliffs_delta, direction_of_change, mann_whitney_test, cles } =
-      result as MannWhitneyResultsItem;
-    const clesValue = cles?.cles ? `${(cles?.cles * 100).toFixed(2)} %` : '-';
-    return (
-      <>
-        <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor:
-                direction_of_change === 'improvement'
-                  ? 'status.improvement'
-                  : direction_of_change === 'regression'
-                    ? 'status.regression'
-                    : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              direction_of_change === 'improvement',
-              direction_of_change === 'regression',
-            )}`}
-          >
-            {direction_of_change === 'improvement' ? (
-              <ThumbUpIcon color='success' />
-            ) : null}
-            {direction_of_change === 'regression' ? (
-              <ThumbDownIcon color='error' />
-            ) : null}
-            {capitalize(direction_of_change ?? '')}
-          </Box>
-        </div>
-        <div className='delta cell' role='cell'>
-          {' '}
-          {cliffs_delta || '-'}
-        </div>
-        <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation
-            ? capitalize(mann_whitney_test?.interpretation)
-            : '-'}
-        </div>
-        <div className='effects cell' role='cell'>
-          {clesValue}
-        </div>
-      </>
-    );
-  } else {
-    const {
-      is_improvement: improvement,
-      is_regression: regression,
-      confidence_text: confidenceText,
-      delta_percentage: deltaPercent,
-    } = result as CompareResultsItem;
-    return (
-      <>
-        <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor: improvement
-                ? 'status.improvement'
-                : regression
-                  ? 'status.regression'
-                  : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              !!improvement,
-              !!regression,
-            )}`}
-          >
-            {improvement ? <ThumbUpIcon color='success' /> : null}
-            {regression ? <ThumbDownIcon color='error' /> : null}
-            {determineStatus(!!improvement, !!regression)}
-          </Box>
-        </div>
-        <div className='delta cell' role='cell'>
-          {' '}
-          {` ${deltaPercent} % `}
-        </div>
-        <div className='confidence cell' role='cell'>
-          {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText || '-'}
-        </div>
-      </>
-    );
-  }
-};
-
 function RevisionRow(props: RevisionRowProps) {
   const id = useId();
 
@@ -330,14 +212,9 @@ function RevisionRow(props: RevisionRowProps) {
     ? baseRunsReplicates.length
     : baseRuns.length;
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
-  const baseAvgValue =
-    testVersion === MANN_WHITNEY_U
-      ? ((result as MannWhitneyResultsItem).base_standard_stats?.mean ?? null)
-      : (result as CompareResultsItem).base_avg_value;
-  const newAvgValue =
-    testVersion === MANN_WHITNEY_U
-      ? ((result as MannWhitneyResultsItem).new_standard_stats?.mean ?? null)
-      : (result as CompareResultsItem).new_avg_value;
+  const strategy = getStrategy(testVersion);
+  const { baseAvg: baseAvgValue, newAvg: newAvgValue } =
+    strategy.getAvgValues(result);
   const [expanded, setExpanded] = useState(false);
 
   const toggleIsExpanded = () => {
@@ -395,7 +272,7 @@ function RevisionRow(props: RevisionRowProps) {
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
         </div>
-        {renderDifferingTestVersionColumns(testVersion ?? STUDENT_T, result)}
+        {strategy.renderColumns(result)}
         <div
           className='total-runs cell'
           title={`Base runs: ${baseRunsCount}, New runs: ${newRunsCount}`}

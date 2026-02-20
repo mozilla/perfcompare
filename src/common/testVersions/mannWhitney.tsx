@@ -1,6 +1,15 @@
-import { MannWhitneyResultsItem } from '../../types/state';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import Box from '@mui/material/Box';
+
+import {
+  CombinedResultsItemType,
+  MannWhitneyResultsItem,
+} from '../../types/state';
 import { TableConfig } from '../../types/types';
+import { capitalize } from '../../utils/helpers';
 import { getPlatformShortName } from '../../utils/platform';
+import { determineStatusHintClass } from '../../utils/revisionRowHelpers';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
@@ -146,5 +155,59 @@ export const mannWhitneyStrategy = {
       { key: 'buttons', gridWidth: `calc(${colWidthMultiply} * 34px)` },
       { key: 'expand', gridWidth: '34px' },
     ] as TableConfig;
+  },
+
+  getAvgValues(result: CombinedResultsItemType) {
+    const resultItem = result as MannWhitneyResultsItem;
+    return {
+      baseAvg: resultItem.base_standard_stats?.mean ?? null,
+      newAvg: resultItem.new_standard_stats?.mean ?? null,
+    };
+  },
+
+  renderColumns(result: CombinedResultsItemType) {
+    const { cliffs_delta, direction_of_change, mann_whitney_test, cles } =
+      result as MannWhitneyResultsItem;
+    const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
+
+    return (
+      <>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor:
+                direction_of_change === 'improvement'
+                  ? 'status.improvement'
+                  : direction_of_change === 'regression'
+                    ? 'status.regression'
+                    : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(
+              direction_of_change === 'improvement',
+              direction_of_change === 'regression',
+            )}`}
+          >
+            {direction_of_change === 'improvement' ? (
+              <ThumbUpIcon color='success' />
+            ) : null}
+            {direction_of_change === 'regression' ? (
+              <ThumbDownIcon color='error' />
+            ) : null}
+            {capitalize(direction_of_change ?? '')}
+          </Box>
+        </div>
+        <div className='delta cell' role='cell'>
+          {cliffs_delta || '-'}
+        </div>
+        <div className='significance cell' role='cell'>
+          {mann_whitney_test?.interpretation
+            ? capitalize(mann_whitney_test.interpretation)
+            : '-'}
+        </div>
+        <div className='effects cell' role='cell'>
+          {clesValue}
+        </div>
+      </>
+    );
   },
 };

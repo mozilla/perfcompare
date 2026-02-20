@@ -1,6 +1,17 @@
-import { CompareResultsItem } from '../../types/state';
+import DragHandleIcon from '@mui/icons-material/DragHandle';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import Box from '@mui/material/Box';
+
+import { CombinedResultsItemType, CompareResultsItem } from '../../types/state';
 import { TableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
+import {
+  determineStatus,
+  determineStatusHintClass,
+} from '../../utils/revisionRowHelpers';
 import { defaultSortSubtestFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
@@ -17,6 +28,12 @@ const PLATFORM_FILTER_VALUES = [
   { label: 'Android', key: 'android' },
   { label: 'iOS', key: 'ios' },
 ];
+
+const confidenceIcons: Record<'Low' | 'Medium' | 'High', React.ReactNode> = {
+  Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
+  Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
+  High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
+};
 
 export const studentTStrategy = {
   getColumns(isSubtestTable: boolean): TableConfig {
@@ -127,5 +144,48 @@ export const studentTStrategy = {
       { key: 'buttons', gridWidth: `calc(${colWidthMultiply} * 34px)` },
       { key: 'expand', gridWidth: '34px' },
     ] as TableConfig;
+  },
+
+  getAvgValues(result: CombinedResultsItemType) {
+    const resultItem = result as CompareResultsItem;
+    return {
+      baseAvg: resultItem.base_avg_value,
+      newAvg: resultItem.new_avg_value,
+    };
+  },
+
+  renderColumns(result: CombinedResultsItemType) {
+    const {
+      is_improvement: improvement,
+      is_regression: regression,
+      confidence_text: confidenceText,
+      delta_percentage: deltaPercent,
+    } = result as CompareResultsItem;
+
+    return (
+      <>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor: improvement
+                ? 'status.improvement'
+                : regression
+                  ? 'status.regression'
+                  : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(!!improvement, !!regression)}`}
+          >
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
+            {determineStatus(!!improvement, !!regression)}
+          </Box>
+        </div>
+        <div className='delta cell' role='cell'>{` ${deltaPercent} % `}</div>
+        <div className='confidence cell' role='cell'>
+          {confidenceText && confidenceIcons[confidenceText]}
+          {confidenceText || '-'}
+        </div>
+      </>
+    );
   },
 };

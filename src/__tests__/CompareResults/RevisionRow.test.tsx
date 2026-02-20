@@ -265,7 +265,7 @@ describe('Expanded row', () => {
     const directionOfChange = roles[4]?.childNodes[0];
     expect(directionOfChange).toHaveTextContent('Improvement');
 
-    const cliffsDelta = roles[5]?.childNodes[1];
+    const cliffsDelta = roles[5]?.childNodes[0];
     expect(cliffsDelta).toHaveTextContent('.1');
   });
 
