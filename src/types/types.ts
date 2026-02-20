@@ -100,9 +100,8 @@ export type CompareMannWhitneyResultsTableConfig =
 
 /* --- Generic column types for column configuration ---
  * These are generic, version-agnostic replacements for the version-specific
- * column types above. Currently adopted in columnBuilders.ts and will
- * gradually replace the version-specific types across the rest of the codebase.
- * To support a new test version, extend CombinedResultsItemType in state.ts —
+ * column types above. To support a new test version,
+ * extend CombinedResultsItemType in state.ts —
  * no changes are needed in this section.
  */
 interface FilterableColumnGenericMixin<
