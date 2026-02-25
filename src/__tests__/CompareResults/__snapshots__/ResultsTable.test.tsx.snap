@@ -758,47 +758,6 @@ exports[`Results Table Should match snapshot 1`] = `
                     Compare with a base
                   </h2>
                 </div>
-                <h2
-                  class="MuiGrid-root MuiGrid-direction-xs-row ff3k5ad css-k4qgqg-MuiGrid-root"
-                >
-                  <div
-                    class="f1qbk2gm MuiBox-root css-0"
-                  >
-                    <div
-                      class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
-                      >
-                        <span
-                          class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
-                        >
-                          <span
-                            class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                          >
-                            <input
-                              checked=""
-                              class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                              role="switch"
-                              type="checkbox"
-                            />
-                            <span
-                              class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                            />
-                          </span>
-                          <span
-                            class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-                        >
-                          Replicates
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                </h2>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
@@ -3392,47 +3351,6 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     Compare with a base
                   </h2>
                 </div>
-                <h2
-                  class="MuiGrid-root MuiGrid-direction-xs-row ff3k5ad css-k4qgqg-MuiGrid-root"
-                >
-                  <div
-                    class="f1qbk2gm MuiBox-root css-0"
-                  >
-                    <div
-                      class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
-                      >
-                        <span
-                          class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
-                        >
-                          <span
-                            class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                          >
-                            <input
-                              checked=""
-                              class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                              role="switch"
-                              type="checkbox"
-                            />
-                            <span
-                              class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                            />
-                          </span>
-                          <span
-                            class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-                        >
-                          Replicates
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                </h2>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
