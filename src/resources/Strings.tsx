@@ -14,12 +14,12 @@ export const Strings = {
     },
     contact: {
       text: 'Find us at',
-      linkText: '#perfcompare:mozilla.org on Matrix',
+      linkText: 'Matrix',
       href: 'https://matrix.to/#/#perfcompare:mozilla.org',
     },
     docs: {
-      text: 'View the docs at',
-      linkText: 'PerfCompare documentation',
+      text: 'Docs',
+      linkText: 'Docs',
       href: 'https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html',
     },
     source: {
