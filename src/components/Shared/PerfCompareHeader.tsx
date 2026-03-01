@@ -8,6 +8,7 @@ import ToggleDarkMode from './ToggleDarkModeButton';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { HeaderStyles } from '../../styles';
+import { Spacing } from '../../styles/Spacing';
 
 interface PerfCompareHeaderProps {
   isHome?: boolean;
@@ -21,12 +22,45 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
 
   return (
     <Grid className={`header-container ${styles.container}`}>
-      <Box sx={{ display: 'flex', justifyContent:'space-between', alignItems: 'center', width: '100%', marginBotton: 2}}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          width: '100%',
+          marginBotton: 2,
+        }}
+      >
         <ToggleDarkMode />
-        <Box sx={{ display: 'flex', gap: 2}}>
-        <NavBarLink href={Strings.components.docs.href} text={Strings.components.docs.linkText} />
-        <NavBarLink href={Strings.components.source.href} text={Strings.components.source.linkText} />
-        <NavBarLink href={Strings.components.contact.href} text={Strings.components.contact.text} />
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 2,
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            padding: `${Spacing.Large}px`,
+          }}
+        >
+          <NavBarLink
+            href={Strings.components.docs.href}
+            text={Strings.components.docs.linkText}
+            tooltip={Strings.components.docs.tooltip}
+          />
+          <NavBarLink
+            href={Strings.components.source.href}
+            text={Strings.components.source.linkText}
+            tooltip={Strings.components.source.tooltip}
+          />
+          <NavBarLink
+            href={Strings.components.contact.href}
+            text={Strings.components.contact.linkText}
+            tooltip={Strings.components.contact.tooltip}
+          />
+          <NavBarLink
+            href={Strings.components.bugs.href}
+            text={Strings.components.bugs.linkText}
+            tooltip={Strings.components.bugs.tooltip}
+          />
         </Box>
       </Box>
       <Box className='header-text'>
