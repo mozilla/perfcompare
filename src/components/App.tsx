@@ -1,8 +1,6 @@
 import React, { useState, useMemo } from 'react';
 
-import Alert from '@mui/material/Alert';
 import CssBaseline from '@mui/material/CssBaseline';
-import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import {
@@ -14,7 +12,6 @@ import { RouterProvider } from 'react-router/dom';
 
 import { useAppSelector } from '../hooks/app';
 import { Strings } from '../resources/Strings';
-import { Banner } from '../styles/Banner';
 import getProtocolTheme from '../theme/protocolTheme';
 import { loader as hashToCommitLoader } from './CompareResults/hashToCommitLoader';
 import { loader as landoToCommitLoader } from './CompareResults/landoToCommitLoader';
@@ -32,30 +29,6 @@ import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 import { loader as authenticationLoader } from './TaskclusterAuth/loader';
 import TaskclusterCallback from './TaskclusterAuth/TaskclusterCallback';
-
-const strings: InfoStrings = {
-  text: Strings.components.topBanner.text,
-  linkText: Strings.components.topBanner.linkText,
-  href: Strings.components.topBanner.href,
-};
-
-const contact: InfoStrings = {
-  text: Strings.components.contact.text,
-  linkText: Strings.components.contact.linkText,
-  href: Strings.components.contact.href,
-};
-
-const docs: InfoStrings = {
-  text: Strings.components.docs.text,
-  linkText: Strings.components.docs.linkText,
-  href: Strings.components.docs.href,
-};
-
-const source: InfoStrings = {
-  text: Strings.components.source.text,
-  linkText: Strings.components.source.linkText,
-  href: Strings.components.source.href,
-};
 
 type DivProps = React.HTMLProps<HTMLDivElement>;
 
@@ -179,41 +152,11 @@ function App() {
           )}
         >
           <CssBaseline />
-          <Alert className={Banner} severity='warning'>
-            <div className='banner-text'>
-              {strings.text}{' '}
-              <Link href={strings.href} target='_blank'>
-                {strings.linkText}
-              </Link>
-              {'. '}
-              {contact.text}{' '}
-              <Link href={contact.href} target='_blank'>
-                {contact.linkText}
-              </Link>
-              {'. '}
-              {docs.text}{' '}
-              <Link href={docs.href} target='_blank'>
-                {docs.linkText}
-              </Link>
-              {'. '}
-              {source.text}{' '}
-              <Link href={source.href} target='_blank'>
-                {source.linkText}
-              </Link>
-              .
-            </div>
-          </Alert>
           <RouterProvider router={router} />
         </SnackbarProvider>
       ) : null}
     </ThemeProvider>
   );
-}
-
-interface InfoStrings {
-  text: string;
-  linkText: string;
-  href: string;
 }
 
 export default App;
