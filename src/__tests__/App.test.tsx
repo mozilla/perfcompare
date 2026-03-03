@@ -21,11 +21,13 @@ describe('App', () => {
     render(<App />);
 
     // Title appears
-    const title = await screen.findByRole('heading', { level: 1});
+    const title = await screen.findByRole('heading', { level: 1 });
     expect(title).toHaveTextContent('PerfCompare');
 
     // The Tagline text appears
-    const taglineText = await screen.findByText(/Analyze results of performance tests to detect regressions and identify opportunities for improvement./i);
+    const taglineText = await screen.findByText(
+      /Analyze results of performance tests to detect regressions and identify opportunities for improvement./i,
+    );
     expect(taglineText).toBeInTheDocument();
     await waitForAllFetches();
   });
