@@ -1572,7 +1572,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="delta cell"
                               role="cell"
                             >
-                               
                               -
                             </div>
                             <div
@@ -1762,7 +1761,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="delta cell"
                               role="cell"
                             >
-                               
                               -
                             </div>
                             <div
@@ -1952,7 +1950,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="delta cell"
                               role="cell"
                             >
-                               
                               -
                             </div>
                             <div
@@ -2223,7 +2220,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="delta cell"
                               role="cell"
                             >
-                               
                               -
                             </div>
                             <div
@@ -4223,7 +4219,6 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="delta cell"
                               role="cell"
                             >
-                               
                               -
                             </div>
                             <div
@@ -4426,7 +4421,6 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="delta cell"
                               role="cell"
                             >
-                               
                               0.1
                             </div>
                             <div
@@ -4616,7 +4610,6 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="delta cell"
                               role="cell"
                             >
-                               
                               -
                             </div>
                             <div
@@ -4887,7 +4880,6 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="delta cell"
                               role="cell"
                             >
-                               
                               -
                             </div>
                             <div
@@ -5544,7 +5536,6 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="delta cell"
         role="cell"
       >
-         
         0.1
       </div>
       <div
@@ -5786,7 +5777,6 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="delta cell"
         role="cell"
       >
-         
         0.1
       </div>
       <div
@@ -6085,7 +6075,6 @@ exports[`Results Table should render different blocks when rendering several rev
         class="delta cell"
         role="cell"
       >
-         
          1.08 % 
       </div>
       <div
@@ -6332,7 +6321,6 @@ exports[`Results Table should render different blocks when rendering several rev
         class="delta cell"
         role="cell"
       >
-         
          1.08 % 
       </div>
       <div
