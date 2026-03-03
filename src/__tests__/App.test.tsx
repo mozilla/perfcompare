@@ -21,12 +21,12 @@ describe('App', () => {
     render(<App />);
 
     // Title appears
-    const title = screen.getAllByText(/PerfCompare/i)[1];
-    expect(title).toBeInTheDocument();
+    const title = await screen.findByRole('heading', { level: 1});
+    expect(title).toHaveTextContent('PerfCompare');
 
-    act(() => void jest.runAllTimers());
-    const homeText = screen.getByText('Compare with a base or over time');
-    expect(homeText).toBeInTheDocument();
+    // The Tagline text appears
+    const taglineText = await screen.findByText(/Analyze results of performance tests to detect regressions and identify opportunities for improvement./i);
+    expect(taglineText).toBeInTheDocument();
     await waitForAllFetches();
   });
 
