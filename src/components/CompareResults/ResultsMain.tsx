@@ -10,6 +10,7 @@ import { style } from 'typestyle';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
+import { STUDENT_T, MANN_WHITNEY_U } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import { Strings } from '../../resources/Strings';
@@ -180,13 +181,15 @@ function ResultsMain() {
               {subtitles[loaderData.view]}
             </Grid>
           </Grid>
-          <Grid component='h2' className={styles.replicates}>
-            <ToggleReplicatesButton />
-          </Grid>
+          {testVersion === STUDENT_T && (
+            <Grid component='h2' className={styles.replicates}>
+              <ToggleReplicatesButton />
+            </Grid>
+          )}
         </Grid>
 
         <Grid container sx={titleContainerSx}>
-          {testWarnings[testVersion] ?? testWarnings['mann-whitney-u']}
+          {testWarnings[testVersion] ?? testWarnings[MANN_WHITNEY_U]}
         </Grid>
       </header>
       <ResultsTable />
