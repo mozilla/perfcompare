@@ -13,13 +13,44 @@ import { determineStatusHintClass } from '../../utils/revisionRowHelpers';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
-  tooltipCliffsDelta,
-  tooltipEffectSize,
   tooltipNewMean,
   tooltipSignificance,
   tooltipStatusMannWhitney,
   tooltipTotalRuns,
 } from '../constants';
+
+const tooltipCliffsDelta = (
+  <span>
+    <a
+      href='https://en.wikipedia.org/wiki/Effect_size#Effect_size_for_ordinal_data'
+      target='_blank'
+      rel='noreferrer'
+    >
+      Cliff&apos;s Delta
+    </a>{' '}
+    quantifies the magnitude of the difference between Base and New values.
+    Anything beyond ±0.47 is considered a large difference while anything below
+    ±0.15 is negligible. A negative value means a New value is consistently
+    larger than a Base value.
+  </span>
+);
+
+const tooltipEffectSize = (
+  <span>
+    <a
+      href='https://en.wikipedia.org/wiki/Probability_of_superiority'
+      target='_blank'
+      rel='noreferrer'
+    >
+      The Common Language Effect Size (CLES)
+    </a>{' '}
+    provides a clearer indication of how large or meaningful the change is. An
+    improvement or regression being shown here means that the effect size is
+    meaningful, and the difference has a significant p-value. If the effect size
+    is close to 50%, the distributions are probably identical, if not, they
+    probably differ.
+  </span>
+);
 
 const PLATFORM_FILTER_VALUES = [
   { label: 'Windows', key: 'windows' },

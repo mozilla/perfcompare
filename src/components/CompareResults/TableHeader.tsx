@@ -76,7 +76,7 @@ type FilterableColumnHeaderProps = {
   checkedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
-  tooltip?: string;
+  tooltip?: ReactNode;
 };
 
 function FilterableColumnHeader({
