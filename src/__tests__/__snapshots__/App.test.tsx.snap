@@ -9,96 +9,139 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard fld8l4l css-gb7yta-MuiPaper-root-MuiAlert-root"
-      role="alert"
-      style="--Paper-shadow: none;"
-    >
-      <div
-        class="MuiAlert-icon css-vab54s-MuiAlert-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-          data-testid="ReportProblemOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
-          />
-        </svg>
-      </div>
-      <div
-        class="MuiAlert-message css-zioonp-MuiAlert-message"
-      >
-        <div
-          class="banner-text"
-        >
-          This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
-           
-          <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-            href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
-            target="_blank"
-          >
-            report it on Bugzilla
-          </a>
-          . 
-          Find us at
-           
-          <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-            href="https://matrix.to/#/#perfcompare:mozilla.org"
-            target="_blank"
-          >
-            #perfcompare:mozilla.org on Matrix
-          </a>
-          .
-        </div>
-      </div>
-    </div>
-    <div
       class="fcndgf6"
     >
       <div
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+          class="MuiBox-root css-1e39pab"
         >
           <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            <div
+              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
             >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                 >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
                   <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Dark mode switch"
+                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                      id="Dark mode"
+                      name="toggle-dark-mode"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                >
+                  Dark mode
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root css-ikfqnu"
+          >
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Docs"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+                target="_blank"
+                title="View the documentation"
               >
-                Dark mode
-              </span>
-            </label>
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Source"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://github.com/mozilla/perfcompare"
+                target="_blank"
+                title="View the source code on GitHub"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Source
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Matrix"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://matrix.to/#/#perfcompare:mozilla.org"
+                target="_blank"
+                title="Chat with us on Matrix"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Matrix
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Bugzilla"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                target="_blank"
+                title="Report an issue on Bugzilla"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Bugzilla
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -272,96 +315,139 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard fld8l4l css-gb7yta-MuiPaper-root-MuiAlert-root"
-      role="alert"
-      style="--Paper-shadow: none;"
-    >
-      <div
-        class="MuiAlert-icon css-vab54s-MuiAlert-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-          data-testid="ReportProblemOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
-          />
-        </svg>
-      </div>
-      <div
-        class="MuiAlert-message css-zioonp-MuiAlert-message"
-      >
-        <div
-          class="banner-text"
-        >
-          This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
-           
-          <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-            href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
-            target="_blank"
-          >
-            report it on Bugzilla
-          </a>
-          . 
-          Find us at
-           
-          <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-            href="https://matrix.to/#/#perfcompare:mozilla.org"
-            target="_blank"
-          >
-            #perfcompare:mozilla.org on Matrix
-          </a>
-          .
-        </div>
-      </div>
-    </div>
-    <div
       class="fcndgf6"
     >
       <div
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+          class="MuiBox-root css-1e39pab"
         >
           <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            <div
+              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
             >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                 >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
                   <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Dark mode switch"
+                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                      id="Dark mode"
+                      name="toggle-dark-mode"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                >
+                  Dark mode
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root css-ikfqnu"
+          >
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Docs"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+                target="_blank"
+                title="View the documentation"
               >
-                Dark mode
-              </span>
-            </label>
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Source"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://github.com/mozilla/perfcompare"
+                target="_blank"
+                title="View the source code on GitHub"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Source
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Matrix"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://matrix.to/#/#perfcompare:mozilla.org"
+                target="_blank"
+                title="Chat with us on Matrix"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Matrix
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Bugzilla"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                target="_blank"
+                title="Report an issue on Bugzilla"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Bugzilla
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -430,96 +516,139 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard fld8l4l css-gb7yta-MuiPaper-root-MuiAlert-root"
-      role="alert"
-      style="--Paper-shadow: none;"
-    >
-      <div
-        class="MuiAlert-icon css-vab54s-MuiAlert-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-          data-testid="ReportProblemOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
-          />
-        </svg>
-      </div>
-      <div
-        class="MuiAlert-message css-zioonp-MuiAlert-message"
-      >
-        <div
-          class="banner-text"
-        >
-          This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
-           
-          <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-            href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
-            target="_blank"
-          >
-            report it on Bugzilla
-          </a>
-          . 
-          Find us at
-           
-          <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
-            href="https://matrix.to/#/#perfcompare:mozilla.org"
-            target="_blank"
-          >
-            #perfcompare:mozilla.org on Matrix
-          </a>
-          .
-        </div>
-      </div>
-    </div>
-    <div
       class="fcndgf6"
     >
       <div
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+          class="MuiBox-root css-1e39pab"
         >
           <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            <div
+              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
             >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                 >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
                   <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Dark mode switch"
+                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                      id="Dark mode"
+                      name="toggle-dark-mode"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                >
+                  Dark mode
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root css-ikfqnu"
+          >
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Docs"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+                target="_blank"
+                title="View the documentation"
               >
-                Dark mode
-              </span>
-            </label>
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Source"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://github.com/mozilla/perfcompare"
+                target="_blank"
+                title="View the source code on GitHub"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Source
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Matrix"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://matrix.to/#/#perfcompare:mozilla.org"
+                target="_blank"
+                title="Chat with us on Matrix"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Matrix
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-i3pbo"
+            >
+              <a
+                aria-label="Bugzilla"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                target="_blank"
+                title="Report an issue on Bugzilla"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Bugzilla
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         <div
