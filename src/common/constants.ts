@@ -325,12 +325,8 @@ export const platformMap: Record<Platform, string> = {
 export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
 export const STUDENT_T = 'student-t' as TestVersion;
 
-export const tooltipEffectSize =
-  'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.';
 export const tooltipSignificance =
   'Significance of the comparison as determined by a Mann Whitney U test. A significant comparison has a p-value of less than 0.05.';
-export const tooltipCliffsDelta =
-  'Cliff’s Delta quantifies the magnitude of the difference between Base and New values.';
 export const tooltipStatusMannWhitney =
   'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.';
 export const tooltipTotalRuns =
