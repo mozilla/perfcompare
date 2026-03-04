@@ -416,7 +416,6 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <span
-          aria-label="Cliff’s Delta quantifies the magnitude of the difference between Base and New values."
           class="MuiBox-root css-4g6ai3"
           data-mui-internal-clone-element="true"
         >
@@ -509,7 +508,6 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <span
-          aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
           class="MuiBox-root css-4g6ai3"
           data-mui-internal-clone-element="true"
         >
