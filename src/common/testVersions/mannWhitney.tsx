@@ -13,13 +13,50 @@ import { determineStatusHintClass } from '../../utils/revisionRowHelpers';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
-  tooltipCliffsDelta,
-  tooltipEffectSize,
   tooltipNewMean,
   tooltipSignificance,
   tooltipStatusMannWhitney,
   tooltipTotalRuns,
 } from '../constants';
+
+const tooltipCliffsDelta = (
+  <span>
+    <a
+      href='https://en.wikipedia.org/wiki/Effect_size#Effect_size_for_ordinal_data'
+      target='_blank'
+      rel='noreferrer'
+    >
+      Cliff&apos;s Delta
+    </a>{' '}
+    quantifies the magnitude of the difference between Base and New values.
+    Anything beyond ±0.47 is considered a large difference while anything below
+    ±0.15 is negligible. A negative value means a New value is consistently
+    larger than a Base value.
+  </span>
+);
+
+const tooltipEffectSize = (
+  <span>
+    <a
+      href='https://en.wikipedia.org/wiki/Probability_of_superiority'
+      target='_blank'
+      rel='noreferrer'
+    >
+      The Common Language Effect Size (CLES)
+    </a>{' '}
+    is a percentage, from 0% to 100%, providing a clearer indication of how
+    large or meaningful the change is. An improvement or regression being shown
+    here means that the effect size is meaningful. If the effect size is close
+    to 50%, the distributions are probably identical, if not, they probably
+    differ. The sign of the Cliff&apos;s delta is also important, as it
+    indicates the direction of the change. If shifted to the left, it&apos;s
+    negative; to the right, it&apos;s positive. Pair this with higher is better
+    or lower is better to understand whether the change is an improvement or
+    regression. For example, given a Cliff&apos;s delta of 0.54 and CLES of 77%,
+    there&apos;s a 77% chance a value from new is lower than a value from old
+    (lower is better).
+  </span>
+);
 
 const PLATFORM_FILTER_VALUES = [
   { label: 'Windows', key: 'windows' },
