@@ -1156,7 +1156,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   >
                     <span
                       aria-label="A summary of all values from Base runs using a mean."
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       Base
@@ -1172,7 +1172,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   >
                     <span
                       aria-label="A summary of all values from New runs using a mean."
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       New
@@ -1217,7 +1217,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     role="columnheader"
                   >
                     <span
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       <button
@@ -1309,7 +1309,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     role="columnheader"
                   >
                     <span
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       <button
@@ -1342,7 +1342,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   >
                     <span
                       aria-label="The total number of tasks/jobs that ran for this metric."
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       Total Runs
@@ -3747,7 +3747,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   >
                     <span
                       aria-label="A summary of all values from Base runs using a mean."
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       Base
@@ -3763,7 +3763,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   >
                     <span
                       aria-label="A summary of all values from New runs using a mean."
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       New
@@ -3808,7 +3808,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     role="columnheader"
                   >
                     <span
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       <button
@@ -3900,7 +3900,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     role="columnheader"
                   >
                     <span
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       <button
@@ -3933,7 +3933,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   >
                     <span
                       aria-label="The total number of tasks/jobs that ran for this metric."
-                      class="MuiBox-root css-4g6ai3"
+                      class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       Total Runs

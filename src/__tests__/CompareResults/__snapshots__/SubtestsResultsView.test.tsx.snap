@@ -783,7 +783,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -799,7 +799,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -844,7 +844,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -936,7 +936,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -969,7 +969,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
@@ -2517,7 +2517,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -2533,7 +2533,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -2578,7 +2578,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -2670,7 +2670,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -2703,7 +2703,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
@@ -3903,7 +3903,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -3919,7 +3919,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -3964,7 +3964,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -4056,7 +4056,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -4089,7 +4089,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
@@ -5289,7 +5289,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -5305,7 +5305,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -5350,7 +5350,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -5442,7 +5442,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -5475,7 +5475,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
@@ -6675,7 +6675,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -6691,7 +6691,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -6736,7 +6736,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -6828,7 +6828,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="columnheader"
                 >
                   <span
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -6861,7 +6861,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
