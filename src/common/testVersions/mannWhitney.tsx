@@ -44,11 +44,17 @@ const tooltipEffectSize = (
     >
       The Common Language Effect Size (CLES)
     </a>{' '}
-    provides a clearer indication of how large or meaningful the change is. An
-    improvement or regression being shown here means that the effect size is
-    meaningful, and the difference has a significant p-value. If the effect size
-    is close to 50%, the distributions are probably identical, if not, they
-    probably differ.
+    is a percentage, from 0% to 100%, providing a clearer indication of how
+    large or meaningful the change is. An improvement or regression being shown
+    here means that the effect size is meaningful. If the effect size is close
+    to 50%, the distributions are probably identical, if not, they probably
+    differ. The sign of the Cliff&apos;s delta is also important, as it
+    indicates the direction of the change. If shifted to the left, it&apos;s
+    negative; to the right, it&apos;s positive. Pair this with higher is better
+    or lower is better to understand whether the change is an improvement or
+    regression. For example, given a Cliff&apos;s delta of 0.54 and CLES of 77%,
+    there&apos;s a 77% chance a value from new is lower than a value from old
+    (lower is better).
   </span>
 );
 

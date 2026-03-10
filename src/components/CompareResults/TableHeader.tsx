@@ -382,9 +382,20 @@ function TableHeader({
     // we don't want to show tooltip in filterable columns again
     if (header.tooltip && !('filter' in header)) {
       return (
-        <Tooltip title={header.tooltip} placement='top' arrow>
+        <Tooltip
+          title={header.tooltip}
+          placement='top'
+          slotProps={{
+            tooltip: {
+              sx: {
+                maxWidth: '500px',
+              },
+            },
+          }}
+          arrow
+        >
           {/* Box is used because tooltip expects a single valid element but sometimes content is a string */}
-          <Box component='span' sx={{ cursor: 'pointer' }}>
+          <Box component='span' sx={{ cursor: 'pointer,' }}>
             {content}
           </Box>
         </Tooltip>
