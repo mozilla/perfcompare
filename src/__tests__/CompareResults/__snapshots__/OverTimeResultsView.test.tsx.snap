@@ -355,7 +355,7 @@ exports[`Results View The table should match snapshot and other elements should 
       >
         <span
           aria-label="A summary of all values from Base runs using a mean."
-          class="MuiBox-root css-4g6ai3"
+          class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
           Base
@@ -371,7 +371,7 @@ exports[`Results View The table should match snapshot and other elements should 
       >
         <span
           aria-label="A summary of all values from New runs using a mean."
-          class="MuiBox-root css-4g6ai3"
+          class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
           New
@@ -416,7 +416,7 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <span
-          class="MuiBox-root css-4g6ai3"
+          class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
           <button
@@ -508,7 +508,7 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <span
-          class="MuiBox-root css-4g6ai3"
+          class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
           <button
@@ -541,7 +541,7 @@ exports[`Results View The table should match snapshot and other elements should 
       >
         <span
           aria-label="The total number of tasks/jobs that ran for this metric."
-          class="MuiBox-root css-4g6ai3"
+          class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
           Total Runs
