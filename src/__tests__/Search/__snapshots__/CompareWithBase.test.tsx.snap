@@ -3806,10 +3806,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -3830,7 +3830,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -3851,7 +3851,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -3872,7 +3872,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"

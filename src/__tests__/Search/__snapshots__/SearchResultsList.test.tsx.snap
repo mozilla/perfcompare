@@ -855,10 +855,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -879,7 +879,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -900,7 +900,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -921,7 +921,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"

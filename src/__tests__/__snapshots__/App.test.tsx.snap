@@ -56,10 +56,10 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -80,7 +80,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -101,7 +101,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -122,7 +122,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"
@@ -362,10 +362,10 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -386,7 +386,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -407,7 +407,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -428,7 +428,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"
@@ -563,10 +563,10 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -587,7 +587,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -608,7 +608,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -629,7 +629,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"

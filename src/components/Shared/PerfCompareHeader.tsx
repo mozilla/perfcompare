@@ -38,7 +38,7 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
             gap: 2,
             flexWrap: 'wrap',
             justifyContent: 'center',
-            padding: `${Spacing.Large}px`,
+            padding: `${Spacing.xLarge}px`,
           }}
         >
           <NavBarLink

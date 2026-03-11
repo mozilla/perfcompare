@@ -19,7 +19,7 @@ export function NavBarLink({
     themeMode === 'light' ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark;
 
   return (
-    <Box sx={{ mb: 3 }}>
+    <Box>
       <Link
         target='_blank'
         href={href}

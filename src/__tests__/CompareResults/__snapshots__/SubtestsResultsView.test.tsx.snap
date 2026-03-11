@@ -392,10 +392,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -416,7 +416,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -437,7 +437,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -458,7 +458,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"
@@ -2226,10 +2226,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -2250,7 +2250,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -2271,7 +2271,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -2292,7 +2292,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"
@@ -3704,10 +3704,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -3728,7 +3728,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -3749,7 +3749,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -3770,7 +3770,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"
@@ -5182,10 +5182,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -5206,7 +5206,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -5227,7 +5227,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -5248,7 +5248,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"
@@ -6660,10 +6660,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             </div>
           </div>
           <div
-            class="MuiBox-root css-ikfqnu"
+            class="MuiBox-root css-1cuyom4"
           >
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
@@ -6684,7 +6684,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Source"
@@ -6705,7 +6705,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Matrix"
@@ -6726,7 +6726,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               </a>
             </div>
             <div
-              class="MuiBox-root css-i3pbo"
+              class="MuiBox-root css-0"
             >
               <a
                 aria-label="Bugzilla"
