@@ -31,9 +31,7 @@ function ToggleDarkMode() {
       margin: 0,
       $nest: {
         '.toggle-text': {
-          ...(theme === 'light'
-            ? FontsRaw.BodyDefault
-            : FontsRaw.BodyDefaultDark),
+          ...FontsRaw.BodyDefault,
           margin: 0,
         },
         '.toggle-switch': {
