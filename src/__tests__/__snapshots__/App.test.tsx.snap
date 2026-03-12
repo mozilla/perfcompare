@@ -63,7 +63,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -84,7 +84,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -105,7 +105,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -126,7 +126,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -369,7 +369,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -390,7 +390,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -411,7 +411,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -432,7 +432,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -570,7 +570,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -591,7 +591,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -612,7 +612,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -633,7 +633,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"

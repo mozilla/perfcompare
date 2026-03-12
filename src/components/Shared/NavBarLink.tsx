@@ -2,9 +2,6 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 
-import { useAppSelector } from '../../hooks/app';
-import { FontsRaw } from '../../styles';
-
 export function NavBarLink({
   href,
   text,
@@ -14,10 +11,6 @@ export function NavBarLink({
   text: string;
   tooltip: string;
 }) {
-  const themeMode = useAppSelector((state) => state.theme.mode);
-  const linkFont =
-    themeMode === 'light' ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark;
-
   return (
     <Box>
       <Link
@@ -27,7 +20,6 @@ export function NavBarLink({
         title={tooltip}
         sx={{
           display: 'inline-flex',
-          ...linkFont,
           color: 'inherit',
           textDecoration: 'none',
           '&:hover': { textDecoration: 'underline' },

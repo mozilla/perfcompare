@@ -399,7 +399,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -420,7 +420,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -441,7 +441,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -462,7 +462,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -2233,7 +2233,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -2254,7 +2254,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -2275,7 +2275,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -2296,7 +2296,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -3711,7 +3711,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -3732,7 +3732,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -3753,7 +3753,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -3774,7 +3774,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -5189,7 +5189,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -5210,7 +5210,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -5231,7 +5231,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -5252,7 +5252,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -6667,7 +6667,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -6688,7 +6688,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -6709,7 +6709,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -6730,7 +6730,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1q1rtgn-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
