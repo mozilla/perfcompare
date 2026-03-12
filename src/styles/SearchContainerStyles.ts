@@ -18,7 +18,7 @@ export const SearchContainerStyles = (mode: string, isHome: boolean) => {
       flexDirection: 'column',
       $nest: {
         '.search-default-title': {
-          ...(isTrueLight ? FontsRaw.HeadingXS : FontsRaw.HeadingXSDark),
+          ...FontsRaw.HeadingXS,
           marginBottom: `${Spacing.xLarge + 10}px`,
           textAlign: 'center',
         },

@@ -27,7 +27,7 @@ export const SelectRevsStyles = (mode: string) => {
           },
         },
         '.item-container': {
-          ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
+          ...FontsRaw.BodyDefault,
           backgroundColor: isTrueLight
             ? Colors.Background200
             : Colors.Background300Dark,
