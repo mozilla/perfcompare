@@ -13,9 +13,24 @@ export const Strings = {
       href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     },
     contact: {
-      text: 'Find us at',
-      linkText: '#perfcompare:mozilla.org on Matrix',
+      tooltip: 'Chat with us on Matrix',
+      linkText: 'Matrix',
       href: 'https://matrix.to/#/#perfcompare:mozilla.org',
+    },
+    bugs: {
+      tooltip: 'Report an issue on Bugzilla',
+      href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
+      linkText: 'Bugzilla',
+    },
+    docs: {
+      tooltip: 'View the documentation',
+      linkText: 'Docs',
+      href: 'https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html',
+    },
+    source: {
+      tooltip: 'View the source code on GitHub',
+      linkText: 'Source',
+      href: 'https://github.com/mozilla/perfcompare',
     },
     header: {
       title: 'PerfCompare',
