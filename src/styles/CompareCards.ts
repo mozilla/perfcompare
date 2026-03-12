@@ -122,12 +122,10 @@ export const CompareCardsStyles = (mode: string) => {
       width: '76%',
       $nest: {
         '.compare-card-title': {
-          ...(isTrueLight
-            ? FontsRaw.HeadingDefault
-            : FontsRaw.HeadingDefaultDark),
+          ...FontsRaw.HeadingDefault,
         },
         '.compare-card-tagline': {
-          ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
+          ...FontsRaw.BodyDefault,
           margin: '0px',
         },
       },
@@ -166,7 +164,7 @@ export const SearchStyles = (mode: string) => {
       marginBottom: `${Spacing.xSmall + 2}px`,
       $nest: {
         '.dropdown-select-label,.base_label': {
-          ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
+          ...FontsRaw.BodyDefault,
           fontWeight: '600',
           display: 'flex',
           alignItems: 'center',
