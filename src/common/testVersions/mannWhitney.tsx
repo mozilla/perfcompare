@@ -184,8 +184,8 @@ export const mannWhitneyStrategy = {
         tooltip: tooltipEffectSize,
       },
       {
-        name: 'Total Runs',
-        key: 'runs',
+        name: 'Total Trials',
+        key: 'trials',
         gridWidth: '1fr',
         tooltip: tooltipTotalRuns,
       },

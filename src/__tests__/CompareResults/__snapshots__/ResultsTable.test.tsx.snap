@@ -1429,7 +1429,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     </span>
                   </div>
                   <div
-                    class="cell runs-header"
+                    class="cell trials-header"
                     role="columnheader"
                   >
                     <span
@@ -1437,7 +1437,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
-                      Total Runs
+                      Total Trials
                     </span>
                   </div>
                   <div
@@ -4112,7 +4112,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     </span>
                   </div>
                   <div
-                    class="cell runs-header"
+                    class="cell trials-header"
                     role="columnheader"
                   >
                     <span
@@ -4120,7 +4120,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
-                      Total Runs
+                      Total Trials
                     </span>
                   </div>
                   <div
