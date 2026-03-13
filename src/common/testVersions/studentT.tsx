@@ -137,7 +137,7 @@ export const studentTStrategy = {
       },
       {
         name: 'Total Trials',
-        key: 'runs',
+        key: 'trials',
         gridWidth: '1fr',
         tooltip: tooltipTotalRuns,
       },

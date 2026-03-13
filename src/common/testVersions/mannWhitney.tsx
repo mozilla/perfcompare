@@ -185,7 +185,7 @@ export const mannWhitneyStrategy = {
       },
       {
         name: 'Total Trials',
-        key: 'runs',
+        key: 'trials',
         gridWidth: '1fr',
         tooltip: tooltipTotalRuns,
       },
