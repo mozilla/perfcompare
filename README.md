@@ -66,7 +66,7 @@ Fixes [Bug-XXX](https://bugzilla.mozilla.org/show_bug.cgi?id=XXX)
 ```
 
 Once the PR is created, please link the PR to the corresponding bugzilla issue by pasting the PR link as an
-attachment in the bugzilla issue. The url for adding the attachment will be in the format `https://bugzilla.mozilla.org/attachment.cgi?bugid=<XXX>&action=enter`.
+attachment in the bugzilla issue.
 
 ---
 
