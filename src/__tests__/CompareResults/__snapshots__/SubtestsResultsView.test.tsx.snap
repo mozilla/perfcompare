@@ -351,41 +351,133 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+          class="MuiBox-root css-1e39pab"
         >
           <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            <div
+              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
             >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                 >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
                   <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Dark mode switch"
+                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                      id="Dark mode"
+                      name="toggle-dark-mode"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                >
+                  Dark mode
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root css-1cuyom4"
+          >
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Docs"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+                target="_blank"
+                title="View the documentation"
               >
-                Dark mode
-              </span>
-            </label>
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Source"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://github.com/mozilla/perfcompare"
+                target="_blank"
+                title="View the source code on GitHub"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Source
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Matrix"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://matrix.to/#/#perfcompare:mozilla.org"
+                target="_blank"
+                title="Chat with us on Matrix"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Matrix
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Bugzilla"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                target="_blank"
+                title="Report an issue on Bugzilla"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Bugzilla
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -480,47 +572,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     </li>
                   </ol>
                 </nav>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
-              >
-                <div
-                  class="f1qbk2gm MuiBox-root css-0"
-                >
-                  <div
-                    class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-                  >
-                    <label
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
-                    >
-                      <span
-                        class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
-                      >
-                        <span
-                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                        >
-                          <input
-                            checked=""
-                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                            role="switch"
-                            type="checkbox"
-                          />
-                          <span
-                            class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                          />
-                        </span>
-                        <span
-                          class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                        />
-                      </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-                      >
-                        Replicates
-                      </span>
-                    </label>
-                  </div>
-                </div>
               </div>
               <div
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
@@ -619,7 +670,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -824,7 +875,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -840,7 +891,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -885,8 +936,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="columnheader"
                 >
                   <span
-                    aria-label="Cliff’s Delta quantifies the magnitude of the difference between Base and New values."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -978,8 +1028,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="columnheader"
                 >
                   <span
-                    aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -1012,7 +1061,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
@@ -2136,41 +2185,133 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+          class="MuiBox-root css-1e39pab"
         >
           <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            <div
+              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
             >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                 >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
                   <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Dark mode switch"
+                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                      id="Dark mode"
+                      name="toggle-dark-mode"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                >
+                  Dark mode
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root css-1cuyom4"
+          >
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Docs"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+                target="_blank"
+                title="View the documentation"
               >
-                Dark mode
-              </span>
-            </label>
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Source"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://github.com/mozilla/perfcompare"
+                target="_blank"
+                title="View the source code on GitHub"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Source
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Matrix"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://matrix.to/#/#perfcompare:mozilla.org"
+                target="_blank"
+                title="Chat with us on Matrix"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Matrix
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Bugzilla"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                target="_blank"
+                title="Report an issue on Bugzilla"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Bugzilla
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -2267,47 +2408,6 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </nav>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
-              >
-                <div
-                  class="f1qbk2gm MuiBox-root css-0"
-                >
-                  <div
-                    class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-                  >
-                    <label
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
-                    >
-                      <span
-                        class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
-                      >
-                        <span
-                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                        >
-                          <input
-                            checked=""
-                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                            role="switch"
-                            type="checkbox"
-                          />
-                          <span
-                            class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                          />
-                        </span>
-                        <span
-                          class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                        />
-                      </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-                      >
-                        Replicates
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
                 role="alert"
                 style="--Paper-shadow: none;"
@@ -2396,7 +2496,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -2601,7 +2701,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -2617,7 +2717,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -2662,8 +2762,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    aria-label="Cliff’s Delta quantifies the magnitude of the difference between Base and New values."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -2755,8 +2854,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -2789,7 +2887,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
@@ -3565,41 +3663,133 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+          class="MuiBox-root css-1e39pab"
         >
           <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            <div
+              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
             >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                 >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
                   <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Dark mode switch"
+                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                      id="Dark mode"
+                      name="toggle-dark-mode"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                >
+                  Dark mode
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root css-1cuyom4"
+          >
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Docs"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+                target="_blank"
+                title="View the documentation"
               >
-                Dark mode
-              </span>
-            </label>
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Source"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://github.com/mozilla/perfcompare"
+                target="_blank"
+                title="View the source code on GitHub"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Source
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Matrix"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://matrix.to/#/#perfcompare:mozilla.org"
+                target="_blank"
+                title="Chat with us on Matrix"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Matrix
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Bugzilla"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                target="_blank"
+                title="Report an issue on Bugzilla"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Bugzilla
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -3696,47 +3886,6 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </nav>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
-              >
-                <div
-                  class="f1qbk2gm MuiBox-root css-0"
-                >
-                  <div
-                    class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-                  >
-                    <label
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
-                    >
-                      <span
-                        class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
-                      >
-                        <span
-                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                        >
-                          <input
-                            checked=""
-                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                            role="switch"
-                            type="checkbox"
-                          />
-                          <span
-                            class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                          />
-                        </span>
-                        <span
-                          class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                        />
-                      </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-                      >
-                        Replicates
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
                 role="alert"
                 style="--Paper-shadow: none;"
@@ -3825,7 +3974,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -4030,7 +4179,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -4046,7 +4195,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -4091,8 +4240,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    aria-label="Cliff’s Delta quantifies the magnitude of the difference between Base and New values."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -4184,8 +4332,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -4218,7 +4365,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
@@ -4994,41 +5141,133 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+          class="MuiBox-root css-1e39pab"
         >
           <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            <div
+              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
             >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                 >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
                   <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Dark mode switch"
+                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                      id="Dark mode"
+                      name="toggle-dark-mode"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                >
+                  Dark mode
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root css-1cuyom4"
+          >
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Docs"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+                target="_blank"
+                title="View the documentation"
               >
-                Dark mode
-              </span>
-            </label>
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Source"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://github.com/mozilla/perfcompare"
+                target="_blank"
+                title="View the source code on GitHub"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Source
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Matrix"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://matrix.to/#/#perfcompare:mozilla.org"
+                target="_blank"
+                title="Chat with us on Matrix"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Matrix
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Bugzilla"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                target="_blank"
+                title="Report an issue on Bugzilla"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Bugzilla
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -5125,47 +5364,6 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </nav>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
-              >
-                <div
-                  class="f1qbk2gm MuiBox-root css-0"
-                >
-                  <div
-                    class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-                  >
-                    <label
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
-                    >
-                      <span
-                        class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
-                      >
-                        <span
-                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                        >
-                          <input
-                            checked=""
-                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                            role="switch"
-                            type="checkbox"
-                          />
-                          <span
-                            class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                          />
-                        </span>
-                        <span
-                          class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                        />
-                      </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-                      >
-                        Replicates
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
                 role="alert"
                 style="--Paper-shadow: none;"
@@ -5254,7 +5452,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -5459,7 +5657,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -5475,7 +5673,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -5520,8 +5718,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="columnheader"
                 >
                   <span
-                    aria-label="Cliff’s Delta quantifies the magnitude of the difference between Base and New values."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -5613,8 +5810,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="columnheader"
                 >
                   <span
-                    aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -5647,7 +5843,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs
@@ -6423,41 +6619,133 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+          class="MuiBox-root css-1e39pab"
         >
           <div
-            class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+            <div
+              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
             >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                 >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
                   <span
-                    class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Dark mode switch"
+                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                      id="Dark mode"
+                      name="toggle-dark-mode"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                >
+                  Dark mode
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root css-1cuyom4"
+          >
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Docs"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
+                target="_blank"
+                title="View the documentation"
               >
-                Dark mode
-              </span>
-            </label>
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Source"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://github.com/mozilla/perfcompare"
+                target="_blank"
+                title="View the source code on GitHub"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Source
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Matrix"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://matrix.to/#/#perfcompare:mozilla.org"
+                target="_blank"
+                title="Chat with us on Matrix"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Matrix
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiBox-root css-0"
+            >
+              <a
+                aria-label="Bugzilla"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                target="_blank"
+                title="Report an issue on Bugzilla"
+              >
+                <div
+                  class="MuiStack-root css-ljomt-MuiStack-root"
+                >
+                  <span
+                    class="MuiBox-root css-0"
+                  >
+                    Bugzilla
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -6554,47 +6842,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </nav>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-1j7a0x5-MuiGrid-root"
-              >
-                <div
-                  class="f1qbk2gm MuiBox-root css-0"
-                >
-                  <div
-                    class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
-                  >
-                    <label
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-1lhdpr4-MuiFormControlLabel-root"
-                    >
-                      <span
-                        class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-rehya9-MuiSwitch-root"
-                      >
-                        <span
-                          class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
-                        >
-                          <input
-                            checked=""
-                            class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                            role="switch"
-                            type="checkbox"
-                          />
-                          <span
-                            class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
-                          />
-                        </span>
-                        <span
-                          class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
-                        />
-                      </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
-                      >
-                        Replicates
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div
                 class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
                 role="alert"
                 style="--Paper-shadow: none;"
@@ -6683,7 +6930,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </span>
                 </div>
                 <div
-                  class="f1oxa67k"
+                  class="MuiBox-root css-56tgmi"
                 >
                   <span
                     class="f1rpr1m5"
@@ -6888,7 +7135,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <span
                     aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Base
@@ -6904,7 +7151,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <span
                     aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     New
@@ -6949,8 +7196,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="columnheader"
                 >
                   <span
-                    aria-label="Cliff’s Delta quantifies the magnitude of the difference between Base and New values."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -7042,8 +7288,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="columnheader"
                 >
                   <span
-                    aria-label="An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
@@ -7076,7 +7321,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <span
                     aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
+                    class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     Total Runs

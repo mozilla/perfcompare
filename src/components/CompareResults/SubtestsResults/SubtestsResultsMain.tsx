@@ -16,6 +16,7 @@ import {
   subtestsView,
   subtestsOverTimeView,
   MANN_WHITNEY_U,
+  STUDENT_T,
 } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
@@ -142,9 +143,11 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <Grid container spacing={1}>
           <SubtestsBreadcrumbs view={view} />
         </Grid>
-        <Grid sx={{ marginRight: '10px' }}>
-          <ToggleReplicatesButton />
-        </Grid>
+        {testVersion === STUDENT_T && (
+          <Grid sx={{ marginRight: '10px' }}>
+            <ToggleReplicatesButton />
+          </Grid>
+        )}
         {displayMannWhitneyUWarning && (
           <Alert severity='warning' className={styles.title}>
             {Strings.components.mannWhitneyUWarning.text}{' '}

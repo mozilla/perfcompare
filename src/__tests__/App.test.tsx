@@ -21,38 +21,67 @@ describe('App', () => {
     render(<App />);
 
     // Title appears
-    const title = screen.getAllByText(/PerfCompare/i)[1];
-    expect(title).toBeInTheDocument();
+    const title = await screen.findByRole('heading', { level: 1 });
+    expect(title).toHaveTextContent('PerfCompare');
 
-    act(() => void jest.runAllTimers());
-    const homeText = screen.getByText('Compare with a base or over time');
-    expect(homeText).toBeInTheDocument();
+    // The Tagline text appears
+    const taglineText = await screen.findByText(
+      /Analyze results of performance tests to detect regressions and identify opportunities for improvement./i,
+    );
+    expect(taglineText).toBeInTheDocument();
     await waitForAllFetches();
   });
 
-  test('Should display File bug link', async () => {
+  test('Should display a link to the Docs with the correct tooltip', async () => {
     render(<App />);
 
     const link = await screen.findByRole('link', {
-      name: /report it on Bugzilla/,
+      name: 'Docs',
     });
     expect(link).toHaveAttribute(
       'href',
-      'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
+      'https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html',
     );
+    expect(link).toHaveAttribute('title', 'View the documentation');
     await waitForAllFetches();
   });
 
-  test('Should display PerfCompare Matrix channel link', async () => {
+  test('Should display a link to the GitHub repo with the correct tooltip', async () => {
     render(<App />);
-
     const link = await screen.findByRole('link', {
-      name: '#perfcompare:mozilla.org on Matrix',
+      name: 'Source',
+    });
+    expect(link).toHaveAttribute(
+      'href',
+      'https://github.com/mozilla/perfcompare',
+    );
+    expect(link).toHaveAttribute('title', 'View the source code on GitHub');
+    await waitForAllFetches();
+  });
+
+  test('Should display PerfCompare Matrix channel link with the correct tooltip', async () => {
+    render(<App />);
+    const link = await screen.findByRole('link', {
+      name: 'Matrix',
     });
     expect(link).toHaveAttribute(
       'href',
       'https://matrix.to/#/#perfcompare:mozilla.org',
     );
+    expect(link).toHaveAttribute('title', 'Chat with us on Matrix');
+    await waitForAllFetches();
+  });
+
+  test('Should display the correct link to file a new bug on Bugzilla with the correct tooltip', async () => {
+    render(<App />);
+    const link = await screen.findByRole('link', {
+      name: 'Bugzilla',
+    });
+    expect(link).toHaveAttribute(
+      'href',
+      'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
+    );
+    expect(link).toHaveAttribute('title', 'Report an issue on Bugzilla');
     await waitForAllFetches();
   });
 
