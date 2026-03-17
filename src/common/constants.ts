@@ -339,3 +339,5 @@ export const tooltipConfidence =
   "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.";
 export const tooltipDelta =
   'The percentage difference between the Base and New values';
+export const tooltipMedianDiff =
+  'Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100.';
