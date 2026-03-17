@@ -182,6 +182,21 @@ export const renderSubtestColumnsBasedOnTestVersion = (
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
         </div>
+        <div className='median-diff cell' role='cell'>
+          {(() => {
+            const baseMedian =
+              (result as MannWhitneyResultsItem).base_standard_stats?.median ??
+              0;
+            const newMedian =
+              (result as MannWhitneyResultsItem).new_standard_stats?.median ??
+              0;
+            const pct =
+              baseMedian !== 0
+                ? ((newMedian - baseMedian) / baseMedian) * 100
+                : 0;
+            return `${formatNumber(pct)} %`;
+          })()}
+        </div>
         <div className='status cell' role='cell'>
           <Box
             sx={{

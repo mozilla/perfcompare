@@ -7,12 +7,14 @@ import {
   MannWhitneyResultsItem,
 } from '../../types/state';
 import { TableConfig } from '../../types/types';
+import { formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
 import { getPlatformShortName } from '../../utils/platform';
 import { determineStatusHintClass } from '../../utils/revisionRowHelpers';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
+  tooltipMedianDiff,
   tooltipNewMean,
   tooltipSignificance,
   tooltipStatusMannWhitney,
@@ -101,6 +103,27 @@ export const mannWhitneyStrategy = {
       },
       { key: 'comparisonSign', gridWidth: '0.25fr' },
       { name: 'New', key: 'new', gridWidth: '.75fr', tooltip: tooltipNewMean },
+      {
+        name: 'MD %',
+        key: 'median-diff',
+        gridWidth: '.75fr',
+        sortFunction(
+          resultA: MannWhitneyResultsItem,
+          resultB: MannWhitneyResultsItem,
+        ) {
+          // Compute a normalized median diff percentage where positive
+          // means "improved" regardless of whether lower or higher is better.
+          const normalizedDiffPct = (r: MannWhitneyResultsItem) => {
+            const base = r.base_standard_stats?.median ?? 0;
+            const newVal = r.new_standard_stats?.median ?? 0;
+            const rawPct = base !== 0 ? ((newVal - base) / base) * 100 : 0;
+            return r.lower_is_better ? -rawPct : rawPct;
+          };
+
+          return normalizedDiffPct(resultB) - normalizedDiffPct(resultA);
+        },
+        tooltip: tooltipMedianDiff,
+      },
       {
         name: 'Status',
         filter: true,
@@ -203,12 +226,25 @@ export const mannWhitneyStrategy = {
   },
 
   renderColumns(result: CombinedResultsItemType) {
-    const { cliffs_delta, direction_of_change, mann_whitney_test, cles } =
-      result as MannWhitneyResultsItem;
+    const {
+      cliffs_delta,
+      direction_of_change,
+      mann_whitney_test,
+      cles,
+      base_standard_stats,
+      new_standard_stats,
+    } = result as MannWhitneyResultsItem;
     const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
+    const baseMedian = base_standard_stats?.median ?? 0;
+    const newMedian = new_standard_stats?.median ?? 0;
+    const medianDiffPct =
+      baseMedian !== 0 ? ((newMedian - baseMedian) / baseMedian) * 100 : 0;
 
     return (
       <>
+        <div className='median-diff cell' role='cell'>
+          {`${formatNumber(medianDiffPct)} %`}
+        </div>
         <div className='status cell' role='cell'>
           <Box
             sx={{
