@@ -12,6 +12,10 @@ export interface TestVersionStrategy {
     newAvg: number | null;
   };
   renderColumns(result: CombinedResultsItemType): ReactNode;
+  renderExpandedLeft(result: CombinedResultsItemType): ReactNode;
+  getComparisonResult(result: CombinedResultsItemType): string;
+  renderExpandedRight(result: CombinedResultsItemType): ReactNode;
+  renderExpandedBottom(result: CombinedResultsItemType): ReactNode;
 }
 
 // Registry mapping each TestVersion to its concrete strategy.

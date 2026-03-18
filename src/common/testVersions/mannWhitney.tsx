@@ -2,6 +2,10 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Box from '@mui/material/Box';
 
+import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
+import { ModeInterpretation } from '../../components/CompareResults/ModeInterpretation';
+import PValCliffsDeltaComp from '../../components/CompareResults/PValCliffsDeltaComp';
+import { StatisticsWarnings } from '../../components/CompareResults/StatisticsWarnings';
 import {
   CombinedResultsItemType,
   MannWhitneyResultsItem,
@@ -12,6 +16,7 @@ import { getPlatformShortName } from '../../utils/platform';
 import { determineStatusHintClass } from '../../utils/revisionRowHelpers';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
+  MANN_WHITNEY_U,
   tooltipBaseMean,
   tooltipNewMean,
   tooltipSignificance,
@@ -200,6 +205,56 @@ export const mannWhitneyStrategy = {
       baseAvg: resultItem.base_standard_stats?.mean ?? null,
       newAvg: resultItem.new_standard_stats?.mean ?? null,
     };
+  },
+
+  renderExpandedLeft() {
+    return null;
+  },
+
+  getComparisonResult(result: CombinedResultsItemType) {
+    return capitalize(
+      (result as MannWhitneyResultsItem).direction_of_change ?? '',
+    );
+  },
+
+  renderExpandedRight(result: CombinedResultsItemType) {
+    const mwResult = result as MannWhitneyResultsItem;
+    const { cles, cles_direction } = mwResult.cles ?? {
+      cles: '',
+      cles_direction: '',
+    };
+    const { cliffs_delta, cliffs_interpretation } = mwResult;
+    const pValue = mwResult.mann_whitney_test?.pvalue;
+    const p_value_cles = mwResult.mann_whitney_test?.interpretation
+      ? capitalize(mwResult.mann_whitney_test.interpretation)
+      : '';
+
+    return (
+      <>
+        <PValCliffsDeltaComp
+          cliffs_delta={cliffs_delta}
+          cliffs_interpretation={cliffs_interpretation}
+          pValue={pValue}
+          p_value_cles={p_value_cles}
+          cles={cles}
+          cles_direction={cles_direction}
+        />
+        <ModeInterpretation result={mwResult} testVersion={MANN_WHITNEY_U} />
+      </>
+    );
+  },
+
+  renderExpandedBottom(result: CombinedResultsItemType) {
+    const mwResult = result as MannWhitneyResultsItem;
+    return (
+      <div style={{ display: 'flex' }}>
+        <MannWhitneyCompareMetrics
+          result={mwResult}
+          testVersion={MANN_WHITNEY_U}
+        />
+        <StatisticsWarnings result={mwResult} testVersion={MANN_WHITNEY_U} />
+      </div>
+    );
   },
 
   renderColumns(result: CombinedResultsItemType) {
