@@ -2,6 +2,10 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Box from '@mui/material/Box';
 
+import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
+import { ModeInterpretation } from '../../components/CompareResults/ModeInterpretation';
+import PValCliffsDeltaComp from '../../components/CompareResults/PValCliffsDeltaComp';
+import { StatisticsWarnings } from '../../components/CompareResults/StatisticsWarnings';
 import { FontSize } from '../../styles';
 import {
   CombinedResultsItemType,
@@ -282,6 +286,53 @@ export const mannWhitneyStrategy = {
           {clesVal ? `${clesVal}% ` : '-'}
         </div>
       </>
+    );
+  },
+
+  renderExpandedLeft() {
+    return null;
+  },
+
+  getComparisonResult(result: CombinedResultsItemType) {
+    return capitalize(
+      (result as MannWhitneyResultsItem).direction_of_change ?? '',
+    );
+  },
+
+  renderExpandedRight(result: CombinedResultsItemType) {
+    const mwResult = result as MannWhitneyResultsItem;
+    const { cles, cles_direction } = mwResult.cles ?? {
+      cles: '',
+      cles_direction: '',
+    };
+    const { cliffs_delta, cliffs_interpretation } = mwResult;
+    const pValue = mwResult.mann_whitney_test?.pvalue;
+    const p_value_cles = mwResult.mann_whitney_test?.interpretation
+      ? capitalize(mwResult.mann_whitney_test.interpretation)
+      : '';
+
+    return (
+      <>
+        <PValCliffsDeltaComp
+          cliffs_delta={cliffs_delta}
+          cliffs_interpretation={cliffs_interpretation}
+          pValue={pValue}
+          p_value_cles={p_value_cles}
+          cles={cles}
+          cles_direction={cles_direction}
+        />
+        <ModeInterpretation result={mwResult} />
+      </>
+    );
+  },
+
+  renderExpandedBottom(result: CombinedResultsItemType) {
+    const mwResult = result as MannWhitneyResultsItem;
+    return (
+      <div style={{ display: 'flex' }}>
+        <MannWhitneyCompareMetrics result={mwResult} />
+        <StatisticsWarnings result={mwResult} />
+      </div>
     );
   },
 
