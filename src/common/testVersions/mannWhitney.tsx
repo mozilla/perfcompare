@@ -16,7 +16,6 @@ import { getPlatformShortName } from '../../utils/platform';
 import { determineStatusHintClass } from '../../utils/revisionRowHelpers';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
-  MANN_WHITNEY_U,
   tooltipBaseMean,
   tooltipNewMean,
   tooltipSignificance,
@@ -239,7 +238,7 @@ export const mannWhitneyStrategy = {
           cles={cles}
           cles_direction={cles_direction}
         />
-        <ModeInterpretation result={mwResult} testVersion={MANN_WHITNEY_U} />
+        <ModeInterpretation result={mwResult} />
       </>
     );
   },
@@ -248,11 +247,8 @@ export const mannWhitneyStrategy = {
     const mwResult = result as MannWhitneyResultsItem;
     return (
       <div style={{ display: 'flex' }}>
-        <MannWhitneyCompareMetrics
-          result={mwResult}
-          testVersion={MANN_WHITNEY_U}
-        />
-        <StatisticsWarnings result={mwResult} testVersion={MANN_WHITNEY_U} />
+        <MannWhitneyCompareMetrics result={mwResult} />
+        <StatisticsWarnings result={mwResult} />
       </div>
     );
   },

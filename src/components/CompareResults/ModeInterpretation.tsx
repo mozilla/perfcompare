@@ -1,17 +1,13 @@
 import { Box } from '@mui/material';
 
-import { MANN_WHITNEY_U } from '../../common/constants';
 import { MannWhitneyResultsItem } from '../../types/state';
-import { TestVersion } from '../../types/types';
 
 export const ModeInterpretation = ({
   result,
-  testVersion,
 }: {
   result: MannWhitneyResultsItem;
-  testVersion: TestVersion;
 }) => {
-  if (!result || !result.silverman_kde || testVersion !== MANN_WHITNEY_U) {
+  if (!result || !result.silverman_kde) {
     return null;
   }
 
