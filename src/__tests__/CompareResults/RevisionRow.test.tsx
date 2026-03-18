@@ -262,10 +262,10 @@ describe('Expanded row', () => {
     const newMean = roles[3]?.childNodes[0];
     expect(newMean).toHaveTextContent('712.44');
 
-    const directionOfChange = roles[4]?.childNodes[0];
+    const directionOfChange = roles[5]?.childNodes[0];
     expect(directionOfChange).toHaveTextContent('Improvement');
 
-    const cliffsDelta = roles[5]?.childNodes[0];
+    const cliffsDelta = roles[6]?.childNodes[0];
     expect(cliffsDelta).toHaveTextContent('.1');
   });
 

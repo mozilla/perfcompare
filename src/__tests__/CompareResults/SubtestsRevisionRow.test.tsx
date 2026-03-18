@@ -189,13 +189,13 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles = await screen.findAllByRole('cell');
-    const effects = roles[7]?.childNodes[0];
+    const effects = roles[8]?.childNodes[0];
     expect(effects).toHaveTextContent('60.00%');
 
-    const significance = roles[6]?.childNodes[0];
+    const significance = roles[7]?.childNodes[0];
     expect(significance).toHaveTextContent('Significant');
 
-    const cliffs_delta = roles[5]?.childNodes[1];
+    const cliffs_delta = roles[6]?.childNodes[1];
     expect(cliffs_delta).toHaveTextContent('0.02');
   });
 
@@ -212,7 +212,7 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles = await screen.findAllByRole('cell');
-    const status = roles[4]?.childNodes[0];
+    const status = roles[5]?.childNodes[0];
     expect(status).toHaveTextContent('Regression');
     expect(status).toHaveClass('status-hint-regression');
   });
@@ -230,7 +230,7 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles1 = await screen.findAllByRole('cell');
-    const status1 = roles1[4]?.childNodes[0];
+    const status1 = roles1[5]?.childNodes[0];
     expect(status1).toHaveTextContent('Improvement');
     expect(status1).toHaveClass('status-hint-improvement');
   });
