@@ -187,9 +187,7 @@ export const studentTStrategy = {
         : '';
     const medianPercentage =
       baseMedian && newMedian
-        ? formatTwoDigits.format(
-            ((newMedian - baseMedian) / baseMedian) * 100,
-          )
+        ? formatTwoDigits.format(((newMedian - baseMedian) / baseMedian) * 100)
         : '';
 
     const { confidenceNote } = Strings.components.expandableRow;

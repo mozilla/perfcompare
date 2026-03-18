@@ -87,8 +87,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 </div>
               )}
               <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
-                <b>Comparison result</b>:{' '}
-                {strategy.getComparisonResult(result)}{' '}
+                <b>Comparison result</b>: {strategy.getComparisonResult(result)}{' '}
                 ({lowerIsBetter ? 'lower' : 'higher'} is better)
               </Box>
               {strategy.renderExpandedRight(result)}

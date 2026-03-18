@@ -67,8 +67,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
             <b>
               Comparison result
             </b>
-            :
-             
+            : 
              
             (
             lower
@@ -460,8 +459,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
             <b>
               Comparison result
             </b>
-            :
-             
+            : 
              
             (
             lower
