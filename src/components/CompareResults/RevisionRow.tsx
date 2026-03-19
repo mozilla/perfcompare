@@ -26,6 +26,7 @@ import {
   getPlatformAndVersion,
   getBrowserDisplay,
 } from '../../utils/platform';
+import { determineSign } from '../../utils/revisionRowHelpers';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
@@ -119,12 +120,6 @@ const revisionRow = style({
     },
   },
 });
-
-function determineSign(baseMedianValue: number, newMedianValue: number) {
-  if (baseMedianValue > newMedianValue) return '>';
-  if (baseMedianValue < newMedianValue) return '<';
-  return '';
-}
 
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,
