@@ -140,34 +140,42 @@ export const mannWhitneyStrategy = {
         },
         tooltip: tooltipCliffsDelta,
       },
-      {
-        name: 'Significance',
-        key: 'significance',
-        filter: true,
-        gridWidth: '1.5fr',
-        tooltip: tooltipSignificance,
-        possibleValues: [
-          { label: 'Significant', key: 'significant' },
-          { label: 'Not Significant', key: 'not significant' },
-        ],
-        matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
-          const label = this.possibleValues.find(
-            ({ key }) => key === valueKey?.toLowerCase(),
-          )?.label;
-          return (
-            result.mann_whitney_test?.interpretation === label?.toLowerCase()
-          );
-        },
-        sortFunction(
-          resultA: MannWhitneyResultsItem,
-          resultB: MannWhitneyResultsItem,
-        ) {
-          return (
-            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-          );
-        },
-      },
+      ...(isSubtestTable
+        ? [] /* Subtest significance is redundant with Status */
+        : [
+            {
+              name: 'Significance',
+              key: 'significance',
+              filter: true,
+              gridWidth: '1.5fr',
+              tooltip: tooltipSignificance,
+              possibleValues: [
+                { label: 'Significant', key: 'significant' },
+                { label: 'Not Significant', key: 'not significant' },
+              ],
+              matchesFunction(
+                result: MannWhitneyResultsItem,
+                valueKey: string,
+              ) {
+                const label = this.possibleValues.find(
+                  ({ key }) => key === valueKey?.toLowerCase(),
+                )?.label;
+                return (
+                  result.mann_whitney_test?.interpretation ===
+                  label?.toLowerCase()
+                );
+              },
+              sortFunction(
+                resultA: MannWhitneyResultsItem,
+                resultB: MannWhitneyResultsItem,
+              ) {
+                return (
+                  Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
+                  Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
+                );
+              },
+            },
+          ]),
       {
         name: 'Effect Size (%)',
         key: 'effects',
