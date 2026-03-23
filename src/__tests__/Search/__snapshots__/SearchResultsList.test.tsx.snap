@@ -58,7 +58,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           </span>
         </div>
         <div
-          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
         >
           <span
             class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -170,7 +170,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           </span>
         </div>
         <div
-          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
         >
           <span
             class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -282,7 +282,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           </span>
         </div>
         <div
-          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
         >
           <span
             class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -394,7 +394,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           </span>
         </div>
         <div
-          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
         >
           <span
             class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -506,7 +506,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           </span>
         </div>
         <div
-          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
         >
           <span
             class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -618,7 +618,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           </span>
         </div>
         <div
-          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
         >
           <span
             class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -730,7 +730,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           </span>
         </div>
         <div
-          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
         >
           <span
             class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1202,7 +1202,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   </span>
                                 </div>
                                 <div
-                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                                 >
                                   <span
                                     class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1314,7 +1314,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   </span>
                                 </div>
                                 <div
-                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                                 >
                                   <span
                                     class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1426,7 +1426,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   </span>
                                 </div>
                                 <div
-                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                                 >
                                   <span
                                     class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1538,7 +1538,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   </span>
                                 </div>
                                 <div
-                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                                 >
                                   <span
                                     class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1650,7 +1650,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   </span>
                                 </div>
                                 <div
-                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                                 >
                                   <span
                                     class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1762,7 +1762,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   </span>
                                 </div>
                                 <div
-                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                                 >
                                   <span
                                     class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1874,7 +1874,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   </span>
                                 </div>
                                 <div
-                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+                                  class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                                 >
                                   <span
                                     class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"

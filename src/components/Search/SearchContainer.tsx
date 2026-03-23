@@ -8,7 +8,6 @@ import CompareWithBase from './CompareWithBase';
 import type { LoaderReturnValue } from './loader';
 import SearchFormHeader from './SearchFormHeader';
 import { STUDENT_T } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
 import type { TimeRange } from '../../types/types';
@@ -16,8 +15,7 @@ import type { TimeRange } from '../../types/types';
 const strings = Strings.components.searchDefault;
 
 function SearchContainer(props: SearchViewProps) {
-  const themeMode = useAppSelector((state) => state.theme.mode);
-  const styles = SearchContainerStyles(themeMode, /* isHome */ true);
+  const styles = SearchContainerStyles(/* isHome */ true);
   const [isBaseSearchExpanded, setIsBaseSearchExpanded] = useState(true);
   const { newRevInfo, newRepo, frameworkId } =
     useLoaderData<LoaderReturnValue>();
