@@ -1089,7 +1089,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </span>
                 </div>
                 <div
-                  class="cell runs-header"
+                  class="cell trials-header"
                   role="columnheader"
                 >
                   <span
@@ -1097,7 +1097,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
-                    Total Runs
+                    Total Trials
                   </span>
                 </div>
                 <div
@@ -2978,7 +2978,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="cell runs-header"
+                  class="cell trials-header"
                   role="columnheader"
                 >
                   <span
@@ -2986,7 +2986,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
-                    Total Runs
+                    Total Trials
                   </span>
                 </div>
                 <div
@@ -4519,7 +4519,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="cell runs-header"
+                  class="cell trials-header"
                   role="columnheader"
                 >
                   <span
@@ -4527,7 +4527,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
-                    Total Runs
+                    Total Trials
                   </span>
                 </div>
                 <div
@@ -6060,7 +6060,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </span>
                 </div>
                 <div
-                  class="cell runs-header"
+                  class="cell trials-header"
                   role="columnheader"
                 >
                   <span
@@ -6068,7 +6068,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
-                    Total Runs
+                    Total Trials
                   </span>
                 </div>
                 <div
@@ -7601,7 +7601,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </span>
                 </div>
                 <div
-                  class="cell runs-header"
+                  class="cell trials-header"
                   role="columnheader"
                 >
                   <span
@@ -7609,7 +7609,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
-                    Total Runs
+                    Total Trials
                   </span>
                 </div>
                 <div
