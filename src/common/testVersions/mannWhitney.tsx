@@ -1,5 +1,6 @@
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import WarningIcon from '@mui/icons-material/Warning';
 import Box from '@mui/material/Box';
 
 import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
@@ -79,14 +80,24 @@ const PLATFORM_FILTER_VALUES = [
 
 const SW_NORMALITY_THRESHOLD = 0.2;
 
-export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
+type NormalityResult = 'both' | 'one' | 'neither';
+
+export function checkDistributionNormality(
+  result: MannWhitneyResultsItem,
+): NormalityResult {
   const baseResult = shapiroWilkTest(result.base_runs);
   const newResult = shapiroWilkTest(result.new_runs);
   const baseNormal =
     baseResult !== null && baseResult.pvalue > SW_NORMALITY_THRESHOLD;
   const newNormal =
     newResult !== null && newResult.pvalue > SW_NORMALITY_THRESHOLD;
-  return baseNormal || newNormal;
+  if (baseNormal && newNormal) return 'both';
+  if (baseNormal || newNormal) return 'one';
+  return 'neither';
+}
+
+export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
+  return checkDistributionNormality(result) !== 'neither';
 }
 
 export const mannWhitneyStrategy = {
@@ -288,17 +299,32 @@ export const mannWhitneyStrategy = {
         </div>
         <div className='median-diff cell' role='cell'>
           {(() => {
-            const baseMedian =
-              (result as MannWhitneyResultsItem).base_standard_stats?.median ??
-              0;
-            const newMedian =
-              (result as MannWhitneyResultsItem).new_standard_stats?.median ??
-              0;
+            const mwResult = result as MannWhitneyResultsItem;
+            const normality = checkDistributionNormality(mwResult);
+            if (normality === 'neither') return '-';
+            const baseMedian = mwResult.base_standard_stats?.median ?? 0;
+            const newMedian = mwResult.new_standard_stats?.median ?? 0;
             const pct =
               baseMedian !== 0
                 ? ((newMedian - baseMedian) / baseMedian) * 100
                 : 0;
-            return `${formatNumber(pct)} %`;
+            return (
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                {`${formatNumber(pct)} %`}
+                {normality === 'one' && (
+                  <WarningIcon
+                    titleAccess="Distribution shapes aren't normal."
+                    sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
+                  />
+                )}
+              </span>
+            );
           })()}
         </div>
         <div className='status cell' role='cell'>
@@ -400,12 +426,32 @@ export const mannWhitneyStrategy = {
     const newMedian = new_standard_stats?.median ?? 0;
     const medianDiffPct =
       baseMedian !== 0 ? ((newMedian - baseMedian) / baseMedian) * 100 : 0;
-    const normalEnough = isDistributionNormal(result as MannWhitneyResultsItem);
+    const normality = checkDistributionNormality(
+      result as MannWhitneyResultsItem,
+    );
 
     return (
       <>
         <div className='median-diff cell' role='cell'>
-          {normalEnough ? `${formatNumber(medianDiffPct)} %` : '-'}
+          {normality === 'neither' ? (
+            '-'
+          ) : (
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+            >
+              {`${formatNumber(medianDiffPct)} %`}
+              {normality === 'one' && (
+                <WarningIcon
+                  titleAccess="Distribution shapes aren't normal."
+                  sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
+                />
+              )}
+            </span>
+          )}
         </div>
         <div className='status cell' role='cell'>
           <Box
