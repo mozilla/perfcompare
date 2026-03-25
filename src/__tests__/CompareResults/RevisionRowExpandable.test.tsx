@@ -21,6 +21,46 @@ function renderWithRoute(component: ReactElement) {
   });
 }
 
+describe('RevisionRowExpandable for student-t testVersion', () => {
+  it('should display median difference and percentage when both median values are present', async () => {
+    const { testCompareData } = getTestData();
+    // testCompareData[0]: base_median_value=704.84, new_median_value=712.44, unit='ms'
+    // expected difference: 7.6, percentage: 1.08
+    renderWithRoute(
+      <RevisionRowExpandable
+        result={testCompareData[0]}
+        testVersion='student-t'
+        id='test-1'
+      />,
+    );
+
+    const header = await screen.findByText(/Difference of medians/);
+    const medianBox = header.closest('div');
+    expect(medianBox).toHaveTextContent('1.08%');
+    expect(medianBox).toHaveTextContent('7.6 ms');
+  });
+
+  it('should not display median difference when median values are absent', async () => {
+    const { testCompareData } = getTestData();
+    const noMedians = {
+      ...testCompareData[0],
+      base_median_value: 0,
+      new_median_value: 0,
+    };
+
+    renderWithRoute(
+      <RevisionRowExpandable
+        result={noMedians}
+        testVersion='student-t'
+        id='test-2'
+      />,
+    );
+
+    await screen.findByText(/Difference of means/);
+    expect(screen.queryByText(/Difference of medians/)).not.toBeInTheDocument();
+  });
+});
+
 describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
   it('should display ModeInterpretation for mann-whitney-u', async () => {
     const { mockMannWhitneyResultData } = getTestData();

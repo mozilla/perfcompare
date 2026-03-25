@@ -1,22 +1,18 @@
 import { Box } from '@mui/material';
 
-import { MANN_WHITNEY_U } from '../../common/constants';
 import { MannWhitneyResultsItem } from '../../types/state';
-import { TestVersion } from '../../types/types';
 import { getModeInterpretation } from '../../utils/helpers';
 
 const METRIC_HEADERS = ['Metric', 'Base', 'New', 'Interpretation'];
 
 interface MannWhitneyCompareMetricsProps {
   result: MannWhitneyResultsItem;
-  testVersion: TestVersion;
 }
 
 export const MannWhitneyCompareMetrics = ({
   result,
-  testVersion,
 }: MannWhitneyCompareMetricsProps) => {
-  if (!result || testVersion !== MANN_WHITNEY_U) {
+  if (!result) {
     return null;
   }
 

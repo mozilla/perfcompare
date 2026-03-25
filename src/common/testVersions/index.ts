@@ -16,6 +16,10 @@ export interface TestVersionStrategy {
     result: CombinedResultsItemType,
     expanded: boolean,
   ): ReactNode;
+  renderExpandedLeft(result: CombinedResultsItemType): ReactNode;
+  getComparisonResult(result: CombinedResultsItemType): string;
+  renderExpandedRight(result: CombinedResultsItemType): ReactNode;
+  renderExpandedBottom(result: CombinedResultsItemType): ReactNode;
 }
 
 // Registry mapping each TestVersion to its concrete strategy.

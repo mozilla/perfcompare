@@ -36,7 +36,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         &lt;
       </div>
       <div
-        class="mann-witney-browser-name cell"
+        class="browser-name cell"
         role="cell"
       >
         984.16
@@ -208,7 +208,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         &lt;
       </div>
       <div
-        class="mann-witney-browser-name cell"
+        class="browser-name cell"
         role="cell"
       >
         982.41
@@ -362,7 +362,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         &lt;
       </div>
       <div
-        class="mann-witney-browser-name cell"
+        class="browser-name cell"
         role="cell"
       >
         982.41
