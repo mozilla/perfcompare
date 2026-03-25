@@ -146,7 +146,6 @@ export const renderSubtestColumnsBasedOnTestVersion = (
     const {
       test,
       cliffs_delta,
-      mann_whitney_test,
       cles,
       direction_of_change,
       base_measurement_unit: baseUnit,
@@ -154,9 +153,6 @@ export const renderSubtestColumnsBasedOnTestVersion = (
       base_app: baseApp,
       new_app: newApp,
     } = result as MannWhitneyResultsItem;
-    const mann_whitney_interpretation = mann_whitney_test?.interpretation
-      ? capitalize(mann_whitney_test?.interpretation)
-      : '-';
     const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
     const baseAvgValue =
       (result as MannWhitneyResultsItem).base_standard_stats?.mean ?? 0;
@@ -209,9 +205,6 @@ export const renderSubtestColumnsBasedOnTestVersion = (
         <div className='delta cell' role='cell'>
           {' '}
           {cliffs_delta || '-'}
-        </div>
-        <div className='significance cell' role='cell'>
-          {mann_whitney_interpretation}
         </div>
         <div className='effects cell' role='cell'>
           {clesVal ? `${clesVal}% ` : '-'}
