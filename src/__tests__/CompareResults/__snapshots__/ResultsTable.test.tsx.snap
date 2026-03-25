@@ -1204,7 +1204,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="fom0p54 f1l733lh"
+                  class="fjksmi8 f1l733lh"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1268,6 +1268,39 @@ exports[`Results Table Should match snapshot 1`] = `
                       data-mui-internal-clone-element="true"
                     >
                       New
+                    </span>
+                  </div>
+                  <div
+                    class="cell median-diff-header"
+                    role="columnheader"
+                  >
+                    <span
+                      aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                      class="MuiBox-root css-1tkq7a4"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <button
+                        aria-label="MD % (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+                          data-testid="SwapVertIcon"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+                          />
+                          <title>
+                            Not sorted by MD %
+                          </title>
+                        </svg>
+                        MD %
+                      </button>
                     </span>
                   </div>
                   <div
@@ -1561,7 +1594,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                             role="row"
                           >
                             <div
@@ -1608,6 +1641,12 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               N/A
                                
+                            </div>
+                            <div
+                              class="median-diff cell"
+                              role="cell"
+                            >
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -1726,7 +1765,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_15_"
+                                  aria-controls="_r_17_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1749,7 +1788,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                             role="row"
                           >
                             <div
@@ -1797,6 +1836,12 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               N/A
                                
+                            </div>
+                            <div
+                              class="median-diff cell"
+                              role="cell"
+                            >
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -1915,7 +1960,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1c_"
+                                  aria-controls="_r_1e_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1938,7 +1983,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                             role="row"
                           >
                             <div
@@ -1986,6 +2031,12 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               N/A
                                
+                            </div>
+                            <div
+                              class="median-diff cell"
+                              role="cell"
+                            >
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -2104,7 +2155,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1j_"
+                                  aria-controls="_r_1l_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2208,7 +2259,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                             role="row"
                           >
                             <div
@@ -2256,6 +2307,12 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               N/A
                                
+                            </div>
+                            <div
+                              class="median-diff cell"
+                              role="cell"
+                            >
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -2374,7 +2431,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1r_"
+                                  aria-controls="_r_1t_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -3628,7 +3685,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             aria-invalid="false"
                             aria-label="Search by title, platform, revision or options"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="_r_p1_"
+                            id="_r_p5_"
                             placeholder="Filter results"
                             type="search"
                             value=""
@@ -3887,7 +3944,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   </div>
                 </div>
                 <div
-                  class="fom0p54 f1l733lh"
+                  class="fjksmi8 f1l733lh"
                   data-testid="table-header"
                   role="row"
                 >
@@ -3951,6 +4008,39 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       data-mui-internal-clone-element="true"
                     >
                       New
+                    </span>
+                  </div>
+                  <div
+                    class="cell median-diff-header"
+                    role="columnheader"
+                  >
+                    <span
+                      aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                      class="MuiBox-root css-1tkq7a4"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <button
+                        aria-label="MD % (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+                          data-testid="SwapVertIcon"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+                          />
+                          <title>
+                            Not sorted by MD %
+                          </title>
+                        </svg>
+                        MD %
+                      </button>
                     </span>
                   </div>
                   <div
@@ -4244,7 +4334,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                             role="row"
                           >
                             <div
@@ -4291,6 +4381,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             >
                               791.34 ms
                                
+                            </div>
+                            <div
+                              class="median-diff cell"
+                              role="cell"
+                            >
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -4422,7 +4518,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_pm_"
+                                  aria-controls="_r_ps_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -4445,7 +4541,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                             role="row"
                           >
                             <div
@@ -4493,6 +4589,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             >
                               712.44 ms
                                
+                            </div>
+                            <div
+                              class="median-diff cell"
+                              role="cell"
+                            >
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -4624,7 +4726,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_pt_"
+                                  aria-controls="_r_q3_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -4647,7 +4749,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                             role="row"
                           >
                             <div
@@ -4695,6 +4797,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             >
                               628.09 ms
                                
+                            </div>
+                            <div
+                              class="median-diff cell"
+                              role="cell"
+                            >
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -4813,7 +4921,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_q4_"
+                                  aria-controls="_r_qa_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -4917,7 +5025,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                            class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                             role="row"
                           >
                             <div
@@ -4965,6 +5073,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             >
                               N/A
                                
+                            </div>
+                            <div
+                              class="median-diff cell"
+                              role="cell"
+                            >
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -5083,7 +5197,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_qc_"
+                                  aria-controls="_r_qi_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -5560,7 +5674,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+      class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
       role="row"
     >
       <div
@@ -5608,6 +5722,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       >
         712.44 ms
          
+      </div>
+      <div
+        class="median-diff cell"
+        role="cell"
+      >
+        -
       </div>
       <div
         class="status cell"
@@ -5739,7 +5859,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_ss_"
+            aria-controls="_r_t6_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -5801,7 +5921,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+      class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
       role="row"
     >
       <div
@@ -5849,6 +5969,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       >
         712.44 ms
          
+      </div>
+      <div
+        class="median-diff cell"
+        role="cell"
+      >
+        -
       </div>
       <div
         class="status cell"
@@ -5980,7 +6106,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_t4_"
+            aria-controls="_r_te_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -6283,7 +6409,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_49_"
+            aria-controls="_r_4d_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -6529,7 +6655,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_4h_"
+            aria-controls="_r_4l_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"

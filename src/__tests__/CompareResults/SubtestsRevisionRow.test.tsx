@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/loader';
 import SubtestsRevisionRow from '../../components/CompareResults/SubtestsResults/SubtestsRevisionRow';
+import { MannWhitneyResultsItem } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { screen, renderWithRouter } from '../utils/test-utils';
 
@@ -188,13 +189,13 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles = await screen.findAllByRole('cell');
-    const effects = roles[7]?.childNodes[0];
+    const effects = roles[8]?.childNodes[0];
     expect(effects).toHaveTextContent('60.00%');
 
-    const significance = roles[6]?.childNodes[0];
+    const significance = roles[7]?.childNodes[0];
     expect(significance).toHaveTextContent('Significant');
 
-    const cliffs_delta = roles[5]?.childNodes[1];
+    const cliffs_delta = roles[6]?.childNodes[1];
     expect(cliffs_delta).toHaveTextContent('0.02');
   });
 
@@ -211,7 +212,7 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles = await screen.findAllByRole('cell');
-    const status = roles[4]?.childNodes[0];
+    const status = roles[5]?.childNodes[0];
     expect(status).toHaveTextContent('Regression');
     expect(status).toHaveClass('status-hint-regression');
   });
@@ -229,8 +230,67 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles1 = await screen.findAllByRole('cell');
-    const status1 = roles1[4]?.childNodes[0];
+    const status1 = roles1[5]?.childNodes[0];
     expect(status1).toHaveTextContent('Improvement');
     expect(status1).toHaveClass('status-hint-improvement');
+  });
+
+  describe('median diff column normality gating', () => {
+    const normalRuns = [5.1, 5.2, 4.9, 5.0, 5.05];
+    const tooFewRuns = [5.0];
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+
+    function makeResult(
+      baseRuns: number[],
+      newRuns: number[],
+    ): MannWhitneyResultsItem {
+      const { subtestsMannWhitneyResult } = getTestData();
+      return {
+        ...subtestsMannWhitneyResult[0],
+        base_runs: baseRuns,
+        new_runs: newRuns,
+      };
+    }
+
+    it('shows dash when neither distribution is normal', async () => {
+      renderWithRoute(
+        <SubtestsRevisionRow
+          result={makeResult(tooFewRuns, tooFewRuns)}
+          gridTemplateColumns={mockGridTemplateColumns}
+          replicates={false}
+          testVersion='mann-whitney-u'
+        />,
+      );
+      const roles = await screen.findAllByRole('cell');
+      expect(roles[4]).toHaveTextContent('-');
+    });
+
+    it('shows value with warning icon when only one distribution is normal', async () => {
+      renderWithRoute(
+        <SubtestsRevisionRow
+          result={makeResult(normalRuns, tooFewRuns)}
+          gridTemplateColumns={mockGridTemplateColumns}
+          replicates={false}
+          testVersion='mann-whitney-u'
+        />,
+      );
+      const roles = await screen.findAllByRole('cell');
+      expect(roles[4]).not.toHaveTextContent('-');
+      expect(roles[4].querySelector('svg[role="img"]')).toBeTruthy();
+    });
+
+    it('shows value without warning icon when both distributions are normal', async () => {
+      renderWithRoute(
+        <SubtestsRevisionRow
+          result={makeResult(normalRuns, normalRuns)}
+          gridTemplateColumns={mockGridTemplateColumns}
+          replicates={false}
+          testVersion='mann-whitney-u'
+        />,
+      );
+      const roles = await screen.findAllByRole('cell');
+      expect(roles[4]).not.toHaveTextContent('-');
+      expect(roles[4].querySelector('svg[role="img"]')).toBeFalsy();
+    });
   });
 });

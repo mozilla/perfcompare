@@ -420,8 +420,18 @@ const getTestData = () => {
       new_signature_id: 12345,
       has_subtests: false,
       ks_test: null,
-      shapiro_wilk_test_base: null,
-      shapiro_wilk_test_new: null,
+      shapiro_wilk_test_base: {
+        test_name: 'Shapiro-Wilk',
+        stat: 0.95,
+        pvalue: 0.8,
+        interpretation: 'normal',
+      },
+      shapiro_wilk_test_new: {
+        test_name: 'Shapiro-Wilk',
+        stat: 0.96,
+        pvalue: 0.85,
+        interpretation: 'normal',
+      },
       mann_whitney_test: {
         test_name: 'Mann-Whitney U',
         stat: null,
@@ -1520,8 +1530,18 @@ const getTestData = () => {
         max: 987.66,
       },
       ks_test: null,
-      shapiro_wilk_test_base: null,
-      shapiro_wilk_test_new: null,
+      shapiro_wilk_test_base: {
+        test_name: 'Shapiro-Wilk',
+        stat: 0.95,
+        pvalue: 0.85,
+        interpretation: 'normal',
+      },
+      shapiro_wilk_test_new: {
+        test_name: 'Shapiro-Wilk',
+        stat: 0.96,
+        pvalue: 0.9,
+        interpretation: 'normal',
+      },
       shapiro_wilk_warnings: [],
       mann_whitney_test: {
         test_name: 'Mann-Whitney U',
@@ -1628,8 +1648,18 @@ const getTestData = () => {
         max: 323.12,
       },
       ks_test: null,
-      shapiro_wilk_test_base: null,
-      shapiro_wilk_test_new: null,
+      shapiro_wilk_test_base: {
+        test_name: 'Shapiro-Wilk',
+        stat: 0.95,
+        pvalue: 0.82,
+        interpretation: 'normal',
+      },
+      shapiro_wilk_test_new: {
+        test_name: 'Shapiro-Wilk',
+        stat: 0.97,
+        pvalue: 0.88,
+        interpretation: 'normal',
+      },
       shapiro_wilk_warnings: [],
       mann_whitney_test: {
         test_name: 'Mann-Whitney U',

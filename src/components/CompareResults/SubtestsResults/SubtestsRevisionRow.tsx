@@ -8,11 +8,13 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
+import WarningIcon from '@mui/icons-material/Warning';
 import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
 import RevisionRowExpandable from '.././RevisionRowExpandable';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../../common/constants';
+import { checkDistributionNormality } from '../../../common/testVersions/mannWhitney';
 import { Strings } from '../../../resources/Strings';
 import { FontSize, Spacing } from '../../../styles';
 import type {
@@ -181,6 +183,36 @@ export const renderSubtestColumnsBasedOnTestVersion = (
           {getBrowserDisplay(baseApp, newApp, expanded) && (
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
+        </div>
+        <div className='median-diff cell' role='cell'>
+          {(() => {
+            const mwResult = result as MannWhitneyResultsItem;
+            const normality = checkDistributionNormality(mwResult);
+            if (normality === 'neither') return '-';
+            const baseMedian = mwResult.base_standard_stats?.median ?? 0;
+            const newMedian = mwResult.new_standard_stats?.median ?? 0;
+            const pct =
+              baseMedian !== 0
+                ? ((newMedian - baseMedian) / baseMedian) * 100
+                : 0;
+            return (
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                {`${formatNumber(pct)} %`}
+                {normality === 'one' && (
+                  <WarningIcon
+                    titleAccess="Distribution shapes aren't normal."
+                    sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
+                  />
+                )}
+              </span>
+            );
+          })()}
         </div>
         <div className='status cell' role='cell'>
           <Box
