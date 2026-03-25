@@ -19,6 +19,7 @@ import {
   determineSign,
   determineStatusHintClass,
 } from '../../utils/revisionRowHelpers';
+import { shapiroWilkTest } from '../../utils/shapiroWilk';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
@@ -75,6 +76,18 @@ const PLATFORM_FILTER_VALUES = [
   { label: 'Android', key: 'android' },
   { label: 'iOS', key: 'ios' },
 ];
+
+const SW_NORMALITY_THRESHOLD = 0.2;
+
+export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
+  const baseResult = shapiroWilkTest(result.base_runs);
+  const newResult = shapiroWilkTest(result.new_runs);
+  const baseNormal =
+    baseResult !== null && baseResult.pvalue > SW_NORMALITY_THRESHOLD;
+  const newNormal =
+    newResult !== null && newResult.pvalue > SW_NORMALITY_THRESHOLD;
+  return baseNormal || newNormal;
+}
 
 export const mannWhitneyStrategy = {
   getColumns(isSubtestTable: boolean): TableConfig {
@@ -387,11 +400,12 @@ export const mannWhitneyStrategy = {
     const newMedian = new_standard_stats?.median ?? 0;
     const medianDiffPct =
       baseMedian !== 0 ? ((newMedian - baseMedian) / baseMedian) * 100 : 0;
+    const normalEnough = isDistributionNormal(result as MannWhitneyResultsItem);
 
     return (
       <>
         <div className='median-diff cell' role='cell'>
-          {`${formatNumber(medianDiffPct)} %`}
+          {normalEnough ? `${formatNumber(medianDiffPct)} %` : '-'}
         </div>
         <div className='status cell' role='cell'>
           <Box
