@@ -581,7 +581,7 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
 
       // Sort by Effect Size descending
       const effectButton = screen.getByRole('button', {
-        name: /Effect Size \(%\).*sort/,
+        name: /CLES\(%\).*sort/,
       });
       await user.click(effectButton);
       expect(summarizeVisibleRows('mann-whitney-u')).toEqual([

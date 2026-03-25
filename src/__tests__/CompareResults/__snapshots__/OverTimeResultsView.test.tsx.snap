@@ -387,7 +387,7 @@ exports[`Results View The table should match snapshot and other elements should 
           data-mui-internal-clone-element="true"
         >
           <button
-            aria-label="MD % (Click to sort by this column)"
+            aria-label="MD(%) (Click to sort by this column)"
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
@@ -403,10 +403,10 @@ exports[`Results View The table should match snapshot and other elements should 
                 d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
-                Not sorted by MD %
+                Not sorted by MD(%)
               </title>
             </svg>
-            MD %
+            MD(%)
           </button>
         </span>
       </div>
@@ -545,7 +545,7 @@ exports[`Results View The table should match snapshot and other elements should 
           data-mui-internal-clone-element="true"
         >
           <button
-            aria-label="Effect Size (%) (Click to sort by this column)"
+            aria-label="CLES(%) (Click to sort by this column)"
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
@@ -561,10 +561,10 @@ exports[`Results View The table should match snapshot and other elements should 
                 d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
-                Not sorted by Effect Size (%)
+                Not sorted by CLES(%)
               </title>
             </svg>
-            Effect Size (%)
+            CLES(%)
           </button>
         </span>
       </div>
