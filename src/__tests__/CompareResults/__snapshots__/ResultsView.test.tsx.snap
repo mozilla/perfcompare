@@ -1602,7 +1602,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -1797,7 +1801,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -1992,7 +2000,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -2187,7 +2199,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
