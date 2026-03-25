@@ -13,6 +13,7 @@ import { style } from 'typestyle';
 
 import RevisionRowExpandable from '.././RevisionRowExpandable';
 import { MANN_WHITNEY_U, STUDENT_T } from '../../../common/constants';
+import { isDistributionNormal } from '../../../common/testVersions/mannWhitney';
 import { Strings } from '../../../resources/Strings';
 import { FontSize, Spacing } from '../../../styles';
 import type {
@@ -184,12 +185,10 @@ export const renderSubtestColumnsBasedOnTestVersion = (
         </div>
         <div className='median-diff cell' role='cell'>
           {(() => {
-            const baseMedian =
-              (result as MannWhitneyResultsItem).base_standard_stats?.median ??
-              0;
-            const newMedian =
-              (result as MannWhitneyResultsItem).new_standard_stats?.median ??
-              0;
+            const mwResult = result as MannWhitneyResultsItem;
+            if (!isDistributionNormal(mwResult)) return '-';
+            const baseMedian = mwResult.base_standard_stats?.median ?? 0;
+            const newMedian = mwResult.new_standard_stats?.median ?? 0;
             const pct =
               baseMedian !== 0
                 ? ((newMedian - baseMedian) / baseMedian) * 100
