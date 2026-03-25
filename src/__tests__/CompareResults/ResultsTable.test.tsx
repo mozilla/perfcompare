@@ -1113,7 +1113,7 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     // Sort by Effect Size (%) descending
     const effectSizeButton = screen.getByRole('button', {
-      name: /Effect Size \(%\).*sort/,
+      name: /CLES\(%\).*sort/,
     });
     await user.click(effectSizeButton);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([

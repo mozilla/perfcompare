@@ -108,7 +108,7 @@ export const mannWhitneyStrategy = {
       { key: 'comparisonSign', gridWidth: '0.25fr' },
       { name: 'New', key: 'new', gridWidth: '.75fr', tooltip: tooltipNewMean },
       {
-        name: 'MD %',
+        name: 'MD(%)',
         key: 'median-diff',
         gridWidth: '.75fr',
         sortFunction(
@@ -196,7 +196,7 @@ export const mannWhitneyStrategy = {
         },
       },
       {
-        name: 'Effect Size (%)',
+        name: 'CLES(%)',
         key: 'effects',
         gridWidth: '1.25fr',
         sortFunction(
