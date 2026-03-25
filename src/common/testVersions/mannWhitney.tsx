@@ -2,14 +2,19 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Box from '@mui/material/Box';
 
+import { FontSize } from '../../styles';
 import {
   CombinedResultsItemType,
   MannWhitneyResultsItem,
 } from '../../types/state';
 import { TableConfig } from '../../types/types';
+import { formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
-import { getPlatformShortName } from '../../utils/platform';
-import { determineStatusHintClass } from '../../utils/revisionRowHelpers';
+import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
+import {
+  determineSign,
+  determineStatusHintClass,
+} from '../../utils/revisionRowHelpers';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
@@ -200,6 +205,84 @@ export const mannWhitneyStrategy = {
       baseAvg: resultItem.base_standard_stats?.mean ?? null,
       newAvg: resultItem.new_standard_stats?.mean ?? null,
     };
+  },
+
+  renderSubtestColumns(result: CombinedResultsItemType, expanded: boolean) {
+    const {
+      test,
+      cliffs_delta,
+      mann_whitney_test,
+      cles,
+      direction_of_change,
+      base_measurement_unit: baseUnit,
+      new_measurement_unit: newUnit,
+      base_app: baseApp,
+      new_app: newApp,
+    } = result as MannWhitneyResultsItem;
+    const mann_whitney_interpretation = mann_whitney_test?.interpretation
+      ? capitalize(mann_whitney_test.interpretation)
+      : '-';
+    const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
+    const baseAvgValue =
+      (result as MannWhitneyResultsItem).base_standard_stats?.mean ?? 0;
+    const newAvgValue =
+      (result as MannWhitneyResultsItem).new_standard_stats?.mean ?? 0;
+    return (
+      <>
+        <div title={test} className='subtests subtests-mannwhitney' role='cell'>
+          {test}
+        </div>
+        <div className='mann-witney-browser-name cell' role='cell'>
+          {formatNumber(baseAvgValue)} {baseUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({baseApp})</span>
+          )}
+        </div>
+        <div className='comparison-sign cell' role='cell'>
+          {determineSign(baseAvgValue, newAvgValue)}
+        </div>
+        <div className='mann-witney-browser-name cell' role='cell'>
+          {formatNumber(newAvgValue)} {newUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({newApp})</span>
+          )}
+        </div>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor:
+                direction_of_change === 'improvement'
+                  ? 'status.improvement'
+                  : direction_of_change === 'regression'
+                    ? 'status.regression'
+                    : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(
+              direction_of_change === 'improvement',
+              direction_of_change === 'regression',
+            )}`}
+          >
+            {direction_of_change === 'improvement' ? (
+              <ThumbUpIcon color='success' />
+            ) : null}
+            {direction_of_change === 'regression' ? (
+              <ThumbDownIcon color='error' />
+            ) : null}
+            {capitalize(direction_of_change ?? '')}
+          </Box>
+        </div>
+        <div className='delta cell' role='cell'>
+          {' '}
+          {cliffs_delta || '-'}
+        </div>
+        <div className='significance cell' role='cell'>
+          {mann_whitney_interpretation}
+        </div>
+        <div className='effects cell' role='cell'>
+          {clesVal ? `${clesVal}% ` : '-'}
+        </div>
+      </>
+    );
   },
 
   renderColumns(result: CombinedResultsItemType) {

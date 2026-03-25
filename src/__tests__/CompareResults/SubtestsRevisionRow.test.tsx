@@ -139,13 +139,13 @@ describe('SubtestsRevisionRow Component', () => {
     expect(await screen.findByText(/Normality Test/i)).toBeInTheDocument();
   });
 
-  it('renders subtests results defaulting to student-t with no testVersion', async () => {
+  it('renders subtests results defaulting to mann-whitney-u with no testVersion', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const { subtestsResult } = getTestData();
+    const { subtestsMannWhitneyResult } = getTestData();
     const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
     renderWithRoute(
       <SubtestsRevisionRow
-        result={subtestsResult[0]}
+        result={subtestsMannWhitneyResult[0]}
         gridTemplateColumns={mockGridTemplateColumns}
         replicates={false}
       />,
@@ -153,7 +153,7 @@ describe('SubtestsRevisionRow Component', () => {
     const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRowButton);
 
-    expect(await screen.findByText(/Difference of means/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Normality Test/i)).toBeInTheDocument();
   });
 
   it('should display baseMean and newMean in subtests for student-t testVersion', async () => {
@@ -164,6 +164,7 @@ describe('SubtestsRevisionRow Component', () => {
         result={subtestsResult[0]}
         gridTemplateColumns={mockGridTemplateColumns}
         replicates={false}
+        testVersion='student-t'
       />,
     );
 
