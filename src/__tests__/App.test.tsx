@@ -400,7 +400,7 @@ describe('App', () => {
       // (this indicates the testVersion defaulted to mann-whitney-u)
       expect(screen.getByText("Cliff's Delta")).toBeInTheDocument();
       expect(screen.getByText('Significance')).toBeInTheDocument();
-      expect(screen.getByText('Effect Size (%)')).toBeInTheDocument();
+      expect(screen.getByText('CLES(%)')).toBeInTheDocument();
 
       // Verify the Stats Test Version dropdown shows Mann-Whitney-U as selected
       const testVersionDropdown = screen.getByRole('combobox', {
