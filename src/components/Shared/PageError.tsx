@@ -24,7 +24,7 @@ export function PageError({ title }: PageErrorProps) {
     }),
   };
 
-  const sectionStyles = SearchContainerStyles(themeMode, /* isHome */ false);
+  const sectionStyles = SearchContainerStyles(/* isHome */ false);
 
   const error = useRouteError() as Error;
   console.error(error);
