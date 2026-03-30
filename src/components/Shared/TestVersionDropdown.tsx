@@ -1,6 +1,7 @@
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+import { getTestVersionOptions } from '../../common/testVersions';
 import { ThemeMode } from '../../types/state';
 import { TestVersion } from '../../types/types';
 
@@ -11,11 +12,6 @@ interface TestVersionDropdownProps {
   mode: ThemeMode;
   onChange: (test_version: TestVersion) => void;
 }
-
-const TEST_VERSIONS = [
-  { type: 'mann-whitney-u', label: 'Mann-Whitney-U' },
-  { type: 'student-t', label: 'Student-T' },
-];
 
 function TestVersionDropdown({
   testType,
@@ -48,7 +44,7 @@ function TestVersionDropdown({
         'aria-label': 'Stats Test Version',
       }}
     >
-      {TEST_VERSIONS.map(({ label, type }) => (
+      {getTestVersionOptions().map(({ label, type }) => (
         <MenuItem value={type} key={type} className={`statistic-test-item`}>
           {label}
         </MenuItem>
