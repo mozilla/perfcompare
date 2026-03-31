@@ -4,6 +4,7 @@ import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { compareView } from '../../common/constants';
+import { isDistributionNormal } from '../../common/testVersions/mannWhitney';
 import { loader } from '../../components/CompareResults/loader';
 import RevisionRow from '../../components/CompareResults/RevisionRow';
 import { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
@@ -355,9 +356,11 @@ describe('Expanded row', () => {
     }
 
     it('shows dash when neither distribution is normal', async () => {
+      const result = makeResult(tooFewRuns, tooFewRuns);
+      expect(isDistributionNormal(result)).toBe(false);
       renderWithRoute(
         <RevisionRow
-          result={makeResult(tooFewRuns, tooFewRuns)}
+          result={result}
           view={compareView}
           gridTemplateColumns='none'
           replicates={false}
@@ -369,9 +372,11 @@ describe('Expanded row', () => {
     });
 
     it('shows value with warning icon when only one distribution is normal', async () => {
+      const result = makeResult(normalRuns, tooFewRuns);
+      expect(isDistributionNormal(result)).toBe(true);
       renderWithRoute(
         <RevisionRow
-          result={makeResult(normalRuns, tooFewRuns)}
+          result={result}
           view={compareView}
           gridTemplateColumns='none'
           replicates={false}
@@ -384,9 +389,11 @@ describe('Expanded row', () => {
     });
 
     it('shows value without warning icon when both distributions are normal', async () => {
+      const result = makeResult(normalRuns, normalRuns);
+      expect(isDistributionNormal(result)).toBe(true);
       renderWithRoute(
         <RevisionRow
-          result={makeResult(normalRuns, normalRuns)}
+          result={result}
           view={compareView}
           gridTemplateColumns='none'
           replicates={false}
