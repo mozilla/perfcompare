@@ -59,37 +59,12 @@ export const FontsRaw = {
     fontSize: FontSizeRaw.Normal.fontSize,
     fontFamily: 'SF Pro',
   },
-
-  //DARK MODE FONTS
-
-  HeadingDefaultDark: {
-    ...sharedFontStyles,
-    fontWeight: '600',
-    fontSize: '17px',
-    fontFamily: 'SF Pro',
-  },
-
-  HeadingXSDark: {
-    ...sharedFontStyles,
-    fontSize: '24px',
-    fontFamily: 'Metropolis',
-  },
-
-  BodyDefaultDark: {
-    ...sharedFontStyles,
-    fontWeight: '400',
-    fontSize: FontSizeRaw.Normal.fontSize,
-    fontFamily: 'SF Pro',
-  },
 };
 
 export const Fonts = {
   HeadingDefault: style(FontsRaw.HeadingDefault),
   HeadingXS: style(FontsRaw.HeadingXS),
   BodyDefault: style(FontsRaw.BodyDefault),
-  HeadingDefaultDark: style(FontsRaw.HeadingDefaultDark),
-  HeadingXSDark: style(FontsRaw.HeadingXSDark),
-  BodyDefaultDark: style(FontsRaw.BodyDefaultDark),
 };
 
 export const FontSize = {

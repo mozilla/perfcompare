@@ -41,7 +41,7 @@ function ResultsView(props: ResultsViewProps) {
     }),
   };
 
-  const sectionStyles = SearchContainerStyles(themeMode, /* isHome */ false);
+  const sectionStyles = SearchContainerStyles(/* isHome */ false);
 
   useEffect(() => {
     document.title = title;
