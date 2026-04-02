@@ -311,7 +311,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="fom0p54 f1l733lh"
+      class="fjksmi8 f1l733lh"
       data-testid="table-header"
       role="row"
     >
@@ -375,6 +375,39 @@ exports[`Results View The table should match snapshot and other elements should 
           data-mui-internal-clone-element="true"
         >
           New
+        </span>
+      </div>
+      <div
+        class="cell median-diff-header"
+        role="columnheader"
+      >
+        <span
+          aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+          class="MuiBox-root css-1tkq7a4"
+          data-mui-internal-clone-element="true"
+        >
+          <button
+            aria-label="MD(%) (Click to sort by this column)"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+              data-testid="SwapVertIcon"
+              focusable="false"
+              role="img"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+              />
+              <title>
+                Not sorted by MD(%)
+              </title>
+            </svg>
+            MD(%)
+          </button>
         </span>
       </div>
       <div
@@ -512,7 +545,7 @@ exports[`Results View The table should match snapshot and other elements should 
           data-mui-internal-clone-element="true"
         >
           <button
-            aria-label="Effect Size (%) (Click to sort by this column)"
+            aria-label="CLES(%) (Click to sort by this column)"
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
@@ -528,10 +561,10 @@ exports[`Results View The table should match snapshot and other elements should 
                 d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
-                Not sorted by Effect Size (%)
+                Not sorted by CLES(%)
               </title>
             </svg>
-            Effect Size (%)
+            CLES(%)
           </button>
         </span>
       </div>
@@ -668,7 +701,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                 role="row"
               >
                 <div
@@ -715,6 +748,12 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   N/A
                    
+                </div>
+                <div
+                  class="median-diff cell"
+                  role="cell"
+                >
+                  0 %
                 </div>
                 <div
                   class="status cell"
@@ -833,7 +872,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_v_"
+                      aria-controls="_r_11_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -856,7 +895,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                 role="row"
               >
                 <div
@@ -904,6 +943,12 @@ exports[`Results View The table should match snapshot and other elements should 
                 >
                   N/A
                    
+                </div>
+                <div
+                  class="median-diff cell"
+                  role="cell"
+                >
+                  0 %
                 </div>
                 <div
                   class="status cell"
@@ -1022,7 +1067,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_16_"
+                      aria-controls="_r_18_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1045,7 +1090,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                 role="row"
               >
                 <div
@@ -1095,6 +1140,12 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
+                  class="median-diff cell"
+                  role="cell"
+                >
+                  0 %
+                </div>
+                <div
                   class="status cell"
                   role="cell"
                 >
@@ -1211,7 +1262,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1d_"
+                      aria-controls="_r_1f_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1234,7 +1285,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                class="revisionRow f15ninac f1dlt78d MuiBox-root css-6a7wpt"
                 role="row"
               >
                 <div
@@ -1284,6 +1335,12 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
+                  class="median-diff cell"
+                  role="cell"
+                >
+                  0 %
+                </div>
+                <div
                   class="status cell"
                   role="cell"
                 >
@@ -1400,7 +1457,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1k_"
+                      aria-controls="_r_1m_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
