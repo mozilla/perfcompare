@@ -1,5 +1,6 @@
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import WarningIcon from '@mui/icons-material/Warning';
 import Box from '@mui/material/Box';
 
 import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
@@ -19,9 +20,11 @@ import {
   determineSign,
   determineStatusHintClass,
 } from '../../utils/revisionRowHelpers';
+import { shapiroWilkTest } from '../../utils/shapiroWilk';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
+  tooltipMedianDiff,
   tooltipNewMean,
   tooltipSignificance,
   tooltipStatusMannWhitney,
@@ -75,6 +78,28 @@ const PLATFORM_FILTER_VALUES = [
   { label: 'iOS', key: 'ios' },
 ];
 
+const SW_NORMALITY_THRESHOLD = 0.2;
+
+type NormalityResult = 'both' | 'one' | 'neither';
+
+export function checkDistributionNormality(
+  result: MannWhitneyResultsItem,
+): NormalityResult {
+  const baseResult = shapiroWilkTest(result.base_runs);
+  const newResult = shapiroWilkTest(result.new_runs);
+  const baseNormal =
+    baseResult !== null && baseResult.pvalue > SW_NORMALITY_THRESHOLD;
+  const newNormal =
+    newResult !== null && newResult.pvalue > SW_NORMALITY_THRESHOLD;
+  if (baseNormal && newNormal) return 'both';
+  if (baseNormal || newNormal) return 'one';
+  return 'neither';
+}
+
+export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
+  return checkDistributionNormality(result) !== 'neither';
+}
+
 export const mannWhitneyStrategy = {
   getColumns(isSubtestTable: boolean): TableConfig {
     const platformConfig = isSubtestTable
@@ -110,6 +135,27 @@ export const mannWhitneyStrategy = {
       },
       { key: 'comparisonSign', gridWidth: '0.25fr' },
       { name: 'New', key: 'new', gridWidth: '.75fr', tooltip: tooltipNewMean },
+      {
+        name: 'MD(%)',
+        key: 'median-diff',
+        gridWidth: '.75fr',
+        sortFunction(
+          resultA: MannWhitneyResultsItem,
+          resultB: MannWhitneyResultsItem,
+        ) {
+          // Compute a normalized median diff percentage where positive
+          // means "improved" regardless of whether lower or higher is better.
+          const normalizedDiffPct = (r: MannWhitneyResultsItem) => {
+            const base = r.base_standard_stats?.median ?? 0;
+            const newVal = r.new_standard_stats?.median ?? 0;
+            const rawPct = base !== 0 ? ((newVal - base) / base) * 100 : 0;
+            return r.lower_is_better ? -rawPct : rawPct;
+          };
+
+          return normalizedDiffPct(resultB) - normalizedDiffPct(resultA);
+        },
+        tooltip: tooltipMedianDiff,
+      },
       {
         name: 'Status',
         filter: true,
@@ -178,7 +224,7 @@ export const mannWhitneyStrategy = {
         },
       },
       {
-        name: 'Effect Size (%)',
+        name: 'CLES(%)',
         key: 'effects',
         gridWidth: '1.25fr',
         sortFunction(
@@ -250,6 +296,36 @@ export const mannWhitneyStrategy = {
           {getBrowserDisplay(baseApp, newApp, expanded) && (
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
+        </div>
+        <div className='median-diff cell' role='cell'>
+          {(() => {
+            const mwResult = result as MannWhitneyResultsItem;
+            const normality = checkDistributionNormality(mwResult);
+            if (normality === 'neither') return '-';
+            const baseMedian = mwResult.base_standard_stats?.median ?? 0;
+            const newMedian = mwResult.new_standard_stats?.median ?? 0;
+            const pct =
+              baseMedian !== 0
+                ? ((newMedian - baseMedian) / baseMedian) * 100
+                : 0;
+            return (
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                {`${formatNumber(pct)} %`}
+                {normality === 'one' && (
+                  <WarningIcon
+                    titleAccess="Distribution shapes aren't normal."
+                    sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
+                  />
+                )}
+              </span>
+            );
+          })()}
         </div>
         <div className='status cell' role='cell'>
           <Box
@@ -337,12 +413,46 @@ export const mannWhitneyStrategy = {
   },
 
   renderColumns(result: CombinedResultsItemType) {
-    const { cliffs_delta, direction_of_change, mann_whitney_test, cles } =
-      result as MannWhitneyResultsItem;
+    const {
+      cliffs_delta,
+      direction_of_change,
+      mann_whitney_test,
+      cles,
+      base_standard_stats,
+      new_standard_stats,
+    } = result as MannWhitneyResultsItem;
     const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
+    const baseMedian = base_standard_stats?.median ?? 0;
+    const newMedian = new_standard_stats?.median ?? 0;
+    const medianDiffPct =
+      baseMedian !== 0 ? ((newMedian - baseMedian) / baseMedian) * 100 : 0;
+    const normality = checkDistributionNormality(
+      result as MannWhitneyResultsItem,
+    );
 
     return (
       <>
+        <div className='median-diff cell' role='cell'>
+          {normality === 'neither' ? (
+            '-'
+          ) : (
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+            >
+              {`${formatNumber(medianDiffPct)} %`}
+              {normality === 'one' && (
+                <WarningIcon
+                  titleAccess="Distribution shapes aren't normal."
+                  sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
+                />
+              )}
+            </span>
+          )}
+        </div>
         <div className='status cell' role='cell'>
           <Box
             sx={{

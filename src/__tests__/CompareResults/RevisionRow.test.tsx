@@ -4,9 +4,10 @@ import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import { compareView } from '../../common/constants';
+import { isDistributionNormal } from '../../common/testVersions/mannWhitney';
 import { loader } from '../../components/CompareResults/loader';
 import RevisionRow from '../../components/CompareResults/RevisionRow';
-import { CompareResultsItem } from '../../types/state';
+import { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
 import { Platform } from '../../types/types';
 import getTestData from '../utils/fixtures';
 import { screen, renderWithRouter } from '../utils/test-utils';
@@ -262,10 +263,10 @@ describe('Expanded row', () => {
     const newMean = roles[3]?.childNodes[0];
     expect(newMean).toHaveTextContent('712.44');
 
-    const directionOfChange = roles[4]?.childNodes[0];
+    const directionOfChange = roles[5]?.childNodes[0];
     expect(directionOfChange).toHaveTextContent('Improvement');
 
-    const cliffsDelta = roles[5]?.childNodes[0];
+    const cliffsDelta = roles[6]?.childNodes[0];
     expect(cliffsDelta).toHaveTextContent('.1');
   });
 
@@ -336,5 +337,72 @@ describe('Expanded row', () => {
     await user.click(copyResultsButton[0]);
 
     expect(writeTextMock).toHaveBeenCalledWith(baseRuns);
+  });
+
+  describe('median diff column normality gating', () => {
+    const normalRuns = [5.1, 5.2, 4.9, 5.0, 5.05];
+    const tooFewRuns = [5.0];
+
+    function makeResult(
+      baseRuns: number[],
+      newRuns: number[],
+    ): MannWhitneyResultsItem {
+      const { testCompareMannWhitneyData } = getTestData();
+      return {
+        ...testCompareMannWhitneyData[0],
+        base_runs: baseRuns,
+        new_runs: newRuns,
+      };
+    }
+
+    it('shows dash when neither distribution is normal', async () => {
+      const result = makeResult(tooFewRuns, tooFewRuns);
+      expect(isDistributionNormal(result)).toBe(false);
+      renderWithRoute(
+        <RevisionRow
+          result={result}
+          view={compareView}
+          gridTemplateColumns='none'
+          replicates={false}
+          testVersion='mann-whitney-u'
+        />,
+      );
+      const roles = await screen.findAllByRole('cell');
+      expect(roles[4]).toHaveTextContent('-');
+    });
+
+    it('shows value with warning icon when only one distribution is normal', async () => {
+      const result = makeResult(normalRuns, tooFewRuns);
+      expect(isDistributionNormal(result)).toBe(true);
+      renderWithRoute(
+        <RevisionRow
+          result={result}
+          view={compareView}
+          gridTemplateColumns='none'
+          replicates={false}
+          testVersion='mann-whitney-u'
+        />,
+      );
+      const roles = await screen.findAllByRole('cell');
+      expect(roles[4]).not.toHaveTextContent('-');
+      expect(roles[4].querySelector('svg[role="img"]')).toBeTruthy();
+    });
+
+    it('shows value without warning icon when both distributions are normal', async () => {
+      const result = makeResult(normalRuns, normalRuns);
+      expect(isDistributionNormal(result)).toBe(true);
+      renderWithRoute(
+        <RevisionRow
+          result={result}
+          view={compareView}
+          gridTemplateColumns='none'
+          replicates={false}
+          testVersion='mann-whitney-u'
+        />,
+      );
+      const roles = await screen.findAllByRole('cell');
+      expect(roles[4]).not.toHaveTextContent('-');
+      expect(roles[4].querySelector('svg[role="img"]')).toBeFalsy();
+    });
   });
 });

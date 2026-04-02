@@ -79,6 +79,7 @@ function summarizeVisibleRows(testVersion?: TestVersion) {
           testVersion === 'mann-whitney-u'
             ? [
                 '.platform span',
+                '.median-diff',
                 '.status',
                 '.delta',
                 '.significance',
@@ -715,9 +716,9 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
       '  rev: devilrabbit',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
     ]);
     expect(screen.getByRole('rowgroup')).toMatchSnapshot();
   });
@@ -741,12 +742,12 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, Not significant, 25.00 %',
-      '  - inexistant, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - Android, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - inexistant, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
 
     expect(summarizeTableFiltersFromUrl()).toEqual({});
@@ -755,9 +756,9 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Platform', /Windows/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Android, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android', 'ios'],
@@ -768,12 +769,12 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Platform', /Windows/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, Not significant, 25.00 %',
-      '  - inexistant, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - Android, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - inexistant, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -781,8 +782,8 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, Not significant, 25.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Android, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'ios'],
@@ -791,9 +792,9 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Android, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'ios', 'linux'],
@@ -802,22 +803,22 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Platform', 'Select all values');
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, Not significant, 25.00 %',
-      '  - inexistant, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - Android, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - inexistant, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     await clickMenuItem(user, 'Platform', /macOS/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - Android, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'android', 'ios'],
@@ -826,9 +827,9 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Platform', /Android/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'ios'],
@@ -837,7 +838,7 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Platform', /Select only.*Android/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Android, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['android'],
@@ -874,10 +875,10 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -885,8 +886,8 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Status', /No changes/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement', 'regression'],
@@ -895,7 +896,7 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Status', /Improvement/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['regression'],
@@ -905,9 +906,9 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Status', /Regression/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['none', 'improvement'],
@@ -916,17 +917,17 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Status', /Regression/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     await clickMenuItem(user, 'Status', /Select only.*Regression/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['regression'],
@@ -935,7 +936,7 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     await clickMenuItem(user, 'Status', /Select only.*Improvement/);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement'],
@@ -952,7 +953,7 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
     ]);
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(await summarizeTableFiltersFromCheckboxes(user)).toEqual({
@@ -988,26 +989,26 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Linux 18.04, Regression, 1.2, Not significant, 44.00 %',
-      '  - macOS 10.15, Improvement, 1.3, Not significant, 24.00 %',
-      '  - Windows 10, , 1.2, Significant, 99.00 %',
-      '  - Windows 10, , 1.2, Significant, 49.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 1.2, Not significant, 44.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 1.3, Not significant, 24.00 %',
+      '  - Windows 10, -, , 1.2, Significant, 99.00 %',
+      '  - Windows 10, -2.401 %, , 1.2, Significant, 49.00 %',
       '  rev: tictactoe',
-      '  - Linux 18.04, Regression, 2, Not significant, 43.00 %',
-      '  - macOS 10.15, Improvement, 2.1, Not significant, 23.00 %',
-      '  - Windows 10, , 2, Significant, 98.00 %',
-      '  - Windows 10, , 2, Significant, 48.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 2, Not significant, 43.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 2.1, Not significant, 23.00 %',
+      '  - Windows 10, -, , 2, Significant, 98.00 %',
+      '  - Windows 10, -2.401 %, , 2, Significant, 48.00 %',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
       '  rev: tictactoe',
-      '  - Linux 18.04, Regression, 0.8, Not significant, 44.00 %',
-      '  - macOS 10.15, Improvement, 0.9, Not significant, 24.00 %',
-      '  - Windows 10, , 0.8, Significant, 99.00 %',
-      '  - Windows 10, , 0.8, Significant, 49.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 0.8, Not significant, 44.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.9, Not significant, 24.00 %',
+      '  - Windows 10, -, , 0.8, Significant, 99.00 %',
+      '  - Windows 10, -2.401 %, , 0.8, Significant, 49.00 %',
     ]);
     // It should have the "descending" SVG.
     expect(deltaButton).toMatchSnapshot();
@@ -1019,26 +1020,26 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, Improvement, 2.1, Not significant, 23.00 %',
-      '  - Linux 18.04, Regression, 2, Not significant, 43.00 %',
-      '  - Windows 10, , 2, Significant, 48.00 %',
-      '  - Windows 10, , 2, Significant, 98.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 2.1, Not significant, 23.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 2, Not significant, 43.00 %',
+      '  - Windows 10, -2.401 %, , 2, Significant, 48.00 %',
+      '  - Windows 10, -, , 2, Significant, 98.00 %',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 1.3, Not significant, 24.00 %',
-      '  - Linux 18.04, Regression, 1.2, Not significant, 44.00 %',
-      '  - Windows 10, , 1.2, Significant, 49.00 %',
-      '  - Windows 10, , 1.2, Significant, 99.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 1.3, Not significant, 24.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 1.2, Not significant, 44.00 %',
+      '  - Windows 10, -2.401 %, , 1.2, Significant, 49.00 %',
+      '  - Windows 10, -, , 1.2, Significant, 99.00 %',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, Improvement, 0.9, Not significant, 24.00 %',
-      '  - Linux 18.04, Regression, 0.8, Not significant, 44.00 %',
-      '  - Windows 10, , 0.8, Significant, 49.00 %',
-      '  - Windows 10, , 0.8, Significant, 99.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.9, Not significant, 24.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 0.8, Not significant, 44.00 %',
+      '  - Windows 10, -2.401 %, , 0.8, Significant, 49.00 %',
+      '  - Windows 10, -, , 0.8, Significant, 99.00 %',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
     ]);
     // It should have the "ascending" SVG.
     expect(deltaButton).toMatchSnapshot();
@@ -1053,26 +1054,26 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, Improvement, 2.1, Not significant, 23.00 %',
-      '  - Linux 18.04, Regression, 2, Not significant, 43.00 %',
-      '  - Windows 10, , 2, Significant, 98.00 %',
-      '  - Windows 10, , 2, Significant, 48.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 2.1, Not significant, 23.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 2, Not significant, 43.00 %',
+      '  - Windows 10, -, , 2, Significant, 98.00 %',
+      '  - Windows 10, -2.401 %, , 2, Significant, 48.00 %',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 1.3, Not significant, 24.00 %',
-      '  - Linux 18.04, Regression, 1.2, Not significant, 44.00 %',
-      '  - Windows 10, , 1.2, Significant, 99.00 %',
-      '  - Windows 10, , 1.2, Significant, 49.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 1.3, Not significant, 24.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 1.2, Not significant, 44.00 %',
+      '  - Windows 10, -, , 1.2, Significant, 99.00 %',
+      '  - Windows 10, -2.401 %, , 1.2, Significant, 49.00 %',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, Improvement, 0.9, Not significant, 24.00 %',
-      '  - Linux 18.04, Regression, 0.8, Not significant, 44.00 %',
-      '  - Windows 10, , 0.8, Significant, 99.00 %',
-      '  - Windows 10, , 0.8, Significant, 49.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.9, Not significant, 24.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 0.8, Not significant, 44.00 %',
+      '  - Windows 10, -, , 0.8, Significant, 99.00 %',
+      '  - Windows 10, -2.401 %, , 0.8, Significant, 49.00 %',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
     ]);
     // It should have the "descending" SVG.
     expect(significanceButton).toMatchSnapshot();
@@ -1084,26 +1085,26 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, , -, Significant, 50.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, , 0.8, Significant, 49.00 %',
-      '  - Windows 10, , 0.8, Significant, 99.00 %',
-      '  - macOS 10.15, Improvement, 0.9, Not significant, 24.00 %',
-      '  - Linux 18.04, Regression, 0.8, Not significant, 44.00 %',
+      '  - Windows 10, -2.401 %, , 0.8, Significant, 49.00 %',
+      '  - Windows 10, -, , 0.8, Significant, 99.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.9, Not significant, 24.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 0.8, Not significant, 44.00 %',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, , 1.2, Significant, 49.00 %',
-      '  - Windows 10, , 1.2, Significant, 99.00 %',
-      '  - macOS 10.15, Improvement, 1.3, Not significant, 24.00 %',
-      '  - Linux 18.04, Regression, 1.2, Not significant, 44.00 %',
+      '  - Windows 10, -2.401 %, , 1.2, Significant, 49.00 %',
+      '  - Windows 10, -, , 1.2, Significant, 99.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 1.3, Not significant, 24.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 1.2, Not significant, 44.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, , 2, Significant, 48.00 %',
-      '  - Windows 10, , 2, Significant, 98.00 %',
-      '  - macOS 10.15, Improvement, 2.1, Not significant, 23.00 %',
-      '  - Linux 18.04, Regression, 2, Not significant, 43.00 %',
+      '  - Windows 10, -2.401 %, , 2, Significant, 48.00 %',
+      '  - Windows 10, -, , 2, Significant, 98.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 2.1, Not significant, 23.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 2, Not significant, 43.00 %',
     ]);
     // It should have the "descending" SVG.
     expect(significanceButton).toMatchSnapshot();
@@ -1112,32 +1113,32 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     // Sort by Effect Size (%) descending
     const effectSizeButton = screen.getByRole('button', {
-      name: /Effect Size \(%\).*sort/,
+      name: /CLES\(%\).*sort/,
     });
     await user.click(effectSizeButton);
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, , -, Significant, 100.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, , 0.8, Significant, 99.00 %',
-      '  - Windows 10, , 0.8, Significant, 49.00 %',
-      '  - Linux 18.04, Regression, 0.8, Not significant, 44.00 %',
-      '  - macOS 10.15, Improvement, 0.9, Not significant, 24.00 %',
+      '  - Windows 10, -, , 0.8, Significant, 99.00 %',
+      '  - Windows 10, -2.401 %, , 0.8, Significant, 49.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 0.8, Not significant, 44.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.9, Not significant, 24.00 %',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, , 1.2, Significant, 99.00 %',
-      '  - Windows 10, , 1.2, Significant, 49.00 %',
-      '  - Linux 18.04, Regression, 1.2, Not significant, 44.00 %',
-      '  - macOS 10.15, Improvement, 1.3, Not significant, 24.00 %',
+      '  - Windows 10, -, , 1.2, Significant, 99.00 %',
+      '  - Windows 10, -2.401 %, , 1.2, Significant, 49.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 1.2, Not significant, 44.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 1.3, Not significant, 24.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, , 2, Significant, 98.00 %',
-      '  - Windows 10, , 2, Significant, 48.00 %',
-      '  - Linux 18.04, Regression, 2, Not significant, 43.00 %',
-      '  - macOS 10.15, Improvement, 2.1, Not significant, 23.00 %',
+      '  - Windows 10, -, , 2, Significant, 98.00 %',
+      '  - Windows 10, -2.401 %, , 2, Significant, 48.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 2, Not significant, 43.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 2.1, Not significant, 23.00 %',
     ]);
 
     expect(effectSizeButton).toMatchSnapshot();
@@ -1149,30 +1150,45 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, Improvement, 2.1, Not significant, 23.00 %',
-      '  - Linux 18.04, Regression, 2, Not significant, 43.00 %',
-      '  - Windows 10, , 2, Significant, 48.00 %',
-      '  - Windows 10, , 2, Significant, 98.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 2.1, Not significant, 23.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 2, Not significant, 43.00 %',
+      '  - Windows 10, -2.401 %, , 2, Significant, 48.00 %',
+      '  - Windows 10, -, , 2, Significant, 98.00 %',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 1.3, Not significant, 24.00 %',
-      '  - Linux 18.04, Regression, 1.2, Not significant, 44.00 %',
-      '  - Windows 10, , 1.2, Significant, 49.00 %',
-      '  - Windows 10, , 1.2, Significant, 99.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 1.3, Not significant, 24.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 1.2, Not significant, 44.00 %',
+      '  - Windows 10, -2.401 %, , 1.2, Significant, 49.00 %',
+      '  - Windows 10, -, , 1.2, Significant, 99.00 %',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, Improvement, 0.9, Not significant, 24.00 %',
-      '  - Linux 18.04, Regression, 0.8, Not significant, 44.00 %',
-      '  - Windows 10, , 0.8, Significant, 49.00 %',
-      '  - Windows 10, , 0.8, Significant, 99.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.9, Not significant, 24.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, 0.8, Not significant, 44.00 %',
+      '  - Windows 10, -2.401 %, , 0.8, Significant, 49.00 %',
+      '  - Windows 10, -, , 0.8, Significant, 99.00 %',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 0.1, Not significant, 25.00 %',
-      '  - Linux 18.04, Regression, -, Not significant, 45.00 %',
-      '  - Windows 10, , -, Significant, 50.00 %',
-      '  - Windows 10, , -, Significant, 100.00 %',
+      '  - macOS 10.15, 1.078 %, Improvement, 0.1, Not significant, 25.00 %',
+      '  - Linux 18.04, 1.849 %, Regression, -, Not significant, 45.00 %',
+      '  - Windows 10, -2.401 %, , -, Significant, 50.00 %',
+      '  - Windows 10, -, , -, Significant, 100.00 %',
     ]);
     expect(effectSizeButton).toMatchSnapshot();
     // It should be persisted in the URL
     expectParameterToHaveValue('sort', 'effects|asc');
+
+    // Sort by MD(%) descending
+    const medianDiffButton = screen.getByRole('button', {
+      name: /MD\(%\).*sort/,
+    });
+    await user.click(medianDiffButton);
+    expect(summarizeVisibleRows('mann-whitney-u')).toMatchSnapshot();
+    expect(medianDiffButton).toMatchSnapshot();
+    expectParameterToHaveValue('sort', 'median-diff|desc');
+
+    // Sort by MD(%) ascending
+    await user.click(medianDiffButton);
+    expect(summarizeVisibleRows('mann-whitney-u')).toMatchSnapshot();
+    expect(medianDiffButton).toMatchSnapshot();
+    expectParameterToHaveValue('sort', 'median-diff|asc');
   });
 
   it('should switch between Student-T and Mann-Whitney-U test versions', async () => {

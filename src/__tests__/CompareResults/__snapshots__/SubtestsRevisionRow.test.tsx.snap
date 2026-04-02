@@ -252,14 +252,14 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
       <div
         class="total-runs cell"
         role="cell"
-        title="Base runs: 2, New runs: 2"
+        title="Base runs: 3, New runs: 3"
       >
         <span>
           <span>
             B:
           </span>
           <strong>
-            2
+            3
           </strong>
         </span>
         <span>
@@ -267,7 +267,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
             N:
           </span>
           <strong>
-            2
+            3
           </strong>
         </span>
       </div>
@@ -406,14 +406,14 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
       <div
         class="total-runs cell"
         role="cell"
-        title="Base runs: 2, New runs: 2"
+        title="Base runs: 3, New runs: 3"
       >
         <span>
           <span>
             B:
           </span>
           <strong>
-            2
+            3
           </strong>
         </span>
         <span>
@@ -421,7 +421,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
             N:
           </span>
           <strong>
-            2
+            3
           </strong>
         </span>
       </div>
