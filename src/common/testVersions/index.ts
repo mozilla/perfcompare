@@ -30,6 +30,21 @@ const registry: Record<TestVersion, TestVersionStrategy> = {
   'mann-whitney-u': mannWhitneyStrategy,
 };
 
+const labels: Record<TestVersion, string> = {
+  'student-t': 'Student-T',
+  'mann-whitney-u': 'Mann-Whitney-U',
+};
+
+export function getTestVersionOptions(): {
+  type: TestVersion;
+  label: string;
+}[] {
+  return (Object.keys(registry) as TestVersion[]).map((type) => ({
+    type,
+    label: labels[type],
+  }));
+}
+
 export function getStrategy(testVersion: TestVersion): TestVersionStrategy {
   return registry[testVersion];
 }
