@@ -55,7 +55,7 @@ const revisionRow = style({
   $nest: {
     '.cell': {
       display: 'flex',
-      padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+      padding: `${Spacing.xSmall}px 0`,
       alignItems: 'center',
       justifyContent: 'center',
     },

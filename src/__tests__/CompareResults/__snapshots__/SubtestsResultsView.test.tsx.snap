@@ -1158,7 +1158,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -1302,7 +1306,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -1446,7 +1454,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -1590,7 +1602,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -1734,7 +1750,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -3049,7 +3069,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.963 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.963 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -3195,7 +3219,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  1.135 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    1.135 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -3354,7 +3382,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.963 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.963 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -3500,7 +3532,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  1.135 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    1.135 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -3646,7 +3682,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.98 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.98 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -4590,7 +4630,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.963 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.963 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -4736,7 +4780,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  1.135 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    1.135 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -4895,7 +4943,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.963 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.963 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -5041,7 +5093,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  1.135 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    1.135 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -5187,7 +5243,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.98 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.98 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -6131,7 +6191,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.963 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.963 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -6277,7 +6341,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="median-diff cell"
                   role="cell"
                 >
-                  1.135 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    1.135 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -6436,7 +6504,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.963 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.963 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -6582,7 +6654,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="median-diff cell"
                   role="cell"
                 >
-                  1.135 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    1.135 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -6728,7 +6804,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="median-diff cell"
                   role="cell"
                 >
-                  0.98 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0.98 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -7670,7 +7750,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -7814,7 +7898,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -7958,7 +8046,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -8102,7 +8194,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
@@ -8246,7 +8342,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="median-diff cell"
                   role="cell"
                 >
-                  0 %
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
                 </div>
                 <div
                   class="status cell"
