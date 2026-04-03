@@ -1594,7 +1594,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                             role="row"
                           >
                             <div
@@ -1792,7 +1792,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                             role="row"
                           >
                             <div
@@ -1991,7 +1991,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                             role="row"
                           >
                             <div
@@ -2271,7 +2271,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                             role="row"
                           >
                             <div
@@ -4350,7 +4350,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                             role="row"
                           >
                             <div
@@ -4561,7 +4561,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                             role="row"
                           >
                             <div
@@ -4773,7 +4773,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                             role="row"
                           >
                             <div
@@ -5066,7 +5066,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                             role="row"
                           >
                             <div
@@ -5875,7 +5875,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
       role="row"
     >
       <div
@@ -6126,7 +6126,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1woqe0l"
+      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
       role="row"
     >
       <div
@@ -6434,7 +6434,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1auw4i3"
+      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1auw4i3"
       role="row"
     >
       <div
@@ -6680,7 +6680,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow fh8ovok f1dlt78d MuiBox-root css-1auw4i3"
+      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1auw4i3"
       role="row"
     >
       <div
