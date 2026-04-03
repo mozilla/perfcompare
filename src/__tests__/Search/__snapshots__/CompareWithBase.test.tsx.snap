@@ -218,7 +218,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -523,7 +523,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1018,7 +1018,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1532,7 +1532,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -1837,7 +1837,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -2210,7 +2210,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -2515,7 +2515,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -3037,7 +3037,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
@@ -3446,7 +3446,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
               >
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
