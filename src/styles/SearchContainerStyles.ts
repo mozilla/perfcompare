@@ -2,9 +2,7 @@ import { stylesheet } from 'typestyle';
 
 import { FontsRaw, Spacing } from '../styles';
 
-export const SearchContainerStyles = (mode: string, isHome: boolean) => {
-  const isTrueLight = mode == 'light';
-
+export const SearchContainerStyles = (isHome: boolean) => {
   const styles = stylesheet({
     container: {
       /*** maxWidth based on mozilla protocol large cards size; see https://protocol.mozilla.org/components/detail/card--large
@@ -18,7 +16,7 @@ export const SearchContainerStyles = (mode: string, isHome: boolean) => {
       flexDirection: 'column',
       $nest: {
         '.search-default-title': {
-          ...(isTrueLight ? FontsRaw.HeadingXS : FontsRaw.HeadingXSDark),
+          ...FontsRaw.HeadingXS,
           marginBottom: `${Spacing.xLarge + 10}px`,
           textAlign: 'center',
         },
