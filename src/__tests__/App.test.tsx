@@ -398,9 +398,9 @@ describe('App', () => {
 
       // Verify that Mann-Whitney-U specific columns are rendered
       // (this indicates the testVersion defaulted to mann-whitney-u)
-      expect(screen.getByText("Cliff's Delta")).toBeInTheDocument();
-      expect(screen.getByText('Significance')).toBeInTheDocument();
-      expect(screen.getByText('CLES(%)')).toBeInTheDocument();
+      expect(screen.getByText('CD')).toBeInTheDocument();
+      expect(screen.getByText('Sig')).toBeInTheDocument();
+      expect(screen.getByText('CLES (%)')).toBeInTheDocument();
 
       // Verify the Stats Test Version dropdown shows Mann-Whitney-U as selected
       const testVersionDropdown = screen.getByRole('combobox', {

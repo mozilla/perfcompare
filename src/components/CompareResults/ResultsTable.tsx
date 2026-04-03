@@ -14,7 +14,10 @@ import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework, TestVersion } from '../../types/types';
-import { getColumnsConfiguration } from '../../utils/rowTemplateColumns';
+import {
+  getColumnsConfiguration,
+  toGridTemplateColumns,
+} from '../../utils/rowTemplateColumns';
 
 type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 export default function ResultsTable() {
@@ -76,9 +79,7 @@ export default function ResultsTable() {
     setSearchParams(searchParams);
   };
 
-  const rowGridTemplateColumns = columnsConfig
-    .map((config) => config.gridWidth)
-    .join(' ');
+  const rowGridTemplateColumns = toGridTemplateColumns(columnsConfig);
 
   return (
     <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>
