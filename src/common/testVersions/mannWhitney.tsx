@@ -1,3 +1,4 @@
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import WarningIcon from '@mui/icons-material/Warning';
@@ -130,15 +131,15 @@ export const mannWhitneyStrategy = {
       {
         name: 'Base',
         key: 'base',
-        gridWidth: '.75fr',
+        gridWidth: '1fr',
         tooltip: tooltipBaseMean,
       },
       { key: 'comparisonSign', gridWidth: '0.25fr' },
-      { name: 'New', key: 'new', gridWidth: '.75fr', tooltip: tooltipNewMean },
+      { name: 'New', key: 'new', gridWidth: '1fr', tooltip: tooltipNewMean },
       {
-        name: 'MD(%)',
+        name: 'MD (%)',
         key: 'median-diff',
-        gridWidth: '.75fr',
+        gridWidth: '1fr',
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
@@ -160,7 +161,7 @@ export const mannWhitneyStrategy = {
         name: 'Status',
         filter: true,
         key: 'status',
-        gridWidth: '1.25fr',
+        gridWidth: '1.5fr',
         possibleValues: [
           { label: 'No changes', key: 'none' },
           { label: 'Improvement', key: 'improvement' },
@@ -182,9 +183,9 @@ export const mannWhitneyStrategy = {
         tooltip: tooltipStatusMannWhitney,
       },
       {
-        name: "Cliff's Delta",
+        name: 'CD',
         key: 'delta',
-        gridWidth: '1.25fr',
+        gridWidth: '1fr',
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
@@ -196,35 +197,7 @@ export const mannWhitneyStrategy = {
         tooltip: tooltipCliffsDelta,
       },
       {
-        name: 'Significance',
-        key: 'significance',
-        filter: true,
-        gridWidth: '1.5fr',
-        tooltip: tooltipSignificance,
-        possibleValues: [
-          { label: 'Significant', key: 'significant' },
-          { label: 'Not Significant', key: 'not significant' },
-        ],
-        matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
-          const label = this.possibleValues.find(
-            ({ key }) => key === valueKey?.toLowerCase(),
-          )?.label;
-          return (
-            result.mann_whitney_test?.interpretation === label?.toLowerCase()
-          );
-        },
-        sortFunction(
-          resultA: MannWhitneyResultsItem,
-          resultB: MannWhitneyResultsItem,
-        ) {
-          return (
-            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-          );
-        },
-      },
-      {
-        name: 'CLES(%)',
+        name: 'CLES (%)',
         key: 'effects',
         gridWidth: '1.25fr',
         sortFunction(
@@ -238,6 +211,38 @@ export const mannWhitneyStrategy = {
         },
         tooltip: tooltipEffectSize,
       },
+      {
+        name: 'Sig',
+        key: 'significance',
+        filter: true,
+        gridWidth: '1.25fr',
+        tooltip: tooltipSignificance,
+        possibleValues: [
+          {
+            label: 'Significant',
+            key: 'significant',
+            icon: <KeyboardDoubleArrowUpIcon fontSize='small' />,
+          },
+          {
+            label: 'Not Significant',
+            key: 'not significant',
+            icon: <div>-</div>,
+          },
+        ],
+        matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
+          return result.mann_whitney_test?.interpretation === valueKey;
+        },
+        sortFunction(
+          resultA: MannWhitneyResultsItem,
+          resultB: MannWhitneyResultsItem,
+        ) {
+          return (
+            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
+            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
+          );
+        },
+      },
+
       {
         name: 'Total Trials',
         key: 'trials',
@@ -269,9 +274,6 @@ export const mannWhitneyStrategy = {
       base_app: baseApp,
       new_app: newApp,
     } = result as MannWhitneyResultsItem;
-    const mann_whitney_interpretation = mann_whitney_test?.interpretation
-      ? capitalize(mann_whitney_test.interpretation)
-      : '-';
     const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
     const baseAvgValue =
       (result as MannWhitneyResultsItem).base_standard_stats?.mean ?? 0;
@@ -355,11 +357,16 @@ export const mannWhitneyStrategy = {
           {' '}
           {cliffs_delta || '-'}
         </div>
-        <div className='significance cell' role='cell'>
-          {mann_whitney_interpretation}
-        </div>
+
         <div className='effects cell' role='cell'>
           {clesVal ? `${clesVal}% ` : '-'}
+        </div>
+        <div className='significance cell' role='cell'>
+          {mann_whitney_test?.interpretation === 'significant' ? (
+            <KeyboardDoubleArrowUpIcon fontSize='small' />
+          ) : (
+            '-'
+          )}
         </div>
       </>
     );
@@ -480,13 +487,15 @@ export const mannWhitneyStrategy = {
         <div className='delta cell' role='cell'>
           {cliffs_delta || '-'}
         </div>
-        <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation
-            ? capitalize(mann_whitney_test.interpretation)
-            : '-'}
-        </div>
         <div className='effects cell' role='cell'>
           {clesValue}
+        </div>
+        <div className='significance cell' role='cell'>
+          {mann_whitney_test?.interpretation === 'significant' ? (
+            <KeyboardDoubleArrowUpIcon fontSize='small' />
+          ) : (
+            '-'
+          )}
         </div>
       </>
     );
