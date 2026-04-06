@@ -9,6 +9,7 @@ import { InputStylesRaw } from '../../styles';
 import { InputType } from '../../types/state';
 
 interface SearchInputProps {
+  value?: string;
   onFocus: () => unknown;
   inputPlaceholder: string;
   compact: boolean;
@@ -18,6 +19,7 @@ interface SearchInputProps {
 }
 
 function SearchInput({
+  value,
   onFocus,
   compact,
   inputPlaceholder,
@@ -48,6 +50,7 @@ function SearchInput({
   return (
     <FormControl className={styles.container} fullWidth>
       <TextField
+        value={value}
         error={Boolean(searchError)}
         helperText={searchError}
         placeholder={inputPlaceholder}
