@@ -141,6 +141,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -446,6 +447,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -941,6 +943,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1246,6 +1249,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1455,6 +1459,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1760,6 +1765,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2133,6 +2139,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2438,6 +2445,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2815,6 +2823,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2960,6 +2969,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3369,6 +3379,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3674,6 +3685,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -4077,6 +4089,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                 id="search-base-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -4222,6 +4235,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -4646,6 +4660,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
