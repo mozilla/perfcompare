@@ -1126,6 +1126,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-base-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -2065,6 +2066,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -2489,6 +2491,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
