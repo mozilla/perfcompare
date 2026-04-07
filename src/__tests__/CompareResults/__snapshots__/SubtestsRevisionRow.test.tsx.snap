@@ -4,7 +4,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
 <body>
   <div>
     <div
-      class="revisionRow fbf0zkr f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -36,7 +36,7 @@ exports[`SubtestsRevisionRow Component renders browser name when base and new ap
         &lt;
       </div>
       <div
-        class="mann-witney-browser-name cell"
+        class="browser-name cell"
         role="cell"
       >
         984.16
@@ -183,7 +183,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
 <body>
   <div>
     <div
-      class="revisionRow fbf0zkr f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -208,7 +208,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         &lt;
       </div>
       <div
-        class="mann-witney-browser-name cell"
+        class="browser-name cell"
         role="cell"
       >
         982.41
@@ -252,14 +252,14 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
       <div
         class="total-runs cell"
         role="cell"
-        title="Base runs: 2, New runs: 2"
+        title="Base runs: 3, New runs: 3"
       >
         <span>
           <span>
             B:
           </span>
           <strong>
-            2
+            3
           </strong>
         </span>
         <span>
@@ -267,7 +267,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
             N:
           </span>
           <strong>
-            2
+            3
           </strong>
         </span>
       </div>
@@ -337,7 +337,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
 <body>
   <div>
     <div
-      class="revisionRow fbf0zkr f161t6v MuiBox-root css-1uflkrc"
+      class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-1uflkrc"
       role="row"
     >
       <div
@@ -362,7 +362,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         &lt;
       </div>
       <div
-        class="mann-witney-browser-name cell"
+        class="browser-name cell"
         role="cell"
       >
         982.41
@@ -406,14 +406,14 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
       <div
         class="total-runs cell"
         role="cell"
-        title="Base runs: 2, New runs: 2"
+        title="Base runs: 3, New runs: 3"
       >
         <span>
           <span>
             B:
           </span>
           <strong>
-            2
+            3
           </strong>
         </span>
         <span>
@@ -421,7 +421,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
             N:
           </span>
           <strong>
-            2
+            3
           </strong>
         </span>
       </div>

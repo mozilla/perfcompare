@@ -311,7 +311,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="fom0p54 f1l733lh"
+      class="fdtnfac f1l733lh"
       data-testid="table-header"
       role="row"
     >
@@ -378,6 +378,39 @@ exports[`Results View The table should match snapshot and other elements should 
         </span>
       </div>
       <div
+        class="cell median-diff-header"
+        role="columnheader"
+      >
+        <span
+          aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+          class="MuiBox-root css-1tkq7a4"
+          data-mui-internal-clone-element="true"
+        >
+          <button
+            aria-label="MD (%) (Click to sort by this column)"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+              data-testid="SwapVertIcon"
+              focusable="false"
+              role="img"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+              />
+              <title>
+                Not sorted by MD (%)
+              </title>
+            </svg>
+            MD (%)
+          </button>
+        </span>
+      </div>
+      <div
         class="cell status-header"
         role="columnheader"
       >
@@ -420,7 +453,7 @@ exports[`Results View The table should match snapshot and other elements should 
           data-mui-internal-clone-element="true"
         >
           <button
-            aria-label="Cliff's Delta (Click to sort by this column)"
+            aria-label="CD (Click to sort by this column)"
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
@@ -436,10 +469,42 @@ exports[`Results View The table should match snapshot and other elements should 
                 d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
-                Not sorted by Cliff's Delta
+                Not sorted by CD
               </title>
             </svg>
-            Cliff's Delta
+            CD
+          </button>
+        </span>
+      </div>
+      <div
+        class="cell effects-header"
+        role="columnheader"
+      >
+        <span
+          class="MuiBox-root css-1tkq7a4"
+          data-mui-internal-clone-element="true"
+        >
+          <button
+            aria-label="CLES (%) (Click to sort by this column)"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
+              data-testid="SwapVertIcon"
+              focusable="false"
+              role="img"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
+              />
+              <title>
+                Not sorted by CLES (%)
+              </title>
+            </svg>
+            CLES (%)
           </button>
         </span>
       </div>
@@ -452,7 +517,7 @@ exports[`Results View The table should match snapshot and other elements should 
           role="group"
         >
           <button
-            aria-label="Significance (Click to sort by this column)"
+            aria-label="Sig (Click to sort by this column)"
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
@@ -468,19 +533,19 @@ exports[`Results View The table should match snapshot and other elements should 
                 d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
-                Not sorted by Significance
+                Not sorted by Sig
               </title>
             </svg>
           </button>
           <button
             aria-haspopup="true"
-            aria-label="Significance (Click to filter values)"
+            aria-label="Sig (Click to filter values)"
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
             data-mui-internal-clone-element="true"
             tabindex="0"
             type="button"
           >
-            Significance
+            Sig
             <div
               aria-label="2 items selected"
               class="MuiBox-root css-18uhbjh"
@@ -504,39 +569,7 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="cell effects-header"
-        role="columnheader"
-      >
-        <span
-          class="MuiBox-root css-1tkq7a4"
-          data-mui-internal-clone-element="true"
-        >
-          <button
-            aria-label="Effect Size (%) (Click to sort by this column)"
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            type="button"
-          >
-            <svg
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
-              data-testid="SwapVertIcon"
-              focusable="false"
-              role="img"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
-              />
-              <title>
-                Not sorted by Effect Size (%)
-              </title>
-            </svg>
-            Effect Size (%)
-          </button>
-        </span>
-      </div>
-      <div
-        class="cell runs-header"
+        class="cell trials-header"
         role="columnheader"
       >
         <span
@@ -544,7 +577,7 @@ exports[`Results View The table should match snapshot and other elements should 
           class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
-          Total Runs
+          Total Trials
         </span>
       </div>
       <div
@@ -668,7 +701,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                 role="row"
               >
                 <div
@@ -717,6 +750,16 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
+                  class="median-diff cell"
+                  role="cell"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
+                </div>
+                <div
                   class="status cell"
                   role="cell"
                 >
@@ -731,13 +774,13 @@ exports[`Results View The table should match snapshot and other elements should 
                   -
                 </div>
                 <div
-                  class="significance cell"
+                  class="effects cell"
                   role="cell"
                 >
                   -
                 </div>
                 <div
-                  class="effects cell"
+                  class="significance cell"
                   role="cell"
                 >
                   -
@@ -833,7 +876,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_v_"
+                      aria-controls="_r_11_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -856,7 +899,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                 role="row"
               >
                 <div
@@ -906,6 +949,16 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
+                  class="median-diff cell"
+                  role="cell"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
+                </div>
+                <div
                   class="status cell"
                   role="cell"
                 >
@@ -920,13 +973,13 @@ exports[`Results View The table should match snapshot and other elements should 
                   -
                 </div>
                 <div
-                  class="significance cell"
+                  class="effects cell"
                   role="cell"
                 >
                   -
                 </div>
                 <div
-                  class="effects cell"
+                  class="significance cell"
                   role="cell"
                 >
                   -
@@ -1022,7 +1075,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_16_"
+                      aria-controls="_r_18_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1045,7 +1098,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                 role="row"
               >
                 <div
@@ -1095,6 +1148,16 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
+                  class="median-diff cell"
+                  role="cell"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
+                </div>
+                <div
                   class="status cell"
                   role="cell"
                 >
@@ -1109,13 +1172,13 @@ exports[`Results View The table should match snapshot and other elements should 
                   -
                 </div>
                 <div
-                  class="significance cell"
+                  class="effects cell"
                   role="cell"
                 >
                   -
                 </div>
                 <div
-                  class="effects cell"
+                  class="significance cell"
                   role="cell"
                 >
                   -
@@ -1211,7 +1274,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1d_"
+                      aria-controls="_r_1f_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1234,7 +1297,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f15ninac f1dlt78d MuiBox-root css-1ovr9mp"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
                 role="row"
               >
                 <div
@@ -1284,6 +1347,16 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
+                  class="median-diff cell"
+                  role="cell"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 4px;"
+                  >
+                    0 %
+                  </span>
+                </div>
+                <div
                   class="status cell"
                   role="cell"
                 >
@@ -1298,13 +1371,13 @@ exports[`Results View The table should match snapshot and other elements should 
                   -
                 </div>
                 <div
-                  class="significance cell"
+                  class="effects cell"
                   role="cell"
                 >
                   -
                 </div>
                 <div
-                  class="effects cell"
+                  class="significance cell"
                   role="cell"
                 >
                   -
@@ -1400,7 +1473,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1k_"
+                      aria-controls="_r_1m_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"

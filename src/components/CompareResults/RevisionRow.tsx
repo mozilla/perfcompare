@@ -26,6 +26,7 @@ import {
   getPlatformAndVersion,
   getBrowserDisplay,
 } from '../../utils/platform';
+import { determineSign } from '../../utils/revisionRowHelpers';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
@@ -54,7 +55,7 @@ const revisionRow = style({
   $nest: {
     '.cell': {
       display: 'flex',
-      padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+      padding: `${Spacing.xSmall}px 0`,
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -66,7 +67,6 @@ const revisionRow = style({
     '.significance': {
       gap: '10px',
       justifyContent: 'center',
-      paddingInlineStart: '15%',
     },
     '.expand-button-container': {
       justifyContent: 'right',
@@ -119,12 +119,6 @@ const revisionRow = style({
     },
   },
 });
-
-function determineSign(baseMedianValue: number, newMedianValue: number) {
-  if (baseMedianValue > newMedianValue) return '>';
-  if (baseMedianValue < newMedianValue) return '<';
-  return '';
-}
 
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,

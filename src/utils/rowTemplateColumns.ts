@@ -12,3 +12,5 @@ export const getColumnsConfiguration = (
   isSubtestTable: boolean,
   testVersion: TestVersion,
 ): TableConfig => getColumnsForVersion(testVersion, isSubtestTable);
+
+export { toGridTemplateColumns } from './gridTemplateColumns';

@@ -12,6 +12,14 @@ export interface TestVersionStrategy {
     newAvg: number | null;
   };
   renderColumns(result: CombinedResultsItemType): ReactNode;
+  renderSubtestColumns(
+    result: CombinedResultsItemType,
+    expanded: boolean,
+  ): ReactNode;
+  renderExpandedLeft(result: CombinedResultsItemType): ReactNode;
+  getComparisonResult(result: CombinedResultsItemType): string;
+  renderExpandedRight(result: CombinedResultsItemType): ReactNode;
+  renderExpandedBottom(result: CombinedResultsItemType): ReactNode;
 }
 
 // Registry mapping each TestVersion to its concrete strategy.
@@ -21,6 +29,21 @@ const registry: Record<TestVersion, TestVersionStrategy> = {
   'student-t': studentTStrategy,
   'mann-whitney-u': mannWhitneyStrategy,
 };
+
+const labels: Record<TestVersion, string> = {
+  'student-t': 'Student-T',
+  'mann-whitney-u': 'Mann-Whitney-U',
+};
+
+export function getTestVersionOptions(): {
+  type: TestVersion;
+  label: string;
+}[] {
+  return (Object.keys(registry) as TestVersion[]).map((type) => ({
+    type,
+    label: labels[type],
+  }));
+}
 
 export function getStrategy(testVersion: TestVersion): TestVersionStrategy {
   return registry[testVersion];

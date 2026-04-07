@@ -5,10 +5,15 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Box from '@mui/material/Box';
 
+import Distribution from '../../components/CompareResults/Distribution';
+import { Strings } from '../../resources/Strings';
+import { FontSize } from '../../styles';
 import { CombinedResultsItemType, CompareResultsItem } from '../../types/state';
 import { TableConfig } from '../../types/types';
-import { getPlatformShortName } from '../../utils/platform';
+import { formatNumber } from '../../utils/format';
+import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
+  determineSign,
   determineStatus,
   determineStatusHintClass,
 } from '../../utils/revisionRowHelpers';
@@ -136,8 +141,8 @@ export const studentTStrategy = {
         },
       },
       {
-        name: 'Total Runs',
-        key: 'runs',
+        name: 'Total Trials',
+        key: 'trials',
         gridWidth: '1fr',
         tooltip: tooltipTotalRuns,
       },
@@ -152,6 +157,147 @@ export const studentTStrategy = {
       baseAvg: resultItem.base_avg_value,
       newAvg: resultItem.new_avg_value,
     };
+  },
+
+  renderSubtestColumns(result: CombinedResultsItemType, expanded: boolean) {
+    const {
+      test,
+      delta_percentage: deltaPercent,
+      confidence_text: confidenceText,
+      is_improvement: improvement,
+      is_regression: regression,
+      base_avg_value: baseAvgValue,
+      new_avg_value: newAvgValue,
+      base_app: baseApp,
+      new_app: newApp,
+      base_measurement_unit: baseUnit,
+      new_measurement_unit: newUnit,
+    } = result as CompareResultsItem;
+    return (
+      <>
+        <div title={test} className='subtests' role='cell'>
+          {test}
+        </div>
+        <div className='browser-name cell' role='cell'>
+          {formatNumber(baseAvgValue)} {baseUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({baseApp})</span>
+          )}
+        </div>
+        <div className='comparison-sign cell' role='cell'>
+          {determineSign(baseAvgValue, newAvgValue)}
+        </div>
+        <div className='browser-name cell' role='cell'>
+          {formatNumber(newAvgValue)} {newUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({newApp})</span>
+          )}
+        </div>
+        <div className='status cell' role='cell'>
+          <Box
+            sx={{
+              bgcolor: improvement
+                ? 'status.improvement'
+                : regression
+                  ? 'status.regression'
+                  : 'none',
+            }}
+            className={`status-hint ${determineStatusHintClass(
+              !!improvement,
+              !!regression,
+            )}`}
+          >
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
+            {determineStatus(!!improvement, !!regression)}
+          </Box>
+        </div>
+        <div className='delta cell' role='cell'>
+          {' '}
+          {`${deltaPercent} % `}
+        </div>
+        <div className='confidence cell' role='cell'>
+          {confidenceText && confidenceIcons[confidenceText]}
+          {confidenceText || '-'}
+        </div>
+      </>
+    );
+  },
+
+  renderExpandedLeft(result: CombinedResultsItemType) {
+    return <Distribution result={result as CompareResultsItem} />;
+  },
+
+  getComparisonResult(result: CombinedResultsItemType) {
+    return (result as CompareResultsItem).new_is_better ? 'better' : 'worse';
+  },
+
+  renderExpandedRight(result: CombinedResultsItemType) {
+    const {
+      delta_percentage: deltaPercent,
+      delta_value: delta,
+      confidence_text: confidenceText,
+      confidence: confidenceValue,
+      base_median_value: baseMedian,
+      new_median_value: newMedian,
+      base_measurement_unit: baseUnit,
+      new_measurement_unit: newUnit,
+    } = result as CompareResultsItem;
+
+    const deltaUnit = baseUnit || newUnit || '';
+    const formatTwoDigits = new Intl.NumberFormat('en-US', {
+      maximumFractionDigits: 2,
+    });
+    const medianDifference =
+      baseMedian && newMedian
+        ? formatTwoDigits.format(newMedian - baseMedian)
+        : '';
+    const medianPercentage =
+      baseMedian && newMedian
+        ? formatTwoDigits.format(((newMedian - baseMedian) / baseMedian) * 100)
+        : '';
+
+    const { confidenceNote } = Strings.components.expandableRow;
+
+    return (
+      <>
+        <Box sx={{ whiteSpace: 'nowrap' }}>
+          <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
+          {deltaUnit ? ' ' + deltaUnit : null})
+        </Box>
+        {newMedian && baseMedian ? (
+          <Box sx={{ whiteSpace: 'nowrap' }}>
+            <b>Difference of medians</b>: {medianPercentage}% (
+            {medianDifference}
+            {deltaUnit ? ' ' + deltaUnit : null})
+          </Box>
+        ) : null}
+        {confidenceText ? (
+          <div>
+            <Box sx={{ whiteSpace: 'nowrap' }}>
+              <b>Confidence</b>: {confidenceText}
+              {confidenceValue ? ' ' + `(${confidenceValue})` : null}
+            </Box>
+            <Box
+              sx={{
+                fontSize: '10px',
+                textTransform: 'uppercase',
+              }}
+            >
+              <b>**Note</b>: {confidenceNote}{' '}
+            </Box>
+          </div>
+        ) : (
+          <Box sx={{ whiteSpace: 'nowrap' }}>
+            <b>Confidence</b>: Not available{' '}
+          </Box>
+        )}
+      </>
+    );
+  },
+
+  renderExpandedBottom() {
+    return null;
   },
 
   renderColumns(result: CombinedResultsItemType) {

@@ -55,7 +55,18 @@ If you do not receive a response within 2-3 days, you can follow up in the #Perf
 
 After addressing the issue, ensure both tests and linting pass before submitting a pull request.
 
-When submitting a pull request, please mention the issue number to link the pull request and issue to one another. You can do this by typing # following immediately by the issue number, i.e., `#123`
+When submitting a pull request, please mention the bugzilla issue number in the PR title and description . For example, if you are creating a PR for issue XXX, create a PR as below
+
+```
+Bug-XXX: Short description of the issue being fixed
+
+Description of the issue being fixed and how the PR addresses it.
+
+Fixes [Bug-XXX](https://bugzilla.mozilla.org/show_bug.cgi?id=XXX)
+```
+
+Once the PR is created, please link the PR to the corresponding bugzilla issue by pasting the PR link as an
+attachment in the bugzilla issue.
 
 ---
 
