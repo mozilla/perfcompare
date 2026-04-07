@@ -25,7 +25,7 @@ interface FilterableColumnMixin {
   // Always true for filterable columns.
   filter: true;
   // All values this column might have.
-  possibleValues: Array<{ label: string; key: string }>;
+  possibleValues: Array<{ label: string; key: string; icon?: React.ReactNode }>;
   // This function returns whether this result matches the value for this column.
   matchesFunction: (
     this: FilterableColumnMixin,
@@ -39,7 +39,7 @@ interface FilterableMannWhitneyColumnMixin {
   // Always true for filterable columns.
   filter: true;
   // All values this column might have.
-  possibleValues: Array<{ label: string; key: string }>;
+  possibleValues: Array<{ label: string; key: string; icon?: React.ReactNode }>;
   // This function returns whether this result matches the value for this column.
   matchesFunction: (
     this: FilterableMannWhitneyColumnMixin,
@@ -118,7 +118,7 @@ interface FilterableColumnGenericMixin<
   // Always true for filterable columns.
   filter: true;
   // All values this column might have.
-  possibleValues: Array<{ label: string; key: string }>;
+  possibleValues: Array<{ label: string; key: string; icon?: React.ReactNode }>;
   // Returns whether the given result row matches the selected filter value for
   // this column. "this" is typed so the function can access other column
   // properties (e.g. possibleValues) if needed.

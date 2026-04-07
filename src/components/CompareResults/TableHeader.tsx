@@ -26,6 +26,7 @@ import type {
   CompareResultsTableColumn,
   CompareMannWhitneyResultsTableConfig,
 } from '../../types/types';
+import { toGridTemplateColumns } from '../../utils/gridTemplateColumns';
 
 function SortDirectionIcon({
   columnName,
@@ -180,7 +181,23 @@ function FilterableColumnHeader({
                   sx={{ padding: 0 }}
                 />
               </ListItemIcon>
-              <ListItemText primary={possibleValue.label} />
+              <ListItemText
+                primary={
+                  possibleValue.icon ? (
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        gap: '8px',
+                      }}
+                    >
+                      {possibleValue.label}
+                      {possibleValue.icon}
+                    </span>
+                  ) : (
+                    possibleValue.label
+                  )
+                }
+              />
             </MenuItem>
           );
         })}
@@ -283,9 +300,7 @@ function TableHeader({
     tableHeader: style({
       display: 'grid',
       // Should be kept in sync with the gridTemplateColumns from RevisionRow
-      gridTemplateColumns: columnsConfiguration
-        .map((config) => config.gridWidth)
-        .join(' '),
+      gridTemplateColumns: toGridTemplateColumns(columnsConfiguration),
       background:
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',

@@ -33,18 +33,12 @@ const revisionRow = style({
     },
     '.significance': {
       gap: '10px',
-      justifyContent: 'left',
+      justifyContent: 'center',
     },
     '.subtests': {
       borderRadius: '4px 0 0 4px',
       paddingLeft: Spacing.Medium, // Synchronize with its header
       justifyContent: 'left',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-    },
-    '.subtests-mannwhitney': {
-      maxWidth: '150px',
     },
 
     '.status': {
@@ -98,7 +92,6 @@ const typography = style({
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '16px',
-  whiteSpace: 'nowrap',
   lineHeight: '1.5',
 });
 

@@ -190,11 +190,11 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles = await screen.findAllByRole('cell');
-    const effects = roles[8]?.childNodes[0];
+    const effects = roles[7]?.childNodes[0];
     expect(effects).toHaveTextContent('60.00%');
 
-    const significance = roles[7]?.childNodes[0];
-    expect(significance).toHaveTextContent('Significant');
+    const significanceCell = roles[8];
+    expect(significanceCell?.querySelector('svg')).not.toBeNull();
 
     const cliffs_delta = roles[6]?.childNodes[1];
     expect(cliffs_delta).toHaveTextContent('0.02');
