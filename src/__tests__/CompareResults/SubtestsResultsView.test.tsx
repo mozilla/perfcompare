@@ -585,11 +585,11 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
       });
       await user.click(effectButton);
       expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
         'browser.html: 0.963 %, -0.04, -, 15.00%',
+        'regression.html: 1.135 %, 0.12, , 25.00%',
+        'dhtml.html: 1.135 %, 0.02, , 60.00%',
+        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
+        'improvement.html: 0.963 %, -0.05, , 50.00%',
       ]);
 
       // It should have the "descending" SVG.
@@ -600,11 +600,11 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
       // Sort by Effect Size ascending
       await user.click(effectButton);
       expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
         'improvement.html: 0.963 %, -0.05, , 50.00%',
+        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
         'dhtml.html: 1.135 %, 0.02, , 60.00%',
+        'regression.html: 1.135 %, 0.12, , 25.00%',
+        'browser.html: 0.963 %, -0.04, -, 15.00%',
       ]);
       expectParameterToHaveValue('sort', 'effects|asc');
     });
