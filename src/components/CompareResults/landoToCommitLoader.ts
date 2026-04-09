@@ -69,8 +69,8 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
-    testVersion,
     silvermanKDEEnabled,
+    testVersion,
   );
 }
 

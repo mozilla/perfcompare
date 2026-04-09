@@ -173,7 +173,9 @@ export function loader({ request }: { request: Request }) {
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
-  const enableSilvermanKDEFromUrl = url.searchParams.has('enable_silverman_kde');
+  const enableSilvermanKDEFromUrl = url.searchParams.has(
+    'enable_silverman_kde',
+  );
   const {
     baseRepo,
     newRev,
