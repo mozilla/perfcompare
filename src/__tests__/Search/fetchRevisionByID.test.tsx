@@ -5,7 +5,7 @@ import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import { screen, renderWithRouter, act } from '../utils/test-utils';
+import { screen, renderWithRouter, act, waitFor } from '../utils/test-utils';
 
 const searchRevisionPlaceholder =
   Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
@@ -90,7 +90,10 @@ describe('Search View/fetchRevisionByID', () => {
     );
 
     expect(await screen.findByText('No results found')).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
   });
 
   it('should update error state if fetchRevisionByID returns an error', async () => {
@@ -125,7 +128,9 @@ describe('Search View/fetchRevisionByID', () => {
     );
     const errorMessageNode = await screen.findAllByText(errorMessage);
     expect(errorMessageNode[0]).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
     expect(console.error).toHaveBeenCalledWith(
       'Error while fetching recent revisions:',
       new Error(errorMessage),
@@ -166,7 +171,11 @@ describe('Search View/fetchRevisionByID', () => {
       'An error has occurred',
     );
     expect(errorMessageNode[0]).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
+
     expect(console.error).toHaveBeenCalledWith(
       'Error while fetching recent revisions:',
       new Error(),

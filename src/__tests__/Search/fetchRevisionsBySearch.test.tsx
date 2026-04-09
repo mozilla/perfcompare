@@ -5,7 +5,7 @@ import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import { screen, act, renderWithRouter } from '../utils/test-utils';
+import { screen, act, renderWithRouter, waitFor } from '../utils/test-utils';
 
 const searchRevisionPlaceholder =
   Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
@@ -125,7 +125,9 @@ describe('SearchView/fetchRevisions', () => {
     );
 
     expect(await screen.findByText('No results found')).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
   });
 
   it('should update error state if fetchRevisionsByAuthor returns an error', async () => {
@@ -161,7 +163,9 @@ describe('SearchView/fetchRevisions', () => {
 
     const messages = await screen.findAllByText(errorMessage);
     expect(messages[0]).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
     expect(console.error).toHaveBeenCalledWith(
       'Error while fetching recent revisions:',
       new Error(errorMessage),
@@ -200,7 +204,9 @@ describe('SearchView/fetchRevisions', () => {
 
     const messages = await screen.findAllByText('An error has occurred');
     expect(messages[0]).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
     expect(console.error).toHaveBeenCalledWith(
       'Error while fetching recent revisions:',
       new Error(),
@@ -220,6 +226,7 @@ describe('SearchView/fetchRevisions', () => {
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');
+
     act(() => void jest.runAllTimers());
     expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',

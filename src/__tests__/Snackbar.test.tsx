@@ -2,9 +2,6 @@ import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
 import App from '../components/App';
-import { loader } from '../components/Search/loader';
-import SearchView from '../components/Search/SearchView';
-import { Strings } from '../resources/Strings';
 import getTestData from './utils/fixtures';
 import {
   screen,
@@ -13,6 +10,9 @@ import {
   render,
   waitForElementToBeRemoved,
 } from './utils/test-utils';
+import { loader } from '../components/Search/loader';
+import SearchView from '../components/Search/SearchView';
+import { Strings } from '../resources/Strings';
 
 const searchRevisionPlaceholder =
   Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
@@ -80,9 +80,17 @@ describe('Snackbar', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
-      loader,
-    });
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () =>
+      renderWithRouter(
+        <SearchView title={Strings.metaData.pageTitle.search} />,
+        {
+          loader,
+          route: '/',
+          search: '?useFulltextSearch',
+        },
+      ),
+    );
 
     // focus input to show results
     // const searchInput = (await screen.findAllByRole('textbox'))[1];
