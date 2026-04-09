@@ -26,6 +26,7 @@ export function checkValues({
   framework,
   replicates,
   testVersion,
+  silvermanKDEEnabled,
 }: {
   baseRev: string | null;
   baseRepo: Repository['name'] | null;
@@ -34,6 +35,7 @@ export function checkValues({
   framework: string | number | null;
   replicates: boolean;
   testVersion: TestVersion | null;
+  silvermanKDEEnabled: boolean;
 }): {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -43,6 +45,7 @@ export function checkValues({
   frameworkName: Framework['name'];
   replicates: boolean;
   testVersion: TestVersion;
+  silvermanKDEEnabled: boolean;
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -83,6 +86,7 @@ export function checkValues({
 
   if (testVersion === MANN_WHITNEY_U || testVersion === null) {
     replicates = true;
+    silvermanKDEEnabled = true;
   }
 
   if (testVersion === null) {
@@ -99,6 +103,7 @@ export function checkValues({
       frameworkName,
       replicates,
       testVersion,
+      silvermanKDEEnabled,
     };
   }
 
@@ -124,6 +129,7 @@ export function checkValues({
     frameworkName,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   };
 }
 
@@ -137,6 +143,7 @@ async function fetchCompareResultsOnTreeherder({
   framework,
   replicates,
   testVersion,
+  silvermanKDEEnabled,
 }: {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -145,6 +152,7 @@ async function fetchCompareResultsOnTreeherder({
   framework: Framework['id'];
   replicates: boolean;
   testVersion?: TestVersion;
+  silvermanKDEEnabled: boolean;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareResults({
@@ -155,6 +163,7 @@ async function fetchCompareResultsOnTreeherder({
       framework,
       replicates,
       testVersion,
+      silvermanKDEEnabled,
     }),
   );
   return Promise.all(promises);
@@ -226,6 +235,9 @@ export async function loader({ request }: { request: Request }) {
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
+  const enableSilvermanKDEFromUrl = url.searchParams.has(
+    'enable_silverman_kde',
+  );
 
   const {
     baseRev,
@@ -236,6 +248,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   } = checkValues({
     baseRev: baseRevFromUrl,
     baseRepo: baseRepoFromUrl,
@@ -244,6 +257,7 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
+    silvermanKDEEnabled: enableSilvermanKDEFromUrl,
   });
 
   return await getComparisonInformation(
@@ -254,6 +268,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
+    silvermanKDEEnabled,
     testVersion,
   );
 }
@@ -266,6 +281,7 @@ export async function getComparisonInformation(
   frameworkId: Framework['id'],
   frameworkName: Framework['name'],
   replicates: boolean,
+  silvermanKDEEnabled: boolean,
   testVersion?: TestVersion,
 ) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
@@ -276,6 +292,7 @@ export async function getComparisonInformation(
     framework: frameworkId,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   });
 
   // TODO what happens if there's no result?
@@ -309,6 +326,7 @@ export async function getComparisonInformation(
     generation: generationCounter++,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   };
 }
 
@@ -326,6 +344,7 @@ type DeferredLoaderData = {
   generation: number;
   replicates: boolean;
   testVersion: TestVersion;
+  silvermanKDEEnabled: boolean;
 };
 
 // Be explicit with the returned type to control it better than if we were

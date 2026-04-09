@@ -26,6 +26,7 @@ function checkValues({
   interval,
   replicates,
   testVersion,
+  silvermanKDEEnabled,
 }: {
   baseRepo: Repository['name'] | null;
   newRevs: string[];
@@ -34,6 +35,7 @@ function checkValues({
   interval: string | number | null;
   replicates: boolean;
   testVersion?: TestVersion | null;
+  silvermanKDEEnabled: boolean;
 }): {
   baseRepo: Repository['name'];
   newRevs: string[];
@@ -44,6 +46,7 @@ function checkValues({
   intervalText: TimeRange['text'];
   replicates: boolean;
   testVersion: TestVersion;
+  silvermanKDEEnabled: boolean;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -108,6 +111,7 @@ function checkValues({
 
   if (testVersion === MANN_WHITNEY_U || testVersion === null) {
     replicates = true;
+    silvermanKDEEnabled = true;
   }
 
   if (!testVersion) {
@@ -124,6 +128,7 @@ function checkValues({
     intervalValue,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   };
 }
 
@@ -137,6 +142,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   interval,
   replicates,
   testVersion,
+  silvermanKDEEnabled,
 }: {
   baseRepo: Repository['name'];
   newRevs: string[];
@@ -145,6 +151,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   interval: TimeRange['value'];
   replicates: boolean;
   testVersion: TestVersion;
+  silvermanKDEEnabled: boolean;
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareOverTimeResults({
@@ -155,6 +162,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
       interval,
       replicates,
       testVersion,
+      silvermanKDEEnabled,
     }),
   );
   return Promise.all(promises);
@@ -186,6 +194,9 @@ export async function loader({ request }: { request: Request }) {
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
+  const enableSilvermanKDEFromUrl = url.searchParams.has(
+    'enable_silverman_kde',
+  );
 
   const {
     baseRepo,
@@ -197,6 +208,7 @@ export async function loader({ request }: { request: Request }) {
     intervalText,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRevs: newRevsFromUrl,
@@ -205,6 +217,7 @@ export async function loader({ request }: { request: Request }) {
     interval: intervalFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
+    silvermanKDEEnabled: enableSilvermanKDEFromUrl,
   });
 
   const resultsTimePromise = fetchCompareOverTimeResultsOnTreeherder({
@@ -215,6 +228,7 @@ export async function loader({ request }: { request: Request }) {
     interval: intervalValue,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
@@ -240,6 +254,7 @@ export async function loader({ request }: { request: Request }) {
     generation: generationCounter++,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   };
 }
 
@@ -257,6 +272,7 @@ type DeferredLoaderData = {
   generation: number;
   replicates: boolean;
   testVersion: TestVersion;
+  silvermanKDEEnabled: boolean;
 };
 
 // Be explicit with the returned type to control it better than if we were

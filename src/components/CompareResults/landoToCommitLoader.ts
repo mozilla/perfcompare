@@ -30,6 +30,9 @@ export async function loader({ request }: { request: Request }) {
     );
   }
   const replicatesFromUrl = url.searchParams.has('replicates');
+  const enableSilvermanKDEFromUrl = url.searchParams.has(
+    'enable_silverman_kde',
+  );
 
   const baseRevisionsFromLando =
     await fetchRevisionFromLandoId(baseLandoIDFromUrl);
@@ -47,6 +50,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   } = checkValues({
     baseRev: baseRevisionsFromLando.commit_id,
     baseRepo: baseRepoFromUrl,
@@ -55,6 +59,7 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
+    silvermanKDEEnabled: enableSilvermanKDEFromUrl,
   });
   return await getComparisonInformation(
     baseRev,
@@ -65,6 +70,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   );
 }
 
@@ -81,6 +87,7 @@ type LandoLoaderData = {
   view: typeof compareView;
   generation: number;
   testVersion: TestVersion;
+  silvermanKDEEnabled: boolean;
 };
 
 export type LandoLoaderReturnValue = LandoLoaderData;

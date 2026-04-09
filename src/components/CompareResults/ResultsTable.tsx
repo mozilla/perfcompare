@@ -75,6 +75,7 @@ export default function ResultsTable() {
     searchParams.set('test_version', testVersion);
     if (testVersion !== MANN_WHITNEY_U) {
       searchParams.delete('replicates');
+      searchParams.delete('enable_silverman_kde');
     }
     setSearchParams(searchParams);
   };
