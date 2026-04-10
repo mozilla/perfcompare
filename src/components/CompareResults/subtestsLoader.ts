@@ -102,7 +102,6 @@ function checkValues({
 
   if (testVersion === MANN_WHITNEY_U || testVersion === null) {
     replicates = true;
-    silvermanKDEEnabled = true;
   }
 
   if (!testVersion) {
