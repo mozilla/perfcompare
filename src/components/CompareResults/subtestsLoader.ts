@@ -15,6 +15,7 @@ function checkValues({
   newParentSignature,
   replicates,
   testVersion,
+  silvermanKDEEnabled,
 }: {
   baseRev: string | null;
   baseRepo: Repository['name'] | null;
@@ -25,6 +26,7 @@ function checkValues({
   newParentSignature: string | null;
   replicates: boolean;
   testVersion?: TestVersion;
+  silvermanKDEEnabled: boolean;
 }): {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -36,6 +38,7 @@ function checkValues({
   newParentSignature: string;
   replicates: boolean;
   testVersion?: TestVersion;
+  silvermanKDEEnabled: boolean;
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -116,6 +119,7 @@ function checkValues({
     newParentSignature,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   };
 }
 
@@ -142,6 +146,9 @@ export function loader({ request }: { request: Request }) {
   const replicatesFromUrl = url.searchParams.has('replicates');
   const testVersionFromUrl = (url.searchParams.get('test_version') ??
     MANN_WHITNEY_U) as TestVersion;
+  const enableSilvermanKDEFromUrl = url.searchParams.has(
+    'enable_silverman_kde',
+  );
 
   const {
     baseRev,
@@ -154,6 +161,7 @@ export function loader({ request }: { request: Request }) {
     baseParentSignature,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   } = checkValues({
     baseRev: baseRevFromUrl,
     baseRepo: baseRepoFromUrl,
@@ -164,6 +172,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature: newParentSignatureFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
+    silvermanKDEEnabled: enableSilvermanKDEFromUrl,
   });
 
   const results = fetchSubtestsCompareResults({
@@ -176,6 +185,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   });
 
   return {
@@ -190,6 +200,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   };
 }
 
