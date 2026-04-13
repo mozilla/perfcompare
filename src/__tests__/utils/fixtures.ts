@@ -147,6 +147,24 @@ const getTestData = () => {
       push_timestamp: 1649808000,
       repository_id: 77,
     },
+    {
+      id: 8,
+      revision: 'd670460b4b4aece5915caf5c68d12f560a9fe3e4',
+      author: 'johncleese@python.com',
+      revisions: [
+        {
+          result_set_id: 0,
+          repository_id: 4,
+          revision: 'd670460b4b4aece5915caf5c68d12f560a9fe3e4',
+          author: 'johncleese@python.com',
+          comments:
+            "Full 40 char hash created with echo 'test content' | git hash-object --stdin\n",
+        },
+      ],
+      revision_count: 1,
+      push_timestamp: -582099200,
+      repository_id: 4,
+    },
   ];
 
   const testCompareData: CompareResultsItem[] = [
