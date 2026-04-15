@@ -5,7 +5,10 @@ import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import { screen, renderWithRouter, act } from '../utils/test-utils';
+import { screen, renderWithRouter, act, waitFor } from '../utils/test-utils';
+
+const searchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
 
 async function renderSearchViewComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
@@ -29,7 +32,9 @@ describe('Search View/fetchRevisionByID', () => {
 
     await renderSearchViewComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'abcdef123456');
     act(() => void jest.runAllTimers());
     expect(global.fetch).toHaveFetched(
@@ -73,7 +78,9 @@ describe('Search View/fetchRevisionByID', () => {
 
     await renderSearchViewComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     act(() => void jest.runAllTimers());
 
@@ -83,7 +90,10 @@ describe('Search View/fetchRevisionByID', () => {
     );
 
     expect(await screen.findByText('No results found')).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
   });
 
   it('should update error state if fetchRevisionByID returns an error', async () => {
@@ -106,7 +116,9 @@ describe('Search View/fetchRevisionByID', () => {
 
     await renderSearchViewComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     act(() => void jest.runAllTimers());
 
@@ -114,8 +126,11 @@ describe('Search View/fetchRevisionByID', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
       undefined,
     );
-    expect(await screen.findByText(errorMessage)).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+    const errorMessageNode = await screen.findAllByText(errorMessage);
+    expect(errorMessageNode[0]).toBeInTheDocument();
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
     expect(console.error).toHaveBeenCalledWith(
       'Error while fetching recent revisions:',
       new Error(errorMessage),
@@ -141,7 +156,10 @@ describe('Search View/fetchRevisionByID', () => {
 
     await renderSearchViewComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
+
     await user.type(searchInput, 'abcdef123456');
     act(() => void jest.runAllTimers());
 
@@ -149,10 +167,15 @@ describe('Search View/fetchRevisionByID', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
       undefined,
     );
-    expect(
-      await screen.findByText('An error has occurred'),
-    ).toBeInTheDocument();
-    expect(searchInput).toBeInvalid();
+    const errorMessageNode = await screen.findAllByText(
+      'An error has occurred',
+    );
+    expect(errorMessageNode[0]).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(searchInput).toHaveAttribute('aria-invalid', 'true');
+    });
+
     expect(console.error).toHaveBeenCalledWith(
       'Error while fetching recent revisions:',
       new Error(),
