@@ -205,8 +205,8 @@ export const mannWhitneyStrategy = {
           resultB: MannWhitneyResultsItem,
         ) {
           return (
-            Math.abs(resultA.cles?.cles ?? 0) -
-            Math.abs(resultB.cles?.cles ?? 0)
+            Math.abs((resultA.cles?.cles ?? 0.5) - 0.5) -
+            Math.abs((resultB.cles?.cles ?? 0.5) - 0.5)
           );
         },
         tooltip: tooltipEffectSize,
