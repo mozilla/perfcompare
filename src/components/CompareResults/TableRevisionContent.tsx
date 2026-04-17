@@ -4,7 +4,8 @@ import LinkToRevision from './LinkToRevision';
 import RevisionRow from './RevisionRow';
 import TestHeader from './TestHeader';
 import type { compareView, compareOverTimeView } from '../../common/constants';
-import { Spacing } from '../../styles';
+import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount';
+import { Colors, Spacing } from '../../styles';
 import type { CombinedResultsItemType } from '../../types/state';
 import { TestVersion } from '../../types/types';
 
@@ -19,11 +20,46 @@ const styles = {
     paddingTop: Spacing.Small,
   }),
   revisionBlock: style({ paddingBottom: Spacing.Large }),
+  subtestCountsRow: style({
+    display: 'flex',
+    gap: '6px',
+    marginBottom: '8px',
+    justifyContent: 'flex-end',
+  }),
+  loadingMessage: style({
+    fontSize: '0.75rem',
+    marginBottom: '8px',
+    textAlign: 'right',
+  }),
+  regressionPill: style({
+    display: 'inline-flex',
+    alignItems: 'center',
+    borderRadius: '4px',
+    padding: '2px 8px',
+    fontSize: '0.75rem',
+    backgroundColor: Colors.Background400,
+  }),
+  improvementPill: style({
+    display: 'inline-flex',
+    alignItems: 'center',
+    borderRadius: '4px',
+    padding: '2px 8px',
+    fontSize: '0.75rem',
+    backgroundColor: Colors.Background500,
+  }),
 };
 
 function TableRevisionContent(props: Props) {
   const { results, view, rowGridTemplateColumns, replicates, testVersion } =
     props;
+
+  const { counts: subtestCounts, isLoading: subtestsLoading } =
+    useSubtestRegressionCount({
+      results,
+      view,
+      replicates,
+      testVersion,
+    });
 
   if (!results.length) {
     return null;
@@ -41,13 +77,44 @@ function TableRevisionContent(props: Props) {
   const hasMoreThanOneNewRev = results.length > 1;
 
   return (
-    <div className={styles.testBlock} role='rowgroup'>
+    <div
+      className={`table-revision-content ${styles.testBlock}`}
+      role='rowgroup'
+    >
       <TestHeader
         result={representativeResultForHeader}
         withRevision={!hasMoreThanOneNewRev}
       />
+      {subtestsLoading && (
+        <div className={styles.loadingMessage}>
+          Fetching subtests regressions and improvements...
+        </div>
+      )}
+      {subtestCounts !== null && (
+        <div className={styles.subtestCountsRow}>
+          {subtestCounts.regressionCount > 0 && (
+            <div className={styles.regressionPill}>
+              {subtestCounts.regressionCount} subtest{' '}
+              {subtestCounts.regressionCount === 1
+                ? 'regression'
+                : 'regressions'}
+            </div>
+          )}
+          {subtestCounts.improvementCount > 0 && (
+            <div className={styles.improvementPill}>
+              {subtestCounts.improvementCount} subtest{' '}
+              {subtestCounts.improvementCount === 1
+                ? 'improvement'
+                : 'improvements'}
+            </div>
+          )}
+        </div>
+      )}
       {results.map(([revision, listOfResults]) => (
-        <div className={styles.revisionBlock} key={revision}>
+        <div
+          className={`revision-block ${styles.revisionBlock}`}
+          key={revision}
+        >
           {hasMoreThanOneNewRev && <LinkToRevision result={listOfResults[0]} />}
           {listOfResults.map((result) => (
             <RevisionRow
