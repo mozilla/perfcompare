@@ -7,7 +7,10 @@ import {
   memoizedFetchSubtestsCompareResults,
   memoizedFetchSubtestsCompareOverTimeResults,
 } from '../../logic/treeherder';
-import type { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
+import type {
+  CompareResultsItem,
+  MannWhitneyResultsItem,
+} from '../../types/state';
 import type { TimeRange } from '../../types/types';
 
 jest.mock('../../logic/treeherder', () => ({
@@ -35,7 +38,9 @@ const baseResult = {
 function makeMannWhitneySubtest(
   direction: 'regression' | 'improvement' | 'no change' | null = null,
 ): MannWhitneyResultsItem {
-  return { direction_of_change: direction } as unknown as MannWhitneyResultsItem;
+  return {
+    direction_of_change: direction,
+  } as unknown as MannWhitneyResultsItem;
 }
 
 // Creates a minimal fake Student-T subtest result for the Student-T specific
