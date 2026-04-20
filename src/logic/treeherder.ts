@@ -290,6 +290,42 @@ export const memoizedFetchRevisionForRepository = moize(
   { isPromise: true, isShallowEqual: true, maxSize: 5 },
 ) as typeof fetchRevisionForRepository;
 
+// Memoized versions of the subtest fetch functions.
+// Each RevisionRow with has_subtests fires its own fetch, so memoization
+// prevents duplicate network calls when rows share the same signature IDs,
+// and avoids re-fetching when Virtuoso unmounts and remounts a row after
+// scrolling. We use explicit Maps rather than moize to keep the return types
+// fully resolved (moize's generics lose type information through the cast).
+const subtestCompareResultsCache = new Map<
+  string,
+  Promise<CompareResultsItem[]>
+>();
+export function memoizedFetchSubtestsCompareResults(
+  params: FetchSubtestsProps,
+): Promise<CompareResultsItem[]> {
+  const key = JSON.stringify(params);
+  const cached = subtestCompareResultsCache.get(key);
+  if (cached) return cached;
+  const promise = fetchSubtestsCompareResults(params);
+  subtestCompareResultsCache.set(key, promise);
+  return promise;
+}
+
+const subtestCompareOverTimeResultsCache = new Map<
+  string,
+  Promise<CompareResultsItem[]>
+>();
+export function memoizedFetchSubtestsCompareOverTimeResults(
+  params: FetchSubtestsOverTimeProps,
+): Promise<CompareResultsItem[]> {
+  const key = JSON.stringify(params);
+  const cached = subtestCompareOverTimeResultsCache.get(key);
+  if (cached) return cached;
+  const promise = fetchSubtestsCompareOverTimeResults(params);
+  subtestCompareOverTimeResultsCache.set(key, promise);
+  return promise;
+}
+
 export async function fetchJobInformationFromJobId(
   repo: string,
   jobId: number,

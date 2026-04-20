@@ -18,6 +18,8 @@ export interface TestVersionStrategy {
   ): ReactNode;
   renderExpandedLeft(result: CombinedResultsItemType): ReactNode;
   getComparisonResult(result: CombinedResultsItemType): string;
+  isRegression(result: CombinedResultsItemType): boolean;
+  isImprovement(result: CombinedResultsItemType): boolean;
   renderExpandedRight(result: CombinedResultsItemType): ReactNode;
   renderExpandedBottom(result: CombinedResultsItemType): ReactNode;
 }
