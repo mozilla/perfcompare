@@ -12,6 +12,7 @@ import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { getStrategy } from '../../common/testVersions';
+import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type {
@@ -120,6 +121,35 @@ const revisionRow = style({
   },
 });
 
+const subtestCountsRow = style({
+  display: 'flex',
+  gap: '6px',
+  marginTop: `${Spacing.Small}px`,
+  justifyContent: 'flex-end',
+});
+
+const loadingMessage = style({
+  fontSize: '0.75rem',
+  marginTop: `${Spacing.Small}px`,
+  textAlign: 'right',
+});
+
+const regressionPill = style({
+  display: 'inline-flex',
+  alignItems: 'center',
+  borderRadius: '4px',
+  padding: '2px 8px',
+  fontSize: '0.75rem',
+});
+
+const improvementPill = style({
+  display: 'inline-flex',
+  alignItems: 'center',
+  borderRadius: '4px',
+  padding: '2px 8px',
+  fontSize: '0.75rem',
+});
+
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,
   macOS: <AppleIcon />,
@@ -211,6 +241,9 @@ function RevisionRow(props: RevisionRowProps) {
     strategy.getAvgValues(result);
   const [expanded, setExpanded] = useState(false);
 
+  const { counts: subtestCounts, isLoading: subtestsLoading } =
+    useSubtestRegressionCount({ result, view, replicates, testVersion });
+
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
@@ -223,6 +256,37 @@ function RevisionRow(props: RevisionRowProps) {
 
   return (
     <>
+      {subtestsLoading && (
+        <div className={loadingMessage}>
+          Fetching subtests regressions and improvements...
+        </div>
+      )}
+      {subtestCounts !== null && (
+        <div className={subtestCountsRow}>
+          {subtestCounts.regressionCount > 0 && (
+            <Box
+              sx={{ backgroundColor: 'status.regression' }}
+              className={regressionPill}
+            >
+              {subtestCounts.regressionCount} subtest{' '}
+              {subtestCounts.regressionCount === 1
+                ? 'regression'
+                : 'regressions'}
+            </Box>
+          )}
+          {subtestCounts.improvementCount > 0 && (
+            <Box
+              sx={{ backgroundColor: 'status.improvement' }}
+              className={improvementPill}
+            >
+              {subtestCounts.improvementCount} subtest{' '}
+              {subtestCounts.improvementCount === 1
+                ? 'improvement'
+                : 'improvements'}
+            </Box>
+          )}
+        </div>
+      )}
       <Box
         className={`revisionRow ${revisionRow} ${typography}`}
         sx={{ gridTemplateColumns, backgroundColor: 'revisionRow.background' }}
