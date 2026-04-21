@@ -287,6 +287,63 @@ describe('useSubtestRegressionCount', () => {
   });
 });
 
+// Tests for the caching behavior of memoizedFetchSubtestsCompareResults.
+// jest.requireActual bypasses the module-level mock above so we exercise the
+// real implementation against fetchMock (which is globally active).
+describe('memoizedFetchSubtestsCompareResults', () => {
+  const { memoizedFetchSubtestsCompareResults: realMemoized } =
+    jest.requireActual<typeof import('../../logic/treeherder')>(
+      '../../logic/treeherder',
+    );
+
+  const RESULTS_URL =
+    'begin:https://treeherder.mozilla.org/api/perfcompare/results/';
+
+  // The module-level cache persists across tests. A unique newRev per test
+  // guarantees a fresh cache entry and prevents cross-test interference.
+  let revCounter = 0;
+  function makeParams() {
+    return {
+      baseRev: `cache-test-base-rev-${++revCounter}`,
+      baseRepo: 'mozilla-central' as const,
+      newRev: `cache-test-new-rev-${revCounter}`,
+      newRepo: 'mozilla-central' as const,
+      framework: 1 as const,
+      baseParentSignature: '100',
+      newParentSignature: '200',
+      replicates: false,
+    };
+  }
+
+  it('fetches from the API on first call and resolves with the results', async () => {
+    const mockData = [{ test: 'subtest-1' }, { test: 'subtest-2' }];
+    fetchMock.get(RESULTS_URL, mockData);
+
+    const result = await realMemoized(makeParams());
+
+    expect(result).toEqual(mockData);
+  });
+
+  it('returns the same promise for identical params (cache hit)', () => {
+    fetchMock.get(RESULTS_URL, []);
+
+    const params = makeParams();
+    const promise1 = realMemoized(params);
+    const promise2 = realMemoized(params);
+
+    expect(promise1).toBe(promise2);
+  });
+
+  it('returns a new promise for different params (cache miss)', () => {
+    fetchMock.get(RESULTS_URL, []);
+
+    const promise1 = realMemoized(makeParams());
+    const promise2 = realMemoized(makeParams());
+
+    expect(promise1).not.toBe(promise2);
+  });
+});
+
 // Tests for the caching behavior of memoizedFetchSubtestsCompareOverTimeResults.
 // jest.requireActual bypasses the module-level mock above so we exercise the
 // real implementation against fetchMock (which is globally active).
