@@ -7,10 +7,22 @@ import { compareView } from '../../common/constants';
 import { isDistributionNormal } from '../../common/testVersions/mannWhitney';
 import { loader } from '../../components/CompareResults/loader';
 import RevisionRow from '../../components/CompareResults/RevisionRow';
+import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount';
 import { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
 import { Platform } from '../../types/types';
 import getTestData from '../utils/fixtures';
 import { screen, renderWithRouter } from '../utils/test-utils';
+
+jest.mock('../../hooks/useSubtestRegressionCount');
+const mockUseSubtestRegressionCount = useSubtestRegressionCount as jest.Mock;
+
+// Default to no subtest counts so existing tests are unaffected.
+beforeEach(() => {
+  mockUseSubtestRegressionCount.mockReturnValue({
+    counts: null,
+    isLoading: false,
+  });
+});
 
 function renderWithRoute(component: ReactElement) {
   fetchMock
@@ -85,6 +97,64 @@ describe('<RevisionRow>', () => {
         expect(previousNode).toBeNull();
       }
       /* eslint-enable */
+    },
+  );
+});
+
+describe('Subtest count pills', () => {
+  it.each([
+    { count: 1, label: '1 subtest regression' },
+    { count: 3, label: '3 subtest regressions' },
+  ])(
+    'displays "$label" for regressionCount $count',
+    async ({ count, label }) => {
+      mockUseSubtestRegressionCount.mockReturnValue({
+        counts: { regressionCount: count, improvementCount: 0 },
+        isLoading: false,
+      });
+      const {
+        testCompareData: [rowData],
+      } = getTestData();
+
+      renderWithRoute(
+        <RevisionRow
+          result={rowData}
+          view={compareView}
+          gridTemplateColumns='none'
+          replicates={false}
+          testVersion='mann-whitney-u'
+        />,
+      );
+
+      expect(await screen.findByText(label)).toBeInTheDocument();
+    },
+  );
+
+  it.each([
+    { count: 1, label: '1 subtest improvement' },
+    { count: 3, label: '3 subtest improvements' },
+  ])(
+    'displays "$label" for improvementCount $count',
+    async ({ count, label }) => {
+      mockUseSubtestRegressionCount.mockReturnValue({
+        counts: { regressionCount: 0, improvementCount: count },
+        isLoading: false,
+      });
+      const {
+        testCompareData: [rowData],
+      } = getTestData();
+
+      renderWithRoute(
+        <RevisionRow
+          result={rowData}
+          view={compareView}
+          gridTemplateColumns='none'
+          replicates={false}
+          testVersion='mann-whitney-u'
+        />,
+      );
+
+      expect(await screen.findByText(label)).toBeInTheDocument();
     },
   );
 });
