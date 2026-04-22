@@ -124,14 +124,16 @@ const revisionRow = style({
 const subtestCountsRow = style({
   display: 'flex',
   gap: '6px',
-  marginTop: `${Spacing.Small}px`,
   justifyContent: 'flex-end',
+  gridColumn: '1 / -2',
+  padding: `0 0 ${Spacing.xSmall}px`,
 });
 
 const loadingMessage = style({
   fontSize: '0.75rem',
-  marginTop: `${Spacing.Small}px`,
   textAlign: 'right',
+  gridColumn: '1 / -2',
+  padding: `0 0 ${Spacing.xSmall}px`,
 });
 
 const regressionPill = style({
@@ -256,37 +258,6 @@ function RevisionRow(props: RevisionRowProps) {
 
   return (
     <>
-      {subtestsLoading && (
-        <div className={loadingMessage}>
-          Fetching subtests regressions and improvements...
-        </div>
-      )}
-      {subtestCounts !== null && (
-        <div className={subtestCountsRow}>
-          {subtestCounts.regressionCount > 0 && (
-            <Box
-              sx={{ backgroundColor: 'status.regression' }}
-              className={regressionPill}
-            >
-              {subtestCounts.regressionCount} subtest{' '}
-              {subtestCounts.regressionCount === 1
-                ? 'regression'
-                : 'regressions'}
-            </Box>
-          )}
-          {subtestCounts.improvementCount > 0 && (
-            <Box
-              sx={{ backgroundColor: 'status.improvement' }}
-              className={improvementPill}
-            >
-              {subtestCounts.improvementCount} subtest{' '}
-              {subtestCounts.improvementCount === 1
-                ? 'improvement'
-                : 'improvements'}
-            </Box>
-          )}
-        </div>
-      )}
       <Box
         className={`revisionRow ${revisionRow} ${typography}`}
         sx={{ gridTemplateColumns, backgroundColor: 'revisionRow.background' }}
@@ -413,6 +384,37 @@ function RevisionRow(props: RevisionRowProps) {
             </IconButton>
           </div>
         </Box>
+        {subtestsLoading && (
+          <div className={loadingMessage}>
+            Fetching subtests regressions and improvements...
+          </div>
+        )}
+        {subtestCounts !== null && (
+          <div className={subtestCountsRow}>
+            {subtestCounts.regressionCount > 0 && (
+              <Box
+                sx={{ backgroundColor: 'status.regression' }}
+                className={regressionPill}
+              >
+                {subtestCounts.regressionCount} subtest{' '}
+                {subtestCounts.regressionCount === 1
+                  ? 'regression'
+                  : 'regressions'}
+              </Box>
+            )}
+            {subtestCounts.improvementCount > 0 && (
+              <Box
+                sx={{ backgroundColor: 'status.improvement' }}
+                className={improvementPill}
+              >
+                {subtestCounts.improvementCount} subtest{' '}
+                {subtestCounts.improvementCount === 1
+                  ? 'improvement'
+                  : 'improvements'}
+              </Box>
+            )}
+          </div>
+        )}
       </Box>
       {expanded && (
         <RevisionRowExpandable
