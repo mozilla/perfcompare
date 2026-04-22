@@ -26,7 +26,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
     class="selectedRevision_fubtarc MuiBox-root css-0"
   >
     <div
-      class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-11r84w7-MuiListItemText-root"
+      class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
     >
       <span
         class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
