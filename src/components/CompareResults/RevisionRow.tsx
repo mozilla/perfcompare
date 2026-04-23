@@ -126,7 +126,7 @@ const subtestCountsRow = style({
   gap: '6px',
   justifyContent: 'flex-end',
   gridColumn: '1 / -2',
-  padding: `0 0 ${Spacing.xSmall}px`,
+  padding: `0 5px ${Spacing.xSmall}px`,
 });
 
 const loadingMessage = style({
@@ -362,7 +362,12 @@ function RevisionRow(props: RevisionRowProps) {
         <Box
           className='cell'
           role='cell'
-          sx={{ backgroundColor: 'background.default' }}
+          sx={{
+            backgroundColor: 'background.default',
+            ...((subtestsLoading || subtestCounts !== null) && {
+              gridRow: 'span 2',
+            }),
+          }}
         >
           <div
             className='expand-button-container'
