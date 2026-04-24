@@ -11,6 +11,7 @@ import type {
   CompareMannWhitneyResultsTableConfig,
   CompareMannWhitneyResultsTableColumn,
 } from '../types/types';
+import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
 
 // This hook handles the state that handles table filtering, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -73,7 +74,9 @@ const useTableFilters = (
 
       const { key: columnKey, possibleValues } = columnConfiguration;
 
-      const paramValue = rawSearchParams.get('filter_' + columnKey);
+      const paramValue =
+        rawSearchParams.get('filter_' + columnKey) ??
+        getCookie('perfcompare_filter_' + columnKey);
       if (paramValue) {
         const configuredValuesSet = new Set(
           paramValue.split(',').map((item) => item.trim()),
@@ -100,6 +103,7 @@ const useTableFilters = (
   const onClearFilter = (columnId: string) => {
     rawSearchParams.delete(`filter_${columnId}`);
     updateRawSearchParams(rawSearchParams);
+    deleteCookie(`perfcompare_filter_${columnId}`);
 
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
@@ -121,8 +125,10 @@ const useTableFilters = (
 
     if (filters.size < columnConfiguration.possibleValues.length) {
       rawSearchParams.set(`filter_${columnId}`, [...filters].join(','));
+      setCookie(`perfcompare_filter_${columnId}`, [...filters].join(','));
     } else {
       rawSearchParams.delete(`filter_${columnId}`);
+      deleteCookie(`perfcompare_filter_${columnId}`);
     }
     updateRawSearchParams(rawSearchParams);
 
