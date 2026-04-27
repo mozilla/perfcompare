@@ -41,13 +41,19 @@ function TableRevisionContent(props: Props) {
   const hasMoreThanOneNewRev = results.length > 1;
 
   return (
-    <div className={styles.testBlock} role='rowgroup'>
+    <div
+      className={`table-revision-content ${styles.testBlock}`}
+      role='rowgroup'
+    >
       <TestHeader
         result={representativeResultForHeader}
         withRevision={!hasMoreThanOneNewRev}
       />
       {results.map(([revision, listOfResults]) => (
-        <div className={styles.revisionBlock} key={revision}>
+        <div
+          className={`revision-block ${styles.revisionBlock}`}
+          key={revision}
+        >
           {hasMoreThanOneNewRev && <LinkToRevision result={listOfResults[0]} />}
           {listOfResults.map((result) => (
             <RevisionRow
