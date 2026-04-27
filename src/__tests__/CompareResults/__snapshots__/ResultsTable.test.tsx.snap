@@ -333,6 +333,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               id="search-base-input"
                               placeholder="Search by revision ID or author email"
                               type="text"
+                              value=""
                             />
                             <fieldset
                               aria-hidden="true"
@@ -618,6 +619,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               id="search-new-input"
                               placeholder="Search by revision ID or author email"
                               type="text"
+                              value=""
                             />
                             <fieldset
                               aria-hidden="true"
@@ -3089,6 +3091,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               id="search-base-input"
                               placeholder="Search by revision ID or author email"
                               type="text"
+                              value=""
                             />
                             <fieldset
                               aria-hidden="true"
@@ -3374,6 +3377,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               id="search-new-input"
                               placeholder="Search by revision ID or author email"
                               type="text"
+                              value=""
                             />
                             <fieldset
                               aria-hidden="true"
