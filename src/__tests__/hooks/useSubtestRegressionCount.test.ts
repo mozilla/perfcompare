@@ -11,7 +11,7 @@ import type {
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../types/state';
-import type { TimeRange } from '../../types/types';
+import type { TestVersion, TimeRange } from '../../types/types';
 
 jest.mock('../../logic/treeherder', () => ({
   memoizedFetchSubtestsCompareResults: jest.fn(),
@@ -207,6 +207,44 @@ describe('useSubtestRegressionCount', () => {
     expect(hookResult.current.counts).toBeNull();
   });
 
+  it('does not clear isLoading when a stale fetch error arrives after testVersion changes', async () => {
+    let rejectStale!: (err: Error) => void;
+    mockedFetchCompare
+      .mockReturnValueOnce(
+        new Promise<never>((_, reject) => {
+          rejectStale = reject;
+        }),
+      )
+      .mockResolvedValue([]);
+
+    const { rerender, result: hookResult } = renderHook(
+      ({ testVersion }: { testVersion: TestVersion }) =>
+        useSubtestRegressionCount({
+          result: baseResult,
+          view: compareView,
+          replicates: false,
+          testVersion,
+        }),
+      { initialProps: { testVersion: 'student-t' as TestVersion } },
+    );
+
+    // Switch versions — cancels the first fetch, starts the second
+    rerender({ testVersion: 'mann-whitney-u' });
+
+    // New fetch resolves; hook should finish loading
+    await waitFor(() => {
+      expect(hookResult.current.isLoading).toBe(false);
+    });
+
+    // Now the stale student-t fetch rejects — should not touch isLoading
+    await act(async () => {
+      rejectStale(new Error('stale error'));
+    });
+
+    expect(hookResult.current.isLoading).toBe(false);
+    expect(hookResult.current.counts).not.toBeNull();
+  });
+
   it('passes silvermanKDEEnabled as true when the URL param is present', async () => {
     window.history.replaceState(
       null,
@@ -257,6 +295,61 @@ describe('useSubtestRegressionCount', () => {
       );
     });
     expect(mockedFetchCompare).not.toHaveBeenCalled();
+  });
+
+  it('re-fetches once when testVersion switches', async () => {
+    mockedFetchCompare.mockResolvedValue([]);
+
+    const { rerender } = renderHook(
+      ({ testVersion }: { testVersion: TestVersion }) =>
+        useSubtestRegressionCount({
+          result: baseResult,
+          view: compareView,
+          replicates: false,
+          testVersion,
+        }),
+      { initialProps: { testVersion: 'student-t' as TestVersion } },
+    );
+
+    await waitFor(() => {
+      expect(mockedFetchCompare).toHaveBeenCalledTimes(1);
+    });
+
+    rerender({ testVersion: 'mann-whitney-u' });
+
+    await waitFor(() => {
+      expect(mockedFetchCompare).toHaveBeenCalledTimes(2);
+    });
+    expect(mockedFetchCompare).toHaveBeenLastCalledWith(
+      expect.objectContaining({ testVersion: 'mann-whitney-u' }),
+    );
+  });
+
+  it('does not re-fetch when result reference changes but identifying fields are stable', async () => {
+    mockedFetchCompare.mockResolvedValue([]);
+
+    const result1 = { ...baseResult };
+    const result2 = { ...baseResult }; // same data, new object reference
+
+    const { rerender, result: hookResult } = renderHook(
+      ({ result }: { result: typeof baseResult }) =>
+        useSubtestRegressionCount({
+          result,
+          view: compareView,
+          replicates: false,
+          testVersion: 'mann-whitney-u',
+        }),
+      { initialProps: { result: result1 } },
+    );
+
+    await waitFor(() => {
+      expect(hookResult.current.isLoading).toBe(false);
+    });
+    expect(mockedFetchCompare).toHaveBeenCalledTimes(1);
+
+    rerender({ result: result2 });
+
+    expect(mockedFetchCompare).toHaveBeenCalledTimes(1);
   });
 
   it('does not update state after the component unmounts', async () => {

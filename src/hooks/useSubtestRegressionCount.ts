@@ -33,8 +33,22 @@ export function useSubtestRegressionCount({
   const [counts, setCounts] = useState<SubtestCounts | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Destructure the fields so the effect only re-runs when
+  // the actual API params change, not just because the parent passed a new
+  // result object reference (e.g. after re-fetching with a different testVersion).
+  const {
+    has_subtests,
+    base_rev,
+    base_repository_name,
+    new_rev,
+    new_repository_name,
+    framework_id,
+    base_signature_id,
+    new_signature_id,
+  } = result;
+
   useEffect(() => {
-    if (!result.has_subtests) {
+    if (!has_subtests) {
       setCounts(null);
       setIsLoading(false);
       return;
@@ -55,25 +69,25 @@ export function useSubtestRegressionCount({
     const fetchPromise: Promise<CombinedResultsItemType[]> =
       view === compareView
         ? (memoizedFetchSubtestsCompareResults({
-            baseRev: result.base_rev,
-            baseRepo: result.base_repository_name,
-            newRev: result.new_rev,
-            newRepo: result.new_repository_name,
-            framework: result.framework_id,
-            baseParentSignature: String(result.base_signature_id),
-            newParentSignature: String(result.new_signature_id),
+            baseRev: base_rev,
+            baseRepo: base_repository_name,
+            newRev: new_rev,
+            newRepo: new_repository_name,
+            framework: framework_id,
+            baseParentSignature: String(base_signature_id),
+            newParentSignature: String(new_signature_id),
             replicates,
             testVersion,
             silvermanKDEEnabled,
           }) as Promise<CombinedResultsItemType[]>)
         : (memoizedFetchSubtestsCompareOverTimeResults({
-            baseRepo: result.base_repository_name,
-            newRepo: result.new_repository_name,
-            newRev: result.new_rev,
-            framework: result.framework_id,
+            baseRepo: base_repository_name,
+            newRepo: new_repository_name,
+            newRev: new_rev,
+            framework: framework_id,
             interval: interval as TimeRange['value'],
-            baseParentSignature: String(result.base_signature_id),
-            newParentSignature: String(result.new_signature_id),
+            baseParentSignature: String(base_signature_id),
+            newParentSignature: String(new_signature_id),
             replicates,
             testVersion,
             silvermanKDEEnabled,
@@ -94,6 +108,7 @@ export function useSubtestRegressionCount({
         setIsLoading(false);
       })
       .catch(() => {
+        if (cancelled) return;
         // Silently fail — the counts are supplementary information
         // and should not break the main results view.
         setIsLoading(false);
@@ -102,7 +117,19 @@ export function useSubtestRegressionCount({
     return () => {
       cancelled = true;
     };
-  }, [result, view, replicates, testVersion]);
+  }, [
+    has_subtests,
+    base_rev,
+    base_repository_name,
+    new_rev,
+    new_repository_name,
+    framework_id,
+    base_signature_id,
+    new_signature_id,
+    view,
+    replicates,
+    testVersion,
+  ]);
 
   return { counts, isLoading };
 }

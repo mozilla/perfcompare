@@ -141,7 +141,7 @@ export default function ResultsTable() {
               tableFilters={tableFilters}
               sortColumn={sortColumn}
               sortDirection={sortDirection}
-              testVersion={testVersionVal}
+              testVersion={testVersion ?? MANN_WHITNEY_U}
             />
           )}
         </Await>
