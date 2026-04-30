@@ -41,6 +41,11 @@ const lightMode = {
   expandedRow: {
     background: Colors.SecondaryDefault,
   },
+  searchDropdown: {
+    background: Colors.Background300,
+    hover: Colors.SecondaryHover,
+    active: Colors.SecondaryActive,
+  },
 
   manWhitneyComps: {
     background: Colors.Background100,
@@ -88,6 +93,11 @@ const darkMode = {
   expandedRow: {
     background: Colors.Background100Dark,
   },
+  searchDropdown: {
+    background: Colors.Background300Dark,
+    hover: Colors.SecondaryHoverDark,
+    active: Colors.SecondaryActiveDark,
+  },
   manWhitneyComps: {
     background: Colors.Background100Dark,
     compareMetricsBg: Colors.Background300Dark,
@@ -130,5 +140,22 @@ declare module '@mui/material/Button' {
 declare module '@mui/material/ButtonGroup' {
   interface ButtonGroupPropsColorOverrides {
     tableHeaderButton: true;
+  }
+}
+
+declare module '@mui/material/styles' {
+  interface Palette {
+    searchDropdown: {
+      background: string;
+      hover: string;
+      active: string;
+    };
+  }
+  interface PaletteOptions {
+    searchDropdown?: {
+      background?: string;
+      hover?: string;
+      active?: string;
+    };
   }
 }

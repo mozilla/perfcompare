@@ -10,6 +10,7 @@ import Autocomplete, {
   AutocompleteRenderInputParams,
 } from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 import { style } from 'typestyle';
 
 import AutocompleteInput from './AutocompleteInput';
@@ -47,6 +48,7 @@ export default function SearchInputAndResults({
   listItemComponent,
 }: Props) {
   const mode = useAppSelector((state) => state.theme.mode);
+  const theme = useTheme();
 
   const [recentRevisions, setRecentRevisions] = useState(
     null as null | Changeset[],
@@ -76,39 +78,33 @@ export default function SearchInputAndResults({
     zIndex: 100,
   };
 
-  const getListStyles = (theme: string) => {
-    const backgroundColor =
-      theme === 'light' ? Colors.Background300 : Colors.Background300Dark;
-    const hoverColor =
-      theme === 'light' ? Colors.SecondaryHover : Colors.SecondaryHoverDark;
-    const activeColor =
-      theme === 'light' ? Colors.SecondaryActive : Colors.SecondaryActiveDark;
+  const getListStyles = (themeMode: string) => {
     const captionStyle =
-      theme === 'light' ? captionStylesLight : captionStylesDark;
+      themeMode === 'light' ? captionStylesLight : captionStylesDark;
 
     return style({
-      backgroundColor,
+      backgroundColor: theme.palette.searchDropdown.background,
       position: 'relative',
       ...sharedSelectStyles,
       $nest: {
         // Autocomplete option highlighting
         'li[aria-selected="true"]': {
-          backgroundColor: `${hoverColor} !important`,
+          backgroundColor: `${theme.palette.searchDropdown.hover} !important`,
           borderRadius: '4px',
           paddingTop: `${Spacing.xSmall}px`,
         },
         'li:hover': {
-          backgroundColor: `${hoverColor} !important`,
+          backgroundColor: `${theme.palette.searchDropdown.hover} !important`,
           borderRadius: '4px',
           paddingTop: `${Spacing.xSmall}px`,
         },
         'li[data-focus="true"]': {
-          backgroundColor: `${hoverColor} !important`,
+          backgroundColor: `${theme.palette.searchDropdown.hover} !important`,
           borderRadius: '4px',
           paddingTop: `${Spacing.xSmall}px`,
         },
         'li.Mui-focused': {
-          backgroundColor: `${hoverColor} !important`,
+          backgroundColor: `${theme.palette.searchDropdown.hover} !important`,
           borderRadius: '4px',
           paddingTop: `${Spacing.xSmall}px`,
         },
@@ -121,17 +117,17 @@ export default function SearchInputAndResults({
           padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
           $nest: {
             '&:hover': {
-              backgroundColor: hoverColor,
+              backgroundColor: theme.palette.searchDropdown.hover,
               borderRadius: '4px',
             },
             '&:active': {
-              backgroundColor: activeColor,
+              backgroundColor: theme.palette.searchDropdown.active,
               borderRadius: '4px',
             },
           },
         },
         '.item-selected': {
-          backgroundColor: hoverColor,
+          backgroundColor: theme.palette.searchDropdown.hover,
           borderRadius: '4px',
         },
         '.revision-hash': {

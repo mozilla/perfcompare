@@ -3,7 +3,7 @@
 exports[`SearchResultsList Should apply dark and light mode styles when theme button is toggled: after toggling dark mode 1 1`] = `
 <ul
   aria-labelledby="_r_64_-label"
-  class="MuiAutocomplete-listbox fnit3jo results-list-dark css-hcvz0e-MuiAutocomplete-listbox"
+  class="MuiAutocomplete-listbox f1recfq3 results-list-dark css-hcvz0e-MuiAutocomplete-listbox"
   id="_r_64_-listbox"
   role="listbox"
 >
