@@ -376,11 +376,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
@@ -1033,7 +1033,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="columnheader"
                 >
                   <div
-                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
+                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
                     role="group"
                   >
                     <button
@@ -2293,11 +2293,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
@@ -2942,7 +2942,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <div
-                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
+                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
                     role="group"
                   >
                     <button
@@ -3893,11 +3893,11 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
@@ -4542,7 +4542,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <div
-                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
+                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
                     role="group"
                   >
                     <button
@@ -5493,11 +5493,11 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
@@ -6142,7 +6142,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="columnheader"
                 >
                   <div
-                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
+                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
                     role="group"
                   >
                     <button
@@ -7093,11 +7093,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
+                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
                   />
                 </span>
                 <span
@@ -7742,7 +7742,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="columnheader"
                 >
                   <div
-                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-1fyroww-MuiButtonGroup-root"
+                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-horizontal MuiButtonGroup-disableElevation MuiButtonGroup-colorTableHeaderButton css-6gd5sl-MuiButtonGroup-root"
                     role="group"
                   >
                     <button

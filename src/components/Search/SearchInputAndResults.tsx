@@ -1,11 +1,30 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  HTMLAttributes,
+} from 'react';
 
+import Autocomplete, {
+  AutocompleteRenderInputParams,
+} from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
+import { style } from 'typestyle';
 
-import SearchInput from './SearchInput';
-import SearchResultsList from './SearchResultsList';
+import AutocompleteInput from './AutocompleteInput';
+import AutocompleteOption from './AutocompleteOption';
+import { useAppSelector } from '../../hooks/app';
 import { fetchRecentRevisions } from '../../logic/treeherder';
 import { Strings } from '../../resources/Strings';
+import {
+  Colors,
+  FontsRaw,
+  Spacing,
+  captionStylesLight,
+  captionStylesDark,
+} from '../../styles';
 import type { Changeset, Repository } from '../../types/state';
 import { simpleDebounce } from '../../utils/simple-debounce';
 
@@ -28,7 +47,9 @@ export default function SearchInputAndResults({
   onSearchResultsToggle,
   listItemComponent,
 }: Props) {
-  const [displayDropdown, setDisplayDropdown] = useState(false);
+  const mode = useAppSelector((state) => state.theme.mode);
+  const theme = useTheme();
+
   const [recentRevisions, setRecentRevisions] = useState(
     null as null | Changeset[],
   );
@@ -45,26 +66,83 @@ export default function SearchInputAndResults({
 
   const containerRef = useRef(null as null | HTMLElement);
 
-  const handleDocumentMousedown = useCallback(
-    (e: MouseEvent) => {
-      if (!displayDropdown) {
-        return;
-      }
-      const target = e.target as HTMLElement;
-      if (!containerRef.current?.contains(target)) {
-        // Close the dropdown only if the click is outside the search input or one
-        // of it's descendants.
-        setDisplayDropdown(false);
-      }
-    },
-    [displayDropdown],
-  );
+  // Styling from original SearchResultsList
+  const sharedSelectStyles = {
+    borderRadius: '4px',
+    marginTop: `${Spacing.xSmall}px`,
+    maxHeight: '285px',
+    overflow: 'auto',
+    maxWidth: '100%',
+    padding: `${Spacing.xSmall}px`,
+    border: `1px solid ${Colors.BorderDefault}`,
+    zIndex: 100,
+  };
 
-  const handleEscKeypress = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      setDisplayDropdown(false);
-    }
-  }, []);
+  const getListStyles = (themeMode: string) => {
+    const captionStyle =
+      themeMode === 'light' ? captionStylesLight : captionStylesDark;
+
+    return style({
+      backgroundColor: theme.palette.searchDropdown.background,
+      position: 'relative',
+      ...sharedSelectStyles,
+      $nest: {
+        // Autocomplete option highlighting
+        'li[aria-selected="true"]': {
+          backgroundColor: `${theme.palette.searchDropdown.hover} !important`,
+          borderRadius: '4px',
+          paddingTop: `${Spacing.xSmall}px`,
+        },
+        'li:hover': {
+          backgroundColor: `${theme.palette.searchDropdown.hover} !important`,
+          borderRadius: '4px',
+          paddingTop: `${Spacing.xSmall}px`,
+        },
+        'li[data-focus="true"]': {
+          backgroundColor: `${theme.palette.searchDropdown.hover} !important`,
+          borderRadius: '4px',
+          paddingTop: `${Spacing.xSmall}px`,
+        },
+        'li.Mui-focused': {
+          backgroundColor: `${theme.palette.searchDropdown.hover} !important`,
+          borderRadius: '4px',
+          paddingTop: `${Spacing.xSmall}px`,
+        },
+        // General li styling for all options
+        li: {
+          paddingTop: `${Spacing.xSmall}px`,
+        },
+        // Original list item button styles (keeping for compatibility)
+        '.MuiListItemButton-root': {
+          padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+          $nest: {
+            '&:hover': {
+              backgroundColor: theme.palette.searchDropdown.hover,
+              borderRadius: '4px',
+            },
+            '&:active': {
+              backgroundColor: theme.palette.searchDropdown.active,
+              borderRadius: '4px',
+            },
+          },
+        },
+        '.item-selected': {
+          backgroundColor: theme.palette.searchDropdown.hover,
+          borderRadius: '4px',
+        },
+        '.revision-hash': {
+          ...FontsRaw.BodyDefault,
+          marginRight: Spacing.Small,
+        },
+        '.info-caption': {
+          ...captionStyle,
+        },
+        '.MuiTypography-root': {
+          ...FontsRaw.BodyDefault,
+        },
+      },
+    });
+  };
 
   const searchRecentRevisions = useCallback(
     async (searchTerm: string) => {
@@ -159,40 +237,64 @@ export default function SearchInputAndResults({
     void searchRecentRevisions(lastSearchTermRef.current);
   }, [repository]);
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleDocumentMousedown);
-    return () => {
-      document.removeEventListener('mousedown', handleDocumentMousedown);
-    };
-  }, [handleDocumentMousedown]);
+  const renderInput = (params: AutocompleteRenderInputParams) => (
+    <AutocompleteInput
+      params={params}
+      searchError={searchError}
+      inputPlaceholder={inputPlaceholder}
+      searchType={searchType}
+      compact={compact}
+    />
+  );
 
-  useEffect(() => {
-    document.addEventListener('keydown', handleEscKeypress);
-    return () => {
-      document.removeEventListener('keydown', handleEscKeypress);
-    };
-  }, [handleEscKeypress]);
+  const renderOption = (
+    props: HTMLAttributes<HTMLLIElement>,
+    option: Changeset,
+  ) => (
+    <AutocompleteOption
+      {...props}
+      key={option.id}
+      index={recentRevisions?.indexOf(option) ?? 0}
+      item={option}
+      isChecked={displayedRevisions.map((rev) => rev.id).includes(option.id)}
+      onToggle={onSearchResultsToggle}
+      listItemComponent={listItemComponent}
+    />
+  );
 
   return (
     <Box ref={containerRef}>
-      <SearchInput
-        onFocus={() => setDisplayDropdown(true)}
-        compact={compact}
-        inputPlaceholder={inputPlaceholder}
-        searchType={searchType}
-        searchError={searchError}
-        onChange={onValueChange}
+      <Autocomplete
+        options={recentRevisions ?? []}
+        getOptionLabel={(options) => options.revision}
+        isOptionEqualToValue={(option, value) => option.id === value.id}
+        multiple={listItemComponent !== 'radio'}
+        disableCloseOnSelect={listItemComponent !== 'radio'}
+        filterOptions={(options) => options}
+        onInputChange={(_, value) => onValueChange(value)}
+        onChange={(_, value) => {
+          if (value) {
+            if (Array.isArray(value)) {
+              // Handle multiple selection (checkbox mode)
+              value.forEach((item) => onSearchResultsToggle(item));
+            } else {
+              // Handle single selection (radio mode)
+              onSearchResultsToggle(value);
+            }
+          }
+        }}
+        renderInput={renderInput}
+        renderOption={renderOption}
+        loading={recentRevisions?.length === 0}
+        loadingText={'Loading...'}
+        noOptionsText={searchError || 'No results found'}
+        slotProps={{
+          listbox: {
+            className: `${getListStyles(mode)} results-list-${mode}`,
+          },
+        }}
+        data-testid='autocomplete'
       />
-
-      {recentRevisions && displayDropdown && (
-        <SearchResultsList
-          compact={compact}
-          searchResults={recentRevisions}
-          displayedRevisions={displayedRevisions}
-          onToggle={onSearchResultsToggle}
-          listItemComponent={listItemComponent}
-        />
-      )}
     </Box>
   );
 }
