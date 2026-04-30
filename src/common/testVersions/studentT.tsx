@@ -232,6 +232,14 @@ export const studentTStrategy = {
     return (result as CompareResultsItem).new_is_better ? 'better' : 'worse';
   },
 
+  isRegression(result: CombinedResultsItemType): boolean {
+    return (result as CompareResultsItem).is_regression === true;
+  },
+
+  isImprovement(result: CombinedResultsItemType): boolean {
+    return (result as CompareResultsItem).is_improvement === true;
+  },
+
   renderExpandedRight(result: CombinedResultsItemType) {
     const {
       delta_percentage: deltaPercent,
