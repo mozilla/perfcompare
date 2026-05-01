@@ -2,6 +2,7 @@ import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import WarningIcon from '@mui/icons-material/Warning';
+import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 
 import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
@@ -384,9 +385,10 @@ export const mannWhitneyStrategy = {
 
   renderExpandedRight(result: CombinedResultsItemType) {
     const mwResult = result as MannWhitneyResultsItem;
-    const { cles, cles_direction } = mwResult.cles ?? {
+    const { cles, cles_direction, mann_whitney_u_cles } = mwResult.cles ?? {
       cles: '',
       cles_direction: '',
+      mann_whitney_u_cles: '',
     };
     const { cliffs_delta, cliffs_interpretation } = mwResult;
     const pValue = mwResult.mann_whitney_test?.pvalue;
@@ -404,6 +406,9 @@ export const mannWhitneyStrategy = {
           cles={cles}
           cles_direction={cles_direction}
         />
+        <Alert severity='info'>
+          <strong>Effect Size:</strong> {mann_whitney_u_cles}
+        </Alert>
         <ModeInterpretation result={mwResult} />
       </>
     );
