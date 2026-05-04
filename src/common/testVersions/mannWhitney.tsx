@@ -382,6 +382,18 @@ export const mannWhitneyStrategy = {
     );
   },
 
+  isRegression(result: CombinedResultsItemType): boolean {
+    return (
+      (result as MannWhitneyResultsItem).direction_of_change === 'regression'
+    );
+  },
+
+  isImprovement(result: CombinedResultsItemType): boolean {
+    return (
+      (result as MannWhitneyResultsItem).direction_of_change === 'improvement'
+    );
+  },
+
   renderExpandedRight(result: CombinedResultsItemType) {
     const mwResult = result as MannWhitneyResultsItem;
     const { cles, cles_direction } = mwResult.cles ?? {

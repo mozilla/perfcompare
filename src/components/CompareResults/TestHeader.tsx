@@ -108,7 +108,7 @@ export default function TestHeader(props: TestHeaderProps) {
   );
   const extraOptions = getExtraOptions(result.extra_options);
   return (
-    <div className={styles.revisionHeader}>
+    <div className={`revision-header ${styles.revisionHeader}`}>
       <div className={styles.revisionTitle}>
         <strong>{createTitle(result, docsURL, isLinkSupported)}</strong>
         {withRevision && (
