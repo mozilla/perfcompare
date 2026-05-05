@@ -11,12 +11,12 @@ import { webcrypto } from 'node:crypto';
 // See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
 // to use this mock.
 import fetchMock from '@fetch-mock/jest';
-import { density1d } from 'fast-kde';
 import { Line } from 'react-chartjs-2';
 import { Hooks } from 'taskcluster-client-web';
 
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
+import { fftkde } from '../../utils/kde.js';
 
 let store: Store;
 
@@ -50,10 +50,10 @@ jest.mock('react-chartjs-2', () => ({
 }));
 const MockedLine = Line as jest.Mock;
 
-jest.mock('fast-kde', () => ({
-  density1d: jest.fn(),
+jest.mock('../../utils/kde.js', () => ({
+  fftkde: jest.fn(),
 }));
-const MockedDensity1d = density1d as jest.Mock;
+const MockedFftkde = fftkde as jest.Mock;
 
 Object.defineProperty(window, 'crypto', { value: webcrypto });
 
@@ -61,7 +61,7 @@ beforeEach(() => {
   // After every test jest resets the mock implementation, so we need to define
   // it again for each test.
   MockedLine.mockImplementation(() => 'chartjs-line');
-  MockedDensity1d.mockImplementation(() => 'fast-kde');
+  MockedFftkde.mockImplementation(() => ({ x: [], y: [], bandwidth: 1 }));
 });
 
 // Install the fetch mock globally

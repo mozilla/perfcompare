@@ -15,6 +15,7 @@ import {
   MannWhitneyResultsItem,
 } from '../../types/state';
 import { TableConfig } from '../../types/types';
+import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
 import { formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
@@ -408,6 +409,28 @@ export const mannWhitneyStrategy = {
       ? capitalize(mwResult.mann_whitney_test.interpretation)
       : '';
 
+    const baseRuns = mwResult.base_runs ?? [];
+    const newRuns = mwResult.new_runs ?? [];
+    const ci =
+      baseRuns.length > 0 && newRuns.length > 0
+        ? bootstrapMedianDiffCI(baseRuns, newRuns)
+        : null;
+    const fmt = (n: number) => (n >= 0 ? '+' : '') + n.toFixed(1);
+    const summary = ci ? (
+      <span>
+        <strong>Δ median</strong> = {fmt(ci.medianDiff)} ms 95% CI [
+        {fmt(ci.ciLow)}, {fmt(ci.ciHigh)}]
+        {ci.significant ? '' : '  (not significant)'}
+      </span>
+    ) : null;
+    const confidenceInterval = ci && (
+      <span>
+        <strong>Confidence Interval</strong>: We are 95% confident the median
+        difference is between <strong>{fmt(ci.ciLow)}</strong> and{' '}
+        <strong>{fmt(ci.ciHigh)}</strong>
+      </span>
+    );
+
     return (
       <>
         <PValCliffsDeltaComp
@@ -421,6 +444,10 @@ export const mannWhitneyStrategy = {
         <Alert severity='info'>
           <strong>Effect Size:</strong> {mann_whitney_u_cles}
         </Alert>
+        {summary && <Alert severity='info'>{summary}</Alert>}
+        {confidenceInterval && (
+          <Alert severity='info'>{confidenceInterval}</Alert>
+        )}
         <ModeInterpretation result={mwResult} />
       </>
     );

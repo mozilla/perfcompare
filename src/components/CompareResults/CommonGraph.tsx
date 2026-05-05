@@ -9,10 +9,10 @@ import {
   type TooltipModel,
 } from 'chart.js';
 import 'chart.js/auto';
-import * as kde from 'fast-kde';
 import { Line } from 'react-chartjs-2';
 
 import { Colors } from '../../styles/Colors';
+import { fftkde } from '../../utils/kde.js';
 
 ChartJS.register(LinearScale, LineElement);
 
@@ -25,46 +25,14 @@ function computeStatisticsForRuns(data: number[]) {
   const sorted = [...data].sort((a, b) => a - b);
 
   return {
-    min: quantileSorted(sorted, 0),
-    max: quantileSorted(sorted, 1),
-    bandwidth: approximateSJBandwidth(sorted),
+    min: sorted[0],
+    max: sorted[sorted.length - 1],
   };
 }
 
-// This logic approximates the Sheather and Jones algorithm according to ChatGPT.
-// In the future we might want to compute a better value, see
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1901248 for some ideas.
-function approximateSJBandwidth(sorted: number[]): number {
-  const n = sorted.length;
-  if (n < 2) return sorted[0] * 0.0015;
-
-  const q25 = quantileSorted(sorted, 0.25);
-  const q75 = quantileSorted(sorted, 0.75);
-  const iqr = q75 - q25;
-
-  const mean = sorted.reduce((a, b) => a + b, 0) / n;
-  const std = Math.sqrt(
-    sorted.reduce((sum, x) => sum + Math.pow(x - mean, 2), 0) / n,
-  );
-
-  const sigma = Math.min(std, iqr / 1.34); // Robust estimate
-  const h = 0.9 * sigma * Math.pow(n, -1 / 5);
-
-  return h;
-}
-
-// This function returns a quantile from a sorted array of numbers.
-function quantileSorted(sorted: number[], q: number): number {
-  const pos = (sorted.length - 1) * q;
-  const base = Math.floor(pos);
-  const rest = pos - base;
-
-  if (sorted[base + 1] !== undefined) {
-    return sorted[base] + rest * (sorted[base + 1] - sorted[base]);
-  } else {
-    return sorted[base];
-  }
-}
+// We no longer need to compute a shared bandwidth for both KDEs, because the
+// ISJ method auto-selects the bandwidth per dataset. fftkde also has its own
+// internal grid and quantile logic, so those helpers are not needed either.
 
 // A simple wrapper to Math.min, resilient when one of the numbers is undefined or null.
 function computeMin(a?: number, b?: number) {
@@ -276,24 +244,23 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
 
   const allValuesData = [...baseValuesData, ...newValuesData];
 
-  //////////////////// START FAST KDE ////////////////////////
-  // So that the 2 KDE graphs are visually comparable, it's important to use the
-  // same bandwidth for both.
-  const bandwidth = computeMin(statsForBase?.bandwidth, statsForNew?.bandwidth);
+  //////////////////// START Adenot's js integration ////////////////////////
+  // because ISJ auto-selects bandwidth per dataset, we
+  // no longer need to compute a shared bandwidth — both KDEs
+  // independently auto-tune
 
-  const baseRunsDensity = Array.from(
-    kde.density1d(baseValues, {
-      bandwidth,
-      extent: [min, max],
-    }),
-  );
-  const newRunsDensity = Array.from(
-    kde.density1d(newValues, {
-      bandwidth,
-      extent: [min, max],
-    }),
-  );
-  //////////////////// END FAST KDE   ////////////////////////
+  const bKde =
+    baseValues.length >= 2 ? fftkde(baseValues, 'ISJ', undefined, 1024) : null;
+  const nKde =
+    newValues.length >= 2 ? fftkde(newValues, 'ISJ', undefined, 1024) : null;
+  const baseRunsDensity = bKde
+    ? bKde.x.map((x, i) => ({ x, y: bKde.y[i] }))
+    : [];
+  const newRunsDensity = nKde
+    ? nKde.x.map((x, i) => ({ x, y: nKde.y[i] }))
+    : [];
+
+  //////////////////// END JS Adenot's JS Integration ////////////////////////
 
   const data = {
     datasets: [
