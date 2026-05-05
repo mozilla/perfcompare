@@ -1458,11 +1458,11 @@ exports[`Results View The table should match snapshot and other elements should 
           style="overflow-anchor: none;"
         >
           <div
-            class="f1k5y3nc"
+            class="table-revision-content f1k5y3nc"
             role="rowgroup"
           >
             <div
-              class="fh103jg"
+              class="revision-header fh103jg"
             >
               <div
                 class="f195ysgj"
@@ -1547,7 +1547,7 @@ exports[`Results View The table should match snapshot and other elements should 
               </div>
             </div>
             <div
-              class="fw0pvlu"
+              class="revision-block fw0pvlu"
             >
               <div
                 class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"

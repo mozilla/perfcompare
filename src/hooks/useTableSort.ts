@@ -7,6 +7,7 @@ import type {
   CompareResultsTableConfig,
   SortFunc,
 } from '../types/types';
+import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
 
 // This hook handles the state that handles table sorting, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -24,7 +25,8 @@ const useTableSort = (
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
-  const sortFromUrl = rawSearchParams.get('sort') ?? '';
+  const sortFromUrl =
+    rawSearchParams.get('sort') ?? getCookie('perfcompare_sort') ?? '';
   const [columnId, direction] = useMemo(() => {
     const [columnId, direction] = sortFromUrl.split('|');
     if (!columnId) {
@@ -59,10 +61,12 @@ const useTableSort = (
       setSortColumn(null);
       setSortDirection(null);
       rawSearchParams.delete('sort');
+      deleteCookie('perfcompare_sort');
     } else {
       setSortColumn(columnId);
       setSortDirection(newSortDirection);
       rawSearchParams.set('sort', columnId + '|' + newSortDirection);
+      setCookie('perfcompare_sort', columnId + '|' + newSortDirection);
     }
     updateRawSearchParams(rawSearchParams);
   };

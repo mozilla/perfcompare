@@ -83,6 +83,14 @@ afterEach(() => {
 
   // Also restore the fetch mock
   fetchMock.mockReset();
+
+  // Clear perfcompare cookies so they don't leak between tests.
+  for (const cookie of document.cookie.split(';')) {
+    const name = cookie.split('=')[0].trim();
+    if (name.startsWith('perfcompare_')) {
+      document.cookie = `${name}=; max-age=0; path=/; SameSite=Lax`;
+    }
+  }
 });
 
 export { store };

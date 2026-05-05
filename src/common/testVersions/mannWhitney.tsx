@@ -205,8 +205,8 @@ export const mannWhitneyStrategy = {
           resultB: MannWhitneyResultsItem,
         ) {
           return (
-            Math.abs(resultA.cles?.cles ?? 0) -
-            Math.abs(resultB.cles?.cles ?? 0)
+            Math.abs((resultA.cles?.cles ?? 0.5) - 0.5) -
+            Math.abs((resultB.cles?.cles ?? 0.5) - 0.5)
           );
         },
         tooltip: tooltipEffectSize,
@@ -379,6 +379,18 @@ export const mannWhitneyStrategy = {
   getComparisonResult(result: CombinedResultsItemType) {
     return capitalize(
       (result as MannWhitneyResultsItem).direction_of_change ?? '',
+    );
+  },
+
+  isRegression(result: CombinedResultsItemType): boolean {
+    return (
+      (result as MannWhitneyResultsItem).direction_of_change === 'regression'
+    );
+  },
+
+  isImprovement(result: CombinedResultsItemType): boolean {
+    return (
+      (result as MannWhitneyResultsItem).direction_of_change === 'improvement'
     );
   },
 

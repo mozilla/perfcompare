@@ -20,6 +20,7 @@ function checkValues({
   newParentSignature,
   replicates,
   testVersion,
+  silvermanKDEEnabled,
 }: {
   baseRepo: Repository['name'] | null;
   newRev: string | null;
@@ -30,6 +31,7 @@ function checkValues({
   newParentSignature: string | null;
   replicates: boolean;
   testVersion?: TestVersion | null;
+  silvermanKDEEnabled: boolean;
 }): {
   baseRepo: Repository['name'];
   newRev: string;
@@ -42,6 +44,7 @@ function checkValues({
   newParentSignature: string;
   replicates: boolean;
   testVersion: TestVersion;
+  silvermanKDEEnabled: boolean;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -141,6 +144,7 @@ function checkValues({
     newParentSignature,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   };
 }
 
@@ -168,6 +172,9 @@ export function loader({ request }: { request: Request }) {
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
+  const enableSilvermanKDEFromUrl = url.searchParams.has(
+    'enable_silverman_kde',
+  );
   const {
     baseRepo,
     newRev,
@@ -180,6 +187,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRev: newRevFromUrl,
@@ -190,6 +198,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature: newParentSignatureFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
+    silvermanKDEEnabled: enableSilvermanKDEFromUrl,
   });
 
   const results = fetchSubtestsCompareOverTimeResults({
@@ -202,6 +211,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   });
 
   return {
@@ -217,6 +227,7 @@ export function loader({ request }: { request: Request }) {
     newParentSignature,
     replicates,
     testVersion,
+    silvermanKDEEnabled,
   };
 }
 
