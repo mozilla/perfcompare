@@ -348,7 +348,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
       data-testid="beta-version-compare-subtests-results"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -391,8 +391,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
@@ -479,16 +484,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               </a>
             </div>
           </div>
-        </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
         </div>
       </div>
       <div
@@ -2265,7 +2260,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -2308,8 +2303,13 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
@@ -2396,16 +2396,6 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </a>
             </div>
           </div>
-        </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
         </div>
       </div>
       <div
@@ -3865,7 +3855,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -3908,8 +3898,13 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
@@ -3996,16 +3991,6 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               </a>
             </div>
           </div>
-        </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
         </div>
       </div>
       <div
@@ -5465,7 +5450,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -5508,8 +5493,13 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
@@ -5596,16 +5586,6 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
               </a>
             </div>
           </div>
-        </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
         </div>
       </div>
       <div
@@ -7065,7 +7045,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -7108,8 +7088,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
@@ -7196,16 +7181,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               </a>
             </div>
           </div>
-        </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
         </div>
       </div>
       <div

@@ -58,7 +58,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             </div>
           </div>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
