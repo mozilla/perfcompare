@@ -15,7 +15,7 @@ export const HeaderStyles = (mode: string, isHome: boolean) => {
     container: {
       padding: 0,
       width: '100%',
-      minHeight: isHome ? '357px' : '130px',
+      minHeight: isHome ? '357px' : 'auto',
       backgroundColor: isTrueLight ? lightBg : darkBg,
       backgroundImage: `url(${headerImage.toString()})`,
       backgroundPosition: 'center',

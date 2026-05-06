@@ -12,7 +12,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -56,8 +56,13 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
@@ -145,19 +150,9 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <section
-        class="container_f1h7ern2"
+        class="container_f13838vn"
       >
         <div
           class="MuiBox-root css-i3pbo"
@@ -319,7 +314,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -363,8 +358,13 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
@@ -452,19 +452,9 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <section
-        class="container_f1h7ern2"
+        class="container_f13838vn"
       >
         <div
           class="MuiBox-root css-i3pbo"
@@ -521,7 +511,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -565,8 +555,13 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
@@ -654,19 +649,9 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <section
-        class="container_f1h7ern2"
+        class="container_f13838vn"
       >
         <div
           class="MuiBox-root css-i3pbo"
