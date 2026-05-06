@@ -85,6 +85,7 @@ describe('<RevisionRow>', () => {
           gridTemplateColumns='none'
           replicates={false}
           testVersion='student-t'
+          expandAll={false}
         />,
       );
       const shortNameNode = await screen.findByText(shortName);
@@ -123,6 +124,7 @@ describe('Subtest count pills', () => {
           gridTemplateColumns='none'
           replicates={false}
           testVersion='mann-whitney-u'
+          expandAll={false}
         />,
       );
 
@@ -151,6 +153,7 @@ describe('Subtest count pills', () => {
           gridTemplateColumns='none'
           replicates={false}
           testVersion='mann-whitney-u'
+          expandAll={false}
         />,
       );
 
@@ -172,6 +175,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='student-t'
+        expandAll={false}
       />,
     );
 
@@ -199,6 +203,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 
@@ -220,6 +225,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='student-t'
+        expandAll={false}
       />,
     );
 
@@ -236,6 +242,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='student-t'
+        expandAll={false}
       />,
     );
     const expandRow = await screen.findByTestId(/ExpandMoreIcon/);
@@ -256,6 +263,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 
@@ -284,6 +292,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 
@@ -305,6 +314,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 
@@ -323,6 +333,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 
@@ -350,6 +361,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 
@@ -369,6 +381,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='student-t'
+        expandAll={false}
       />,
     );
 
@@ -397,6 +410,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='student-t'
+        expandAll={false}
       />,
     );
 
@@ -435,6 +449,7 @@ describe('Expanded row', () => {
           gridTemplateColumns='none'
           replicates={false}
           testVersion='mann-whitney-u'
+          expandAll={false}
         />,
       );
       const roles = await screen.findAllByRole('cell');
@@ -451,6 +466,7 @@ describe('Expanded row', () => {
           gridTemplateColumns='none'
           replicates={false}
           testVersion='mann-whitney-u'
+          expandAll={false}
         />,
       );
       const roles = await screen.findAllByRole('cell');
@@ -468,11 +484,75 @@ describe('Expanded row', () => {
           gridTemplateColumns='none'
           replicates={false}
           testVersion='mann-whitney-u'
+          expandAll={false}
         />,
       );
       const roles = await screen.findAllByRole('cell');
       expect(roles[4]).not.toHaveTextContent('-');
       expect(roles[4].querySelector('svg[role="img"]')).toBeFalsy();
     });
+  });
+});
+
+describe('expandAll prop', () => {
+  it('starts expanded when expandAll is true', async () => {
+    const {
+      testCompareData: [rowData],
+    } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+        expandAll={true}
+      />,
+    );
+
+    expect(await screen.findByTestId(/ExpandLessIcon/)).toBeInTheDocument();
+  });
+
+  it('starts collapsed when expandAll is false', async () => {
+    const {
+      testCompareData: [rowData],
+    } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+        expandAll={false}
+      />,
+    );
+
+    expect(await screen.findByTestId(/ExpandMoreIcon/)).toBeInTheDocument();
+  });
+
+  it('lets the user individually collapse a row that was force-expanded', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const {
+      testCompareData: [rowData],
+    } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+        expandAll={true}
+      />,
+    );
+
+    const collapseButton = await screen.findByTestId(/ExpandLessIcon/);
+    await user.click(collapseButton);
+
+    expect(await screen.findByTestId(/ExpandMoreIcon/)).toBeInTheDocument();
   });
 });
