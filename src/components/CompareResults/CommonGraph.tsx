@@ -1,22 +1,13 @@
+import { useEffect, useMemo, useRef } from 'react';
+
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import {
-  Chart as ChartJS,
-  LineElement,
-  LinearScale,
-  ScriptableContext,
-  type TooltipItem,
-  type TooltipModel,
-} from 'chart.js';
-import 'chart.js/auto';
-import { Line } from 'react-chartjs-2';
+import { init, type ECharts, type EChartsOption } from 'echarts';
 
 import { Colors } from '../../styles/Colors';
 import { fftkde } from '../../utils/kde.js';
 
-ChartJS.register(LinearScale, LineElement);
-
-// This computes the min, max and the KDE bandwidth from a list of numbers.
+// This computes the min, max from a list of numbers.
 function computeStatisticsForRuns(data: number[]) {
   if (!data.length) {
     return null;
@@ -29,10 +20,6 @@ function computeStatisticsForRuns(data: number[]) {
     max: sorted[sorted.length - 1],
   };
 }
-
-// We no longer need to compute a shared bandwidth for both KDEs, because the
-// ISJ method auto-selects the bandwidth per dataset. fftkde also has its own
-// internal grid and quantile logic, so those helpers are not needed either.
 
 // A simple wrapper to Math.min, resilient when one of the numbers is undefined or null.
 function computeMin(a?: number, b?: number) {
@@ -48,254 +35,259 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
+const CHART_HEIGHT = 300;
+
 function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
-  const statsForBase = computeStatisticsForRuns(baseValues);
-  const statsForNew = computeStatisticsForRuns(newValues);
+  const chartContainerRef = useRef<HTMLDivElement | null>(null);
+  const chartInstanceRef = useRef<ECharts | null>(null);
 
-  // Compute the global min and max with some grace value.
-  const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
-  const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
+  const option: EChartsOption = useMemo(() => {
+    const statsForBase = computeStatisticsForRuns(baseValues);
+    const statsForNew = computeStatisticsForRuns(newValues);
 
-  // The KDE line chart and categorical bubble chart share an x-axis but use
-  // entirely different y-scales, making the composition flexible but
-  // non-trivial.
-  const options = {
-    // Make the chart responsive to container size
-    responsive: true,
-    // Allow the chart to stretch freely, not keeping a fixed aspect ratio. This
-    // needs the container's size to be well defined.
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        // Hide the default legend (labels for datasets)
-        display: false,
-      },
+    // Compute the global min and max with some grace value.
+    const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
+    const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
 
+    // ISJ auto-selects the bandwidth per dataset, so each KDE tunes itself.
+    const bKde =
+      baseValues.length >= 2
+        ? fftkde(baseValues, 'ISJ', undefined, 1024)
+        : null;
+    const nKde =
+      newValues.length >= 2 ? fftkde(newValues, 'ISJ', undefined, 1024) : null;
+    const baseRunsDensity: [number, number][] = bKde
+      ? bKde.x.map((xCoord, index) => [xCoord, bKde.y[index]])
+      : [];
+    const newRunsDensity: [number, number][] = nKde
+      ? nKde.x.map((xCoord, index) => [xCoord, nKde.y[index]])
+      : [];
+
+    // Raw values rendered as a categorical scatter ("Base" / "New").
+    const baseScatter: [number, string][] = baseValues.map((value) => [
+      value,
+      'Base',
+    ]);
+    const newScatter: [number, string][] = newValues.map((value) => [
+      value,
+      'New',
+    ]);
+
+    const totalScatter = baseValues.length + newValues.length;
+    const symbolSize = totalScatter < 20 ? 14 : 10;
+
+    // Pre-compute counts of identical (category, value) pairs so the tooltip
+    // can show "(×N)" when several runs share the same value.
+    const counts = new Map<string, number>();
+    for (const value of baseValues) {
+      const key = `Base|${value}`;
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+    }
+    for (const value of newValues) {
+      const key = `New|${value}`;
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+    }
+
+    const unitSuffix = unit ? ` (${unit})` : '';
+
+    return {
+      animation: false,
+      // Two stacked grids: the top one holds the KDE curves, the bottom one
+      // the categorical scatter. Both share horizontal extent and x-range.
+      // The top is bumped down to leave room for the legend above.
+      grid: [
+        { left: 70, right: 70, top: 28, height: 140 },
+        { left: 70, right: 70, top: 200, height: 50 },
+      ],
+      xAxis: [
+        {
+          type: 'value',
+          gridIndex: 0,
+          min,
+          max,
+          splitLine: { show: false },
+          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisTick: { show: false },
+          axisLabel: { show: false },
+        },
+        {
+          type: 'value',
+          gridIndex: 1,
+          min,
+          max,
+          name: `${unit ?? ''} →`,
+          nameLocation: 'end',
+          nameGap: 8,
+          nameTextStyle: {
+            align: 'left',
+            verticalAlign: 'middle',
+            fontSize: 12,
+          },
+          splitLine: { show: true, lineStyle: { color: '#eee' } },
+          axisLine: { show: true, lineStyle: { color: '#999' } },
+        },
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          gridIndex: 0,
+          min: 0,
+          splitLine: { show: true, lineStyle: { color: '#eee' } },
+          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisTick: { show: false },
+          axisLabel: { show: true, color: '#000', fontSize: 12 },
+        },
+        {
+          type: 'category',
+          gridIndex: 1,
+          data: ['Base', 'New'],
+          boundaryGap: true,
+          position: 'left',
+          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisTick: { show: false },
+          axisLabel: {
+            show: true,
+            interval: 0,
+            margin: 8,
+            color: '#000',
+            fontSize: 12,
+          },
+        },
+      ],
+      // Wheel to zoom on the x-axis; shift+drag pans. Both grids share the
+      // x-range, so the zoom applies to xAxisIndex [0, 1] in tandem.
+      // filterMode: 'none' keeps every data point in place — the zoom only
+      // changes the visible window, so KDE curves still extend to the edges.
+      dataZoom: [
+        {
+          type: 'inside',
+          xAxisIndex: [0, 1],
+          filterMode: 'none',
+          zoomOnMouseWheel: true,
+          moveOnMouseMove: 'shift',
+          moveOnMouseWheel: false,
+        },
+        {
+          type: 'slider',
+          xAxisIndex: [0, 1],
+          filterMode: 'none',
+          height: 16,
+          bottom: 4,
+          showDetail: false,
+          brushSelect: false,
+        },
+      ],
       tooltip: {
-        // Allow tooltips to appear even when not directly intersecting a point
-        intersect: false,
-        callbacks: {
-          // Suppress the tooltip title (normally shows the x-value)
-          title: () => '',
-
-          // Customize tooltip labels depending on the dataset type
-          label(
-            this: TooltipModel<'line'> | TooltipModel<'scatter'>,
-            tooltipItem: TooltipItem<'line'> | TooltipItem<'scatter'>,
-          ) {
-            switch (tooltipItem.dataset.yAxisID) {
-              case 'yKde': {
-                // KDE line: show only the x-value with optional unit
-                if (tooltipItem.parsed.x === null) {
-                  return '';
-                }
-                const x = tooltipItem.parsed.x.toFixed(2);
-                return `@ ${x}` + (unit ? ` (${unit})` : '');
-              }
-              case 'yValues': {
-                // For the bubble chart: display only one summary line, even if
-                // multiple points overlap
-                if (
-                  this.dataPoints.length > 1 &&
-                  this.dataPoints[0] !== tooltipItem
-                ) {
-                  return '';
-                }
-
-                const point = tooltipItem.raw as {
-                  x: number;
-                  y: 'Base' | 'New';
-                };
-                // Example: "Base: 42 (ms) (×3)"
-                const labelString = `${point.y}: ${point.x}`;
-                const unitString = unit ? ` (${unit})` : '';
-                const summaryString =
-                  this.dataPoints.length > 1
-                    ? ` (×${this.dataPoints.length})`
-                    : '';
-                return labelString + unitString + summaryString;
-              }
-              default:
-                return '';
-            }
-          },
-
-          // Explicitly set the color of the square shown next to each tooltip label
-          labelColor: (
-            tooltipItem: TooltipItem<'line'> | TooltipItem<'scatter'>,
-          ) => {
-            const { dataset, raw } = tooltipItem;
-
-            let source: 'Base' | 'New' | undefined;
-
-            if (dataset.yAxisID === 'yKde') {
-              // KDE lines distinguish between Base and New by label
-              source = dataset.label === 'Base' ? 'Base' : 'New';
-            } else if (dataset.yAxisID === 'yValues') {
-              // Scatter chart: use the y-value ("Base" or "New") stored in the raw data
-              source = (raw as { y: 'Base' | 'New' }).y;
-            }
-
-            if (source) {
-              return {
-                backgroundColor:
-                  source === 'Base' ? Colors.ChartBase : Colors.ChartNew,
-              };
-            }
-
-            // Fallback color if the dataset is not recognized
-            return {
-              backgroundColor: 'rgba(0,0,0,0)',
-            };
-          },
-        },
-        // Show color boxes (one per label, unless suppressed in labelColor)
-        displayColors: true,
+        trigger: 'axis',
+        axisPointer: { type: 'cross', crossStyle: { color: '#999' } },
         padding: 10,
-        boxPadding: 4,
-      },
-    },
-    scales: {
-      x: {
-        type: 'linear' as const,
-        suggestedMin: min,
-        suggestedMax: max,
-        grid: {
-          display: false, // Hide vertical grid lines
-          offset: false,
-        },
-        title: {
-          align: 'end' as const,
-          display: true,
-          text: `${unit} →`, // Example: "ms →"
-        },
-      },
-      yKde: {
-        type: 'linear', // Linear scale
-        stack: 'y', // yKde and yValues are part of the same stack
-        stackWeight: 3, // Larger stack weight means more vertical space
-        weight: 3, // Larger weight ensures it's on top
-        beginAtZero: true,
-        grace: '3%', // Add margin at the top of the axis range
-        grid: {
-          drawBorder: false,
-          display: false, // No horizontal grid lines for KDE
-          offset: false,
-        },
-        ticks: {
-          beginAtZero: true,
-          display: true,
+        formatter: (params) => {
+          // With trigger: 'axis', echarts passes an array of points (one per
+          // series at the cursor's x). For trigger: 'item' it'd be a single
+          // object; normalise to an array either way.
+          const items = Array.isArray(params) ? params : [params];
+          const lines = items
+            .map((pts) => {
+              const marker = typeof pts.marker === 'string' ? pts.marker : '';
+              const seriesName = pts.seriesName ?? '';
+              if (pts.seriesType === 'line') {
+                const xValue = (pts.value as [number, number])[0];
+                return `${marker}${seriesName} @ ${xValue.toFixed(2)}${unitSuffix}`;
+              }
+              if (pts.seriesType === 'scatter') {
+                const [xValue, category] = pts.value as [number, string];
+                const count = counts.get(`${category}|${xValue}`) ?? 1;
+                const summary = count > 1 ? ` (×${count})` : '';
+                return `${marker}${seriesName}: ${xValue}${unitSuffix}${summary}`;
+              }
+              return '';
+            })
+            .filter((line) => line);
+          return lines.join('<br>');
         },
       },
-
-      // Spacer axis to visually separate KDE and scatter plots
-      // This doesn't display anything.
-      ySpacer: {
-        type: 'linear',
-        stack: 'y',
-        stackWeight: 0.5, // Takes less space than yKde
-        weight: 2, // Appears between yKde and yValues
-        display: false, // Invisible axis (No ticks or grids)
-        grid: {
-          display: false,
+      toolbox: {
+        feature: { restore: {}, saveAsImage: {} },
+        right: 8,
+        top: 4,
+        itemSize: 12,
+      },
+      legend: {
+        data: ['Base', 'New'],
+        top: 4,
+        left: 'center',
+        itemHeight: 10,
+        itemWidth: 30,
+      },
+      series: [
+        {
+          name: 'Base',
+          type: 'line',
+          triggerLineEvent: true,
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: baseRunsDensity,
+          showSymbol: false,
+          lineStyle: { width: 3, color: Colors.ChartBase },
+          itemStyle: { color: Colors.ChartBase },
+          emphasis: { focus: 'none' },
         },
-        ticks: {
-          display: false,
+        {
+          name: 'New',
+          type: 'line',
+          triggerLineEvent: true,
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: newRunsDensity,
+          showSymbol: false,
+          lineStyle: { width: 3, color: Colors.ChartNew },
+          itemStyle: { color: Colors.ChartNew },
+          emphasis: { focus: 'none' },
         },
-      },
-      yValues: {
-        type: 'category',
-        stack: 'y',
-        stackWeight: 1, // Smaller stack weight means it takes less space
-        weight: 1, // Appears at the bottom
-        labels: ['Base', 'New'],
-        offset: true, // Adds extra padding for visual separation
-        ticks: {
-          autoSkip: false, // Show both labels even if close together
+        {
+          name: 'Base',
+          type: 'scatter',
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          data: baseScatter,
+          symbol: 'triangle',
+          symbolSize,
+          itemStyle: { color: Colors.ChartBase + '99' },
         },
-      },
-    },
-    elements: {
-      // These ones will be used for the 2 KDE datasets.
-      // When needed, they will be overridden in the "scatter" dataset.
-      line: {
-        borderWidth: 3, // Thickness of KDE curves
-      },
-      point: {
-        pointRadius: 0, // Points on line chart are invisible
-        pointHoverRadius: 5, // But they respond to hover
-      },
-    },
-    interaction: {
-      // Show tooltip for the closest point (across all datasets)
-      mode: 'nearest',
-      // Only show tooltip if the mouse intersects the actual shape
-      intersect: true,
-    },
-  };
+        {
+          name: 'New',
+          type: 'scatter',
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          data: newScatter,
+          symbol: 'triangle',
+          symbolSize,
+          itemStyle: { color: Colors.ChartNew + '99' },
+        },
+      ],
+    };
+  }, [baseValues, newValues, unit]);
 
-  ///////////////// START SHOW VALUES ////////////////////////
-  const baseValuesData = baseValues.map((v) => {
-    return { x: v, y: 'Base' };
-  });
-  const newValuesData = newValues.map((v) => {
-    return { x: v, y: 'New' };
-  });
+  useEffect(() => {
+    if (!chartContainerRef.current) {
+      return;
+    }
+    const instance = init(chartContainerRef.current);
+    chartInstanceRef.current = instance;
 
-  const allValuesData = [...baseValuesData, ...newValuesData];
+    const handleResize = () => instance.resize();
+    window.addEventListener('resize', handleResize);
 
-  //////////////////// START Adenot's js integration ////////////////////////
-  // because ISJ auto-selects bandwidth per dataset, we
-  // no longer need to compute a shared bandwidth — both KDEs
-  // independently auto-tune
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      instance.dispose();
+      chartInstanceRef.current = null;
+    };
+  }, []);
 
-  const bKde =
-    baseValues.length >= 2 ? fftkde(baseValues, 'ISJ', undefined, 1024) : null;
-  const nKde =
-    newValues.length >= 2 ? fftkde(newValues, 'ISJ', undefined, 1024) : null;
-  const baseRunsDensity = bKde
-    ? bKde.x.map((x, i) => ({ x, y: bKde.y[i] }))
-    : [];
-  const newRunsDensity = nKde
-    ? nKde.x.map((x, i) => ({ x, y: nKde.y[i] }))
-    : [];
-
-  //////////////////// END JS Adenot's JS Integration ////////////////////////
-
-  const data = {
-    datasets: [
-      {
-        // First KDE line: density of the "Base" distribution
-        yAxisID: 'yKde',
-        label: 'Base',
-        data: baseRunsDensity,
-        fill: false,
-        borderColor: Colors.ChartBase,
-      },
-      {
-        // Second KDE line: density of the "New" distribution
-        yAxisID: 'yKde',
-        label: 'New',
-        data: newRunsDensity,
-        fill: false,
-        borderColor: Colors.ChartNew,
-      },
-      {
-        // Bubble chart layer: raw values from both distributions (shown as points)
-        yAxisID: 'yValues',
-        type: 'scatter',
-        pointStyle: 'triangle',
-        // Adjust point size based on dataset size (smaller points if there's a lot of data)
-        pointRadius: allValuesData.length < 20 ? 7 : 5,
-        data: allValuesData,
-        // Color code points by category using dynamic function
-        backgroundColor: (context: ScriptableContext<'scatter'>) =>
-          ((context.raw as { y: 'Base' | 'New' }).y === 'Base'
-            ? Colors.ChartBase
-            : Colors.ChartNew) + '99', // Add 60% transparency to the hexadecimal color
-      },
-    ],
-  };
+  useEffect(() => {
+    chartInstanceRef.current?.setOption(option, true);
+  }, [option]);
 
   return (
     <>
@@ -303,8 +295,10 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
         Runs Density Distribution
       </Typography>
       <Box sx={{ flex: 0 }}>
-        {/* @ts-expect-error the types for chart.js do not seem great and do not support all options. */}
-        <Line height={300} options={options} data={data} />
+        <div
+          ref={chartContainerRef}
+          style={{ width: '100%', height: CHART_HEIGHT }}
+        />
       </Box>
     </>
   );

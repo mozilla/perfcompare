@@ -33,7 +33,9 @@ exports[`Results View Should display Base, New and Common graphs with replicates
           <div
             class="MuiBox-root css-72fd9l"
           >
-            chartjs-line
+            <div
+              style="width: 100%; height: 300px;"
+            />
           </div>
         </div>
       </div>
@@ -421,52 +423,71 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 </section>
 `;
 
-exports[`Results View Should display Base, New and Common graphs with replicates: Dataset for scatter 1`] = `
-{
-  "backgroundColor": [Function],
-  "data": [
-    {
-      "x": 587.15,
-      "y": "Base",
+exports[`Results View Should display Base, New and Common graphs with replicates: Scatter series 1`] = `
+[
+  {
+    "data": [
+      [
+        587.15,
+        "Base",
+      ],
+      [
+        593.04,
+        "Base",
+      ],
+      [
+        600.7,
+        "Base",
+      ],
+      [
+        602.04,
+        "Base",
+      ],
+    ],
+    "itemStyle": {
+      "color": "#9059ff99",
     },
-    {
-      "x": 593.04,
-      "y": "Base",
+    "name": "Base",
+    "symbol": "triangle",
+    "symbolSize": 14,
+    "type": "scatter",
+    "xAxisIndex": 1,
+    "yAxisIndex": 1,
+  },
+  {
+    "data": [
+      [
+        605.16,
+        "New",
+      ],
+      [
+        605.31,
+        "New",
+      ],
+      [
+        605.61,
+        "New",
+      ],
+      [
+        605.81,
+        "New",
+      ],
+      [
+        607.27,
+        "New",
+      ],
+    ],
+    "itemStyle": {
+      "color": "#00878799",
     },
-    {
-      "x": 600.7,
-      "y": "Base",
-    },
-    {
-      "x": 602.04,
-      "y": "Base",
-    },
-    {
-      "x": 605.16,
-      "y": "New",
-    },
-    {
-      "x": 605.31,
-      "y": "New",
-    },
-    {
-      "x": 605.61,
-      "y": "New",
-    },
-    {
-      "x": 605.81,
-      "y": "New",
-    },
-    {
-      "x": 607.27,
-      "y": "New",
-    },
-  ],
-  "pointRadius": 7,
-  "pointStyle": "triangle",
-  "type": "scatter",
-  "yAxisID": "yValues",
-}
+    "name": "New",
+    "symbol": "triangle",
+    "symbolSize": 14,
+    "type": "scatter",
+    "xAxisIndex": 1,
+    "yAxisIndex": 1,
+  },
+]
 `;
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
@@ -502,7 +523,9 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
           <div
             class="MuiBox-root css-72fd9l"
           >
-            chartjs-line
+            <div
+              style="width: 100%; height: 300px;"
+            />
           </div>
         </div>
       </div>
@@ -889,52 +912,71 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 </section>
 `;
 
-exports[`Results View Should display Base, New and Common graphs with tooltips: Dataset for scatter 1`] = `
-{
-  "backgroundColor": [Function],
-  "data": [
-    {
-      "x": 587.15,
-      "y": "Base",
+exports[`Results View Should display Base, New and Common graphs with tooltips: Scatter series 1`] = `
+[
+  {
+    "data": [
+      [
+        587.15,
+        "Base",
+      ],
+      [
+        593.04,
+        "Base",
+      ],
+      [
+        600.7,
+        "Base",
+      ],
+      [
+        602.04,
+        "Base",
+      ],
+    ],
+    "itemStyle": {
+      "color": "#9059ff99",
     },
-    {
-      "x": 593.04,
-      "y": "Base",
+    "name": "Base",
+    "symbol": "triangle",
+    "symbolSize": 14,
+    "type": "scatter",
+    "xAxisIndex": 1,
+    "yAxisIndex": 1,
+  },
+  {
+    "data": [
+      [
+        605.16,
+        "New",
+      ],
+      [
+        605.31,
+        "New",
+      ],
+      [
+        605.61,
+        "New",
+      ],
+      [
+        605.81,
+        "New",
+      ],
+      [
+        607.27,
+        "New",
+      ],
+    ],
+    "itemStyle": {
+      "color": "#00878799",
     },
-    {
-      "x": 600.7,
-      "y": "Base",
-    },
-    {
-      "x": 602.04,
-      "y": "Base",
-    },
-    {
-      "x": 605.16,
-      "y": "New",
-    },
-    {
-      "x": 605.31,
-      "y": "New",
-    },
-    {
-      "x": 605.61,
-      "y": "New",
-    },
-    {
-      "x": 605.81,
-      "y": "New",
-    },
-    {
-      "x": 607.27,
-      "y": "New",
-    },
-  ],
-  "pointRadius": 7,
-  "pointStyle": "triangle",
-  "type": "scatter",
-  "yAxisID": "yValues",
-}
+    "name": "New",
+    "symbol": "triangle",
+    "symbolSize": 14,
+    "type": "scatter",
+    "xAxisIndex": 1,
+    "yAxisIndex": 1,
+  },
+]
 `;
 
 exports[`Results View Should update url with new title and the table with the new title: After clicking the Save button 1`] = `

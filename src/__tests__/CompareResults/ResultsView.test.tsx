@@ -2,8 +2,12 @@ import type { ReactElement } from 'react';
 
 import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
-import type { ScriptableContext } from 'chart.js';
-import { ChartProps, Line } from 'react-chartjs-2';
+import { init as echartsInit } from 'echarts';
+import type {
+  EChartsOption,
+  LineSeriesOption,
+  ScatterSeriesOption,
+} from 'echarts';
 
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
@@ -36,6 +40,37 @@ function renderWithRoute(component: ReactElement) {
 
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
+
+// Pull the latest EChartsOption that the chart component pushed via
+// `instance.setOption(option)`. Each call to `init()` in the mock returns a
+// fresh stub, so we walk through the init mock results to find the most
+// recently-rendered chart's options.
+function getLatestEChartsOption(): EChartsOption {
+  const initMock = echartsInit as jest.Mock;
+  for (let i = initMock.mock.results.length - 1; i >= 0; i--) {
+    const instance = initMock.mock.results[i].value as {
+      setOption: jest.Mock<unknown, [EChartsOption, ...unknown[]]>;
+    };
+    const lastSetOption = instance.setOption.mock.calls.at(-1);
+    if (lastSetOption) {
+      return lastSetOption[0];
+    }
+  }
+  throw new Error('No echarts setOption call captured');
+}
+
+// echarts hands the tooltip formatter a pre-built marker HTML string per
+// point (a small coloured dot/square). The formatter prepends it to each
+// line of the tooltip alongside the seriesName.
+type FormatterParam = {
+  seriesType: 'line' | 'scatter';
+  seriesName: string;
+  value: [number, number] | [number, string];
+  marker: string;
+};
+
+const FAKE_BASE_MARKER = '<span data-test="marker-base"></span>';
+const FAKE_NEW_MARKER = '<span data-test="marker-new"></span>';
 
 describe('Results View', () => {
   it('The table should match snapshot and other elements should be present in the page', async () => {
@@ -171,150 +206,80 @@ describe('Results View', () => {
       await screen.findByRole('region', { name: 'Revision Row Details' }),
     ).toMatchSnapshot();
 
-    // 1. Test that the chart library is called with various datasets.
-    const MockedLine = Line as jest.Mock;
-    const chartProps = MockedLine.mock.calls[0][0] as ChartProps;
-    const datasets = chartProps.data.datasets;
-    expect(datasets).toHaveLength(3);
-    // The KDE dataset is too long to test here, but let's test the other
-    // elements.
-    const datasetsForKde = datasets.filter(
-      (dataset) => 'yAxisID' in dataset && dataset.yAxisID === 'yKde',
+    // 1. Test that the chart was configured with the right series.
+    const option = getLatestEChartsOption();
+    const series = option.series as Array<
+      LineSeriesOption | ScatterSeriesOption
+    >;
+    // 2 KDE line series (Base, New) + 2 scatter series (Base, New) = 4
+    expect(series).toHaveLength(4);
+
+    const lineSeries = series.filter(
+      (s): s is LineSeriesOption => s.type === 'line',
     );
-    expect(datasetsForKde).toMatchObject([
+    expect(lineSeries).toMatchObject([
       {
-        yAxisID: 'yKde',
-        label: 'Base',
-        fill: false,
-        borderColor: Colors.ChartBase,
+        type: 'line',
+        name: 'Base',
+        lineStyle: { color: Colors.ChartBase },
       },
       {
-        yAxisID: 'yKde',
-        label: 'New',
-        fill: false,
-        borderColor: Colors.ChartNew,
+        type: 'line',
+        name: 'New',
+        lineStyle: { color: Colors.ChartNew },
       },
     ]);
 
-    const datasetForScatter = datasets.find(
-      (dataset) => dataset.type === 'scatter',
+    const scatterSeries = series.filter(
+      (s): s is ScatterSeriesOption => s.type === 'scatter',
     );
-    expect(datasetForScatter).toMatchSnapshot('Dataset for scatter');
+    expect(scatterSeries).toMatchSnapshot('Scatter series');
 
-    // 2. Test the more complex tooltip functions with various use cases.
-    const labelFunction =
-      chartProps.options?.plugins?.tooltip?.callbacks?.label;
-    expect(labelFunction).toBeDefined();
+    // 2. Test the tooltip formatter with various inputs. Each return value is
+    // an HTML string with an inline-styled marker span followed by the label.
+    const formatter = (
+      option.tooltip as unknown as {
+        formatter: (p: FormatterParam) => string;
+      }
+    ).formatter;
+    expect(formatter).toBeDefined();
 
-    const tooltipItemKdeBase = {
-      dataset: datasetsForKde[0],
-      parsed: { x: 5, y: 5 },
+    const kdeBaseParam: FormatterParam = {
+      seriesType: 'line',
+      seriesName: 'Base',
+      value: [5, 0.1],
+      marker: FAKE_BASE_MARKER,
     };
-    const tooltipItemKdeNew = {
-      dataset: datasetsForKde[1],
-      parsed: { x: 5, y: 5 },
+    const kdeNewParam: FormatterParam = {
+      seriesType: 'line',
+      seriesName: 'New',
+      value: [5, 0.1],
+      marker: FAKE_NEW_MARKER,
     };
-    const tooltipItemValueBase = {
-      dataset: datasetForScatter,
-      raw: {
-        x: '1.234',
-        y: 'Base',
-      },
+    const scatterBaseParam: FormatterParam = {
+      seriesType: 'scatter',
+      seriesName: 'Base',
+      value: [1.234, 'Base'],
+      marker: FAKE_BASE_MARKER,
     };
-    const tooltipItemValueNew = {
-      dataset: datasetForScatter,
-      raw: {
-        x: '2.345',
-        y: 'New',
-      },
+    const scatterNewParam: FormatterParam = {
+      seriesType: 'scatter',
+      seriesName: 'New',
+      value: [2.345, 'New'],
+      marker: FAKE_NEW_MARKER,
     };
 
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [tooltipItemKdeBase] },
-        tooltipItemKdeBase,
-      ),
-    ).toBe('@ 5.00');
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [tooltipItemValueBase] },
-        tooltipItemValueBase,
-      ),
-    ).toBe('Base: 1.234');
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [tooltipItemValueNew] },
-        tooltipItemValueNew,
-      ),
-    ).toBe('New: 2.345');
+    expect(formatter(kdeBaseParam)).toBe(`${FAKE_BASE_MARKER}Base @ 5.00`);
+    expect(formatter(kdeNewParam)).toBe(`${FAKE_NEW_MARKER}New @ 5.00`);
+    expect(formatter(scatterBaseParam)).toBe(`${FAKE_BASE_MARKER}Base: 1.234`);
+    expect(formatter(scatterNewParam)).toBe(`${FAKE_NEW_MARKER}New: 2.345`);
 
-    // Also test the cases where there are 2 values at the same x point.
-    // The first item shows a summary of both values.
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [tooltipItemValueBase, { ...tooltipItemValueBase }] },
-        tooltipItemValueBase,
-      ),
-    ).toBe('Base: 1.234 (×2)');
-    // But the second item isn't displayed at all.
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [{ ...tooltipItemValueBase }, tooltipItemValueBase] },
-        tooltipItemValueBase,
-      ),
-    ).toBe('');
-
-    // 3. Also test the complex color function
-    const labelColorFunction =
-      chartProps.options?.plugins?.tooltip?.callbacks?.labelColor;
-    expect(labelColorFunction).toBeDefined();
-
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(labelColorFunction!(tooltipItemKdeBase)).toEqual({
-      backgroundColor: Colors.ChartBase,
-    });
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(labelColorFunction!(tooltipItemKdeNew)).toEqual({
-      backgroundColor: Colors.ChartNew,
-    });
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(labelColorFunction!(tooltipItemValueBase)).toEqual({
-      backgroundColor: Colors.ChartBase,
-    });
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(labelColorFunction!(tooltipItemValueNew)).toEqual({
-      backgroundColor: Colors.ChartNew,
-    });
-
-    // 4. Also test the background color function for the scatter graph
-    const backgroundColorFunction = datasetForScatter?.backgroundColor as (
-      ctx: ScriptableContext<'line'>,
-    ) => string | undefined;
-    expect(backgroundColorFunction).toBeInstanceOf(Function);
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(backgroundColorFunction({ raw: { x: 5, y: 'Base' } })).toBe(
-      Colors.ChartBase + '99',
-    );
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(backgroundColorFunction({ raw: { x: 5, y: 'New' } })).toBe(
-      Colors.ChartNew + '99',
-    );
+    // 3. Test the static itemStyle colors on the scatter series. The chart
+    // renders points with a 60%-opacity color suffix appended to the hex.
+    const baseScatter = scatterSeries.find((s) => s.name === 'Base');
+    const newScatter = scatterSeries.find((s) => s.name === 'New');
+    expect(baseScatter?.itemStyle).toEqual({ color: Colors.ChartBase + '99' });
+    expect(newScatter?.itemStyle).toEqual({ color: Colors.ChartNew + '99' });
   });
 
   it('Should display Base, New and Common graphs with replicates', async () => {
@@ -351,17 +316,24 @@ describe('Results View', () => {
     ).toMatchSnapshot();
 
     // Test that this time all replicates are displayed
-    const MockedLine = Line as jest.Mock;
-    const chartProps = MockedLine.mock.calls[0][0] as ChartProps;
-    const datasets = chartProps.data.datasets;
-    const datasetForScatter = datasets.find(
-      (dataset) => dataset.type === 'scatter',
+    const option = getLatestEChartsOption();
+    const series = option.series as Array<
+      LineSeriesOption | ScatterSeriesOption
+    >;
+    const scatterSeries = series.filter(
+      (s): s is ScatterSeriesOption => s.type === 'scatter',
     );
-    expect(datasetForScatter!.data).toHaveLength(
-      testCompareDataWithReplicates[0].base_runs_replicates.length +
-        testCompareDataWithReplicates[0].new_runs_replicates.length,
+    const baseScatterPoints = scatterSeries.find((s) => s.name === 'Base')
+      ?.data as unknown[];
+    const newScatterPoints = scatterSeries.find((s) => s.name === 'New')
+      ?.data as unknown[];
+    expect(baseScatterPoints).toHaveLength(
+      testCompareDataWithReplicates[0].base_runs_replicates.length,
     );
-    expect(datasetForScatter).toMatchSnapshot('Dataset for scatter');
+    expect(newScatterPoints).toHaveLength(
+      testCompareDataWithReplicates[0].new_runs_replicates.length,
+    );
+    expect(scatterSeries).toMatchSnapshot('Scatter series');
   });
 
   it('should make blobUrl available when "Download JSON" button is clicked', async () => {
