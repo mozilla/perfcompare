@@ -9,6 +9,7 @@ import type {
   ScatterSeriesOption,
 } from 'echarts';
 
+import CommonGraph from '../../components/CompareResults/CommonGraph';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import TestHeader from '../../components/CompareResults/TestHeader';
@@ -16,9 +17,10 @@ import { Strings } from '../../resources/Strings';
 import { Colors } from '../../styles/Colors';
 import type { Repository } from '../../types/state';
 import type { Framework } from '../../types/types';
+import { fftkde } from '../../utils/kde.js';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen, waitFor } from '../utils/test-utils';
+import { render, renderWithRouter, screen, waitFor } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   const { testCompareData, testData } = getTestData();
@@ -40,6 +42,32 @@ function renderWithRoute(component: ReactElement) {
 
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
+
+// Wrap React.useRef so individual tests can substitute a stubbed ref for the
+// next useRef call. The wrapper delegates to the real implementation when the
+// override queue is empty, so other tests in this file are unaffected.
+const mockUseRefOverrides: Array<{ current: unknown }> = [];
+
+jest.mock('react', () => {
+  const actualReact = jest.requireActual<typeof import('react')>('react');
+  // Spread loses non-enumerable React exports (Component, createElement, …)
+  // which react-router relies on; a Proxy lets us replace `useRef` while
+  // forwarding every other property to the real module.
+  return new Proxy(actualReact, {
+    get(target, prop, receiver) {
+      if (prop === 'useRef') {
+        return function wrappedUseRef<T>(initialValue: T) {
+          const override = mockUseRefOverrides.shift();
+          if (override !== undefined) {
+            return override;
+          }
+          return target.useRef(initialValue);
+        };
+      }
+      return Reflect.get(target, prop, receiver) as unknown;
+    },
+  });
+});
 
 // Pull the latest EChartsOption that the chart component pushed via
 // `instance.setOption(option)`. Each call to `init()` in the mock returns a
