@@ -1,6 +1,6 @@
 import { checkValues, getComparisonInformation } from './loader';
 import { compareView } from '../../common/constants';
-import { fetchRevisionFromLandoId } from '../../logic/lando';
+import { fetchRevisionFromLandoId, LandoInstance } from '../../logic/lando';
 import {
   Changeset,
   CombinedResultsItemType,
@@ -24,6 +24,9 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
+  const landoInstanceFromUrl =
+    (url.searchParams.get('landoInstance') as LandoInstance | null) ??
+    undefined;
   if (!baseLandoIDFromUrl || !newLandoIDFromUrl) {
     throw new Error(
       'Not all values were supplied please check you provided both baseLando and newLando',
@@ -34,10 +37,14 @@ export async function loader({ request }: { request: Request }) {
     'enable_silverman_kde',
   );
 
-  const baseRevisionsFromLando =
-    await fetchRevisionFromLandoId(baseLandoIDFromUrl);
-  const newRevisionsFromLando =
-    await fetchRevisionFromLandoId(newLandoIDFromUrl);
+  const baseRevisionsFromLando = await fetchRevisionFromLandoId(
+    baseLandoIDFromUrl,
+    landoInstanceFromUrl,
+  );
+  const newRevisionsFromLando = await fetchRevisionFromLandoId(
+    newLandoIDFromUrl,
+    landoInstanceFromUrl,
+  );
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
