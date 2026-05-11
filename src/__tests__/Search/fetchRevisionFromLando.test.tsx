@@ -63,9 +63,9 @@ describe('Lando to commit validating', () => {
     expect(console.error).toHaveBeenCalledWith(
       new Error('Error when requesting lando: (404) Not Found'),
     );
-    expect(
-      fetchMock.callHistory.called('glob:https://lando.moz.tools/*'),
-    ).toBe(true);
+    expect(fetchMock.callHistory.called('glob:https://lando.moz.tools/*')).toBe(
+      true,
+    );
     expect(
       fetchMock.callHistory.called(
         'glob:https://api.lando.services.mozilla.com/*',
