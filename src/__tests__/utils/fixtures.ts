@@ -158,7 +158,7 @@ const getTestData = () => {
           revision: 'd670460b4b4aece5915caf5c68d12f560a9fe3e4',
           author: 'johncleese@python.com',
           comments:
-            "Full 40 char hash created with echo 'test content' | git hash-object --stdin\n",
+            'Full 40 char hash for auto-selection testing (supports complete or partial match)\n',
         },
       ],
       revision_count: 1,

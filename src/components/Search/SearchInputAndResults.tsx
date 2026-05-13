@@ -68,9 +68,9 @@ export default function SearchInputAndResults({
     }
   }, []);
 
-  // Helper to check if the search term matches a full 40 character revision hash
-  const isFullRevisionHash = (searchTerm: string) =>
-    /^[a-f0-9]{40}$/i.test(searchTerm.trim());
+  // Helper to check if the search term matches a revision hash (full or short)
+  const isRevisionHash = (searchTerm: string) =>
+    /^[a-f0-9]{7,40}$/i.test(searchTerm.trim());
 
   const searchRecentRevisions = useCallback(
     async (
@@ -126,24 +126,20 @@ export default function SearchInputAndResults({
       try {
         const results = await fetchRecentRevisions(searchParameters);
 
-        if (autoSelect && isFullRevisionHash(searchTerm)) {
-          const completeHashMatch = results.find(
-            (rev) => rev.revision.toLowerCase() === searchTerm.toLowerCase(),
+        if (autoSelect && isRevisionHash(searchTerm)) {
+          const revisionMatch = results.find((rev) =>
+            rev.revision.toLowerCase().startsWith(searchTerm.toLowerCase()),
           );
-          if (completeHashMatch) {
+          if (revisionMatch) {
             if (searchType === 'new') {
               const alreadySelected = displayedRevisions.some(
-                (rev) => rev.id === completeHashMatch.id,
+                (rev) => rev.id === revisionMatch.id,
               );
               if (alreadySelected) {
-                setDisplayDropdown(false);
-                setInputValue('');
                 return;
               }
             }
-            setDisplayDropdown(false);
-            setInputValue('');
-            onSearchResultsToggle(completeHashMatch);
+            onSearchResultsToggle(revisionMatch);
             return;
           }
         }
@@ -182,7 +178,7 @@ export default function SearchInputAndResults({
     setInputValue(searchTerm);
     setSearchError(null);
     setRecentRevisions(null);
-    if (isFullRevisionHash(searchTerm)) {
+    if (isRevisionHash(searchTerm)) {
       void searchRecentRevisions(searchTerm, { autoSelect: true });
     } else {
       debouncedSearchRecentRevisions(searchTerm);
@@ -214,7 +210,12 @@ export default function SearchInputAndResults({
     <Box ref={containerRef}>
       <SearchInput
         value={inputValue}
-        onFocus={() => setDisplayDropdown(true)}
+        onFocus={() => {
+          setDisplayDropdown(true);
+          if (!inputValue) {
+            void searchRecentRevisions('');
+          }
+        }}
         compact={compact}
         inputPlaceholder={inputPlaceholder}
         searchType={searchType}
