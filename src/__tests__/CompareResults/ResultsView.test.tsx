@@ -91,9 +91,9 @@ function getLatestEChartsOption(): EChartsOption {
 // point (a small coloured dot/square). The formatter prepends it to each
 // line of the tooltip alongside the seriesName.
 type FormatterParam = {
-  seriesType: 'line' | 'scatter';
+  seriesType: 'line';
   seriesName: string;
-  value: [number, number] | [number, string];
+  value: [number, number];
   marker: string;
 };
 
@@ -234,18 +234,12 @@ describe('Results View', () => {
       await screen.findByRole('region', { name: 'Revision Row Details' }),
     ).toMatchSnapshot();
 
-    // 1. Test that the chart was configured with the right series.
+    // 1. Test that the chart was configured with the right series: two KDE
+    // line series (Base, New).
     const option = getLatestEChartsOption();
-    const series = option.series as Array<
-      LineSeriesOption | ScatterSeriesOption
-    >;
-    // 2 KDE line series (Base, New) + 2 scatter series (Base, New) = 4
-    expect(series).toHaveLength(4);
-
-    const lineSeries = series.filter(
-      (s): s is LineSeriesOption => s.type === 'line',
-    );
-    expect(lineSeries).toMatchObject([
+    const series = option.series as LineSeriesOption[];
+    expect(series).toHaveLength(2);
+    expect(series).toMatchObject([
       {
         type: 'line',
         name: 'Base',
@@ -258,13 +252,8 @@ describe('Results View', () => {
       },
     ]);
 
-    const scatterSeries = series.filter(
-      (s): s is ScatterSeriesOption => s.type === 'scatter',
-    );
-    expect(scatterSeries).toMatchSnapshot('Scatter series');
-
-    // 2. Test the tooltip formatter with various inputs. Each return value is
-    // an HTML string with an inline-styled marker span followed by the label.
+    // 2. Test the tooltip formatter. Each return value is an HTML string with
+    // an inline-styled marker span followed by the label.
     const formatter = (
       option.tooltip as unknown as {
         formatter: (p: FormatterParam) => string;
@@ -284,30 +273,9 @@ describe('Results View', () => {
       value: [5, 0.1],
       marker: FAKE_NEW_MARKER,
     };
-    const scatterBaseParam: FormatterParam = {
-      seriesType: 'scatter',
-      seriesName: 'Base',
-      value: [1.234, 'Base'],
-      marker: FAKE_BASE_MARKER,
-    };
-    const scatterNewParam: FormatterParam = {
-      seriesType: 'scatter',
-      seriesName: 'New',
-      value: [2.345, 'New'],
-      marker: FAKE_NEW_MARKER,
-    };
 
     expect(formatter(kdeBaseParam)).toBe(`${FAKE_BASE_MARKER}Base @ 5.00`);
     expect(formatter(kdeNewParam)).toBe(`${FAKE_NEW_MARKER}New @ 5.00`);
-    expect(formatter(scatterBaseParam)).toBe(`${FAKE_BASE_MARKER}Base: 1.234`);
-    expect(formatter(scatterNewParam)).toBe(`${FAKE_NEW_MARKER}New: 2.345`);
-
-    // 3. Test the static itemStyle colors on the scatter series. The chart
-    // renders points with a 60%-opacity color suffix appended to the hex.
-    const baseScatter = scatterSeries.find((s) => s.name === 'Base');
-    const newScatter = scatterSeries.find((s) => s.name === 'New');
-    expect(baseScatter?.itemStyle).toEqual({ color: Colors.ChartBase + '99' });
-    expect(newScatter?.itemStyle).toEqual({ color: Colors.ChartNew + '99' });
   });
 
   it('Should display Base, New and Common graphs with replicates', async () => {
@@ -343,25 +311,18 @@ describe('Results View', () => {
       await screen.findByRole('region', { name: 'Revision Row Details' }),
     ).toMatchSnapshot();
 
-    // Test that this time all replicates are displayed
-    const option = getLatestEChartsOption();
-    const series = option.series as Array<
-      LineSeriesOption | ScatterSeriesOption
-    >;
-    const scatterSeries = series.filter(
-      (s): s is ScatterSeriesOption => s.type === 'scatter',
+    // The KDE for each side should be built off the replicates, not the
+    // single-point base_runs/new_runs. Assert fftkde was called with each
+    // replicate array.
+    const fftkdeCalls = (fftkde as jest.Mock).mock.calls.map(
+      (call) => call[0] as number[],
     );
-    const baseScatterPoints = scatterSeries.find((s) => s.name === 'Base')
-      ?.data as unknown[];
-    const newScatterPoints = scatterSeries.find((s) => s.name === 'New')
-      ?.data as unknown[];
-    expect(baseScatterPoints).toHaveLength(
-      testCompareDataWithReplicates[0].base_runs_replicates.length,
+    expect(fftkdeCalls).toContainEqual(
+      testCompareDataWithReplicates[0].base_runs_replicates,
     );
-    expect(newScatterPoints).toHaveLength(
-      testCompareDataWithReplicates[0].new_runs_replicates.length,
+    expect(fftkdeCalls).toContainEqual(
+      testCompareDataWithReplicates[0].new_runs_replicates,
     );
-    expect(scatterSeries).toMatchSnapshot('Scatter series');
   });
 
   it('should make blobUrl available when "Download JSON" button is clicked', async () => {
