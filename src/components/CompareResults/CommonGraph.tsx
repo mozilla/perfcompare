@@ -35,6 +35,18 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
+// ISJ bandwidth selection can fail to converge on tiny or degenerate samples
+// (few unique values, near-identical numbers). Fall back to Silverman's rule
+// in that case — coarser, but it never fails.
+function safeKde(values: number[]) {
+  if (values.length < 2) return null;
+  try {
+    return fftkde(values, 'ISJ', undefined, 1024);
+  } catch {
+    return fftkde(values, 'silverman', undefined, 1024);
+  }
+}
+
 const CHART_HEIGHT = 300;
 
 function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
@@ -50,12 +62,8 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
     const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
 
     // ISJ auto-selects the bandwidth per dataset, so each KDE tunes itself.
-    const bKde =
-      baseValues.length >= 2
-        ? fftkde(baseValues, 'ISJ', undefined, 1024)
-        : null;
-    const nKde =
-      newValues.length >= 2 ? fftkde(newValues, 'ISJ', undefined, 1024) : null;
+    const bKde = safeKde(baseValues);
+    const nKde = safeKde(newValues);
     const baseRunsDensity: [number, number][] = bKde
       ? bKde.x.map((xCoord, index) => [xCoord, bKde.y[index]])
       : [];
