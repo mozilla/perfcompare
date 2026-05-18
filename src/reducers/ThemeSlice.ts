@@ -2,10 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ThemeMode } from '../types/state';
 
-const initialState = {
-  mode: (localStorage.getItem('theme') === 'dark'
-    ? 'dark'
-    : 'light') as ThemeMode,
+const initialState: { mode: ThemeMode } = {
+  mode: localStorage.getItem('theme') === 'dark' ? 'dark' : 'light',
 };
 
 const theme = createSlice({

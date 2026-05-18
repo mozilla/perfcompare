@@ -10,7 +10,6 @@ import SearchFormHeader from './SearchFormHeader';
 import { STUDENT_T } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
-import type { TimeRange } from '../../types/types';
 
 const strings = Strings.components.searchDefault;
 
@@ -65,7 +64,7 @@ function SearchContainer(props: SearchViewProps) {
           isExpanded={!isBaseSearchExpanded}
           setIsExpanded={() => setIsBaseSearchExpanded(false)}
           frameworkIdVal={frameworkId}
-          intervalValue={86400 as TimeRange['value']}
+          intervalValue={86400}
           baseRepo={newRepo}
           newRepo={newRepo}
           testVersion={STUDENT_T}

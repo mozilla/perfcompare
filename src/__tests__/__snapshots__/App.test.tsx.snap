@@ -37,6 +37,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -343,6 +344,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -544,6 +546,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span

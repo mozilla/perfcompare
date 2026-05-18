@@ -91,7 +91,7 @@ describe('App', () => {
 
     render(<App />);
 
-    const darkModeButton = screen.getByRole('checkbox', {
+    const darkModeButton = screen.getByRole('switch', {
       name: /Dark mode switch/,
     });
 
