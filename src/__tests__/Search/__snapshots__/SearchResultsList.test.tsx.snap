@@ -10,7 +10,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="MuiList-root MuiList-padding css-zym0s0-MuiList-root"
   >
     <div
-      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
       role="button"
       tabindex="0"
     >
@@ -122,7 +122,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
       </li>
     </div>
     <div
-      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
       role="button"
       tabindex="0"
     >
@@ -234,7 +234,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
       </li>
     </div>
     <div
-      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
       role="button"
       tabindex="0"
     >
@@ -346,7 +346,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
       </li>
     </div>
     <div
-      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
       role="button"
       tabindex="0"
     >
@@ -458,7 +458,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
       </li>
     </div>
     <div
-      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
       role="button"
       tabindex="0"
     >
@@ -570,7 +570,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
       </li>
     </div>
     <div
-      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
       role="button"
       tabindex="0"
     >
@@ -682,7 +682,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
       </li>
     </div>
     <div
-      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+      class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
       role="button"
       tabindex="0"
     >
@@ -836,6 +836,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -959,7 +960,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation learn-more-btn css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation learn-more-btn css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -1154,7 +1155,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             class="MuiList-root MuiList-padding css-zym0s0-MuiList-root"
                           >
                             <div
-                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
                               role="button"
                               tabindex="0"
                             >
@@ -1266,7 +1267,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </li>
                             </div>
                             <div
-                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
                               role="button"
                               tabindex="0"
                             >
@@ -1378,7 +1379,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </li>
                             </div>
                             <div
-                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
                               role="button"
                               tabindex="0"
                             >
@@ -1490,7 +1491,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </li>
                             </div>
                             <div
-                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
                               role="button"
                               tabindex="0"
                             >
@@ -1602,7 +1603,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </li>
                             </div>
                             <div
-                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
                               role="button"
                               tabindex="0"
                             >
@@ -1714,7 +1715,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </li>
                             </div>
                             <div
-                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
                               role="button"
                               tabindex="0"
                             >
@@ -1826,7 +1827,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </li>
                             </div>
                             <div
-                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
+                              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters fl1awgk css-1pl5w90-MuiButtonBase-root-MuiListItemButton-root"
                               role="button"
                               tabindex="0"
                             >
@@ -2171,7 +2172,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     class="fs9pw6x cancel-compare"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
                       id="compare-button"
                       tabindex="0"
                       type="submit"
@@ -2594,7 +2595,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     class="fs9pw6x cancel-compare"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
                       id="compare-button"
                       tabindex="0"
                       type="submit"

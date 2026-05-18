@@ -140,7 +140,7 @@ describe('SearchResultsList', () => {
   it('Should apply dark and light mode styles when theme button is toggled', async () => {
     await renderComponent();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const darkModeToggle = screen.getByRole('checkbox', {
+    const darkModeToggle = screen.getByRole('switch', {
       name: /Dark mode switch/,
     });
 
