@@ -240,6 +240,37 @@ describe('CommonGraph', () => {
     );
   });
 
+  it('formats x-axis tick labels: 2 dp for fractions, bare integer for whole numbers', () => {
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+
+    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' />);
+
+    const option = getLatestEChartsOption();
+    const xAxis = option.xAxis as {
+      axisLabel: { formatter: (value: number) => string };
+    };
+    const format = xAxis.axisLabel.formatter;
+
+    // Whole numbers render without a trailing ".00".
+    expect(format(14)).toBe('14');
+    expect(format(0)).toBe('0');
+    expect(format(-7)).toBe('-7');
+
+    // Floats near integers (round-off) collapse to the bare integer.
+    expect(format(14 + 1e-12)).toBe('14');
+    expect(format(14 - 1e-12)).toBe('14');
+
+    // Fractional values render with 2 decimal places.
+    expect(format(48.541)).toBe('48.54');
+    expect(format(48.545)).toBe('48.55');
+    expect(format(0.1)).toBe('0.10');
+    expect(format(-3.14159)).toBe('-3.14');
+  });
+
   it('omits the unit suffix in the tooltip header when unit is null', () => {
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],

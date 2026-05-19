@@ -137,6 +137,15 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
           fontWeight: 'bold',
           color: '#000',
         },
+        // Tick labels show 2 dp for fractional values, drop ".00" for whole
+        // numbers. Floats near integers (e.g. 14 + 1e-15) collapse to "14".
+        axisLabel: {
+          formatter: (value: number) => {
+            const rounded = Math.round(value);
+            if (Math.abs(value - rounded) < 1e-9) return String(rounded);
+            return value.toFixed(2);
+          },
+        },
         splitLine: { show: true, lineStyle: { color: '#eee' } },
         axisLine: { show: true, lineStyle: { color: '#999' } },
       },
