@@ -378,7 +378,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       class="fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -403,7 +403,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-m7w8lg-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -483,7 +483,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
         style="max-width: 430px;"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
         >
           try
         </span>
@@ -496,7 +496,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
           style="display: flex; justify-content: space-between;"
         >
           <span
-            class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
           >
             Last day
           </span>
@@ -568,13 +568,13 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -606,7 +606,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -653,7 +653,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -706,7 +706,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="86400"
     role="option"
     tabindex="0"
@@ -724,7 +724,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="172800"
     role="option"
     tabindex="-1"
@@ -742,7 +742,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="604800"
     role="option"
     tabindex="-1"
@@ -760,7 +760,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1209600"
     role="option"
     tabindex="-1"
@@ -778,7 +778,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2592000"
     role="option"
     tabindex="-1"
@@ -796,7 +796,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="5184000"
     role="option"
     tabindex="-1"
@@ -814,7 +814,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="7776000"
     role="option"
     tabindex="-1"
@@ -832,7 +832,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="31536000"
     role="option"
     tabindex="-1"
@@ -864,7 +864,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-m7w8lg-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -1226,13 +1226,13 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -1264,7 +1264,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -1311,7 +1311,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -1348,7 +1348,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       class="fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation cancel-button css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation cancel-button css-14hwkrj-MuiButtonBase-root-MuiButton-root"
         name="cancel-button"
         tabindex="0"
         type="button"
@@ -1356,7 +1356,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
         Cancel
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -1391,7 +1391,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-m7w8lg-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -1471,7 +1471,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
         style="max-width: 430px;"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
         >
           try
         </span>
@@ -1484,7 +1484,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
           style="display: flex; justify-content: space-between;"
         >
           <span
-            class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
           >
             Last day
           </span>
@@ -1556,13 +1556,13 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -1594,7 +1594,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -1641,7 +1641,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -2062,7 +2062,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       class="fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -2087,7 +2087,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-m7w8lg-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -2187,7 +2187,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         style="max-width: 430px;"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
         >
           autoland
         </span>
@@ -2200,7 +2200,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
           style="display: flex; justify-content: space-between;"
         >
           <span
-            class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
           >
             Last 2 days
           </span>
@@ -2272,13 +2272,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -2310,7 +2310,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -2357,7 +2357,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -2411,13 +2411,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=autoland&revision=spamspamspamandeggs"
                       target="_blank"
                       title="open treeherder view for spamspamspam"
@@ -2449,7 +2449,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -2496,7 +2496,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   You've got two empty 'alves of coconuts and you're bangin' 'em togetha! 
                 </span>
@@ -2552,7 +2552,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-m7w8lg-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -2914,13 +2914,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -2952,7 +2952,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -2999,7 +2999,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -3036,7 +3036,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       class="fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation cancel-button css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation cancel-button css-14hwkrj-MuiButtonBase-root-MuiButton-root"
         name="cancel-button"
         tabindex="0"
         type="button"
@@ -3044,7 +3044,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         Cancel
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -3079,7 +3079,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-m7w8lg-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -3159,7 +3159,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         style="max-width: 430px;"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
         >
           try
         </span>
@@ -3172,7 +3172,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
           style="display: flex; justify-content: space-between;"
         >
           <span
-            class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
           >
             Last day
           </span>
@@ -3244,13 +3244,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -3282,7 +3282,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -3329,7 +3329,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>

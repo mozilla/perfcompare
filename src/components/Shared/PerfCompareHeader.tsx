@@ -32,8 +32,18 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
         }}
       >
         <ToggleDarkMode />
+        {!isHome && (
+          <Typography
+            variant='h2'
+            className='perfcompare-header'
+            sx={{ marginBottom: '0 !important', fontFamily: 'Zilla Slab' }}
+          >
+            {strings.title}
+          </Typography>
+        )}
         <Box
           sx={{
+            className: 'nav-links',
             display: 'flex',
             gap: 2,
             flexWrap: 'wrap',
@@ -63,29 +73,27 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
           />
         </Box>
       </Box>
-      <Box className='header-text'>
-        <Typography
-          variant='h1'
-          align='center'
-          gutterBottom
-          className='perfcompare-header'
-        >
-          {strings.title}
-        </Typography>
-        {isHome ? (
-          <>
-            <Typography
-              component='div'
-              align='center'
-              gutterBottom
-              className='perfcompare-tagline'
-            >
-              {strings.tagline}
-            </Typography>
-            <Button className='learn-more-btn'>{strings.learnMore}</Button>
-          </>
-        ) : null}
-      </Box>
+      {isHome && (
+        <Box className='header-text'>
+          <Typography
+            variant='h1'
+            align='center'
+            gutterBottom
+            className='perfcompare-header'
+          >
+            {strings.title}
+          </Typography>
+          <Typography
+            component='div'
+            align='center'
+            gutterBottom
+            className='perfcompare-tagline'
+          >
+            {strings.tagline}
+          </Typography>
+          <Button className='learn-more-btn'>{strings.learnMore}</Button>
+        </Box>
+      )}
     </Grid>
   );
 }

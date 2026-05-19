@@ -3,7 +3,7 @@
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting can sort the table and persist the information to the URL of mann-whitney-u values 1`] = `
 <button
   aria-label="CD (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -28,7 +28,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting can sort the table and persist the information to the URL of mann-whitney-u values 2`] = `
 <button
   aria-label="CD (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -73,7 +73,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting can sort the table and persist the information to the URL of mann-whitney-u values 3`] = `
 <button
   aria-label="CD (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -126,7 +126,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting can sort the table and persist the information to the URL of mann-whitney-u values 4`] = `
 <button
   aria-label="CD (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -179,7 +179,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting can sort the table and persist the information to the URL of mann-whitney-u values 5`] = `
 <button
   aria-label="Sig (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -223,7 +223,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting can sort the table and persist the information to the URL of mann-whitney-u values 6`] = `
 <button
   aria-label="CLES (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -268,7 +268,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting initializes the sort from the URL at load time for a descending sort 1`] = `
 <button
   aria-label="CD (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -293,7 +293,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting initializes the sort from the URL at load time for an ascending sort 1`] = `
 <button
   aria-label="CD (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -318,7 +318,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
 exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion table sorting initializes the sort from the URL at load time for an implicit descending sort 1`] = `
 <button
   aria-label="CD (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -348,7 +348,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
       data-testid="beta-version-compare-subtests-results"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -373,6 +373,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -384,22 +385,27 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -420,7 +426,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -441,7 +447,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -462,7 +468,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -480,16 +486,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
@@ -506,7 +502,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -538,7 +534,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -564,7 +560,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-results?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -599,7 +595,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -617,7 +613,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -628,7 +624,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                    |
                    Base (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=d775409d7c6abb76362a3430e9880ec032ad4679"
                     target="_blank"
                     title="open treeherder view for d775409d7c6a"
@@ -637,7 +633,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </a>
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -795,7 +791,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     class="f6hg2jo"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -807,7 +803,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-m7w8lg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     title="retrigger jobs"
                     type="button"
@@ -848,7 +844,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <button
                     aria-label="Subtests (Click to sort by this column)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -908,7 +904,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   >
                     <button
                       aria-label="MD (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -937,7 +933,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   <button
                     aria-haspopup="true"
                     aria-label="Status (Click to filter values)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                     data-mui-internal-clone-element="true"
                     tabindex="0"
                     type="button"
@@ -974,7 +970,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   >
                     <button
                       aria-label="CD (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1006,7 +1002,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   >
                     <button
                       aria-label="CLES (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1038,7 +1034,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   >
                     <button
                       aria-label="Sig (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1060,7 +1056,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     <button
                       aria-haspopup="true"
                       aria-label="Sig (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -1875,7 +1871,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 1`] = `
 <button
   aria-label="Delta (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -1900,7 +1896,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 2`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -1945,7 +1941,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 3`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -1998,7 +1994,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 4`] = `
 <button
   aria-label="Delta (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2051,7 +2047,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 5`] = `
 <button
   aria-label="Confidence (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2095,7 +2091,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 6`] = `
 <button
   aria-label="Confidence (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2139,7 +2135,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting can sort the table and persist the information to the URL 7`] = `
 <button
   aria-label="Subtests (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2184,7 +2180,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
 exports[`SubtestsResultsView Component Tests table sorting initializes the sort from the URL at load time for a descending sort 1`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2209,7 +2205,7 @@ exports[`SubtestsResultsView Component Tests table sorting initializes the sort 
 exports[`SubtestsResultsView Component Tests table sorting initializes the sort from the URL at load time for an ascending sort 1`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2234,7 +2230,7 @@ exports[`SubtestsResultsView Component Tests table sorting initializes the sort 
 exports[`SubtestsResultsView Component Tests table sorting initializes the sort from the URL at load time for an implicit descending sort 1`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2265,7 +2261,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -2290,6 +2286,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -2301,22 +2298,27 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -2337,7 +2339,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -2358,7 +2360,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -2379,7 +2381,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -2397,16 +2399,6 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
@@ -2423,7 +2415,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -2455,7 +2447,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -2481,7 +2473,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -2516,7 +2508,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -2534,7 +2526,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -2546,7 +2538,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                    Base (mozilla-central) Last day 
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -2704,7 +2696,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     class="f6hg2jo"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -2716,7 +2708,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-m7w8lg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     title="retrigger jobs"
                     type="button"
@@ -2757,7 +2749,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <button
                     aria-label="Subtests (Click to sort by this column)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -2817,7 +2809,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     <button
                       aria-label="MD (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -2846,7 +2838,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <button
                     aria-haspopup="true"
                     aria-label="Status (Click to filter values)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                     data-mui-internal-clone-element="true"
                     tabindex="0"
                     type="button"
@@ -2883,7 +2875,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     <button
                       aria-label="CD (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -2915,7 +2907,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     <button
                       aria-label="CLES (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -2947,7 +2939,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     <button
                       aria-label="Sig (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -2969,7 +2961,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     <button
                       aria-haspopup="true"
                       aria-label="Sig (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -3865,7 +3857,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -3890,6 +3882,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -3901,22 +3894,27 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -3937,7 +3935,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -3958,7 +3956,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -3979,7 +3977,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -3997,16 +3995,6 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
@@ -4023,7 +4011,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -4055,7 +4043,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -4081,7 +4069,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -4116,7 +4104,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -4134,7 +4122,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -4146,7 +4134,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                    Base (mozilla-central) Last day 
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -4304,7 +4292,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     class="f6hg2jo"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -4316,7 +4304,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-m7w8lg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     title="retrigger jobs"
                     type="button"
@@ -4357,7 +4345,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 >
                   <button
                     aria-label="Subtests (Click to sort by this column)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -4417,7 +4405,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     <button
                       aria-label="MD (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -4446,7 +4434,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <button
                     aria-haspopup="true"
                     aria-label="Status (Click to filter values)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                     data-mui-internal-clone-element="true"
                     tabindex="0"
                     type="button"
@@ -4483,7 +4471,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     <button
                       aria-label="CD (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -4515,7 +4503,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     <button
                       aria-label="CLES (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -4547,7 +4535,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     <button
                       aria-label="Sig (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -4569,7 +4557,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     <button
                       aria-haspopup="true"
                       aria-label="Sig (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -5465,7 +5453,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -5490,6 +5478,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -5501,22 +5490,27 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -5537,7 +5531,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -5558,7 +5552,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -5579,7 +5573,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -5597,16 +5591,6 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
@@ -5623,7 +5607,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -5655,7 +5639,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -5681,7 +5665,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -5716,7 +5700,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -5734,7 +5718,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -5746,7 +5730,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                    Base (mozilla-central) Last day 
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -5904,7 +5888,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     class="f6hg2jo"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -5916,7 +5900,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-m7w8lg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     title="retrigger jobs"
                     type="button"
@@ -5957,7 +5941,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 >
                   <button
                     aria-label="Subtests (Click to sort by this column)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -6017,7 +6001,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   >
                     <button
                       aria-label="MD (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -6046,7 +6030,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   <button
                     aria-haspopup="true"
                     aria-label="Status (Click to filter values)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                     data-mui-internal-clone-element="true"
                     tabindex="0"
                     type="button"
@@ -6083,7 +6067,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   >
                     <button
                       aria-label="CD (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -6115,7 +6099,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   >
                     <button
                       aria-label="CLES (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -6147,7 +6131,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   >
                     <button
                       aria-label="Sig (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -6169,7 +6153,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     <button
                       aria-haspopup="true"
                       aria-label="Sig (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -7065,7 +7049,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -7090,6 +7074,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -7101,22 +7086,27 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -7137,7 +7127,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -7158,7 +7148,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -7179,7 +7169,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -7197,16 +7187,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
@@ -7223,7 +7203,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -7255,7 +7235,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -7281,7 +7261,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -7316,7 +7296,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -7334,7 +7314,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -7346,7 +7326,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                    Base (mozilla-central) Last day 
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -7504,7 +7484,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     class="f6hg2jo"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -7516,7 +7496,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-m7w8lg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     title="retrigger jobs"
                     type="button"
@@ -7557,7 +7537,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <button
                     aria-label="Subtests (Click to sort by this column)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -7617,7 +7597,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   >
                     <button
                       aria-label="MD (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -7646,7 +7626,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   <button
                     aria-haspopup="true"
                     aria-label="Status (Click to filter values)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                     data-mui-internal-clone-element="true"
                     tabindex="0"
                     type="button"
@@ -7683,7 +7663,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   >
                     <button
                       aria-label="CD (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -7715,7 +7695,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   >
                     <button
                       aria-label="CLES (%) (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -7747,7 +7727,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   >
                     <button
                       aria-label="Sig (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -7769,7 +7749,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     <button
                       aria-haspopup="true"
                       aria-label="Sig (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"

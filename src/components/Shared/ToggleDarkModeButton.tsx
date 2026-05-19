@@ -7,7 +7,6 @@ import { useAppSelector, useAppDispatch } from '../../hooks/app';
 import { updateThemeMode } from '../../reducers/ThemeSlice';
 import { Strings } from '../../resources/Strings';
 import { Spacing, FontsRaw, SwitchRaw } from '../../styles';
-import { ThemeMode } from '../../types/state';
 
 const strings = Strings.components.header;
 
@@ -19,7 +18,7 @@ function ToggleDarkMode() {
 
   const toggleColorMode = () => {
     const themeMode = theme === 'light' ? 'dark' : 'light';
-    dispatch(updateThemeMode(themeMode as ThemeMode));
+    dispatch(updateThemeMode(themeMode));
     localStorage.setItem('theme', themeMode);
   };
 

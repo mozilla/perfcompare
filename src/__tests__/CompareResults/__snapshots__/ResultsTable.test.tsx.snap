@@ -8,7 +8,7 @@ exports[`Results Table Should match snapshot 1`] = `
       data-testid="beta-version-compare-results"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -33,6 +33,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -44,22 +45,27 @@ exports[`Results Table Should match snapshot 1`] = `
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -80,7 +86,7 @@ exports[`Results Table Should match snapshot 1`] = `
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -101,7 +107,7 @@ exports[`Results Table Should match snapshot 1`] = `
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -122,7 +128,7 @@ exports[`Results Table Should match snapshot 1`] = `
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -140,26 +146,16 @@ exports[`Results Table Should match snapshot 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <section
-        class="container_f1h7ern2"
+        class="container_f13838vn"
       >
         <div
           class="MuiBox-root css-i3pbo"
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-725yfl-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
@@ -205,7 +201,7 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <button
                   aria-label="edit revision"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-m7w8lg-MuiButtonBase-root-MuiButton-root"
                   name="edit-button"
                   tabindex="0"
                   type="button"
@@ -393,13 +389,13 @@ exports[`Results Table Should match snapshot 1`] = `
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                           >
                             <span
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                             >
                               <span
-                                class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                               >
                                 <a
-                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                                   href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                                   target="_blank"
                                   title="open treeherder view for coconut"
@@ -431,7 +427,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 </span>
                               </span>
                               <div
-                                class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                               >
                                 <div
                                   class="info-caption-item item-author"
@@ -478,7 +474,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </span>
                             <span
-                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                             >
                               you've got no arms left! 
                             </span>
@@ -678,13 +674,13 @@ exports[`Results Table Should match snapshot 1`] = `
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                           >
                             <span
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                             >
                               <span
-                                class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                               >
                                 <a
-                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                                   href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                                   target="_blank"
                                   title="open treeherder view for coconut"
@@ -716,7 +712,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 </span>
                               </span>
                               <div
-                                class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                               >
                                 <div
                                   class="info-caption-item item-author"
@@ -763,7 +759,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </span>
                             <span
-                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                             >
                               you've got no arms left! 
                             </span>
@@ -830,7 +826,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     Results
                   </h2>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-7tm9pg-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1k604qy-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -880,7 +876,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                      
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                       target="_blank"
                     >
@@ -1194,7 +1190,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="f6hg2jo"
                     >
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -1250,7 +1246,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Platform (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -1316,7 +1312,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     >
                       <button
                         aria-label="MD (%) (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -1345,7 +1341,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -1382,7 +1378,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     >
                       <button
                         aria-label="CD (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -1414,7 +1410,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     >
                       <button
                         aria-label="CLES (%) (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -1446,7 +1442,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     >
                       <button
                         aria-label="Sig (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -1468,7 +1464,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       <button
                         aria-haspopup="true"
                         aria-label="Sig (Click to filter values)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
                         data-mui-internal-clone-element="true"
                         tabindex="0"
                         type="button"
@@ -1524,7 +1520,7 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <div
                   data-viewport-type="window"
-                  style="height: 100%; position: absolute; top: 0px; width: 100%;"
+                  style="height: 100%; position: relative; top: 0px; width: 100%;"
                 >
                   <div
                     data-testid="virtuoso-item-list"
@@ -1549,7 +1545,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             <strong>
                               <a
                                 aria-label="link to suite documentation"
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
                                 title="Link to suite documentation  "
@@ -1563,7 +1559,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="fsudoo"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
                                 href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                                 target="_blank"
                                 title="open treeherder view for spam"
@@ -2246,7 +2242,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             <strong>
                               <a
                                 aria-label="link to suite documentation"
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
                                 title="Link to suite documentation  "
@@ -2260,7 +2256,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="fsudoo"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
                                 href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                                 target="_blank"
                                 title="open treeherder view for spam"
@@ -2522,7 +2518,7 @@ exports[`Results Table Should match snapshot 1`] = `
 exports[`Results Table can load the sort parameters from the URL for a descending sort 1`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2547,7 +2543,7 @@ exports[`Results Table can load the sort parameters from the URL for a descendin
 exports[`Results Table can load the sort parameters from the URL for an ascending sort 1`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2572,7 +2568,7 @@ exports[`Results Table can load the sort parameters from the URL for an ascendin
 exports[`Results Table can sort the table and persist the sort parameters to the URL 1`] = `
 <button
   aria-label="Delta (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2597,7 +2593,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 exports[`Results Table can sort the table and persist the sort parameters to the URL 2`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2642,7 +2638,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 exports[`Results Table can sort the table and persist the sort parameters to the URL 3`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2695,7 +2691,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 exports[`Results Table can sort the table and persist the sort parameters to the URL 4`] = `
 <button
   aria-label="Delta (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2748,7 +2744,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 exports[`Results Table can sort the table and persist the sort parameters to the URL 5`] = `
 <button
   aria-label="Confidence (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2799,7 +2795,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       data-testid="beta-version-compare-results"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fjtw4pp css-k4qgqg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
           class="MuiBox-root css-1e39pab"
@@ -2824,6 +2820,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
@@ -2835,22 +2832,27 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
               </label>
             </div>
           </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
+          >
+            PerfCompare
+          </h2>
           <div
-            class="MuiBox-root css-1cuyom4"
+            class="MuiBox-root css-u7c4o"
           >
             <div
               class="MuiBox-root css-0"
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -2871,7 +2873,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -2892,7 +2894,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -2913,7 +2915,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -2931,26 +2933,16 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
             </div>
           </div>
         </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-19e1hs-MuiTypography-root"
-            style="--Typography-textAlign: center;"
-          >
-            PerfCompare
-          </h1>
-        </div>
       </div>
       <section
-        class="container_f1h7ern2"
+        class="container_f13838vn"
       >
         <div
           class="MuiBox-root css-i3pbo"
         >
           <a
             aria-label="link to home"
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-13qcp0f-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-725yfl-MuiTypography-root-MuiLink-root"
             href="/"
           >
             <div
@@ -2996,7 +2988,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
               >
                 <button
                   aria-label="edit revision"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-lnmpyd-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation global-edit-button edit-revision-button css-m7w8lg-MuiButtonBase-root-MuiButton-root"
                   name="edit-button"
                   tabindex="0"
                   type="button"
@@ -3184,13 +3176,13 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                           >
                             <span
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                             >
                               <span
-                                class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                               >
                                 <a
-                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                                   href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                                   target="_blank"
                                   title="open treeherder view for coconut"
@@ -3222,7 +3214,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 </span>
                               </span>
                               <div
-                                class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                               >
                                 <div
                                   class="info-caption-item item-author"
@@ -3269,7 +3261,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               </div>
                             </span>
                             <span
-                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                             >
                               you've got no arms left! 
                             </span>
@@ -3469,13 +3461,13 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
                           >
                             <span
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                             >
                               <span
-                                class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                               >
                                 <a
-                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                                   href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                                   target="_blank"
                                   title="open treeherder view for coconut"
@@ -3507,7 +3499,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 </span>
                               </span>
                               <div
-                                class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                               >
                                 <div
                                   class="info-caption-item item-author"
@@ -3554,7 +3546,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               </div>
                             </span>
                             <span
-                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                             >
                               you've got no arms left! 
                             </span>
@@ -3621,7 +3613,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     Results
                   </h2>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-7tm9pg-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1k604qy-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -3671,7 +3663,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                      
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                       target="_blank"
                     >
@@ -3985,7 +3977,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       class="f6hg2jo"
                     >
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4041,7 +4033,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     <button
                       aria-haspopup="true"
                       aria-label="Platform (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -4107,7 +4099,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     >
                       <button
                         aria-label="MD (%) (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4136,7 +4128,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     <button
                       aria-haspopup="true"
                       aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -4173,7 +4165,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     >
                       <button
                         aria-label="CD (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4205,7 +4197,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     >
                       <button
                         aria-label="CLES (%) (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4237,7 +4229,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     >
                       <button
                         aria-label="Sig (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4259,7 +4251,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       <button
                         aria-haspopup="true"
                         aria-label="Sig (Click to filter values)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
                         data-mui-internal-clone-element="true"
                         tabindex="0"
                         type="button"
@@ -4315,7 +4307,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
               >
                 <div
                   data-viewport-type="window"
-                  style="height: 100%; position: absolute; top: 0px; width: 100%;"
+                  style="height: 100%; position: relative; top: 0px; width: 100%;"
                 >
                   <div
                     data-testid="virtuoso-item-list"
@@ -4340,7 +4332,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             <strong>
                               <a
                                 aria-label="link to suite documentation"
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
                                 title="Link to suite documentation  "
@@ -4354,7 +4346,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="fsudoo"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
                                 href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                                 target="_blank"
                                 title="open treeherder view for spam"
@@ -5076,7 +5068,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             <strong>
                               <a
                                 aria-label="link to suite documentation"
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
                                 title="Link to suite documentation  "
@@ -5090,7 +5082,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="fsudoo"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
                                 href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                                 target="_blank"
                                 title="open treeherder view for spam"
@@ -5361,7 +5353,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 1`] = `
 <button
   aria-label="CD (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5386,7 +5378,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 2`] = `
 <button
   aria-label="CD (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5411,7 +5403,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 3`] = `
 <button
   aria-label="CD (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5456,7 +5448,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 4`] = `
 <button
   aria-label="Sig (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5500,7 +5492,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 5`] = `
 <button
   aria-label="Sig (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5552,7 +5544,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 6`] = `
 <button
   aria-label="CLES (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5597,7 +5589,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 7`] = `
 <button
   aria-label="CLES (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5677,7 +5669,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 9`] = `
 <button
   aria-label="MD (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5749,7 +5741,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 11`] = `
 <button
   aria-label="MD (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5804,7 +5796,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
   aria-controls="significance"
   aria-haspopup="true"
   aria-label="Sig (Click to filter values)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
   data-mui-internal-clone-element="true"
   tabindex="0"
   type="button"
@@ -5866,7 +5858,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       <strong>
         <a
           aria-label="link to suite documentation"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
           href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
           target="_blank"
           title="Link to suite documentation  "
@@ -5913,7 +5905,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       class="fsudoo"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
         href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
         target="_blank"
         title="open treeherder view for spam"
@@ -6164,7 +6156,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       class="fsudoo"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
         href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=devilrabbit"
         target="_blank"
         title="open treeherder view for devilrabbit"
@@ -6425,7 +6417,7 @@ exports[`Results Table should render different blocks when rendering several rev
       <strong>
         <a
           aria-label="link to suite documentation"
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
           href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
           target="_blank"
           title="Link to suite documentation  "
@@ -6472,7 +6464,7 @@ exports[`Results Table should render different blocks when rendering several rev
       class="fsudoo"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
         href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
         target="_blank"
         title="open treeherder view for spam"
@@ -6718,7 +6710,7 @@ exports[`Results Table should render different blocks when rendering several rev
       class="fsudoo"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
         href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=devilrabbit"
         target="_blank"
         title="open treeherder view for devilrabbit"

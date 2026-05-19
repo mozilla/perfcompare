@@ -235,7 +235,7 @@ function TableContent({
         main: 5000,
         reverse: 5000,
       }}
-      data={processedResults as ListOfResultsGroupedByTest}
+      data={processedResults}
       computeItemKey={(_, [header]) => header}
       itemContent={(_, [, resultsForHeader]) => (
         <TableRevisionContent
