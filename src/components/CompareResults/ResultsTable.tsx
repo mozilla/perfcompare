@@ -53,6 +53,7 @@ export default function ResultsTable() {
   const [testVersionVal, setTestVersionVal] = useState<TestVersion>(
     testVersion ?? MANN_WHITNEY_U,
   );
+  const [expandAll, setExpandAll] = useState(false);
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
@@ -97,9 +98,11 @@ export default function ResultsTable() {
           frameworkId={frameworkIdVal}
           testType={testVersionVal}
           resultsPromise={resultsPromise}
+          expandAll={expandAll}
           onSearchTermChange={onSearchTermChange}
           onFrameworkChange={onFrameworkChange}
           onTestVersionChange={onTestVersionChange}
+          onExpandAllChange={setExpandAll}
         />
         <TableHeader
           columnsConfiguration={columnsConfig}
@@ -142,6 +145,7 @@ export default function ResultsTable() {
               sortColumn={sortColumn}
               sortDirection={sortDirection}
               testVersion={testVersion ?? MANN_WHITNEY_U}
+              expandAll={expandAll}
             />
           )}
         </Await>

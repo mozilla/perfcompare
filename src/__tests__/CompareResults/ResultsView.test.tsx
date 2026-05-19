@@ -591,4 +591,28 @@ describe('Results View', () => {
     expect(screen.queryByText('Results')).not.toBeInTheDocument();
     expect(screen.getByText(titleName)).toBeInTheDocument();
   });
+
+  it('toggles all rows when the Expand all checkbox is clicked', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    await screen.findByRole('table');
+
+    const expandAllCheckbox = screen.getByRole('checkbox', {
+      name: /Expand all/i,
+    });
+    expect(expandAllCheckbox).not.toBeChecked();
+    expect(screen.queryAllByTestId(/ExpandLessIcon/)).toHaveLength(0);
+
+    await user.click(expandAllCheckbox);
+    expect(expandAllCheckbox).toBeChecked();
+    const expandLessIcons = await screen.findAllByTestId(/ExpandLessIcon/);
+    expect(expandLessIcons.length).toBeGreaterThan(0);
+
+    await user.click(expandAllCheckbox);
+    expect(expandAllCheckbox).not.toBeChecked();
+    await waitFor(() => {
+      expect(screen.queryAllByTestId(/ExpandLessIcon/)).toHaveLength(0);
+    });
+  });
 });
