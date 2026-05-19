@@ -68,7 +68,7 @@ export function useSubtestRegressionCount({
 
     const fetchPromise: Promise<CombinedResultsItemType[]> =
       view === compareView
-        ? (memoizedFetchSubtestsCompareResults({
+        ? memoizedFetchSubtestsCompareResults({
             baseRev: base_rev,
             baseRepo: base_repository_name,
             newRev: new_rev,
@@ -79,8 +79,8 @@ export function useSubtestRegressionCount({
             replicates,
             testVersion,
             silvermanKDEEnabled,
-          }) as Promise<CombinedResultsItemType[]>)
-        : (memoizedFetchSubtestsCompareOverTimeResults({
+          })
+        : memoizedFetchSubtestsCompareOverTimeResults({
             baseRepo: base_repository_name,
             newRepo: new_repository_name,
             newRev: new_rev,
@@ -91,7 +91,7 @@ export function useSubtestRegressionCount({
             replicates,
             testVersion,
             silvermanKDEEnabled,
-          }) as Promise<CombinedResultsItemType[]>);
+          });
 
     const strategy: TestVersionStrategy = getStrategy(testVersion);
     let cancelled = false;
