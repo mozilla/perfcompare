@@ -3,13 +3,8 @@ import type { ReactElement } from 'react';
 import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 import { init as echartsInit } from 'echarts';
-import type {
-  EChartsOption,
-  LineSeriesOption,
-  ScatterSeriesOption,
-} from 'echarts';
+import type { EChartsOption, LineSeriesOption } from 'echarts';
 
-import CommonGraph from '../../components/CompareResults/CommonGraph';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import TestHeader from '../../components/CompareResults/TestHeader';
@@ -20,7 +15,7 @@ import type { Framework } from '../../types/types';
 import { fftkde } from '../../utils/kde.js';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import { render, renderWithRouter, screen, waitFor } from '../utils/test-utils';
+import { renderWithRouter, screen, waitFor } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   const { testCompareData, testData } = getTestData();
