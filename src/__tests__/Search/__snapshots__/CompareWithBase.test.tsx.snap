@@ -828,15 +828,6 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     platform_microbench
   </li>
   <li
-    aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
-    data-value="10"
-    role="option"
-    tabindex="-1"
-  >
-    raptor
-  </li>
-  <li
     aria-selected="true"
     class="MuiButtonBase-root Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1"
@@ -5503,15 +5494,6 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     tabindex="-1"
   >
     platform_microbench
-  </li>
-  <li
-    aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
-    data-value="10"
-    role="option"
-    tabindex="-1"
-  >
-    raptor
   </li>
   <li
     aria-selected="false"
