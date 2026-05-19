@@ -29,13 +29,13 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
       class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
     >
       <span
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
             href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
             target="_blank"
             title="open treeherder view for coconut"
@@ -67,7 +67,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
           </span>
         </span>
         <div
-          class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
         >
           <div
             class="info-caption-item item-author"
@@ -114,7 +114,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
         </div>
       </span>
       <span
-        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
       >
         you've got no arms left! 
       </span>

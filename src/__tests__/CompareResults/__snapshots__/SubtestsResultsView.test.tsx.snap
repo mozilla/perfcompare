@@ -385,7 +385,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
@@ -393,7 +393,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             </div>
           </div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
           >
             PerfCompare
           </h2>
@@ -405,7 +405,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -426,7 +426,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -447,7 +447,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -468,7 +468,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -502,7 +502,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -534,7 +534,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -560,7 +560,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-results?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -595,7 +595,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -613,7 +613,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -624,7 +624,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                    |
                    Base (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=d775409d7c6abb76362a3430e9880ec032ad4679"
                     target="_blank"
                     title="open treeherder view for d775409d7c6a"
@@ -633,7 +633,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </a>
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -2298,7 +2298,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
@@ -2306,7 +2306,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             </div>
           </div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
           >
             PerfCompare
           </h2>
@@ -2318,7 +2318,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -2339,7 +2339,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -2360,7 +2360,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -2381,7 +2381,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -2415,7 +2415,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -2447,7 +2447,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -2473,7 +2473,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -2508,7 +2508,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -2526,7 +2526,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -2538,7 +2538,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                    Base (mozilla-central) Last day 
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -3894,7 +3894,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
@@ -3902,7 +3902,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             </div>
           </div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
           >
             PerfCompare
           </h2>
@@ -3914,7 +3914,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -3935,7 +3935,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -3956,7 +3956,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -3977,7 +3977,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -4011,7 +4011,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -4043,7 +4043,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -4069,7 +4069,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -4104,7 +4104,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -4122,7 +4122,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -4134,7 +4134,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                    Base (mozilla-central) Last day 
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -5490,7 +5490,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
@@ -5498,7 +5498,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             </div>
           </div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
           >
             PerfCompare
           </h2>
@@ -5510,7 +5510,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -5531,7 +5531,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -5552,7 +5552,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -5573,7 +5573,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -5607,7 +5607,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -5639,7 +5639,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -5665,7 +5665,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -5700,7 +5700,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -5718,7 +5718,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -5730,7 +5730,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                    Base (mozilla-central) Last day 
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
@@ -7086,7 +7086,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   />
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
                   Dark mode
                 </span>
@@ -7094,7 +7094,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             </div>
           </div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-legj6v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 perfcompare-header css-1lhc7rx-MuiTypography-root"
           >
             PerfCompare
           </h2>
@@ -7106,7 +7106,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Docs"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html"
                 target="_blank"
                 title="View the documentation"
@@ -7127,7 +7127,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Source"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://github.com/mozilla/perfcompare"
                 target="_blank"
                 title="View the source code on GitHub"
@@ -7148,7 +7148,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Matrix"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://matrix.to/#/#perfcompare:mozilla.org"
                 target="_blank"
                 title="Chat with us on Matrix"
@@ -7169,7 +7169,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             >
               <a
                 aria-label="Bugzilla"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-xt1vmc-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-husciy-MuiTypography-root-MuiLink-root"
                 href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                 target="_blank"
                 title="Report an issue on Bugzilla"
@@ -7203,7 +7203,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-qlshoa-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -7235,7 +7235,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/"
                       >
                         Home
@@ -7261,7 +7261,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                         href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1"
                       >
                         All results
@@ -7296,7 +7296,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
                    
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
                     target="_blank"
                   >
@@ -7314,7 +7314,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   <strong>
                     <a
                       aria-label="link to suite documentation"
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                       href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                       target="_blank"
                       title="Link to suite documentation  "
@@ -7326,7 +7326,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                    Base (mozilla-central) Last day 
                    - New (mozilla-central) 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7"
                     target="_blank"
                     title="open treeherder view for 22f4cf67e8ad"
