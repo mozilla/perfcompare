@@ -335,6 +335,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 
@@ -377,6 +378,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 
@@ -409,6 +411,7 @@ describe('Expanded row', () => {
         gridTemplateColumns='none'
         replicates={false}
         testVersion='mann-whitney-u'
+        expandAll={false}
       />,
     );
 

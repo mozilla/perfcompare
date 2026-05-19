@@ -50,6 +50,34 @@ function safeKde(values: number[]) {
   }
 }
 
+// Linearly resample a uniform-grid KDE curve onto an arbitrary target x array.
+// Outside the source range we return 0: each KDE's grid is padded so its
+// density has already tapered to ≈0 at the edges.
+function resampleOnto(
+  srcX: ArrayLike<number>,
+  srcY: ArrayLike<number>,
+  targetX: number[],
+): number[] {
+  const n = srcX.length;
+  const lo = srcX[0];
+  const hi = srcX[n - 1];
+  const step = (hi - lo) / (n - 1);
+  const out = new Array<number>(targetX.length);
+  for (let i = 0; i < targetX.length; i++) {
+    const x = targetX[i];
+    if (x < lo || x > hi) {
+      out[i] = 0;
+      continue;
+    }
+    // Clamp the lower index so x === hi lands on j = n-2 with frac = 1.
+    const t = (x - lo) / step;
+    const j = Math.min(Math.floor(t), n - 2);
+    const frac = t - j;
+    out[i] = srcY[j] * (1 - frac) + srcY[j + 1] * frac;
+  }
+  return out;
+}
+
 function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
@@ -65,11 +93,31 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
     // ISJ auto-selects the bandwidth per dataset, so each KDE tunes itself.
     const bKde = safeKde(baseValues);
     const nKde = safeKde(newValues);
+
+    // Build a shared x-grid covering both KDEs' ranges. Resampling both
+    // curves onto identical x positions is what lets the axis-trigger tooltip
+    // pick up Base AND New at the cursor's x position,
+    // instead of just one series or the other.
+    const xStart = computeMin(bKde?.x[0], nKde?.x[0]);
+    const xEnd = computeMax(
+      bKde?.x[bKde.x.length - 1],
+      nKde?.x[nKde.x.length - 1],
+    );
+    const sharedX: number[] = [];
+    if (Number.isFinite(xStart) && Number.isFinite(xEnd) && xEnd > xStart) {
+      for (let i = 0; i < KDE_GRID_POINTS; i++) {
+        sharedX.push(xStart + ((xEnd - xStart) * i) / (KDE_GRID_POINTS - 1));
+      }
+    }
+
+    const baseY = bKde ? resampleOnto(bKde.x, bKde.y, sharedX) : [];
+    const newY = nKde ? resampleOnto(nKde.x, nKde.y, sharedX) : [];
+
     const baseRunsDensity: [number, number][] = bKde
-      ? bKde.x.map((xCoord, index) => [xCoord, bKde.y[index]])
+      ? sharedX.map((xCoord, i) => [xCoord, baseY[i]])
       : [];
     const newRunsDensity: [number, number][] = nKde
-      ? nKde.x.map((xCoord, index) => [xCoord, nKde.y[index]])
+      ? sharedX.map((xCoord, i) => [xCoord, newY[i]])
       : [];
 
     const unitSuffix = unit ? ` (${unit})` : '';
@@ -125,22 +173,27 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
       ],
       tooltip: {
         trigger: 'axis',
-        axisPointer: { type: 'cross', crossStyle: { color: '#999' } },
+        // Vertical guide that snaps to data points, so the tooltip locks onto
+        // a single x position with both series' densities side by side.
+        axisPointer: { type: 'line', snap: true, lineStyle: { color: '#999' } },
         padding: 10,
         formatter: (params) => {
-          // With trigger: 'axis', echarts passes an array of points (one per
-          // series at the cursor's x). For trigger: 'item' it'd be a single
-          // object; normalise to an array either way.
           const items = Array.isArray(params) ? params : [params];
-          const lines = items
-            .map((pts) => {
-              const marker = typeof pts.marker === 'string' ? pts.marker : '';
-              const seriesName = pts.seriesName ?? '';
-              const xValue = (pts.value as [number, number])[0];
-              return `${marker}${seriesName} @ ${xValue.toFixed(2)}${unitSuffix}`;
-            })
-            .filter((line) => line);
-          return lines.join('<br>');
+          if (items.length === 0) return '';
+          // axisValue is the snapped x position shared by all series; fall back
+          // to the first item's x when it's absent (e.g. tooltip invoked
+          // outside the axis-trigger path).
+          const axisX =
+            (items[0] as { axisValue?: number }).axisValue ??
+            (items[0].value as [number, number])[0];
+          const header = `Value: ${Number(axisX).toFixed(2)}${unitSuffix}`;
+          const lines = items.map((pts) => {
+            const marker = typeof pts.marker === 'string' ? pts.marker : '';
+            const seriesName = pts.seriesName ?? '';
+            const y = (pts.value as [number, number])[1];
+            return `${marker}${seriesName}: ${y.toFixed(4)}`;
+          });
+          return [header, ...lines].join('<br>');
         },
       },
       toolbox: {

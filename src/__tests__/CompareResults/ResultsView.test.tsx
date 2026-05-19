@@ -252,11 +252,11 @@ describe('Results View', () => {
       },
     ]);
 
-    // 2. Test the tooltip formatter. Each return value is an HTML string with
-    // an inline-styled marker span followed by the label.
+    // 2. Test the tooltip formatter. The tooltip is a single block: a value
+    // header followed by one line per series (Base + New).
     const formatter = (
       option.tooltip as unknown as {
-        formatter: (p: FormatterParam) => string;
+        formatter: (p: FormatterParam | FormatterParam[]) => string;
       }
     ).formatter;
     expect(formatter).toBeDefined();
@@ -270,12 +270,19 @@ describe('Results View', () => {
     const kdeNewParam: FormatterParam = {
       seriesType: 'line',
       seriesName: 'New',
-      value: [5, 0.1],
+      value: [5, 0.2],
       marker: FAKE_NEW_MARKER,
     };
 
-    expect(formatter(kdeBaseParam)).toBe(`${FAKE_BASE_MARKER}Base @ 5.00`);
-    expect(formatter(kdeNewParam)).toBe(`${FAKE_NEW_MARKER}New @ 5.00`);
+    // Combined (the trigger: 'axis' path): one header, both series' densities.
+    expect(formatter([kdeBaseParam, kdeNewParam])).toBe(
+      `Value: 5.00<br>${FAKE_BASE_MARKER}Base: 0.1000<br>${FAKE_NEW_MARKER}New: 0.2000`,
+    );
+
+    // Single-param fallback (defensive normalisation in the formatter).
+    expect(formatter(kdeBaseParam)).toBe(
+      `Value: 5.00<br>${FAKE_BASE_MARKER}Base: 0.1000`,
+    );
   });
 
   it('Should display Base, New and Common graphs with replicates', async () => {
