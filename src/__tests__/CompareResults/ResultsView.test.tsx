@@ -82,19 +82,6 @@ function getLatestEChartsOption(): EChartsOption {
   throw new Error('No echarts setOption call captured');
 }
 
-// echarts hands the tooltip formatter a pre-built marker HTML string per
-// point (a small coloured dot/square). The formatter prepends it to each
-// line of the tooltip alongside the seriesName.
-type FormatterParam = {
-  seriesType: 'line';
-  seriesName: string;
-  value: [number, number];
-  marker: string;
-};
-
-const FAKE_BASE_MARKER = '<span data-test="marker-base"></span>';
-const FAKE_NEW_MARKER = '<span data-test="marker-new"></span>';
-
 describe('Results View', () => {
   it('The table should match snapshot and other elements should be present in the page', async () => {
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
@@ -229,8 +216,8 @@ describe('Results View', () => {
       await screen.findByRole('region', { name: 'Revision Row Details' }),
     ).toMatchSnapshot();
 
-    // 1. Test that the chart was configured with the right series: two KDE
-    // line series (Base, New).
+    // The expanded row renders the chart with the two KDE line series
+    // (Base, New). Formatter behaviour is covered in CommonGraph.test.tsx.
     const option = getLatestEChartsOption();
     const series = option.series as LineSeriesOption[];
     expect(series).toHaveLength(2);
@@ -246,38 +233,6 @@ describe('Results View', () => {
         lineStyle: { color: Colors.ChartNew },
       },
     ]);
-
-    // 2. Test the tooltip formatter. The tooltip is a single block: a value
-    // header followed by one line per series (Base + New).
-    const formatter = (
-      option.tooltip as unknown as {
-        formatter: (p: FormatterParam | FormatterParam[]) => string;
-      }
-    ).formatter;
-    expect(formatter).toBeDefined();
-
-    const kdeBaseParam: FormatterParam = {
-      seriesType: 'line',
-      seriesName: 'Base',
-      value: [5, 0.1],
-      marker: FAKE_BASE_MARKER,
-    };
-    const kdeNewParam: FormatterParam = {
-      seriesType: 'line',
-      seriesName: 'New',
-      value: [5, 0.2],
-      marker: FAKE_NEW_MARKER,
-    };
-
-    // Combined (the trigger: 'axis' path): one header, both series' densities.
-    expect(formatter([kdeBaseParam, kdeNewParam])).toBe(
-      `Value: 5.00<br>${FAKE_BASE_MARKER}Base: 0.1000<br>${FAKE_NEW_MARKER}New: 0.2000`,
-    );
-
-    // Single-param fallback (defensive normalisation in the formatter).
-    expect(formatter(kdeBaseParam)).toBe(
-      `Value: 5.00<br>${FAKE_BASE_MARKER}Base: 0.1000`,
-    );
   });
 
   it('Should display Base, New and Common graphs with replicates', async () => {

@@ -124,19 +124,18 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
 
     return {
       animation: false,
-      // Bumped down to leave room for the legend above.
-      grid: { left: 70, right: 70, top: 28, height: 220 },
+      grid: { left: 70, right: 70, top: 28, height: 200 },
       xAxis: {
         type: 'value',
         min,
         max,
-        name: `${unit ?? ''} →`,
-        nameLocation: 'end',
-        nameGap: 8,
+        name: unit ?? '',
+        nameLocation: 'middle',
+        nameGap: 30,
         nameTextStyle: {
-          align: 'left',
-          verticalAlign: 'middle',
-          fontSize: 12,
+          fontSize: 13,
+          fontWeight: 'bold',
+          color: '#000',
         },
         splitLine: { show: true, lineStyle: { color: '#eee' } },
         axisLine: { show: true, lineStyle: { color: '#999' } },
