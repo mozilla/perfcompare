@@ -1227,7 +1227,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                       >
                         Expand all
                       </span>
@@ -4014,7 +4014,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                         </svg>
                       </span>
                       <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                       >
                         Expand all
                       </span>

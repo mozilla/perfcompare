@@ -1245,7 +1245,7 @@ exports[`Results View The table should match snapshot and other elements should 
             </svg>
           </span>
           <span
-            class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1vajmro-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
           >
             Expand all
           </span>
