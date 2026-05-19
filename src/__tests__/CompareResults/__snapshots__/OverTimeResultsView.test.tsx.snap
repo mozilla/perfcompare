@@ -621,7 +621,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 <strong>
                   <a
                     aria-label="link to suite documentation"
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-l0ho42-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-iewe1i-MuiTypography-root-MuiLink-root"
                     href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                     target="_blank"
                     title="Link to suite documentation  "
@@ -635,7 +635,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="fsudoo"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-s8q751-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-17o977x-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                     target="_blank"
                     title="open treeherder view for spam"

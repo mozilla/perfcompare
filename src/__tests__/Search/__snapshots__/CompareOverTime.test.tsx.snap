@@ -483,7 +483,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
         style="max-width: 430px;"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
         >
           try
         </span>
@@ -496,7 +496,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
           style="display: flex; justify-content: space-between;"
         >
           <span
-            class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
           >
             Last day
           </span>
@@ -568,13 +568,13 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -606,7 +606,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -653,7 +653,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -1226,13 +1226,13 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -1264,7 +1264,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -1311,7 +1311,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -1471,7 +1471,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
         style="max-width: 430px;"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
         >
           try
         </span>
@@ -1484,7 +1484,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
           style="display: flex; justify-content: space-between;"
         >
           <span
-            class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
           >
             Last day
           </span>
@@ -1556,13 +1556,13 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -1594,7 +1594,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -1641,7 +1641,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -2187,7 +2187,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         style="max-width: 430px;"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
         >
           autoland
         </span>
@@ -2200,7 +2200,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
           style="display: flex; justify-content: space-between;"
         >
           <span
-            class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
           >
             Last 2 days
           </span>
@@ -2272,13 +2272,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -2310,7 +2310,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -2357,7 +2357,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -2411,13 +2411,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=autoland&revision=spamspamspamandeggs"
                       target="_blank"
                       title="open treeherder view for spamspamspam"
@@ -2449,7 +2449,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -2496,7 +2496,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   You've got two empty 'alves of coconuts and you're bangin' 'em togetha! 
                 </span>
@@ -2914,13 +2914,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -2952,7 +2952,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -2999,7 +2999,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
@@ -3159,7 +3159,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         style="max-width: 430px;"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
         >
           try
         </span>
@@ -3172,7 +3172,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
           style="display: flex; justify-content: space-between;"
         >
           <span
-            class="MuiTypography-root MuiTypography-body2 css-1hm0j6t-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
           >
             Last day
           </span>
@@ -3244,13 +3244,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-14ln1j6-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-ym6a33-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-16woa5o-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-10r6x9a-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1vhle6i-MuiTypography-root"
                   >
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-s8q751-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                       target="_blank"
                       title="open treeherder view for coconut"
@@ -3282,7 +3282,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     </span>
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 info-caption css-15ecn12-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-191waww-MuiTypography-root"
                   >
                     <div
                       class="info-caption-item item-author"
@@ -3329,7 +3329,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   </div>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1us1al8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-m0fks-MuiTypography-root"
                 >
                   you've got no arms left! 
                 </span>
