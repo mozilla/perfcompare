@@ -162,7 +162,7 @@ const components = {
             backgroundSize: '290px',
             content: '""',
             display: 'block',
-            height: '0.3em',
+            height: '0.5em',
             marginTop: '-5px',
           },
         },
