@@ -90,7 +90,7 @@
     "@eslint/js": "^9.39.4",
     "@fetch-mock/jest": "^0.2.20",
     "@jest/types": "^30.4.1",
-    "@swc/core": "^1.15.30",
+    "@swc/core": "^1.15.33",
     "@swc/jest": "^0.2.39",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
