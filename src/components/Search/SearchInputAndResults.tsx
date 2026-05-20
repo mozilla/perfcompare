@@ -34,6 +34,8 @@ export default function SearchInputAndResults({
   );
   const [searchError, setSearchError] = useState(null as null | string);
 
+  const [inputValue, setInputValue] = useState('');
+
   // The last used searchTerm is kept in a ref, so that it's possible to use it
   // in an effect when the repository prop changes. It's not stored in a state
   // because it's not used for rendering DOM.
@@ -66,8 +68,15 @@ export default function SearchInputAndResults({
     }
   }, []);
 
+  // Helper to check if the search term matches a revision hash (full or short)
+  const isRevisionHash = (searchTerm: string) =>
+    /^[a-f0-9]{7,40}$/i.test(searchTerm.trim());
+
   const searchRecentRevisions = useCallback(
-    async (searchTerm: string) => {
+    async (
+      searchTerm: string,
+      { autoSelect }: { autoSelect: boolean } = { autoSelect: false },
+    ) => {
       // If the URL has a parameter useFulltextSearch, use it to determine the search type.
       const urlParams = new URLSearchParams(window.location.search);
       const useFulltextSearch = urlParams.has('useFulltextSearch');
@@ -116,6 +125,25 @@ export default function SearchInputAndResults({
 
       try {
         const results = await fetchRecentRevisions(searchParameters);
+
+        if (autoSelect && isRevisionHash(searchTerm)) {
+          const revisionMatch = results.find((rev) =>
+            rev.revision.toLowerCase().startsWith(searchTerm.toLowerCase()),
+          );
+          if (revisionMatch) {
+            if (searchType === 'new') {
+              const alreadySelected = displayedRevisions.some(
+                (rev) => rev.id === revisionMatch.id,
+              );
+              if (alreadySelected) {
+                return;
+              }
+            }
+            onSearchResultsToggle(revisionMatch);
+            return;
+          }
+        }
+
         if (thisRequestId !== requestsCounterRef.current) return;
         // The user edited the text since the request started.
         // Let's ignore the result then.
@@ -137,7 +165,7 @@ export default function SearchInputAndResults({
         setRecentRevisions(null);
       }
     },
-    [repository],
+    [repository, onSearchResultsToggle, searchType, displayedRevisions],
   );
 
   const debouncedSearchRecentRevisions = useCallback(
@@ -147,9 +175,14 @@ export default function SearchInputAndResults({
 
   const onValueChange = (searchTerm: string) => {
     // Reset various states
+    setInputValue(searchTerm);
     setSearchError(null);
     setRecentRevisions(null);
-    debouncedSearchRecentRevisions(searchTerm);
+    if (isRevisionHash(searchTerm)) {
+      void searchRecentRevisions(searchTerm, { autoSelect: true });
+    } else {
+      debouncedSearchRecentRevisions(searchTerm);
+    }
   };
 
   // At load time and everytime the repository information changes, the recent
@@ -176,12 +209,18 @@ export default function SearchInputAndResults({
   return (
     <Box ref={containerRef}>
       <SearchInput
-        onFocus={() => setDisplayDropdown(true)}
+        value={inputValue}
+        onFocus={() => {
+          setDisplayDropdown(true);
+          if (!inputValue) {
+            void searchRecentRevisions('');
+          }
+        }}
         compact={compact}
         inputPlaceholder={inputPlaceholder}
         searchType={searchType}
         searchError={searchError}
-        onChange={onValueChange}
+        onChange={(value) => onValueChange(value)}
       />
 
       {recentRevisions && displayDropdown && (

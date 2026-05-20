@@ -330,6 +330,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                                 id="search-base-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -475,6 +476,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -899,6 +901,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                                 id="search-new-input"
                                 placeholder="Search by revision ID or author email"
                                 type="text"
+                                value=""
                               />
                               <fieldset
                                 aria-hidden="true"
@@ -1296,6 +1299,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1671,6 +1675,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -1816,6 +1821,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2347,6 +2353,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2722,6 +2729,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -2867,6 +2875,7 @@ exports[`With search parameters both search components are populated as expected
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3398,6 +3407,7 @@ exports[`With search parameters displays the default value for framework if the 
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3773,6 +3783,7 @@ exports[`With search parameters displays the default value for framework if the 
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -3918,6 +3929,7 @@ exports[`With search parameters displays the default value for framework if the 
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -4449,6 +4461,7 @@ exports[`With search parameters displays the default values if some values are b
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -4684,6 +4697,7 @@ exports[`With search parameters displays the default values if some values are b
                   id="search-base-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
@@ -4829,6 +4843,7 @@ exports[`With search parameters displays the default values if some values are b
                   id="search-new-input"
                   placeholder="Search by revision ID or author email"
                   type="text"
+                  value=""
                 />
                 <fieldset
                   aria-hidden="true"
