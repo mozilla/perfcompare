@@ -170,7 +170,8 @@ describe('CommonGraph', () => {
     render(<CommonGraph baseValues={[1, 2, 3]} newValues={[]} unit='ms' isSubtest={false} />);
 
     const option = getLatestEChartsOption();
-    const series = option.series as LineSeriesOption[];
+    const allSeries = option.series as LineSeriesOption[];
+    const series = allSeries.filter((s) => s.type === 'line');
     expect(series).toHaveLength(2);
     // Base side has a resampled density curve.
     expect(series[0].data as unknown[]).toHaveLength(1024);
@@ -250,9 +251,9 @@ describe('CommonGraph', () => {
     render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' isSubtest={false} />);
 
     const option = getLatestEChartsOption();
-    const xAxis = option.xAxis as {
+    const xAxis = (option.xAxis as Array<{
       axisLabel: { formatter: (value: number) => string };
-    };
+    }>)[0];
     const format = xAxis.axisLabel.formatter;
 
     // Whole numbers render without a trailing ".00".

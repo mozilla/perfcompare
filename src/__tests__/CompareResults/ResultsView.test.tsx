@@ -219,7 +219,9 @@ describe('Results View', () => {
     // The expanded row renders the chart with the two KDE line series
     // (Base, New). Formatter behaviour is covered in CommonGraph.test.tsx.
     const option = getLatestEChartsOption();
-    const series = option.series as LineSeriesOption[];
+    const series = (option.series as LineSeriesOption[]).filter(
+      (s) => s.type === 'line',
+    );
     expect(series).toHaveLength(2);
     expect(series).toMatchObject([
       {

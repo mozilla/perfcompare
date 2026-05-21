@@ -37,6 +37,8 @@ function computeMax(a?: number, b?: number) {
 
 const CHART_HEIGHT = 300;
 const KDE_GRID_POINTS = 1024;
+const KDE_GRID = { left: 70, right: 70, top: 28, height: 155 };
+const SCATTER_GRID = { left: 70, right: 70, top: 198, height: 55 };
 
 function quantileSorted(sorted: number[], q: number): number {
   const pos = (sorted.length - 1) * q;
@@ -161,48 +163,91 @@ function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProp
 
     const unitSuffix = unit ? ` (${unit})` : '';
 
+    const totalCount = baseValues.length + newValues.length;
+    const symbolSize = totalCount < 20 ? 10 : 7;
+
+    const JITTER = 0.6;
+    const baseScatterData: [number, number][] = baseValues.map((v) => [
+      v,
+      (Math.random() - 0.5) * JITTER,
+    ]);
+    const newScatterData: [number, number][] = newValues.map((v) => [
+      v,
+      1 + (Math.random() - 0.5) * JITTER,
+    ]);
+
+    const tickFormatter = (value: number) => {
+      const rounded = Math.round(value);
+      if (Math.abs(value - rounded) < 1e-9) return String(rounded);
+      return value.toFixed(2);
+    };
+
     return {
       animation: false,
-      grid: { left: 70, right: 70, top: 28, height: 200 },
-      xAxis: {
-        type: 'value',
-        min,
-        max,
-        name: unit ?? '',
-        nameLocation: 'middle',
-        nameGap: 30,
-        nameTextStyle: {
-          fontSize: 13,
-          fontWeight: 'bold',
-          color: '#000',
+      grid: [KDE_GRID, SCATTER_GRID],
+      // axisPointer link keeps the vertical crosshair in sync across both grids.
+      axisPointer: { link: [{ xAxisIndex: 'all' }] },
+      xAxis: [
+        {
+          gridIndex: 0,
+          type: 'value',
+          min,
+          max,
+          // Tick labels show 2 dp for fractional values, drop ".00" for whole
+          // numbers. Floats near integers (e.g. 14 + 1e-15) collapse to "14".
+          axisLabel: { formatter: tickFormatter },
+          splitLine: { show: true, lineStyle: { color: '#eee' } },
+          axisLine: { show: true, lineStyle: { color: '#999' } },
         },
-        // Tick labels show 2 dp for fractional values, drop ".00" for whole
-        // numbers. Floats near integers (e.g. 14 + 1e-15) collapse to "14".
-        axisLabel: {
-          formatter: (value: number) => {
-            const rounded = Math.round(value);
-            if (Math.abs(value - rounded) < 1e-9) return String(rounded);
-            return value.toFixed(2);
+        {
+          gridIndex: 1,
+          type: 'value',
+          min,
+          max,
+          name: unit ?? '',
+          nameLocation: 'middle',
+          nameGap: 22,
+          nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: '#000' },
+          axisLabel: { show: false },
+          splitLine: { show: false },
+          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisTick: { show: false },
+        },
+      ],
+      yAxis: [
+        {
+          gridIndex: 0,
+          type: 'value',
+          min: 0,
+          splitLine: { show: true, lineStyle: { color: '#eee' } },
+          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisTick: { show: false },
+          axisLabel: { show: true, color: '#000', fontSize: 12 },
+        },
+        {
+          gridIndex: 1,
+          type: 'value',
+          min: -0.5,
+          max: 1.5,
+          interval: 1,
+          axisTick: { show: false },
+          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisLabel: {
+            color: '#000',
+            fontSize: 12,
+            formatter: (v: number) => (v === 0 ? 'Base' : v === 1 ? 'New' : ''),
           },
+          splitLine: { show: false },
         },
-        splitLine: { show: true, lineStyle: { color: '#eee' } },
-        axisLine: { show: true, lineStyle: { color: '#999' } },
-      },
-      yAxis: {
-        type: 'value',
-        min: 0,
-        splitLine: { show: true, lineStyle: { color: '#eee' } },
-        axisLine: { show: true, lineStyle: { color: '#999' } },
-        axisTick: { show: false },
-        axisLabel: { show: true, color: '#000', fontSize: 12 },
-      },
+      ],
       // Wheel to zoom on the x-axis; shift+drag pans.
       // filterMode: 'none' keeps every data point in place — the zoom only
       // changes the visible window, so KDE curves still extend to the edges.
+      // xAxisIndex: [0, 1] keeps both grids in sync.
       dataZoom: [
         {
           type: 'inside',
-          xAxisIndex: 0,
+          xAxisIndex: [0, 1],
           filterMode: 'none',
           zoomOnMouseWheel: true,
           moveOnMouseMove: 'shift',
@@ -210,7 +255,7 @@ function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProp
         },
         {
           type: 'slider',
-          xAxisIndex: 0,
+          xAxisIndex: [0, 1],
           filterMode: 'none',
           height: 16,
           bottom: 4,
@@ -220,25 +265,30 @@ function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProp
       ],
       tooltip: {
         trigger: 'axis',
-        // Vertical guide that snaps to data points, so the tooltip locks onto
-        // a single x position with both series' densities side by side.
         axisPointer: { type: 'line', snap: true, lineStyle: { color: '#999' } },
         padding: 10,
         formatter: (params) => {
           const items = Array.isArray(params) ? params : [params];
           if (items.length === 0) return '';
-          // axisValue is the snapped x position shared by all series; fall back
-          // to the first item's x when it's absent (e.g. tooltip invoked
-          // outside the axis-trigger path).
+          // Scatter tooltip: show raw run values
+          if ((items[0] as { seriesType?: string }).seriesType === 'scatter') {
+            return items
+              .map((pts) => {
+                const marker = typeof pts.marker === 'string' ? pts.marker : '';
+                const xVal = (pts.value as [number, number])[0];
+                return `${marker}${pts.seriesName ?? ''}: ${xVal.toFixed(2)}${unitSuffix}`;
+              })
+              .join('<br>');
+          }
+          // KDE tooltip: show density at the cursor x
           const axisX =
             (items[0] as { axisValue?: number }).axisValue ??
             (items[0].value as [number, number])[0];
           const header = `Value: ${Number(axisX).toFixed(2)}${unitSuffix}`;
           const lines = items.map((pts) => {
             const marker = typeof pts.marker === 'string' ? pts.marker : '';
-            const seriesName = pts.seriesName ?? '';
             const y = (pts.value as [number, number])[1];
-            return `${marker}${seriesName}: ${y.toFixed(4)}`;
+            return `${marker}${pts.seriesName ?? ''}: ${y.toFixed(4)}`;
           });
           return [header, ...lines].join('<br>');
         },
@@ -279,6 +329,28 @@ function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProp
           showSymbol: false,
           lineStyle: { width: 3, color: Colors.ChartNew },
           itemStyle: { color: Colors.ChartNew },
+          emphasis: { focus: 'none' },
+        },
+        {
+          name: 'Base',
+          type: 'scatter',
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          data: baseScatterData,
+          symbol: 'triangle',
+          symbolSize,
+          itemStyle: { color: Colors.ChartBase, opacity: 0.6 },
+          emphasis: { focus: 'none' },
+        },
+        {
+          name: 'New',
+          type: 'scatter',
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          data: newScatterData,
+          symbol: 'triangle',
+          symbolSize,
+          itemStyle: { color: Colors.ChartNew, opacity: 0.6 },
           emphasis: { focus: 'none' },
         },
       ],
