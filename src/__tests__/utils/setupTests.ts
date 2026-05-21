@@ -11,12 +11,12 @@ import { webcrypto } from 'node:crypto';
 // See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
 // to use this mock.
 import fetchMock from '@fetch-mock/jest';
-import { density1d } from 'fast-kde';
-import { Line } from 'react-chartjs-2';
+import { init as echartsInit } from 'echarts';
 import { Hooks } from 'taskcluster-client-web';
 
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
+import { fftkde } from '../../utils/kde.js';
 
 let store: Store;
 
@@ -45,23 +45,31 @@ beforeEach(() => {
   });
 });
 
-jest.mock('react-chartjs-2', () => ({
-  Line: jest.fn(),
+// Mock echarts so that jsdom-based tests don't try to render to a real canvas.
+// `init` returns a stub instance whose `setOption` calls can be inspected.
+jest.mock('echarts', () => ({
+  init: jest.fn(),
 }));
-const MockedLine = Line as jest.Mock;
+const MockedEchartsInit = echartsInit as jest.Mock;
 
-jest.mock('fast-kde', () => ({
-  density1d: jest.fn(),
+jest.mock('../../utils/kde.js', () => ({
+  fftkde: jest.fn(),
 }));
-const MockedDensity1d = density1d as jest.Mock;
+const MockedFftkde = fftkde as jest.Mock;
 
 Object.defineProperty(window, 'crypto', { value: webcrypto });
 
 beforeEach(() => {
   // After every test jest resets the mock implementation, so we need to define
   // it again for each test.
-  MockedLine.mockImplementation(() => 'chartjs-line');
-  MockedDensity1d.mockImplementation(() => 'fast-kde');
+  MockedEchartsInit.mockImplementation(() => ({
+    setOption: jest.fn(),
+    resize: jest.fn(),
+    dispose: jest.fn(),
+    on: jest.fn(),
+    off: jest.fn(),
+  }));
+  MockedFftkde.mockImplementation(() => ({ x: [], y: [], bandwidth: 1 }));
 });
 
 // Install the fetch mock globally

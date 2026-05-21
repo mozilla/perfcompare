@@ -33,7 +33,9 @@ exports[`Results View Should display Base, New and Common graphs with replicates
           <div
             class="MuiBox-root css-72fd9l"
           >
-            chartjs-line
+            <div
+              style="width: 100%; height: 300px;"
+            />
           </div>
         </div>
       </div>
@@ -168,6 +170,83 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 Effect Size:
               </strong>
                
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard css-st68mf-MuiPaper-root-MuiAlert-root"
+            role="alert"
+            style="--Paper-shadow: none;"
+          >
+            <div
+              class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                data-testid="InfoOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiAlert-message css-zioonp-MuiAlert-message"
+            >
+              <span>
+                <strong>
+                  Δ median
+                </strong>
+                 = 
+                +9.0
+                 ms 95% CI [
+                +0.0
+                , 
+                +18.0
+                ]
+                  (not significant)
+              </span>
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard css-st68mf-MuiPaper-root-MuiAlert-root"
+            role="alert"
+            style="--Paper-shadow: none;"
+          >
+            <div
+              class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                data-testid="InfoOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiAlert-message css-zioonp-MuiAlert-message"
+            >
+              <span>
+                <strong>
+                  Confidence Interval
+                </strong>
+                : We are 95% confident the median difference is between 
+                <strong>
+                  +0.0
+                </strong>
+                 and
+                 
+                <strong>
+                  +18.0
+                </strong>
+              </span>
             </div>
           </div>
         </div>
@@ -371,54 +450,6 @@ exports[`Results View Should display Base, New and Common graphs with replicates
     </div>
   </div>
 </section>
-`;
-
-exports[`Results View Should display Base, New and Common graphs with replicates: Dataset for scatter 1`] = `
-{
-  "backgroundColor": [Function],
-  "data": [
-    {
-      "x": 587.15,
-      "y": "Base",
-    },
-    {
-      "x": 593.04,
-      "y": "Base",
-    },
-    {
-      "x": 600.7,
-      "y": "Base",
-    },
-    {
-      "x": 602.04,
-      "y": "Base",
-    },
-    {
-      "x": 605.16,
-      "y": "New",
-    },
-    {
-      "x": 605.31,
-      "y": "New",
-    },
-    {
-      "x": 605.61,
-      "y": "New",
-    },
-    {
-      "x": 605.81,
-      "y": "New",
-    },
-    {
-      "x": 607.27,
-      "y": "New",
-    },
-  ],
-  "pointRadius": 7,
-  "pointStyle": "triangle",
-  "type": "scatter",
-  "yAxisID": "yValues",
-}
 `;
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
@@ -454,7 +485,9 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
           <div
             class="MuiBox-root css-72fd9l"
           >
-            chartjs-line
+            <div
+              style="width: 100%; height: 300px;"
+            />
           </div>
         </div>
       </div>
@@ -589,6 +622,82 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 Effect Size:
               </strong>
                
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard css-st68mf-MuiPaper-root-MuiAlert-root"
+            role="alert"
+            style="--Paper-shadow: none;"
+          >
+            <div
+              class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                data-testid="InfoOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiAlert-message css-zioonp-MuiAlert-message"
+            >
+              <span>
+                <strong>
+                  Δ median
+                </strong>
+                 = 
+                +8.7
+                 ms 95% CI [
+                +3.6
+                , 
+                +18.5
+                ]
+              </span>
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard css-st68mf-MuiPaper-root-MuiAlert-root"
+            role="alert"
+            style="--Paper-shadow: none;"
+          >
+            <div
+              class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                data-testid="InfoOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiAlert-message css-zioonp-MuiAlert-message"
+            >
+              <span>
+                <strong>
+                  Confidence Interval
+                </strong>
+                : We are 95% confident the median difference is between 
+                <strong>
+                  +3.6
+                </strong>
+                 and
+                 
+                <strong>
+                  +18.5
+                </strong>
+              </span>
             </div>
           </div>
         </div>
@@ -792,54 +901,6 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
     </div>
   </div>
 </section>
-`;
-
-exports[`Results View Should display Base, New and Common graphs with tooltips: Dataset for scatter 1`] = `
-{
-  "backgroundColor": [Function],
-  "data": [
-    {
-      "x": 587.15,
-      "y": "Base",
-    },
-    {
-      "x": 593.04,
-      "y": "Base",
-    },
-    {
-      "x": 600.7,
-      "y": "Base",
-    },
-    {
-      "x": 602.04,
-      "y": "Base",
-    },
-    {
-      "x": 605.16,
-      "y": "New",
-    },
-    {
-      "x": 605.31,
-      "y": "New",
-    },
-    {
-      "x": 605.61,
-      "y": "New",
-    },
-    {
-      "x": 605.81,
-      "y": "New",
-    },
-    {
-      "x": 607.27,
-      "y": "New",
-    },
-  ],
-  "pointRadius": 7,
-  "pointStyle": "triangle",
-  "type": "scatter",
-  "yAxisID": "yValues",
-}
 `;
 
 exports[`Results View Should update url with new title and the table with the new title: After clicking the Save button 1`] = `

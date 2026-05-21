@@ -65,11 +65,13 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         <Grid container spacing={2}>
           <Grid size={8}>
             <Stack spacing={2}>
-              <CommonGraph
-                baseValues={baseValues}
-                newValues={newValues}
-                unit={baseUnit || newUnit}
-              />
+              {(baseValues.length > 0 || newValues.length > 0) && (
+                <CommonGraph
+                  baseValues={baseValues}
+                  newValues={newValues}
+                  unit={baseUnit || newUnit}
+                />
+              )}
               {strategy.renderExpandedLeft(result)}
             </Stack>
           </Grid>

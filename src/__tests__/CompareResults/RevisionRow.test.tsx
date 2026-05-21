@@ -324,6 +324,108 @@ describe('Expanded row', () => {
     expect(emptySignificant[0]).toBeInTheDocument();
   });
 
+  it('should display median diff and 95% CI alerts when base/new runs are present', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+        expandAll={false}
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    // Wait for the expanded panel before reading alert text content.
+    await screen.findByText(/Cliff's Delta/);
+
+    // The summary alert is "Δ median = +7.6 ms 95% CI [..., ...]". The
+    // median-of-new minus median-of-base is 712.44 - 704.84 = +7.6.
+    const alerts = screen.getAllByRole('alert');
+    const summaryAlert = alerts.find((alert) =>
+      alert.textContent?.includes('Δ median'),
+    );
+    expect(summaryAlert).toBeDefined();
+    expect(summaryAlert?.textContent).toContain('+7.6');
+    expect(summaryAlert?.textContent).toContain('ms 95% CI [');
+
+    // The confidence-interval alert is "Confidence Interval: We are 95% ...".
+    const ciAlert = alerts.find((alert) =>
+      alert.textContent?.includes('Confidence Interval'),
+    );
+    expect(ciAlert).toBeDefined();
+    expect(ciAlert?.textContent).toContain(
+      'We are 95% confident the median difference is between',
+    );
+  });
+
+  it('should not render the CI alerts when base/new runs are empty', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    // rowData[3] has empty base_runs / new_runs, so bootstrapMedianDiffCI is
+    // skipped and neither alert should render.
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[3]}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+        expandAll={false}
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    // Other content from renderExpandedRight is present, so the panel is
+    // expanded — but there should be no Δ median or Confidence Interval alert.
+    await screen.findByText(/Cliff's Delta/);
+    expect(screen.queryByText(/Δ median/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Confidence Interval/)).not.toBeInTheDocument();
+  });
+
+  it('should mark the median diff alert as not significant when CI straddles zero', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData: rowData } = getTestData();
+
+    // Identical base and new arrays produce a bootstrap CI symmetric around
+    // zero, so the difference is not statistically significant.
+    const overlapping: MannWhitneyResultsItem = {
+      ...rowData[0],
+      base_runs: [100, 110, 120],
+      new_runs: [100, 110, 120],
+    };
+
+    renderWithRoute(
+      <RevisionRow
+        result={overlapping}
+        view={compareView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='mann-whitney-u'
+        expandAll={false}
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    await screen.findByText(/Cliff's Delta/);
+    const alerts = screen.getAllByRole('alert');
+    const summaryAlert = alerts.find((alert) =>
+      alert.textContent?.includes('Δ median'),
+    );
+    expect(summaryAlert?.textContent).toContain('(not significant)');
+  });
+
   it('should display mean for base or new in row headers for mann-whitney-u testVersion', async () => {
     const { testCompareMannWhitneyData: rowData } = getTestData();
     renderWithRoute(
