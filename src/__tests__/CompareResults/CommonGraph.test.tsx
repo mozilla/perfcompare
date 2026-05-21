@@ -82,7 +82,7 @@ describe('CommonGraph', () => {
       bandwidth: 1,
     }));
 
-    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' />);
+    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' isSubtest={false} />);
 
     const option = getLatestEChartsOption();
     const series = option.series as LineSeriesOption[];
@@ -119,7 +119,7 @@ describe('CommonGraph', () => {
         bandwidth: 1,
       }));
 
-    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' />);
+    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' isSubtest={false} />);
 
     const option = getLatestEChartsOption();
     const series = option.series as LineSeriesOption[];
@@ -144,7 +144,7 @@ describe('CommonGraph', () => {
       return { x: [10, 20, 30], y: [0.1, 0.2, 0.3], bandwidth: 1 };
     });
 
-    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' />);
+    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' isSubtest={true} />);
 
     const bandwidthArgs = (fftkde as jest.Mock).mock.calls.map(
       (call) => call[1] as string,
@@ -167,7 +167,7 @@ describe('CommonGraph', () => {
       bandwidth: 1,
     }));
 
-    render(<CommonGraph baseValues={[1, 2, 3]} newValues={[]} unit='ms' />);
+    render(<CommonGraph baseValues={[1, 2, 3]} newValues={[]} unit='ms' isSubtest={false} />);
 
     const option = getLatestEChartsOption();
     const series = option.series as LineSeriesOption[];
@@ -197,7 +197,7 @@ describe('CommonGraph', () => {
     const initMock = echartsInit as jest.Mock;
     initMock.mockClear();
 
-    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' />);
+    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' isSubtest={false} />);
 
     expect(initMock).not.toHaveBeenCalled();
 
@@ -212,7 +212,7 @@ describe('CommonGraph', () => {
       bandwidth: 1,
     }));
 
-    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' />);
+    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' isSubtest={false} />);
 
     const formatter = getTooltipFormatter(getLatestEChartsOption());
 
@@ -247,7 +247,7 @@ describe('CommonGraph', () => {
       bandwidth: 1,
     }));
 
-    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' />);
+    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit='ms' isSubtest={false} />);
 
     const option = getLatestEChartsOption();
     const xAxis = option.xAxis as {
@@ -278,7 +278,7 @@ describe('CommonGraph', () => {
       bandwidth: 1,
     }));
 
-    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit={null} />);
+    render(<CommonGraph baseValues={[1, 2]} newValues={[3, 4]} unit={null} isSubtest={false} />);
 
     const formatter = getTooltipFormatter(getLatestEChartsOption());
 

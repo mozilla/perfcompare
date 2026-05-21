@@ -70,6 +70,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                   baseValues={baseValues}
                   newValues={newValues}
                   unit={baseUnit || newUnit}
+                  isSubtest={result.base_parent_signature !== null}
                 />
               )}
               {strategy.renderExpandedLeft(result)}

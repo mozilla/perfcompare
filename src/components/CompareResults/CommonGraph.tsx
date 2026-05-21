@@ -38,13 +38,41 @@ function computeMax(a?: number, b?: number) {
 const CHART_HEIGHT = 300;
 const KDE_GRID_POINTS = 1024;
 
+function quantileSorted(sorted: number[], q: number): number {
+  const pos = (sorted.length - 1) * q;
+  const base = Math.floor(pos);
+  const rest = pos - base;
+  if (sorted[base + 1] !== undefined) {
+    return sorted[base] + rest * (sorted[base + 1] - sorted[base]);
+  }
+  return sorted[base];
+}
+
+// Silverman-Jones bandwidth approximation — produces a wider (smoother) kernel
+// than ISJ, which works better for the small sample counts typical of top-level
+// aggregated results.
+function approximateSJBandwidth(sorted: number[]): number {
+  const n = sorted.length;
+  if (n < 2) return sorted[0] * 0.0015;
+  const q25 = quantileSorted(sorted, 0.25);
+  const q75 = quantileSorted(sorted, 0.75);
+  const iqr = q75 - q25;
+  const mean = sorted.reduce((a, b) => a + b, 0) / n;
+  const std = Math.sqrt(
+    sorted.reduce((sum, x) => sum + Math.pow(x - mean, 2), 0) / n,
+  );
+  const sigma = Math.min(std, iqr / 1.34);
+  return 0.9 * sigma * Math.pow(n, -1 / 5);
+}
+
 // ISJ bandwidth selection can fail to converge on tiny or degenerate samples
 // (few unique values, near-identical numbers). Fall back to Silverman's rule
 // in that case — coarser, but it never fails.
-function safeKde(values: number[]) {
+// When bw is provided it is passed straight through to fftkde.
+function safeKde(values: number[], bw?: number) {
   if (values.length < 2) return null;
   try {
-    return fftkde(values, 'ISJ', undefined, KDE_GRID_POINTS);
+    return fftkde(values, bw ?? 'ISJ', undefined, KDE_GRID_POINTS);
   } catch {
     return fftkde(values, 'silverman', undefined, KDE_GRID_POINTS);
   }
@@ -78,7 +106,7 @@ function resampleOnto(
   return out;
 }
 
-function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
+function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
 
@@ -90,9 +118,20 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
     const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
     const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
 
-    // ISJ auto-selects the bandwidth per dataset, so each KDE tunes itself.
-    const bKde = safeKde(baseValues);
-    const nKde = safeKde(newValues);
+    // Top-level results have fewer, more spread-out samples — use the SJ
+    // approximation for a wider (smoother) bandwidth. Subtest results have
+    // more data so ISJ can select a tighter, more accurate bandwidth.
+    let baseBw: number | undefined;
+    let newBw: number | undefined;
+    if (!isSubtest) {
+      const baseSorted = [...baseValues].sort((a, b) => a - b);
+      const newSorted = [...newValues].sort((a, b) => a - b);
+      baseBw = baseSorted.length >= 2 ? approximateSJBandwidth(baseSorted) : undefined;
+      newBw = newSorted.length >= 2 ? approximateSJBandwidth(newSorted) : undefined;
+    }
+
+    const bKde = safeKde(baseValues, baseBw);
+    const nKde = safeKde(newValues, newBw);
 
     // Build a shared x-grid covering both KDEs' ranges. Resampling both
     // curves onto identical x positions is what lets the axis-trigger tooltip
@@ -244,7 +283,7 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
         },
       ],
     };
-  }, [baseValues, newValues, unit]);
+  }, [baseValues, newValues, unit, isSubtest]);
 
   useEffect(() => {
     if (!chartContainerRef.current) {
@@ -286,6 +325,7 @@ interface CommonGraphProps {
   baseValues: number[];
   newValues: number[];
   unit: string | null;
+  isSubtest: boolean;
 }
 
 export default CommonGraph;
