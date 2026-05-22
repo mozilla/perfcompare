@@ -34,7 +34,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
             class="MuiBox-root css-72fd9l"
           >
             <div
-              style="width: 100%; height: 310px;"
+              style="width: 100%; height: 325px;"
             />
           </div>
         </div>
@@ -486,7 +486,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
             class="MuiBox-root css-72fd9l"
           >
             <div
-              style="width: 100%; height: 310px;"
+              style="width: 100%; height: 325px;"
             />
           </div>
         </div>

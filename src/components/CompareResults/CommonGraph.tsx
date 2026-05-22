@@ -35,10 +35,10 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const CHART_HEIGHT = 310;
+const CHART_HEIGHT = 325;
 const KDE_GRID_POINTS = 1024;
 const KDE_GRID = { left: 70, right: 70, top: 28, height: 155 };
-const SCATTER_GRID = { left: 70, right: 70, top: 220, height: 50 };
+const SCATTER_GRID = { left: 70, right: 70, top: 238, height: 50 };
 
 function quantileSorted(sorted: number[], q: number): number {
   const pos = (sorted.length - 1) * q;
