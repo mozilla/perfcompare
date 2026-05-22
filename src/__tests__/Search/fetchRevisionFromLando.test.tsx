@@ -53,6 +53,27 @@ describe('Lando to commit validating', () => {
     (console.error as jest.Mock).mockClear();
   });
 
+  it('should use the new Lando instance when landoInstance=lando-prod-2025', async () => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    fetchMock.get('glob:https://lando.moz.tools/*', { status: 404 });
+    await router.navigate(
+      '/compare-lando-results?baseLando=123&baseRepo=try&newLando=456&newRepo=try&framework=1&landoInstance=lando-prod-2025',
+    );
+    render(<App />);
+    expect(console.error).toHaveBeenCalledWith(
+      new Error('Error when requesting lando: (404) Not Found'),
+    );
+    expect(fetchMock.callHistory.called('glob:https://lando.moz.tools/*')).toBe(
+      true,
+    );
+    expect(
+      fetchMock.callHistory.called(
+        'glob:https://api.lando.services.mozilla.com/*',
+      ),
+    ).toBe(false);
+    (console.error as jest.Mock).mockClear();
+  });
+
   it('should reject', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
     fetchMock.get(
