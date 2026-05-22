@@ -35,10 +35,10 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const CHART_HEIGHT = 300;
+const CHART_HEIGHT = 310;
 const KDE_GRID_POINTS = 1024;
 const KDE_GRID = { left: 70, right: 70, top: 28, height: 155 };
-const SCATTER_GRID = { left: 70, right: 70, top: 198, height: 55 };
+const SCATTER_GRID = { left: 70, right: 70, top: 220, height: 50 };
 
 function quantileSorted(sorted: number[], q: number): number {
   const pos = (sorted.length - 1) * q;
@@ -108,7 +108,12 @@ function resampleOnto(
   return out;
 }
 
-function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProps) {
+function CommonGraph({
+  baseValues,
+  newValues,
+  unit,
+  isSubtest,
+}: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
 
@@ -128,8 +133,10 @@ function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProp
     if (!isSubtest) {
       const baseSorted = [...baseValues].sort((a, b) => a - b);
       const newSorted = [...newValues].sort((a, b) => a - b);
-      baseBw = baseSorted.length >= 2 ? approximateSJBandwidth(baseSorted) : undefined;
-      newBw = newSorted.length >= 2 ? approximateSJBandwidth(newSorted) : undefined;
+      baseBw =
+        baseSorted.length >= 2 ? approximateSJBandwidth(baseSorted) : undefined;
+      newBw =
+        newSorted.length >= 2 ? approximateSJBandwidth(newSorted) : undefined;
     }
 
     const bKde = safeKde(baseValues, baseBw);
@@ -193,6 +200,10 @@ function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProp
           type: 'value',
           min,
           max,
+          name: unit ?? '',
+          nameLocation: 'middle',
+          nameGap: 30,
+          nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: '#000' },
           // Tick labels show 2 dp for fractional values, drop ".00" for whole
           // numbers. Floats near integers (e.g. 14 + 1e-15) collapse to "14".
           axisLabel: { formatter: tickFormatter },
@@ -204,10 +215,6 @@ function CommonGraph({ baseValues, newValues, unit, isSubtest }: CommonGraphProp
           type: 'value',
           min,
           max,
-          name: unit ?? '',
-          nameLocation: 'middle',
-          nameGap: 22,
-          nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: '#000' },
           axisLabel: { show: false },
           splitLine: { show: false },
           axisLine: { show: true, lineStyle: { color: '#999' } },
