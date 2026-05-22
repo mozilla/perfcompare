@@ -2,8 +2,8 @@ import type { ReactElement } from 'react';
 
 import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
-import type { ScriptableContext } from 'chart.js';
-import { ChartProps, Line } from 'react-chartjs-2';
+import { init as echartsInit } from 'echarts';
+import type { EChartsOption, LineSeriesOption } from 'echarts';
 
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
@@ -12,6 +12,7 @@ import { Strings } from '../../resources/Strings';
 import { Colors } from '../../styles/Colors';
 import type { Repository } from '../../types/state';
 import type { Framework } from '../../types/types';
+import { fftkde } from '../../utils/kde.js';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, screen, waitFor } from '../utils/test-utils';
@@ -36,6 +37,50 @@ function renderWithRoute(component: ReactElement) {
 
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
+
+// Wrap React.useRef so individual tests can substitute a stubbed ref for the
+// next useRef call. The wrapper delegates to the real implementation when the
+// override queue is empty, so other tests in this file are unaffected.
+const mockUseRefOverrides: Array<{ current: unknown }> = [];
+
+jest.mock('react', () => {
+  const actualReact = jest.requireActual<typeof import('react')>('react');
+  // Spread loses non-enumerable React exports (Component, createElement, …)
+  // which react-router relies on; a Proxy lets us replace `useRef` while
+  // forwarding every other property to the real module.
+  return new Proxy(actualReact, {
+    get(target, prop, receiver) {
+      if (prop === 'useRef') {
+        return function wrappedUseRef<T>(initialValue: T) {
+          const override = mockUseRefOverrides.shift();
+          if (override !== undefined) {
+            return override;
+          }
+          return target.useRef(initialValue);
+        };
+      }
+      return Reflect.get(target, prop, receiver) as unknown;
+    },
+  });
+});
+
+// Pull the latest EChartsOption that the chart component pushed via
+// `instance.setOption(option)`. Each call to `init()` in the mock returns a
+// fresh stub, so we walk through the init mock results to find the most
+// recently-rendered chart's options.
+function getLatestEChartsOption(): EChartsOption {
+  const initMock = echartsInit as jest.Mock;
+  for (let i = initMock.mock.results.length - 1; i >= 0; i--) {
+    const instance = initMock.mock.results[i].value as {
+      setOption: jest.Mock<unknown, [EChartsOption, ...unknown[]]>;
+    };
+    const lastSetOption = instance.setOption.mock.calls.at(-1);
+    if (lastSetOption) {
+      return lastSetOption[0];
+    }
+  }
+  throw new Error('No echarts setOption call captured');
+}
 
 describe('Results View', () => {
   it('The table should match snapshot and other elements should be present in the page', async () => {
@@ -171,150 +216,23 @@ describe('Results View', () => {
       await screen.findByRole('region', { name: 'Revision Row Details' }),
     ).toMatchSnapshot();
 
-    // 1. Test that the chart library is called with various datasets.
-    const MockedLine = Line as jest.Mock;
-    const chartProps = MockedLine.mock.calls[0][0] as ChartProps;
-    const datasets = chartProps.data.datasets;
-    expect(datasets).toHaveLength(3);
-    // The KDE dataset is too long to test here, but let's test the other
-    // elements.
-    const datasetsForKde = datasets.filter(
-      (dataset) => 'yAxisID' in dataset && dataset.yAxisID === 'yKde',
-    );
-    expect(datasetsForKde).toMatchObject([
+    // The expanded row renders the chart with the two KDE line series
+    // (Base, New). Formatter behaviour is covered in CommonGraph.test.tsx.
+    const option = getLatestEChartsOption();
+    const series = option.series as LineSeriesOption[];
+    expect(series).toHaveLength(2);
+    expect(series).toMatchObject([
       {
-        yAxisID: 'yKde',
-        label: 'Base',
-        fill: false,
-        borderColor: Colors.ChartBase,
+        type: 'line',
+        name: 'Base',
+        lineStyle: { color: Colors.ChartBase },
       },
       {
-        yAxisID: 'yKde',
-        label: 'New',
-        fill: false,
-        borderColor: Colors.ChartNew,
+        type: 'line',
+        name: 'New',
+        lineStyle: { color: Colors.ChartNew },
       },
     ]);
-
-    const datasetForScatter = datasets.find(
-      (dataset) => dataset.type === 'scatter',
-    );
-    expect(datasetForScatter).toMatchSnapshot('Dataset for scatter');
-
-    // 2. Test the more complex tooltip functions with various use cases.
-    const labelFunction =
-      chartProps.options?.plugins?.tooltip?.callbacks?.label;
-    expect(labelFunction).toBeDefined();
-
-    const tooltipItemKdeBase = {
-      dataset: datasetsForKde[0],
-      parsed: { x: 5, y: 5 },
-    };
-    const tooltipItemKdeNew = {
-      dataset: datasetsForKde[1],
-      parsed: { x: 5, y: 5 },
-    };
-    const tooltipItemValueBase = {
-      dataset: datasetForScatter,
-      raw: {
-        x: '1.234',
-        y: 'Base',
-      },
-    };
-    const tooltipItemValueNew = {
-      dataset: datasetForScatter,
-      raw: {
-        x: '2.345',
-        y: 'New',
-      },
-    };
-
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [tooltipItemKdeBase] },
-        tooltipItemKdeBase,
-      ),
-    ).toBe('@ 5.00');
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [tooltipItemValueBase] },
-        tooltipItemValueBase,
-      ),
-    ).toBe('Base: 1.234');
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [tooltipItemValueNew] },
-        tooltipItemValueNew,
-      ),
-    ).toBe('New: 2.345');
-
-    // Also test the cases where there are 2 values at the same x point.
-    // The first item shows a summary of both values.
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [tooltipItemValueBase, { ...tooltipItemValueBase }] },
-        tooltipItemValueBase,
-      ),
-    ).toBe('Base: 1.234 (×2)');
-    // But the second item isn't displayed at all.
-    expect(
-      labelFunction!.call(
-        // @ts-expect-error This object doesn't obey fully to the type
-        // description, but it's good enough to test our code.
-        { dataPoints: [{ ...tooltipItemValueBase }, tooltipItemValueBase] },
-        tooltipItemValueBase,
-      ),
-    ).toBe('');
-
-    // 3. Also test the complex color function
-    const labelColorFunction =
-      chartProps.options?.plugins?.tooltip?.callbacks?.labelColor;
-    expect(labelColorFunction).toBeDefined();
-
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(labelColorFunction!(tooltipItemKdeBase)).toEqual({
-      backgroundColor: Colors.ChartBase,
-    });
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(labelColorFunction!(tooltipItemKdeNew)).toEqual({
-      backgroundColor: Colors.ChartNew,
-    });
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(labelColorFunction!(tooltipItemValueBase)).toEqual({
-      backgroundColor: Colors.ChartBase,
-    });
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(labelColorFunction!(tooltipItemValueNew)).toEqual({
-      backgroundColor: Colors.ChartNew,
-    });
-
-    // 4. Also test the background color function for the scatter graph
-    const backgroundColorFunction = datasetForScatter?.backgroundColor as (
-      ctx: ScriptableContext<'line'>,
-    ) => string | undefined;
-    expect(backgroundColorFunction).toBeInstanceOf(Function);
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(backgroundColorFunction({ raw: { x: 5, y: 'Base' } })).toBe(
-      Colors.ChartBase + '99',
-    );
-    // @ts-expect-error This object doesn't obey fully to the type
-    // description, but it's good enough to test our code.
-    expect(backgroundColorFunction({ raw: { x: 5, y: 'New' } })).toBe(
-      Colors.ChartNew + '99',
-    );
   });
 
   it('Should display Base, New and Common graphs with replicates', async () => {
@@ -350,18 +268,18 @@ describe('Results View', () => {
       await screen.findByRole('region', { name: 'Revision Row Details' }),
     ).toMatchSnapshot();
 
-    // Test that this time all replicates are displayed
-    const MockedLine = Line as jest.Mock;
-    const chartProps = MockedLine.mock.calls[0][0] as ChartProps;
-    const datasets = chartProps.data.datasets;
-    const datasetForScatter = datasets.find(
-      (dataset) => dataset.type === 'scatter',
+    // The KDE for each side should be built off the replicates, not the
+    // single-point base_runs/new_runs. Assert fftkde was called with each
+    // replicate array.
+    const fftkdeCalls = (fftkde as jest.Mock).mock.calls.map(
+      (call) => call[0] as number[],
     );
-    expect(datasetForScatter!.data).toHaveLength(
-      testCompareDataWithReplicates[0].base_runs_replicates.length +
-        testCompareDataWithReplicates[0].new_runs_replicates.length,
+    expect(fftkdeCalls).toContainEqual(
+      testCompareDataWithReplicates[0].base_runs_replicates,
     );
-    expect(datasetForScatter).toMatchSnapshot('Dataset for scatter');
+    expect(fftkdeCalls).toContainEqual(
+      testCompareDataWithReplicates[0].new_runs_replicates,
+    );
   });
 
   it('should make blobUrl available when "Download JSON" button is clicked', async () => {
@@ -590,5 +508,29 @@ describe('Results View', () => {
     });
     expect(screen.queryByText('Results')).not.toBeInTheDocument();
     expect(screen.getByText(titleName)).toBeInTheDocument();
+  });
+
+  it('toggles all rows when the Expand all checkbox is clicked', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    await screen.findByRole('table');
+
+    const expandAllCheckbox = screen.getByRole('checkbox', {
+      name: /Expand all/i,
+    });
+    expect(expandAllCheckbox).not.toBeChecked();
+    expect(screen.queryAllByTestId(/ExpandLessIcon/)).toHaveLength(0);
+
+    await user.click(expandAllCheckbox);
+    expect(expandAllCheckbox).toBeChecked();
+    const expandLessIcons = await screen.findAllByTestId(/ExpandLessIcon/);
+    expect(expandLessIcons.length).toBeGreaterThan(0);
+
+    await user.click(expandAllCheckbox);
+    expect(expandAllCheckbox).not.toBeChecked();
+    await waitFor(() => {
+      expect(screen.queryAllByTestId(/ExpandLessIcon/)).toHaveLength(0);
+    });
   });
 });

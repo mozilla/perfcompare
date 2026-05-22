@@ -162,6 +162,7 @@ type Props = {
   sortDirection: 'asc' | 'desc' | null;
   replicates: boolean;
   testVersion: TestVersion;
+  expandAll: boolean;
 };
 
 function TableContent({
@@ -175,6 +176,7 @@ function TableContent({
   sortDirection,
   replicates,
   testVersion,
+  expandAll,
 }: Props) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
@@ -233,7 +235,7 @@ function TableContent({
         main: 5000,
         reverse: 5000,
       }}
-      data={processedResults as ListOfResultsGroupedByTest}
+      data={processedResults}
       computeItemKey={(_, [header]) => header}
       itemContent={(_, [, resultsForHeader]) => (
         <TableRevisionContent
@@ -242,6 +244,7 @@ function TableContent({
           rowGridTemplateColumns={rowGridTemplateColumns}
           replicates={replicates}
           testVersion={testVersion}
+          expandAll={expandAll}
         />
       )}
     />
