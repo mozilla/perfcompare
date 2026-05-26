@@ -166,6 +166,24 @@ describe('SearchResultsList', () => {
     expect(fleshWound).not.toHaveClass('Mui-checked');
   });
 
+  it('should select a result via keyboard (ArrowDown + Enter)', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    await renderComponent();
+
+    const placeholder =
+      Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+    const searchInput = screen.getAllByPlaceholderText(placeholder)[0];
+
+    await user.click(searchInput);
+    await screen.findAllByTestId('autocomplete-option');
+
+    await user.keyboard('{ArrowDown}');
+    await user.keyboard('{Enter}');
+
+    expect(await screen.findByTestId('selected-rev-item')).toBeInTheDocument();
+  });
+
   it('Should apply dark and light mode styles when theme button is toggled', async () => {
     await renderComponent();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });

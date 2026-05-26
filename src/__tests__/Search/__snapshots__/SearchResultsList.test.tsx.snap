@@ -2,9 +2,9 @@
 
 exports[`SearchResultsList Should apply dark and light mode styles when theme button is toggled: after toggling dark mode 1 1`] = `
 <ul
-  aria-labelledby="_r_64_-label"
+  aria-labelledby="_r_7a_-label"
   class="MuiAutocomplete-listbox f1recfq3 results-list-dark css-hcvz0e-MuiAutocomplete-listbox"
-  id="_r_64_-listbox"
+  id="_r_7a_-listbox"
   role="listbox"
 >
   <li
@@ -13,7 +13,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="0"
     data-testid="autocomplete-option"
-    id="_r_64_-option-0"
+    id="_r_7a_-option-0"
     role="option"
     tabindex="-1"
   >
@@ -125,7 +125,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="1"
     data-testid="autocomplete-option"
-    id="_r_64_-option-1"
+    id="_r_7a_-option-1"
     role="option"
     tabindex="-1"
   >
@@ -237,7 +237,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="2"
     data-testid="autocomplete-option"
-    id="_r_64_-option-2"
+    id="_r_7a_-option-2"
     role="option"
     tabindex="-1"
   >
@@ -349,7 +349,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="3"
     data-testid="autocomplete-option"
-    id="_r_64_-option-3"
+    id="_r_7a_-option-3"
     role="option"
     tabindex="-1"
   >
@@ -461,7 +461,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="4"
     data-testid="autocomplete-option"
-    id="_r_64_-option-4"
+    id="_r_7a_-option-4"
     role="option"
     tabindex="-1"
   >
@@ -573,7 +573,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="5"
     data-testid="autocomplete-option"
-    id="_r_64_-option-5"
+    id="_r_7a_-option-5"
     role="option"
     tabindex="-1"
   >
@@ -685,7 +685,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="6"
     data-testid="autocomplete-option"
-    id="_r_64_-option-6"
+    id="_r_7a_-option-6"
     role="option"
     tabindex="-1"
   >
