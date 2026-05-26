@@ -90,7 +90,7 @@ exports[`Search Containter should match snapshot 1`] = `
                       class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-repo-dropdown--base"
                       >
                         <div
@@ -277,7 +277,7 @@ exports[`Search Containter should match snapshot 1`] = `
                       class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-repo-dropdown--new"
                       >
                         <div
@@ -457,7 +457,7 @@ exports[`Search Containter should match snapshot 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                     data-testid="framework-select"
                   >
                     <div
@@ -497,7 +497,7 @@ exports[`Search Containter should match snapshot 1`] = `
                   class="fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"
@@ -616,7 +616,7 @@ exports[`Search Containter should match snapshot 1`] = `
                       class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-base-repo-dropdown--overtime"
                       >
                         <div
@@ -661,7 +661,7 @@ exports[`Search Containter should match snapshot 1`] = `
                       class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-timerange"
                       >
                         <div
@@ -743,7 +743,7 @@ exports[`Search Containter should match snapshot 1`] = `
                       class="MuiFormControl-root search-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
                     >
                       <div
-                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                         data-testid="dropdown-select-repo-dropdown--overtime"
                       >
                         <div
@@ -922,7 +922,7 @@ exports[`Search Containter should match snapshot 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1fqkwv5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                     data-testid="framework-select"
                   >
                     <div
@@ -962,7 +962,7 @@ exports[`Search Containter should match snapshot 1`] = `
                   class="fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1ylfq7e-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"

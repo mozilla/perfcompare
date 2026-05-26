@@ -37,14 +37,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
+                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
                   />
                 </span>
                 <span
@@ -338,14 +339,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
+                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
                   />
                 </span>
                 <span
@@ -534,14 +536,15 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                       class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
                       id="Dark mode"
                       name="toggle-dark-mode"
+                      role="switch"
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
+                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
+                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
                   />
                 </span>
                 <span
