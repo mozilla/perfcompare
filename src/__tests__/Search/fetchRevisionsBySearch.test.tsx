@@ -34,7 +34,9 @@ describe('SearchView/fetchRevisions', () => {
     await renderSearchViewComponent();
 
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'johncleese@python.com');
     act(() => void jest.runAllTimers());
     expect(global.fetch).toHaveFetched(
@@ -60,7 +62,9 @@ describe('SearchView/fetchRevisions', () => {
     await renderSearchViewComponent();
 
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, '123456');
     act(() => void jest.runAllTimers());
     expect(global.fetch).toHaveFetched(
@@ -86,7 +90,9 @@ describe('SearchView/fetchRevisions', () => {
     await renderSearchViewComponent();
 
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'Fuzzy');
     act(() => void jest.runAllTimers());
     expect(global.fetch).toHaveFetched(
@@ -224,7 +230,9 @@ describe('SearchView/fetchRevisions', () => {
 
     await renderSearchViewComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'abcdef123456');
 
     act(() => void jest.runAllTimers());
