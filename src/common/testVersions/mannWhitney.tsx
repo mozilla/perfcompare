@@ -2,6 +2,7 @@ import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import WarningIcon from '@mui/icons-material/Warning';
+import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 
 import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
@@ -14,6 +15,7 @@ import {
   MannWhitneyResultsItem,
 } from '../../types/state';
 import { TableConfig } from '../../types/types';
+import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
 import { formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
@@ -396,15 +398,38 @@ export const mannWhitneyStrategy = {
 
   renderExpandedRight(result: CombinedResultsItemType) {
     const mwResult = result as MannWhitneyResultsItem;
-    const { cles, cles_direction } = mwResult.cles ?? {
+    const { cles, cles_direction, mann_whitney_u_cles } = mwResult.cles ?? {
       cles: '',
       cles_direction: '',
+      mann_whitney_u_cles: '',
     };
     const { cliffs_delta, cliffs_interpretation } = mwResult;
     const pValue = mwResult.mann_whitney_test?.pvalue;
     const p_value_cles = mwResult.mann_whitney_test?.interpretation
       ? capitalize(mwResult.mann_whitney_test.interpretation)
       : '';
+
+    const baseRuns = mwResult.base_runs ?? [];
+    const newRuns = mwResult.new_runs ?? [];
+    const ci =
+      baseRuns.length > 0 && newRuns.length > 0
+        ? bootstrapMedianDiffCI(baseRuns, newRuns)
+        : null;
+    const fmt = (n: number) => (n >= 0 ? '+' : '') + n.toFixed(1);
+    const summary = ci ? (
+      <span>
+        <strong>Δ median</strong> = {fmt(ci.medianDiff)} ms 95% CI [
+        {fmt(ci.ciLow)}, {fmt(ci.ciHigh)}]
+        {ci.significant ? '' : '  (not significant)'}
+      </span>
+    ) : null;
+    const confidenceInterval = ci && (
+      <span>
+        <strong>Confidence Interval</strong>: We are 95% confident the median
+        difference is between <strong>{fmt(ci.ciLow)}</strong> and{' '}
+        <strong>{fmt(ci.ciHigh)}</strong>
+      </span>
+    );
 
     return (
       <>
@@ -416,6 +441,13 @@ export const mannWhitneyStrategy = {
           cles={cles}
           cles_direction={cles_direction}
         />
+        <Alert severity='info'>
+          <strong>Effect Size:</strong> {mann_whitney_u_cles}
+        </Alert>
+        {summary && <Alert severity='info'>{summary}</Alert>}
+        {confidenceInterval && (
+          <Alert severity='info'>{confidenceInterval}</Alert>
+        )}
         <ModeInterpretation result={mwResult} />
       </>
     );

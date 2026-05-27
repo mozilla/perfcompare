@@ -1,4 +1,4 @@
-import { useId, useState, type ReactNode } from 'react';
+import { useId, useState, useEffect, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
@@ -217,7 +217,14 @@ const getSubtestsCompareOverTimeLink = (
 function RevisionRow(props: RevisionRowProps) {
   const id = useId();
 
-  const { result, view, gridTemplateColumns, replicates, testVersion } = props;
+  const {
+    result,
+    view,
+    gridTemplateColumns,
+    replicates,
+    testVersion,
+    expandAll,
+  } = props;
   const {
     platform,
     base_measurement_unit: baseUnit,
@@ -242,6 +249,10 @@ function RevisionRow(props: RevisionRowProps) {
   const { baseAvg: baseAvgValue, newAvg: newAvgValue } =
     strategy.getAvgValues(result);
   const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    setExpanded(expandAll);
+  }, [expandAll]);
 
   const { counts: subtestCounts, isLoading: subtestsLoading } =
     useSubtestRegressionCount({ result, view, replicates, testVersion });
@@ -438,6 +449,7 @@ interface RevisionRowProps {
   view: typeof compareView | typeof compareOverTimeView;
   replicates: boolean;
   testVersion: TestVersion;
+  expandAll: boolean;
 }
 
 export default RevisionRow;

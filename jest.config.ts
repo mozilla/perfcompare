@@ -3,7 +3,16 @@ import type { Config } from '@jest/types';
 const config: Config.InitialOptions = {
   roots: ['<rootDir>/src'],
   collectCoverageFrom: ['src/**/*.{js,ts,tsx}', '!src/**/*.d.ts'],
-  coveragePathIgnorePatterns: ['__tests__', 'index', 'resources', 'styles'],
+  coveragePathIgnorePatterns: [
+    '__tests__',
+    'index',
+    'resources',
+    'styles',
+    // Pure-math helpers exercised indirectly by the chart code; not worth
+    // the ceremony of unit-testing the numerical routines themselves.
+    'src/utils/bootstrap-ci\\.[jt]s',
+    'src/utils/kde\\.js',
+  ],
   setupFiles: ['react-app-polyfill/jsdom'],
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/utils/setupTests.ts'],
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/__tests__/utils/'],

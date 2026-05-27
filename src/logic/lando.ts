@@ -1,6 +1,13 @@
 import { LandoToCommit } from '../types/state';
 
-const landoBaseUrl = 'https://api.lando.services.mozilla.com';
+const landoInstances = {
+  'lando-dev': 'api.dev.lando.nonprod.cloudops.mozgcp.net',
+  'lando-dev-2025': 'lando-dev.allizom.org',
+  'lando-prod': 'api.lando.services.mozilla.com',
+  'lando-prod-2025': 'lando.moz.tools',
+};
+
+export type LandoInstance = keyof typeof landoInstances;
 
 async function fetchFromLando(url: string) {
   const response = await fetch(url);
@@ -12,8 +19,12 @@ async function fetchFromLando(url: string) {
   return response;
 }
 
-export async function fetchRevisionFromLandoId(landoid: string) {
-  const url = `${landoBaseUrl}/landing_jobs/${landoid}`;
+export async function fetchRevisionFromLandoId(
+  landoid: string,
+  instance: LandoInstance = 'lando-prod',
+) {
+  const host = landoInstances[instance] ?? landoInstances['lando-prod'];
+  const url = `https://${host}/landing_jobs/${landoid}`;
   const response = await fetchFromLando(url);
   return response.json() as Promise<LandoToCommit>;
 }
