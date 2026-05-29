@@ -193,7 +193,6 @@ export type Framework =
   | { id: 2; name: 'build_metrics' }
   | { id: 4; name: 'awsy' }
   | { id: 6; name: 'platform_microbench' }
-  | { id: 10; name: 'raptor' }
   | { id: 11; name: 'js-bench' }
   | { id: 12; name: 'devtools' }
   | { id: 13; name: 'browsertime' }
