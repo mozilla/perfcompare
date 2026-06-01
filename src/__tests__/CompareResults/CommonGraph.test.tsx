@@ -88,6 +88,8 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
       />,
     );
 
@@ -132,6 +134,8 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
       />,
     );
 
@@ -164,6 +168,8 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={true}
+        vt={0.5}
+        onVtChange={jest.fn()}
       />,
     );
 
@@ -194,12 +200,18 @@ describe('CommonGraph', () => {
         newValues={[]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
       />,
     );
 
     const option = getLatestEChartsOption();
     const allSeries = option.series as LineSeriesOption[];
-    const series = allSeries.filter((s) => s.type === 'line');
+    // Exclude the mode-overlay markLine series (named "_mode-*") — only count
+    // the two underlying KDE curves.
+    const series = allSeries.filter(
+      (s) => s.type === 'line' && !String(s.name ?? '').startsWith('_mode-'),
+    );
     expect(series).toHaveLength(2);
     // Base side has a resampled density curve.
     expect(series[0].data as unknown[]).toHaveLength(1024);
@@ -232,6 +244,8 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
       />,
     );
 
@@ -254,6 +268,8 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
       />,
     );
 
@@ -296,6 +312,8 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
       />,
     );
 
@@ -336,6 +354,8 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit={null}
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
       />,
     );
 
@@ -352,5 +372,46 @@ describe('CommonGraph', () => {
     ]);
     // No "(unit)" suffix after the value when unit is null.
     expect(rendered).toBe('Value: 5.00<br>Base: 0.1000');
+  });
+
+  it('emits a mode-overlay markLine series for each detected peak', () => {
+    // Strictly increasing fake KDE — fitModesFromKde returns a single peak at
+    // the global max (last x). That yields exactly one "_mode-*" overlay per
+    // series, with a label tagged by series and letter A.
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+      />,
+    );
+
+    const option = getLatestEChartsOption();
+    const series = option.series as Array<{
+      name?: string;
+      markLine?: {
+        data?: Array<{ xAxis?: number }>;
+        label?: { formatter?: string };
+        lineStyle?: { color?: string };
+      };
+    }>;
+    const overlays = series.filter((s) =>
+      String(s.name ?? '').startsWith('_mode-'),
+    );
+    // One overlay per series (Base + New), both peaking at the same x.
+    expect(overlays).toHaveLength(2);
+    expect(overlays[0].markLine?.data?.[0]?.xAxis).toBe(30);
+    expect(overlays[1].markLine?.data?.[0]?.xAxis).toBe(30);
+    expect(overlays[0].markLine?.label?.formatter).toMatch(/^Base A: 30/);
+    expect(overlays[1].markLine?.label?.formatter).toMatch(/^New A: 30/);
   });
 });

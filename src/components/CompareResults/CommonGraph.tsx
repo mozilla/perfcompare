@@ -1,12 +1,20 @@
 import { useEffect, useMemo, useRef } from 'react';
 
+import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { init, type ECharts, type EChartsOption } from 'echarts';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
-import { fftkde } from '../../utils/kde.js';
+import {
+  areaFracs,
+  assignLetters,
+  fftkde,
+  fitModesFromKde,
+} from '../../utils/kde.js';
 
 // This computes the min, max from a list of numbers.
 function computeStatisticsForRuns(data: number[]) {
@@ -36,10 +44,70 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const CHART_HEIGHT = 325;
+const CHART_HEIGHT = 340;
 const KDE_GRID_POINTS = 1024;
 const KDE_GRID = { left: 70, right: 70, top: 28, height: 155 };
-const SCATTER_GRID = { left: 70, right: 70, top: 238, height: 50 };
+const SCATTER_GRID = { left: 70, right: 70, top: 250, height: 50 };
+
+// Valley-depth threshold bounds for the mode-detection slider.
+const VT_MIN = 0.1;
+const VT_MAX = 0.99;
+const VT_STEP = 0.01;
+
+// Tick labels show 2 dp for fractional values, drop ".00" for whole numbers.
+// Floats near integers (e.g. 14 + 1e-15) collapse to "14".
+function tickFormatter(value: number): string {
+  const rounded = Math.round(value);
+  if (Math.abs(value - rounded) < 1e-9) return String(rounded);
+  return value.toFixed(2);
+}
+
+// Per-series mode summary, suitable both for chart overlays and the blurb.
+type ModeInfo = {
+  peakLocs: number[];
+  fracs: number[];
+  letters: string[];
+};
+
+function computeModeInfo(x: number[], y: number[], vt: number): ModeInfo {
+  if (!x.length || !y.length) {
+    return { peakLocs: [], fracs: [], letters: [] };
+  }
+  const { peakLocs, boundaries } = fitModesFromKde(x, y, vt);
+  if (!peakLocs.length) {
+    return { peakLocs: [], fracs: [], letters: [] };
+  }
+  const fracs = areaFracs(x, y, boundaries);
+  const letters = assignLetters(peakLocs);
+  return { peakLocs, fracs, letters };
+}
+
+// Stagger levels (0, 1, 2 …) for peak labels: peaks closer than ~13% of the
+// x-span get bumped to different levels so their labels don't overlap. Ported
+// from kde-widget.js's allPeaks.level pass; we use a fixed 13% threshold
+// because the chart's pixel width isn't known inside useMemo.
+type PeakRef = {
+  loc: number;
+  seriesIdx: number;
+  peakIdx: number;
+  level: number;
+};
+
+function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
+  peaks.sort((a, b) => a.loc - b.loc);
+  const threshold = xSpan * 0.13;
+  for (let idx = 0; idx < peaks.length; idx++) {
+    const used = new Set<number>();
+    for (let k = 0; k < idx; k++) {
+      if (Math.abs(peaks[k].loc - peaks[idx].loc) < threshold) {
+        used.add(peaks[k].level);
+      }
+    }
+    let level = 0;
+    while (used.has(level)) level++;
+    peaks[idx].level = level;
+  }
+}
 
 function quantileSorted(sorted: number[], q: number): number {
   const pos = (sorted.length - 1) * q;
@@ -114,6 +182,8 @@ function CommonGraph({
   newValues,
   unit,
   isSubtest,
+  vt,
+  onVtChange,
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
@@ -192,11 +262,66 @@ function CommonGraph({
       (Math.random() - 0.5) * JITTER,
     ]);
 
-    const tickFormatter = (value: number) => {
-      const rounded = Math.round(value);
-      if (Math.abs(value - rounded) < 1e-9) return String(rounded);
-      return value.toFixed(2);
-    };
+    // Mode detection on the shared-grid curves so peak x-coords align across series.
+    const baseModes = bKde
+      ? computeModeInfo(sharedX, baseY, vt)
+      : { peakLocs: [], fracs: [], letters: [] };
+    const newModes = nKde
+      ? computeModeInfo(sharedX, newY, vt)
+      : { peakLocs: [], fracs: [], letters: [] };
+
+    // Assign vertical stagger levels across all peaks so labels don't collide.
+    const allPeaks: PeakRef[] = [];
+    baseModes.peakLocs.forEach((loc, peakIdx) =>
+      allPeaks.push({ loc, seriesIdx: 0, peakIdx, level: 0 }),
+    );
+    newModes.peakLocs.forEach((loc, peakIdx) =>
+      allPeaks.push({ loc, seriesIdx: 1, peakIdx, level: 0 }),
+    );
+    const xSpan = max - min;
+    if (xSpan > 0) assignStaggerLevels(allPeaks, xSpan);
+    const levelLookup = new Map<string, number>();
+    for (const p of allPeaks) {
+      levelLookup.set(`${p.seriesIdx}-${p.peakIdx}`, p.level);
+    }
+
+    // Build the per-peak markLine overlays. Each is a dataless line series so
+    // the markLine renders on its own. Names start with "_mode-" so the tooltip
+    // and legend can filter them out.
+    const modeOverlays: EChartsOption['series'] = [];
+    function pushOverlays(
+      seriesIdx: 0 | 1,
+      seriesName: 'Base' | 'New',
+      modes: ModeInfo,
+      color: string,
+    ) {
+      modes.peakLocs.forEach((loc, peakIdx) => {
+        const level = levelLookup.get(`${seriesIdx}-${peakIdx}`) ?? 0;
+        (modeOverlays as unknown[]).push({
+          name: `_mode-${seriesIdx}-${peakIdx}`,
+          type: 'line',
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: [],
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            data: [{ xAxis: loc }],
+            lineStyle: { color, type: 'solid', width: 1.5 },
+            label: {
+              formatter:
+                `${seriesName} ${modes.letters[peakIdx]}: ` +
+                `${tickFormatter(loc)} (${Math.round(modes.fracs[peakIdx] * 100)}%)`,
+              distance: [0, level * 16],
+              color,
+              fontSize: 12,
+            },
+          },
+        });
+      });
+    }
+    pushOverlays(0, 'Base', baseModes, Colors.ChartBase);
+    pushOverlays(1, 'New', newModes, Colors.ChartNew);
 
     return {
       animation: false,
@@ -317,7 +442,9 @@ function CommonGraph({
       },
       legend: {
         data: ['Base', 'New'],
-        top: 4,
+        // Sit below the centered x-axis unit label, between the KDE grid and
+        // the scatter strip, with a small gap above and below.
+        top: 232,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
@@ -407,9 +534,10 @@ function CommonGraph({
             },
           },
         },
+        ...((modeOverlays ?? []) as []),
       ],
     };
-  }, [baseValues, newValues, unit, isSubtest, themeMode]);
+  }, [baseValues, newValues, unit, isSubtest, vt, themeMode]);
 
   useEffect(() => {
     if (!chartContainerRef.current) {
@@ -437,6 +565,55 @@ function CommonGraph({
       <Typography id='retrigger-modal-title' component='h3' variant='h3'>
         Runs Density Distribution
       </Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1.5,
+          mt: 1,
+          mb: 0.5,
+        }}
+      >
+        <Typography
+          variant='body2'
+          sx={{
+            color: '#000',
+            whiteSpace: 'nowrap',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          Valley depth threshold
+          <Tooltip
+            placement='top'
+            title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
+          >
+            <InfoIcon
+              fontSize='small'
+              sx={{ color: '#000', cursor: 'help', mx: 0.5 }}
+            />
+          </Tooltip>
+          :
+        </Typography>
+        <Slider
+          size='small'
+          value={vt}
+          min={VT_MIN}
+          max={VT_MAX}
+          step={VT_STEP}
+          onChange={(_, value) =>
+            onVtChange(typeof value === 'number' ? value : value[0])
+          }
+          aria-label='Valley depth threshold'
+          sx={{ maxWidth: 240 }}
+        />
+        <Typography
+          variant='body2'
+          sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
+        >
+          {Math.round(vt * 100)}%
+        </Typography>
+      </Box>
       <Box sx={{ flex: 0 }}>
         <div
           ref={chartContainerRef}
@@ -452,6 +629,8 @@ interface CommonGraphProps {
   newValues: number[];
   unit: string | null;
   isSubtest: boolean;
+  vt: number;
+  onVtChange: (value: number) => void;
 }
 
 export default CommonGraph;
