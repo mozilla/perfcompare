@@ -601,9 +601,7 @@ function CommonGraph({
           min={VT_MIN}
           max={VT_MAX}
           step={VT_STEP}
-          onChange={(_, value) =>
-            onVtChange(typeof value === 'number' ? value : value[0])
-          }
+          onChange={(_, value) => onVtChange(value)}
           aria-label='Valley depth threshold'
           sx={{ maxWidth: 240 }}
         />

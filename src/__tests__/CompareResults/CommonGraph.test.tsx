@@ -414,4 +414,66 @@ describe('CommonGraph', () => {
     expect(overlays[0].markLine?.label?.formatter).toMatch(/^Base A: 30/);
     expect(overlays[1].markLine?.label?.formatter).toMatch(/^New A: 30/);
   });
+
+  it('shows raw run values in the scatter tooltip with the unit suffix', () => {
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+      />,
+    );
+
+    const formatter = getTooltipFormatter(getLatestEChartsOption());
+    // The formatter inspects items[0].seriesType to pick between scatter and
+    // KDE rendering — pass a scatter-shaped item to exercise the scatter path.
+    const rendered = formatter([
+      {
+        seriesType: 'scatter',
+        seriesName: 'Base',
+        value: [12.5, 0],
+        marker: '[m]',
+      },
+    ] as unknown as Parameters<typeof formatter>[0]);
+    expect(rendered).toBe('[m]Base: 12.50 (ms)');
+  });
+
+  it("labels the scatter y-axis as 'Base' for 0 and 'New' for 1", () => {
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+      />,
+    );
+
+    const option = getLatestEChartsOption();
+    const yAxes = option.yAxis as Array<{
+      axisLabel?: { formatter?: (v: number) => string };
+    }>;
+    const scatterYAxisFormatter = yAxes[1]?.axisLabel?.formatter;
+    expect(scatterYAxisFormatter).toBeDefined();
+    expect(scatterYAxisFormatter!(0)).toBe('Base');
+    expect(scatterYAxisFormatter!(1)).toBe('New');
+    // Anything else returns empty so intermediate jitter values stay unlabelled.
+    expect(scatterYAxisFormatter!(0.5)).toBe('');
+  });
 });
