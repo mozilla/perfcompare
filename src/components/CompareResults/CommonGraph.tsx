@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Box from '@mui/material/Box';
@@ -197,6 +197,16 @@ function CommonGraph({
   // hex values into the chart option below.
   const themeMode = useAppSelector((state) => state.theme.mode);
 
+  // Local mirror of vt that drives the slider thumb + percentage during drag.
+  // We only push the value up to the parent (via onVtChange) when the user
+  // releases the slider — keeping mode detection from re-running on every
+  // pixel of slider movement. Synced back to the prop so external resets
+  // still work.
+  const [localVt, setLocalVt] = useState(vt);
+  useEffect(() => {
+    setLocalVt(vt);
+  }, [vt]);
+
   // Vt-independent precompute: KDE, shared-grid resample, scatter jitter, and
   // axis bounds. Pulled out of the main option memo so dragging the valley-
   // depth slider doesn't (a) re-run the expensive fftkde call and (b) reroll
@@ -277,28 +287,15 @@ function CommonGraph({
     };
   }, [baseValues, newValues, isSubtest]);
 
-  const option: EChartsOption = useMemo(() => {
-    const textColor =
-      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
-    const {
-      bKde,
-      nKde,
-      sharedX,
-      baseY,
-      newY,
-      baseRunsDensity,
-      newRunsDensity,
-      baseScatterData,
-      newScatterData,
-      min,
-      max,
-    } = analysis;
+  // Mode detection (peaks, area fractions, label assignment, stagger levels)
+  // lives in its own memo so it only re-runs when `vt` or the underlying
+  // curves change — not on theme switch, scatter strip toggle, or unit
+  // changes. `fitModesFromKde` is non-trivial work (argrelmax + valley/area
+  // filtering on a 1024-point grid for each series), so keeping it out of
+  // the option-building memo's deps avoids wasted recomputes.
+  const modes = useMemo(() => {
+    const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
 
-    const unitSuffix = unit ? ` (${unit})` : '';
-    const totalCount = baseValues.length + newValues.length;
-    const symbolSize = totalCount < 20 ? 14 : 10;
-
-    // Mode detection on the shared-grid curves so peak x-coords align across series.
     const baseModes = bKde
       ? computeModeInfo(sharedX, baseY, vt)
       : { peakLocs: [], fracs: [], letters: [] };
@@ -320,6 +317,26 @@ function CommonGraph({
     for (const p of allPeaks) {
       levelLookup.set(`${p.seriesIdx}-${p.peakIdx}`, p.level);
     }
+
+    return { baseModes, newModes, levelLookup };
+  }, [analysis, vt]);
+
+  const option: EChartsOption = useMemo(() => {
+    const textColor =
+      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
+    const {
+      baseRunsDensity,
+      newRunsDensity,
+      baseScatterData,
+      newScatterData,
+      min,
+      max,
+    } = analysis;
+    const { baseModes, newModes, levelLookup } = modes;
+
+    const unitSuffix = unit ? ` (${unit})` : '';
+    const totalCount = baseValues.length + newValues.length;
+    const symbolSize = totalCount < 20 ? 14 : 10;
 
     // Build the per-peak markLine overlays. Each is a dataless line series so
     // the markLine renders on its own. Names start with "_mode-" so the tooltip
@@ -575,7 +592,7 @@ function CommonGraph({
         ...((modeOverlays ?? []) as []),
       ],
     };
-  }, [analysis, baseValues, newValues, unit, vt, themeMode, showModes]);
+  }, [analysis, modes, baseValues, newValues, unit, themeMode, showModes]);
 
   useEffect(() => {
     if (!chartContainerRef.current) {
@@ -633,14 +650,23 @@ function CommonGraph({
           </Tooltip>
           :
         </Typography>
+        {/*
+          MUI Slider exposes two events: `onChange` fires continuously during
+          drag (we send it to local state for a smooth thumb), and
+          `onChangeCommitted` fires once when the user releases (we push the
+          final value up to the parent then). This is the moral equivalent of
+          a debounce — the expensive consumer (`computeModeInfo`) runs once
+          per drag instead of on every pixel of movement.
+        */}
         <Slider
           size='small'
-          value={vt}
+          value={localVt}
           min={VT_MIN}
           max={VT_MAX}
           step={VT_STEP}
           disabled={!showModes}
-          onChange={(_, value) => onVtChange(value)}
+          onChange={(_, value) => setLocalVt(value)}
+          onChangeCommitted={(_, value) => onVtChange(value)}
           aria-label='Valley depth threshold'
           sx={{ maxWidth: 240 }}
         />
@@ -648,7 +674,7 @@ function CommonGraph({
           variant='body2'
           sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
         >
-          {Math.round(vt * 100)}%
+          {Math.round(localVt * 100)}%
         </Typography>
         <FormControlLabel
           control={

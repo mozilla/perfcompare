@@ -725,6 +725,11 @@ function popcount(x) {
 function range(n) {
   return Array.from({ length: n }, (_, i) => i);
 }
+// `matchModes` and `splitByMode` below are intentionally unused
+// in this PR — they're the pure-logic helpers that the follow-up
+// `KdeModesPanel` (per-mode blurb) will consume. They live here so the
+// follow-up PR stays focused on the UI rather than re-introducing utility
+// code, and they're exercised by kdeModes.test.ts.
 /**
  * Pair modes between base and comparison runs by minimum total distance.
  *
