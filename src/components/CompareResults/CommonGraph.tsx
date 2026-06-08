@@ -197,13 +197,14 @@ function CommonGraph({
   // hex values into the chart option below.
   const themeMode = useAppSelector((state) => state.theme.mode);
 
-  const option: EChartsOption = useMemo(() => {
-    const textColor =
-      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
+  // Vt-independent precompute: KDE, shared-grid resample, scatter jitter, and
+  // axis bounds. Pulled out of the main option memo so dragging the valley-
+  // depth slider doesn't (a) re-run the expensive fftkde call and (b) reroll
+  // Math.random() jitter — which made the scatter dots visibly jump while
+  // tuning the threshold.
+  const analysis = useMemo(() => {
     const statsForBase = computeStatisticsForRuns(baseValues);
     const statsForNew = computeStatisticsForRuns(newValues);
-
-    // Compute the global min and max with some grace value.
     const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
     const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
 
@@ -250,11 +251,6 @@ function CommonGraph({
       ? sharedX.map((xCoord, i) => [xCoord, newY[i]])
       : [];
 
-    const unitSuffix = unit ? ` (${unit})` : '';
-
-    const totalCount = baseValues.length + newValues.length;
-    const symbolSize = totalCount < 20 ? 14 : 10;
-
     const JITTER = 0.6;
     // Base sits on the top row (y = 1), New on the bottom row (y = 0).
     const baseScatterData: [number, number][] = baseValues.map((v) => [
@@ -265,6 +261,42 @@ function CommonGraph({
       v,
       (Math.random() - 0.5) * JITTER,
     ]);
+
+    return {
+      bKde,
+      nKde,
+      sharedX,
+      baseY,
+      newY,
+      baseRunsDensity,
+      newRunsDensity,
+      baseScatterData,
+      newScatterData,
+      min,
+      max,
+    };
+  }, [baseValues, newValues, isSubtest]);
+
+  const option: EChartsOption = useMemo(() => {
+    const textColor =
+      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
+    const {
+      bKde,
+      nKde,
+      sharedX,
+      baseY,
+      newY,
+      baseRunsDensity,
+      newRunsDensity,
+      baseScatterData,
+      newScatterData,
+      min,
+      max,
+    } = analysis;
+
+    const unitSuffix = unit ? ` (${unit})` : '';
+    const totalCount = baseValues.length + newValues.length;
+    const symbolSize = totalCount < 20 ? 14 : 10;
 
     // Mode detection on the shared-grid curves so peak x-coords align across series.
     const baseModes = bKde
@@ -543,7 +575,7 @@ function CommonGraph({
         ...((modeOverlays ?? []) as []),
       ],
     };
-  }, [baseValues, newValues, unit, isSubtest, vt, themeMode, showModes]);
+  }, [analysis, baseValues, newValues, unit, vt, themeMode, showModes]);
 
   useEffect(() => {
     if (!chartContainerRef.current) {
