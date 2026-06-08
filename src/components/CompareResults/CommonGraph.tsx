@@ -338,9 +338,13 @@ function CommonGraph({
     const totalCount = baseValues.length + newValues.length;
     const symbolSize = totalCount < 20 ? 14 : 10;
 
-    // Build the per-peak markLine overlays. Each is a dataless line series so
-    // the markLine renders on its own. Names start with "_mode-" so the tooltip
-    // and legend can filter them out.
+    // Build the per-peak markLine overlays. Each is a dataless line series
+    // whose markLine renders on its own. They share names with their parent
+    // series ('Base' / 'New') so the legend's toggle action cascades to the
+    // overlays automatically — clicking 'Base' hides every series named
+    // 'Base', including the overlays. The legend itself only renders the two
+    // entries listed in `legend.data` regardless of how many series share
+    // those names.
     const modeOverlays: EChartsOption['series'] = [];
     function pushOverlays(
       seriesIdx: 0 | 1,
@@ -351,7 +355,7 @@ function CommonGraph({
       modes.peakLocs.forEach((loc, peakIdx) => {
         const level = levelLookup.get(`${seriesIdx}-${peakIdx}`) ?? 0;
         (modeOverlays as unknown[]).push({
-          name: `_mode-${seriesIdx}-${peakIdx}`,
+          name: seriesName,
           type: 'line',
           xAxisIndex: 0,
           yAxisIndex: 0,

@@ -216,10 +216,11 @@ describe('CommonGraph', () => {
 
     const option = getLatestEChartsOption();
     const allSeries = option.series as LineSeriesOption[];
-    // Exclude the mode-overlay markLine series (named "_mode-*") — only count
-    // the two underlying KDE curves.
+    // Mode-overlay markLine series share names with the parent KDE lines
+    // (Base/New) so the legend can toggle them together — identify the
+    // underlying KDE curves by the absence of a markLine config.
     const series = allSeries.filter(
-      (s) => s.type === 'line' && !String(s.name ?? '').startsWith('_mode-'),
+      (s) => s.type === 'line' && !(s as { markLine?: unknown }).markLine,
     );
     expect(series).toHaveLength(2);
     // Base side has a resampled density curve.
@@ -393,8 +394,10 @@ describe('CommonGraph', () => {
 
   it('emits a mode-overlay markLine series for each detected peak', () => {
     // Strictly increasing fake KDE — fitModesFromKde returns a single peak at
-    // the global max (last x). That yields exactly one "_mode-*" overlay per
-    // series, with a label tagged by series and letter A.
+    // the global max (last x). That yields exactly one markLine overlay per
+    // series, with a label tagged by series and letter A. Overlays share
+    // names with the parent KDE series (Base/New) so the legend can toggle
+    // them — identify them by the markLine config rather than name.
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
@@ -423,11 +426,15 @@ describe('CommonGraph', () => {
         lineStyle?: { color?: string };
       };
     }>;
-    const overlays = series.filter((s) =>
-      String(s.name ?? '').startsWith('_mode-'),
+    // Peak overlays are line-type series with a markLine. Scatter rows also
+    // carry a baseline markLine but they're scatter-type, so type filters them out.
+    const overlays = series.filter(
+      (s) => (s as { type?: string }).type === 'line' && Boolean(s.markLine),
     );
     // One overlay per series (Base + New), both peaking at the same x.
     expect(overlays).toHaveLength(2);
+    expect(overlays[0].name).toBe('Base');
+    expect(overlays[1].name).toBe('New');
     expect(overlays[0].markLine?.data?.[0]?.xAxis).toBe(30);
     expect(overlays[1].markLine?.data?.[0]?.xAxis).toBe(30);
     expect(overlays[0].markLine?.label?.formatter).toMatch(/^Base A: 30/);
