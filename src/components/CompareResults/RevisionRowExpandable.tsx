@@ -21,6 +21,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   // chart. Lifted to this row so the future mode-blurb panel can read the same
   // detected modes without recomputing the KDE.
   const [vt, setVt] = useState(0.5);
+  const [showModes, setShowModes] = useState(true);
 
   const {
     base_runs: baseRuns,
@@ -80,6 +81,8 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                   isSubtest={result.base_parent_signature !== null}
                   vt={vt}
                   onVtChange={setVt}
+                  showModes={showModes}
+                  onShowModesChange={setShowModes}
                 />
               )}
               {strategy.renderExpandedLeft(result)}

@@ -90,6 +90,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -136,6 +138,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -170,6 +174,8 @@ describe('CommonGraph', () => {
         isSubtest={true}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -202,6 +208,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -246,6 +254,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -270,6 +280,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -314,6 +326,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -356,6 +370,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -392,6 +408,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -430,6 +448,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -447,7 +467,7 @@ describe('CommonGraph', () => {
     expect(rendered).toBe('[m]Base: 12.50 (ms)');
   });
 
-  it("labels the scatter y-axis as 'Base' for 0 and 'New' for 1", () => {
+  it("labels the scatter y-axis as 'Base' for 1 and 'New' for 0", () => {
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
@@ -462,6 +482,8 @@ describe('CommonGraph', () => {
         isSubtest={false}
         vt={0.5}
         onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -471,8 +493,8 @@ describe('CommonGraph', () => {
     }>;
     const scatterYAxisFormatter = yAxes[1]?.axisLabel?.formatter;
     expect(scatterYAxisFormatter).toBeDefined();
-    expect(scatterYAxisFormatter!(0)).toBe('Base');
-    expect(scatterYAxisFormatter!(1)).toBe('New');
+    expect(scatterYAxisFormatter!(1)).toBe('Base');
+    expect(scatterYAxisFormatter!(0)).toBe('New');
     // Anything else returns empty so intermediate jitter values stay unlabelled.
     expect(scatterYAxisFormatter!(0.5)).toBe('');
   });

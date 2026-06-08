@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Box from '@mui/material/Box';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Slider from '@mui/material/Slider';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
@@ -184,6 +186,8 @@ function CommonGraph({
   isSubtest,
   vt,
   onVtChange,
+  showModes,
+  onShowModesChange,
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
@@ -320,8 +324,10 @@ function CommonGraph({
         });
       });
     }
-    pushOverlays(0, 'Base', baseModes, Colors.ChartBase);
-    pushOverlays(1, 'New', newModes, Colors.ChartNew);
+    if (showModes) {
+      pushOverlays(0, 'Base', baseModes, Colors.ChartBase);
+      pushOverlays(1, 'New', newModes, Colors.ChartNew);
+    }
 
     return {
       animation: false,
@@ -537,7 +543,7 @@ function CommonGraph({
         ...((modeOverlays ?? []) as []),
       ],
     };
-  }, [baseValues, newValues, unit, isSubtest, vt, themeMode]);
+  }, [baseValues, newValues, unit, isSubtest, vt, themeMode, showModes]);
 
   useEffect(() => {
     if (!chartContainerRef.current) {
@@ -601,6 +607,7 @@ function CommonGraph({
           min={VT_MIN}
           max={VT_MAX}
           step={VT_STEP}
+          disabled={!showModes}
           onChange={(_, value) => onVtChange(value)}
           aria-label='Valley depth threshold'
           sx={{ maxWidth: 240 }}
@@ -611,6 +618,17 @@ function CommonGraph({
         >
           {Math.round(vt * 100)}%
         </Typography>
+        <FormControlLabel
+          control={
+            <Checkbox
+              size='small'
+              checked={showModes}
+              onChange={(_, checked) => onShowModesChange(checked)}
+            />
+          }
+          label='Show modes'
+          sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
+        />
       </Box>
       <Box sx={{ flex: 0 }}>
         <div
@@ -629,6 +647,8 @@ interface CommonGraphProps {
   isSubtest: boolean;
   vt: number;
   onVtChange: (value: number) => void;
+  showModes: boolean;
+  onShowModesChange: (value: boolean) => void;
 }
 
 export default CommonGraph;
