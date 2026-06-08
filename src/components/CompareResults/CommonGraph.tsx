@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { init, type ECharts, type EChartsOption } from 'echarts';
 
+import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { fftkde } from '../../utils/kde.js';
 
@@ -116,8 +117,15 @@ function CommonGraph({
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
+  // ECharts renders into its own DOM/canvas and reads its colors from the
+  // option object — it doesn't inherit from MUI's ThemeProvider or CSS vars.
+  // So we pull the current mode from the Redux theme slice and pass concrete
+  // hex values into the chart option below.
+  const themeMode = useAppSelector((state) => state.theme.mode);
 
   const option: EChartsOption = useMemo(() => {
+    const textColor =
+      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
     const statsForBase = computeStatisticsForRuns(baseValues);
     const statsForNew = computeStatisticsForRuns(newValues);
 
@@ -171,16 +179,17 @@ function CommonGraph({
     const unitSuffix = unit ? ` (${unit})` : '';
 
     const totalCount = baseValues.length + newValues.length;
-    const symbolSize = totalCount < 20 ? 10 : 7;
+    const symbolSize = totalCount < 20 ? 14 : 10;
 
     const JITTER = 0.6;
+    // Base sits on the top row (y = 1), New on the bottom row (y = 0).
     const baseScatterData: [number, number][] = baseValues.map((v) => [
       v,
-      (Math.random() - 0.5) * JITTER,
+      1 + (Math.random() - 0.5) * JITTER,
     ]);
     const newScatterData: [number, number][] = newValues.map((v) => [
       v,
-      1 + (Math.random() - 0.5) * JITTER,
+      (Math.random() - 0.5) * JITTER,
     ]);
 
     const tickFormatter = (value: number) => {
@@ -203,10 +212,10 @@ function CommonGraph({
           name: unit ?? '',
           nameLocation: 'middle',
           nameGap: 30,
-          nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: '#000' },
+          nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: textColor },
           // Tick labels show 2 dp for fractional values, drop ".00" for whole
           // numbers. Floats near integers (e.g. 14 + 1e-15) collapse to "14".
-          axisLabel: { formatter: tickFormatter },
+          axisLabel: { formatter: tickFormatter, color: textColor },
           splitLine: { show: true, lineStyle: { color: '#eee' } },
           axisLine: { show: true, lineStyle: { color: '#999' } },
         },
@@ -229,7 +238,7 @@ function CommonGraph({
           splitLine: { show: true, lineStyle: { color: '#eee' } },
           axisLine: { show: true, lineStyle: { color: '#999' } },
           axisTick: { show: false },
-          axisLabel: { show: true, color: '#000', fontSize: 12 },
+          axisLabel: { show: true, color: textColor, fontSize: 12 },
         },
         {
           gridIndex: 1,
@@ -240,9 +249,9 @@ function CommonGraph({
           axisTick: { show: false },
           axisLine: { show: true, lineStyle: { color: '#999' } },
           axisLabel: {
-            color: '#000',
+            color: textColor,
             fontSize: 12,
-            formatter: (v: number) => (v === 0 ? 'Base' : v === 1 ? 'New' : ''),
+            formatter: (v: number) => (v === 1 ? 'Base' : v === 0 ? 'New' : ''),
           },
           splitLine: { show: false },
         },
@@ -348,6 +357,25 @@ function CommonGraph({
           symbolSize,
           itemStyle: { color: Colors.ChartBase, opacity: 0.6 },
           emphasis: { focus: 'none' },
+          // Horizontal baseline through the Base row (y = 1) for a visual anchor.
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            label: {
+              show: true,
+              position: 'end',
+              formatter: 'Base',
+              color: Colors.ChartBase,
+              fontSize: 12,
+            },
+            data: [{ yAxis: 1 }],
+            lineStyle: {
+              color: Colors.ChartBase,
+              type: 'solid',
+              width: 1,
+              opacity: 0.5,
+            },
+          },
         },
         {
           name: 'New',
@@ -359,10 +387,29 @@ function CommonGraph({
           symbolSize,
           itemStyle: { color: Colors.ChartNew, opacity: 0.6 },
           emphasis: { focus: 'none' },
+          // Horizontal baseline through the New row (y = 0) for a visual anchor.
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            label: {
+              show: true,
+              position: 'end',
+              formatter: 'New',
+              color: Colors.ChartNew,
+              fontSize: 12,
+            },
+            data: [{ yAxis: 0 }],
+            lineStyle: {
+              color: Colors.ChartNew,
+              type: 'solid',
+              width: 1,
+              opacity: 0.5,
+            },
+          },
         },
       ],
     };
-  }, [baseValues, newValues, unit, isSubtest]);
+  }, [baseValues, newValues, unit, isSubtest, themeMode]);
 
   useEffect(() => {
     if (!chartContainerRef.current) {
