@@ -1,7 +1,14 @@
 /**
- * Percentile bootstrap confidence interval for the difference of medians.
+ * BCa (bias-corrected and accelerated) bootstrap confidence interval for the
+ * difference of medians.
  *
- * No external dependencies.
+ * Matches scipy.stats.bootstrap(..., method='BCa', paired=False).
+ *
+ * References:
+ *   DiCiccio, T. J. & Efron, B. (1996): Bootstrap confidence intervals.
+ *     Statistical Science 11(3), 189-228.
+ *   Acklam, P. J. (2003): An algorithm for computing the inverse normal
+ *     cumulative distribution function.
  */
 
 function median(arr: ArrayLike<number>): number {
@@ -29,6 +36,87 @@ function mulberry32(seed: number): () => number {
   };
 }
 
+// Abramowitz & Stegun 7.1.26 — max error 1.5e-7
+function erf(x: number): number {
+  const t = 1 / (1 + 0.3275911 * Math.abs(x));
+  const p =
+    t *
+    (0.254829592 +
+      t * (-0.284496736 + t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))));
+  return (x >= 0 ? 1 : -1) * (1 - p * Math.exp(-x * x));
+}
+
+function normalCDF(x: number): number {
+  return 0.5 * (1 + erf(x / Math.SQRT2));
+}
+
+// Acklam rational approximation — max absolute error 1.15e-9
+function normalPPF(p: number): number {
+  const a = [
+    -3.969683028665376e1, 2.20946098424520e2, -2.759285104469687e2,
+    1.38357751867269e2, -3.066479806614716e1, 2.506628277459239,
+  ];
+  const b = [
+    -5.447609879822406e1, 1.615858368580409e2, -1.556989798598866e2,
+    6.680131188771972e1, -1.328068155288572e1,
+  ];
+  const c = [
+    -7.784894002430293e-3, -3.223964580411365e-1, -2.400758277161838,
+    -2.549732539343734, 4.374664141464968, 2.938163982698783,
+  ];
+  const d = [
+    7.784695709041462e-3, 3.224671290700398e-1, 2.445134137142996,
+    3.754408661907416,
+  ];
+  const pLow = 0.02425;
+  if (p <= 0) return -Infinity;
+  if (p >= 1) return Infinity;
+  if (p < pLow) {
+    const q = Math.sqrt(-2 * Math.log(p));
+    return (
+      (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) /
+      ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1)
+    );
+  }
+  if (p <= 1 - pLow) {
+    const q = p - 0.5;
+    const r = q * q;
+    return (
+      ((((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q) /
+      (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1)
+    );
+  }
+  const q = Math.sqrt(-2 * Math.log(1 - p));
+  return (
+    -(((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) /
+    ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1)
+  );
+}
+
+// Leave-one-out jackknife estimates of (median(new) - median(base)) for the
+// two-sample case: leave out each base observation in turn, then each new
+// observation in turn.
+function jackknifeDiffs(baseArr: Float64Array, newArr: Float64Array): number[] {
+  const medNew = median(newArr);
+  const medBase = median(baseArr);
+  const jack: number[] = [];
+  for (let i = 0; i < baseArr.length; i++) {
+    const leave = new Float64Array(baseArr.length - 1);
+    for (let j = 0, k = 0; j < baseArr.length; j++) {
+      if (j !== i) leave[k++] = baseArr[j];
+    }
+    jack.push(medNew - median(leave));
+  }
+  for (let i = 0; i < newArr.length; i++) {
+    const leave = new Float64Array(newArr.length - 1);
+    for (let j = 0, k = 0; j < newArr.length; j++) {
+      if (j !== i) leave[k++] = newArr[j];
+    }
+    jack.push(median(leave) - medBase);
+  }
+  return jack;
+}
+
 export type BootstrapCI = {
   medianDiff: number;
   ciLow: number;
@@ -37,55 +125,70 @@ export type BootstrapCI = {
 };
 
 /**
- * Percentile bootstrap confidence interval for (median(newData) - median(base)).
- * Matches scipy.stats.bootstrap(..., method="percentile", paired=False).
+ * BCa bootstrap confidence interval for (median(newData) - median(base)).
  *
- * How it works
- * ------------
- * A confidence interval answers: "given the samples we observed, what is the
- * plausible range for the true difference?"  The bootstrap approach avoids
- * assumptions about the underlying distribution (normality, etc.) by
- * simulating the sampling process directly:
+ * BCa improves on the basic percentile method by correcting for:
+ *   - Bias: the bootstrap distribution may be shifted relative to the true
+ *     sampling distribution (z0, the bias-correction factor).
+ *   - Skewness: the interval may need to be asymmetric (a, the acceleration,
+ *     estimated via leave-one-out jackknife).
  *
- *   1. Draw nIter synthetic datasets by sampling WITH replacement from each
- *      input array (a "resample" — same size, but some values repeat and some
- *      are absent).
- *   2. Compute (median(resampledNew) - median(resampledBase)) for each pair.
- *   3. Sort the resulting nIter differences.
- *   4. The CI is the [alpha/2, 1-alpha/2] percentile range of that distribution.
- *
- * If the CI does not straddle zero, the difference is statistically significant
- * at the chosen alpha level.
- *
- * @param base    - baseline sample values (e.g. before-patch timings)
- * @param newData - new/comparison sample values (e.g. after-patch timings)
- * @param nIter   - number of bootstrap resamples; 1000 is sufficient for most
- *                  uses, increase to 10 000 for publication-quality intervals
- * @param alpha   - two-tailed significance level: the CI covers (1-alpha) of the
- *                  bootstrap distribution, e.g. 0.05 → 95% CI, 0.01 → 99% CI
- * @param seed    - PRNG seed; fix this to get reproducible results across runs
+ * @param base    - baseline sample values
+ * @param newData - new/comparison sample values
+ * @param nIter   - bootstrap resamples; 9999 is standard for BCa
+ * @param alpha   - two-tailed level: CI covers (1-alpha), e.g. 0.05 → 95% CI
+ * @param seed    - PRNG seed for reproducibility
  */
 export function bootstrapMedianDiffCI(
   base: number[],
   newData: number[],
-  nIter: number = 1000,
+  nIter: number = 9999,
   alpha: number = 0.05,
   seed: number = 42,
 ): BootstrapCI {
   const rng = mulberry32(seed);
   const baseArr = new Float64Array(base);
   const newArr = new Float64Array(newData);
+  const observed = median(newArr) - median(baseArr);
+
+  // Bootstrap distribution
   const diffs = new Float64Array(nIter);
   for (let i = 0; i < nIter; i++) {
     diffs[i] = median(resample(newArr, rng)) - median(resample(baseArr, rng));
   }
+
+  // Bias-correction: proportion of bootstrap samples strictly below observed,
+  // clamped away from 0 and 1 to keep normalPPF finite.
+  let below = 0;
+  for (let i = 0; i < nIter; i++) if (diffs[i] < observed) below++;
+  const prop = Math.max(0.5 / nIter, Math.min(1 - 0.5 / nIter, below / nIter));
+  const z0 = normalPPF(prop);
+
+  // Acceleration via jackknife
+  const jack = jackknifeDiffs(baseArr, newArr);
+  const jackMean = jack.reduce((s, v) => s + v, 0) / jack.length;
+  const num = jack.reduce((s, v) => s + Math.pow(jackMean - v, 3), 0);
+  const denom = 6 * Math.pow(jack.reduce((s, v) => s + Math.pow(jackMean - v, 2), 0), 1.5);
+  const a = denom === 0 ? 0 : num / denom;
+
+  // BCa-adjusted quantile indices
+  const zLow = normalPPF(alpha / 2);
+  const zHigh = normalPPF(1 - alpha / 2);
+  const adj = (z: number) => {
+    const denom = 1 - a * (z0 + z);
+    return denom === 0 ? (z < 0 ? 0 : 1) : normalCDF(z0 + (z0 + z) / denom);
+  };
+  const alpha1 = adj(zLow);
+  const alpha2 = adj(zHigh);
+
   diffs.sort();
-  const loIdx = Math.floor((alpha / 2) * nIter);
-  const hiIdx = Math.min(Math.floor((1 - alpha / 2) * nIter), nIter - 1);
+  const loIdx = Math.max(0, Math.min(Math.floor(alpha1 * nIter), nIter - 1));
+  const hiIdx = Math.max(0, Math.min(Math.floor(alpha2 * nIter), nIter - 1));
+
   const ciLow = diffs[loIdx];
   const ciHigh = diffs[hiIdx];
   return {
-    medianDiff: median(newData) - median(base),
+    medianDiff: observed,
     ciLow,
     ciHigh,
     significant: ciLow > 0 || ciHigh < 0,
