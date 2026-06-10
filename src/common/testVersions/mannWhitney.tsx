@@ -16,7 +16,7 @@ import {
 } from '../../types/state';
 import { TableConfig } from '../../types/types';
 import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
-import { formatNumber } from '../../utils/format';
+import { adaptUnit, formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
@@ -415,12 +415,16 @@ export const mannWhitneyStrategy = {
       baseRuns.length > 0 && newRuns.length > 0
         ? bootstrapMedianDiffCI(baseRuns, newRuns)
         : null;
-    const fmt = (n: number) => (n >= 0 ? '+' : '') + n.toFixed(1);
+    const rawUnit = mwResult.base_measurement_unit ?? mwResult.new_measurement_unit ?? 'ms';
+    const { fmt, displayUnit } = ci
+      ? adaptUnit([ci.medianDiff, ci.ciLow, ci.ciHigh], rawUnit)
+      : adaptUnit([], rawUnit);
+    const ciCrossesZero = ci && ci.ciLow < 0 && ci.ciHigh > 0;
     const summary = ci ? (
       <span>
-        <strong>Δ median</strong> = {fmt(ci.medianDiff)} ms 95% CI [
+        <strong>Δ median</strong> = {fmt(ci.medianDiff)} {displayUnit} 95% CI [
         {fmt(ci.ciLow)}, {fmt(ci.ciHigh)}]
-        {ci.significant ? '' : '  (not significant)'}
+        {ciCrossesZero ? ' ⚠ interval includes zero — effect direction uncertain' : ''}
       </span>
     ) : null;
     const confidenceInterval = ci && (
