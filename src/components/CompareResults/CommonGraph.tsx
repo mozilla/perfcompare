@@ -11,11 +11,14 @@ import { init, type ECharts, type EChartsOption } from 'echarts';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
+import { getDisplayScale } from '../../utils/format';
 import {
   areaFracs,
   assignLetters,
   fftkde,
   fitModesFromKde,
+  improvedSheatherJones,
+  silvermansRule,
 } from '../../utils/kde.js';
 
 // This computes the min, max from a list of numbers.
@@ -46,6 +49,10 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
+// Show the smoothing slider when the bandwidth exceeds half the data range —
+// at that point the KDE curve is genuinely flat and the user may want to dial
+// it down to see structure.
+const LARGE_BW_RATIO = 0.5;
 const KDE_GRID_POINTS = 1024;
 const LABEL_ROW_PX = 16; // vertical space per stagger level
 const KDE_TOP_BASE = 28;
@@ -138,6 +145,7 @@ function approximateSJBandwidth(sorted: number[]): number {
     sorted.reduce((sum, x) => sum + Math.pow(x - mean, 2), 0) / n,
   );
   const sigma = Math.min(std, iqr / 1.34);
+  if (sigma <= 0) return Math.abs(mean) * 0.001 || 1;
   return 0.9 * sigma * Math.pow(n, -1 / 5);
 }
 
@@ -150,7 +158,11 @@ function safeKde(values: number[], bw?: number) {
   try {
     return fftkde(values, bw ?? 'ISJ', undefined, KDE_GRID_POINTS);
   } catch {
-    return fftkde(values, 'silverman', undefined, KDE_GRID_POINTS);
+    try {
+      return fftkde(values, 'silverman', undefined, KDE_GRID_POINTS);
+    } catch {
+      return null;
+    }
   }
 }
 
@@ -200,6 +212,35 @@ function CommonGraph({
   // hex values into the chart option below.
   const themeMode = useAppSelector((state) => state.theme.mode);
 
+  const rawBandwidths = useMemo(() => {
+    const computeBw = (values: number[]) => {
+      if (values.length < 2) return undefined;
+      if (!isSubtest) {
+        return approximateSJBandwidth([...values].sort((a, b) => a - b));
+      }
+      try {
+        return improvedSheatherJones(values);
+      } catch {
+        return silvermansRule(values);
+      }
+    };
+    return { base: computeBw(baseValues), new: computeBw(newValues) };
+  }, [baseValues, newValues, isSubtest]);
+
+  const isLargeBw = useMemo(() => {
+    const allValues = [...baseValues, ...newValues];
+    if (allValues.length < 2) return false;
+    const lo = Math.min(...allValues);
+    const hi = Math.max(...allValues);
+    const range = hi - lo;
+    if (range === 0) return false;
+    const bw = Math.max(rawBandwidths?.base ?? 0, rawBandwidths?.new ?? 0);
+    return bw / range > LARGE_BW_RATIO;
+  }, [baseValues, newValues, rawBandwidths]);
+
+  const [bwMultiplier, setBwMultiplier] = useState(1.0);
+  useEffect(() => setBwMultiplier(1.0), [baseValues, newValues]);
+
   // Local mirror of vt that drives the slider thumb + percentage during drag.
   // We only push the value up to the parent (via onVtChange) when the user
   // releases the slider — keeping mode detection from re-running on every
@@ -218,25 +259,13 @@ function CommonGraph({
   const analysis = useMemo(() => {
     const statsForBase = computeStatisticsForRuns(baseValues);
     const statsForNew = computeStatisticsForRuns(newValues);
-    const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
-    const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
 
-    // Top-level results have fewer, more spread-out samples — use the SJ
-    // approximation for a wider (smoother) bandwidth. Subtest results have
-    // more data so ISJ can select a tighter, more accurate bandwidth.
-    let baseBw: number | undefined;
-    let newBw: number | undefined;
-    if (!isSubtest) {
-      const baseSorted = [...baseValues].sort((a, b) => a - b);
-      const newSorted = [...newValues].sort((a, b) => a - b);
-      baseBw =
-        baseSorted.length >= 2 ? approximateSJBandwidth(baseSorted) : undefined;
-      newBw =
-        newSorted.length >= 2 ? approximateSJBandwidth(newSorted) : undefined;
-    }
+    const sharedBw = rawBandwidths
+      ? Math.max(rawBandwidths.base ?? 0, rawBandwidths.new ?? 0) * bwMultiplier
+      : undefined;
 
-    const bKde = safeKde(baseValues, baseBw);
-    const nKde = safeKde(newValues, newBw);
+    const bKde = safeKde(baseValues, sharedBw);
+    const nKde = safeKde(newValues, sharedBw);
 
     // Build a shared x-grid covering both KDEs' ranges. Resampling both
     // curves onto identical x positions is what lets the axis-trigger tooltip
@@ -247,6 +276,32 @@ function CommonGraph({
       bKde?.x[bKde.x.length - 1],
       nKde?.x[nKde.x.length - 1],
     );
+
+    // Use the KDE grid extent as axis bounds — it is already padded by
+    // gaussianPracticalSupport(bandwidth) inside autogrid1D, so it scales
+    // correctly regardless of the absolute magnitude of the values.
+    // Fall back to additive range-based padding when no KDE is available.
+    let min: number;
+    let max: number;
+    if (Number.isFinite(xStart) && Number.isFinite(xEnd)) {
+      const pad = (xEnd - xStart) * 0.05;
+      min = xStart - pad;
+      max = xEnd + pad;
+    } else {
+      const dataMin = computeMin(statsForBase?.min, statsForNew?.min) ?? 0;
+      const dataMax = computeMax(statsForBase?.max, statsForNew?.max) ?? 0;
+      const pad = (dataMax - dataMin) * 0.05;
+      min = dataMin - pad;
+      max = dataMax + pad;
+    }
+    // When data is near-constant the axis range can be absurdly narrow.
+    // Enforce a minimum range of 1% of the midpoint value so ticks are readable.
+    const mid = (min + max) / 2;
+    const minRange = Math.abs(mid) * 0.01;
+    if (max - min < minRange) {
+      min = mid - minRange / 2;
+      max = mid + minRange / 2;
+    }
     const sharedX: number[] = [];
     if (Number.isFinite(xStart) && Number.isFinite(xEnd) && xEnd > xStart) {
       for (let i = 0; i < KDE_GRID_POINTS; i++) {
@@ -288,7 +343,7 @@ function CommonGraph({
       min,
       max,
     };
-  }, [baseValues, newValues, isSubtest]);
+  }, [baseValues, newValues, isSubtest, rawBandwidths, bwMultiplier]);
 
   // Mode detection (peaks, area fractions, label assignment, stagger levels)
   // lives in its own memo so it only re-runs when the threshold or the
@@ -352,9 +407,13 @@ function CommonGraph({
       height: SCATTER_HEIGHT,
     };
 
-    const unitSuffix = unit ? ` (${unit})` : '';
+    const { scale, displayUnit, decimals } = unit
+      ? getDisplayScale([min, max], unit)
+      : { scale: 1, displayUnit: unit ?? '', decimals: 2 };
+    const unitSuffix = displayUnit ? ` (${displayUnit})` : '';
     const totalCount = baseValues.length + newValues.length;
     const symbolSize = totalCount < 20 ? 14 : 10;
+    const tickFormatter = (value: number) => (value / scale).toFixed(decimals);
 
     // Build the per-peak markLine overlays. Each is a dataless line series
     // whose markLine renders on its own. They share names with their parent
@@ -411,12 +470,10 @@ function CommonGraph({
           type: 'value',
           min,
           max,
-          name: unit ?? '',
+          name: displayUnit,
           nameLocation: 'middle',
           nameGap: 30,
           nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: textColor },
-          // Tick labels show 2 dp for fractional values, drop ".00" for whole
-          // numbers. Floats near integers (e.g. 14 + 1e-15) collapse to "14".
           axisLabel: { formatter: tickFormatter, color: textColor },
           splitLine: { show: true, lineStyle: { color: '#eee' } },
           axisLine: { show: true, lineStyle: { color: '#999' } },
@@ -494,7 +551,7 @@ function CommonGraph({
               .map((pts) => {
                 const marker = typeof pts.marker === 'string' ? pts.marker : '';
                 const xVal = (pts.value as [number, number])[0];
-                return `${marker}${pts.seriesName ?? ''}: ${xVal.toFixed(2)}${unitSuffix}`;
+                return `${marker}${pts.seriesName ?? ''}: ${(xVal / scale).toFixed(decimals)}${unitSuffix}`;
               })
               .join('<br>');
           }
@@ -502,7 +559,7 @@ function CommonGraph({
           const axisX =
             (items[0] as { axisValue?: number }).axisValue ??
             (items[0].value as [number, number])[0];
-          const header = `Value: ${Number(axisX).toFixed(2)}${unitSuffix}`;
+          const header = `Value: ${(Number(axisX) / scale).toFixed(decimals)}${unitSuffix}`;
           const lines = items.map((pts) => {
             const marker = typeof pts.marker === 'string' ? pts.marker : '';
             const y = (pts.value as [number, number])[1];
@@ -719,6 +776,23 @@ function CommonGraph({
           }}
         />
       </Box>
+      {isLargeBw && (
+        <Box sx={{ px: 2, pt: 0.5 }}>
+          <Typography variant='caption' color='text.secondary'>
+            High variance detected — smoothing ({bwMultiplier.toFixed(2)}×)
+          </Typography>
+          <Slider
+            size='small'
+            min={0.05}
+            max={1.5}
+            step={0.05}
+            value={bwMultiplier}
+            onChange={(_, v) => setBwMultiplier(v as number)}
+            valueLabelDisplay='auto'
+            valueLabelFormat={(v) => `${(v as number).toFixed(2)}×`}
+          />
+        </Box>
+      )}
     </>
   );
 }
