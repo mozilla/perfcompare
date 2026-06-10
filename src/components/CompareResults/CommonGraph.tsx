@@ -46,10 +46,13 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const CHART_HEIGHT = 340;
 const KDE_GRID_POINTS = 1024;
-const KDE_GRID = { left: 70, right: 70, top: 28, height: 155 };
-const SCATTER_GRID = { left: 70, right: 70, top: 250, height: 50 };
+const LABEL_ROW_PX = 16; // vertical space per stagger level
+const KDE_TOP_BASE = 28;
+const KDE_HEIGHT = 155;
+const SCATTER_TOP_BASE = 250;
+const SCATTER_HEIGHT = 50;
+const CHART_HEIGHT_BASE = 340;
 
 // Valley-depth threshold bounds for the mode-detection slider.
 const VT_MIN = 0.1;
@@ -97,7 +100,7 @@ type PeakRef = {
 
 function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
   peaks.sort((a, b) => a.loc - b.loc);
-  const threshold = xSpan * 0.13;
+  const threshold = xSpan * 0.20;
   for (let idx = 0; idx < peaks.length; idx++) {
     const used = new Set<number>();
     for (let k = 0; k < idx; k++) {
@@ -334,7 +337,10 @@ function CommonGraph({
       min,
       max,
     } = analysis;
-    const { baseModes, newModes, levelLookup } = modes;
+    const { baseModes, newModes, levelLookup, maxLevel } = modes;
+    const extraTop = maxLevel * LABEL_ROW_PX;
+    const kdeGrid = { left: 70, right: 70, top: KDE_TOP_BASE + extraTop, height: KDE_HEIGHT };
+    const scatterGrid = { left: 70, right: 70, top: SCATTER_TOP_BASE + extraTop, height: SCATTER_HEIGHT };
 
     const unitSuffix = unit ? ` (${unit})` : '';
     const totalCount = baseValues.length + newValues.length;
@@ -386,7 +392,7 @@ function CommonGraph({
 
     return {
       animation: false,
-      grid: [KDE_GRID, SCATTER_GRID],
+      grid: [kdeGrid, scatterGrid],
       // axisPointer link keeps the vertical crosshair in sync across both grids.
       axisPointer: { link: [{ xAxisIndex: 'all' }] },
       xAxis: [
@@ -697,7 +703,7 @@ function CommonGraph({
       <Box sx={{ flex: 0 }}>
         <div
           ref={chartContainerRef}
-          style={{ width: '100%', height: CHART_HEIGHT }}
+          style={{ width: '100%', height: CHART_HEIGHT_BASE + modes.maxLevel * LABEL_ROW_PX }}
         />
       </Box>
     </>
