@@ -100,7 +100,7 @@ type PeakRef = {
 
 function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
   peaks.sort((a, b) => a.loc - b.loc);
-  const threshold = xSpan * 0.20;
+  const threshold = xSpan * 0.2;
   for (let idx = 0; idx < peaks.length; idx++) {
     const used = new Set<number>();
     for (let k = 0; k < idx; k++) {
@@ -339,8 +339,18 @@ function CommonGraph({
     } = analysis;
     const { baseModes, newModes, levelLookup, maxLevel } = modes;
     const extraTop = maxLevel * LABEL_ROW_PX;
-    const kdeGrid = { left: 70, right: 70, top: KDE_TOP_BASE + extraTop, height: KDE_HEIGHT };
-    const scatterGrid = { left: 70, right: 70, top: SCATTER_TOP_BASE + extraTop, height: SCATTER_HEIGHT };
+    const kdeGrid = {
+      left: 70,
+      right: 70,
+      top: KDE_TOP_BASE + extraTop,
+      height: KDE_HEIGHT,
+    };
+    const scatterGrid = {
+      left: 70,
+      right: 70,
+      top: SCATTER_TOP_BASE + extraTop,
+      height: SCATTER_HEIGHT,
+    };
 
     const unitSuffix = unit ? ` (${unit})` : '';
     const totalCount = baseValues.length + newValues.length;
@@ -703,7 +713,10 @@ function CommonGraph({
       <Box sx={{ flex: 0 }}>
         <div
           ref={chartContainerRef}
-          style={{ width: '100%', height: CHART_HEIGHT_BASE + modes.maxLevel * LABEL_ROW_PX }}
+          style={{
+            width: '100%',
+            height: CHART_HEIGHT_BASE + modes.maxLevel * LABEL_ROW_PX,
+          }}
         />
       </Box>
     </>
