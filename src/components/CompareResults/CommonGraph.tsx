@@ -288,19 +288,19 @@ function CommonGraph({
   }, [baseValues, newValues, isSubtest]);
 
   // Mode detection (peaks, area fractions, label assignment, stagger levels)
-  // lives in its own memo so it only re-runs when `vt` or the underlying
-  // curves change — not on theme switch, scatter strip toggle, or unit
-  // changes. `fitModesFromKde` is non-trivial work (argrelmax + valley/area
-  // filtering on a 1024-point grid for each series), so keeping it out of
-  // the option-building memo's deps avoids wasted recomputes.
+  // lives in its own memo so it only re-runs when the threshold or the
+  // underlying curves change — not on theme switch, scatter strip toggle, or
+  // unit changes. Uses localVt (the live slider position) so mode lines track
+  // the thumb in real time. fitModesFromKde is cheap (array ops on a
+  // pre-computed 1024-point grid), so running it on every drag pixel is fine.
   const modes = useMemo(() => {
     const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
 
     const baseModes = bKde
-      ? computeModeInfo(sharedX, baseY, vt)
+      ? computeModeInfo(sharedX, baseY, localVt)
       : { peakLocs: [], fracs: [], letters: [] };
     const newModes = nKde
-      ? computeModeInfo(sharedX, newY, vt)
+      ? computeModeInfo(sharedX, newY, localVt)
       : { peakLocs: [], fracs: [], letters: [] };
 
     // Assign vertical stagger levels across all peaks so labels don't collide.
@@ -318,8 +318,10 @@ function CommonGraph({
       levelLookup.set(`${p.seriesIdx}-${p.peakIdx}`, p.level);
     }
 
-    return { baseModes, newModes, levelLookup };
-  }, [analysis, vt]);
+    const maxLevel =
+      levelLookup.size > 0 ? Math.max(...levelLookup.values()) : 0;
+    return { baseModes, newModes, levelLookup, maxLevel };
+  }, [analysis, localVt]);
 
   const option: EChartsOption = useMemo(() => {
     const textColor =
