@@ -583,6 +583,254 @@ export function argrelmax(y, order = 1) {
   return peaks;
 }
 // ---------------------------------------------------------------------------
+// Mode detection on a pre-computed KDE
+//
+// The helpers below operate on (x, y) arrays produced by fftkde rather than
+// running KDE themselves. This lets an interactive UI tune the valley-depth
+// threshold without recomputing the KDE on every change.
+// ---------------------------------------------------------------------------
+/**
+ * Compute the fraction of total KDE area falling in each mode bucket.
+ *
+ * Buckets are delimited by `boundaries`: bucket[0] covers x < boundaries[0],
+ * bucket[k] covers boundaries[k-1] < x ≤ boundaries[k], and the final bucket
+ * covers x > last boundary. Area is integrated via the trapezoid rule over
+ * the KDE grid.
+ *
+ * @param x          - KDE x grid
+ * @param y          - KDE density at each x
+ * @param boundaries - sorted mode boundaries (x values, increasing)
+ * @returns array of length boundaries.length + 1 summing to 1; falls back to
+ *          uniform 1/N if the total integrated area is zero
+ */
+export function areaFracs(x, y, boundaries) {
+  const buckets = new Array(boundaries.length + 1).fill(0);
+  let total = 0;
+  for (let i = 1; i < x.length; i++) {
+    const area = 0.5 * (y[i] + y[i - 1]) * (x[i] - x[i - 1]);
+    total += area;
+    let m = 0;
+    while (m < boundaries.length && x[i] > boundaries[m]) m++;
+    buckets[m] += area;
+  }
+  return total > 0
+    ? buckets.map((b) => b / total)
+    : buckets.map(() => 1 / buckets.length);
+}
+/**
+ * Detect modes from a pre-computed KDE curve.
+ *
+ * Like fitKdeModes but takes (x, y) instead of raw data, so an interactive
+ * widget can re-fit modes on a slider change without recomputing the KDE.
+ *
+ * Differences from fitKdeModes:
+ *   - Filters modes by KDE *area* (areaFracs) rather than the fraction of
+ *     raw data points falling in each bucket.
+ *   - Adds a minimum-separation guard: peaks closer than max(2, 5% of the x
+ *     range) collapse to the higher peak. This suppresses spurious modes
+ *     that KDE can produce on near-integer data (e.g. samples ∈ {0, 1}).
+ *
+ * @param x   - KDE x grid (uniform spacing)
+ * @param y   - KDE density at each x
+ * @param vt  - valley-depth threshold; the valley between two peaks must be
+ *              shallower than vt × min(peak heights) for them to count as
+ *              separate modes (0 = never split, 1 = always split)
+ * @param mpf - minimum peak height as a fraction of the global max (default 0.05)
+ * @param mdf - minimum area fraction a mode must contain to be kept (default 0.05)
+ * @returns { peakLocs, boundaries } in the same units as x
+ */
+export function fitModesFromKde(x, y, vt, mpf = 0.05, mdf = 0.05) {
+  let yMax = 0;
+  for (let i = 0; i < y.length; i++) if (y[i] > yMax) yMax = y[i];
+  const peaks = argrelmax(y, 3).filter((i) => y[i] >= mpf * yMax);
+  if (!peaks.length) {
+    let gm = 0;
+    for (let i = 1; i < y.length; i++) if (y[i] > y[gm]) gm = i;
+    return { peakLocs: [x[gm]], boundaries: [] };
+  }
+  // Valley-depth filter — walk peaks left to right, keeping a peak only if
+  // the valley between it and the previous kept peak is deep enough.
+  const good = [peaks[0]];
+  for (let k = 1; k < peaks.length; k++) {
+    const nxt = peaks[k];
+    const prev = good[good.length - 1];
+    let valleyMin = y[prev];
+    for (let j = prev; j <= nxt; j++) if (y[j] < valleyMin) valleyMin = y[j];
+    if (valleyMin < vt * Math.min(y[prev], y[nxt])) {
+      good.push(nxt);
+    } else if (y[nxt] > y[good[good.length - 1]]) {
+      good[good.length - 1] = nxt;
+    }
+  }
+  function computeBoundaries(ps) {
+    const bs = [];
+    for (let i = 0; i < ps.length - 1; i++) {
+      let mi = ps[i];
+      for (let j = ps[i]; j <= ps[i + 1]; j++) if (y[j] < y[mi]) mi = j;
+      bs.push(x[mi]);
+    }
+    return bs;
+  }
+  // Area-fraction filter — drop modes whose KDE area is below mdf.
+  const bs0 = computeBoundaries(good);
+  const fr0 = areaFracs(x, y, bs0);
+  const keep = good.map((_, i) => i).filter((i) => fr0[i] >= mdf);
+  if (keep.length < 2) {
+    const bp = good.reduce((a, b) => (y[a] > y[b] ? a : b));
+    return { peakLocs: [x[bp]], boundaries: [] };
+  }
+  const fg = keep.map((i) => good[i]);
+  const fb = computeBoundaries(fg);
+  const locs = fg.map((i) => x[i]);
+  // Minimum-separation guard: KDE artefacts on near-integer data can put
+  // distinct peaks within a sample of each other. Collapse those to one.
+  const dataRange = x[x.length - 1] - x[0];
+  const minSep = Math.max(2, dataRange * 0.05);
+  for (let k = 1; k < locs.length; k++) {
+    if (locs[k] - locs[k - 1] < minSep) {
+      const bestIdx = fg.reduce((a, b) => (y[a] > y[b] ? a : b));
+      return { peakLocs: [x[bestIdx]], boundaries: [] };
+    }
+  }
+  return { peakLocs: locs, boundaries: fb };
+}
+/**
+ * Assign single-letter labels to modes, with A = lowest peak location.
+ *
+ * Performance convention: A is the fastest (lowest) path, B is the next,
+ * etc. Locations don't need to be pre-sorted — this function sorts internally
+ * and returns letters in the *original* input order, so out[i] is the letter
+ * for locs[i].
+ *
+ * @param locs - array of peak x positions
+ * @returns array of single-character letter labels, same length as locs
+ */
+export function assignLetters(locs) {
+  const idx = locs.map((_, i) => i).sort((a, b) => locs[a] - locs[b]);
+  const out = new Array(locs.length);
+  idx.forEach((i, rank) => {
+    out[i] = String.fromCharCode(65 + rank);
+  });
+  return out;
+}
+function popcount(x) {
+  let c = 0;
+  let v = x;
+  while (v) {
+    c += v & 1;
+    v >>>= 1;
+  }
+  return c;
+}
+function range(n) {
+  return Array.from({ length: n }, (_, i) => i);
+}
+// `matchModes` and `splitByMode` below are intentionally unused
+// in this PR — they're the pure-logic helpers that the follow-up
+// `KdeModesPanel` (per-mode blurb) will consume. They live here so the
+// follow-up PR stays focused on the UI rather than re-introducing utility
+// code, and they're exercised by kdeModes.test.ts.
+/**
+ * Pair modes between base and comparison runs by minimum total distance.
+ *
+ * When comparing base vs. new, mode A in the base may correspond to mode B
+ * in the new run (same code path, just shifted or re-ordered by peak height).
+ * Naive index-by-index matching can pair the wrong paths.
+ *
+ * Solves a minimum-cost assignment problem: pair each base mode to a new
+ * mode so the total distance is minimised, where distance is
+ *   0.75 × |bLoc - nLoc| / span + 0.25 × |bFrac - nFrac|
+ *
+ * Uses bitmask DP over subsets of new modes — exact, and fast for the small
+ * mode counts seen in practice (n, m ≤ ~8).
+ *
+ * @returns { pairs, ub, un }
+ *   pairs : array of [baseIdx, newIdx] tuples
+ *   ub    : base indices with no match (path disappeared)
+ *   un    : new indices with no match (new path appeared)
+ */
+export function matchModes(bLocs, bFracs, nLocs, nFracs) {
+  const n = bLocs.length;
+  const m = nLocs.length;
+  if (!n || !m) return { pairs: [], ub: range(n), un: range(m) };
+  // If base has more modes than new, swap roles and flip the resulting pairs.
+  if (n > m) {
+    const sw = matchModes(nLocs, nFracs, bLocs, bFracs);
+    return {
+      pairs: sw.pairs.map((p) => [p[1], p[0]]),
+      ub: sw.un,
+      un: sw.ub,
+    };
+  }
+  const all = bLocs.concat(nLocs);
+  const span = Math.max(...all) - Math.min(...all) || 1;
+  const cost = bLocs.map((bl, i) =>
+    nLocs.map(
+      (nl, j) =>
+        (0.75 * Math.abs(bl - nl)) / span +
+        0.25 * Math.abs(bFracs[i] - nFracs[j]),
+    ),
+  );
+  const INF = 1e9;
+  const states = 1 << m;
+  const dp = new Float64Array(states).fill(INF);
+  const prev = new Int16Array(states).fill(-1);
+  dp[0] = 0;
+  for (let mask = 0; mask < states; mask++) {
+    if (dp[mask] === INF) continue;
+    const i = popcount(mask);
+    if (i >= n) continue;
+    for (let j = 0; j < m; j++) {
+      if ((mask >> j) & 1) continue;
+      const nm = mask | (1 << j);
+      const c = dp[mask] + cost[i][j];
+      if (c < dp[nm]) {
+        dp[nm] = c;
+        prev[nm] = j;
+      }
+    }
+  }
+  let best = -1;
+  let bc = INF;
+  for (let mask = 0; mask < states; mask++) {
+    if (popcount(mask) === n && dp[mask] < bc) {
+      bc = dp[mask];
+      best = mask;
+    }
+  }
+  const pairs = [];
+  let cur = best;
+  for (let i = n - 1; i >= 0; i--) {
+    const j = prev[cur];
+    pairs.unshift([i, j]);
+    cur ^= 1 << j;
+  }
+  const mNew = new Set(pairs.map((p) => p[1]));
+  return { pairs, ub: [], un: range(m).filter((j) => !mNew.has(j)) };
+}
+/**
+ * Bucket raw samples into mode-aligned arrays.
+ *
+ * Returns buckets[0..boundaries.length], where buckets[k] holds samples
+ * with value > boundaries[k-1] and ≤ boundaries[k]. The first bucket has
+ * no lower bound, the last has no upper bound. Used to compute per-mode
+ * bootstrap CIs on the actual samples rather than on the KDE density.
+ *
+ * @param data       - raw sample values
+ * @param boundaries - sorted mode boundaries
+ * @returns array of bucketed sample arrays, length boundaries.length + 1
+ */
+export function splitByMode(data, boundaries) {
+  const buckets = boundaries.map(() => []);
+  buckets.push([]);
+  data.forEach((v) => {
+    let m = 0;
+    while (m < boundaries.length && v > boundaries[m]) m++;
+    buckets[m].push(v);
+  });
+  return buckets;
+}
+// ---------------------------------------------------------------------------
 // fitKdeModes — port of perf_compare_stats.fit_kde_modes
 //
 // Runs FFTKDE with ISJ bandwidth, finds local maxima, applies valley-depth

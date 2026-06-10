@@ -1,12 +1,22 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
+import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Box from '@mui/material/Box';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Slider from '@mui/material/Slider';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { init, type ECharts, type EChartsOption } from 'echarts';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
-import { fftkde } from '../../utils/kde.js';
+import {
+  areaFracs,
+  assignLetters,
+  fftkde,
+  fitModesFromKde,
+} from '../../utils/kde.js';
 
 // This computes the min, max from a list of numbers.
 function computeStatisticsForRuns(data: number[]) {
@@ -36,10 +46,70 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const CHART_HEIGHT = 325;
+const CHART_HEIGHT = 340;
 const KDE_GRID_POINTS = 1024;
 const KDE_GRID = { left: 70, right: 70, top: 28, height: 155 };
-const SCATTER_GRID = { left: 70, right: 70, top: 238, height: 50 };
+const SCATTER_GRID = { left: 70, right: 70, top: 250, height: 50 };
+
+// Valley-depth threshold bounds for the mode-detection slider.
+const VT_MIN = 0.1;
+const VT_MAX = 0.99;
+const VT_STEP = 0.01;
+
+// Tick labels show 2 dp for fractional values, drop ".00" for whole numbers.
+// Floats near integers (e.g. 14 + 1e-15) collapse to "14".
+function tickFormatter(value: number): string {
+  const rounded = Math.round(value);
+  if (Math.abs(value - rounded) < 1e-9) return String(rounded);
+  return value.toFixed(2);
+}
+
+// Per-series mode summary, suitable both for chart overlays and the blurb.
+type ModeInfo = {
+  peakLocs: number[];
+  fracs: number[];
+  letters: string[];
+};
+
+function computeModeInfo(x: number[], y: number[], vt: number): ModeInfo {
+  if (!x.length || !y.length) {
+    return { peakLocs: [], fracs: [], letters: [] };
+  }
+  const { peakLocs, boundaries } = fitModesFromKde(x, y, vt);
+  if (!peakLocs.length) {
+    return { peakLocs: [], fracs: [], letters: [] };
+  }
+  const fracs = areaFracs(x, y, boundaries);
+  const letters = assignLetters(peakLocs);
+  return { peakLocs, fracs, letters };
+}
+
+// Stagger levels (0, 1, 2 …) for peak labels: peaks closer than ~13% of the
+// x-span get bumped to different levels so their labels don't overlap. Ported
+// from kde-widget.js's allPeaks.level pass; we use a fixed 13% threshold
+// because the chart's pixel width isn't known inside useMemo.
+type PeakRef = {
+  loc: number;
+  seriesIdx: number;
+  peakIdx: number;
+  level: number;
+};
+
+function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
+  peaks.sort((a, b) => a.loc - b.loc);
+  const threshold = xSpan * 0.13;
+  for (let idx = 0; idx < peaks.length; idx++) {
+    const used = new Set<number>();
+    for (let k = 0; k < idx; k++) {
+      if (Math.abs(peaks[k].loc - peaks[idx].loc) < threshold) {
+        used.add(peaks[k].level);
+      }
+    }
+    let level = 0;
+    while (used.has(level)) level++;
+    peaks[idx].level = level;
+  }
+}
 
 function quantileSorted(sorted: number[], q: number): number {
   const pos = (sorted.length - 1) * q;
@@ -114,6 +184,10 @@ function CommonGraph({
   newValues,
   unit,
   isSubtest,
+  vt,
+  onVtChange,
+  showModes,
+  onShowModesChange,
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
@@ -123,13 +197,24 @@ function CommonGraph({
   // hex values into the chart option below.
   const themeMode = useAppSelector((state) => state.theme.mode);
 
-  const option: EChartsOption = useMemo(() => {
-    const textColor =
-      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
+  // Local mirror of vt that drives the slider thumb + percentage during drag.
+  // We only push the value up to the parent (via onVtChange) when the user
+  // releases the slider — keeping mode detection from re-running on every
+  // pixel of slider movement. Synced back to the prop so external resets
+  // still work.
+  const [localVt, setLocalVt] = useState(vt);
+  useEffect(() => {
+    setLocalVt(vt);
+  }, [vt]);
+
+  // Vt-independent precompute: KDE, shared-grid resample, scatter jitter, and
+  // axis bounds. Pulled out of the main option memo so dragging the valley-
+  // depth slider doesn't (a) re-run the expensive fftkde call and (b) reroll
+  // Math.random() jitter — which made the scatter dots visibly jump while
+  // tuning the threshold.
+  const analysis = useMemo(() => {
     const statsForBase = computeStatisticsForRuns(baseValues);
     const statsForNew = computeStatisticsForRuns(newValues);
-
-    // Compute the global min and max with some grace value.
     const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
     const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
 
@@ -176,11 +261,6 @@ function CommonGraph({
       ? sharedX.map((xCoord, i) => [xCoord, newY[i]])
       : [];
 
-    const unitSuffix = unit ? ` (${unit})` : '';
-
-    const totalCount = baseValues.length + newValues.length;
-    const symbolSize = totalCount < 20 ? 14 : 10;
-
     const JITTER = 0.6;
     // Base sits on the top row (y = 1), New on the bottom row (y = 0).
     const baseScatterData: [number, number][] = baseValues.map((v) => [
@@ -192,11 +272,115 @@ function CommonGraph({
       (Math.random() - 0.5) * JITTER,
     ]);
 
-    const tickFormatter = (value: number) => {
-      const rounded = Math.round(value);
-      if (Math.abs(value - rounded) < 1e-9) return String(rounded);
-      return value.toFixed(2);
+    return {
+      bKde,
+      nKde,
+      sharedX,
+      baseY,
+      newY,
+      baseRunsDensity,
+      newRunsDensity,
+      baseScatterData,
+      newScatterData,
+      min,
+      max,
     };
+  }, [baseValues, newValues, isSubtest]);
+
+  // Mode detection (peaks, area fractions, label assignment, stagger levels)
+  // lives in its own memo so it only re-runs when `vt` or the underlying
+  // curves change — not on theme switch, scatter strip toggle, or unit
+  // changes. `fitModesFromKde` is non-trivial work (argrelmax + valley/area
+  // filtering on a 1024-point grid for each series), so keeping it out of
+  // the option-building memo's deps avoids wasted recomputes.
+  const modes = useMemo(() => {
+    const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
+
+    const baseModes = bKde
+      ? computeModeInfo(sharedX, baseY, vt)
+      : { peakLocs: [], fracs: [], letters: [] };
+    const newModes = nKde
+      ? computeModeInfo(sharedX, newY, vt)
+      : { peakLocs: [], fracs: [], letters: [] };
+
+    // Assign vertical stagger levels across all peaks so labels don't collide.
+    const allPeaks: PeakRef[] = [];
+    baseModes.peakLocs.forEach((loc, peakIdx) =>
+      allPeaks.push({ loc, seriesIdx: 0, peakIdx, level: 0 }),
+    );
+    newModes.peakLocs.forEach((loc, peakIdx) =>
+      allPeaks.push({ loc, seriesIdx: 1, peakIdx, level: 0 }),
+    );
+    const xSpan = max - min;
+    if (xSpan > 0) assignStaggerLevels(allPeaks, xSpan);
+    const levelLookup = new Map<string, number>();
+    for (const p of allPeaks) {
+      levelLookup.set(`${p.seriesIdx}-${p.peakIdx}`, p.level);
+    }
+
+    return { baseModes, newModes, levelLookup };
+  }, [analysis, vt]);
+
+  const option: EChartsOption = useMemo(() => {
+    const textColor =
+      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
+    const {
+      baseRunsDensity,
+      newRunsDensity,
+      baseScatterData,
+      newScatterData,
+      min,
+      max,
+    } = analysis;
+    const { baseModes, newModes, levelLookup } = modes;
+
+    const unitSuffix = unit ? ` (${unit})` : '';
+    const totalCount = baseValues.length + newValues.length;
+    const symbolSize = totalCount < 20 ? 14 : 10;
+
+    // Build the per-peak markLine overlays. Each is a dataless line series
+    // whose markLine renders on its own. They share names with their parent
+    // series ('Base' / 'New') so the legend's toggle action cascades to the
+    // overlays automatically — clicking 'Base' hides every series named
+    // 'Base', including the overlays. The legend itself only renders the two
+    // entries listed in `legend.data` regardless of how many series share
+    // those names.
+    const modeOverlays: EChartsOption['series'] = [];
+    function pushOverlays(
+      seriesIdx: 0 | 1,
+      seriesName: 'Base' | 'New',
+      modes: ModeInfo,
+      color: string,
+    ) {
+      modes.peakLocs.forEach((loc, peakIdx) => {
+        const level = levelLookup.get(`${seriesIdx}-${peakIdx}`) ?? 0;
+        (modeOverlays as unknown[]).push({
+          name: seriesName,
+          type: 'line',
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: [],
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            data: [{ xAxis: loc }],
+            lineStyle: { color, type: 'solid', width: 1.5 },
+            label: {
+              formatter:
+                `${seriesName} ${modes.letters[peakIdx]}: ` +
+                `${tickFormatter(loc)} (${Math.round(modes.fracs[peakIdx] * 100)}%)`,
+              distance: [0, level * 16],
+              color,
+              fontSize: 12,
+            },
+          },
+        });
+      });
+    }
+    if (showModes) {
+      pushOverlays(0, 'Base', baseModes, Colors.ChartBase);
+      pushOverlays(1, 'New', newModes, Colors.ChartNew);
+    }
 
     return {
       animation: false,
@@ -317,7 +501,9 @@ function CommonGraph({
       },
       legend: {
         data: ['Base', 'New'],
-        top: 4,
+        // Sit below the centered x-axis unit label, between the KDE grid and
+        // the scatter strip, with a small gap above and below.
+        top: 232,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
@@ -407,9 +593,10 @@ function CommonGraph({
             },
           },
         },
+        ...((modeOverlays ?? []) as []),
       ],
     };
-  }, [baseValues, newValues, unit, isSubtest, themeMode]);
+  }, [analysis, modes, baseValues, newValues, unit, themeMode, showModes]);
 
   useEffect(() => {
     if (!chartContainerRef.current) {
@@ -437,6 +624,74 @@ function CommonGraph({
       <Typography id='retrigger-modal-title' component='h3' variant='h3'>
         Runs Density Distribution
       </Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1.5,
+          mt: 1,
+          mb: 0.5,
+        }}
+      >
+        <Typography
+          variant='body2'
+          sx={{
+            color: '#000',
+            whiteSpace: 'nowrap',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          Valley depth threshold
+          <Tooltip
+            placement='top'
+            title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
+          >
+            <InfoIcon
+              fontSize='small'
+              sx={{ color: '#000', cursor: 'help', mx: 0.5 }}
+            />
+          </Tooltip>
+          :
+        </Typography>
+        {/*
+          MUI Slider exposes two events: `onChange` fires continuously during
+          drag (we send it to local state for a smooth thumb), and
+          `onChangeCommitted` fires once when the user releases (we push the
+          final value up to the parent then). This is the moral equivalent of
+          a debounce — the expensive consumer (`computeModeInfo`) runs once
+          per drag instead of on every pixel of movement.
+        */}
+        <Slider
+          size='small'
+          value={localVt}
+          min={VT_MIN}
+          max={VT_MAX}
+          step={VT_STEP}
+          disabled={!showModes}
+          onChange={(_, value) => setLocalVt(value)}
+          onChangeCommitted={(_, value) => onVtChange(value)}
+          aria-label='Valley depth threshold'
+          sx={{ maxWidth: 240 }}
+        />
+        <Typography
+          variant='body2'
+          sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
+        >
+          {Math.round(localVt * 100)}%
+        </Typography>
+        <FormControlLabel
+          control={
+            <Checkbox
+              size='small'
+              checked={showModes}
+              onChange={(_, checked) => onShowModesChange(checked)}
+            />
+          }
+          label='Show modes'
+          sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
+        />
+      </Box>
       <Box sx={{ flex: 0 }}>
         <div
           ref={chartContainerRef}
@@ -452,6 +707,10 @@ interface CommonGraphProps {
   newValues: number[];
   unit: string | null;
   isSubtest: boolean;
+  vt: number;
+  onVtChange: (value: number) => void;
+  showModes: boolean;
+  onShowModesChange: (value: boolean) => void;
 }
 
 export default CommonGraph;

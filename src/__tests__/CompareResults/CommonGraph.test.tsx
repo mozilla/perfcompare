@@ -1,9 +1,10 @@
+import { fireEvent } from '@testing-library/react';
 import { init as echartsInit } from 'echarts';
 import type { EChartsOption, LineSeriesOption } from 'echarts';
 
 import CommonGraph from '../../components/CompareResults/CommonGraph';
 import { fftkde } from '../../utils/kde.js';
-import { render } from '../utils/test-utils';
+import { render, screen } from '../utils/test-utils';
 
 // Wrap React.useRef so a single test can substitute a stubbed ref whose
 // `.current` stays null — used to exercise the "no DOM element attached"
@@ -88,6 +89,10 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -132,6 +137,10 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -164,6 +173,10 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={true}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -194,12 +207,21 @@ describe('CommonGraph', () => {
         newValues={[]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
     const option = getLatestEChartsOption();
     const allSeries = option.series as LineSeriesOption[];
-    const series = allSeries.filter((s) => s.type === 'line');
+    // Mode-overlay markLine series share names with the parent KDE lines
+    // (Base/New) so the legend can toggle them together — identify the
+    // underlying KDE curves by the absence of a markLine config.
+    const series = allSeries.filter(
+      (s) => s.type === 'line' && !(s as { markLine?: unknown }).markLine,
+    );
     expect(series).toHaveLength(2);
     // Base side has a resampled density curve.
     expect(series[0].data as unknown[]).toHaveLength(1024);
@@ -232,6 +254,10 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -254,6 +280,10 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -296,6 +326,10 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit='ms'
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -336,6 +370,10 @@ describe('CommonGraph', () => {
         newValues={[3, 4]}
         unit={null}
         isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
       />,
     );
 
@@ -352,5 +390,207 @@ describe('CommonGraph', () => {
     ]);
     // No "(unit)" suffix after the value when unit is null.
     expect(rendered).toBe('Value: 5.00<br>Base: 0.1000');
+  });
+
+  it('emits a mode-overlay markLine series for each detected peak', () => {
+    // Strictly increasing fake KDE — fitModesFromKde returns a single peak at
+    // the global max (last x). That yields exactly one markLine overlay per
+    // series, with a label tagged by series and letter A. Overlays share
+    // names with the parent KDE series (Base/New) so the legend can toggle
+    // them — identify them by the markLine config rather than name.
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
+      />,
+    );
+
+    const option = getLatestEChartsOption();
+    const series = option.series as Array<{
+      name?: string;
+      markLine?: {
+        data?: Array<{ xAxis?: number }>;
+        label?: { formatter?: string };
+        lineStyle?: { color?: string };
+      };
+    }>;
+    // Peak overlays are line-type series with a markLine. Scatter rows also
+    // carry a baseline markLine but they're scatter-type, so type filters them out.
+    const overlays = series.filter(
+      (s) => (s as { type?: string }).type === 'line' && Boolean(s.markLine),
+    );
+    // One overlay per series (Base + New), both peaking at the same x.
+    expect(overlays).toHaveLength(2);
+    expect(overlays[0].name).toBe('Base');
+    expect(overlays[1].name).toBe('New');
+    expect(overlays[0].markLine?.data?.[0]?.xAxis).toBe(30);
+    expect(overlays[1].markLine?.data?.[0]?.xAxis).toBe(30);
+    expect(overlays[0].markLine?.label?.formatter).toMatch(/^Base A: 30/);
+    expect(overlays[1].markLine?.label?.formatter).toMatch(/^New A: 30/);
+  });
+
+  it('shows raw run values in the scatter tooltip with the unit suffix', () => {
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
+      />,
+    );
+
+    const formatter = getTooltipFormatter(getLatestEChartsOption());
+    // The formatter inspects items[0].seriesType to pick between scatter and
+    // KDE rendering — pass a scatter-shaped item to exercise the scatter path.
+    const rendered = formatter([
+      {
+        seriesType: 'scatter',
+        seriesName: 'Base',
+        value: [12.5, 0],
+        marker: '[m]',
+      },
+    ] as unknown as Parameters<typeof formatter>[0]);
+    expect(rendered).toBe('[m]Base: 12.50 (ms)');
+  });
+
+  it("labels the scatter y-axis as 'Base' for 1 and 'New' for 0", () => {
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
+      />,
+    );
+
+    const option = getLatestEChartsOption();
+    const yAxes = option.yAxis as Array<{
+      axisLabel?: { formatter?: (v: number) => string };
+    }>;
+    const scatterYAxisFormatter = yAxes[1]?.axisLabel?.formatter;
+    expect(scatterYAxisFormatter).toBeDefined();
+    expect(scatterYAxisFormatter!(1)).toBe('Base');
+    expect(scatterYAxisFormatter!(0)).toBe('New');
+    // Anything else returns empty so intermediate jitter values stay unlabelled.
+    expect(scatterYAxisFormatter!(0.5)).toBe('');
+  });
+
+  it('wires the slider through both onChange (local) and onChangeCommitted (parent)', () => {
+    // The slider uses MUI's two-event API: onChange updates a local mirror for
+    // the thumb/percentage during drag, and onChangeCommitted pushes the final
+    // value up. fireEvent.change on the underlying <input type="range"> drives
+    // both — confirming both handlers are wired correctly.
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+    const onVtChange = jest.fn();
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={onVtChange}
+        showModes={true}
+        onShowModesChange={jest.fn()}
+      />,
+    );
+
+    // Starts at vt = 0.5 → 50%.
+    expect(screen.getByText('50%')).toBeInTheDocument();
+
+    const slider = screen.getByRole('slider', { name: /valley depth/i });
+    fireEvent.change(slider, { target: { value: '0.7' } });
+
+    // Local mirror updated → percentage reflects the new value.
+    expect(screen.getByText('70%')).toBeInTheDocument();
+    // Parent committed callback also fired with the same value.
+    expect(onVtChange).toHaveBeenCalledWith(0.7);
+  });
+
+  it('disables the slider when showModes is false', () => {
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={false}
+        onShowModesChange={jest.fn()}
+      />,
+    );
+
+    const slider = screen.getByRole('slider', { name: /valley depth/i });
+    expect(slider).toBeDisabled();
+  });
+
+  it('calls onShowModesChange when the Show modes checkbox is toggled', () => {
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [10, 20, 30],
+      y: [0.1, 0.2, 0.3],
+      bandwidth: 1,
+    }));
+    const onShowModesChange = jest.fn();
+
+    render(
+      <CommonGraph
+        baseValues={[1, 2]}
+        newValues={[3, 4]}
+        unit='ms'
+        isSubtest={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={onShowModesChange}
+      />,
+    );
+
+    const checkbox = screen.getByRole('checkbox', { name: /show modes/i });
+    fireEvent.click(checkbox);
+    expect(onShowModesChange).toHaveBeenCalledWith(false);
   });
 });
