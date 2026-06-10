@@ -416,9 +416,13 @@ export const mannWhitneyStrategy = {
         ? bootstrapMedianDiffCI(baseRuns, newRuns)
         : null;
     const fmt = (n: number) => (n >= 0 ? '+' : '') + n.toFixed(1);
+    const baseMedian = mwResult.base_standard_stats?.median ?? 0;
+    const medianDiffPct =
+      ci && baseMedian !== 0 ? (ci.medianDiff / baseMedian) * 100 : null;
     const summary = ci ? (
       <span>
-        <strong>Δ median</strong> = {fmt(ci.medianDiff)} ms 95% CI [
+        <strong>Δ median</strong> = {fmt(ci.medianDiff)} ms
+        {medianDiffPct !== null && ` (${fmt(medianDiffPct)}%)`} 95% CI [
         {fmt(ci.ciLow)}, {fmt(ci.ciHigh)}]
         {ci.significant ? '' : '  (not significant)'}
       </span>

@@ -201,7 +201,8 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 </strong>
                  = 
                 +9.0
-                 ms 95% CI [
+                 ms
+                 95% CI [
                 +0.0
                 , 
                 +18.0
@@ -653,7 +654,8 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 </strong>
                  = 
                 +8.7
-                 ms 95% CI [
+                 ms
+                 95% CI [
                 +3.6
                 , 
                 +18.5

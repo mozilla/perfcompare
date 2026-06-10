@@ -345,15 +345,17 @@ describe('Expanded row', () => {
     // Wait for the expanded panel before reading alert text content.
     await screen.findByText(/Cliff's Delta/);
 
-    // The summary alert is "Δ median = +7.6 ms 95% CI [..., ...]". The
-    // median-of-new minus median-of-base is 712.44 - 704.84 = +7.6.
+    // The summary alert is "Δ median = +7.6 ms (+1.1%) 95% CI [..., ...]".
+    // The median-of-new minus median-of-base is 712.44 - 704.84 = +7.6,
+    // and +7.6 / 704.84 * 100 ≈ +1.1%.
     const alerts = screen.getAllByRole('alert');
     const summaryAlert = alerts.find((alert) =>
       alert.textContent?.includes('Δ median'),
     );
     expect(summaryAlert).toBeDefined();
     expect(summaryAlert?.textContent).toContain('+7.6');
-    expect(summaryAlert?.textContent).toContain('ms 95% CI [');
+    expect(summaryAlert?.textContent).toMatch(/\(\+1\.1%\)/);
+    expect(summaryAlert?.textContent).toContain('95% CI [');
 
     // The confidence-interval alert is "Confidence Interval: We are 95% ...".
     const ciAlert = alerts.find((alert) =>
