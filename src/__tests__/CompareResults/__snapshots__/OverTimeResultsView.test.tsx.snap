@@ -651,7 +651,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="revision-header fh103jg"
             >
               <div
-                class="f195ysgj"
+                class="fnf9lyn"
               >
                 <strong>
                   <a
@@ -701,6 +701,12 @@ exports[`Results View The table should match snapshot and other elements should 
                     </button>
                   </span>
                 </div>
+                <span
+                  class="MuiBox-root css-1b0hjcp"
+                  data-testid="better-direction-indicator"
+                >
+                  Lower is better
+                </span>
               </div>
               <div
                 class="MuiBox-root css-56tgmi"
