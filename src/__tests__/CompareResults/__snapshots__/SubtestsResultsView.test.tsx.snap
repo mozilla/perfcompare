@@ -1106,7 +1106,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -1242,7 +1242,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -1268,7 +1268,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -1390,7 +1390,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -1416,7 +1416,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -1538,7 +1538,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -1564,7 +1564,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -1686,7 +1686,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -1712,7 +1712,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -1834,7 +1834,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -3011,7 +3011,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -3149,7 +3149,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -3175,7 +3175,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -3325,7 +3325,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -3351,7 +3351,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -3488,7 +3488,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -3514,7 +3514,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -3651,7 +3651,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -3677,7 +3677,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -3814,7 +3814,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -4607,7 +4607,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -4745,7 +4745,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -4771,7 +4771,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -4921,7 +4921,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -4947,7 +4947,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -5084,7 +5084,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -5110,7 +5110,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -5247,7 +5247,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -5273,7 +5273,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -5410,7 +5410,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -6203,7 +6203,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 />
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -6341,7 +6341,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -6367,7 +6367,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -6517,7 +6517,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -6543,7 +6543,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -6680,7 +6680,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -6706,7 +6706,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -6843,7 +6843,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -6869,7 +6869,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -7006,7 +7006,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -7799,7 +7799,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -7935,7 +7935,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -7961,7 +7961,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -8083,7 +8083,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -8109,7 +8109,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -8231,7 +8231,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -8257,7 +8257,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -8379,7 +8379,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button
@@ -8405,7 +8405,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f1t3zec9 f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
                 role="row"
               >
                 <div
@@ -8527,7 +8527,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </div>
                 </div>
                 <div
-                  class="cell MuiBox-root css-172osot"
+                  class="cell MuiBox-root css-ddfjla"
                   role="cell"
                 >
                   <button

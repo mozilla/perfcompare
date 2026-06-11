@@ -38,7 +38,8 @@ const revisionRow = style({
     '.subtests': {
       borderRadius: '4px 0 0 4px',
       paddingLeft: Spacing.Medium, // Synchronize with its header
-      justifyContent: 'left',
+      maxWidth: '150px',
+      wordBreak: 'break-word',
     },
 
     '.status': {
@@ -159,7 +160,10 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <Box
           className='cell'
           role='cell'
-          sx={{ backgroundColor: 'background.default' }}
+          sx={{
+            backgroundColor: 'background.default',
+            alignSelf: 'stretch',
+          }}
         >
           <IconButton
             title={
