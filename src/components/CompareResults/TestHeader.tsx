@@ -55,9 +55,6 @@ const styles = {
     flexWrap: 'wrap',
     fontFamily: 'SF Pro',
     display: 'flex',
-    // Baseline so the larger suite title and the smaller better-direction label
-    // share one text baseline (otherwise the label rides up at the top of the
-    // line and looks superscript).
     alignItems: 'baseline',
     gap: '4px',
   }),

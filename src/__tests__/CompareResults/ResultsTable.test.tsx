@@ -57,8 +57,14 @@ function summarizeVisibleRows(testVersion?: TestVersion) {
     const optionsElements = Array.from(
       titleElement.nextElementSibling!.children,
     );
+    // The "better direction" indicator is asserted separately (and via
+    // snapshots); strip it here so the data-focused expectations stay stable.
+    const titleClone = titleElement.cloneNode(true) as HTMLElement;
+    titleClone
+      .querySelector('[data-testid="better-direction-indicator"]')
+      ?.remove();
     const title = [
-      titleElement.textContent,
+      titleClone.textContent,
       ...optionsElements.map((element) => element.textContent),
     ].join(' ');
     result.push(title);
