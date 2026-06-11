@@ -46,10 +46,13 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const CHART_HEIGHT = 340;
 const KDE_GRID_POINTS = 1024;
-const KDE_GRID = { left: 70, right: 70, top: 28, height: 155 };
-const SCATTER_GRID = { left: 70, right: 70, top: 250, height: 50 };
+const LABEL_ROW_PX = 16; // vertical space per stagger level
+const KDE_TOP_BASE = 28;
+const KDE_HEIGHT = 155;
+const SCATTER_TOP_BASE = 250;
+const SCATTER_HEIGHT = 50;
+const CHART_HEIGHT_BASE = 340;
 
 // Valley-depth threshold bounds for the mode-detection slider.
 const VT_MIN = 0.1;
@@ -97,7 +100,7 @@ type PeakRef = {
 
 function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
   peaks.sort((a, b) => a.loc - b.loc);
-  const threshold = xSpan * 0.13;
+  const threshold = xSpan * 0.2;
   for (let idx = 0; idx < peaks.length; idx++) {
     const used = new Set<number>();
     for (let k = 0; k < idx; k++) {
@@ -288,19 +291,19 @@ function CommonGraph({
   }, [baseValues, newValues, isSubtest]);
 
   // Mode detection (peaks, area fractions, label assignment, stagger levels)
-  // lives in its own memo so it only re-runs when `vt` or the underlying
-  // curves change — not on theme switch, scatter strip toggle, or unit
-  // changes. `fitModesFromKde` is non-trivial work (argrelmax + valley/area
-  // filtering on a 1024-point grid for each series), so keeping it out of
-  // the option-building memo's deps avoids wasted recomputes.
+  // lives in its own memo so it only re-runs when the threshold or the
+  // underlying curves change — not on theme switch, scatter strip toggle, or
+  // unit changes. Uses localVt (the live slider position) so mode lines track
+  // the thumb in real time. fitModesFromKde is cheap (array ops on a
+  // pre-computed 1024-point grid), so running it on every drag pixel is fine.
   const modes = useMemo(() => {
     const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
 
     const baseModes = bKde
-      ? computeModeInfo(sharedX, baseY, vt)
+      ? computeModeInfo(sharedX, baseY, localVt)
       : { peakLocs: [], fracs: [], letters: [] };
     const newModes = nKde
-      ? computeModeInfo(sharedX, newY, vt)
+      ? computeModeInfo(sharedX, newY, localVt)
       : { peakLocs: [], fracs: [], letters: [] };
 
     // Assign vertical stagger levels across all peaks so labels don't collide.
@@ -318,8 +321,10 @@ function CommonGraph({
       levelLookup.set(`${p.seriesIdx}-${p.peakIdx}`, p.level);
     }
 
-    return { baseModes, newModes, levelLookup };
-  }, [analysis, vt]);
+    const maxLevel =
+      levelLookup.size > 0 ? Math.max(...levelLookup.values()) : 0;
+    return { baseModes, newModes, levelLookup, maxLevel };
+  }, [analysis, localVt]);
 
   const option: EChartsOption = useMemo(() => {
     const textColor =
@@ -332,7 +337,20 @@ function CommonGraph({
       min,
       max,
     } = analysis;
-    const { baseModes, newModes, levelLookup } = modes;
+    const { baseModes, newModes, levelLookup, maxLevel } = modes;
+    const extraTop = maxLevel * LABEL_ROW_PX;
+    const kdeGrid = {
+      left: 70,
+      right: 70,
+      top: KDE_TOP_BASE + extraTop,
+      height: KDE_HEIGHT,
+    };
+    const scatterGrid = {
+      left: 70,
+      right: 70,
+      top: SCATTER_TOP_BASE + extraTop,
+      height: SCATTER_HEIGHT,
+    };
 
     const unitSuffix = unit ? ` (${unit})` : '';
     const totalCount = baseValues.length + newValues.length;
@@ -384,7 +402,7 @@ function CommonGraph({
 
     return {
       animation: false,
-      grid: [KDE_GRID, SCATTER_GRID],
+      grid: [kdeGrid, scatterGrid],
       // axisPointer link keeps the vertical crosshair in sync across both grids.
       axisPointer: { link: [{ xAxisIndex: 'all' }] },
       xAxis: [
@@ -695,7 +713,10 @@ function CommonGraph({
       <Box sx={{ flex: 0 }}>
         <div
           ref={chartContainerRef}
-          style={{ width: '100%', height: CHART_HEIGHT }}
+          style={{
+            width: '100%',
+            height: CHART_HEIGHT_BASE + modes.maxLevel * LABEL_ROW_PX,
+          }}
         />
       </Box>
     </>
