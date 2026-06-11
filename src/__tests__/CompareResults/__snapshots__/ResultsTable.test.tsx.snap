@@ -1624,7 +1624,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="f195ysgj"
+                            class="fnf9lyn"
                           >
                             <strong>
                               <a
@@ -1674,6 +1674,12 @@ exports[`Results Table Should match snapshot 1`] = `
                                 </button>
                               </span>
                             </div>
+                            <span
+                              class="MuiBox-root css-1b0hjcp"
+                              data-testid="better-direction-indicator"
+                            >
+                              Lower is better
+                            </span>
                           </div>
                           <div
                             class="MuiBox-root css-56tgmi"
@@ -2321,7 +2327,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="f195ysgj"
+                            class="fnf9lyn"
                           >
                             <strong>
                               <a
@@ -2371,6 +2377,12 @@ exports[`Results Table Should match snapshot 1`] = `
                                 </button>
                               </span>
                             </div>
+                            <span
+                              class="MuiBox-root css-1b0hjcp"
+                              data-testid="better-direction-indicator"
+                            >
+                              Lower is better
+                            </span>
                           </div>
                           <div
                             class="MuiBox-root css-56tgmi"
@@ -4495,7 +4507,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="f195ysgj"
+                            class="fnf9lyn"
                           >
                             <strong>
                               <a
@@ -4545,6 +4557,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 </button>
                               </span>
                             </div>
+                            <span
+                              class="MuiBox-root css-1b0hjcp"
+                              data-testid="better-direction-indicator"
+                            >
+                              Lower is better
+                            </span>
                           </div>
                           <div
                             class="MuiBox-root css-56tgmi"
@@ -5231,7 +5249,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="f195ysgj"
+                            class="fnf9lyn"
                           >
                             <strong>
                               <a
@@ -5281,6 +5299,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 </button>
                               </span>
                             </div>
+                            <span
+                              class="MuiBox-root css-1b0hjcp"
+                              data-testid="better-direction-indicator"
+                            >
+                              Lower is better
+                            </span>
                           </div>
                           <div
                             class="MuiBox-root css-56tgmi"
@@ -6021,7 +6045,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     class="revision-header fh103jg"
   >
     <div
-      class="f195ysgj"
+      class="fnf9lyn"
     >
       <strong>
         <a
@@ -6035,6 +6059,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         </a>
          dhtml.html
       </strong>
+      <span
+        class="MuiBox-root css-1b0hjcp"
+        data-testid="better-direction-indicator"
+      >
+        Lower is better
+      </span>
     </div>
     <div
       class="MuiBox-root css-56tgmi"
@@ -6580,7 +6610,7 @@ exports[`Results Table should render different blocks when rendering several rev
     class="revision-header fh103jg"
   >
     <div
-      class="f195ysgj"
+      class="fnf9lyn"
     >
       <strong>
         <a
@@ -6594,6 +6624,12 @@ exports[`Results Table should render different blocks when rendering several rev
         </a>
          dhtml.html
       </strong>
+      <span
+        class="MuiBox-root css-1b0hjcp"
+        data-testid="better-direction-indicator"
+      >
+        Lower is better
+      </span>
     </div>
     <div
       class="MuiBox-root css-56tgmi"
