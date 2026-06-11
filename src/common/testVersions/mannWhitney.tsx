@@ -415,16 +415,30 @@ export const mannWhitneyStrategy = {
       baseRuns.length > 0 && newRuns.length > 0
         ? bootstrapMedianDiffCI(baseRuns, newRuns)
         : null;
-    const rawUnit = mwResult.base_measurement_unit ?? mwResult.new_measurement_unit ?? 'ms';
+    const rawUnit =
+      mwResult.base_measurement_unit ?? mwResult.new_measurement_unit ?? 'ms';
     const { fmt, displayUnit } = ci
       ? adaptUnit([ci.medianDiff, ci.ciLow, ci.ciHigh], rawUnit)
       : adaptUnit([], rawUnit);
     const ciCrossesZero = ci && ci.ciLow < 0 && ci.ciHigh > 0;
+    const baseMedian = (() => {
+      if (!baseRuns.length) return null;
+      const s = [...baseRuns].sort((a, b) => a - b);
+      const m = Math.floor(s.length / 2);
+      return s.length % 2 === 0 ? (s[m - 1] + s[m]) / 2 : s[m];
+    })();
+    const pctDiff =
+      baseMedian && ci ? ((ci.medianDiff / baseMedian) * 100).toFixed(1) : null;
     const summary = ci ? (
       <span>
-        <strong>Δ median</strong> = {fmt(ci.medianDiff)} {displayUnit} 95% CI [
-        {fmt(ci.ciLow)}, {fmt(ci.ciHigh)}]
-        {ciCrossesZero ? ' ⚠ interval includes zero — effect direction uncertain' : ''}
+        <strong>Δ median</strong> = {fmt(ci.medianDiff)} {displayUnit}
+        {pctDiff !== null
+          ? ` (${Number(pctDiff) >= 0 ? '+' : ''}${pctDiff}%)`
+          : ''}{' '}
+        95% CI [{fmt(ci.ciLow)}, {fmt(ci.ciHigh)}]
+        {ciCrossesZero
+          ? ' ⚠ interval includes zero — effect direction uncertain'
+          : ''}
       </span>
     ) : null;
     const confidenceInterval = ci && (
