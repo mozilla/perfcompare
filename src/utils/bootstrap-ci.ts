@@ -42,7 +42,9 @@ function erf(x: number): number {
   const p =
     t *
     (0.254829592 +
-      t * (-0.284496736 + t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))));
+      t *
+        (-0.284496736 +
+          t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))));
   return (x >= 0 ? 1 : -1) * (1 - p * Math.exp(-x * x));
 }
 
@@ -53,7 +55,7 @@ function normalCDF(x: number): number {
 // Acklam rational approximation — max absolute error 1.15e-9
 function normalPPF(p: number): number {
   const a = [
-    -3.969683028665376e1, 2.20946098424520e2, -2.759285104469687e2,
+    -3.969683028665376e1, 2.2094609842452e2, -2.759285104469687e2,
     1.38357751867269e2, -3.066479806614716e1, 2.506628277459239,
   ];
   const b = [
@@ -82,7 +84,8 @@ function normalPPF(p: number): number {
     const q = p - 0.5;
     const r = q * q;
     return (
-      ((((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q) /
+      ((((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) *
+        q) /
       (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1)
     );
   }
@@ -168,7 +171,12 @@ export function bootstrapMedianDiffCI(
   const jack = jackknifeDiffs(baseArr, newArr);
   const jackMean = jack.reduce((s, v) => s + v, 0) / jack.length;
   const num = jack.reduce((s, v) => s + Math.pow(jackMean - v, 3), 0);
-  const denom = 6 * Math.pow(jack.reduce((s, v) => s + Math.pow(jackMean - v, 2), 0), 1.5);
+  const denom =
+    6 *
+    Math.pow(
+      jack.reduce((s, v) => s + Math.pow(jackMean - v, 2), 0),
+      1.5,
+    );
   const a = denom === 0 ? 0 : num / denom;
 
   // BCa-adjusted quantile indices

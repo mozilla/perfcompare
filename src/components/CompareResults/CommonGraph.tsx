@@ -66,14 +66,6 @@ const VT_MIN = 0.1;
 const VT_MAX = 0.99;
 const VT_STEP = 0.01;
 
-// Tick labels show 2 dp for fractional values, drop ".00" for whole numbers.
-// Floats near integers (e.g. 14 + 1e-15) collapse to "14".
-function tickFormatter(value: number): string {
-  const rounded = Math.round(value);
-  if (Math.abs(value - rounded) < 1e-9) return String(rounded);
-  return value.toFixed(2);
-}
-
 // Per-series mode summary, suitable both for chart overlays and the blurb.
 type ModeInfo = {
   peakLocs: number[];
@@ -787,9 +779,9 @@ function CommonGraph({
             max={1.5}
             step={0.05}
             value={bwMultiplier}
-            onChange={(_, v) => setBwMultiplier(v as number)}
+            onChange={(_, v) => setBwMultiplier(v)}
             valueLabelDisplay='auto'
-            valueLabelFormat={(v) => `${(v as number).toFixed(2)}×`}
+            valueLabelFormat={(v) => `${v.toFixed(2)}×`}
           />
         </Box>
       )}

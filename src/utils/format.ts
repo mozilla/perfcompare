@@ -24,20 +24,24 @@ export function getDisplayScale(
 ): { scale: number; displayUnit: string; decimals: number } {
   const maxAbs = values.length ? Math.max(...values.map(Math.abs)) : 0;
   if (rawUnit === 'bytes') {
-    if (maxAbs >= 1024 ** 3) return { scale: 1024 ** 3, displayUnit: 'GB', decimals: 2 };
-    if (maxAbs >= 1024 ** 2) return { scale: 1024 ** 2, displayUnit: 'MB', decimals: 2 };
-    if (maxAbs >= 1024)      return { scale: 1024,      displayUnit: 'KB', decimals: 1 };
-    return                          { scale: 1,         displayUnit: 'B',  decimals: 0 };
+    if (maxAbs >= 1024 ** 3)
+      return { scale: 1024 ** 3, displayUnit: 'GB', decimals: 2 };
+    if (maxAbs >= 1024 ** 2)
+      return { scale: 1024 ** 2, displayUnit: 'MB', decimals: 2 };
+    if (maxAbs >= 1024) return { scale: 1024, displayUnit: 'KB', decimals: 1 };
+    return { scale: 1, displayUnit: 'B', decimals: 0 };
   }
   if (rawUnit === 'KB') {
-    if (maxAbs >= 1024 ** 2) return { scale: 1024 ** 2, displayUnit: 'GB', decimals: 2 };
-    if (maxAbs >= 1024)      return { scale: 1024,      displayUnit: 'MB', decimals: 2 };
-    return                          { scale: 1,         displayUnit: 'KB', decimals: 1 };
+    if (maxAbs >= 1024 ** 2)
+      return { scale: 1024 ** 2, displayUnit: 'GB', decimals: 2 };
+    if (maxAbs >= 1024) return { scale: 1024, displayUnit: 'MB', decimals: 2 };
+    return { scale: 1, displayUnit: 'KB', decimals: 1 };
   }
   if (rawUnit === 'ms') {
-    if (maxAbs >= 60000) return { scale: 60000, displayUnit: 'min', decimals: 2 };
-    if (maxAbs >= 1000)  return { scale: 1000,  displayUnit: 's',   decimals: 2 };
-    return                      { scale: 1,     displayUnit: 'ms',  decimals: 1 };
+    if (maxAbs >= 60000)
+      return { scale: 60000, displayUnit: 'min', decimals: 2 };
+    if (maxAbs >= 1000) return { scale: 1000, displayUnit: 's', decimals: 2 };
+    return { scale: 1, displayUnit: 'ms', decimals: 2 };
   }
   return { scale: 1, displayUnit: rawUnit, decimals: 1 };
 }
