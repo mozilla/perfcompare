@@ -248,16 +248,14 @@ export function autogrid1D(
 function gaussianKernel1D(x, bw) {
   return Math.exp((-x * x) / (2 * bw * bw)) / (Math.sqrt(2 * Math.PI) * bw);
 }
-// Find x > 0 where Gaussian kernel drops to atol — matches
-// KDEpy's Kernel.practical_support(bw, atol=10e-5) for Gaussian.
-// 10e-5 in Python == 1e-4.
+// Find x > 0 where Gaussian kernel drops to atol — analytical solution of:
+//   exp(-x²/(2bw²)) / (√(2π)·bw) = atol  →  x = bw·√(−2·ln(atol·√(2π)·bw))
+// When bw is so large that the kernel peak is already below atol, fall back to
+// 3σ so the convolution still produces a smooth curve instead of a histogram.
 function gaussianPracticalSupport(bw, atol = 10e-5) {
-  const xtol = 1e-3;
-  const result = brentq((x) => gaussianKernel1D(x, bw) - atol, 0, 8 * bw, xtol);
-  if (!result.converged) {
-    throw new Error('Could not find practical support for Gaussian kernel.');
-  }
-  return result.x + xtol;
+  const inner = atol * Math.sqrt(2 * Math.PI) * bw;
+  if (inner >= 1) return 3 * bw;
+  return bw * Math.sqrt(-2 * Math.log(inner)) + 1e-3;
 }
 // ---------------------------------------------------------------------------
 // ISJ fixed-point function — port of KDEpy's _fixed_point
@@ -397,7 +395,7 @@ export function silvermansRule(data) {
   // scipy.stats.norm.ppf(.75) - scipy.stats.norm.ppf(.25) = 1.3489795003921634
   const iqr = (percentile(0.75) - percentile(0.25)) / 1.3489795003921634;
   let sigma = Math.min(std, iqr > 0 ? iqr : std);
-  if (sigma <= 0) return 1;
+  if (sigma <= 0) return Math.abs(mean) * 0.001 || 1;
   return sigma * Math.pow((n * 3) / 4, -0.2);
 }
 // ---------------------------------------------------------------------------

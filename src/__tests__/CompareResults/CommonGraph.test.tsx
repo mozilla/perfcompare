@@ -158,11 +158,12 @@ describe('CommonGraph', () => {
     expect(newAtTwenty?.[1]).toBe(0);
   });
 
-  it("falls back to Silverman's rule when ISJ bandwidth selection throws", () => {
-    // safeKde tries ISJ first; if that throws, it retries with 'silverman'.
-    (fftkde as jest.Mock).mockImplementation((_data: number[], bw: string) => {
-      if (bw === 'ISJ') {
-        throw new Error('ISJ failed to converge');
+  it("falls back to Silverman's rule when fftkde throws on the first attempt", () => {
+    // safeKde calls fftkde with the pre-computed numeric bandwidth first;
+    // if that throws it retries with 'silverman'.
+    (fftkde as jest.Mock).mockImplementation((_data: number[], bw: unknown) => {
+      if (typeof bw === 'number') {
+        throw new Error('fftkde failed to converge');
       }
       return { x: [10, 20, 30], y: [0.1, 0.2, 0.3], bandwidth: 1 };
     });
@@ -183,7 +184,6 @@ describe('CommonGraph', () => {
     const bandwidthArgs = (fftkde as jest.Mock).mock.calls.map(
       (call) => call[1] as string,
     );
-    expect(bandwidthArgs).toContain('ISJ');
     expect(bandwidthArgs).toContain('silverman');
 
     // The fallback output still drives a populated series.
@@ -341,14 +341,10 @@ describe('CommonGraph', () => {
     )[0];
     const format = xAxis.axisLabel.formatter;
 
-    // Whole numbers render without a trailing ".00".
-    expect(format(14)).toBe('14');
-    expect(format(0)).toBe('0');
-    expect(format(-7)).toBe('-7');
-
-    // Floats near integers (round-off) collapse to the bare integer.
-    expect(format(14 + 1e-12)).toBe('14');
-    expect(format(14 - 1e-12)).toBe('14');
+    // Values are scaled and formatted to the unit's decimal precision (2dp for ms).
+    expect(format(14)).toBe('14.00');
+    expect(format(0)).toBe('0.00');
+    expect(format(-7)).toBe('-7.00');
 
     // Fractional values render with 2 decimal places.
     expect(format(48.541)).toBe('48.54');

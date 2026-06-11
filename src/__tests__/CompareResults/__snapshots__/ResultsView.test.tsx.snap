@@ -290,13 +290,16 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                   Δ median
                 </strong>
                  = 
-                +9.0
-                 ms 95% CI [
-                +0.0
+                +9.00
+                 
+                ms
+                 (+1.5%)
+                 
+                95% CI [
+                +0.00
                 , 
-                +18.0
+                +18.01
                 ]
-                  (not significant)
               </span>
             </div>
           </div>
@@ -329,12 +332,12 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 </strong>
                 : We are 95% confident the median difference is between 
                 <strong>
-                  +0.0
+                  +0.00
                 </strong>
                  and
                  
                 <strong>
-                  +18.0
+                  +18.01
                 </strong>
               </span>
             </div>
@@ -832,11 +835,15 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                   Δ median
                 </strong>
                  = 
-                +8.7
-                 ms 95% CI [
-                +3.6
+                +8.74
+                 
+                ms
+                 (+1.5%)
+                 
+                95% CI [
+                +3.27
                 , 
-                +18.5
+                +18.16
                 ]
               </span>
             </div>
@@ -870,12 +877,12 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 </strong>
                 : We are 95% confident the median difference is between 
                 <strong>
-                  +3.6
+                  +3.27
                 </strong>
                  and
                  
                 <strong>
-                  +18.5
+                  +18.16
                 </strong>
               </span>
             </div>
