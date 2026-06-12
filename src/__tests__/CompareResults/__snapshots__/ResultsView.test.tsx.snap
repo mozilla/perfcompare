@@ -4,7 +4,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="_r_c4_"
+  id="_r_c8_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -549,7 +549,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="_r_ag_"
+  id="_r_ak_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -1806,7 +1806,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="revision-header fh103jg"
             >
               <div
-                class="f195ysgj"
+                class="fnf9lyn"
               >
                 <strong>
                   <a
@@ -1856,6 +1856,12 @@ exports[`Results View The table should match snapshot and other elements should 
                     </button>
                   </span>
                 </div>
+                <span
+                  class="MuiBox-root css-1b0hjcp"
+                  data-testid="better-direction-indicator"
+                >
+                  Lower is better
+                </span>
               </div>
               <div
                 class="MuiBox-root css-56tgmi"
