@@ -158,6 +158,7 @@ describe('Results View', () => {
       option_name: 'opt',
       suite: 'allyr',
       test: '3DGraphics-WebGL',
+      lower_is_better: true,
     };
 
     renderWithRoute(<TestHeader result={revisionHeader} withRevision={true} />);
@@ -176,12 +177,42 @@ describe('Results View', () => {
       option_name: 'opt',
       suite: 'idle-bg',
       test: '3DGraphics-WebGL',
+      lower_is_better: true,
     };
 
     renderWithRoute(<TestHeader result={revisionHeader} withRevision={true} />);
     await screen.findByText(/idle-bg/);
     const linkToSuite = screen.queryByLabelText('link to suite documentation');
     expect(linkToSuite).not.toBeInTheDocument();
+  });
+
+  it('Should show the better-direction label based on lower_is_better', async () => {
+    const baseHeader = {
+      extra_options: 'e10s fission stylo webgl-ipc webrender',
+      framework_id: 1 as Framework['id'],
+      new_repository_name: 'mozilla-central' as Repository['name'],
+      new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+      option_name: 'opt',
+      suite: 'allyr',
+      test: '3DGraphics-WebGL',
+    };
+
+    const { unmount } = renderWithRoute(
+      <TestHeader
+        result={{ ...baseHeader, lower_is_better: true }}
+        withRevision={true}
+      />,
+    );
+    expect(await screen.findByText('Lower is better')).toBeInTheDocument();
+    unmount();
+
+    renderWithRoute(
+      <TestHeader
+        result={{ ...baseHeader, lower_is_better: false }}
+        withRevision={true}
+      />,
+    );
+    expect(await screen.findByText('Higher is better')).toBeInTheDocument();
   });
 
   it('Should display Base, New and Common graphs with tooltips', async () => {

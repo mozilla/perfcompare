@@ -94,6 +94,25 @@ describe('SubtestsResultsView Component Tests', () => {
     expect(document.body).toMatchSnapshot();
   });
 
+  it('Should show the better-direction label once in the subtests header', async () => {
+    const { subtestsResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
+      subtestsResult,
+    });
+
+    // The mock data is `lower_is_better: true`, and direction is a property of
+    // the parent suite, so the label is shown once in the header rather than
+    // repeated on every subtest row.
+    const labels = await screen.findAllByText('Lower is better');
+    expect(labels).toHaveLength(1);
+  });
+
   it('should render the subtests results view with mann-whitney-u testVersions in url', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { subtestsMannWhitneyResult } = getTestData();

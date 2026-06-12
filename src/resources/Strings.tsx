@@ -128,6 +128,10 @@ export const Strings = {
         suiteLink: 'Link to suite documentation  ',
       },
     },
+    betterDirection: {
+      lower: 'Lower is better',
+      higher: 'Higher is better',
+    },
     expandableRow: {
       title: {
         expand: 'expand this row',
