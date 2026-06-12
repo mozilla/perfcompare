@@ -13,13 +13,12 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { getDisplayScale } from '../../utils/format';
 import {
-  areaFracs,
-  assignLetters,
-  fftkde,
-  fitModesFromKde,
-  improvedSheatherJones,
-  silvermansRule,
-} from '../../utils/kde.js';
+  bandwidthFor,
+  computeModeInfo,
+  KDE_GRID_POINTS,
+  safeKde,
+  type ModeInfo,
+} from '../../utils/kdeAnalysis';
 
 // This computes the min, max from a list of numbers.
 function computeStatisticsForRuns(data: number[]) {
@@ -53,7 +52,6 @@ function computeMax(a?: number, b?: number) {
 // at that point the KDE curve is genuinely flat and the user may want to dial
 // it down to see structure.
 const LARGE_BW_RATIO = 0.5;
-const KDE_GRID_POINTS = 1024;
 const LABEL_ROW_PX = 16; // vertical space per stagger level
 const KDE_TOP_BASE = 28;
 const KDE_HEIGHT = 155;
@@ -65,26 +63,6 @@ const CHART_HEIGHT_BASE = 340;
 const VT_MIN = 0.1;
 const VT_MAX = 0.99;
 const VT_STEP = 0.01;
-
-// Per-series mode summary, suitable both for chart overlays and the blurb.
-type ModeInfo = {
-  peakLocs: number[];
-  fracs: number[];
-  letters: string[];
-};
-
-function computeModeInfo(x: number[], y: number[], vt: number): ModeInfo {
-  if (!x.length || !y.length) {
-    return { peakLocs: [], fracs: [], letters: [] };
-  }
-  const { peakLocs, boundaries } = fitModesFromKde(x, y, vt);
-  if (!peakLocs.length) {
-    return { peakLocs: [], fracs: [], letters: [] };
-  }
-  const fracs = areaFracs(x, y, boundaries);
-  const letters = assignLetters(peakLocs);
-  return { peakLocs, fracs, letters };
-}
 
 // Stagger levels (0, 1, 2 …) for peak labels: peaks closer than ~13% of the
 // x-span get bumped to different levels so their labels don't overlap. Ported
@@ -110,51 +88,6 @@ function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
     let level = 0;
     while (used.has(level)) level++;
     peaks[idx].level = level;
-  }
-}
-
-function quantileSorted(sorted: number[], q: number): number {
-  const pos = (sorted.length - 1) * q;
-  const base = Math.floor(pos);
-  const rest = pos - base;
-  if (sorted[base + 1] !== undefined) {
-    return sorted[base] + rest * (sorted[base + 1] - sorted[base]);
-  }
-  return sorted[base];
-}
-
-// Silverman-Jones bandwidth approximation — produces a wider (smoother) kernel
-// than ISJ, which works better for the small sample counts typical of top-level
-// aggregated results.
-function approximateSJBandwidth(sorted: number[]): number {
-  const n = sorted.length;
-  if (n < 2) return sorted[0] * 0.0015;
-  const q25 = quantileSorted(sorted, 0.25);
-  const q75 = quantileSorted(sorted, 0.75);
-  const iqr = q75 - q25;
-  const mean = sorted.reduce((a, b) => a + b, 0) / n;
-  const std = Math.sqrt(
-    sorted.reduce((sum, x) => sum + Math.pow(x - mean, 2), 0) / n,
-  );
-  const sigma = Math.min(std, iqr / 1.34);
-  if (sigma <= 0) return Math.abs(mean) * 0.001 || 1;
-  return 0.9 * sigma * Math.pow(n, -1 / 5);
-}
-
-// ISJ bandwidth selection can fail to converge on tiny or degenerate samples
-// (few unique values, near-identical numbers). Fall back to Silverman's rule
-// in that case — coarser, but it never fails.
-// When bw is provided it is passed straight through to fftkde.
-function safeKde(values: number[], bw?: number) {
-  if (values.length < 2) return null;
-  try {
-    return fftkde(values, bw ?? 'ISJ', undefined, KDE_GRID_POINTS);
-  } catch {
-    try {
-      return fftkde(values, 'silverman', undefined, KDE_GRID_POINTS);
-    } catch {
-      return null;
-    }
   }
 }
 
@@ -204,20 +137,13 @@ function CommonGraph({
   // hex values into the chart option below.
   const themeMode = useAppSelector((state) => state.theme.mode);
 
-  const rawBandwidths = useMemo(() => {
-    const computeBw = (values: number[]) => {
-      if (values.length < 2) return undefined;
-      if (!isSubtest) {
-        return approximateSJBandwidth([...values].sort((a, b) => a - b));
-      }
-      try {
-        return improvedSheatherJones(values);
-      } catch {
-        return silvermansRule(values);
-      }
-    };
-    return { base: computeBw(baseValues), new: computeBw(newValues) };
-  }, [baseValues, newValues, isSubtest]);
+  const rawBandwidths = useMemo(
+    () => ({
+      base: bandwidthFor(baseValues, isSubtest),
+      new: bandwidthFor(newValues, isSubtest),
+    }),
+    [baseValues, newValues, isSubtest],
+  );
 
   const isLargeBw = useMemo(() => {
     const allValues = [...baseValues, ...newValues];
@@ -346,12 +272,12 @@ function CommonGraph({
   const modes = useMemo(() => {
     const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
 
-    const baseModes = bKde
+    const baseModes: ModeInfo = bKde
       ? computeModeInfo(sharedX, baseY, localVt)
-      : { peakLocs: [], fracs: [], letters: [] };
-    const newModes = nKde
+      : { peakLocs: [], boundaries: [], fracs: [], letters: [] };
+    const newModes: ModeInfo = nKde
       ? computeModeInfo(sharedX, newY, localVt)
-      : { peakLocs: [], fracs: [], letters: [] };
+      : { peakLocs: [], boundaries: [], fracs: [], letters: [] };
 
     // Assign vertical stagger levels across all peaks so labels don't collide.
     const allPeaks: PeakRef[] = [];

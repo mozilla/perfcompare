@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
 import CommonGraph from './CommonGraph';
+import KdeModesPanel from './KdeModesPanel';
 import { getStrategy } from '../../common/testVersions';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
@@ -106,6 +107,14 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 ({lowerIsBetter ? 'lower' : 'higher'} is better)
               </Box>
               {strategy.renderExpandedRight(result)}
+              <KdeModesPanel
+                baseValues={baseValues}
+                newValues={newValues}
+                unit={baseUnit || newUnit}
+                vt={vt}
+                showModes={showModes}
+                isSubtest={result.base_parent_signature !== null}
+              />
             </div>
           </Grid>
         </Grid>
