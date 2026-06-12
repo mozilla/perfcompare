@@ -23,6 +23,8 @@ export enum Colors {
   //Text colors light theme
   PrimaryText = '#15141A',
   SecondaryText = '#5B5B66',
+  TextMuted = '#555',
+  TextSubtle = '#888',
   InvertedText = '#FBFBFE',
   LinkText = '#0060df',
   TextDisabled = '#15141a 40%',
@@ -31,6 +33,7 @@ export enum Colors {
   //Text colors dark theme
   PrimaryTextDark = '#FBFBFE',
   SecondaryTextDark = '#cfcfd8',
+  TertiaryTextDark = '#9b9ba8',
   InvertedTextDark = '#15141a',
   LinkTextDark = '#00ddff',
   TextDisabledDark = '#fbfbfe',
@@ -100,6 +103,12 @@ export enum Colors {
   IconDark = '#FBFBFE',
   IconDarkSuccess = '#4DBC87',
   IconDarkError = '#F37F98',
+
+  //Modes panel colors
+  ModesPanelMixed = '#a60',
+  ModesPanelSuccessDark = '#E3FFF3',
+  ModesPanelRegressionDark = '#FFDFE7',
+  ModesPanelMixedDark = '#FFFFCC',
 
   // Colors for the base and new charts
   // Note that they need to be using the hash notation so that they work in all
