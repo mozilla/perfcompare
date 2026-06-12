@@ -2655,7 +2655,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_sf_"
+                          id="_r_sl_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -3165,7 +3165,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_sl_"
+                    aria-controls="_r_sr_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3341,7 +3341,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_so_"
+                    aria-controls="_r_su_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3504,7 +3504,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_sr_"
+                    aria-controls="_r_t1_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3667,7 +3667,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_su_"
+                    aria-controls="_r_t4_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3830,7 +3830,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_t1_"
+                    aria-controls="_r_t7_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4257,7 +4257,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_pn_"
+                          id="_r_ps_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -4767,7 +4767,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_pt_"
+                    aria-controls="_r_q2_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4943,7 +4943,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q0_"
+                    aria-controls="_r_q5_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5106,7 +5106,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q3_"
+                    aria-controls="_r_q8_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5269,7 +5269,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q6_"
+                    aria-controls="_r_qb_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5432,7 +5432,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q9_"
+                    aria-controls="_r_qe_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5859,7 +5859,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_g3_"
+                          id="_r_g6_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -6369,7 +6369,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_g9_"
+                    aria-controls="_r_gc_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -6545,7 +6545,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_gc_"
+                    aria-controls="_r_gf_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -6708,7 +6708,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_gf_"
+                    aria-controls="_r_gi_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -6871,7 +6871,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_gi_"
+                    aria-controls="_r_gl_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -7034,7 +7034,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_gl_"
+                    aria-controls="_r_go_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -7461,7 +7461,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_db_"
+                          id="_r_dd_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -7969,7 +7969,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_dh_"
+                    aria-controls="_r_dj_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -8117,7 +8117,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_dk_"
+                    aria-controls="_r_dm_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -8265,7 +8265,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_dn_"
+                    aria-controls="_r_dp_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -8413,7 +8413,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_dq_"
+                    aria-controls="_r_ds_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -8561,7 +8561,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_dt_"
+                    aria-controls="_r_dv_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
