@@ -148,6 +148,35 @@ describe('App', () => {
       expect(document.body).toMatchSnapshot();
     });
 
+    it('Should render the correct error message to the console when new_revision is required but missing', async () => {
+      // Silence console.error for a better console output.
+      jest.spyOn(console, 'error').mockImplementation(() => {});
+      fetchMock.get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        {
+          status: 400,
+          body: JSON.stringify({
+            new_revision: ['This field may not be blank.'],
+          }),
+        },
+      );
+
+      await router.navigate(
+        '/compare-results/?baseRev=spam&baseRepo=mozilla-central&framework=2',
+      );
+      render(<App />);
+
+      await screen.findByText(/Error/);
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(
+          'The comparison cannot be performed because the `new_revision` field is missing. ' +
+            'This typically happens when the `mach try perf` push is still being processed by Lando. ' +
+            'Please wait a few moments for the push to complete and then refresh the page.',
+        ),
+      );
+      expect(document.body).toMatchSnapshot();
+    });
+
     it('Should render an error page for compare over time when the treeherder request fails with an error 400', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
