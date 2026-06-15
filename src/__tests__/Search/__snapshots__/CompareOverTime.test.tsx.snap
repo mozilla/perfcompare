@@ -930,7 +930,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
           style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
         >
           <span
-            class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+            class="MuiTouchRipple-child"
           />
         </span>
         <span

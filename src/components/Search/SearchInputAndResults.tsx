@@ -54,6 +54,7 @@ export default function SearchInputAndResults({
     null as null | Changeset[],
   );
   const [searchError, setSearchError] = useState(null as null | string);
+  const [inputValue, setInputValue] = useState('');
 
   // The last used searchTerm is kept in a ref, so that it's possible to use it
   // in an effect when the repository prop changes. It's not stored in a state
@@ -145,24 +146,20 @@ export default function SearchInputAndResults({
   };
 
   const searchRecentRevisions = useCallback(
-    async (searchTerm: string) => {
+    async (
+      searchTerm: string,
+      { autoSelect = false }: { autoSelect?: boolean } = {},
+    ) => {
       // If the URL has a parameter useFulltextSearch, use it to determine the search type.
       const urlParams = new URLSearchParams(window.location.search);
       const useFulltextSearch = urlParams.has('useFulltextSearch');
-      // The search input must be at least three characters.
-      // If the input matches a hash pattern (4-40 hex characters with at least one letter), treat it as a hash.
-
-      // Otherwise, assume it's an author name, email, bug number, or comment and pass it as a general search term.
-      // NOTE: In the future we might want to be more clever and request both
-      // endpoints even when it looks like a hash. For example a request such as "ade" could
-      // return results for an author named "adenot" _and_  results for a hash "ade821ac".
-      // In that case it would be better to show the results for the author.
 
       const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
       const authorInfoMatch = /[^0-9a-fA-F]/;
 
       // Reset various states
       setSearchError(null);
+      setRecentRevisions(null);
       lastSearchTermRef.current = '';
 
       // By increasing the counter, we ensure that responses for inflight requests will be ignored.
@@ -174,29 +171,47 @@ export default function SearchInputAndResults({
         searchParameters = { repository };
       } else if (searchTerm.length < 3) {
         setSearchError(Strings.errors.warningText);
-        setRecentRevisions(null);
         return;
       } else if (useFulltextSearch) {
-        // Fulltext mode: check if it's a hash
         searchParameters = isHash.test(searchTerm)
           ? { repository, hash: searchTerm }
           : { repository, search: searchTerm };
       } else {
-        // Author mode: check if it contains non-hex characters
         searchParameters = authorInfoMatch.test(searchTerm)
           ? { repository, author: searchTerm }
           : { repository, hash: searchTerm };
       }
 
-      // Keep the current searchTerm in ref so that we can use it when the
-      // repository information changes.
       lastSearchTermRef.current = searchTerm;
 
       try {
         const results = await fetchRecentRevisions(searchParameters);
         if (thisRequestId !== requestsCounterRef.current) return;
-        // The user edited the text since the request started.
-        // Let's ignore the result then.
+
+        // Auto select logic for hashes
+        if (autoSelect && isHash.test(searchTerm) && results.length > 0) {
+          const termLower = searchTerm.toLowerCase().trim();
+
+          const match = results.find(
+            (rev) =>
+              rev.revision.toLowerCase() === termLower ||
+              rev.revision.toLowerCase().startsWith(termLower),
+          );
+
+          if (match) {
+            const alreadySelected = displayedRevisions.some(
+              (rev) => rev.id === match.id,
+            );
+
+            if (!(searchType === 'new' && alreadySelected)) {
+              onSearchResultsToggle(match);
+              // Do NOT clear inputValue after auto-select
+              return;
+            }
+          }
+        }
+
+        // Normal results flow
         if (results.length) {
           setRecentRevisions(results);
         } else {
@@ -215,7 +230,7 @@ export default function SearchInputAndResults({
         setRecentRevisions(null);
       }
     },
-    [repository],
+    [repository, displayedRevisions, searchType, onSearchResultsToggle],
   );
 
   const debouncedSearchRecentRevisions = useCallback(
@@ -224,18 +239,19 @@ export default function SearchInputAndResults({
   );
 
   const onValueChange = (searchTerm: string) => {
-    // Reset various states
-    setSearchError(null);
-    setRecentRevisions(null);
-    debouncedSearchRecentRevisions(searchTerm);
+    setInputValue(searchTerm);
+
+    if (/^(?=.*[a-f])[a-f0-9]{4,40}$/i.test(searchTerm)) {
+      void searchRecentRevisions(searchTerm, { autoSelect: true });
+    } else {
+      debouncedSearchRecentRevisions(searchTerm);
+    }
   };
 
-  // At load time and everytime the repository information changes, the recent
-  // revisions are fetched again. It's useful so that the dropdown is shown
-  // right away when focusing the input.
+  // At load time and everytime the repository information changes...
   useEffect(() => {
     void searchRecentRevisions(lastSearchTermRef.current);
-  }, [repository]);
+  }, [repository, searchRecentRevisions]);
 
   const renderInput = (params: AutocompleteRenderInputParams) => (
     <RevisionAutocompleteInput
@@ -244,6 +260,7 @@ export default function SearchInputAndResults({
       inputPlaceholder={inputPlaceholder}
       searchType={searchType}
       compact={compact}
+      value={inputValue}
     />
   );
 
@@ -271,6 +288,7 @@ export default function SearchInputAndResults({
         multiple={listItemComponent !== 'radio'}
         disableCloseOnSelect={listItemComponent !== 'radio'}
         filterOptions={(options) => options}
+        inputValue={inputValue} // Controlled input
         onInputChange={(_, value) => onValueChange(value)}
         onChange={(_, value, _reason, details) => {
           if (details?.option) {
