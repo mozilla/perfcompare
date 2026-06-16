@@ -549,6 +549,95 @@ function fftkdeReflection(data, bw, weights, numGridPoints) {
   return { x, y, bandwidth };
 }
 // ---------------------------------------------------------------------------
+// Adaptive (variable-bandwidth) KDE — Abramson's sample-point estimator
+//
+// Abramson, I. S. (1982): On bandwidth variation in kernel estimates — a
+// square root law. Ann. Stat. 10(4), 1217-1223.
+//
+// Why adaptive?
+// ------------
+// A single global bandwidth can't serve a distribution whose modes have very
+// different spreads. Performance data routinely does: a tight "fast path"
+// cluster sitting next to a diffuse "slow path" spread. A bandwidth wide
+// enough to coalesce the slow samples into a visible bump blurs the fast peak;
+// one narrow enough to keep the fast peak sharp shatters the slow samples into
+// isolated spikes that read as noise (and get filtered away), so the slow mode
+// vanishes entirely.
+//
+// The fix: give every sample its own bandwidth. Run a fixed-bandwidth pilot
+// estimate, then scale each sample's kernel by the local sparsity —
+//   h_i = h0 · (g / f̃(x_i))^alpha,   g = geometric mean of the pilot densities.
+// Samples in sparse regions (the slow path) get wider kernels and merge into a
+// single bump; samples in the dense fast cluster get narrower kernels and stay
+// sharp. alpha = 0.5 is Abramson's square-root law; larger alpha adapts more
+// aggressively. The slow mode then forms a real peak with a real valley, so
+// the existing mode-bucketing recovers it without over-smoothing the fast one.
+//
+// Cost is O(n·G) (direct evaluation, no FFT) because each sample carries a
+// different kernel width — fine for the small n of performance runs.
+//
+// @param data    - raw sample values (at least 2)
+// @param opts    - { numGridPoints=1024, alpha=0.5, pilotBandwidth?, bwMultiplier=1 }
+//                  pilotBandwidth overrides the internal ISJ pilot (e.g. to share
+//                  one pilot across base/new for comparability); bwMultiplier
+//                  scales the pilot (the smoothing slider).
+// @returns { x, y, bandwidth, localBandwidths } — bandwidth is the pilot h0
+// ---------------------------------------------------------------------------
+export function adaptiveKde(data, opts = {}) {
+  const numGridPoints = opts.numGridPoints ?? 1024;
+  const alpha = opts.alpha ?? 0.5;
+  const bwMultiplier = opts.bwMultiplier ?? 1;
+  const n = data.length;
+  if (n < 2) throw new Error('adaptiveKde requires at least 2 data points.');
+  // 1. Pilot fixed bandwidth — ISJ, falling back to Silverman's rule.
+  let h0 = opts.pilotBandwidth;
+  if (!(h0 > 0)) {
+    try {
+      h0 = improvedSheatherJones(data);
+    } catch {
+      h0 = silvermansRule(data);
+    }
+    if (!(h0 > 0)) h0 = silvermansRule(data);
+  }
+  h0 *= bwMultiplier;
+  // 2. Pilot density at each sample (direct fixed-bandwidth Gaussian KDE).
+  const pilot = new Float64Array(n);
+  for (let i = 0; i < n; i++) {
+    let s = 0;
+    for (let j = 0; j < n; j++) s += gaussianKernel1D(data[i] - data[j], h0);
+    pilot[i] = s / n;
+  }
+  // 3. Per-sample bandwidth from the local sparsity (geometric-mean normalised).
+  let logSum = 0;
+  for (let i = 0; i < n; i++) {
+    logSum += Math.log(pilot[i] > 0 ? pilot[i] : Number.MIN_VALUE);
+  }
+  const g = Math.exp(logSum / n);
+  const hLocal = new Float64Array(n);
+  let hMax = h0;
+  for (let i = 0; i < n; i++) {
+    const ratio = g / (pilot[i] > 0 ? pilot[i] : Number.MIN_VALUE);
+    hLocal[i] = h0 * Math.pow(ratio, alpha);
+    if (hLocal[i] > hMax) hMax = hLocal[i];
+  }
+  // 4. Grid padded by the widest kernel's practical support so it isn't clipped.
+  const grid = autogrid1D(data, gaussianPracticalSupport(hMax), numGridPoints, 0.05);
+  // 5. Evaluate the adaptive density on the grid.
+  const y = new Array(numGridPoints).fill(0);
+  for (let gi = 0; gi < numGridPoints; gi++) {
+    const xg = grid[gi];
+    let s = 0;
+    for (let i = 0; i < n; i++) s += gaussianKernel1D(xg - data[i], hLocal[i]);
+    y[gi] = s / n;
+  }
+  return {
+    x: Array.from(grid),
+    y,
+    bandwidth: h0,
+    localBandwidths: Array.from(hLocal),
+  };
+}
+// ---------------------------------------------------------------------------
 // argrelmax — port of scipy.signal.argrelmax(y, order=order)
 //
 // Returns indices i where y[i] is strictly greater than all y[i±j] for
@@ -621,23 +710,53 @@ export function areaFracs(x, y, boundaries) {
  * Like fitKdeModes but takes (x, y) instead of raw data, so an interactive
  * widget can re-fit modes on a slider change without recomputing the KDE.
  *
- * Differences from fitKdeModes:
- *   - Filters modes by KDE *area* (areaFracs) rather than the fraction of
- *     raw data points falling in each bucket.
- *   - Adds a minimum-separation guard: peaks closer than max(2, 5% of the x
- *     range) collapse to the higher peak. This suppresses spurious modes
- *     that KDE can produce on near-integer data (e.g. samples ∈ {0, 1}).
+ * How a mode is decided
+ * ---------------------
+ * Valley depth and integrated mass play distinct roles, mirroring how a human
+ * reads the curve:
+ *   1. Valley depth answers "are these two bumps *connected*?" — a shallow
+ *      saddle means one mode with a wobble, a deep one means two basins.
+ *   2. Integrated mass (area under the bump, by the trapezoid rule) answers
+ *      "is this bump *substantial enough to be a mode at all*?" This is the
+ *      part the eye actually does — judging how much of the data lives under a
+ *      hump — and it's what valley depth alone gets wrong. A single-sample
+ *      outlier or a thin scatter of stragglers produces a tall, deep-valleyed
+ *      spike that passes any depth test, yet carries almost no probability
+ *      mass; a human dismisses it on sight. So a bump only survives as a mode
+ *      when its area corresponds to at least `minSamples` real measurements
+ *      (when the sample count n is known) and clears an absolute floor mdf.
+ *
+ * The height floor (mpf) is a companion to the mass test: it rejects wide,
+ * low scatter whose area would otherwise accumulate into a phantom mode even
+ * though it never rises into a real peak.
+ *
+ * Also keeps a minimum-separation guard: peaks closer than max(2, 5% of the x
+ * range) collapse to the higher peak, suppressing spurious modes that KDE can
+ * produce on near-integer data (e.g. samples ∈ {0, 1}).
  *
  * @param x   - KDE x grid (uniform spacing)
  * @param y   - KDE density at each x
  * @param vt  - valley-depth threshold; the valley between two peaks must be
  *              shallower than vt × min(peak heights) for them to count as
  *              separate modes (0 = never split, 1 = always split)
- * @param mpf - minimum peak height as a fraction of the global max (default 0.05)
+ * @param n   - number of underlying samples; enables the mass-to-sample-count
+ *              floor (a mode must hold ≥ minSamples measurements). When omitted,
+ *              only the absolute area floor mdf is applied.
+ * @param mpf - minimum peak height as a fraction of the global max (default 0.15)
+ * @param minSamples - minimum measurements a mode must contain, by integrated
+ *              area × n (default 3); ignored when n is omitted
  * @param mdf - minimum area fraction a mode must contain to be kept (default 0.05)
  * @returns { peakLocs, boundaries } in the same units as x
  */
-export function fitModesFromKde(x, y, vt, mpf = 0.05, mdf = 0.05) {
+export function fitModesFromKde(
+  x,
+  y,
+  vt,
+  n,
+  mpf = 0.15,
+  minSamples = 3,
+  mdf = 0.05,
+) {
   let yMax = 0;
   for (let i = 0; i < y.length; i++) if (y[i] > yMax) yMax = y[i];
   const peaks = argrelmax(y, 3).filter((i) => y[i] >= mpf * yMax);
@@ -646,8 +765,9 @@ export function fitModesFromKde(x, y, vt, mpf = 0.05, mdf = 0.05) {
     for (let i = 1; i < y.length; i++) if (y[i] > y[gm]) gm = i;
     return { peakLocs: [x[gm]], boundaries: [] };
   }
-  // Valley-depth filter — walk peaks left to right, keeping a peak only if
-  // the valley between it and the previous kept peak is deep enough.
+  // Valley-depth filter — connectivity test. Walk peaks left to right, keeping
+  // a peak only if the valley between it and the previous kept peak is deep
+  // enough; otherwise merge it into whichever of the two is taller.
   const good = [peaks[0]];
   for (let k = 1; k < peaks.length; k++) {
     const nxt = peaks[k];
@@ -669,28 +789,357 @@ export function fitModesFromKde(x, y, vt, mpf = 0.05, mdf = 0.05) {
     }
     return bs;
   }
-  // Area-fraction filter — drop modes whose KDE area is below mdf.
-  const bs0 = computeBoundaries(good);
-  const fr0 = areaFracs(x, y, bs0);
-  const keep = good.map((_, i) => i).filter((i) => fr0[i] >= mdf);
-  if (keep.length < 2) {
-    const bp = good.reduce((a, b) => (y[a] > y[b] ? a : b));
+  // Mass filter — the integral test. Drop the least-massive mode one at a time,
+  // recomputing boundaries after each removal so the dropped bump's mass merges
+  // into the neighbour it actually belongs to (areaFracs re-buckets it), then
+  // re-test the remainder. A mode survives only when its area holds at least
+  // minSamples measurements (when n is known) and clears the absolute floor mdf.
+  const modes = good.slice();
+  while (modes.length > 1) {
+    const fr = areaFracs(x, y, computeBoundaries(modes));
+    let worst = 0;
+    for (let i = 1; i < fr.length; i++) if (fr[i] < fr[worst]) worst = i;
+    const enoughSamples = n === undefined || fr[worst] * n >= minSamples;
+    if (enoughSamples && fr[worst] >= mdf) break;
+    modes.splice(worst, 1);
+  }
+  if (modes.length < 2) {
+    const bp = modes.length
+      ? modes[0]
+      : good.reduce((a, b) => (y[a] > y[b] ? a : b));
     return { peakLocs: [x[bp]], boundaries: [] };
   }
-  const fg = keep.map((i) => good[i]);
-  const fb = computeBoundaries(fg);
-  const locs = fg.map((i) => x[i]);
+  const locs = modes.map((i) => x[i]);
   // Minimum-separation guard: KDE artefacts on near-integer data can put
   // distinct peaks within a sample of each other. Collapse those to one.
   const dataRange = x[x.length - 1] - x[0];
   const minSep = Math.max(2, dataRange * 0.05);
   for (let k = 1; k < locs.length; k++) {
     if (locs[k] - locs[k - 1] < minSep) {
-      const bestIdx = fg.reduce((a, b) => (y[a] > y[b] ? a : b));
+      const bestIdx = modes.reduce((a, b) => (y[a] > y[b] ? a : b));
       return { peakLocs: [x[bestIdx]], boundaries: [] };
     }
   }
-  return { peakLocs: locs, boundaries: fb };
+  return { peakLocs: locs, boundaries: computeBoundaries(modes) };
+}
+// ---------------------------------------------------------------------------
+// Gaussian-mixture mode detection (EM + BIC)
+//
+// Why a mixture model instead of carving the KDE at valley floors?
+// ----------------------------------------------------------------
+// Valley detection asks "where does the density dip", a one-parameter family
+// (the valley-depth slider) that often can't reproduce the grouping a human
+// would draw — in particular it gets the mode *count* wrong at every slider
+// setting, and a *diffuse* group (a slow path with high dispersion) has no
+// sharp KDE peak, so it shatters into ripples or is absorbed by the fast mode.
+//
+// A Gaussian mixture instead clusters the *samples*. Each mode is a component
+// with a weight (its probability mass — the integral the eye reads off), a
+// centre and a width, so:
+//   - the number of modes is chosen by BIC (penalised likelihood), not a
+//     threshold — fixing the "no slider value gives the right count" problem;
+//   - a diffuse slow path is simply one wide-σ component, captured whole
+//     rather than fragmented (and, because nothing smooths the density, a
+//     valley between two real modes is never "filled in", unlike adaptive KDE);
+//   - points are bucketed by maximum responsibility, so a boundary sits at the
+//     Bayes-optimal crossing of two components, not at a KDE valley floor.
+//
+// EM is run once per K from a deterministic equal-count partition init (no
+// RNG, so results are reproducible), with a variance floor to avoid the
+// classic singular-component collapse on tightly-clustered samples.
+// ---------------------------------------------------------------------------
+function gaussPdf(x, mu, varr) {
+  return (
+    Math.exp(-((x - mu) * (x - mu)) / (2 * varr)) /
+    Math.sqrt(2 * Math.PI * varr)
+  );
+}
+// Init A — K contiguous equal-count chunks of the sorted data, one component
+// per chunk. Cheap and good when modes are comparable in size.
+function initChunks(sorted, K, varFloor) {
+  const n = sorted.length;
+  const means = new Array(K);
+  const vars = new Array(K);
+  const weights = new Array(K);
+  for (let k = 0; k < K; k++) {
+    const lo = Math.floor((k * n) / K);
+    const hi = Math.max(lo + 1, Math.floor(((k + 1) * n) / K));
+    let m = 0;
+    for (let i = lo; i < hi; i++) m += sorted[i];
+    m /= hi - lo;
+    let v = 0;
+    for (let i = lo; i < hi; i++) v += (sorted[i] - m) ** 2;
+    means[k] = m;
+    vars[k] = Math.max(v / (hi - lo), varFloor);
+    weights[k] = (hi - lo) / n;
+  }
+  return { means, vars, weights };
+}
+// Init B — deterministic k-means (farthest-point seeding + Lloyd), then derive
+// component params from the clusters. Robust when modes differ wildly in size
+// (the diffuse-slow case), where chunk init can straddle a cluster boundary.
+// Mirrors sklearn's default k-means init that our cross-check validated against.
+function initKmeans(data, sorted, K, varFloor) {
+  const n = data.length;
+  // Farthest-point seeding: start at the median, repeatedly add the point
+  // farthest (in value) from the nearest existing centre — deterministic, and
+  // it reliably plants one seed in each well-separated cluster.
+  const centres = [sorted[Math.floor(n / 2)]];
+  while (centres.length < K) {
+    let bestX = sorted[0];
+    let bestD = -1;
+    for (const x of sorted) {
+      let dmin = Infinity;
+      for (const c of centres) dmin = Math.min(dmin, Math.abs(x - c));
+      if (dmin > bestD) {
+        bestD = dmin;
+        bestX = x;
+      }
+    }
+    centres.push(bestX);
+  }
+  centres.sort((a, b) => a - b);
+  const assign = new Array(n).fill(0);
+  for (let iter = 0; iter < 50; iter++) {
+    let moved = false;
+    for (let i = 0; i < n; i++) {
+      let best = 0;
+      let bd = Infinity;
+      for (let k = 0; k < K; k++) {
+        const d = Math.abs(data[i] - centres[k]);
+        if (d < bd) {
+          bd = d;
+          best = k;
+        }
+      }
+      if (assign[i] !== best) {
+        assign[i] = best;
+        moved = true;
+      }
+    }
+    const sum = new Array(K).fill(0);
+    const cnt = new Array(K).fill(0);
+    for (let i = 0; i < n; i++) {
+      sum[assign[i]] += data[i];
+      cnt[assign[i]]++;
+    }
+    for (let k = 0; k < K; k++) if (cnt[k]) centres[k] = sum[k] / cnt[k];
+    if (!moved && iter > 0) break;
+  }
+  const means = centres.slice();
+  const vars = new Array(K).fill(varFloor);
+  const weights = new Array(K).fill(0);
+  const cnt = new Array(K).fill(0);
+  for (let i = 0; i < n; i++) {
+    cnt[assign[i]]++;
+    vars[assign[i]] += (data[i] - means[assign[i]]) ** 2;
+  }
+  for (let k = 0; k < K; k++) {
+    weights[k] = (cnt[k] || 1) / n;
+    vars[k] = Math.max(cnt[k] ? vars[k] / cnt[k] : varFloor, varFloor);
+  }
+  return { means, vars, weights };
+}
+// One EM run at fixed K from a supplied init {means, vars, weights}.
+function emGmm1D(data, init, varFloor, maxIter = 300) {
+  const n = data.length;
+  const K = init.means.length;
+  const means = init.means.slice();
+  const vars = init.vars.slice();
+  const weights = init.weights.slice();
+  const resp = Array.from({ length: n }, () => new Array(K).fill(0));
+  let prevLL = -Infinity;
+  let logL = -Infinity;
+  for (let iter = 0; iter < maxIter; iter++) {
+    // E-step
+    logL = 0;
+    for (let i = 0; i < n; i++) {
+      let denom = 0;
+      for (let k = 0; k < K; k++) {
+        const p = weights[k] * gaussPdf(data[i], means[k], vars[k]);
+        resp[i][k] = p;
+        denom += p;
+      }
+      if (denom > 0) {
+        for (let k = 0; k < K; k++) resp[i][k] /= denom;
+        logL += Math.log(denom);
+      } else {
+        for (let k = 0; k < K; k++) resp[i][k] = 1 / K;
+        logL -= 700;
+      }
+    }
+    // M-step
+    for (let k = 0; k < K; k++) {
+      let Nk = 0;
+      let mu = 0;
+      for (let i = 0; i < n; i++) {
+        Nk += resp[i][k];
+        mu += resp[i][k] * data[i];
+      }
+      if (Nk < 1e-12) continue;
+      mu /= Nk;
+      let v = 0;
+      for (let i = 0; i < n; i++) v += resp[i][k] * (data[i] - mu) ** 2;
+      means[k] = mu;
+      vars[k] = Math.max(v / Nk, varFloor);
+      weights[k] = Nk / n;
+    }
+    if (iter > 0 && Math.abs(logL - prevLL) <= 1e-7 * (Math.abs(prevLL) + 1e-12))
+      break;
+    prevLL = logL;
+  }
+  return { means, vars, weights, logL };
+}
+// x in (a.mu, b.mu) where the two weighted components cross — the Bayes
+// decision boundary between adjacent modes. Scanned (robust) with linear
+// interpolation at the sign change.
+function componentCrossing(a, b) {
+  const lo = a.mu;
+  const hi = b.mu;
+  const va = Math.max(a.sigma * a.sigma, 1e-12);
+  const vb = Math.max(b.sigma * b.sigma, 1e-12);
+  const steps = 256;
+  let prev = a.weight * gaussPdf(lo, a.mu, va) - b.weight * gaussPdf(lo, b.mu, vb);
+  for (let i = 1; i <= steps; i++) {
+    const x = lo + ((hi - lo) * i) / steps;
+    const diff =
+      a.weight * gaussPdf(x, a.mu, va) - b.weight * gaussPdf(x, b.mu, vb);
+    if (prev > 0 && diff <= 0) {
+      const xPrev = lo + ((hi - lo) * (i - 1)) / steps;
+      const t = prev / (prev - diff);
+      return xPrev + (x - xPrev) * t;
+    }
+    prev = diff;
+  }
+  return (lo + hi) / 2;
+}
+/**
+ * Detect modes by fitting a 1-D Gaussian mixture to the raw samples and
+ * selecting the number of components with BIC.
+ *
+ * @param data - raw sample values
+ * @param opts - { penaltyScale=1, maxComponents=5 }
+ *               penaltyScale multiplies the BIC complexity penalty: >1 favours
+ *               fewer modes, <1 favours more (the UI "mode sensitivity" knob).
+ * @returns { peakLocs, boundaries, fracs, components, nModes }
+ *          peakLocs  : component centres (sorted ascending)
+ *          boundaries: Bayes crossings between adjacent components
+ *          fracs     : component weights (probability mass per mode)
+ *          components: [{ mu, sigma, weight }] for drawing the mixture density
+ */
+export function fitGmmModes(data, opts = {}) {
+  const penaltyScale = opts.penaltyScale ?? 1;
+  const maxComponents = opts.maxComponents ?? 5;
+  const varFloorFrac = opts.varFloorFrac ?? 0.01;
+  const minSamples = opts.minSamples ?? 1.5;
+  const n = data.length;
+  const sorted = [...data].sort((a, b) => a - b);
+  if (n < 4 || sorted[0] === sorted[n - 1]) {
+    // Too few (or identical) samples to fit a mixture: report one mode at the
+    // mean, with the sample spread as its width (zero only when all equal).
+    const mean = n ? data.reduce((a, b) => a + b, 0) / n : 0;
+    const sigma = n
+      ? Math.sqrt(data.reduce((s, x) => s + (x - mean) ** 2, 0) / n)
+      : 0;
+    return {
+      peakLocs: [mean],
+      boundaries: [],
+      fracs: [1],
+      components: [{ mu: mean, sigma, weight: 1 }],
+      nModes: 1,
+    };
+  }
+  const span = sorted[n - 1] - sorted[0];
+  // Variance floor: the larger of a span fraction and the measurement
+  // resolution. The resolution term stops GMM from fitting one razor-thin
+  // component per rounding level on quantised data (e.g. ms-rounded timings) —
+  // a failure mode the scipy/sklearn reference shares, so it must be handled at
+  // the data level. resolution = smallest gap between distinct sample values.
+  let resolution = span;
+  for (let i = 1; i < n; i++) {
+    const gap = sorted[i] - sorted[i - 1];
+    if (gap > 0 && gap < resolution) resolution = gap;
+  }
+  const varFloor = Math.max(
+    (span * varFloorFrac) ** 2,
+    resolution * resolution,
+    1e-12,
+  );
+  const Kmax = Math.max(1, Math.min(maxComponents, Math.floor(n / 4)));
+  let best = null;
+  for (let K = 1; K <= Kmax; K++) {
+    // Try both inits and keep the higher-likelihood fit — this matches the
+    // robustness of sklearn's multi-restart k-means init (cross-checked) and
+    // avoids the bad local optima a single init falls into when modes differ
+    // greatly in size.
+    const inits =
+      K === 1
+        ? [initChunks(sorted, K, varFloor)]
+        : [
+            initChunks(sorted, K, varFloor),
+            initKmeans(data, sorted, K, varFloor),
+          ];
+    for (const init of inits) {
+      const fit = emGmm1D(data, init, varFloor, 300);
+      const params = 3 * K - 1; // K means + K variances + (K-1) free weights
+      const bic = -2 * fit.logL + penaltyScale * params * Math.log(n);
+      if (!best || bic < best.bic - 1e-9) best = { ...fit, K, bic };
+    }
+  }
+  // Components → modes: drop near-empty ones, merge near-duplicate centres.
+  let comps = best.means
+    .map((mu, k) => ({
+      mu,
+      sigma: Math.sqrt(best.vars[k]),
+      weight: best.weights[k],
+    }))
+    .filter((c) => c.weight * n >= minSamples && Number.isFinite(c.mu))
+    .sort((a, b) => a.mu - b.mu);
+  if (!comps.length) {
+    const med = sorted[Math.floor(n / 2)];
+    comps = [{ mu: med, sigma: Math.sqrt(varFloor), weight: 1 }];
+  }
+  const minSep = Math.max(2, span * 0.02);
+  const merged = [comps[0]];
+  for (let i = 1; i < comps.length; i++) {
+    const p = merged[merged.length - 1];
+    const c = comps[i];
+    if (c.mu - p.mu < minSep) {
+      const w = p.weight + c.weight;
+      const mu = (p.mu * p.weight + c.mu * c.weight) / w;
+      const v =
+        (p.weight * (p.sigma ** 2 + (p.mu - mu) ** 2) +
+          c.weight * (c.sigma ** 2 + (c.mu - mu) ** 2)) /
+        w;
+      merged[merged.length - 1] = { mu, sigma: Math.sqrt(v), weight: w };
+    } else merged.push(c);
+  }
+  const wSum = merged.reduce((s, c) => s + c.weight, 0) || 1;
+  for (const c of merged) c.weight /= wSum;
+  const boundaries = [];
+  for (let i = 0; i < merged.length - 1; i++)
+    boundaries.push(componentCrossing(merged[i], merged[i + 1]));
+  return {
+    peakLocs: merged.map((c) => c.mu),
+    boundaries,
+    fracs: merged.map((c) => c.weight),
+    components: merged,
+    nModes: merged.length,
+  };
+}
+/**
+ * Evaluate a Gaussian-mixture density on a grid, for drawing the fitted model
+ * over the KDE. Returns one density value per x.
+ */
+export function gmmDensity(components, x) {
+  const out = new Array(x.length);
+  for (let i = 0; i < x.length; i++) {
+    let s = 0;
+    for (const c of components)
+      s += c.weight * gaussPdf(x[i], c.mu, Math.max(c.sigma * c.sigma, 1e-12));
+    out[i] = s;
+  }
+  return out;
 }
 /**
  * Assign single-letter labels to modes, with A = lowest peak location.

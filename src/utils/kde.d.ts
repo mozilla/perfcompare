@@ -67,13 +67,51 @@ export declare function fitModesFromKde(
   x: ArrayLike<number>,
   y: ArrayLike<number>,
   vt: number,
+  n?: number,
   mpf?: number,
+  minSamples?: number,
   mdf?: number,
 ): FitModesFromKdeResult;
 export declare function areaFracs(
   x: ArrayLike<number>,
   y: ArrayLike<number>,
   boundaries: number[],
+): number[];
+export type AdaptiveKDEResult = {
+  x: number[];
+  y: number[];
+  bandwidth: number;
+  localBandwidths: number[];
+};
+export declare function adaptiveKde(
+  data: number[],
+  opts?: {
+    numGridPoints?: number;
+    alpha?: number;
+    pilotBandwidth?: number;
+    bwMultiplier?: number;
+  },
+): AdaptiveKDEResult;
+export type GmmComponent = { mu: number; sigma: number; weight: number };
+export type GmmModeResult = {
+  peakLocs: number[];
+  boundaries: number[];
+  fracs: number[];
+  components: GmmComponent[];
+  nModes: number;
+};
+export declare function fitGmmModes(
+  data: number[],
+  opts?: {
+    penaltyScale?: number;
+    maxComponents?: number;
+    varFloorFrac?: number;
+    minSamples?: number;
+  },
+): GmmModeResult;
+export declare function gmmDensity(
+  components: GmmComponent[],
+  x: ArrayLike<number>,
 ): number[];
 export declare function assignLetters(locs: number[]): string[];
 export type MatchModesResult = {
