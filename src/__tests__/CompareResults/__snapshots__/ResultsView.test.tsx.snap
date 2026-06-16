@@ -33,13 +33,43 @@ exports[`Results View Should display Base, New and Common graphs with replicates
           <div
             class="MuiBox-root css-1ntc4s6"
           >
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1l4my39-MuiFormControlLabel-root"
+            >
+              <span
+                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              >
+                <input
+                  checked=""
+                  class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                  data-indeterminate="false"
+                  type="checkbox"
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                  data-testid="CheckBoxIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+              >
+                Modal analysis
+              </span>
+            </label>
             <span
               class="MuiTypography-root MuiTypography-body2 css-ftpr4e-MuiTypography-root"
             >
-              Valley depth threshold
+              Mode sensitivity
               <svg
                 aria-hidden="true"
-                aria-label="A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected."
+                aria-label="How readily the Gaussian-mixture fit splits the samples into separate modes (via the BIC complexity penalty). Higher = more modes detected; lower = only strongly-supported modes."
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-86dkbz-MuiSvgIcon-root"
                 data-mui-internal-clone-element="true"
                 data-testid="InfoOutlinedIcon"
@@ -68,7 +98,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 style="left: 44.9438202247191%;"
               >
                 <input
-                  aria-label="Valley depth threshold"
+                  aria-label="Mode sensitivity"
                   aria-orientation="horizontal"
                   aria-valuemax="0.99"
                   aria-valuemin="0.1"
@@ -89,36 +119,6 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               50
               %
             </span>
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-qhrps9-MuiFormControlLabel-root"
-            >
-              <span
-                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
-              >
-                <input
-                  checked=""
-                  class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
-                  data-indeterminate="false"
-                  type="checkbox"
-                />
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                  data-testid="CheckBoxIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                  />
-                </svg>
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-              >
-                Show modes
-              </span>
-            </label>
           </div>
           <div
             class="MuiBox-root css-72fd9l"
@@ -578,13 +578,43 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
           <div
             class="MuiBox-root css-1ntc4s6"
           >
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1l4my39-MuiFormControlLabel-root"
+            >
+              <span
+                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              >
+                <input
+                  checked=""
+                  class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                  data-indeterminate="false"
+                  type="checkbox"
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                  data-testid="CheckBoxIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+              >
+                Modal analysis
+              </span>
+            </label>
             <span
               class="MuiTypography-root MuiTypography-body2 css-ftpr4e-MuiTypography-root"
             >
-              Valley depth threshold
+              Mode sensitivity
               <svg
                 aria-hidden="true"
-                aria-label="A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected."
+                aria-label="How readily the Gaussian-mixture fit splits the samples into separate modes (via the BIC complexity penalty). Higher = more modes detected; lower = only strongly-supported modes."
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-86dkbz-MuiSvgIcon-root"
                 data-mui-internal-clone-element="true"
                 data-testid="InfoOutlinedIcon"
@@ -613,7 +643,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 style="left: 44.9438202247191%;"
               >
                 <input
-                  aria-label="Valley depth threshold"
+                  aria-label="Mode sensitivity"
                   aria-orientation="horizontal"
                   aria-valuemax="0.99"
                   aria-valuemin="0.1"
@@ -634,36 +664,6 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               50
               %
             </span>
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-qhrps9-MuiFormControlLabel-root"
-            >
-              <span
-                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
-              >
-                <input
-                  checked=""
-                  class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
-                  data-indeterminate="false"
-                  type="checkbox"
-                />
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                  data-testid="CheckBoxIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                  />
-                </svg>
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-              >
-                Show modes
-              </span>
-            </label>
           </div>
           <div
             class="MuiBox-root css-72fd9l"

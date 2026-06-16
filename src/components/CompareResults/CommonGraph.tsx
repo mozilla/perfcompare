@@ -13,10 +13,10 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { getDisplayScale } from '../../utils/format';
 import {
-  areaFracs,
   assignLetters,
   fftkde,
-  fitModesFromKde,
+  fitGmmModes,
+  gmmDensity,
   improvedSheatherJones,
   silvermansRule,
 } from '../../utils/kde.js';
@@ -61,29 +61,53 @@ const SCATTER_TOP_BASE = 250;
 const SCATTER_HEIGHT = 50;
 const CHART_HEIGHT_BASE = 340;
 
-// Valley-depth threshold bounds for the mode-detection slider.
+// Mode-sensitivity slider bounds. The slider value (0.1‒0.99) is mapped to the
+// GMM's BIC complexity penalty: higher slider = more modes (lower penalty).
 const VT_MIN = 0.1;
 const VT_MAX = 0.99;
 const VT_STEP = 0.01;
+
+// Map the slider (0.1‒0.99) to a BIC penalty multiplier. The midpoint (0.5)
+// gives penalty 1.0 (standard BIC, which we cross-checked against sklearn);
+// dragging right lowers the penalty so finer modes survive, dragging left
+// raises it so only strongly-supported modes remain.
+function sensitivityToPenalty(vt: number): number {
+  return Math.pow(2, (0.5 - vt) * 4);
+}
+
+type GmmComponent = { mu: number; sigma: number; weight: number };
 
 // Per-series mode summary, suitable both for chart overlays and the blurb.
 type ModeInfo = {
   peakLocs: number[];
   fracs: number[];
   letters: string[];
+  components: GmmComponent[];
 };
 
-function computeModeInfo(x: number[], y: number[], vt: number): ModeInfo {
-  if (!x.length || !y.length) {
-    return { peakLocs: [], fracs: [], letters: [] };
+const EMPTY_MODE_INFO: ModeInfo = {
+  peakLocs: [],
+  fracs: [],
+  letters: [],
+  components: [],
+};
+
+// Detect modes by fitting a Gaussian mixture to the raw samples (BIC-selected
+// component count). Unlike carving the KDE at valley floors, this groups the
+// samples directly: each mode is a component with a probability mass (weight),
+// so a diffuse "slow path" is captured as one wide component instead of being
+// fragmented or absorbed, and the mode count comes from BIC rather than a
+// threshold the eye can't always match.
+function computeModeInfo(values: number[], penaltyScale: number): ModeInfo {
+  if (values.length < 2) {
+    return EMPTY_MODE_INFO;
   }
-  const { peakLocs, boundaries } = fitModesFromKde(x, y, vt);
+  const { peakLocs, fracs, components } = fitGmmModes(values, { penaltyScale });
   if (!peakLocs.length) {
-    return { peakLocs: [], fracs: [], letters: [] };
+    return EMPTY_MODE_INFO;
   }
-  const fracs = areaFracs(x, y, boundaries);
   const letters = assignLetters(peakLocs);
-  return { peakLocs, fracs, letters };
+  return { peakLocs, fracs, letters, components };
 }
 
 // Stagger levels (0, 1, 2 …) for peak labels: peaks closer than ~13% of the
@@ -337,21 +361,42 @@ function CommonGraph({
     };
   }, [baseValues, newValues, isSubtest, rawBandwidths, bwMultiplier]);
 
-  // Mode detection (peaks, area fractions, label assignment, stagger levels)
-  // lives in its own memo so it only re-runs when the threshold or the
-  // underlying curves change — not on theme switch, scatter strip toggle, or
+  // Mode detection (Gaussian-mixture fit, label assignment, stagger levels)
+  // lives in its own memo so it only re-runs when the sensitivity slider or the
+  // underlying samples change — not on theme switch, scatter strip toggle, or
   // unit changes. Uses localVt (the live slider position) so mode lines track
-  // the thumb in real time. fitModesFromKde is cheap (array ops on a
-  // pre-computed 1024-point grid), so running it on every drag pixel is fine.
+  // the thumb in real time. The GMM fit is ~0.3 ms per series, so re-running it
+  // on every drag pixel is fine.
   const modes = useMemo(() => {
-    const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
+    const { bKde, nKde, sharedX, min, max } = analysis;
+    const penalty = sensitivityToPenalty(localVt);
 
     const baseModes = bKde
-      ? computeModeInfo(sharedX, baseY, localVt)
-      : { peakLocs: [], fracs: [], letters: [] };
-    const newModes = nKde
-      ? computeModeInfo(sharedX, newY, localVt)
-      : { peakLocs: [], fracs: [], letters: [] };
+      ? computeModeInfo(baseValues, penalty)
+      : EMPTY_MODE_INFO;
+    const newModes = nKde ? computeModeInfo(newValues, penalty) : EMPTY_MODE_INFO;
+
+    // Density of each fitted mixture, sampled on the shared grid, so the chart
+    // can draw the model the modes came from (a diffuse slow component shows up
+    // as a wide low bump even where the KDE curve is nearly flat).
+    // Skip the overlay when any component is degenerate (σ≈0, the tiny/identical
+    // -sample fallback) — its density is a meaningless spike.
+    const hasWidth = (m: ModeInfo) =>
+      m.components.length > 0 && m.components.every((c) => c.sigma > 0);
+    const baseGmmY = bKde && hasWidth(baseModes)
+      ? gmmDensity(baseModes.components, sharedX)
+      : [];
+    const newGmmY = nKde && hasWidth(newModes)
+      ? gmmDensity(newModes.components, sharedX)
+      : [];
+    const baseGmmDensity: [number, number][] = baseGmmY.map((d, i) => [
+      sharedX[i],
+      d,
+    ]);
+    const newGmmDensity: [number, number][] = newGmmY.map((d, i) => [
+      sharedX[i],
+      d,
+    ]);
 
     // Assign vertical stagger levels across all peaks so labels don't collide.
     const allPeaks: PeakRef[] = [];
@@ -370,8 +415,15 @@ function CommonGraph({
 
     const maxLevel =
       levelLookup.size > 0 ? Math.max(...levelLookup.values()) : 0;
-    return { baseModes, newModes, levelLookup, maxLevel };
-  }, [analysis, localVt]);
+    return {
+      baseModes,
+      newModes,
+      baseGmmDensity,
+      newGmmDensity,
+      levelLookup,
+      maxLevel,
+    };
+  }, [analysis, localVt, baseValues, newValues]);
 
   const option: EChartsOption = useMemo(() => {
     const textColor =
@@ -384,7 +436,14 @@ function CommonGraph({
       min,
       max,
     } = analysis;
-    const { baseModes, newModes, levelLookup, maxLevel } = modes;
+    const {
+      baseModes,
+      newModes,
+      baseGmmDensity,
+      newGmmDensity,
+      levelLookup,
+      maxLevel,
+    } = modes;
     const extraTop = maxLevel * LABEL_ROW_PX;
     const kdeGrid = {
       left: 70,
@@ -600,6 +659,34 @@ function CommonGraph({
           itemStyle: { color: Colors.ChartNew },
           emphasis: { focus: 'none' },
         },
+        // Fitted Gaussian-mixture densities (dashed), drawn over the KDE so the
+        // detected modes line up with a visible bump — including diffuse slow
+        // components that the KDE alone renders as a near-flat tail. They share
+        // the 'Base'/'New' names so the legend toggle hides them with the KDE.
+        {
+          name: 'Base',
+          type: 'line',
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: showModes ? baseGmmDensity : [],
+          showSymbol: false,
+          lineStyle: { width: 1.5, type: 'dashed', color: Colors.ChartBase },
+          itemStyle: { color: Colors.ChartBase },
+          emphasis: { focus: 'none' },
+          silent: true,
+        },
+        {
+          name: 'New',
+          type: 'line',
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: showModes ? newGmmDensity : [],
+          showSymbol: false,
+          lineStyle: { width: 1.5, type: 'dashed', color: Colors.ChartNew },
+          itemStyle: { color: Colors.ChartNew },
+          emphasis: { focus: 'none' },
+          silent: true,
+        },
         {
           name: 'Base',
           type: 'scatter',
@@ -700,53 +787,6 @@ function CommonGraph({
           mb: 0.5,
         }}
       >
-        <Typography
-          variant='body2'
-          sx={{
-            color: '#000',
-            whiteSpace: 'nowrap',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          Valley depth threshold
-          <Tooltip
-            placement='top'
-            title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
-          >
-            <InfoIcon
-              fontSize='small'
-              sx={{ color: '#000', cursor: 'help', mx: 0.5 }}
-            />
-          </Tooltip>
-          :
-        </Typography>
-        {/*
-          MUI Slider exposes two events: `onChange` fires continuously during
-          drag (we send it to local state for a smooth thumb), and
-          `onChangeCommitted` fires once when the user releases (we push the
-          final value up to the parent then). This is the moral equivalent of
-          a debounce — the expensive consumer (`computeModeInfo`) runs once
-          per drag instead of on every pixel of movement.
-        */}
-        <Slider
-          size='small'
-          value={localVt}
-          min={VT_MIN}
-          max={VT_MAX}
-          step={VT_STEP}
-          disabled={!showModes}
-          onChange={(_, value) => setLocalVt(value)}
-          onChangeCommitted={(_, value) => onVtChange(value)}
-          aria-label='Valley depth threshold'
-          sx={{ maxWidth: 240 }}
-        />
-        <Typography
-          variant='body2'
-          sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
-        >
-          {Math.round(localVt * 100)}%
-        </Typography>
         <FormControlLabel
           control={
             <Checkbox
@@ -755,9 +795,64 @@ function CommonGraph({
               onChange={(_, checked) => onShowModesChange(checked)}
             />
           }
-          label='Show modes'
-          sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
+          label='Modal analysis'
+          sx={{ '& .MuiFormControlLabel-label': { fontSize: 14 } }}
         />
+        {/*
+          The sensitivity slider only makes sense while modal analysis is on —
+          with it off the chart is just the KDE, so we hide the slider entirely
+          rather than showing a disabled control.
+        */}
+        {showModes && (
+          <>
+            <Typography
+              variant='body2'
+              sx={{
+                color: '#000',
+                whiteSpace: 'nowrap',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              Mode sensitivity
+              <Tooltip
+                placement='top'
+                title='How readily the Gaussian-mixture fit splits the samples into separate modes (via the BIC complexity penalty). Higher = more modes detected; lower = only strongly-supported modes.'
+              >
+                <InfoIcon
+                  fontSize='small'
+                  sx={{ color: '#000', cursor: 'help', mx: 0.5 }}
+                />
+              </Tooltip>
+              :
+            </Typography>
+            {/*
+              MUI Slider exposes two events: `onChange` fires continuously during
+              drag (we send it to local state for a smooth thumb), and
+              `onChangeCommitted` fires once when the user releases (we push the
+              final value up to the parent then). This is the moral equivalent of
+              a debounce — the expensive consumer (`computeModeInfo`) runs once
+              per drag instead of on every pixel of movement.
+            */}
+            <Slider
+              size='small'
+              value={localVt}
+              min={VT_MIN}
+              max={VT_MAX}
+              step={VT_STEP}
+              onChange={(_, value) => setLocalVt(value)}
+              onChangeCommitted={(_, value) => onVtChange(value)}
+              aria-label='Mode sensitivity'
+              sx={{ maxWidth: 240 }}
+            />
+            <Typography
+              variant='body2'
+              sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
+            >
+              {Math.round(localVt * 100)}%
+            </Typography>
+          </>
+        )}
       </Box>
       <Box sx={{ flex: 0 }}>
         <div

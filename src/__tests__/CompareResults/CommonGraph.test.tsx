@@ -216,17 +216,17 @@ describe('CommonGraph', () => {
 
     const option = getLatestEChartsOption();
     const allSeries = option.series as LineSeriesOption[];
-    // Mode-overlay markLine series share names with the parent KDE lines
-    // (Base/New) so the legend can toggle them together — identify the
-    // underlying KDE curves by the absence of a markLine config.
-    const series = allSeries.filter(
-      (s) => s.type === 'line' && !(s as { markLine?: unknown }).markLine,
+    // The KDE density curves are the line series with triggerLineEvent set
+    // (the GMM overlay curves and mode markLines don't carry it).
+    const kdeSeries = allSeries.filter(
+      (s) =>
+        s.type === 'line' && (s as { triggerLineEvent?: boolean }).triggerLineEvent,
     );
-    expect(series).toHaveLength(2);
+    expect(kdeSeries).toHaveLength(2);
     // Base side has a resampled density curve.
-    expect(series[0].data as unknown[]).toHaveLength(1024);
+    expect(kdeSeries[0].data as unknown[]).toHaveLength(1024);
     // New side has no KDE — its data array stays empty.
-    expect(series[1].data).toEqual([]);
+    expect(kdeSeries[1].data).toEqual([]);
   });
 
   it('skips chart init when the container ref has no element attached', () => {
@@ -388,22 +388,27 @@ describe('CommonGraph', () => {
     expect(rendered).toBe('Value: 5.00<br>Base: 0.1000');
   });
 
-  it('emits a mode-overlay markLine series for each detected peak', () => {
-    // Strictly increasing fake KDE — fitModesFromKde returns a single peak at
-    // the global max (last x). That yields exactly one markLine overlay per
-    // series, with a label tagged by series and letter A. Overlays share
-    // names with the parent KDE series (Base/New) so the legend can toggle
-    // them — identify them by the markLine config rather than name.
+  it('emits a mode-overlay markLine series for each detected mode', () => {
+    // Modes come from a Gaussian-mixture fit on the RAW samples (not the KDE
+    // curve, which is mocked here). Each side is a single tight cluster, so the
+    // mixture has one component → one markLine overlay per series, centred on
+    // the cluster mean, labelled by series and letter A. Overlays share names
+    // with the parent KDE series (Base/New) so the legend can toggle them —
+    // identify them by the markLine config rather than name.
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
       bandwidth: 1,
     }));
 
+    const baseCluster = [100, 101, 99, 100, 102, 98, 101, 100];
+    const newCluster = [200, 201, 199, 200, 202, 198, 201, 200];
+    const mean = (a: number[]) => a.reduce((s, v) => s + v, 0) / a.length;
+
     render(
       <CommonGraph
-        baseValues={[1, 2]}
-        newValues={[3, 4]}
+        baseValues={baseCluster}
+        newValues={newCluster}
         unit='ms'
         isSubtest={false}
         vt={0.5}
@@ -427,14 +432,14 @@ describe('CommonGraph', () => {
     const overlays = series.filter(
       (s) => (s as { type?: string }).type === 'line' && Boolean(s.markLine),
     );
-    // One overlay per series (Base + New), both peaking at the same x.
+    // One overlay per series (Base + New), each at its cluster mean.
     expect(overlays).toHaveLength(2);
     expect(overlays[0].name).toBe('Base');
     expect(overlays[1].name).toBe('New');
-    expect(overlays[0].markLine?.data?.[0]?.xAxis).toBe(30);
-    expect(overlays[1].markLine?.data?.[0]?.xAxis).toBe(30);
-    expect(overlays[0].markLine?.label?.formatter).toMatch(/^Base A: 30/);
-    expect(overlays[1].markLine?.label?.formatter).toMatch(/^New A: 30/);
+    expect(overlays[0].markLine?.data?.[0]?.xAxis).toBeCloseTo(mean(baseCluster), 5);
+    expect(overlays[1].markLine?.data?.[0]?.xAxis).toBeCloseTo(mean(newCluster), 5);
+    expect(overlays[0].markLine?.label?.formatter).toMatch(/^Base A: /);
+    expect(overlays[1].markLine?.label?.formatter).toMatch(/^New A: /);
   });
 
   it('shows raw run values in the scatter tooltip with the unit suffix', () => {
@@ -531,7 +536,7 @@ describe('CommonGraph', () => {
     // Starts at vt = 0.5 → 50%.
     expect(screen.getByText('50%')).toBeInTheDocument();
 
-    const slider = screen.getByRole('slider', { name: /valley depth/i });
+    const slider = screen.getByRole('slider', { name: /mode sensitivity/i });
     fireEvent.change(slider, { target: { value: '0.7' } });
 
     // Local mirror updated → percentage reflects the new value.
@@ -540,7 +545,7 @@ describe('CommonGraph', () => {
     expect(onVtChange).toHaveBeenCalledWith(0.7);
   });
 
-  it('disables the slider when showModes is false', () => {
+  it('hides the sensitivity slider when modal analysis is off', () => {
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
@@ -560,11 +565,13 @@ describe('CommonGraph', () => {
       />,
     );
 
-    const slider = screen.getByRole('slider', { name: /valley depth/i });
-    expect(slider).toBeDisabled();
+    // With modal analysis off the chart is just the KDE — no slider at all.
+    expect(
+      screen.queryByRole('slider', { name: /mode sensitivity/i }),
+    ).not.toBeInTheDocument();
   });
 
-  it('calls onShowModesChange when the Show modes checkbox is toggled', () => {
+  it('calls onShowModesChange when the Modal analysis checkbox is toggled', () => {
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
@@ -585,7 +592,7 @@ describe('CommonGraph', () => {
       />,
     );
 
-    const checkbox = screen.getByRole('checkbox', { name: /show modes/i });
+    const checkbox = screen.getByRole('checkbox', { name: /modal analysis/i });
     fireEvent.click(checkbox);
     expect(onShowModesChange).toHaveBeenCalledWith(false);
   });

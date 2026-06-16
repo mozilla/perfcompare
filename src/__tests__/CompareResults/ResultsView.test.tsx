@@ -247,11 +247,15 @@ describe('Results View', () => {
       await screen.findByRole('region', { name: 'Revision Row Details' }),
     ).toMatchSnapshot();
 
-    // The expanded row renders the chart with the two KDE line series
-    // (Base, New). Formatter behaviour is covered in CommonGraph.test.tsx.
+    // The expanded row renders the chart with the two KDE density line series
+    // (Base, New) — identified by triggerLineEvent, which the GMM overlay and
+    // mode-marker line series don't carry. Formatter behaviour is covered in
+    // CommonGraph.test.tsx.
     const option = getLatestEChartsOption();
     const series = (option.series as LineSeriesOption[]).filter(
-      (s) => s.type === 'line',
+      (s) =>
+        s.type === 'line' &&
+        (s as { triggerLineEvent?: boolean }).triggerLineEvent,
     );
     expect(series).toHaveLength(2);
     expect(series).toMatchObject([
