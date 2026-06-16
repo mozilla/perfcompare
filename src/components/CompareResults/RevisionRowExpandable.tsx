@@ -114,6 +114,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 vt={vt}
                 showModes={showModes}
                 isSubtest={result.base_parent_signature !== null}
+                // `lower_is_better` can be null on the backend payload; treat
+                // a missing flag as "lower is better", matching what the rest
+                // of the expanded row assumes elsewhere.
+                lowerIsBetter={lowerIsBetter ?? true}
               />
             </div>
           </Grid>

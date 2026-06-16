@@ -47,12 +47,21 @@ function isSignificant(ciLow: number, ciHigh: number): boolean {
   );
 }
 
-// fast / mid / slow path label by letter rank (A = fastest).
-function pathLabel(letter: string, totalModes: number): string | null {
+// better / mid / worse path label by letter rank.
+// Rank uses location order (A = lowest x, last letter = highest x). Whether
+// that's "better" or "worse" depends on the metric: time/memory are lower-is-
+// better, throughput/score are higher-is-better.
+function pathLabel(
+  letter: string,
+  totalModes: number,
+  lowerIsBetter: boolean,
+): string | null {
   const rank = letter.charCodeAt(0) - 65;
   if (totalModes <= 1) return null;
-  if (rank === 0) return 'fast path';
-  if (rank === totalModes - 1) return 'slow path';
+  const betterEnd = lowerIsBetter ? 0 : totalModes - 1;
+  const worseEnd = lowerIsBetter ? totalModes - 1 : 0;
+  if (rank === betterEnd) return 'better path';
+  if (rank === worseEnd) return 'worse path';
   return 'mid path';
 }
 
@@ -93,6 +102,7 @@ function computeBlurb(
   newValues: number[],
   vt: number,
   isSubtest: boolean,
+  lowerIsBetter: boolean,
 ): Blurb | null {
   const bKde = safeKde(baseValues, bandwidthFor(baseValues, isSubtest));
   const nKde = safeKde(newValues, bandwidthFor(newValues, isSubtest));
@@ -126,27 +136,41 @@ function computeBlurb(
   });
 
   // Pre-resolve each unmatched mode's nearest peer on the other side and
-  // whether that peer is faster — saves a .reduce() per row on every parent
-  // re-render.
+  // whether the move counts as an improvement. "Improved" depends on the
+  // metric direction: for lower-is-better, moving to a smaller value is
+  // better; for higher-is-better it flips.
+  const isImproved = (movedTo: number, movedFrom: number) =>
+    lowerIsBetter ? movedTo < movedFrom : movedTo > movedFrom;
+
   const ub: UnmatchedRow[] = m.ub.map((modeIdx) => {
     const baseLoc = bModes.peakLocs[modeIdx];
     const nearestNew = nModes.peakLocs.reduce((a, b) =>
       Math.abs(b - baseLoc) < Math.abs(a - baseLoc) ? b : a,
     );
-    return { modeIdx, improved: baseLoc > nearestNew };
+    return { modeIdx, improved: isImproved(nearestNew, baseLoc) };
   });
   const un: UnmatchedRow[] = m.un.map((modeIdx) => {
     const newLoc = nModes.peakLocs[modeIdx];
     const nearestBase = bModes.peakLocs.reduce((a, b) =>
       Math.abs(b - newLoc) < Math.abs(a - newLoc) ? b : a,
     );
-    return { modeIdx, improved: newLoc < nearestBase };
+    return { modeIdx, improved: isImproved(newLoc, nearestBase) };
   });
+
+  // Pair improvement/regression also depends on the metric direction.
+  const isPairImprovement = (p: PairResult) =>
+    p.sig &&
+    !!p.ci &&
+    (lowerIsBetter ? p.ci.medianDiff < 0 : p.ci.medianDiff > 0);
+  const isPairRegression = (p: PairResult) =>
+    p.sig &&
+    !!p.ci &&
+    (lowerIsBetter ? p.ci.medianDiff > 0 : p.ci.medianDiff < 0);
 
   return {
     pairs,
-    improvements: pairs.filter((p) => p.sig && p.ci && p.ci.medianDiff < 0),
-    regressions: pairs.filter((p) => p.sig && p.ci && p.ci.medianDiff > 0),
+    improvements: pairs.filter(isPairImprovement),
+    regressions: pairs.filter(isPairRegression),
     unmatchedBase: ub,
     unmatchedNew: un,
     baseModes: bModes,
@@ -156,7 +180,10 @@ function computeBlurb(
 
 // Returns the verdict's semantic kind + text. The caller maps `kind` to a
 // theme-aware color so this function stays pure (and stable across renders).
-function verdict(blurb: Blurb): Verdict {
+// Phrasing is metric-direction-aware: a new path appearing at the worse end
+// (highest x for lower-is-better, lowest x for higher-is-better) counts as a
+// regression signal.
+function verdict(blurb: Blurb, lowerIsBetter: boolean): Verdict {
   const sigCount = blurb.pairs.filter((p) => p.sig).length;
   if (
     blurb.unmatchedBase.length === 0 &&
@@ -165,32 +192,39 @@ function verdict(blurb: Blurb): Verdict {
   ) {
     return { text: 'No reliable change in any mode', kind: 'neutral' };
   }
-  // "Slow path appeared" / "fast path lost" treated as worse-leaning signals.
-  const newSlowPaths = blurb.unmatchedNew.filter(
-    (r) => r.modeIdx === blurb.newModes.peakLocs.length - 1,
+
+  const bN = blurb.baseModes.peakLocs.length;
+  const nN = blurb.newModes.peakLocs.length;
+  const betterEnd = (n: number) => (lowerIsBetter ? 0 : n - 1);
+  const worseEnd = (n: number) => (lowerIsBetter ? n - 1 : 0);
+
+  // A new path appearing at the worse end of the new distribution leans
+  // regression; a base path on the better end going missing also leans
+  // regression. A base path on the worse end going missing leans improvement.
+  const newWorsePaths = blurb.unmatchedNew.filter(
+    (r) => r.modeIdx === worseEnd(nN),
   ).length;
-  const lostFastPaths = blurb.unmatchedBase.filter(
-    (r) => r.modeIdx === 0 && blurb.baseModes.peakLocs.length > 1,
+  const lostBetterPaths = blurb.unmatchedBase.filter(
+    (r) => r.modeIdx === betterEnd(bN) && bN > 1,
   ).length;
-  // Eliminated slow paths lean improvement.
-  const elimSlowPaths = blurb.unmatchedBase.filter(
-    (r) => r.modeIdx === blurb.baseModes.peakLocs.length - 1,
+  const elimWorsePaths = blurb.unmatchedBase.filter(
+    (r) => r.modeIdx === worseEnd(bN),
   ).length;
 
   if (
     blurb.regressions.length === 0 &&
-    newSlowPaths === 0 &&
-    lostFastPaths === 0 &&
-    (blurb.improvements.length > 0 || elimSlowPaths > 0)
+    newWorsePaths === 0 &&
+    lostBetterPaths === 0 &&
+    (blurb.improvements.length > 0 || elimWorsePaths > 0)
   ) {
-    return { text: '▼ Overall faster', kind: 'improvement' };
+    return { text: 'Overall improvement', kind: 'improvement' };
   }
   if (
     blurb.improvements.length === 0 &&
-    elimSlowPaths === 0 &&
-    (blurb.regressions.length > 0 || newSlowPaths > 0 || lostFastPaths > 0)
+    elimWorsePaths === 0 &&
+    (blurb.regressions.length > 0 || newWorsePaths > 0 || lostBetterPaths > 0)
   ) {
-    return { text: '▲ Overall slower', kind: 'regression' };
+    return { text: 'Overall regression', kind: 'regression' };
   }
   return { text: '⚠ Mixed results', kind: 'mixed' };
 }
@@ -214,20 +248,34 @@ type CiLineProps = {
   baseLoc: number;
   unit: string;
   palette: Palette;
+  lowerIsBetter: boolean;
 };
 
-function CiLine({ ci, sig, baseLoc, unit, palette }: CiLineProps) {
+function CiLine({
+  ci,
+  sig,
+  baseLoc,
+  unit,
+  palette,
+  lowerIsBetter,
+}: CiLineProps) {
   if (!ci) return <Box sx={{ color: palette.subtle }}>no CI available</Box>;
-  const color = sig
-    ? ci.medianDiff < 0
-      ? palette.ok
-      : palette.bad
-    : palette.muted;
-  const arrow = sig
-    ? ci.medianDiff < 0
-      ? '▼ faster'
-      : '▲ slower'
-    : 'no reliable change';
+  // "Improvement" means the value moved in the metric's preferred direction.
+  // Arrows describe raw direction-of-change (▼ for lower, ▲ for higher); the
+  // word interprets that direction against `lowerIsBetter`.
+  const wentDown = ci.medianDiff < 0;
+  const isImprovement = sig && (lowerIsBetter ? wentDown : !wentDown);
+  const isRegression = sig && (lowerIsBetter ? !wentDown : wentDown);
+  const color = isImprovement
+    ? palette.ok
+    : isRegression
+      ? palette.bad
+      : palette.muted;
+  const arrow = !sig
+    ? 'no reliable change'
+    : isImprovement
+      ? `${wentDown ? '▼' : '▲'} improvement`
+      : `${wentDown ? '▼' : '▲'} regression`;
   const pct = baseLoc > 0 ? (ci.medianDiff / baseLoc) * 100 : 0;
   return (
     <Box>
@@ -260,6 +308,10 @@ type KdeModesPanelProps = {
   vt: number;
   showModes: boolean;
   isSubtest: boolean;
+  // True when smaller values are preferred (e.g. latency, memory). False for
+  // throughput/score-style metrics. Drives improvement/regression wording so
+  // the blurb doesn't presuppose timing.
+  lowerIsBetter: boolean;
 };
 
 function KdeModesPanel({
@@ -269,6 +321,7 @@ function KdeModesPanel({
   vt,
   showModes,
   isSubtest,
+  lowerIsBetter,
 }: KdeModesPanelProps) {
   // ECharts-equivalent reasoning: MUI's ThemeProvider sets the Box background
   // for us, but the inline text colors for the success/regression signals
@@ -279,18 +332,21 @@ function KdeModesPanel({
 
   const blurb = useMemo(
     () =>
-      showModes ? computeBlurb(baseValues, newValues, vt, isSubtest) : null,
-    [baseValues, newValues, vt, showModes, isSubtest],
+      showModes
+        ? computeBlurb(baseValues, newValues, vt, isSubtest, lowerIsBetter)
+        : null,
+    [baseValues, newValues, vt, showModes, isSubtest, lowerIsBetter],
   );
 
   // Cheap derivations that nonetheless re-execute on every parent re-render
   // (e.g. theme switch) unless memoized. Keys only on the inputs that actually
-  // affect the result; `unit`, `blurb`, and `palette` are the only relevant ones.
+  // affect the result; `unit`, `blurb`, `palette`, and `lowerIsBetter` are the
+  // only relevant ones.
   const derived = useMemo(() => {
     if (!blurb) return null;
     const baseCount = blurb.baseModes.peakLocs.length;
     const newCount = blurb.newModes.peakLocs.length;
-    const v = verdict(blurb);
+    const v = verdict(blurb, lowerIsBetter);
     return {
       v,
       verdictColor: colorForKind(v.kind, palette),
@@ -301,7 +357,7 @@ function KdeModesPanel({
         `${baseCount === 1 ? '1 mode' : `${baseCount} modes`} base · ` +
         `${newCount === 1 ? '1 mode' : `${newCount} modes`} new`,
     };
-  }, [blurb, unit, palette]);
+  }, [blurb, unit, palette, lowerIsBetter]);
 
   if (!blurb || !derived) return null;
 
@@ -335,7 +391,7 @@ function KdeModesPanel({
         const baseFrac = baseModes.fracs[r.baseIdx];
         const newFrac = newModes.fracs[r.newIdx];
         const fracDelta = newFrac - baseFrac;
-        const path = pathLabel(letter, baseCount);
+        const path = pathLabel(letter, baseCount, lowerIsBetter);
         const fracStr =
           Math.abs(fracDelta) >= 0.03
             ? `${Math.round(baseFrac * 100)}% → ${Math.round(newFrac * 100)}%`
@@ -358,6 +414,7 @@ function KdeModesPanel({
               baseLoc={baseLoc}
               unit={unitLabel}
               palette={palette}
+              lowerIsBetter={lowerIsBetter}
             />
           </Box>
         );
@@ -367,7 +424,7 @@ function KdeModesPanel({
         const letter = baseModes.letters[modeIdx];
         const baseLoc = baseModes.peakLocs[modeIdx];
         const frac = baseModes.fracs[modeIdx];
-        const path = pathLabel(letter, baseCount);
+        const path = pathLabel(letter, baseCount, lowerIsBetter);
         return (
           <Box key={`ub-${modeIdx}`} sx={{ mt: 1 }}>
             <Box>
@@ -388,8 +445,8 @@ function KdeModesPanel({
               }}
             >
               {improved
-                ? '✓ gone — these runs are now faster (merged into a quicker path)'
-                : '⚠ gone — these runs are now slower (merged into a slower path)'}
+                ? '✓ gone — these runs merged into a better path'
+                : '⚠ gone — these runs merged into a worse path'}
             </Box>
           </Box>
         );
@@ -399,7 +456,7 @@ function KdeModesPanel({
         const letter = newModes.letters[modeIdx];
         const newLoc = newModes.peakLocs[modeIdx];
         const frac = newModes.fracs[modeIdx];
-        const path = pathLabel(letter, newCount);
+        const path = pathLabel(letter, newCount, lowerIsBetter);
         return (
           <Box key={`un-${modeIdx}`} sx={{ mt: 1 }}>
             <Box>
@@ -420,8 +477,8 @@ function KdeModesPanel({
               }}
             >
               {improved
-                ? '✓ new path — these runs are now faster than before'
-                : '⚠ new path — these runs are now slower than before'}
+                ? '✓ new path — these runs improved versus the nearest base mode'
+                : '⚠ new path — these runs regressed versus the nearest base mode'}
             </Box>
           </Box>
         );

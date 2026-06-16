@@ -52,6 +52,7 @@ describe('KdeModesPanel', () => {
         vt={0.5}
         showModes={true}
         isSubtest={true}
+        lowerIsBetter={true}
       />,
     );
     expect(container).toBeEmptyDOMElement();
@@ -76,14 +77,15 @@ describe('KdeModesPanel', () => {
         vt={0.5}
         showModes={true}
         isSubtest={true}
+        lowerIsBetter={true}
       />,
     );
 
     expect(screen.getByText(/2 modes base · 2 modes new/)).toBeInTheDocument();
     expect(screen.getByText('Mode A')).toBeInTheDocument();
     expect(screen.getByText('Mode B')).toBeInTheDocument();
-    expect(screen.getAllByText(/fast path/).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/slow path/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/better path/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/worse path/).length).toBeGreaterThan(0);
   });
 
   it('flags an unmatched new mode as a new path', () => {
@@ -104,6 +106,7 @@ describe('KdeModesPanel', () => {
         vt={0.5}
         showModes={true}
         isSubtest={true}
+        lowerIsBetter={true}
       />,
     );
 
@@ -128,6 +131,7 @@ describe('KdeModesPanel', () => {
         vt={0.5}
         showModes={true}
         isSubtest={true}
+        lowerIsBetter={true}
       />,
     );
 
@@ -153,6 +157,7 @@ describe('KdeModesPanel', () => {
         vt={0.5}
         showModes={false}
         isSubtest={true}
+        lowerIsBetter={true}
       />,
     );
     expect(container).toBeEmptyDOMElement();
@@ -177,6 +182,7 @@ describe('KdeModesPanel', () => {
         vt={0.5}
         showModes={true}
         isSubtest={true}
+        lowerIsBetter={true}
       />,
     );
 
