@@ -8,7 +8,6 @@ import { Colors } from '../../styles/Colors';
 import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
 import { matchModes, splitByMode } from '../../utils/kde.js';
 import {
-  bandwidthFor,
   computeModeInfo,
   safeKde,
   type ModeInfo,
@@ -101,11 +100,11 @@ function computeBlurb(
   baseValues: number[],
   newValues: number[],
   vt: number,
-  isSubtest: boolean,
+  sharedBw: number | undefined,
   lowerIsBetter: boolean,
 ): Blurb | null {
-  const bKde = safeKde(baseValues, bandwidthFor(baseValues, isSubtest));
-  const nKde = safeKde(newValues, bandwidthFor(newValues, isSubtest));
+  const bKde = safeKde(baseValues, sharedBw);
+  const nKde = safeKde(newValues, sharedBw);
   if (!bKde || !nKde) return null;
   const bModes = computeModeInfo(Array.from(bKde.x), Array.from(bKde.y), vt);
   const nModes = computeModeInfo(Array.from(nKde.x), Array.from(nKde.y), vt);
@@ -305,9 +304,9 @@ type KdeModesPanelProps = {
   baseValues: number[];
   newValues: number[];
   unit: string | null;
+  sharedBw: number | undefined;
   vt: number;
   showModes: boolean;
-  isSubtest: boolean;
   // True when smaller values are preferred (e.g. latency, memory). False for
   // throughput/score-style metrics. Drives improvement/regression wording so
   // the blurb doesn't presuppose timing.
@@ -318,9 +317,9 @@ function KdeModesPanel({
   baseValues,
   newValues,
   unit,
+  sharedBw,
   vt,
   showModes,
-  isSubtest,
   lowerIsBetter,
 }: KdeModesPanelProps) {
   // ECharts-equivalent reasoning: MUI's ThemeProvider sets the Box background
@@ -333,9 +332,9 @@ function KdeModesPanel({
   const blurb = useMemo(
     () =>
       showModes
-        ? computeBlurb(baseValues, newValues, vt, isSubtest, lowerIsBetter)
+        ? computeBlurb(baseValues, newValues, vt, sharedBw, lowerIsBetter)
         : null,
-    [baseValues, newValues, vt, showModes, isSubtest, lowerIsBetter],
+    [baseValues, newValues, vt, showModes, sharedBw, lowerIsBetter],
   );
 
   // Cheap derivations that nonetheless re-execute on every parent re-render

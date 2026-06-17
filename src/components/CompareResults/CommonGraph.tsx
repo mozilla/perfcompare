@@ -13,7 +13,6 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { getDisplayScale } from '../../utils/format';
 import {
-  bandwidthFor,
   computeModeInfo,
   KDE_GRID_POINTS,
   safeKde,
@@ -48,10 +47,6 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-// Show the smoothing slider when the bandwidth exceeds half the data range —
-// at that point the KDE curve is genuinely flat and the user may want to dial
-// it down to see structure.
-const LARGE_BW_RATIO = 0.5;
 const LABEL_ROW_PX = 16; // vertical space per stagger level
 const KDE_TOP_BASE = 28;
 const KDE_HEIGHT = 155;
@@ -123,7 +118,10 @@ function CommonGraph({
   baseValues,
   newValues,
   unit,
-  isSubtest,
+  sharedBw,
+  bwMultiplier,
+  onBwMultiplierChange,
+  isLargeBw,
   vt,
   onVtChange,
   showModes,
@@ -136,28 +134,6 @@ function CommonGraph({
   // So we pull the current mode from the Redux theme slice and pass concrete
   // hex values into the chart option below.
   const themeMode = useAppSelector((state) => state.theme.mode);
-
-  const rawBandwidths = useMemo(
-    () => ({
-      base: bandwidthFor(baseValues, isSubtest),
-      new: bandwidthFor(newValues, isSubtest),
-    }),
-    [baseValues, newValues, isSubtest],
-  );
-
-  const isLargeBw = useMemo(() => {
-    const allValues = [...baseValues, ...newValues];
-    if (allValues.length < 2) return false;
-    const lo = Math.min(...allValues);
-    const hi = Math.max(...allValues);
-    const range = hi - lo;
-    if (range === 0) return false;
-    const bw = Math.max(rawBandwidths?.base ?? 0, rawBandwidths?.new ?? 0);
-    return bw / range > LARGE_BW_RATIO;
-  }, [baseValues, newValues, rawBandwidths]);
-
-  const [bwMultiplier, setBwMultiplier] = useState(1.0);
-  useEffect(() => setBwMultiplier(1.0), [baseValues, newValues]);
 
   // Local mirror of vt that drives the slider thumb + percentage during drag.
   // We only push the value up to the parent (via onVtChange) when the user
@@ -177,10 +153,6 @@ function CommonGraph({
   const analysis = useMemo(() => {
     const statsForBase = computeStatisticsForRuns(baseValues);
     const statsForNew = computeStatisticsForRuns(newValues);
-
-    const sharedBw = rawBandwidths
-      ? Math.max(rawBandwidths.base ?? 0, rawBandwidths.new ?? 0) * bwMultiplier
-      : undefined;
 
     const bKde = safeKde(baseValues, sharedBw);
     const nKde = safeKde(newValues, sharedBw);
@@ -261,7 +233,7 @@ function CommonGraph({
       min,
       max,
     };
-  }, [baseValues, newValues, isSubtest, rawBandwidths, bwMultiplier]);
+  }, [baseValues, newValues, sharedBw]);
 
   // Mode detection (peaks, area fractions, label assignment, stagger levels)
   // lives in its own memo so it only re-runs when the threshold or the
@@ -705,7 +677,7 @@ function CommonGraph({
             max={1.5}
             step={0.05}
             value={bwMultiplier}
-            onChange={(_, v) => setBwMultiplier(v)}
+            onChange={(_, v) => onBwMultiplierChange(v)}
             valueLabelDisplay='auto'
             valueLabelFormat={(v) => `${v.toFixed(2)}×`}
           />
@@ -719,7 +691,13 @@ interface CommonGraphProps {
   baseValues: number[];
   newValues: number[];
   unit: string | null;
-  isSubtest: boolean;
+  sharedBw: number | undefined;
+  bwMultiplier: number;
+  onBwMultiplierChange: (value: number) => void;
+  // True when the raw (unscaled) bandwidth exceeds half the data range —
+  // surfaces the smoothing slider. Stays true while the user dials the
+  // multiplier down so the slider doesn't vanish under them.
+  isLargeBw: boolean;
   vt: number;
   onVtChange: (value: number) => void;
   showModes: boolean;

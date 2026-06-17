@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -12,6 +12,12 @@ import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type { CombinedResultsItemType } from '../../types/state';
 import { TestVersion } from '../../types/types';
+import { bandwidthFor } from '../../utils/kdeAnalysis';
+
+// Show the smoothing slider when the bandwidth exceeds half the data range —
+// at that point the KDE curve is genuinely flat and the user may want to dial
+// it down to see structure.
+const LARGE_BW_RATIO = 0.5;
 
 const { singleRun } = Strings.components.expandableRow;
 
@@ -48,6 +54,31 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const newValues =
     newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
 
+  const isSubtest = result.base_parent_signature !== null;
+
+  // The chart's smoothing slider and the blurb's mode detection
+  // see the same effective KDE bandwidth.
+  const [bwMultiplier, setBwMultiplier] = useState(1.0);
+  useEffect(() => setBwMultiplier(1.0), [baseValues, newValues]);
+
+  const { sharedBw, isLargeBw } = useMemo(() => {
+    const baseBw = bandwidthFor(baseValues, isSubtest) ?? 0;
+    const newBw = bandwidthFor(newValues, isSubtest) ?? 0;
+    const rawSharedBw = Math.max(baseBw, newBw);
+    const sharedBwOut =
+      rawSharedBw > 0 ? rawSharedBw * bwMultiplier : undefined;
+    // `isLargeBw` keys on the UNSCALED bandwidth so the slider stays visible
+    // even after the user dials the multiplier down — otherwise it would
+    // vanish out from under them.
+    const allValues = [...baseValues, ...newValues];
+    let isLargeBwOut = false;
+    if (allValues.length >= 2 && rawSharedBw > 0) {
+      const range = Math.max(...allValues) - Math.min(...allValues);
+      if (range > 0) isLargeBwOut = rawSharedBw / range > LARGE_BW_RATIO;
+    }
+    return { sharedBw: sharedBwOut, isLargeBw: isLargeBwOut };
+  }, [baseValues, newValues, isSubtest, bwMultiplier]);
+
   return (
     <Box
       component='section'
@@ -79,7 +110,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                   baseValues={baseValues}
                   newValues={newValues}
                   unit={baseUnit || newUnit}
-                  isSubtest={result.base_parent_signature !== null}
+                  sharedBw={sharedBw}
+                  bwMultiplier={bwMultiplier}
+                  onBwMultiplierChange={setBwMultiplier}
+                  isLargeBw={isLargeBw}
                   vt={vt}
                   onVtChange={setVt}
                   showModes={showModes}
@@ -111,12 +145,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                 baseValues={baseValues}
                 newValues={newValues}
                 unit={baseUnit || newUnit}
+                sharedBw={sharedBw}
                 vt={vt}
                 showModes={showModes}
-                isSubtest={result.base_parent_signature !== null}
-                // `lower_is_better` can be null on the backend payload; treat
-                // a missing flag as "lower is better", matching what the rest
-                // of the expanded row assumes elsewhere.
                 lowerIsBetter={lowerIsBetter ?? true}
               />
             </div>

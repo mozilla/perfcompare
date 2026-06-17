@@ -51,7 +51,7 @@ describe('KdeModesPanel', () => {
         unit='ms'
         vt={0.5}
         showModes={true}
-        isSubtest={true}
+        sharedBw={undefined}
         lowerIsBetter={true}
       />,
     );
@@ -76,7 +76,7 @@ describe('KdeModesPanel', () => {
         unit='ms'
         vt={0.5}
         showModes={true}
-        isSubtest={true}
+        sharedBw={undefined}
         lowerIsBetter={true}
       />,
     );
@@ -105,7 +105,7 @@ describe('KdeModesPanel', () => {
         unit='ms'
         vt={0.5}
         showModes={true}
-        isSubtest={true}
+        sharedBw={undefined}
         lowerIsBetter={true}
       />,
     );
@@ -130,7 +130,7 @@ describe('KdeModesPanel', () => {
         unit='ms'
         vt={0.5}
         showModes={true}
-        isSubtest={true}
+        sharedBw={undefined}
         lowerIsBetter={true}
       />,
     );
@@ -156,7 +156,7 @@ describe('KdeModesPanel', () => {
         unit='ms'
         vt={0.5}
         showModes={false}
-        isSubtest={true}
+        sharedBw={undefined}
         lowerIsBetter={true}
       />,
     );
@@ -181,7 +181,7 @@ describe('KdeModesPanel', () => {
         unit={null}
         vt={0.5}
         showModes={true}
-        isSubtest={true}
+        sharedBw={undefined}
         lowerIsBetter={true}
       />,
     );
