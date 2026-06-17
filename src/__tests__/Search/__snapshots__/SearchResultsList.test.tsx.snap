@@ -2,9 +2,9 @@
 
 exports[`SearchResultsList Should apply dark and light mode styles when theme button is toggled: after toggling dark mode 1 1`] = `
 <ul
-  aria-labelledby="_r_70_-label"
+  aria-labelledby="_r_73_-label"
   class="MuiAutocomplete-listbox f1recfq3 results-list-dark css-hcvz0e-MuiAutocomplete-listbox"
-  id="_r_70_-listbox"
+  id="_r_73_-listbox"
   role="listbox"
 >
   <li
@@ -13,7 +13,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="0"
     data-testid="autocomplete-option"
-    id="_r_70_-option-0"
+    id="_r_73_-option-0"
     role="option"
     tabindex="-1"
   >
@@ -125,7 +125,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="1"
     data-testid="autocomplete-option"
-    id="_r_70_-option-1"
+    id="_r_73_-option-1"
     role="option"
     tabindex="-1"
   >
@@ -237,7 +237,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="2"
     data-testid="autocomplete-option"
-    id="_r_70_-option-2"
+    id="_r_73_-option-2"
     role="option"
     tabindex="-1"
   >
@@ -349,7 +349,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="3"
     data-testid="autocomplete-option"
-    id="_r_70_-option-3"
+    id="_r_73_-option-3"
     role="option"
     tabindex="-1"
   >
@@ -461,7 +461,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="4"
     data-testid="autocomplete-option"
-    id="_r_70_-option-4"
+    id="_r_73_-option-4"
     role="option"
     tabindex="-1"
   >
@@ -573,7 +573,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="5"
     data-testid="autocomplete-option"
-    id="_r_70_-option-5"
+    id="_r_73_-option-5"
     role="option"
     tabindex="-1"
   >
@@ -685,7 +685,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="6"
     data-testid="autocomplete-option"
-    id="_r_70_-option-6"
+    id="_r_73_-option-6"
     role="option"
     tabindex="-1"
   >
@@ -788,6 +788,118 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
         class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
       >
         Commit message with no newline at the end
+      </span>
+    </div>
+  </li>
+  <li
+    aria-disabled="false"
+    aria-selected="false"
+    class="f1sxt1ji search-revision-item search-revision "
+    data-option-index="7"
+    data-testid="autocomplete-option"
+    id="_r_73_-option-7"
+    role="option"
+    tabindex="-1"
+  >
+    <div
+      class="search-revision-item-icon search-revision MuiBox-root css-0"
+    >
+      <span
+        class="MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-root MuiRadio-colorPrimary search-revision-item-checkbox css-z2obfe-MuiButtonBase-root-MuiSwitchBase-root-MuiRadio-root"
+        data-testid="checkbox-7"
+        role="button"
+      >
+        <input
+          class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+          tabindex="-1"
+          type="radio"
+        />
+        <span
+          class="css-9oxshb-MuiRadioButtonIcon-root"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kemhjw-MuiSvgIcon-root-MuiRadioButtonIcon-root"
+            data-testid="RadioButtonUncheckedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-993gxc-MuiSvgIcon-root-MuiRadioButtonIcon-root"
+            data-testid="RadioButtonCheckedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="search-revision-item-text MuiBox-root css-0"
+    >
+      <div
+        class="MuiListItemText-primary MuiBox-root css-0"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+        >
+          abcdef123456
+        </span>
+        <div
+          class="info-caption"
+        >
+          <div
+            class="info-caption-item item-author"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+              data-testid="MailOutlineOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+              />
+            </svg>
+            johncleese@python.com
+          </div>
+          <div
+            class="info-caption-item item-time"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+              data-testid="AccessTimeOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+              />
+            </svg>
+            <div
+              aria-label="Mar 29, 51, 00:00 UTC"
+              class=""
+              data-mui-internal-clone-element="true"
+            >
+              Mar 29, 51, 00:00 UTC
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+      >
+        you've got no arms left!
       </span>
     </div>
   </li>
@@ -2740,6 +2852,118 @@ exports[`SearchResultsList should match snapshot 1`] = `
               class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
             >
               Commit message with no newline at the end
+            </span>
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="f1sxt1ji search-revision-item search-revision "
+          data-option-index="7"
+          data-testid="autocomplete-option"
+          id="_r_4_-option-7"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="search-revision-item-icon search-revision MuiBox-root css-0"
+          >
+            <span
+              class="MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root MuiRadio-root MuiRadio-colorPrimary MuiRadio-root MuiRadio-colorPrimary search-revision-item-checkbox css-z2obfe-MuiButtonBase-root-MuiSwitchBase-root-MuiRadio-root"
+              data-testid="checkbox-7"
+              role="button"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                tabindex="-1"
+                type="radio"
+              />
+              <span
+                class="css-9oxshb-MuiRadioButtonIcon-root"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kemhjw-MuiSvgIcon-root-MuiRadioButtonIcon-root"
+                  data-testid="RadioButtonUncheckedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-993gxc-MuiSvgIcon-root-MuiRadioButtonIcon-root"
+                  data-testid="RadioButtonCheckedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </div>
+          <div
+            class="search-revision-item-text MuiBox-root css-0"
+          >
+            <div
+              class="MuiListItemText-primary MuiBox-root css-0"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+              >
+                abcdef123456
+              </span>
+              <div
+                class="info-caption"
+              >
+                <div
+                  class="info-caption-item item-author"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="MailOutlineOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+                    />
+                  </svg>
+                  johncleese@python.com
+                </div>
+                <div
+                  class="info-caption-item item-time"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="AccessTimeOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  <div
+                    aria-label="Mar 29, 51, 00:00 UTC"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                  >
+                    Mar 29, 51, 00:00 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+            >
+              you've got no arms left!
             </span>
           </div>
         </li>

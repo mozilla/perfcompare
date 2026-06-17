@@ -164,13 +164,13 @@ const getTestData = () => {
           repository_id: 108,
           revision: 'abcdef1234567890abcdef1234567890abcdef12',
           author: 'johncleese@python.com',
-          comments: "What, ridden on a horse?\n",
+          comments: 'What, ridden on a horse?\n',
         },
       ],
       revision_count: 1,
       push_timestamp: -592099200,
       repository_id: 108,
-    }
+    },
   ];
 
   const testCompareData: CompareResultsItem[] = [

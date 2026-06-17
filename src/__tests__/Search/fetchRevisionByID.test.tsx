@@ -61,9 +61,7 @@ describe('Search View/fetchRevisionByID', () => {
     const searchInput = screen.getAllByPlaceholderText(
       searchRevisionPlaceholder,
     )[0];
-    
-    
-    
+
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     act(() => void jest.runAllTimers());
 
