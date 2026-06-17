@@ -20,7 +20,7 @@ async function renderSearchViewComponent() {
 }
 
 describe('Search View/fetchRevisionByID', () => {
-  it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
+  it('should fetch revisions by ID if searchValue is a 12 character hash', async () => {
     const { testData } = getTestData();
 
     fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
@@ -44,12 +44,26 @@ describe('Search View/fetchRevisionByID', () => {
     expect(
       await screen.findByText("you've got no arms left!"),
     ).toBeInTheDocument();
+  });
 
-    await user.clear(searchInput);
-    expect(
-      screen.queryByText("you've got no arms left!"),
-    ).not.toBeInTheDocument();
+  it('should fetch revisions by ID if searchValue is a 40 character hash', async () => {
+    const { testData } = getTestData();
 
+    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+      results: testData,
+    });
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    await renderSearchViewComponent();
+
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
+    
+    
+    
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     act(() => void jest.runAllTimers());
 

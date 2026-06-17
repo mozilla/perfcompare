@@ -260,7 +260,6 @@ export default function SearchInputAndResults({
       inputPlaceholder={inputPlaceholder}
       searchType={searchType}
       compact={compact}
-      value={inputValue}
     />
   );
 

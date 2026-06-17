@@ -147,6 +147,30 @@ const getTestData = () => {
       push_timestamp: 1649808000,
       repository_id: 77,
     },
+    {
+      id: 8,
+      revision: 'abcdef1234567890abcdef1234567890abcdef12',
+      author: 'johncleese@python.com',
+      revisions: [
+        {
+          result_set_id: 9,
+          repository_id: 108,
+          revision: 'abcdef1234567890abcdef1234567890abcdef12',
+          author: 'johncleese@python.com',
+          comments: "you've got no arms left!\n",
+        },
+        {
+          result_set_id: 9,
+          repository_id: 108,
+          revision: 'abcdef1234567890abcdef1234567890abcdef12',
+          author: 'johncleese@python.com',
+          comments: "What, ridden on a horse?\n",
+        },
+      ],
+      revision_count: 1,
+      push_timestamp: -592099200,
+      repository_id: 108,
+    }
   ];
 
   const testCompareData: CompareResultsItem[] = [
