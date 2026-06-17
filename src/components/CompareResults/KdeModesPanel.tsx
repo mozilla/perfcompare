@@ -106,8 +106,8 @@ function computeBlurb(
   const bKde = safeKde(baseValues, sharedBw);
   const nKde = safeKde(newValues, sharedBw);
   if (!bKde || !nKde) return null;
-  const bModes = computeModeInfo(Array.from(bKde.x), Array.from(bKde.y), vt);
-  const nModes = computeModeInfo(Array.from(nKde.x), Array.from(nKde.y), vt);
+  const bModes = computeModeInfo(bKde.x, bKde.y, vt);
+  const nModes = computeModeInfo(nKde.x, nKde.y, vt);
   if (!bModes.peakLocs.length || !nModes.peakLocs.length) return null;
 
   // Single-mode-on-both-sides: the Δ-median alert already covers it.
