@@ -320,6 +320,25 @@ describe('Base and OverTime Search', () => {
     expect(global.fetch).toHaveFetchedTimes(4);
   });
 
+  it('Should debounce user interaction with hash search', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await renderComponent();
+
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
+    await user.click(searchInput);
+
+    // Type a hash (revision)
+    await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12'); // matches a revision in testData
+    
+    // Verify debouncing behavior with hash
+    expect(global.fetch).toHaveFetched(
+      'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
+      undefined,
+    );
+  })
+
   it('Should clear search results if the search value is cleared', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });

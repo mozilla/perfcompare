@@ -188,32 +188,32 @@ export default function SearchInputAndResults({
         const results = await fetchRecentRevisions(searchParameters);
         if (thisRequestId !== requestsCounterRef.current) return;
 
-        // Auto select logic for hashes
-        if (autoSelect && isHash.test(searchTerm) && results.length > 0) {
-          const termLower = searchTerm.toLowerCase().trim();
-
-          const match = results.find(
-            (rev) =>
-              rev.revision.toLowerCase() === termLower ||
-              rev.revision.toLowerCase().startsWith(termLower),
-          );
-
-          if (match) {
-            const alreadySelected = displayedRevisions.some(
-              (rev) => rev.id === match.id,
-            );
-
-            if (!(searchType === 'new' && alreadySelected)) {
-              onSearchResultsToggle(match);
-              // Do NOT clear inputValue after auto-select
-              return;
-            }
-          }
-        }
-
         // Normal results flow
         if (results.length) {
           setRecentRevisions(results);
+
+          // Auto select logic for hashes should run after results are set
+          if (autoSelect && isHash.test(searchTerm)) {
+            const termLower = searchTerm.toLowerCase().trim();
+
+            const match = results.find(
+              (rev) =>
+                rev.revision.toLowerCase() === termLower ||
+                rev.revision.toLowerCase().startsWith(termLower),
+            );
+
+            if (match) {
+              const alreadySelected = displayedRevisions.some(
+                (rev) => rev.id === match.id,
+              );
+
+              if (!(searchType === 'new' && alreadySelected)) {
+                onSearchResultsToggle(match);
+                // Do NOT clear inputValue after auto-select
+                return;
+              }
+            }
+          }
         } else {
           setSearchError('No results found');
           setRecentRevisions(null);
@@ -241,8 +241,13 @@ export default function SearchInputAndResults({
   const onValueChange = (searchTerm: string) => {
     setInputValue(searchTerm);
 
-    if (/^(?=.*[a-f])[a-f0-9]{4,40}$/i.test(searchTerm)) {
-      void searchRecentRevisions(searchTerm, { autoSelect: true });
+    const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
+
+    setSearchError(null);
+    setRecentRevisions(null);
+
+    if (isHash.test(searchTerm)) {
+      void debouncedSearchRecentRevisions(searchTerm, { autoSelect: true });
     } else {
       debouncedSearchRecentRevisions(searchTerm);
     }
