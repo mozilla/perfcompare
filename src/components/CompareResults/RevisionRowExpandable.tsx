@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
@@ -14,6 +16,12 @@ const { singleRun } = Strings.components.expandableRow;
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id, testVersion } = props;
+
+  // Valley-depth threshold for the mode-detection slider rendered next to the
+  // chart. Lifted to this row so the future mode-blurb panel can read the same
+  // detected modes without recomputing the KDE.
+  const [vt, setVt] = useState(0.5);
+  const [showModes, setShowModes] = useState(true);
 
   const {
     base_runs: baseRuns,
@@ -71,6 +79,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
                   newValues={newValues}
                   unit={baseUnit || newUnit}
                   isSubtest={result.base_parent_signature !== null}
+                  vt={vt}
+                  onVtChange={setVt}
+                  showModes={showModes}
+                  onShowModesChange={setShowModes}
                 />
               )}
               {strategy.renderExpandedLeft(result)}

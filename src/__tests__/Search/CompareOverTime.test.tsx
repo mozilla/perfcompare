@@ -19,6 +19,9 @@ import {
   waitFor,
 } from '../utils/test-utils';
 
+const searchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
 function setUpTestData() {
   const { testData } = getTestData();
   fetchMock
@@ -259,7 +262,11 @@ describe('Compare Over Time', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // Click inside the input box to show search results.
-    const searchInput = screen.getByRole('textbox');
+
+    // focus input to show results
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[2];
     await user.click(searchInput);
 
     const comment = await screen.findAllByText("you've got no arms left!");
@@ -281,7 +288,9 @@ describe('Compare Over Time', () => {
 
     expect(within(formElement).getByText(/Time range/)).toBeInTheDocument();
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[2];
     await user.click(searchInput);
     const checkbox = await screen.findByTestId('checkbox-0');
     await user.click(checkbox);
@@ -310,7 +319,10 @@ describe('Compare Over Time', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[2];
+
     await user.click(searchInput);
 
     const noArmsLeft = await screen.findByText(/no arms left/);
@@ -368,8 +380,10 @@ describe('Compare Over Time', () => {
     ).toBeInTheDocument();
 
     // focus first input to show results
-    const inputs = screen.getAllByRole('textbox');
-    await user.click(inputs[0]);
+    const searchInputs = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    );
+    await user.click(searchInputs[2]);
 
     // Select a rev
     const items = await screen.findAllByText("you've got no arms left!");
@@ -534,14 +548,17 @@ describe('Compare Over Time', () => {
     expect(formElement).toMatchSnapshot('After clicking edit button');
     expect(editButton).not.toBeVisible();
 
-    //add a new revision
-    const searchInput = within(formElement).getByRole('textbox');
+    // add a new revision
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
+
     await user.click(searchInput);
     const alvesOfCoconut = await screen.findByText(/alves of coconuts/);
     await user.click(alvesOfCoconut);
     expect(checkboxForText(alvesOfCoconut)).toHaveClass('Mui-checked');
 
-    //change time range
+    // change time range
     const timeRangeDropdown = screen.getByRole('combobox', {
       name: /Time range/i,
     });

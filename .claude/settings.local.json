@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh pr:*)",
+      "Bash(npm run:*)",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(tail:*)",
+      "Bash(git add src/components/CompareResults/SubtestsResults/SubtestsRevisionRow.tsx && git rebase --continue 2>&1)",
+      "Bash(grep:*)"
+    ]
+  }
+}

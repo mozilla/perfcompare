@@ -11,6 +11,9 @@ import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
 import { screen, renderWithRouter, within, waitFor } from '../utils/test-utils';
 
+const searchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
 function setUpTestData() {
   const { testData } = getTestData();
   fetchMock
@@ -165,7 +168,10 @@ describe('Compare With Base', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    // focus input to show results
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[1];
     await user.click(searchInput);
     const checkbox = (await screen.findAllByTestId('checkbox-0'))[0];
     await user.click(checkbox);

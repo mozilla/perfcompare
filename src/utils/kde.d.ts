@@ -59,3 +59,35 @@ export declare function fitKdeModes(
   minPeakFraction?: number,
   minDataFraction?: number,
 ): KDEModeResult;
+export type FitModesFromKdeResult = {
+  peakLocs: number[];
+  boundaries: number[];
+};
+export declare function fitModesFromKde(
+  x: ArrayLike<number>,
+  y: ArrayLike<number>,
+  vt: number,
+  mpf?: number,
+  mdf?: number,
+): FitModesFromKdeResult;
+export declare function areaFracs(
+  x: ArrayLike<number>,
+  y: ArrayLike<number>,
+  boundaries: number[],
+): number[];
+export declare function assignLetters(locs: number[]): string[];
+export type MatchModesResult = {
+  pairs: Array<[number, number]>;
+  ub: number[];
+  un: number[];
+};
+export declare function matchModes(
+  bLocs: number[],
+  bFracs: number[],
+  nLocs: number[],
+  nFracs: number[],
+): MatchModesResult;
+export declare function splitByMode(
+  data: number[],
+  boundaries: number[],
+): number[][];

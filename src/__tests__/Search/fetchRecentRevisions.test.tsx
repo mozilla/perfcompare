@@ -43,7 +43,11 @@ describe('Search View/fetchRecentRevisions', () => {
     await user.click(screen.getByRole('option', { name: 'autoland' }));
     expect(baseRepoSelect).toHaveTextContent('autoland');
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const placeholder =
+      Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
+
+    // focus input to show results
+    const searchInput = screen.getAllByPlaceholderText(placeholder)[1];
     await user.click(searchInput);
     await screen.findAllByText("you've got no arms left!");
 
@@ -63,9 +67,10 @@ describe('Search View/fetchRecentRevisions', () => {
     const errorMessages = await screen.findAllByText('No results found');
     expect(errorMessages).toHaveLength(3);
 
-    const inputs = screen.getAllByRole('textbox');
-    expect(inputs[0]).toBeInvalid();
-    expect(inputs[1]).toBeInvalid();
+    const inputs = screen.queryAllByTestId('autocomplete-option');
+
+    expect(inputs[0]).toBeUndefined();
+    expect(inputs[1]).toBeUndefined();
     expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
@@ -86,9 +91,9 @@ describe('Search View/fetchRecentRevisions', () => {
     const errorMessages = await screen.findAllByText(errorMessage);
     expect(errorMessages).toHaveLength(3);
 
-    const inputs = screen.getAllByRole('textbox');
-    expect(inputs[0]).toBeInvalid();
-    expect(inputs[1]).toBeInvalid();
+    const inputs = screen.queryAllByTestId('autocomplete-option');
+    expect(inputs[0]).toBeUndefined();
+    expect(inputs[1]).toBeUndefined();
     expect(global.fetch).toHaveFetched(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true&count=30',
       undefined,

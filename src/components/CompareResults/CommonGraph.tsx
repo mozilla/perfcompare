@@ -1,11 +1,25 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
+import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Box from '@mui/material/Box';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Slider from '@mui/material/Slider';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { init, type ECharts, type EChartsOption } from 'echarts';
 
+import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
-import { fftkde } from '../../utils/kde.js';
+import { getDisplayScale } from '../../utils/format';
+import {
+  areaFracs,
+  assignLetters,
+  fftkde,
+  fitModesFromKde,
+  improvedSheatherJones,
+  silvermansRule,
+} from '../../utils/kde.js';
 
 // This computes the min, max from a list of numbers.
 function computeStatisticsForRuns(data: number[]) {
@@ -35,10 +49,69 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const CHART_HEIGHT = 325;
+// Show the smoothing slider when the bandwidth exceeds half the data range —
+// at that point the KDE curve is genuinely flat and the user may want to dial
+// it down to see structure.
+const LARGE_BW_RATIO = 0.5;
 const KDE_GRID_POINTS = 1024;
-const KDE_GRID = { left: 70, right: 70, top: 28, height: 155 };
-const SCATTER_GRID = { left: 70, right: 70, top: 238, height: 50 };
+const LABEL_ROW_PX = 16; // vertical space per stagger level
+const KDE_TOP_BASE = 28;
+const KDE_HEIGHT = 155;
+const SCATTER_TOP_BASE = 250;
+const SCATTER_HEIGHT = 50;
+const CHART_HEIGHT_BASE = 340;
+
+// Valley-depth threshold bounds for the mode-detection slider.
+const VT_MIN = 0.1;
+const VT_MAX = 0.99;
+const VT_STEP = 0.01;
+
+// Per-series mode summary, suitable both for chart overlays and the blurb.
+type ModeInfo = {
+  peakLocs: number[];
+  fracs: number[];
+  letters: string[];
+};
+
+function computeModeInfo(x: number[], y: number[], vt: number): ModeInfo {
+  if (!x.length || !y.length) {
+    return { peakLocs: [], fracs: [], letters: [] };
+  }
+  const { peakLocs, boundaries } = fitModesFromKde(x, y, vt);
+  if (!peakLocs.length) {
+    return { peakLocs: [], fracs: [], letters: [] };
+  }
+  const fracs = areaFracs(x, y, boundaries);
+  const letters = assignLetters(peakLocs);
+  return { peakLocs, fracs, letters };
+}
+
+// Stagger levels (0, 1, 2 …) for peak labels: peaks closer than ~13% of the
+// x-span get bumped to different levels so their labels don't overlap. Ported
+// from kde-widget.js's allPeaks.level pass; we use a fixed 13% threshold
+// because the chart's pixel width isn't known inside useMemo.
+type PeakRef = {
+  loc: number;
+  seriesIdx: number;
+  peakIdx: number;
+  level: number;
+};
+
+function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
+  peaks.sort((a, b) => a.loc - b.loc);
+  const threshold = xSpan * 0.2;
+  for (let idx = 0; idx < peaks.length; idx++) {
+    const used = new Set<number>();
+    for (let k = 0; k < idx; k++) {
+      if (Math.abs(peaks[k].loc - peaks[idx].loc) < threshold) {
+        used.add(peaks[k].level);
+      }
+    }
+    let level = 0;
+    while (used.has(level)) level++;
+    peaks[idx].level = level;
+  }
+}
 
 function quantileSorted(sorted: number[], q: number): number {
   const pos = (sorted.length - 1) * q;
@@ -64,6 +137,7 @@ function approximateSJBandwidth(sorted: number[]): number {
     sorted.reduce((sum, x) => sum + Math.pow(x - mean, 2), 0) / n,
   );
   const sigma = Math.min(std, iqr / 1.34);
+  if (sigma <= 0) return Math.abs(mean) * 0.001 || 1;
   return 0.9 * sigma * Math.pow(n, -1 / 5);
 }
 
@@ -76,7 +150,11 @@ function safeKde(values: number[], bw?: number) {
   try {
     return fftkde(values, bw ?? 'ISJ', undefined, KDE_GRID_POINTS);
   } catch {
-    return fftkde(values, 'silverman', undefined, KDE_GRID_POINTS);
+    try {
+      return fftkde(values, 'silverman', undefined, KDE_GRID_POINTS);
+    } catch {
+      return null;
+    }
   }
 }
 
@@ -113,34 +191,73 @@ function CommonGraph({
   newValues,
   unit,
   isSubtest,
+  vt,
+  onVtChange,
+  showModes,
+  onShowModesChange,
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
+  // ECharts renders into its own DOM/canvas and reads its colors from the
+  // option object — it doesn't inherit from MUI's ThemeProvider or CSS vars.
+  // So we pull the current mode from the Redux theme slice and pass concrete
+  // hex values into the chart option below.
+  const themeMode = useAppSelector((state) => state.theme.mode);
 
-  const option: EChartsOption = useMemo(() => {
+  const rawBandwidths = useMemo(() => {
+    const computeBw = (values: number[]) => {
+      if (values.length < 2) return undefined;
+      if (!isSubtest) {
+        return approximateSJBandwidth([...values].sort((a, b) => a - b));
+      }
+      try {
+        return improvedSheatherJones(values);
+      } catch {
+        return silvermansRule(values);
+      }
+    };
+    return { base: computeBw(baseValues), new: computeBw(newValues) };
+  }, [baseValues, newValues, isSubtest]);
+
+  const isLargeBw = useMemo(() => {
+    const allValues = [...baseValues, ...newValues];
+    if (allValues.length < 2) return false;
+    const lo = Math.min(...allValues);
+    const hi = Math.max(...allValues);
+    const range = hi - lo;
+    if (range === 0) return false;
+    const bw = Math.max(rawBandwidths?.base ?? 0, rawBandwidths?.new ?? 0);
+    return bw / range > LARGE_BW_RATIO;
+  }, [baseValues, newValues, rawBandwidths]);
+
+  const [bwMultiplier, setBwMultiplier] = useState(1.0);
+  useEffect(() => setBwMultiplier(1.0), [baseValues, newValues]);
+
+  // Local mirror of vt that drives the slider thumb + percentage during drag.
+  // We only push the value up to the parent (via onVtChange) when the user
+  // releases the slider — keeping mode detection from re-running on every
+  // pixel of slider movement. Synced back to the prop so external resets
+  // still work.
+  const [localVt, setLocalVt] = useState(vt);
+  useEffect(() => {
+    setLocalVt(vt);
+  }, [vt]);
+
+  // Vt-independent precompute: KDE, shared-grid resample, scatter jitter, and
+  // axis bounds. Pulled out of the main option memo so dragging the valley-
+  // depth slider doesn't (a) re-run the expensive fftkde call and (b) reroll
+  // Math.random() jitter — which made the scatter dots visibly jump while
+  // tuning the threshold.
+  const analysis = useMemo(() => {
     const statsForBase = computeStatisticsForRuns(baseValues);
     const statsForNew = computeStatisticsForRuns(newValues);
 
-    // Compute the global min and max with some grace value.
-    const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
-    const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
+    const sharedBw = rawBandwidths
+      ? Math.max(rawBandwidths.base ?? 0, rawBandwidths.new ?? 0) * bwMultiplier
+      : undefined;
 
-    // Top-level results have fewer, more spread-out samples — use the SJ
-    // approximation for a wider (smoother) bandwidth. Subtest results have
-    // more data so ISJ can select a tighter, more accurate bandwidth.
-    let baseBw: number | undefined;
-    let newBw: number | undefined;
-    if (!isSubtest) {
-      const baseSorted = [...baseValues].sort((a, b) => a - b);
-      const newSorted = [...newValues].sort((a, b) => a - b);
-      baseBw =
-        baseSorted.length >= 2 ? approximateSJBandwidth(baseSorted) : undefined;
-      newBw =
-        newSorted.length >= 2 ? approximateSJBandwidth(newSorted) : undefined;
-    }
-
-    const bKde = safeKde(baseValues, baseBw);
-    const nKde = safeKde(newValues, newBw);
+    const bKde = safeKde(baseValues, sharedBw);
+    const nKde = safeKde(newValues, sharedBw);
 
     // Build a shared x-grid covering both KDEs' ranges. Resampling both
     // curves onto identical x positions is what lets the axis-trigger tooltip
@@ -151,6 +268,32 @@ function CommonGraph({
       bKde?.x[bKde.x.length - 1],
       nKde?.x[nKde.x.length - 1],
     );
+
+    // Use the KDE grid extent as axis bounds — it is already padded by
+    // gaussianPracticalSupport(bandwidth) inside autogrid1D, so it scales
+    // correctly regardless of the absolute magnitude of the values.
+    // Fall back to additive range-based padding when no KDE is available.
+    let min: number;
+    let max: number;
+    if (Number.isFinite(xStart) && Number.isFinite(xEnd)) {
+      const pad = (xEnd - xStart) * 0.05;
+      min = xStart - pad;
+      max = xEnd + pad;
+    } else {
+      const dataMin = computeMin(statsForBase?.min, statsForNew?.min) ?? 0;
+      const dataMax = computeMax(statsForBase?.max, statsForNew?.max) ?? 0;
+      const pad = (dataMax - dataMin) * 0.05;
+      min = dataMin - pad;
+      max = dataMax + pad;
+    }
+    // When data is near-constant the axis range can be absurdly narrow.
+    // Enforce a minimum range of 1% of the midpoint value so ticks are readable.
+    const mid = (min + max) / 2;
+    const minRange = Math.abs(mid) * 0.01;
+    if (max - min < minRange) {
+      min = mid - minRange / 2;
+      max = mid + minRange / 2;
+    }
     const sharedX: number[] = [];
     if (Number.isFinite(xStart) && Number.isFinite(xEnd) && xEnd > xStart) {
       for (let i = 0; i < KDE_GRID_POINTS; i++) {
@@ -168,30 +311,149 @@ function CommonGraph({
       ? sharedX.map((xCoord, i) => [xCoord, newY[i]])
       : [];
 
-    const unitSuffix = unit ? ` (${unit})` : '';
-
-    const totalCount = baseValues.length + newValues.length;
-    const symbolSize = totalCount < 20 ? 10 : 7;
-
     const JITTER = 0.6;
+    // Base sits on the top row (y = 1), New on the bottom row (y = 0).
     const baseScatterData: [number, number][] = baseValues.map((v) => [
-      v,
-      (Math.random() - 0.5) * JITTER,
-    ]);
-    const newScatterData: [number, number][] = newValues.map((v) => [
       v,
       1 + (Math.random() - 0.5) * JITTER,
     ]);
+    const newScatterData: [number, number][] = newValues.map((v) => [
+      v,
+      (Math.random() - 0.5) * JITTER,
+    ]);
 
-    const tickFormatter = (value: number) => {
-      const rounded = Math.round(value);
-      if (Math.abs(value - rounded) < 1e-9) return String(rounded);
-      return value.toFixed(2);
+    return {
+      bKde,
+      nKde,
+      sharedX,
+      baseY,
+      newY,
+      baseRunsDensity,
+      newRunsDensity,
+      baseScatterData,
+      newScatterData,
+      min,
+      max,
     };
+  }, [baseValues, newValues, isSubtest, rawBandwidths, bwMultiplier]);
+
+  // Mode detection (peaks, area fractions, label assignment, stagger levels)
+  // lives in its own memo so it only re-runs when the threshold or the
+  // underlying curves change — not on theme switch, scatter strip toggle, or
+  // unit changes. Uses localVt (the live slider position) so mode lines track
+  // the thumb in real time. fitModesFromKde is cheap (array ops on a
+  // pre-computed 1024-point grid), so running it on every drag pixel is fine.
+  const modes = useMemo(() => {
+    const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
+
+    const baseModes = bKde
+      ? computeModeInfo(sharedX, baseY, localVt)
+      : { peakLocs: [], fracs: [], letters: [] };
+    const newModes = nKde
+      ? computeModeInfo(sharedX, newY, localVt)
+      : { peakLocs: [], fracs: [], letters: [] };
+
+    // Assign vertical stagger levels across all peaks so labels don't collide.
+    const allPeaks: PeakRef[] = [];
+    baseModes.peakLocs.forEach((loc, peakIdx) =>
+      allPeaks.push({ loc, seriesIdx: 0, peakIdx, level: 0 }),
+    );
+    newModes.peakLocs.forEach((loc, peakIdx) =>
+      allPeaks.push({ loc, seriesIdx: 1, peakIdx, level: 0 }),
+    );
+    const xSpan = max - min;
+    if (xSpan > 0) assignStaggerLevels(allPeaks, xSpan);
+    const levelLookup = new Map<string, number>();
+    for (const p of allPeaks) {
+      levelLookup.set(`${p.seriesIdx}-${p.peakIdx}`, p.level);
+    }
+
+    const maxLevel =
+      levelLookup.size > 0 ? Math.max(...levelLookup.values()) : 0;
+    return { baseModes, newModes, levelLookup, maxLevel };
+  }, [analysis, localVt]);
+
+  const option: EChartsOption = useMemo(() => {
+    const textColor =
+      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
+    const {
+      baseRunsDensity,
+      newRunsDensity,
+      baseScatterData,
+      newScatterData,
+      min,
+      max,
+    } = analysis;
+    const { baseModes, newModes, levelLookup, maxLevel } = modes;
+    const extraTop = maxLevel * LABEL_ROW_PX;
+    const kdeGrid = {
+      left: 70,
+      right: 70,
+      top: KDE_TOP_BASE + extraTop,
+      height: KDE_HEIGHT,
+    };
+    const scatterGrid = {
+      left: 70,
+      right: 70,
+      top: SCATTER_TOP_BASE + extraTop,
+      height: SCATTER_HEIGHT,
+    };
+
+    const { scale, displayUnit, decimals } = unit
+      ? getDisplayScale([min, max], unit)
+      : { scale: 1, displayUnit: unit ?? '', decimals: 2 };
+    const unitSuffix = displayUnit ? ` (${displayUnit})` : '';
+    const totalCount = baseValues.length + newValues.length;
+    const symbolSize = totalCount < 20 ? 14 : 10;
+    const tickFormatter = (value: number) => (value / scale).toFixed(decimals);
+
+    // Build the per-peak markLine overlays. Each is a dataless line series
+    // whose markLine renders on its own. They share names with their parent
+    // series ('Base' / 'New') so the legend's toggle action cascades to the
+    // overlays automatically — clicking 'Base' hides every series named
+    // 'Base', including the overlays. The legend itself only renders the two
+    // entries listed in `legend.data` regardless of how many series share
+    // those names.
+    const modeOverlays: EChartsOption['series'] = [];
+    function pushOverlays(
+      seriesIdx: 0 | 1,
+      seriesName: 'Base' | 'New',
+      modes: ModeInfo,
+      color: string,
+    ) {
+      modes.peakLocs.forEach((loc, peakIdx) => {
+        const level = levelLookup.get(`${seriesIdx}-${peakIdx}`) ?? 0;
+        (modeOverlays as unknown[]).push({
+          name: seriesName,
+          type: 'line',
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: [],
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            data: [{ xAxis: loc }],
+            lineStyle: { color, type: 'solid', width: 1.5 },
+            label: {
+              formatter:
+                `${seriesName} ${modes.letters[peakIdx]}: ` +
+                `${tickFormatter(loc)} (${Math.round(modes.fracs[peakIdx] * 100)}%)`,
+              distance: [0, level * 16],
+              color,
+              fontSize: 12,
+            },
+          },
+        });
+      });
+    }
+    if (showModes) {
+      pushOverlays(0, 'Base', baseModes, Colors.ChartBase);
+      pushOverlays(1, 'New', newModes, Colors.ChartNew);
+    }
 
     return {
       animation: false,
-      grid: [KDE_GRID, SCATTER_GRID],
+      grid: [kdeGrid, scatterGrid],
       // axisPointer link keeps the vertical crosshair in sync across both grids.
       axisPointer: { link: [{ xAxisIndex: 'all' }] },
       xAxis: [
@@ -200,13 +462,11 @@ function CommonGraph({
           type: 'value',
           min,
           max,
-          name: unit ?? '',
+          name: displayUnit,
           nameLocation: 'middle',
           nameGap: 30,
-          nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: '#000' },
-          // Tick labels show 2 dp for fractional values, drop ".00" for whole
-          // numbers. Floats near integers (e.g. 14 + 1e-15) collapse to "14".
-          axisLabel: { formatter: tickFormatter },
+          nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: textColor },
+          axisLabel: { formatter: tickFormatter, color: textColor },
           splitLine: { show: true, lineStyle: { color: '#eee' } },
           axisLine: { show: true, lineStyle: { color: '#999' } },
         },
@@ -229,7 +489,7 @@ function CommonGraph({
           splitLine: { show: true, lineStyle: { color: '#eee' } },
           axisLine: { show: true, lineStyle: { color: '#999' } },
           axisTick: { show: false },
-          axisLabel: { show: true, color: '#000', fontSize: 12 },
+          axisLabel: { show: true, color: textColor, fontSize: 12 },
         },
         {
           gridIndex: 1,
@@ -240,9 +500,9 @@ function CommonGraph({
           axisTick: { show: false },
           axisLine: { show: true, lineStyle: { color: '#999' } },
           axisLabel: {
-            color: '#000',
+            color: textColor,
             fontSize: 12,
-            formatter: (v: number) => (v === 0 ? 'Base' : v === 1 ? 'New' : ''),
+            formatter: (v: number) => (v === 1 ? 'Base' : v === 0 ? 'New' : ''),
           },
           splitLine: { show: false },
         },
@@ -283,7 +543,7 @@ function CommonGraph({
               .map((pts) => {
                 const marker = typeof pts.marker === 'string' ? pts.marker : '';
                 const xVal = (pts.value as [number, number])[0];
-                return `${marker}${pts.seriesName ?? ''}: ${xVal.toFixed(2)}${unitSuffix}`;
+                return `${marker}${pts.seriesName ?? ''}: ${(xVal / scale).toFixed(decimals)}${unitSuffix}`;
               })
               .join('<br>');
           }
@@ -291,7 +551,7 @@ function CommonGraph({
           const axisX =
             (items[0] as { axisValue?: number }).axisValue ??
             (items[0].value as [number, number])[0];
-          const header = `Value: ${Number(axisX).toFixed(2)}${unitSuffix}`;
+          const header = `Value: ${(Number(axisX) / scale).toFixed(decimals)}${unitSuffix}`;
           const lines = items.map((pts) => {
             const marker = typeof pts.marker === 'string' ? pts.marker : '';
             const y = (pts.value as [number, number])[1];
@@ -308,7 +568,9 @@ function CommonGraph({
       },
       legend: {
         data: ['Base', 'New'],
-        top: 4,
+        // Sit below the centered x-axis unit label, between the KDE grid and
+        // the scatter strip, with a small gap above and below.
+        top: 232,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
@@ -348,6 +610,25 @@ function CommonGraph({
           symbolSize,
           itemStyle: { color: Colors.ChartBase, opacity: 0.6 },
           emphasis: { focus: 'none' },
+          // Horizontal baseline through the Base row (y = 1) for a visual anchor.
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            label: {
+              show: true,
+              position: 'end',
+              formatter: 'Base',
+              color: Colors.ChartBase,
+              fontSize: 12,
+            },
+            data: [{ yAxis: 1 }],
+            lineStyle: {
+              color: Colors.ChartBase,
+              type: 'solid',
+              width: 1,
+              opacity: 0.5,
+            },
+          },
         },
         {
           name: 'New',
@@ -359,10 +640,30 @@ function CommonGraph({
           symbolSize,
           itemStyle: { color: Colors.ChartNew, opacity: 0.6 },
           emphasis: { focus: 'none' },
+          // Horizontal baseline through the New row (y = 0) for a visual anchor.
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            label: {
+              show: true,
+              position: 'end',
+              formatter: 'New',
+              color: Colors.ChartNew,
+              fontSize: 12,
+            },
+            data: [{ yAxis: 0 }],
+            lineStyle: {
+              color: Colors.ChartNew,
+              type: 'solid',
+              width: 1,
+              opacity: 0.5,
+            },
+          },
         },
+        ...((modeOverlays ?? []) as []),
       ],
     };
-  }, [baseValues, newValues, unit, isSubtest]);
+  }, [analysis, modes, baseValues, newValues, unit, themeMode, showModes]);
 
   useEffect(() => {
     if (!chartContainerRef.current) {
@@ -390,12 +691,100 @@ function CommonGraph({
       <Typography id='retrigger-modal-title' component='h3' variant='h3'>
         Runs Density Distribution
       </Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1.5,
+          mt: 1,
+          mb: 0.5,
+        }}
+      >
+        <Typography
+          variant='body2'
+          sx={{
+            color: '#000',
+            whiteSpace: 'nowrap',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          Valley depth threshold
+          <Tooltip
+            placement='top'
+            title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
+          >
+            <InfoIcon
+              fontSize='small'
+              sx={{ color: '#000', cursor: 'help', mx: 0.5 }}
+            />
+          </Tooltip>
+          :
+        </Typography>
+        {/*
+          MUI Slider exposes two events: `onChange` fires continuously during
+          drag (we send it to local state for a smooth thumb), and
+          `onChangeCommitted` fires once when the user releases (we push the
+          final value up to the parent then). This is the moral equivalent of
+          a debounce — the expensive consumer (`computeModeInfo`) runs once
+          per drag instead of on every pixel of movement.
+        */}
+        <Slider
+          size='small'
+          value={localVt}
+          min={VT_MIN}
+          max={VT_MAX}
+          step={VT_STEP}
+          disabled={!showModes}
+          onChange={(_, value) => setLocalVt(value)}
+          onChangeCommitted={(_, value) => onVtChange(value)}
+          aria-label='Valley depth threshold'
+          sx={{ maxWidth: 240 }}
+        />
+        <Typography
+          variant='body2'
+          sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
+        >
+          {Math.round(localVt * 100)}%
+        </Typography>
+        <FormControlLabel
+          control={
+            <Checkbox
+              size='small'
+              checked={showModes}
+              onChange={(_, checked) => onShowModesChange(checked)}
+            />
+          }
+          label='Show modes'
+          sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
+        />
+      </Box>
       <Box sx={{ flex: 0 }}>
         <div
           ref={chartContainerRef}
-          style={{ width: '100%', height: CHART_HEIGHT }}
+          style={{
+            width: '100%',
+            height: CHART_HEIGHT_BASE + modes.maxLevel * LABEL_ROW_PX,
+          }}
         />
       </Box>
+      {isLargeBw && (
+        <Box sx={{ px: 2, pt: 0.5 }}>
+          <Typography variant='caption' color='text.secondary'>
+            High variance detected — smoothing ({bwMultiplier.toFixed(2)}×)
+          </Typography>
+          <Slider
+            size='small'
+            min={0.05}
+            max={1.5}
+            step={0.05}
+            value={bwMultiplier}
+            onChange={(_, v) => setBwMultiplier(v)}
+            valueLabelDisplay='auto'
+            valueLabelFormat={(v) => `${v.toFixed(2)}×`}
+          />
+        </Box>
+      )}
     </>
   );
 }
@@ -405,6 +794,10 @@ interface CommonGraphProps {
   newValues: number[];
   unit: string | null;
   isSubtest: boolean;
+  vt: number;
+  onVtChange: (value: number) => void;
+  showModes: boolean;
+  onShowModesChange: (value: boolean) => void;
 }
 
 export default CommonGraph;

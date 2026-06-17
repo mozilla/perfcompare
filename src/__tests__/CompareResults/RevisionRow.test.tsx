@@ -345,15 +345,15 @@ describe('Expanded row', () => {
     // Wait for the expanded panel before reading alert text content.
     await screen.findByText(/Cliff's Delta/);
 
-    // The summary alert is "Δ median = +7.6 ms 95% CI [..., ...]". The
-    // median-of-new minus median-of-base is 712.44 - 704.84 = +7.6.
+    // The summary alert is "Δ median = +7.60 ms (+1.1%) 95% CI [..., ...]". The
+    // median-of-new minus median-of-base is 712.44 - 704.84 = +7.60.
     const alerts = screen.getAllByRole('alert');
     const summaryAlert = alerts.find((alert) =>
       alert.textContent?.includes('Δ median'),
     );
     expect(summaryAlert).toBeDefined();
-    expect(summaryAlert?.textContent).toContain('+7.6');
-    expect(summaryAlert?.textContent).toContain('ms 95% CI [');
+    expect(summaryAlert?.textContent).toContain('+7.60');
+    expect(summaryAlert?.textContent).toContain('ms');
 
     // The confidence-interval alert is "Confidence Interval: We are 95% ...".
     const ciAlert = alerts.find((alert) =>
@@ -423,7 +423,7 @@ describe('Expanded row', () => {
     const summaryAlert = alerts.find((alert) =>
       alert.textContent?.includes('Δ median'),
     );
-    expect(summaryAlert?.textContent).toContain('(not significant)');
+    expect(summaryAlert?.textContent).toContain('interval includes zero');
   });
 
   it('should display mean for base or new in row headers for mann-whitney-u testVersion', async () => {

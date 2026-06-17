@@ -52,7 +52,13 @@ jest.mock('echarts', () => ({
 }));
 const MockedEchartsInit = echartsInit as jest.Mock;
 
+// Partial mock: only fftkde is mocked (each test sets its own implementation).
+// The mode-detection helpers (argrelmax, fitModesFromKde, areaFracs, …) keep
+// their real implementations so unit tests can exercise them directly.
 jest.mock('../../utils/kde.js', () => ({
+  ...jest.requireActual<typeof import('../../utils/kde.js')>(
+    '../../utils/kde.js',
+  ),
   fftkde: jest.fn(),
 }));
 const MockedFftkde = fftkde as jest.Mock;

@@ -18,6 +18,8 @@ import {
 } from '../utils/test-utils';
 
 const baseTitle = Strings.components.searchDefault.base.title;
+const searchRevisionPlaceholder =
+  Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
 
 function setupTestData() {
   const { testData } = getTestData();
@@ -191,7 +193,9 @@ describe('Base and OverTime Search', () => {
     await renderComponent();
 
     // Click inside the input box to show search results.
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
 
     const comment = await screen.findAllByText("you've got no arms left!");
@@ -210,7 +214,9 @@ describe('Base and OverTime Search', () => {
 
     // Click inside the input box to show search results.
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
 
     const comment = await screen.findAllByText("you've got no arms left!");
@@ -227,7 +233,9 @@ describe('Base and OverTime Search', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
 
     // We're running fake timers after each user action, because the input
     // normally waits 500ms before doing requests. Because we want to test the
@@ -242,11 +250,10 @@ describe('Base and OverTime Search', () => {
     await user.type(searchInput, 'sp');
     act(() => void jest.runAllTimers());
 
-    expect(
-      await screen.findByText(
-        'The search input must be at least three characters.',
-      ),
-    ).toBeInTheDocument();
+    const messages = await screen.findAllByText(
+      'The search input must be at least three characters.',
+    );
+    expect(messages[0]).toBeInTheDocument();
 
     // fetch is called 6 times:
     // - 3 times on initial load: one for each input, that is 2 in "compare with
@@ -265,7 +272,9 @@ describe('Base and OverTime Search', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
 
     // Wait until the dropdown appears as the result of the focus.
@@ -278,11 +287,10 @@ describe('Base and OverTime Search', () => {
     ).not.toBeInTheDocument();
 
     // But this appears after a while.
-    expect(
-      await screen.findByText(
-        'The search input must be at least three characters.',
-      ),
-    ).toBeInTheDocument();
+    const messages = await screen.findAllByText(
+      'The search input must be at least three characters.',
+    );
+    expect(messages[0]).toBeInTheDocument();
     await user.type(searchInput, 'hncleese');
     await user.type(searchInput, '@python.co');
     await user.type(searchInput, 'm');
@@ -317,7 +325,9 @@ describe('Base and OverTime Search', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.type(searchInput, 'terrygilliam@python.com');
     act(() => void jest.runAllTimers());
 
@@ -341,7 +351,9 @@ describe('Base and OverTime Search', () => {
     await renderComponent();
 
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByPlaceholderText(
+      searchRevisionPlaceholder,
+    )[0];
     await user.click(searchInput);
 
     await screen.findAllByText("you've got no arms left!");
@@ -416,7 +428,7 @@ describe('Base and OverTime Search', () => {
     ).toBeInTheDocument();
 
     // focus first input to show results
-    const inputs = screen.getAllByRole('textbox');
+    const inputs = screen.getAllByPlaceholderText(searchRevisionPlaceholder);
     await user.click(inputs[0]);
 
     // Select a base rev
