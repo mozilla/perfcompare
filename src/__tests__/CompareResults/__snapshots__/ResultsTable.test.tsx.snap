@@ -1675,7 +1675,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </span>
                             </div>
                             <span
-                              class="MuiBox-root css-1b0hjcp"
+                              class="MuiBox-root css-1bi5h41"
                               data-testid="better-direction-indicator"
                             >
                               Lower is better
@@ -2378,7 +2378,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </span>
                             </div>
                             <span
-                              class="MuiBox-root css-1b0hjcp"
+                              class="MuiBox-root css-1bi5h41"
                               data-testid="better-direction-indicator"
                             >
                               Lower is better
@@ -4558,7 +4558,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               </span>
                             </div>
                             <span
-                              class="MuiBox-root css-1b0hjcp"
+                              class="MuiBox-root css-1bi5h41"
                               data-testid="better-direction-indicator"
                             >
                               Lower is better
@@ -5300,7 +5300,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               </span>
                             </div>
                             <span
-                              class="MuiBox-root css-1b0hjcp"
+                              class="MuiBox-root css-1bi5h41"
                               data-testid="better-direction-indicator"
                             >
                               Lower is better
@@ -6060,7 +6060,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
          dhtml.html
       </strong>
       <span
-        class="MuiBox-root css-1b0hjcp"
+        class="MuiBox-root css-1bi5h41"
         data-testid="better-direction-indicator"
       >
         Lower is better
@@ -6625,7 +6625,7 @@ exports[`Results Table should render different blocks when rendering several rev
          dhtml.html
       </strong>
       <span
-        class="MuiBox-root css-1b0hjcp"
+        class="MuiBox-root css-1bi5h41"
         data-testid="better-direction-indicator"
       >
         Lower is better

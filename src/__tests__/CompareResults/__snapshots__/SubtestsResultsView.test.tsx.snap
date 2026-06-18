@@ -622,7 +622,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     </a>
                   </strong>
                   <span
-                    class="MuiBox-root css-1b0hjcp"
+                    class="MuiBox-root css-1bi5h41"
                     data-testid="better-direction-indicator"
                   >
                     Lower is better
@@ -2541,7 +2541,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </a>
                   </strong>
                   <span
-                    class="MuiBox-root css-1b0hjcp"
+                    class="MuiBox-root css-1bi5h41"
                     data-testid="better-direction-indicator"
                   >
                     Lower is better
@@ -4143,7 +4143,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     </a>
                   </strong>
                   <span
-                    class="MuiBox-root css-1b0hjcp"
+                    class="MuiBox-root css-1bi5h41"
                     data-testid="better-direction-indicator"
                   >
                     Lower is better
@@ -5745,7 +5745,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     </a>
                   </strong>
                   <span
-                    class="MuiBox-root css-1b0hjcp"
+                    class="MuiBox-root css-1bi5h41"
                     data-testid="better-direction-indicator"
                   >
                     Lower is better
@@ -7347,7 +7347,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     </a>
                   </strong>
                   <span
-                    class="MuiBox-root css-1b0hjcp"
+                    class="MuiBox-root css-1bi5h41"
                     data-testid="better-direction-indicator"
                   >
                     Lower is better

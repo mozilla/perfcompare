@@ -27,7 +27,7 @@ function BetterDirectionIndicator({
       data-testid='better-direction-indicator'
       sx={{
         color: 'text.secondary',
-        fontSize: FontSizeRaw.Small.fontSize,
+        fontSize: FontSizeRaw.Normal.fontSize,
         whiteSpace: 'nowrap',
         marginInline: `${Spacing.xSmall}px`,
       }}
