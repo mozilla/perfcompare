@@ -31,6 +31,7 @@ import {
 import AndroidIcon from '../../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../../Shared/Icons/LinuxIcon';
 import WindowsIcon from '../../Shared/Icons/WindowsIcon';
+import BetterDirectionIndicator from '../BetterDirectionIndicator';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
 const styles = {
@@ -158,7 +159,8 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
   return (
     <div className={styles.revisionHeader}>
       <div className={styles.typography}>
-        <strong>{getSuite(header, docsURL, isLinkSupported)}</strong> |
+        <strong>{getSuite(header, docsURL, isLinkSupported)}</strong>
+        <BetterDirectionIndicator lowerIsBetter={header.lower_is_better} /> |
         {baseInfo}
         {getRevLink(header.new_rev, header.new_repo, '- New')} | {framework} |{' '}
         <Tooltip

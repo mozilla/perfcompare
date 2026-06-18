@@ -62,6 +62,7 @@ function SubtestsResultsHeader({
     base_parent_signature: loadedResults[0].base_parent_signature,
     new_parent_signature: loadedResults[0].base_parent_signature,
     platform: loadedResults[0].platform,
+    lower_is_better: loadedResults[0].lower_is_better,
   };
 
   return (

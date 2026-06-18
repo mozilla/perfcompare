@@ -1,10 +1,11 @@
 import { Box, Link } from '@mui/material';
 import { style } from 'typestyle';
 
+import BetterDirectionIndicator from './BetterDirectionIndicator';
 import LinkToRevision from './LinkToRevision';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
-import type { CompareResultsItem } from '../../types/state';
+import type { CombinedResultsItemType } from '../../types/state';
 import { getDocsURL } from '../../utils/helpers';
 
 const styles = {
@@ -54,12 +55,13 @@ const styles = {
     flexWrap: 'wrap',
     fontFamily: 'SF Pro',
     display: 'flex',
+    alignItems: 'baseline',
     gap: '4px',
   }),
 };
 
 type HeaderProperties = Pick<
-  CompareResultsItem,
+  CombinedResultsItemType,
   | 'extra_options'
   | 'framework_id'
   | 'option_name'
@@ -67,6 +69,7 @@ type HeaderProperties = Pick<
   | 'test'
   | 'new_repository_name'
   | 'new_rev'
+  | 'lower_is_better'
 >;
 
 function createTitle(
@@ -117,6 +120,7 @@ export default function TestHeader(props: TestHeaderProps) {
             <LinkToRevision result={result} />
           </>
         )}
+        <BetterDirectionIndicator lowerIsBetter={result.lower_is_better} />
       </div>
       <Box
         sx={{
