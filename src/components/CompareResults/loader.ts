@@ -4,6 +4,7 @@ import {
   compareView,
   MANN_WHITNEY_U,
 } from '../../common/constants';
+import { precomputeMannWhitneyCI } from '../../common/testVersions/mannWhitney';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
@@ -12,6 +13,7 @@ import {
 import {
   Changeset,
   CombinedResultsItemType,
+  MannWhitneyResultsItem,
   Repository,
 } from '../../types/state';
 import { FakeCommitHash, Framework, TestVersion } from '../../types/types';
@@ -197,6 +199,13 @@ export async function loader({ request }: { request: Request }) {
   const useFakeData = url.searchParams.has('fakedata');
   if (useFakeData) {
     const results = await fetchAllFakeCompareResults();
+    // Fake results are Mann-Whitney shaped; precompute the CI per row so the
+    // Sig column behaves the same way as it would on real backend data.
+    for (const oneRevsResults of results) {
+      precomputeMannWhitneyCI(
+        oneRevsResults as unknown as MannWhitneyResultsItem[],
+      );
+    }
     // They're all based on the same rev
     const baseRev = results[0][0].base_rev;
     // And the same repository
@@ -292,6 +301,18 @@ export async function getComparisonInformation(
     replicates,
     testVersion,
     silvermanKDEEnabled,
+  }).then((results) => {
+    // Precompute the bootstrap CI per row when the data is Mann-Whitney —
+    // the Sig column sorts/filters on it and the expanded-row alert reads it
+    // too, so doing the heavy BCa [see src/utils/bootstrap-ci.ts#L163-L203] work once here avoids per-render thrashing.
+    if (testVersion === MANN_WHITNEY_U) {
+      for (const oneRevsResults of results) {
+        precomputeMannWhitneyCI(
+          oneRevsResults as unknown as MannWhitneyResultsItem[],
+        );
+      }
+    }
+    return results;
   });
 
   // TODO what happens if there's no result?

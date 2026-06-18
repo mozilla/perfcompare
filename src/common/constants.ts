@@ -324,9 +324,9 @@ export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
 export const STUDENT_T = 'student-t' as TestVersion;
 
 export const tooltipSignificance =
-  'Significance of the comparison as determined by a Mann Whitney U test. A significant comparison has a p-value of less than 0.05.';
+  'Significance of the comparison as determined by a 95% bootstrap (BCa) confidence interval on the difference of medians. A comparison is significant when the interval excludes zero.';
 export const tooltipStatusMannWhitney =
-  'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.';
+  'An improvement or regression being shown here means that the effect size is meaningful and the difference is statistically significant.';
 export const tooltipTotalRuns =
   'The total number of tasks/jobs that ran for this metric.';
 export const tooltipBaseMean =

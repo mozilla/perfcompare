@@ -824,7 +824,20 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                    data-testid="KeyboardDoubleArrowUpIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
+                    />
+                    <path
+                      d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
+                    />
+                  </svg>
                 </div>
                 <div
                   class="total-runs cell"
@@ -1023,7 +1036,20 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                    data-testid="KeyboardDoubleArrowUpIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
+                    />
+                    <path
+                      d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
+                    />
+                  </svg>
                 </div>
                 <div
                   class="total-runs cell"
@@ -1222,7 +1248,20 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                    data-testid="KeyboardDoubleArrowUpIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
+                    />
+                    <path
+                      d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
+                    />
+                  </svg>
                 </div>
                 <div
                   class="total-runs cell"
@@ -1421,7 +1460,20 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                    data-testid="KeyboardDoubleArrowUpIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
+                    />
+                    <path
+                      d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
+                    />
+                  </svg>
                 </div>
                 <div
                   class="total-runs cell"

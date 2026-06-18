@@ -193,8 +193,12 @@ describe('SubtestsRevisionRow Component', () => {
     const effects = roles[7]?.childNodes[0];
     expect(effects).toHaveTextContent('60.00%');
 
+    // The fixture runs don't yield a CI that excludes 0 once precomputed by
+    // the loader, so this row renders the "-" placeholder. This test mounts
+    // the row directly without the loader, leaving bootstrapCi undefined,
+    // which also falls back to "-". Either way: no icon is rendered.
     const significanceCell = roles[8];
-    expect(significanceCell?.querySelector('svg')).not.toBeNull();
+    expect(significanceCell).toHaveTextContent('-');
 
     const cliffs_delta = roles[6]?.childNodes[1];
     expect(cliffs_delta).toHaveTextContent('0.02');

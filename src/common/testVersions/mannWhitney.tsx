@@ -102,6 +102,29 @@ export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
   return checkDistributionNormality(result) !== 'neither';
 }
 
+/**
+ * Precompute the bootstrap (BCa)[see src/utils/bootstrap-ci.ts#L163-L203] CI for the difference of medians on every
+ * Mann-Whitney result and attach it to `result.bootstrapCi`. Called from the
+ * data loaders so the Sig column's filter/sort and the expanded-row alert can
+ * read a precomputed value instead of triggering bootstrapMedianDiffCI per
+ * row per render (BCa is ~10–30 ms/row and would tank sort interactions).
+ *
+ * Rows without enough data (< 2 samples on either side) get `bootstrapCi:
+ * null`; the column code treats that as "not significant".
+ */
+export function precomputeMannWhitneyCI(
+  results: MannWhitneyResultsItem[],
+): void {
+  for (const result of results) {
+    const baseRuns = result.base_runs ?? [];
+    const newRuns = result.new_runs ?? [];
+    result.bootstrapCi =
+      baseRuns.length >= 2 && newRuns.length >= 2
+        ? bootstrapMedianDiffCI(baseRuns, newRuns)
+        : null;
+  }
+}
+
 export const mannWhitneyStrategy = {
   getColumns(isSubtestTable: boolean): TableConfig {
     const platformConfig = isSubtestTable
@@ -231,16 +254,26 @@ export const mannWhitneyStrategy = {
           },
         ],
         matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
-          return result.mann_whitney_test?.interpretation === valueKey;
+          // Significance comes from the precomputed bootstrap CI (see
+          // precomputeMannWhitneyCI above).
+          // Missing CI ⇒ treat as not-significant.
+          const isSig = result.bootstrapCi?.significant ?? false;
+          return (isSig ? 'significant' : 'not significant') === valueKey;
         },
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          return (
-            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-          );
+          // ASC semantics — useTableSort swaps args for DESC. So in DESC mode
+          // this produces "significant first, then |medianDiff| desc"; in ASC
+          // mode the inverse. Significance is the primary key, magnitude the
+          // tie-breaker so the biggest changes float to the top of each group.
+          const sigA = resultA.bootstrapCi?.significant ?? false;
+          const sigB = resultB.bootstrapCi?.significant ?? false;
+          if (sigA !== sigB) return sigA ? 1 : -1;
+          const magA = Math.abs(resultA.bootstrapCi?.medianDiff ?? 0);
+          const magB = Math.abs(resultB.bootstrapCi?.medianDiff ?? 0);
+          return magA - magB;
         },
       },
 
@@ -267,9 +300,9 @@ export const mannWhitneyStrategy = {
     const {
       test,
       cliffs_delta,
-      mann_whitney_test,
       cles,
       direction_of_change,
+      bootstrapCi,
       base_measurement_unit: baseUnit,
       new_measurement_unit: newUnit,
       base_app: baseApp,
@@ -363,7 +396,7 @@ export const mannWhitneyStrategy = {
           {clesVal ? `${clesVal}% ` : '-'}
         </div>
         <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation === 'significant' ? (
+          {bootstrapCi?.significant ? (
             <KeyboardDoubleArrowUpIcon fontSize='small' />
           ) : (
             '-'
@@ -403,17 +436,19 @@ export const mannWhitneyStrategy = {
       mann_whitney_u_cles: '',
     };
     const { cliffs_delta, cliffs_interpretation } = mwResult;
-    const pValue = mwResult.mann_whitney_test?.pvalue;
-    const p_value_cles = mwResult.mann_whitney_test?.interpretation
-      ? capitalize(mwResult.mann_whitney_test.interpretation)
-      : '';
 
+    // Prefer the precomputed CI populated by the loader. Fall back to an
+    // inline compute for backwards compatibility (e.g. tests that mount the
+    // strategy without going through a loader, or stale results without the
+    // field).
     const baseRuns = mwResult.base_runs ?? [];
     const newRuns = mwResult.new_runs ?? [];
     const ci =
-      baseRuns.length > 0 && newRuns.length > 0
-        ? bootstrapMedianDiffCI(baseRuns, newRuns)
-        : null;
+      mwResult.bootstrapCi !== undefined
+        ? mwResult.bootstrapCi
+        : baseRuns.length > 0 && newRuns.length > 0
+          ? bootstrapMedianDiffCI(baseRuns, newRuns)
+          : null;
     const rawUnit =
       mwResult.base_measurement_unit ?? mwResult.new_measurement_unit ?? 'ms';
     const { fmt, displayUnit } = ci
@@ -453,8 +488,6 @@ export const mannWhitneyStrategy = {
         <PValCliffsDeltaComp
           cliffs_delta={cliffs_delta}
           cliffs_interpretation={cliffs_interpretation}
-          pValue={pValue}
-          p_value_cles={p_value_cles}
           cles={cles}
           cles_direction={cles_direction}
         />
@@ -483,8 +516,8 @@ export const mannWhitneyStrategy = {
     const {
       cliffs_delta,
       direction_of_change,
-      mann_whitney_test,
       cles,
+      bootstrapCi,
       base_standard_stats,
       new_standard_stats,
     } = result as MannWhitneyResultsItem;
@@ -551,7 +584,7 @@ export const mannWhitneyStrategy = {
           {clesValue}
         </div>
         <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation === 'significant' ? (
+          {bootstrapCi?.significant ? (
             <KeyboardDoubleArrowUpIcon fontSize='small' />
           ) : (
             '-'

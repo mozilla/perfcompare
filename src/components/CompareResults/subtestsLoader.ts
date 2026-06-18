@@ -1,6 +1,7 @@
 import { repoMap, frameworks, MANN_WHITNEY_U } from '../../common/constants';
+import { precomputeMannWhitneyCI } from '../../common/testVersions/mannWhitney';
 import { fetchSubtestsCompareResults } from '../../logic/treeherder';
-import { Repository } from '../../types/state';
+import { MannWhitneyResultsItem, Repository } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -186,6 +187,16 @@ export function loader({ request }: { request: Request }) {
     replicates,
     testVersion,
     silvermanKDEEnabled,
+  }).then((subtestResults) => {
+    // Precompute the bootstrap CI for the Sig column when these are
+    // Mann-Whitney results. Subtests return a flat array (one entry per
+    // subtest), not the per-revision nesting the main loader has.
+    if (testVersion === MANN_WHITNEY_U) {
+      precomputeMannWhitneyCI(
+        subtestResults as unknown as MannWhitneyResultsItem[],
+      );
+    }
+    return subtestResults;
   });
 
   return {
