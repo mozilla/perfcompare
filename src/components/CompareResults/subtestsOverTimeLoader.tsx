@@ -4,8 +4,9 @@ import {
   timeRanges,
   MANN_WHITNEY_U,
 } from '../../common/constants';
+import { precomputeLargestPeakShift } from '../../common/testVersions/mannWhitney';
 import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
-import { Repository } from '../../types/state';
+import { MannWhitneyResultsItem, Repository } from '../../types/state';
 import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -212,6 +213,14 @@ export function loader({ request }: { request: Request }) {
     replicates,
     testVersion,
     silvermanKDEEnabled,
+  }).then((subtestResults) => {
+    if (testVersion === MANN_WHITNEY_U) {
+      precomputeLargestPeakShift(
+        subtestResults as unknown as MannWhitneyResultsItem[],
+        true,
+      );
+    }
+    return subtestResults;
   });
 
   return {
