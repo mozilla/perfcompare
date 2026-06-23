@@ -9,6 +9,7 @@ import {
   fftkde,
   fitModesFromKde,
   improvedSheatherJones,
+  matchModes,
   silvermansRule,
 } from './kde.js';
 
@@ -136,4 +137,63 @@ export function computeModeInfo(
     fracs: areaFracs(x, y, boundaries),
     letters: assignLetters(peakLocs),
   };
+}
+
+/**
+ * Compute the largest matched-pair peak shift between base and new
+ * distributions, expressed as a percentage of the base peak location.
+ *
+ * Pipeline: same as `KdeModesPanel` — shared bandwidth (max of per-side
+ * `bandwidthFor`), `safeKde` both sides, `computeModeInfo` to get peaks +
+ * area fractions, `matchModes` to align base/new peaks. Then for every
+ * matched pair, computes `(newLoc - baseLoc) / baseLoc * 100` and returns
+ * the one with the largest absolute value (signed — positive means the
+ * new peak shifted higher).
+ *
+ * Returns `null` when:
+ *   - either side has < 2 samples
+ *   - either KDE fails (e.g. degenerate inputs)
+ *   - mode detection finds no peaks on either side
+ *   - no matched pairs (e.g. only unmatched modes — disappeared/appeared paths)
+ *   - the only matched base peaks are at exactly zero (can't divide)
+ *
+ * @param valleyThreshold Passed to `fitModesFromKde`. Defaults to 0.5 to
+ *   match `RevisionRowExpandable`'s slider default; the precompute path
+ *   has no slider to read from.
+ */
+export function computeLargestPeakShiftPct(
+  baseValues: number[],
+  newValues: number[],
+  isSubtest: boolean,
+  valleyThreshold: number = 0.5,
+): number | null {
+  if (baseValues.length < 2 || newValues.length < 2) return null;
+  const baseBw = bandwidthFor(baseValues, isSubtest) ?? 0;
+  const newBw = bandwidthFor(newValues, isSubtest) ?? 0;
+  const rawSharedBw = Math.max(baseBw, newBw);
+  const sharedBw = rawSharedBw > 0 ? rawSharedBw : undefined;
+  const bKde = safeKde(baseValues, sharedBw);
+  const nKde = safeKde(newValues, sharedBw);
+  if (!bKde || !nKde) return null;
+  const bModes = computeModeInfo(bKde.x, bKde.y, valleyThreshold);
+  const nModes = computeModeInfo(nKde.x, nKde.y, valleyThreshold);
+  if (!bModes.peakLocs.length || !nModes.peakLocs.length) return null;
+  const { pairs } = matchModes(
+    bModes.peakLocs,
+    bModes.fracs,
+    nModes.peakLocs,
+    nModes.fracs,
+  );
+  if (!pairs.length) return null;
+  let bestPct: number | null = null;
+  for (const [bi, ni] of pairs) {
+    const baseLoc = bModes.peakLocs[bi];
+    const newLoc = nModes.peakLocs[ni];
+    if (baseLoc === 0) continue;
+    const pct = ((newLoc - baseLoc) / baseLoc) * 100;
+    if (bestPct === null || Math.abs(pct) > Math.abs(bestPct)) {
+      bestPct = pct;
+    }
+  }
+  return bestPct;
 }
