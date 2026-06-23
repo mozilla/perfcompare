@@ -1501,7 +1501,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="fdtnfac f1l733lh"
+      class="f1ozcnof f1l733lh"
       data-testid="table-header"
       role="row"
     >
@@ -1568,16 +1568,16 @@ exports[`Results View The table should match snapshot and other elements should 
         </span>
       </div>
       <div
-        class="cell median-diff-header"
+        class="cell mode-delta-header"
         role="columnheader"
       >
         <span
-          aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+          aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. A dash (-) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
           class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
           <button
-            aria-label="MD (%) (Click to sort by this column)"
+            aria-label="Mode Δ (%) (Click to sort by this column)"
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
@@ -1593,10 +1593,10 @@ exports[`Results View The table should match snapshot and other elements should 
                 d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
-                Not sorted by MD (%)
+                Not sorted by Mode Δ (%)
               </title>
             </svg>
-            MD (%)
+            Mode Δ (%)
           </button>
         </span>
       </div>
@@ -1897,7 +1897,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="revision-block fw0pvlu"
             >
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                 role="row"
               >
                 <div
@@ -1946,14 +1946,10 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  -
                 </div>
                 <div
                   class="status cell"
@@ -2095,7 +2091,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                 role="row"
               >
                 <div
@@ -2145,14 +2141,10 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  -
                 </div>
                 <div
                   class="status cell"
@@ -2294,7 +2286,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                 role="row"
               >
                 <div
@@ -2344,14 +2336,10 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  -
                 </div>
                 <div
                   class="status cell"
@@ -2493,7 +2481,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                 role="row"
               >
                 <div
@@ -2543,14 +2531,10 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  -
                 </div>
                 <div
                   class="status cell"

@@ -1319,7 +1319,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="fdtnfac f1l733lh"
+                  class="f1ozcnof f1l733lh"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1386,16 +1386,16 @@ exports[`Results Table Should match snapshot 1`] = `
                     </span>
                   </div>
                   <div
-                    class="cell median-diff-header"
+                    class="cell mode-delta-header"
                     role="columnheader"
                   >
                     <span
-                      aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. A dash (-) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       <button
-                        aria-label="MD (%) (Click to sort by this column)"
+                        aria-label="Mode Δ (%) (Click to sort by this column)"
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
@@ -1411,10 +1411,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                           />
                           <title>
-                            Not sorted by MD (%)
+                            Not sorted by Mode Δ (%)
                           </title>
                         </svg>
-                        MD (%)
+                        Mode Δ (%)
                       </button>
                     </span>
                   </div>
@@ -1715,7 +1715,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                             role="row"
                           >
                             <div
@@ -1764,14 +1764,10 @@ exports[`Results Table Should match snapshot 1`] = `
                                
                             </div>
                             <div
-                              class="median-diff cell"
+                              class="mode-delta cell"
                               role="cell"
                             >
-                              <span
-                                style="display: inline-flex; align-items: center; gap: 4px;"
-                              >
-                                0 %
-                              </span>
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -1913,7 +1909,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                             role="row"
                           >
                             <div
@@ -1963,14 +1959,10 @@ exports[`Results Table Should match snapshot 1`] = `
                                
                             </div>
                             <div
-                              class="median-diff cell"
+                              class="mode-delta cell"
                               role="cell"
                             >
-                              <span
-                                style="display: inline-flex; align-items: center; gap: 4px;"
-                              >
-                                0 %
-                              </span>
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -2112,7 +2104,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                             role="row"
                           >
                             <div
@@ -2162,14 +2154,10 @@ exports[`Results Table Should match snapshot 1`] = `
                                
                             </div>
                             <div
-                              class="median-diff cell"
+                              class="mode-delta cell"
                               role="cell"
                             >
-                              <span
-                                style="display: inline-flex; align-items: center; gap: 4px;"
-                              >
-                                0 %
-                              </span>
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -2398,7 +2386,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                             role="row"
                           >
                             <div
@@ -2448,14 +2436,10 @@ exports[`Results Table Should match snapshot 1`] = `
                                
                             </div>
                             <div
-                              class="median-diff cell"
+                              class="mode-delta cell"
                               role="cell"
                             >
-                              <span
-                                style="display: inline-flex; align-items: center; gap: 4px;"
-                              >
-                                0 %
-                              </span>
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -4202,7 +4186,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   </div>
                 </div>
                 <div
-                  class="fdtnfac f1l733lh"
+                  class="f1ozcnof f1l733lh"
                   data-testid="table-header"
                   role="row"
                 >
@@ -4269,16 +4253,16 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     </span>
                   </div>
                   <div
-                    class="cell median-diff-header"
+                    class="cell mode-delta-header"
                     role="columnheader"
                   >
                     <span
-                      aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. A dash (-) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       <button
-                        aria-label="MD (%) (Click to sort by this column)"
+                        aria-label="Mode Δ (%) (Click to sort by this column)"
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
@@ -4294,10 +4278,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                           />
                           <title>
-                            Not sorted by MD (%)
+                            Not sorted by Mode Δ (%)
                           </title>
                         </svg>
-                        MD (%)
+                        Mode Δ (%)
                       </button>
                     </span>
                   </div>
@@ -4598,7 +4582,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                             role="row"
                           >
                             <div
@@ -4647,14 +4631,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                
                             </div>
                             <div
-                              class="median-diff cell"
+                              class="mode-delta cell"
                               role="cell"
                             >
-                              <span
-                                style="display: inline-flex; align-items: center; gap: 4px;"
-                              >
-                                1.849 %
-                              </span>
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -4809,7 +4789,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                             role="row"
                           >
                             <div
@@ -4859,14 +4839,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                
                             </div>
                             <div
-                              class="median-diff cell"
+                              class="mode-delta cell"
                               role="cell"
                             >
-                              <span
-                                style="display: inline-flex; align-items: center; gap: 4px;"
-                              >
-                                1.078 %
-                              </span>
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -5021,7 +4997,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                             role="row"
                           >
                             <div
@@ -5071,14 +5047,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                
                             </div>
                             <div
-                              class="median-diff cell"
+                              class="mode-delta cell"
                               role="cell"
                             >
-                              <span
-                                style="display: inline-flex; align-items: center; gap: 4px;"
-                              >
-                                -2.401 %
-                              </span>
+                              -
                             </div>
                             <div
                               class="status cell"
@@ -5320,7 +5292,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
                             role="row"
                           >
                             <div
@@ -5370,7 +5342,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                
                             </div>
                             <div
-                              class="median-diff cell"
+                              class="mode-delta cell"
                               role="cell"
                             >
                               -
@@ -5835,32 +5807,32 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %",
+  "  - macOS 10.15, -, Improvement, 0.1, -, 25.00 %",
+  "  - Linux 18.04, -, Regression, -, -, 45.00 %",
+  "  - Windows 10, -, , -, , 50.00 %",
   "  - Windows 10, -, , -, , 100.00 %",
-  "  - Windows 10, -2.401 %, , -, , 50.00 %",
   "  rev: tictactoe",
-  "  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %",
+  "  - macOS 10.15, -, Improvement, 0.9, -, 24.00 %",
+  "  - Linux 18.04, -, Regression, 0.8, -, 44.00 %",
+  "  - Windows 10, -, , 0.8, , 49.00 %",
   "  - Windows 10, -, , 0.8, , 99.00 %",
-  "  - Windows 10, -2.401 %, , 0.8, , 49.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %",
+  "  - macOS 10.15, -, Improvement, 1.3, -, 24.00 %",
+  "  - Linux 18.04, -, Regression, 1.2, -, 44.00 %",
+  "  - Windows 10, -, , 1.2, , 49.00 %",
   "  - Windows 10, -, , 1.2, , 99.00 %",
-  "  - Windows 10, -2.401 %, , 1.2, , 49.00 %",
   "  rev: tictactoe",
-  "  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %",
+  "  - macOS 10.15, -, Improvement, 2.1, -, 23.00 %",
+  "  - Linux 18.04, -, Regression, 2, -, 43.00 %",
+  "  - Windows 10, -, , 2, , 48.00 %",
   "  - Windows 10, -, , 2, , 98.00 %",
-  "  - Windows 10, -2.401 %, , 2, , 48.00 %",
 ]
 `;
 
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 9`] = `
 <button
-  aria-label="MD (%) (Currently sorted by this column. Click to change)"
+  aria-label="Mode Δ (%) (Currently sorted by this column. Click to change)"
   class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
@@ -5876,10 +5848,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by MD (%) in descending order
+      Sorted by Mode Δ (%) in descending order
     </title>
   </svg>
-  MD (%)
+  Mode Δ (%)
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5907,32 +5879,32 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Windows 10, -2.401 %, , -, , 50.00 %",
+  "  - macOS 10.15, -, Improvement, 0.1, -, 25.00 %",
+  "  - Linux 18.04, -, Regression, -, -, 45.00 %",
+  "  - Windows 10, -, , -, , 50.00 %",
   "  - Windows 10, -, , -, , 100.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %",
   "  rev: tictactoe",
-  "  - Windows 10, -2.401 %, , 0.8, , 49.00 %",
+  "  - macOS 10.15, -, Improvement, 0.9, -, 24.00 %",
+  "  - Linux 18.04, -, Regression, 0.8, -, 44.00 %",
+  "  - Windows 10, -, , 0.8, , 49.00 %",
   "  - Windows 10, -, , 0.8, , 99.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Windows 10, -2.401 %, , 1.2, , 49.00 %",
+  "  - macOS 10.15, -, Improvement, 1.3, -, 24.00 %",
+  "  - Linux 18.04, -, Regression, 1.2, -, 44.00 %",
+  "  - Windows 10, -, , 1.2, , 49.00 %",
   "  - Windows 10, -, , 1.2, , 99.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %",
   "  rev: tictactoe",
-  "  - Windows 10, -2.401 %, , 2, , 48.00 %",
+  "  - macOS 10.15, -, Improvement, 2.1, -, 23.00 %",
+  "  - Linux 18.04, -, Regression, 2, -, 43.00 %",
+  "  - Windows 10, -, , 2, , 48.00 %",
   "  - Windows 10, -, , 2, , 98.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %",
 ]
 `;
 
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 11`] = `
 <button
-  aria-label="MD (%) (Currently sorted by this column. Click to change)"
+  aria-label="Mode Δ (%) (Currently sorted by this column. Click to change)"
   class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
@@ -5948,10 +5920,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by MD (%) in ascending order
+      Sorted by Mode Δ (%) in ascending order
     </title>
   </svg>
-  MD (%)
+  Mode Δ (%)
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -6135,7 +6107,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
       role="row"
     >
       <div
@@ -6185,14 +6157,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
          
       </div>
       <div
-        class="median-diff cell"
+        class="mode-delta cell"
         role="cell"
       >
-        <span
-          style="display: inline-flex; align-items: center; gap: 4px;"
-        >
-          1.078 %
-        </span>
+        -
       </div>
       <div
         class="status cell"
@@ -6386,7 +6354,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
       role="row"
     >
       <div
@@ -6436,14 +6404,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
          
       </div>
       <div
-        class="median-diff cell"
+        class="mode-delta cell"
         role="cell"
       >
-        <span
-          style="display: inline-flex; align-items: center; gap: 4px;"
-        >
-          1.078 %
-        </span>
+        -
       </div>
       <div
         class="status cell"

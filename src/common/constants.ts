@@ -337,5 +337,5 @@ export const tooltipConfidence =
   "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.";
 export const tooltipDelta =
   'The percentage difference between the Base and New values';
-export const tooltipMedianDiff =
-  'Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100.';
+export const tooltipModeDelta =
+  'Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. A dash (-) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely).';
