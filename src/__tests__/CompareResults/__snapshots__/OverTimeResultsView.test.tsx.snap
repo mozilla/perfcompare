@@ -346,7 +346,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="f1ozcnof f1l733lh"
+      class="f1a6m55i f1l733lh"
       data-testid="table-header"
       role="row"
     >
@@ -417,7 +417,7 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <span
-          aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. A dash (-) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+          aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
           class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
@@ -442,6 +442,17 @@ exports[`Results View The table should match snapshot and other elements should 
               </title>
             </svg>
             Mode Δ (%)
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+              data-testid="InfoOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+              />
+            </svg>
           </button>
         </span>
       </div>
@@ -458,6 +469,17 @@ exports[`Results View The table should match snapshot and other elements should 
           type="button"
         >
           Status
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+            data-testid="InfoOutlinedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+            />
+          </svg>
           <div
             aria-label="3 items selected"
             class="MuiBox-root css-18uhbjh"
@@ -508,6 +530,17 @@ exports[`Results View The table should match snapshot and other elements should 
               </title>
             </svg>
             CD
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+              data-testid="InfoOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+              />
+            </svg>
           </button>
         </span>
       </div>
@@ -540,6 +573,17 @@ exports[`Results View The table should match snapshot and other elements should 
               </title>
             </svg>
             CLES (%)
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+              data-testid="InfoOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+              />
+            </svg>
           </button>
         </span>
       </div>
@@ -581,6 +625,17 @@ exports[`Results View The table should match snapshot and other elements should 
             type="button"
           >
             Sig
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+              data-testid="InfoOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+              />
+            </svg>
             <div
               aria-label="2 items selected"
               class="MuiBox-root css-18uhbjh"
@@ -742,7 +797,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="revision-block fw0pvlu"
             >
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                 role="row"
               >
                 <div
@@ -794,7 +849,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  -
+                  NM
                 </div>
                 <div
                   class="status cell"
@@ -936,7 +991,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                 role="row"
               >
                 <div
@@ -989,7 +1044,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  -
+                  NM
                 </div>
                 <div
                   class="status cell"
@@ -1131,7 +1186,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                 role="row"
               >
                 <div
@@ -1184,7 +1239,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  -
+                  NM
                 </div>
                 <div
                   class="status cell"
@@ -1326,7 +1381,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                 role="row"
               >
                 <div
@@ -1379,7 +1434,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  -
+                  NM
                 </div>
                 <div
                   class="status cell"

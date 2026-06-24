@@ -159,7 +159,7 @@ export const mannWhitneyStrategy = {
       {
         name: 'Mode Δ (%)',
         key: 'mode-delta',
-        gridWidth: '1.5fr',
+        gridWidth: '1.75fr',
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
@@ -173,12 +173,14 @@ export const mannWhitneyStrategy = {
           return normalized(resultB) - normalized(resultA);
         },
         tooltip: tooltipModeDelta,
+        tooltipIcon: true,
       },
       {
         name: 'Status',
         filter: true,
         key: 'status',
-        gridWidth: '1.5fr',
+        gridWidth: '1.75fr',
+        tooltipIcon: true,
         possibleValues: [
           { label: 'No changes', key: 'none' },
           { label: 'Improvement', key: 'improvement' },
@@ -202,7 +204,7 @@ export const mannWhitneyStrategy = {
       {
         name: 'CD',
         key: 'delta',
-        gridWidth: '1fr',
+        gridWidth: '1.25fr',
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
@@ -212,11 +214,13 @@ export const mannWhitneyStrategy = {
           );
         },
         tooltip: tooltipCliffsDelta,
+        tooltipIcon: true,
       },
       {
         name: 'CLES (%)',
         key: 'effects',
-        gridWidth: '1.25fr',
+        gridWidth: '1.5fr',
+        tooltipIcon: true,
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
@@ -232,8 +236,9 @@ export const mannWhitneyStrategy = {
         name: 'Sig',
         key: 'significance',
         filter: true,
-        gridWidth: '1.25fr',
+        gridWidth: '1.5fr',
         tooltip: tooltipSignificance,
+        tooltipIcon: true,
         possibleValues: [
           {
             label: 'Significant',
@@ -320,7 +325,7 @@ export const mannWhitneyStrategy = {
           {(() => {
             const pct = (result as MannWhitneyResultsItem).modeDeltaPct;
             return pct === null || pct === undefined
-              ? '-'
+              ? 'NM'
               : `${pct.toFixed(2)} %`;
           })()}
         </div>
@@ -487,7 +492,7 @@ export const mannWhitneyStrategy = {
       <>
         <div className='mode-delta cell' role='cell'>
           {modeDeltaPct === null || modeDeltaPct === undefined
-            ? '-'
+            ? 'NM'
             : `${modeDeltaPct.toFixed(2)} %`}
         </div>
         <div className='status cell' role='cell'>

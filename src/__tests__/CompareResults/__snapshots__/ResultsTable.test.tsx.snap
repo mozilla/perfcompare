@@ -1319,7 +1319,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="f1ozcnof f1l733lh"
+                  class="f1a6m55i f1l733lh"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1390,7 +1390,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     role="columnheader"
                   >
                     <span
-                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. A dash (-) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
@@ -1415,6 +1415,17 @@ exports[`Results Table Should match snapshot 1`] = `
                           </title>
                         </svg>
                         Mode Δ (%)
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                          data-testid="InfoOutlinedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                          />
+                        </svg>
                       </button>
                     </span>
                   </div>
@@ -1431,6 +1442,17 @@ exports[`Results Table Should match snapshot 1`] = `
                       type="button"
                     >
                       Status
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                       <div
                         aria-label="3 items selected"
                         class="MuiBox-root css-18uhbjh"
@@ -1481,6 +1503,17 @@ exports[`Results Table Should match snapshot 1`] = `
                           </title>
                         </svg>
                         CD
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                          data-testid="InfoOutlinedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                          />
+                        </svg>
                       </button>
                     </span>
                   </div>
@@ -1513,6 +1546,17 @@ exports[`Results Table Should match snapshot 1`] = `
                           </title>
                         </svg>
                         CLES (%)
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                          data-testid="InfoOutlinedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                          />
+                        </svg>
                       </button>
                     </span>
                   </div>
@@ -1554,6 +1598,17 @@ exports[`Results Table Should match snapshot 1`] = `
                         type="button"
                       >
                         Sig
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                          data-testid="InfoOutlinedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                          />
+                        </svg>
                         <div
                           aria-label="2 items selected"
                           class="MuiBox-root css-18uhbjh"
@@ -1715,7 +1770,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                             role="row"
                           >
                             <div
@@ -1767,7 +1822,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="mode-delta cell"
                               role="cell"
                             >
-                              -
+                              NM
                             </div>
                             <div
                               class="status cell"
@@ -1909,7 +1964,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                             role="row"
                           >
                             <div
@@ -1962,7 +2017,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="mode-delta cell"
                               role="cell"
                             >
-                              -
+                              NM
                             </div>
                             <div
                               class="status cell"
@@ -2104,7 +2159,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                             role="row"
                           >
                             <div
@@ -2157,7 +2212,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="mode-delta cell"
                               role="cell"
                             >
-                              -
+                              NM
                             </div>
                             <div
                               class="status cell"
@@ -2386,7 +2441,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                             role="row"
                           >
                             <div
@@ -2439,7 +2494,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="mode-delta cell"
                               role="cell"
                             >
-                              -
+                              NM
                             </div>
                             <div
                               class="status cell"
@@ -4186,7 +4241,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   </div>
                 </div>
                 <div
-                  class="f1ozcnof f1l733lh"
+                  class="f1a6m55i f1l733lh"
                   data-testid="table-header"
                   role="row"
                 >
@@ -4257,7 +4312,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     role="columnheader"
                   >
                     <span
-                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. A dash (-) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
@@ -4282,6 +4337,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           </title>
                         </svg>
                         Mode Δ (%)
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                          data-testid="InfoOutlinedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                          />
+                        </svg>
                       </button>
                     </span>
                   </div>
@@ -4298,6 +4364,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       type="button"
                     >
                       Status
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                       <div
                         aria-label="3 items selected"
                         class="MuiBox-root css-18uhbjh"
@@ -4348,6 +4425,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           </title>
                         </svg>
                         CD
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                          data-testid="InfoOutlinedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                          />
+                        </svg>
                       </button>
                     </span>
                   </div>
@@ -4380,6 +4468,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           </title>
                         </svg>
                         CLES (%)
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                          data-testid="InfoOutlinedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                          />
+                        </svg>
                       </button>
                     </span>
                   </div>
@@ -4421,6 +4520,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                         type="button"
                       >
                         Sig
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                          data-testid="InfoOutlinedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                          />
+                        </svg>
                         <div
                           aria-label="2 items selected"
                           class="MuiBox-root css-18uhbjh"
@@ -4582,7 +4692,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                             role="row"
                           >
                             <div
@@ -4634,7 +4744,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="mode-delta cell"
                               role="cell"
                             >
-                              -
+                              NM
                             </div>
                             <div
                               class="status cell"
@@ -4789,7 +4899,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                             role="row"
                           >
                             <div
@@ -4842,7 +4952,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="mode-delta cell"
                               role="cell"
                             >
-                              -
+                              NM
                             </div>
                             <div
                               class="status cell"
@@ -4997,7 +5107,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                             role="row"
                           >
                             <div
@@ -5050,7 +5160,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="mode-delta cell"
                               role="cell"
                             >
-                              -
+                              NM
                             </div>
                             <div
                               class="status cell"
@@ -5292,7 +5402,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                             role="row"
                           >
                             <div
@@ -5345,7 +5455,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="mode-delta cell"
                               role="cell"
                             >
-                              -
+                              NM
                             </div>
                             <div
                               class="status cell"
@@ -5536,6 +5646,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
 </button>
 `;
 
@@ -5561,6 +5682,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
 </button>
 `;
 
@@ -5586,6 +5718,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5727,6 +5870,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     </title>
   </svg>
   CLES (%)
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5772,6 +5926,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     </title>
   </svg>
   CLES (%)
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5807,26 +5972,26 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - macOS 10.15, -, Improvement, 0.1, -, 25.00 %",
-  "  - Linux 18.04, -, Regression, -, -, 45.00 %",
-  "  - Windows 10, -, , -, , 50.00 %",
-  "  - Windows 10, -, , -, , 100.00 %",
+  "  - macOS 10.15, NM, Improvement, 0.1, -, 25.00 %",
+  "  - Linux 18.04, NM, Regression, -, -, 45.00 %",
+  "  - Windows 10, NM, , -, , 50.00 %",
+  "  - Windows 10, NM, , -, , 100.00 %",
   "  rev: tictactoe",
-  "  - macOS 10.15, -, Improvement, 0.9, -, 24.00 %",
-  "  - Linux 18.04, -, Regression, 0.8, -, 44.00 %",
-  "  - Windows 10, -, , 0.8, , 49.00 %",
-  "  - Windows 10, -, , 0.8, , 99.00 %",
+  "  - macOS 10.15, NM, Improvement, 0.9, -, 24.00 %",
+  "  - Linux 18.04, NM, Regression, 0.8, -, 44.00 %",
+  "  - Windows 10, NM, , 0.8, , 49.00 %",
+  "  - Windows 10, NM, , 0.8, , 99.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - macOS 10.15, -, Improvement, 1.3, -, 24.00 %",
-  "  - Linux 18.04, -, Regression, 1.2, -, 44.00 %",
-  "  - Windows 10, -, , 1.2, , 49.00 %",
-  "  - Windows 10, -, , 1.2, , 99.00 %",
+  "  - macOS 10.15, NM, Improvement, 1.3, -, 24.00 %",
+  "  - Linux 18.04, NM, Regression, 1.2, -, 44.00 %",
+  "  - Windows 10, NM, , 1.2, , 49.00 %",
+  "  - Windows 10, NM, , 1.2, , 99.00 %",
   "  rev: tictactoe",
-  "  - macOS 10.15, -, Improvement, 2.1, -, 23.00 %",
-  "  - Linux 18.04, -, Regression, 2, -, 43.00 %",
-  "  - Windows 10, -, , 2, , 48.00 %",
-  "  - Windows 10, -, , 2, , 98.00 %",
+  "  - macOS 10.15, NM, Improvement, 2.1, -, 23.00 %",
+  "  - Linux 18.04, NM, Regression, 2, -, 43.00 %",
+  "  - Windows 10, NM, , 2, , 48.00 %",
+  "  - Windows 10, NM, , 2, , 98.00 %",
 ]
 `;
 
@@ -5852,6 +6017,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     </title>
   </svg>
   Mode Δ (%)
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5879,26 +6055,26 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - macOS 10.15, -, Improvement, 0.1, -, 25.00 %",
-  "  - Linux 18.04, -, Regression, -, -, 45.00 %",
-  "  - Windows 10, -, , -, , 50.00 %",
-  "  - Windows 10, -, , -, , 100.00 %",
+  "  - macOS 10.15, NM, Improvement, 0.1, -, 25.00 %",
+  "  - Linux 18.04, NM, Regression, -, -, 45.00 %",
+  "  - Windows 10, NM, , -, , 50.00 %",
+  "  - Windows 10, NM, , -, , 100.00 %",
   "  rev: tictactoe",
-  "  - macOS 10.15, -, Improvement, 0.9, -, 24.00 %",
-  "  - Linux 18.04, -, Regression, 0.8, -, 44.00 %",
-  "  - Windows 10, -, , 0.8, , 49.00 %",
-  "  - Windows 10, -, , 0.8, , 99.00 %",
+  "  - macOS 10.15, NM, Improvement, 0.9, -, 24.00 %",
+  "  - Linux 18.04, NM, Regression, 0.8, -, 44.00 %",
+  "  - Windows 10, NM, , 0.8, , 49.00 %",
+  "  - Windows 10, NM, , 0.8, , 99.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - macOS 10.15, -, Improvement, 1.3, -, 24.00 %",
-  "  - Linux 18.04, -, Regression, 1.2, -, 44.00 %",
-  "  - Windows 10, -, , 1.2, , 49.00 %",
-  "  - Windows 10, -, , 1.2, , 99.00 %",
+  "  - macOS 10.15, NM, Improvement, 1.3, -, 24.00 %",
+  "  - Linux 18.04, NM, Regression, 1.2, -, 44.00 %",
+  "  - Windows 10, NM, , 1.2, , 49.00 %",
+  "  - Windows 10, NM, , 1.2, , 99.00 %",
   "  rev: tictactoe",
-  "  - macOS 10.15, -, Improvement, 2.1, -, 23.00 %",
-  "  - Linux 18.04, -, Regression, 2, -, 43.00 %",
-  "  - Windows 10, -, , 2, , 48.00 %",
-  "  - Windows 10, -, , 2, , 98.00 %",
+  "  - macOS 10.15, NM, Improvement, 2.1, -, 23.00 %",
+  "  - Linux 18.04, NM, Regression, 2, -, 43.00 %",
+  "  - Windows 10, NM, , 2, , 48.00 %",
+  "  - Windows 10, NM, , 2, , 98.00 %",
 ]
 `;
 
@@ -5924,6 +6100,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     </title>
   </svg>
   Mode Δ (%)
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5966,6 +6153,17 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
   type="button"
 >
   Sig
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <div
     aria-label="2 items selected"
     class="MuiBox-root css-18uhbjh"
@@ -6107,7 +6305,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
       role="row"
     >
       <div
@@ -6160,7 +6358,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="mode-delta cell"
         role="cell"
       >
-        -
+        NM
       </div>
       <div
         class="status cell"
@@ -6354,7 +6552,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-lkxut"
+      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
       role="row"
     >
       <div
@@ -6407,7 +6605,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="mode-delta cell"
         role="cell"
       >
-        -
+        NM
       </div>
       <div
         class="status cell"
