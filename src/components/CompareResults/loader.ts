@@ -4,7 +4,7 @@ import {
   compareView,
   MANN_WHITNEY_U,
 } from '../../common/constants';
-import { precomputeLargestPeakShift } from '../../common/testVersions/mannWhitney';
+import { precomputeModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
@@ -202,7 +202,7 @@ export async function loader({ request }: { request: Request }) {
     // Fake results are Mann-Whitney shaped; precompute the Mode Δ per row
     // so the column behaves like it would on real backend data.
     for (const oneRevsResults of results) {
-      precomputeLargestPeakShift(
+      precomputeModalityAnalysis(
         oneRevsResults as unknown as MannWhitneyResultsItem[],
         false,
       );
@@ -308,7 +308,7 @@ export async function getComparisonInformation(
     // sortFunction call. Top-level (non-subtest) table → isSubtest=false.
     if (testVersion === MANN_WHITNEY_U) {
       for (const oneRevsResults of results) {
-        precomputeLargestPeakShift(
+        precomputeModalityAnalysis(
           oneRevsResults as unknown as MannWhitneyResultsItem[],
           false,
         );

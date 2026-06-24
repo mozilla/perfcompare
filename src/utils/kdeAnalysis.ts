@@ -140,60 +140,85 @@ export function computeModeInfo(
 }
 
 /**
- * Compute the largest matched-pair peak shift between base and new
- * distributions, expressed as a percentage of the base peak location.
+ * Combined output of the client-side modality pipeline. Used as the single
+ * source of truth for any UI that needs to talk about modes (counts in the
+ * Distribution Interpretation row, the Mode Δ column, KdeModesPanel, etc.)
+ * so the page never contradicts itself.
+ */
+export type ModalityAnalysis = {
+  baseModes: ModeInfo;
+  newModes: ModeInfo;
+  // Largest matched-pair peak shift as % of base peak location; null when
+  // KDE/mode/matching produced nothing usable. See computeModalityAnalysis.
+  largestPeakShiftPct: number | null;
+};
+
+export const EMPTY_MODALITY_ANALYSIS: ModalityAnalysis = {
+  baseModes: EMPTY_MODE_INFO,
+  newModes: EMPTY_MODE_INFO,
+  largestPeakShiftPct: null,
+};
+
+/**
+ * Run the full client-side modality pipeline for a base/new pair.
  *
- * Pipeline: same as `KdeModesPanel` — shared bandwidth (max of per-side
+ * Pipeline (same as `KdeModesPanel`): shared bandwidth (max of per-side
  * `bandwidthFor`), `safeKde` both sides, `computeModeInfo` to get peaks +
- * area fractions, `matchModes` to align base/new peaks. Then for every
- * matched pair, computes `(newLoc - baseLoc) / baseLoc * 100` and returns
- * the one with the largest absolute value (signed — positive means the
- * new peak shifted higher).
+ * area fractions, `matchModes` to align base/new peaks. Then derives the
+ * largest matched-pair peak shift, as a signed percentage of the base peak
+ * location (positive = new peak shifted higher).
  *
- * Returns `null` when:
+ * `largestPeakShiftPct` is `null` when:
  *   - either side has < 2 samples
  *   - either KDE fails (e.g. degenerate inputs)
  *   - mode detection finds no peaks on either side
- *   - no matched pairs (e.g. only unmatched modes — disappeared/appeared paths)
+ *   - no matched pairs (e.g. only unmatched modes — paths appeared/disappeared)
  *   - the only matched base peaks are at exactly zero (can't divide)
+ *
+ * Mode counts (`baseModes.peakLocs.length` / `newModes.peakLocs.length`)
+ * are 0 in the same conditions that drive `largestPeakShiftPct` to null
+ * (except the divide-by-zero case, which still yields counts).
  *
  * @param valleyThreshold Passed to `fitModesFromKde`. Defaults to 0.5 to
  *   match `RevisionRowExpandable`'s slider default; the precompute path
  *   has no slider to read from.
  */
-export function computeLargestPeakShiftPct(
+export function computeModalityAnalysis(
   baseValues: number[],
   newValues: number[],
   isSubtest: boolean,
   valleyThreshold: number = 0.5,
-): number | null {
-  if (baseValues.length < 2 || newValues.length < 2) return null;
+): ModalityAnalysis {
+  if (baseValues.length < 2 || newValues.length < 2) {
+    return EMPTY_MODALITY_ANALYSIS;
+  }
   const baseBw = bandwidthFor(baseValues, isSubtest) ?? 0;
   const newBw = bandwidthFor(newValues, isSubtest) ?? 0;
   const rawSharedBw = Math.max(baseBw, newBw);
   const sharedBw = rawSharedBw > 0 ? rawSharedBw : undefined;
   const bKde = safeKde(baseValues, sharedBw);
   const nKde = safeKde(newValues, sharedBw);
-  if (!bKde || !nKde) return null;
-  const bModes = computeModeInfo(bKde.x, bKde.y, valleyThreshold);
-  const nModes = computeModeInfo(nKde.x, nKde.y, valleyThreshold);
-  if (!bModes.peakLocs.length || !nModes.peakLocs.length) return null;
+  if (!bKde || !nKde) return EMPTY_MODALITY_ANALYSIS;
+  const baseModes = computeModeInfo(bKde.x, bKde.y, valleyThreshold);
+  const newModes = computeModeInfo(nKde.x, nKde.y, valleyThreshold);
+  if (!baseModes.peakLocs.length || !newModes.peakLocs.length) {
+    return { baseModes, newModes, largestPeakShiftPct: null };
+  }
   const { pairs } = matchModes(
-    bModes.peakLocs,
-    bModes.fracs,
-    nModes.peakLocs,
-    nModes.fracs,
+    baseModes.peakLocs,
+    baseModes.fracs,
+    newModes.peakLocs,
+    newModes.fracs,
   );
-  if (!pairs.length) return null;
   let bestPct: number | null = null;
   for (const [bi, ni] of pairs) {
-    const baseLoc = bModes.peakLocs[bi];
-    const newLoc = nModes.peakLocs[ni];
+    const baseLoc = baseModes.peakLocs[bi];
+    const newLoc = newModes.peakLocs[ni];
     if (baseLoc === 0) continue;
     const pct = ((newLoc - baseLoc) / baseLoc) * 100;
     if (bestPct === null || Math.abs(pct) > Math.abs(bestPct)) {
       bestPct = pct;
     }
   }
-  return bestPct;
+  return { baseModes, newModes, largestPeakShiftPct: bestPct };
 }

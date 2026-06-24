@@ -242,12 +242,15 @@ export type MannWhitneyResultsItem = {
   is_meaningful: boolean | null;
   more_runs_are_needed: boolean | null;
   warning_c_delta?: string | null;
-  // Largest matched-pair peak shift (signed, as % of base peak location)
-  // from KDE mode detection on base_runs/new_runs. Precomputed by the
-  // Mann-Whitney loader so the Mode Δ column can sort without re-running
-  // KDE + mode matching per row per render. `null` when the pipeline
-  // can't yield a value — see computeLargestPeakShiftPct.
+  // Client-side modality analysis precomputed by the Mann-Whitney loader.
+  // Single source of truth for any UI that needs to talk about modes (the
+  // Mode Δ column, the Distribution Interpretation row, KdeModesPanel) so
+  // those views can't drift onto different mode-detection logic. `null`
+  // means we never ran the pipeline (legacy/stale data). See
+  // computeModalityAnalysis in kdeAnalysis.ts.
   modeDeltaPct?: number | null;
+  baseModeCount?: number | null;
+  newModeCount?: number | null;
   /*
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.

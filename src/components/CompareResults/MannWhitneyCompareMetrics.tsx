@@ -52,11 +52,15 @@ export const MannWhitneyCompareMetrics = ({
     result.shapiro_wilk_test_base?.interpretation ?? 'N/A';
   const newShapiroWilkInterpretation =
     result.shapiro_wilk_test_new?.interpretation ?? 'N/A';
-  const baseMode = result?.silverman_kde?.base_mode_count ?? null;
-  const newMode = result?.silverman_kde?.new_mode_count ?? null;
+  // Mode counts come from the precomputed client-side modality pipeline
+  // (see precomputeModalityAnalysis), not from the backend's wider-bandwidth
+  // Silverman KDE — otherwise this row could contradict the Mode Δ column.
+  const baseMode = result?.baseModeCount ?? null;
+  const newMode = result?.newModeCount ?? null;
 
   return (
     <Box
+      className='mann-whitney-compare-metrics'
       sx={{
         backgroundColor: 'manWhitneyComps.compareMetricsBg',
         marginBottom: 2,

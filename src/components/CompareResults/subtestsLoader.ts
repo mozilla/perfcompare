@@ -1,5 +1,5 @@
 import { repoMap, frameworks, MANN_WHITNEY_U } from '../../common/constants';
-import { precomputeLargestPeakShift } from '../../common/testVersions/mannWhitney';
+import { precomputeModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import { fetchSubtestsCompareResults } from '../../logic/treeherder';
 import { MannWhitneyResultsItem, Repository } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
@@ -191,7 +191,7 @@ export function loader({ request }: { request: Request }) {
     // Subtests use ISJ bandwidth (narrower, data-driven) for Mode Δ since
     // they typically have more samples than top-level aggregated rows.
     if (testVersion === MANN_WHITNEY_U) {
-      precomputeLargestPeakShift(
+      precomputeModalityAnalysis(
         subtestResults as unknown as MannWhitneyResultsItem[],
         true,
       );

@@ -16,7 +16,7 @@ import { TableConfig } from '../../types/types';
 import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
 import { adaptUnit, formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
-import { computeLargestPeakShiftPct } from '../../utils/kdeAnalysis';
+import { computeModalityAnalysis } from '../../utils/kdeAnalysis';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
   determineSign,
@@ -98,26 +98,31 @@ export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
 }
 
 /**
- * Precompute the largest matched-pair peak shift % for every Mann-Whitney
- * row and attach it to `result.modeDeltaPct`. Called from the data loaders
- * so the Mode Δ column can sort without re-running KDE + mode matching
- * per row per render (the whole pipeline — KDE, mode detection, modality
- * matcher — is non-trivial and we don't want it in the sort hot path).
+ * Precompute the client-side modality analysis for every Mann-Whitney row
+ * and attach the relevant fields (`modeDeltaPct`, `baseModeCount`,
+ * `newModeCount`) to the result. Called from the data loaders so every UI
+ * that talks about modes — the Mode Δ column sort/cell, the Distribution
+ * Interpretation row in MannWhitneyCompareMetrics, KdeModesPanel — reads
+ * from the same numbers instead of mixing client-side ISJ output with the
+ * backend's wider Silverman counts (which used to disagree).
  *
  * `isSubtest` controls the bandwidth strategy used by KDE: subtest tables
  * use ISJ, top-level tables use the wider SJ approximation. See
  * `bandwidthFor` in kdeAnalysis.ts.
  */
-export function precomputeLargestPeakShift(
+export function precomputeModalityAnalysis(
   results: MannWhitneyResultsItem[],
   isSubtest: boolean,
 ): void {
   for (const result of results) {
-    result.modeDeltaPct = computeLargestPeakShiftPct(
+    const analysis = computeModalityAnalysis(
       result.base_runs ?? [],
       result.new_runs ?? [],
       isSubtest,
     );
+    result.modeDeltaPct = analysis.largestPeakShiftPct;
+    result.baseModeCount = analysis.baseModes.peakLocs.length;
+    result.newModeCount = analysis.newModes.peakLocs.length;
   }
 }
 

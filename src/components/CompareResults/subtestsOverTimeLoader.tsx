@@ -4,7 +4,7 @@ import {
   timeRanges,
   MANN_WHITNEY_U,
 } from '../../common/constants';
-import { precomputeLargestPeakShift } from '../../common/testVersions/mannWhitney';
+import { precomputeModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
 import { MannWhitneyResultsItem, Repository } from '../../types/state';
 import { Framework, TestVersion, TimeRange } from '../../types/types';
@@ -215,7 +215,7 @@ export function loader({ request }: { request: Request }) {
     silvermanKDEEnabled,
   }).then((subtestResults) => {
     if (testVersion === MANN_WHITNEY_U) {
-      precomputeLargestPeakShift(
+      precomputeModalityAnalysis(
         subtestResults as unknown as MannWhitneyResultsItem[],
         true,
       );

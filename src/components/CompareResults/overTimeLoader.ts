@@ -5,7 +5,7 @@ import {
   compareOverTimeView,
   MANN_WHITNEY_U,
 } from '../../common/constants';
-import { precomputeLargestPeakShift } from '../../common/testVersions/mannWhitney';
+import { precomputeModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import {
   fetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
@@ -233,7 +233,7 @@ export async function loader({ request }: { request: Request }) {
   }).then((results) => {
     if (testVersion === MANN_WHITNEY_U) {
       for (const oneRevsResults of results) {
-        precomputeLargestPeakShift(
+        precomputeModalityAnalysis(
           oneRevsResults as unknown as MannWhitneyResultsItem[],
           false,
         );

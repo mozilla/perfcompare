@@ -355,7 +355,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         style="display: flex;"
       >
         <div
-          class="MuiBox-root css-104qrv3"
+          class="mann-whitney-compare-metrics MuiBox-root css-104qrv3"
         >
           <table
             style="display: grid; grid: 1fr; gap: 2px; flex-direction: column;"
@@ -530,8 +530,12 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 <td>
                   Estimated Modes
                 </td>
-                <td />
-                <td />
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
                 <td>
                   No modes or data for Base and New, possible oversmoothing, KDE evaluation failed
                 </td>
@@ -900,7 +904,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         style="display: flex;"
       >
         <div
-          class="MuiBox-root css-104qrv3"
+          class="mann-whitney-compare-metrics MuiBox-root css-104qrv3"
         >
           <table
             style="display: grid; grid: 1fr; gap: 2px; flex-direction: column;"
@@ -1075,8 +1079,12 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 <td>
                   Estimated Modes
                 </td>
-                <td />
-                <td />
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
                 <td>
                   No modes or data for Base and New, possible oversmoothing, KDE evaluation failed
                 </td>
