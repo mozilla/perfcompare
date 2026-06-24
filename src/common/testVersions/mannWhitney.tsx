@@ -178,13 +178,16 @@ export const mannWhitneyStrategy = {
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          // Normalize sign so positive = "improved" regardless of metric
-          // direction; rows without a computed shift sort as 0.
+          // ASC semantics — useTableSort swaps args for DESC. So in DESC
+          // mode this produces "biggest improvement first" (largest
+          // normalized first); in ASC mode the inverse. The normalization
+          // makes a positive value always mean "improved" regardless of
+          // metric direction; rows without a computed shift sort as 0.
           const normalized = (r: MannWhitneyResultsItem) => {
             const pct = r.modeDeltaPct ?? 0;
             return r.lower_is_better ? -pct : pct;
           };
-          return normalized(resultB) - normalized(resultA);
+          return normalized(resultA) - normalized(resultB);
         },
         tooltip: tooltipModeDelta,
         tooltipIcon: true,
