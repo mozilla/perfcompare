@@ -1191,7 +1191,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -1339,7 +1339,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -1487,7 +1487,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -1635,7 +1635,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -1783,7 +1783,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -3104,7 +3104,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -3267,7 +3267,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -3417,7 +3417,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -3567,7 +3567,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -3730,7 +3730,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -4667,7 +4667,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -4830,7 +4830,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -4980,7 +4980,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -5130,7 +5130,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -5293,7 +5293,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -6230,7 +6230,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -6393,7 +6393,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -6543,7 +6543,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -6693,7 +6693,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -6856,7 +6856,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -7791,7 +7791,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -7939,7 +7939,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -8087,7 +8087,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -8235,7 +8235,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -8383,7 +8383,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"

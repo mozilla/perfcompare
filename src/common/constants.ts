@@ -324,7 +324,7 @@ export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
 export const STUDENT_T = 'student-t' as TestVersion;
 
 export const tooltipSignificance =
-  'Significance of the comparison as determined by a 95% bootstrap (BCa) confidence interval on the difference of medians. A comparison is significant when the interval excludes zero.';
+  'Significance of the comparison as determined by a 95% bootstrap (BCa) confidence interval on the difference of medians. "S" (Significant) means the interval excludes zero — the medians differ. "NS" (Not Significant) means the interval includes zero — no detectable difference.';
 export const tooltipStatusMannWhitney =
   'An improvement or regression being shown here means that the effect size is meaningful and the difference is statistically significant.';
 export const tooltipTotalRuns =

@@ -1797,20 +1797,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              S
                             </div>
                             <div
                               class="total-runs cell"
@@ -2009,20 +1996,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              S
                             </div>
                             <div
                               class="total-runs cell"
@@ -2221,20 +2195,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              S
                             </div>
                             <div
                               class="total-runs cell"
@@ -2520,20 +2481,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              S
                             </div>
                             <div
                               class="total-runs cell"
@@ -4745,20 +4693,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              S
                             </div>
                             <div
                               class="total-runs cell"
@@ -4970,20 +4905,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              S
                             </div>
                             <div
                               class="total-runs cell"
@@ -5182,20 +5104,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              S
                             </div>
                             <div
                               class="total-runs cell"
@@ -5477,7 +5386,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              -
+                              NS
                             </div>
                             <div
                               class="total-runs cell"
@@ -5900,26 +5809,26 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Linux 18.04, 1.849 %, Regression, -, , 45.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.1, , 25.00 %",
-  "  - Windows 10, -, , -, -, 100.00 %",
-  "  - Windows 10, -2.401 %, , -, , 50.00 %",
+  "  - Linux 18.04, 1.849 %, Regression, -, S, 45.00 %",
+  "  - macOS 10.15, 1.078 %, Improvement, 0.1, S, 25.00 %",
+  "  - Windows 10, -, , -, NS, 100.00 %",
+  "  - Windows 10, -2.401 %, , -, S, 50.00 %",
   "  rev: tictactoe",
-  "  - Linux 18.04, 1.849 %, Regression, 0.8, , 44.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.9, , 24.00 %",
-  "  - Windows 10, -, , 0.8, -, 99.00 %",
-  "  - Windows 10, -2.401 %, , 0.8, , 49.00 %",
+  "  - Linux 18.04, 1.849 %, Regression, 0.8, S, 44.00 %",
+  "  - macOS 10.15, 1.078 %, Improvement, 0.9, S, 24.00 %",
+  "  - Windows 10, -, , 0.8, NS, 99.00 %",
+  "  - Windows 10, -2.401 %, , 0.8, S, 49.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Linux 18.04, 1.849 %, Regression, 1.2, , 44.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 1.3, , 24.00 %",
-  "  - Windows 10, -, , 1.2, -, 99.00 %",
-  "  - Windows 10, -2.401 %, , 1.2, , 49.00 %",
+  "  - Linux 18.04, 1.849 %, Regression, 1.2, S, 44.00 %",
+  "  - macOS 10.15, 1.078 %, Improvement, 1.3, S, 24.00 %",
+  "  - Windows 10, -, , 1.2, NS, 99.00 %",
+  "  - Windows 10, -2.401 %, , 1.2, S, 49.00 %",
   "  rev: tictactoe",
-  "  - Linux 18.04, 1.849 %, Regression, 2, , 43.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 2.1, , 23.00 %",
-  "  - Windows 10, -, , 2, -, 98.00 %",
-  "  - Windows 10, -2.401 %, , 2, , 48.00 %",
+  "  - Linux 18.04, 1.849 %, Regression, 2, S, 43.00 %",
+  "  - macOS 10.15, 1.078 %, Improvement, 2.1, S, 23.00 %",
+  "  - Windows 10, -, , 2, NS, 98.00 %",
+  "  - Windows 10, -2.401 %, , 2, S, 48.00 %",
 ]
 `;
 
@@ -5972,26 +5881,26 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Windows 10, -2.401 %, , -, , 50.00 %",
-  "  - Windows 10, -, , -, -, 100.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.1, , 25.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, -, , 45.00 %",
+  "  - Windows 10, -2.401 %, , -, S, 50.00 %",
+  "  - Windows 10, -, , -, NS, 100.00 %",
+  "  - macOS 10.15, 1.078 %, Improvement, 0.1, S, 25.00 %",
+  "  - Linux 18.04, 1.849 %, Regression, -, S, 45.00 %",
   "  rev: tictactoe",
-  "  - Windows 10, -2.401 %, , 0.8, , 49.00 %",
-  "  - Windows 10, -, , 0.8, -, 99.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.9, , 24.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 0.8, , 44.00 %",
+  "  - Windows 10, -2.401 %, , 0.8, S, 49.00 %",
+  "  - Windows 10, -, , 0.8, NS, 99.00 %",
+  "  - macOS 10.15, 1.078 %, Improvement, 0.9, S, 24.00 %",
+  "  - Linux 18.04, 1.849 %, Regression, 0.8, S, 44.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Windows 10, -2.401 %, , 1.2, , 49.00 %",
-  "  - Windows 10, -, , 1.2, -, 99.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 1.3, , 24.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 1.2, , 44.00 %",
+  "  - Windows 10, -2.401 %, , 1.2, S, 49.00 %",
+  "  - Windows 10, -, , 1.2, NS, 99.00 %",
+  "  - macOS 10.15, 1.078 %, Improvement, 1.3, S, 24.00 %",
+  "  - Linux 18.04, 1.849 %, Regression, 1.2, S, 44.00 %",
   "  rev: tictactoe",
-  "  - Windows 10, -2.401 %, , 2, , 48.00 %",
-  "  - Windows 10, -, , 2, -, 98.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 2.1, , 23.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 2, , 43.00 %",
+  "  - Windows 10, -2.401 %, , 2, S, 48.00 %",
+  "  - Windows 10, -, , 2, NS, 98.00 %",
+  "  - macOS 10.15, 1.078 %, Improvement, 2.1, S, 23.00 %",
+  "  - Linux 18.04, 1.849 %, Regression, 2, S, 43.00 %",
 ]
 `;
 
@@ -6296,20 +6205,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="significance cell"
         role="cell"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-          data-testid="KeyboardDoubleArrowUpIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-          />
-          <path
-            d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-          />
-        </svg>
+        S
       </div>
       <div
         class="total-runs cell"
@@ -6560,20 +6456,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="significance cell"
         role="cell"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-          data-testid="KeyboardDoubleArrowUpIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-          />
-          <path
-            d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-          />
-        </svg>
+        S
       </div>
       <div
         class="total-runs cell"

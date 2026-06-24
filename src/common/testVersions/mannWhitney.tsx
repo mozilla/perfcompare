@@ -1,4 +1,3 @@
-import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import WarningIcon from '@mui/icons-material/Warning';
@@ -245,12 +244,12 @@ export const mannWhitneyStrategy = {
           {
             label: 'Significant',
             key: 'significant',
-            icon: <KeyboardDoubleArrowUpIcon fontSize='small' />,
+            icon: <div>S</div>,
           },
           {
             label: 'Not Significant',
             key: 'not significant',
-            icon: <div>-</div>,
+            icon: <div>NS</div>,
           },
         ],
         matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
@@ -396,11 +395,7 @@ export const mannWhitneyStrategy = {
           {clesVal ? `${clesVal}% ` : '-'}
         </div>
         <div className='significance cell' role='cell'>
-          {bootstrapCi?.significant ? (
-            <KeyboardDoubleArrowUpIcon fontSize='small' />
-          ) : (
-            '-'
-          )}
+          {bootstrapCi?.significant ? 'S' : 'NS'}
         </div>
       </>
     );
@@ -584,11 +579,7 @@ export const mannWhitneyStrategy = {
           {clesValue}
         </div>
         <div className='significance cell' role='cell'>
-          {bootstrapCi?.significant ? (
-            <KeyboardDoubleArrowUpIcon fontSize='small' />
-          ) : (
-            '-'
-          )}
+          {bootstrapCi?.significant ? 'S' : 'NS'}
         </div>
       </>
     );
