@@ -115,11 +115,20 @@ export function precomputeModalityAnalysis(
   isSubtest: boolean,
 ): void {
   for (const result of results) {
-    const analysis = computeModalityAnalysis(
-      result.base_runs ?? [],
-      result.new_runs ?? [],
-      isSubtest,
-    );
+    // Prefer replicates when present — same selection KdeModesPanel and the
+    // chart use in RevisionRowExpandable. Otherwise the precomputed counts
+    // (driving the Mode Δ column and the Distribution Interpretation row)
+    // would run KDE on fewer samples than the blurb, and the two views
+    // would disagree on rows that have rich replicates data.
+    const baseValues =
+      result.base_runs_replicates && result.base_runs_replicates.length
+        ? result.base_runs_replicates
+        : (result.base_runs ?? []);
+    const newValues =
+      result.new_runs_replicates && result.new_runs_replicates.length
+        ? result.new_runs_replicates
+        : (result.new_runs ?? []);
+    const analysis = computeModalityAnalysis(baseValues, newValues, isSubtest);
     result.modeDeltaPct = analysis.largestPeakShiftPct;
     result.baseModeCount = analysis.baseModes.peakLocs.length;
     result.newModeCount = analysis.newModes.peakLocs.length;
