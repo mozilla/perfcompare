@@ -4,9 +4,8 @@ import {
   timeRanges,
   MANN_WHITNEY_U,
 } from '../../common/constants';
-import { precomputeModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
-import { MannWhitneyResultsItem, Repository } from '../../types/state';
+import { Repository } from '../../types/state';
 import { Framework, TestVersion, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -213,14 +212,6 @@ export function loader({ request }: { request: Request }) {
     replicates,
     testVersion,
     silvermanKDEEnabled,
-  }).then((subtestResults) => {
-    if (testVersion === MANN_WHITNEY_U) {
-      precomputeModalityAnalysis(
-        subtestResults as unknown as MannWhitneyResultsItem[],
-        true,
-      );
-    }
-    return subtestResults;
   });
 
   return {

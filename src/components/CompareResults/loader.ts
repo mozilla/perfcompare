@@ -4,7 +4,6 @@ import {
   compareView,
   MANN_WHITNEY_U,
 } from '../../common/constants';
-import { precomputeModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
@@ -13,7 +12,6 @@ import {
 import {
   Changeset,
   CombinedResultsItemType,
-  MannWhitneyResultsItem,
   Repository,
 } from '../../types/state';
 import { FakeCommitHash, Framework, TestVersion } from '../../types/types';
@@ -199,14 +197,6 @@ export async function loader({ request }: { request: Request }) {
   const useFakeData = url.searchParams.has('fakedata');
   if (useFakeData) {
     const results = await fetchAllFakeCompareResults();
-    // Fake results are Mann-Whitney shaped; precompute the Mode Δ per row
-    // so the column behaves like it would on real backend data.
-    for (const oneRevsResults of results) {
-      precomputeModalityAnalysis(
-        oneRevsResults as unknown as MannWhitneyResultsItem[],
-        false,
-      );
-    }
     // They're all based on the same rev
     const baseRev = results[0][0].base_rev;
     // And the same repository
@@ -302,19 +292,6 @@ export async function getComparisonInformation(
     replicates,
     testVersion,
     silvermanKDEEnabled,
-  }).then((results) => {
-    // Precompute the Mode Δ (largest matched-pair peak shift %) per row so
-    // the column can sort without re-running KDE + mode matching per
-    // sortFunction call. Top-level (non-subtest) table → isSubtest=false.
-    if (testVersion === MANN_WHITNEY_U) {
-      for (const oneRevsResults of results) {
-        precomputeModalityAnalysis(
-          oneRevsResults as unknown as MannWhitneyResultsItem[],
-          false,
-        );
-      }
-    }
-    return results;
   });
 
   // TODO what happens if there's no result?

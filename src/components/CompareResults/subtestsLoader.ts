@@ -1,7 +1,6 @@
 import { repoMap, frameworks, MANN_WHITNEY_U } from '../../common/constants';
-import { precomputeModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import { fetchSubtestsCompareResults } from '../../logic/treeherder';
-import { MannWhitneyResultsItem, Repository } from '../../types/state';
+import { Repository } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -187,16 +186,6 @@ export function loader({ request }: { request: Request }) {
     replicates,
     testVersion,
     silvermanKDEEnabled,
-  }).then((subtestResults) => {
-    // Subtests use ISJ bandwidth (narrower, data-driven) for Mode Δ since
-    // they typically have more samples than top-level aggregated rows.
-    if (testVersion === MANN_WHITNEY_U) {
-      precomputeModalityAnalysis(
-        subtestResults as unknown as MannWhitneyResultsItem[],
-        true,
-      );
-    }
-    return subtestResults;
   });
 
   return {

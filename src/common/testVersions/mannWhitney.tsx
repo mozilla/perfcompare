@@ -98,41 +98,68 @@ export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
 }
 
 /**
- * Precompute the client-side modality analysis for every Mann-Whitney row
- * and attach the relevant fields (`modeDeltaPct`, `baseModeCount`,
- * `newModeCount`) to the result. Called from the data loaders so every UI
- * that talks about modes — the Mode Δ column sort/cell, the Distribution
- * Interpretation row in MannWhitneyCompareMetrics, KdeModesPanel — reads
- * from the same numbers instead of mixing client-side ISJ output with the
- * backend's wider Silverman counts (which used to disagree).
+ * Lazily run (and cache) the client-side modality analysis for a single
+ * row. The first call computes KDE + mode detection + matchModes; every
+ * subsequent call returns immediately. Same lazy strategy as
+ * `getBootstrapCi` for the Sig column — keeps the loader cheap at the
+ * cost of a one-time burst when the user engages with the Mode Δ column.
+ *
+ * Cached fields on the result: `modeDeltaPct`, `baseModeCount`,
+ * `newModeCount`. The presence of `modeDeltaPct !== undefined` is the
+ * "already computed" sentinel (null distinguishes "computed but couldn't
+ * yield a value" — too few samples / no matched pairs).
  *
  * `isSubtest` controls the bandwidth strategy used by KDE: subtest tables
- * use ISJ, top-level tables use the wider SJ approximation. See
- * `bandwidthFor` in kdeAnalysis.ts.
+ * use ISJ, top-level tables use the wider SJ approximation. Pass the same
+ * value the column config's `getColumns(isSubtestTable)` was created with.
  */
-export function precomputeModalityAnalysis(
-  results: MannWhitneyResultsItem[],
+export function ensureModalityAnalysis(
+  result: MannWhitneyResultsItem,
   isSubtest: boolean,
 ): void {
-  for (const result of results) {
-    // Prefer replicates when present — same selection KdeModesPanel and the
-    // chart use in RevisionRowExpandable. Otherwise the precomputed counts
-    // (driving the Mode Δ column and the Distribution Interpretation row)
-    // would run KDE on fewer samples than the blurb, and the two views
-    // would disagree on rows that have rich replicates data.
-    const baseValues =
-      result.base_runs_replicates && result.base_runs_replicates.length
-        ? result.base_runs_replicates
-        : (result.base_runs ?? []);
-    const newValues =
-      result.new_runs_replicates && result.new_runs_replicates.length
-        ? result.new_runs_replicates
-        : (result.new_runs ?? []);
-    const analysis = computeModalityAnalysis(baseValues, newValues, isSubtest);
-    result.modeDeltaPct = analysis.largestPeakShiftPct;
-    result.baseModeCount = analysis.baseModes.peakLocs.length;
-    result.newModeCount = analysis.newModes.peakLocs.length;
+  if (result.modeDeltaPct !== undefined) return;
+  // Prefer replicates when present — same selection KdeModesPanel and the
+  // chart use in RevisionRowExpandable. Otherwise the cached counts /
+  // peak-shift would run KDE on fewer samples than the blurb, and the
+  // Distribution Interpretation row could disagree with the blurb.
+  const baseValues =
+    result.base_runs_replicates && result.base_runs_replicates.length
+      ? result.base_runs_replicates
+      : (result.base_runs ?? []);
+  const newValues =
+    result.new_runs_replicates && result.new_runs_replicates.length
+      ? result.new_runs_replicates
+      : (result.new_runs ?? []);
+  const analysis = computeModalityAnalysis(baseValues, newValues, isSubtest);
+  result.modeDeltaPct = analysis.largestPeakShiftPct;
+  result.baseModeCount = analysis.baseModes.peakLocs.length;
+  result.newModeCount = analysis.newModes.peakLocs.length;
+}
+
+/**
+ * Format the Mode Δ cell text:
+ *   - cached number   → "X.XX %"
+ *   - cached `null`   → "NM"  (modality pipeline ran, no usable pair)
+ *   - uncached        → "~X.XX %" using the backend's `delta_percentage`,
+ *                       prefixed with `~` to signal "approximate, click
+ *                       the column to compute the real Mode Δ"
+ *   - no fallback     → "NM"
+ *
+ * Cell renders run for EVERY row on every render. Triggering the modality
+ * pipeline here would re-introduce the per-row load cost the lazy
+ * refactor removed. So cells stay cheap; the real value populates after
+ * the first sort click via `ensureModalityAnalysis`.
+ */
+function formatModeDelta(result: MannWhitneyResultsItem): string {
+  const cached = result.modeDeltaPct;
+  if (typeof cached === 'number') return `${cached.toFixed(2)} %`;
+  if (cached === null) return 'NM';
+  // Not yet computed — fall back to the backend's median diff percentage.
+  const fallback = result.delta_percentage;
+  if (typeof fallback === 'number' && Number.isFinite(fallback)) {
+    return `~${fallback.toFixed(2)} %`;
   }
+  return 'NM';
 }
 
 export const mannWhitneyStrategy = {
@@ -183,6 +210,13 @@ export const mannWhitneyStrategy = {
           // normalized first); in ASC mode the inverse. The normalization
           // makes a positive value always mean "improved" regardless of
           // metric direction; rows without a computed shift sort as 0.
+          //
+          // First sort-click pays the modality-pipeline cost across all
+          // rows (the comparator is invoked O(n log n) times but each row
+          // is computed only once and cached via `ensureModalityAnalysis`).
+          // Subsequent sorts are free.
+          ensureModalityAnalysis(resultA, isSubtestTable);
+          ensureModalityAnalysis(resultB, isSubtestTable);
           const normalized = (r: MannWhitneyResultsItem) => {
             const pct = r.modeDeltaPct ?? 0;
             return r.lower_is_better ? -pct : pct;
@@ -339,12 +373,7 @@ export const mannWhitneyStrategy = {
           )}
         </div>
         <div className='mode-delta cell' role='cell'>
-          {(() => {
-            const pct = (result as MannWhitneyResultsItem).modeDeltaPct;
-            return pct === null || pct === undefined
-              ? 'NM'
-              : `${pct.toFixed(2)} %`;
-          })()}
+          {formatModeDelta(result as MannWhitneyResultsItem)}
         </div>
         <div className='status cell' role='cell'>
           <Box
@@ -496,21 +525,19 @@ export const mannWhitneyStrategy = {
   },
 
   renderColumns(result: CombinedResultsItemType) {
+    const mwResult = result as MannWhitneyResultsItem;
     const {
       cliffs_delta,
       direction_of_change,
       mann_whitney_test,
       cles,
-      modeDeltaPct,
-    } = result as MannWhitneyResultsItem;
+    } = mwResult;
     const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
 
     return (
       <>
         <div className='mode-delta cell' role='cell'>
-          {modeDeltaPct === null || modeDeltaPct === undefined
-            ? 'NM'
-            : `${modeDeltaPct.toFixed(2)} %`}
+          {formatModeDelta(mwResult)}
         </div>
         <div className='status cell' role='cell'>
           <Box

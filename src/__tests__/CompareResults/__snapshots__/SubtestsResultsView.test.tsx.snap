@@ -992,7 +992,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="columnheader"
                 >
                   <span
-                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "NM" (No Modes) means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
@@ -1303,7 +1303,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -1447,7 +1447,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -1591,7 +1591,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -1735,7 +1735,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -1879,7 +1879,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"
@@ -2938,7 +2938,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "NM" (No Modes) means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
@@ -3251,7 +3251,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -3397,7 +3397,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -3569,7 +3569,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -3728,7 +3728,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -3887,7 +3887,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"
@@ -4575,7 +4575,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="columnheader"
                 >
                   <span
-                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "NM" (No Modes) means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
@@ -4888,7 +4888,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -5034,7 +5034,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -5206,7 +5206,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -5365,7 +5365,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -5524,7 +5524,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"
@@ -6212,7 +6212,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   role="columnheader"
                 >
                   <span
-                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "NM" (No Modes) means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
@@ -6525,7 +6525,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -6671,7 +6671,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -6843,7 +6843,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -7002,7 +7002,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -7161,7 +7161,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"
@@ -7849,7 +7849,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="columnheader"
                 >
                   <span
-                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                    aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "NM" (No Modes) means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
@@ -8160,7 +8160,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -8304,7 +8304,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -8448,7 +8448,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -8592,7 +8592,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -8736,7 +8736,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"

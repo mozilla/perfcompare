@@ -5,7 +5,6 @@ import {
   compareOverTimeView,
   MANN_WHITNEY_U,
 } from '../../common/constants';
-import { precomputeModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import {
   fetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
@@ -13,7 +12,6 @@ import {
 import {
   Changeset,
   CombinedResultsItemType,
-  MannWhitneyResultsItem,
   Repository,
 } from '../../types/state';
 import { Framework, TestVersion, TimeRange } from '../../types/types';
@@ -230,16 +228,6 @@ export async function loader({ request }: { request: Request }) {
     replicates,
     testVersion,
     silvermanKDEEnabled,
-  }).then((results) => {
-    if (testVersion === MANN_WHITNEY_U) {
-      for (const oneRevsResults of results) {
-        precomputeModalityAnalysis(
-          oneRevsResults as unknown as MannWhitneyResultsItem[],
-          false,
-        );
-      }
-    }
-    return results;
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>

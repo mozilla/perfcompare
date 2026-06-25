@@ -1580,7 +1580,7 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <span
-          aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. "NM" (No Modes) means the value could not be computed — typically because there are too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+          aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "NM" (No Modes) means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
           class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
@@ -2012,7 +2012,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.85 %
                 </div>
                 <div
                   class="status cell"
@@ -2207,7 +2207,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~1.08 %
                 </div>
                 <div
                   class="status cell"
@@ -2402,7 +2402,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-24.00 %
                 </div>
                 <div
                   class="status cell"
@@ -2597,7 +2597,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="mode-delta cell"
                   role="cell"
                 >
-                  NM
+                  ~-2.40 %
                 </div>
                 <div
                   class="status cell"
