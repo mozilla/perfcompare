@@ -5,7 +5,6 @@ import {
   compareOverTimeView,
   MANN_WHITNEY_U,
 } from '../../common/constants';
-import { precomputeMannWhitneyCI } from '../../common/testVersions/mannWhitney';
 import {
   fetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
@@ -13,7 +12,6 @@ import {
 import {
   Changeset,
   CombinedResultsItemType,
-  MannWhitneyResultsItem,
   Repository,
 } from '../../types/state';
 import { Framework, TestVersion, TimeRange } from '../../types/types';
@@ -230,18 +228,10 @@ export async function loader({ request }: { request: Request }) {
     replicates,
     testVersion,
     silvermanKDEEnabled,
-  }).then((results) => {
-    // Same precompute as the main loader so the Sig column has a precomputed
-    // CI to sort/filter on without recomputing per render.
-    if (testVersion === MANN_WHITNEY_U) {
-      for (const oneRevsResults of results) {
-        precomputeMannWhitneyCI(
-          oneRevsResults as unknown as MannWhitneyResultsItem[],
-        );
-      }
-    }
-    return results;
   });
+  // No bootstrap CI precompute — the Sig column lazily computes (and caches)
+  // via `getBootstrapCi` in mannWhitney.tsx on the first filter/sort click.
+  // Same change as the main loader, applied here to keep load time aligned.
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
     memoizedFetchRevisionForRepository({

@@ -193,12 +193,13 @@ describe('SubtestsRevisionRow Component', () => {
     const effects = roles[7]?.childNodes[0];
     expect(effects).toHaveTextContent('60.00%');
 
-    // The fixture runs don't yield a CI that excludes 0 once precomputed by
-    // the loader, so this row renders "NS". This test mounts the row directly
-    // without the loader, leaving bootstrapCi undefined, which also falls
-    // back to "NS".
+    // The Sig cell renders lazily: when no CI has been cached on the row
+    // yet, it falls back to `mann_whitney_test.interpretation` from the
+    // backend. The fixture's interpretation is "significant", so the cell
+    // shows "S" here. First click on the Sig column header would trigger
+    // BCa and could flip this if the CI includes zero.
     const significanceCell = roles[8];
-    expect(significanceCell).toHaveTextContent('NS');
+    expect(significanceCell).toHaveTextContent('S');
 
     const cliffs_delta = roles[6]?.childNodes[1];
     expect(cliffs_delta).toHaveTextContent('0.02');

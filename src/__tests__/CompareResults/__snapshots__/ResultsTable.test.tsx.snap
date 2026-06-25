@@ -1797,7 +1797,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="significance cell"
                               role="cell"
                             >
-                              S
+                              NS
                             </div>
                             <div
                               class="total-runs cell"
@@ -1996,7 +1996,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="significance cell"
                               role="cell"
                             >
-                              S
+                              NS
                             </div>
                             <div
                               class="total-runs cell"
@@ -2195,7 +2195,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="significance cell"
                               role="cell"
                             >
-                              S
+                              NS
                             </div>
                             <div
                               class="total-runs cell"
@@ -2481,7 +2481,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="significance cell"
                               role="cell"
                             >
-                              S
+                              NS
                             </div>
                             <div
                               class="total-runs cell"
@@ -4693,7 +4693,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              S
+                              NS
                             </div>
                             <div
                               class="total-runs cell"
@@ -4905,7 +4905,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              S
+                              NS
                             </div>
                             <div
                               class="total-runs cell"
@@ -5386,7 +5386,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              NS
+                              S
                             </div>
                             <div
                               class="total-runs cell"
@@ -6205,7 +6205,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="significance cell"
         role="cell"
       >
-        S
+        NS
       </div>
       <div
         class="total-runs cell"
@@ -6456,7 +6456,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="significance cell"
         role="cell"
       >
-        S
+        NS
       </div>
       <div
         class="total-runs cell"
