@@ -526,12 +526,8 @@ export const mannWhitneyStrategy = {
 
   renderColumns(result: CombinedResultsItemType) {
     const mwResult = result as MannWhitneyResultsItem;
-    const {
-      cliffs_delta,
-      direction_of_change,
-      mann_whitney_test,
-      cles,
-    } = mwResult;
+    const { cliffs_delta, direction_of_change, mann_whitney_test, cles } =
+      mwResult;
     const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
 
     return (
