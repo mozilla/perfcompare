@@ -466,12 +466,11 @@ function CommonGraph({
       },
       legend: {
         data: ['Base', 'New'],
-        // Sit below the centered x-axis unit label, between the KDE grid and
-        // the scatter strip, with a small gap above and below.
-        top: 232,
+        top: 240,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
+        textStyle: { color: textColor },
       },
       series: [
         {
@@ -506,7 +505,7 @@ function CommonGraph({
           data: baseScatterData,
           symbol: 'triangle',
           symbolSize,
-          itemStyle: { color: Colors.ChartBase, opacity: 0.6 },
+          itemStyle: { color: Colors.ChartBase },
           emphasis: { focus: 'none' },
           // Horizontal baseline through the Base row (y = 1) for a visual anchor.
           markLine: {
@@ -524,7 +523,6 @@ function CommonGraph({
               color: Colors.ChartBase,
               type: 'solid',
               width: 1,
-              opacity: 0.5,
             },
           },
         },
@@ -536,7 +534,7 @@ function CommonGraph({
           data: newScatterData,
           symbol: 'triangle',
           symbolSize,
-          itemStyle: { color: Colors.ChartNew, opacity: 0.6 },
+          itemStyle: { color: Colors.ChartNew },
           emphasis: { focus: 'none' },
           // Horizontal baseline through the New row (y = 0) for a visual anchor.
           markLine: {
@@ -554,7 +552,6 @@ function CommonGraph({
               color: Colors.ChartNew,
               type: 'solid',
               width: 1,
-              opacity: 0.5,
             },
           },
         },
@@ -601,7 +598,10 @@ function CommonGraph({
         <Typography
           variant='body2'
           sx={{
-            color: '#000',
+            color:
+              themeMode === 'dark'
+                ? Colors.PrimaryTextDark
+                : Colors.PrimaryText,
             whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',
@@ -614,7 +614,14 @@ function CommonGraph({
           >
             <InfoIcon
               fontSize='small'
-              sx={{ color: '#000', cursor: 'help', mx: 0.5 }}
+              sx={{
+                color:
+                  themeMode === 'dark'
+                    ? Colors.PrimaryTextDark
+                    : Colors.PrimaryText,
+                cursor: 'help',
+                mx: 0.5,
+              }}
             />
           </Tooltip>
           :
@@ -641,7 +648,14 @@ function CommonGraph({
         />
         <Typography
           variant='body2'
-          sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
+          sx={{
+            color:
+              themeMode === 'dark'
+                ? Colors.SecondaryTextDark
+                : Colors.SecondaryText,
+            minWidth: 36,
+            textAlign: 'right',
+          }}
         >
           {Math.round(localVt * 100)}%
         </Typography>
