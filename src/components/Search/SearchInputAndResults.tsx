@@ -154,7 +154,8 @@ export default function SearchInputAndResults({
       const urlParams = new URLSearchParams(window.location.search);
       const useFulltextSearch = urlParams.has('useFulltextSearch');
 
-      const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
+      const isPartialHash = /^(?=.*[a-f])[a-f0-9]{4,39}$/i;
+      const isCompleteHash = /^(?=.*[a-f])[a-f0-9]{40}$/i;
       const authorInfoMatch = /[^0-9a-fA-F]/;
 
       // Reset various states
@@ -172,11 +173,15 @@ export default function SearchInputAndResults({
       } else if (searchTerm.length < 3) {
         setSearchError(Strings.errors.warningText);
         return;
+      } else if (isCompleteHash.test(searchTerm)) {
+        // Prioritize complete hash match
+        searchParameters = { repository, hash: searchTerm };
       } else if (useFulltextSearch) {
-        searchParameters = isHash.test(searchTerm)
+        searchParameters = isPartialHash.test(searchTerm)
           ? { repository, hash: searchTerm }
           : { repository, search: searchTerm };
       } else {
+        // Default to author/hash for partial matches
         searchParameters = authorInfoMatch.test(searchTerm)
           ? { repository, author: searchTerm }
           : { repository, hash: searchTerm };
@@ -193,13 +198,13 @@ export default function SearchInputAndResults({
           setRecentRevisions(results);
 
           // Auto select logic for hashes should run after results are set
-          if (autoSelect && isHash.test(searchTerm)) {
+          if (autoSelect && (isPartialHash.test(searchTerm) || isCompleteHash.test(searchTerm))) {
             const termLower = searchTerm.toLowerCase().trim();
 
             const match = results.find(
               (rev) =>
                 rev.revision.toLowerCase() === termLower ||
-                rev.revision.toLowerCase().startsWith(termLower),
+                (isPartialHash.test(searchTerm) && rev.revision.toLowerCase().startsWith(termLower)),
             );
 
             if (match) {
@@ -209,7 +214,7 @@ export default function SearchInputAndResults({
 
               if (!(searchType === 'new' && alreadySelected)) {
                 onSearchResultsToggle(match);
-                // Do NOT clear inputValue after auto-select
+                // Do NOT clear inputValue after auto-select, especially for complete hashes
                 return;
               }
             }
@@ -241,12 +246,17 @@ export default function SearchInputAndResults({
   const onValueChange = (searchTerm: string) => {
     setInputValue(searchTerm);
 
-    const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
+    const isCompleteHash = /^(?=.*[a-f])[a-f0-9]{40}$/i;
+    const isPartialHash = /^(?=.*[a-f])[a-f0-9]{4,39}$/i;
 
     setSearchError(null);
     setRecentRevisions(null);
 
-    if (isHash.test(searchTerm)) {
+    if (isCompleteHash.test(searchTerm)) {
+      // For complete hashes, always attempt auto-select immediately
+      void debouncedSearchRecentRevisions(searchTerm, { autoSelect: true });
+    } else if (isPartialHash.test(searchTerm)) {
+      // For partial hashes, also attempt auto-select
       void debouncedSearchRecentRevisions(searchTerm, { autoSelect: true });
     } else {
       debouncedSearchRecentRevisions(searchTerm);
