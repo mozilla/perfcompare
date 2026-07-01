@@ -7,7 +7,7 @@ import { renderWithRouter } from '../utils/test-utils';
 import getTestData from '../utils/fixtures';
 
 // Mock the debounce function to execute immediately for predictable testing
-jest.mock('../../utils/simple-debounce', () => ({
+jest.mock('../../../utils/simple-debounce', () => ({
   simpleDebounce: (fn: (...args: unknown[]) => unknown) =>
     jest.fn((...args: unknown[]) => fn(...args)),
 }));
