@@ -1,10 +1,10 @@
 import fetchMock from '@fetch-mock/jest';
-import { render, screen, waitFor, act } from '@testing-library/react';
+import { screen, waitFor, act } from '@testing-library/react'; // Removed 'render'
 import userEvent from '@testing-library/user-event';
 
-import SearchInputAndResults from '../../components/Search/SearchInputAndResults';
-import getTestData from '../utils/fixtures';
-import { renderWithRouter } from '../utils/test-utils';
+import SearchInputAndResults from '../../../components/Search/SearchInputAndResults'; // Corrected path
+import getTestData from '../../utils/fixtures'; // Corrected path
+import { renderWithRouter } from '../../utils/test-utils'; // Corrected path
 
 // Mock the debounce function to execute immediately for predictable testing
 jest.mock('../../../utils/simple-debounce', () => ({
