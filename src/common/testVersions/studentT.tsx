@@ -6,6 +6,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Box from '@mui/material/Box';
 
 import Distribution from '../../components/CompareResults/Distribution';
+import { rowButtonsGridWidth } from '../../components/CompareResults/rowButtonSlots';
 import { Strings } from '../../resources/Strings';
 import { FontSize } from '../../styles';
 import { CombinedResultsItemType, CompareResultsItem } from '../../types/state';
@@ -63,7 +64,6 @@ export const studentTStrategy = {
           },
         };
 
-    const colWidthMultiply = isSubtestTable ? 1 : 3.5;
     const confidenceGridWidth = isSubtestTable ? '1.8fr' : '1.5fr';
 
     return [
@@ -146,7 +146,7 @@ export const studentTStrategy = {
         gridWidth: '1fr',
         tooltip: tooltipTotalRuns,
       },
-      { key: 'buttons', gridWidth: `calc(${colWidthMultiply} * 34px)` },
+      { key: 'buttons', gridWidth: rowButtonsGridWidth(isSubtestTable) },
       { key: 'expand', gridWidth: '34px' },
     ] as TableConfig;
   },
