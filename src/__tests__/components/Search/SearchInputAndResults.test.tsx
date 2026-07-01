@@ -1,10 +1,10 @@
+import fetchMock from '@fetch-mock/jest';
 import { render, screen, waitFor, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import fetchMock from '@fetch-mock/jest';
 
 import SearchInputAndResults from '../../components/Search/SearchInputAndResults';
-import { renderWithRouter } from '../utils/test-utils';
 import getTestData from '../utils/fixtures';
+import { renderWithRouter } from '../utils/test-utils';
 
 // Mock the debounce function to execute immediately for predictable testing
 jest.mock('../../../utils/simple-debounce', () => ({
@@ -73,11 +73,9 @@ describe('SearchInputAndResults', () => {
     renderWithRouter(<SearchInputAndResults {...defaultProps} />);
     await typeIntoSearch('test');
 
-    await waitFor(() =>
-      expect(
-        screen.getByText('abcdef1234567890abcdef1234567890abcdef12'),
-      ).toBeInTheDocument(),
-    );
+    expect(
+        await screen.findByText('abcdef1234567890abcdef1234567890abcdef12'),
+      ).toBeInTheDocument();
     expect(screen.getByText('Test Author')).toBeInTheDocument();
   });
 
@@ -90,9 +88,7 @@ describe('SearchInputAndResults', () => {
     renderWithRouter(<SearchInputAndResults {...defaultProps} />);
     await typeIntoSearch('no_match');
 
-    await waitFor(() =>
-      expect(screen.getByText('No results found')).toBeInTheDocument(),
-    );
+    expect(await screen.findByText('No results found')).toBeInTheDocument();
   });
 
   it('prioritizes complete hash matching for 40-character hashes and auto-selects', async () => {
@@ -180,7 +176,7 @@ describe('SearchInputAndResults', () => {
     renderWithRouter(
       <SearchInputAndResults
         {...defaultProps}
-        searchType="new"
+        searchType='new'
         displayedRevisions={[mockRevision]} // Already selected
       />,
     );
@@ -219,7 +215,9 @@ describe('SearchInputAndResults', () => {
     await typeIntoSearch('ab');
 
     await waitFor(() => {
-      expect(screen.getByText('Please enter at least 3 characters')).toBeInTheDocument();
+      expect(
+        screen.getByText('Please enter at least 3 characters'),
+      ).toBeInTheDocument();
     });
     expect(fetchMock.called()).toBe(false); // No API call should be made
   });
@@ -231,18 +229,16 @@ describe('SearchInputAndResults', () => {
       { pushes: [testData[0]] },
     );
 
-    window.history.pushState(
-      {},
-      'Test title',
-      '?useFulltextSearch=true',
-    );
+    window.history.pushState({}, 'Test title', '?useFulltextSearch=true');
     renderWithRouter(<SearchInputAndResults {...defaultProps} />);
     await typeIntoSearch('fulltext');
 
     await waitFor(() => {
-      expect(fetchMock.called(
-        'begin:https://treeherder.mozilla.org/api/project/mozilla-central/pushed/?search=fulltext',
-      )).toBe(true);
+      expect(
+        fetchMock.called(
+          'begin:https://treeherder.mozilla.org/api/project/mozilla-central/pushed/?search=fulltext',
+        ),
+      ).toBe(true);
     });
   });
 
@@ -260,18 +256,16 @@ describe('SearchInputAndResults', () => {
       { pushes: [mockRevision] },
     );
 
-    window.history.pushState(
-      {},
-      'Test title',
-      '?useFulltextSearch=true',
-    );
+    window.history.pushState({}, 'Test title', '?useFulltextSearch=true');
     renderWithRouter(<SearchInputAndResults {...defaultProps} />);
     await typeIntoSearch(completeHash);
 
     await waitFor(() => {
-      expect(fetchMock.called(
-        `begin:https://treeherder.mozilla.org/api/project/mozilla-central/pushed/?hash=${completeHash}`,
-      )).toBe(true);
+      expect(
+        fetchMock.called(
+          `begin:https://treeherder.mozilla.org/api/project/mozilla-central/pushed/?hash=${completeHash}`,
+        ),
+      ).toBe(true);
     });
     await waitFor(() => {
       expect(mockOnSearchResultsToggle).toHaveBeenCalledWith(mockRevision);
@@ -292,18 +286,16 @@ describe('SearchInputAndResults', () => {
       { pushes: [mockRevision] },
     );
 
-    window.history.pushState(
-      {},
-      'Test title',
-      '?useFulltextSearch=true',
-    );
+    window.history.pushState({}, 'Test title', '?useFulltextSearch=true');
     renderWithRouter(<SearchInputAndResults {...defaultProps} />);
     await typeIntoSearch(partialHash);
 
     await waitFor(() => {
-      expect(fetchMock.called(
-        `begin:https://treeherder.mozilla.org/api/project/mozilla-central/pushed/?hash=${partialHash}`,
-      )).toBe(true);
+      expect(
+        fetchMock.called(
+          `begin:https://treeherder.mozilla.org/api/project/mozilla-central/pushed/?hash=${partialHash}`,
+        ),
+      ).toBe(true);
     });
     await waitFor(() => {
       expect(mockOnSearchResultsToggle).toHaveBeenCalledWith(mockRevision);
