@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 
 import { MannWhitneyResultsItem } from '../../types/state';
+import { getDisplayScale } from '../../utils/format';
 import { getModeInterpretation } from '../../utils/helpers';
 
 const METRIC_HEADERS = ['Metric', 'Base', 'New', 'Interpretation'];
@@ -46,6 +47,17 @@ export const MannWhitneyCompareMetrics = ({
     min: null,
     max: null,
   };
+  const rawUnit =
+    result.base_measurement_unit ?? result.new_measurement_unit ?? 'ms';
+  const metricValues = [
+    baseMean, newMean, baseMedian, newMedian,
+    baseStandardDev, newStandardDev, baseMin, newMin, baseMax, newMax,
+  ].filter((v): v is number => v != null);
+  const { scale, displayUnit, decimals } = getDisplayScale(metricValues, rawUnit);
+  const fmtMetric = (v: number | null | undefined) =>
+    v != null ? (v / scale).toFixed(decimals) : 'N/A';
+  const unitLabel = displayUnit ? ` (${displayUnit})` : '';
+
   const baseShapiroWilkPVal = result.shapiro_wilk_test_base?.pvalue ?? 'N/A';
   const newShapiroWilkPVal = result.shapiro_wilk_test_new?.pvalue ?? 'N/A';
   const baseShapiroWilkInterpretation =
@@ -85,12 +97,12 @@ export const MannWhitneyCompareMetrics = ({
       >
         <thead>
           <tr className='test-row-container'>
-            {METRIC_HEADERS.map((header) => (
+            {METRIC_HEADERS.map((header, i) => (
               <th
                 key={header}
                 style={{ fontWeight: 'bold', textAlign: 'left' }}
               >
-                {header}
+                {i === 0 ? `${header}${unitLabel}` : header}
               </th>
             ))}
           </tr>
@@ -98,14 +110,14 @@ export const MannWhitneyCompareMetrics = ({
         <tbody>
           <tr className='test-row-container'>
             <td>Mean</td>
-            <td>{baseMean?.toFixed(2) ?? 'N/A'}</td>
-            <td>{newMean?.toFixed(2) ?? 'N/A'}</td>
+            <td>{fmtMetric(baseMean)}</td>
+            <td>{fmtMetric(newMean)}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Median</td>
-            <td>{baseMedian?.toFixed(2) ?? 'N/A'}</td>
-            <td>{newMedian?.toFixed(2) ?? 'N/A'}</td>
+            <td>{fmtMetric(baseMedian)}</td>
+            <td>{fmtMetric(newMedian)}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
@@ -116,20 +128,20 @@ export const MannWhitneyCompareMetrics = ({
           </tr>
           <tr className='test-row-container'>
             <td>Standard Deviation</td>
-            <td>{baseStandardDev?.toFixed(2) ?? 'N/A'}</td>
-            <td>{newStandardDev?.toFixed(2) ?? 'N/A'}</td>
+            <td>{fmtMetric(baseStandardDev)}</td>
+            <td>{fmtMetric(newStandardDev)}</td>
             <td></td>
           </tr>
           <tr className='test-row-container'>
             <td>Min</td>
-            <td>{baseMin?.toFixed(2) ?? 'N/A'}</td>
-            <td>{newMin?.toFixed(2) ?? 'N/A'}</td>
+            <td>{fmtMetric(baseMin)}</td>
+            <td>{fmtMetric(newMin)}</td>
             <td></td>
           </tr>
           <tr className='test-row-container' style={{ marginBottom: 2 }}>
             <td>Max</td>
-            <td>{baseMax?.toFixed(2) ?? 'N/A'}</td>
-            <td>{newMax?.toFixed(2) ?? 'N/A'}</td>
+            <td>{fmtMetric(baseMax)}</td>
+            <td>{fmtMetric(newMax)}</td>
             <td></td>
           </tr>
           <tr className='test-label-row'>

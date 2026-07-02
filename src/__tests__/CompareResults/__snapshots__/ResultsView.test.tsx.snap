@@ -367,7 +367,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 <th
                   style="font-weight: bold; text-align: left;"
                 >
-                  Metric
+                  Metric (ms)
                 </th>
                 <th
                   style="font-weight: bold; text-align: left;"
@@ -912,7 +912,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 <th
                   style="font-weight: bold; text-align: left;"
                 >
-                  Metric
+                  Metric (ms)
                 </th>
                 <th
                   style="font-weight: bold; text-align: left;"
