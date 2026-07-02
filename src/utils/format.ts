@@ -2,7 +2,10 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
   dateStyle: 'medium',
 });
 
-const numberFormatter = new Intl.NumberFormat('en-US');
+const numberFormatter = new Intl.NumberFormat('en-US', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 
 export function formatDate(date: Date) {
   return dateFormatter.format(date);
@@ -40,8 +43,13 @@ export function getDisplayScale(
   if (rawUnit === 'ms') {
     if (maxAbs >= 60000)
       return { scale: 60000, displayUnit: 'min', decimals: 2 };
-    if (maxAbs >= 1000) return { scale: 1000, displayUnit: 's', decimals: 2 };
+    if (maxAbs >= 10000) return { scale: 1000, displayUnit: 's', decimals: 2 };
     return { scale: 1, displayUnit: 'ms', decimals: 2 };
+  }
+  if (rawUnit === 'uWh') {
+    if (maxAbs >= 1e6) return { scale: 1e6, displayUnit: 'Wh', decimals: 2 };
+    if (maxAbs >= 1e3) return { scale: 1e3, displayUnit: 'mWh', decimals: 2 };
+    return { scale: 1, displayUnit: 'uWh', decimals: 1 };
   }
   return { scale: 1, displayUnit: rawUnit, decimals: 1 };
 }

@@ -1770,7 +1770,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                0 %
+                                0.00 %
                               </span>
                             </div>
                             <div
@@ -1969,7 +1969,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                0 %
+                                0.00 %
                               </span>
                             </div>
                             <div
@@ -2168,7 +2168,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                0 %
+                                0.00 %
                               </span>
                             </div>
                             <div
@@ -2454,7 +2454,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                0 %
+                                0.00 %
                               </span>
                             </div>
                             <div
@@ -4653,7 +4653,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                1.849 %
+                                1.85 %
                               </span>
                             </div>
                             <div
@@ -4865,7 +4865,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                1.078 %
+                                1.08 %
                               </span>
                             </div>
                             <div
@@ -5077,7 +5077,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                -2.401 %
+                                -2.40 %
                               </span>
                             </div>
                             <div
@@ -5835,26 +5835,26 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %",
+  "  - Linux 18.04, 1.85 %, Regression, -, -, 45.00 %",
+  "  - macOS 10.15, 1.08 %, Improvement, 0.1, -, 25.00 %",
   "  - Windows 10, -, , -, , 100.00 %",
-  "  - Windows 10, -2.401 %, , -, , 50.00 %",
+  "  - Windows 10, -2.40 %, , -, , 50.00 %",
   "  rev: tictactoe",
-  "  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %",
+  "  - Linux 18.04, 1.85 %, Regression, 0.8, -, 44.00 %",
+  "  - macOS 10.15, 1.08 %, Improvement, 0.9, -, 24.00 %",
   "  - Windows 10, -, , 0.8, , 99.00 %",
-  "  - Windows 10, -2.401 %, , 0.8, , 49.00 %",
+  "  - Windows 10, -2.40 %, , 0.8, , 49.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %",
+  "  - Linux 18.04, 1.85 %, Regression, 1.2, -, 44.00 %",
+  "  - macOS 10.15, 1.08 %, Improvement, 1.3, -, 24.00 %",
   "  - Windows 10, -, , 1.2, , 99.00 %",
-  "  - Windows 10, -2.401 %, , 1.2, , 49.00 %",
+  "  - Windows 10, -2.40 %, , 1.2, , 49.00 %",
   "  rev: tictactoe",
-  "  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %",
+  "  - Linux 18.04, 1.85 %, Regression, 2, -, 43.00 %",
+  "  - macOS 10.15, 1.08 %, Improvement, 2.1, -, 23.00 %",
   "  - Windows 10, -, , 2, , 98.00 %",
-  "  - Windows 10, -2.401 %, , 2, , 48.00 %",
+  "  - Windows 10, -2.40 %, , 2, , 48.00 %",
 ]
 `;
 
@@ -5907,26 +5907,26 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Windows 10, -2.401 %, , -, , 50.00 %",
+  "  - Windows 10, -2.40 %, , -, , 50.00 %",
   "  - Windows 10, -, , -, , 100.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %",
+  "  - macOS 10.15, 1.08 %, Improvement, 0.1, -, 25.00 %",
+  "  - Linux 18.04, 1.85 %, Regression, -, -, 45.00 %",
   "  rev: tictactoe",
-  "  - Windows 10, -2.401 %, , 0.8, , 49.00 %",
+  "  - Windows 10, -2.40 %, , 0.8, , 49.00 %",
   "  - Windows 10, -, , 0.8, , 99.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %",
+  "  - macOS 10.15, 1.08 %, Improvement, 0.9, -, 24.00 %",
+  "  - Linux 18.04, 1.85 %, Regression, 0.8, -, 44.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Windows 10, -2.401 %, , 1.2, , 49.00 %",
+  "  - Windows 10, -2.40 %, , 1.2, , 49.00 %",
   "  - Windows 10, -, , 1.2, , 99.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %",
+  "  - macOS 10.15, 1.08 %, Improvement, 1.3, -, 24.00 %",
+  "  - Linux 18.04, 1.85 %, Regression, 1.2, -, 44.00 %",
   "  rev: tictactoe",
-  "  - Windows 10, -2.401 %, , 2, , 48.00 %",
+  "  - Windows 10, -2.40 %, , 2, , 48.00 %",
   "  - Windows 10, -, , 2, , 98.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %",
+  "  - macOS 10.15, 1.08 %, Improvement, 2.1, -, 23.00 %",
+  "  - Linux 18.04, 1.85 %, Regression, 2, -, 43.00 %",
 ]
 `;
 
@@ -6191,7 +6191,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         <span
           style="display: inline-flex; align-items: center; gap: 4px;"
         >
-          1.078 %
+          1.08 %
         </span>
       </div>
       <div
@@ -6442,7 +6442,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         <span
           style="display: inline-flex; align-items: center; gap: 4px;"
         >
-          1.078 %
+          1.08 %
         </span>
       </div>
       <div

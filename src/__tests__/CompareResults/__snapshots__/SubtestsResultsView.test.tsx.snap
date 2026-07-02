@@ -1126,7 +1126,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                   <span
@@ -1145,7 +1145,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                   <span
@@ -1163,7 +1163,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -1288,7 +1288,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -1300,7 +1300,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -1311,7 +1311,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -1436,7 +1436,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -1448,7 +1448,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -1459,7 +1459,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -1584,7 +1584,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -1596,7 +1596,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -1607,7 +1607,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -1732,7 +1732,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -1744,7 +1744,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -1755,7 +1755,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -3076,7 +3076,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0.963 %
+                    0.96 %
                   </span>
                 </div>
                 <div
@@ -3226,7 +3226,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    1.135 %
+                    1.14 %
                   </span>
                 </div>
                 <div
@@ -3402,7 +3402,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0.963 %
+                    0.96 %
                   </span>
                 </div>
                 <div
@@ -3565,7 +3565,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    1.135 %
+                    1.14 %
                   </span>
                 </div>
                 <div
@@ -4678,7 +4678,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0.963 %
+                    0.96 %
                   </span>
                 </div>
                 <div
@@ -4828,7 +4828,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    1.135 %
+                    1.14 %
                   </span>
                 </div>
                 <div
@@ -5004,7 +5004,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0.963 %
+                    0.96 %
                   </span>
                 </div>
                 <div
@@ -5167,7 +5167,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    1.135 %
+                    1.14 %
                   </span>
                 </div>
                 <div
@@ -6280,7 +6280,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0.963 %
+                    0.96 %
                   </span>
                 </div>
                 <div
@@ -6430,7 +6430,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    1.135 %
+                    1.14 %
                   </span>
                 </div>
                 <div
@@ -6606,7 +6606,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0.963 %
+                    0.96 %
                   </span>
                 </div>
                 <div
@@ -6769,7 +6769,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    1.135 %
+                    1.14 %
                   </span>
                 </div>
                 <div
@@ -7843,7 +7843,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                   <span
@@ -7862,7 +7862,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                   <span
@@ -7880,7 +7880,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -8005,7 +8005,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -8017,7 +8017,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -8028,7 +8028,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -8153,7 +8153,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -8165,7 +8165,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -8176,7 +8176,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -8301,7 +8301,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -8313,7 +8313,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -8324,7 +8324,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
@@ -8449,7 +8449,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -8461,7 +8461,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="mann-witney-browser-name cell"
                   role="cell"
                 >
-                  0
+                  0.00
                    
                   ms
                 </div>
@@ -8472,7 +8472,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   <span
                     style="display: inline-flex; align-items: center; gap: 4px;"
                   >
-                    0 %
+                    0.00 %
                   </span>
                 </div>
                 <div
