@@ -54,10 +54,10 @@ different questions:
   shows where runs are dense and where they're sparse.
 - The **dashed curve is the model's interpretation.** It's the fitted
   mixture-of-bell-curves that the mode lines come from: "I read these runs as
-  *N* groups, each centred here with this spread." The mode lines and their
+  _N_ groups, each centred here with this spread." The mode lines and their
   percentages are read off the dashed curve, not the solid one.
 
-**They usually track each other closely.** Where they *differ* is the
+**They usually track each other closely.** Where they _differ_ is the
 interesting part:
 
 - A **bump in the dashed curve where the solid curve looks flat** is the
@@ -69,8 +69,8 @@ interesting part:
   places, or a wildly different shape), the model is fitting the data poorly —
   be skeptical of the modes for that series, and try the sensitivity slider.
 
-In short: trust the **solid** curve for *what the runs look like*, and read the
-**dashed** curve for *how they've been grouped into modes*.
+In short: trust the **solid** curve for _what the runs look like_, and read the
+**dashed** curve for _how they've been grouped into modes_.
 
 ### The percentage is the important bit
 
@@ -81,7 +81,7 @@ mode** — its share of the data, not its height.
 > runs were on a ~6.2 ms fast path and about a third on a ~9.5 ms slower path.
 
 This is what makes regressions legible. If Base is one mode at 6 ms and New is
-*two* modes — 6 ms (70%) and 9.5 ms (30%) — then the change didn't make every
+_two_ modes — 6 ms (70%) and 9.5 ms (30%) — then the change didn't make every
 run slower, it pushed ~30% of runs onto a new slow path. That's a very different
 story from "the median moved a little," and it's the kind of thing the single
 number can't tell you.
@@ -146,11 +146,11 @@ it at the **valleys** between peaks, tuned by a "valley depth" slider.
 Valley-carving has two failure modes a mixture model avoids:
 
 1. **Mode count.** One valley-depth knob gives whatever count that threshold
-   produces; the grouping a human would draw often isn't reachable at *any*
+   produces; the grouping a human would draw often isn't reachable at _any_
    setting. A mixture chooses the count by model selection (BIC, below).
 2. **Diffuse groups.** A spread-out slow path has no sharp KDE peak, so
    valley-carving shatters it into ripples or absorbs it into the fast mode. A
-   mixture captures it as one wide component, because it clusters the *samples*
+   mixture captures it as one wide component, because it clusters the _samples_
    rather than smoothing the density and hunting for dips. (An adaptive-bandwidth
    KDE was also tried; it fills in the valleys between genuine modes — the
    opposite of what we want. See the git history.)
@@ -160,14 +160,14 @@ Valley-carving has two failure modes a mixture model avoids:
 For a fixed `K`, the parameters are fit by **Expectation-Maximisation**
 (`emGmm1D`):
 
-- **E-step.** For each sample `xᵢ`, compute its *responsibility* under each
+- **E-step.** For each sample `xᵢ`, compute its _responsibility_ under each
   component — the posterior that `xᵢ` came from component `k`:
   `rᵢₖ = π_k N(xᵢ; μ_k, σ_k²) / Σⱼ πⱼ N(xᵢ; μⱼ, σⱼ²)`.
 - **M-step.** Re-estimate each component as the responsibility-weighted mean and
   variance of all samples; set `π_k` to the average responsibility.
 - Iterate until the log-likelihood plateaus (max 300 iterations).
 
-EM converges to a *local* optimum, so the starting point matters (see
+EM converges to a _local_ optimum, so the starting point matters (see
 robustness).
 
 ### Choosing K: BIC
@@ -213,14 +213,14 @@ Three details keep EM/BIC well-behaved on real (n ≈ 15–80) perf samples.
   the likelihood to infinity (singular-component collapse). We floor variance at
   `max((span·0.01)², resolution²)`, where `resolution` is the smallest gap
   between distinct values. The `resolution²` term is essential for **quantised**
-  data (e.g. ms-rounded timings): without it GMM — *and scikit-learn* — fit one
+  data (e.g. ms-rounded timings): without it GMM — _and scikit-learn_ — fit one
   razor-thin component per rounding level. Flooring `σ` at the rounding step
   collapses those into the single real mode.
 - **Cleanup & boundaries.** Components holding < ~1.5 effective samples
   (`π_k·n < 1.5`) are dropped as outlier blips; components closer than 2% of the
   span are merged. The **boundary** between adjacent modes is the Bayes-optimal
   crossing where `π_k N_k(x) = π_{k+1} N_{k+1}(x)` (`componentCrossing`), i.e. a
-  run is assigned to whichever mode is more responsible there — *not* the KDE
+  run is assigned to whichever mode is more responsible there — _not_ the KDE
   valley floor (the two differ for asymmetric or unequal-weight modes).
 
 Very small samples (n < 4, or all values identical) can't support a mixture; we
@@ -258,11 +258,11 @@ with the precise-looking maths above.
 ### Precise is not the same as accurate
 
 Everything here is **precise about the sample, not about the truth.** The
-percentages and the confidence interval quantify *sampling variability* under
+percentages and the confidence interval quantify _sampling variability_ under
 the assumption that the runs are independent draws from a **stable process**.
 Infra noise breaks exactly that assumption: it's non-stationary and often
-correlated (a bad machine spoils a *batch* of runs, not one). So a number can be
-precise and accurate-*looking* while being centred on a contaminated estimate —
+correlated (a bad machine spoils a _batch_ of runs, not one). So a number can be
+precise and accurate-_looking_ while being centred on a contaminated estimate —
 a tight interval around the wrong value. Read these as **descriptive statements
 about the runs you have**, conditional on those runs being representative — not
 as verdicts about the performance of the change.
@@ -271,7 +271,7 @@ as verdicts about the performance of the change.
 
 - **Within-run jitter** — the natural spread. This is what the density curve and
   the interval legitimately describe.
-- **Real multimodality** — genuine fast/slow code paths. This is the *signal*
+- **Real multimodality** — genuine fast/slow code paths. This is the _signal_
   modal analysis exists to surface.
 - **Infra contamination** — outliers and spurious clusters that are properties
   of the measurement environment, not the code.
@@ -279,7 +279,7 @@ as verdicts about the performance of the change.
 The catch: **the second and third look identical in a single sample.** A small
 second mode could be a real slow path, or three runs that happened to land on a
 sick machine. No amount of maths on that one sample can tell them apart — it
-isn't an estimation problem, it's an *identifiability* problem. Only context
+isn't an estimation problem, it's an _identifiability_ problem. Only context
 resolves it: retriggers, cross-machine and cross-time consistency, job logs,
 known-flaky lists.
 
@@ -287,14 +287,14 @@ known-flaky lists.
 
 This is why the headline comparison uses the median, Mann–Whitney, and a BCa
 interval: they're **robust to outliers by construction**, so a few
-infra-poisoned runs barely move them. Mode detection is deliberately the *least*
+infra-poisoned runs barely move them. Mode detection is deliberately the _least_
 robust layer — it actively hunts for structure, so it's the most likely to latch
 onto an infra-induced cluster. That's only useful when treated as
 **exploratory**, which is why it's an opt-in toggle: the default view (KDE plus
-the raw scatter strip) is descriptive and lets you *see* the noise, and modal
+the raw scatter strip) is descriptive and lets you _see_ the noise, and modal
 analysis is the interpretive layer you reach for and can dial back with the
 sensitivity slider. The BIC penalty, the minimum-samples floor, and the variance
-floor are all there to *avoid* minting a mode out of a handful of bad runs.
+floor are all there to _avoid_ minting a mode out of a handful of bad runs.
 
 ### The reconciliation, and the real fix
 
