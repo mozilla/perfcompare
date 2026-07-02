@@ -255,7 +255,11 @@ function gaussianKernel1D(x, bw) {
 function gaussianPracticalSupport(bw, atol = 10e-5) {
   const inner = atol * Math.sqrt(2 * Math.PI) * bw;
   if (inner >= 1) return 3 * bw;
-  return bw * Math.sqrt(-2 * Math.log(inner)) + 1e-3;
+  // Enforce at least 3σ: the atol formula finds where the kernel *value* hits
+  // atol, but for large bw the kernel peak is low so that threshold is reached
+  // at only ~1-2σ, truncating >20% of the probability mass and causing
+  // convolution ringing that looks like aliasing on the chart.
+  return Math.max(bw * Math.sqrt(-2 * Math.log(inner)) + 1e-3, 3 * bw);
 }
 // ---------------------------------------------------------------------------
 // ISJ fixed-point function — port of KDEpy's _fixed_point
@@ -621,7 +625,12 @@ export function adaptiveKde(data, opts = {}) {
     if (hLocal[i] > hMax) hMax = hLocal[i];
   }
   // 4. Grid padded by the widest kernel's practical support so it isn't clipped.
-  const grid = autogrid1D(data, gaussianPracticalSupport(hMax), numGridPoints, 0.05);
+  const grid = autogrid1D(
+    data,
+    gaussianPracticalSupport(hMax),
+    numGridPoints,
+    0.05,
+  );
   // 5. Evaluate the adaptive density on the grid.
   const y = new Array(numGridPoints).fill(0);
   for (let gi = 0; gi < numGridPoints; gi++) {
@@ -927,7 +936,7 @@ function initKmeans(data, sorted, K, varFloor) {
     if (!moved && iter > 0) break;
   }
   const means = centres.slice();
-  const vars = new Array(K).fill(varFloor);
+  const vars = new Array(K).fill(0);
   const weights = new Array(K).fill(0);
   const cnt = new Array(K).fill(0);
   for (let i = 0; i < n; i++) {
@@ -935,7 +944,7 @@ function initKmeans(data, sorted, K, varFloor) {
     vars[assign[i]] += (data[i] - means[assign[i]]) ** 2;
   }
   for (let k = 0; k < K; k++) {
-    weights[k] = (cnt[k] || 1) / n;
+    weights[k] = cnt[k] / n;
     vars[k] = Math.max(cnt[k] ? vars[k] / cnt[k] : varFloor, varFloor);
   }
   return { means, vars, weights };
@@ -984,7 +993,10 @@ function emGmm1D(data, init, varFloor, maxIter = 300) {
       vars[k] = Math.max(v / Nk, varFloor);
       weights[k] = Nk / n;
     }
-    if (iter > 0 && Math.abs(logL - prevLL) <= 1e-7 * (Math.abs(prevLL) + 1e-12))
+    if (
+      iter > 0 &&
+      Math.abs(logL - prevLL) <= 1e-7 * (Math.abs(prevLL) + 1e-12)
+    )
       break;
     prevLL = logL;
   }
@@ -999,12 +1011,13 @@ function componentCrossing(a, b) {
   const va = Math.max(a.sigma * a.sigma, 1e-12);
   const vb = Math.max(b.sigma * b.sigma, 1e-12);
   const steps = 256;
-  let prev = a.weight * gaussPdf(lo, a.mu, va) - b.weight * gaussPdf(lo, b.mu, vb);
+  let prev =
+    a.weight * gaussPdf(lo, a.mu, va) - b.weight * gaussPdf(lo, b.mu, vb);
   for (let i = 1; i <= steps; i++) {
     const x = lo + ((hi - lo) * i) / steps;
     const diff =
       a.weight * gaussPdf(x, a.mu, va) - b.weight * gaussPdf(x, b.mu, vb);
-    if (prev > 0 && diff <= 0) {
+    if (prev > 0 !== diff > 0) {
       const xPrev = lo + ((hi - lo) * (i - 1)) / steps;
       const t = prev / (prev - diff);
       return xPrev + (x - xPrev) * t;
@@ -1065,7 +1078,7 @@ export function fitGmmModes(data, opts = {}) {
     resolution * resolution,
     1e-12,
   );
-  const Kmax = Math.max(1, Math.min(maxComponents, Math.floor(n / 4)));
+  const Kmax = Math.max(1, Math.min(maxComponents, Math.ceil(n / 4)));
   let best = null;
   for (let K = 1; K <= Kmax; K++) {
     // Try both inits and keep the higher-likelihood fit — this matches the
@@ -1086,20 +1099,23 @@ export function fitGmmModes(data, opts = {}) {
       if (!best || bic < best.bic - 1e-9) best = { ...fit, K, bic };
     }
   }
-  // Components → modes: drop near-empty ones, merge near-duplicate centres.
+  // Components → modes: merge near-duplicate centres first, then drop
+  // near-empty ones. Merging before filtering lets two small close components
+  // combine their mass before being evaluated against minSamples.
   let comps = best.means
     .map((mu, k) => ({
       mu,
       sigma: Math.sqrt(best.vars[k]),
       weight: best.weights[k],
     }))
-    .filter((c) => c.weight * n >= minSamples && Number.isFinite(c.mu))
+    .filter((c) => Number.isFinite(c.mu))
     .sort((a, b) => a.mu - b.mu);
   if (!comps.length) {
     const med = sorted[Math.floor(n / 2)];
     comps = [{ mu: med, sigma: Math.sqrt(varFloor), weight: 1 }];
   }
-  const minSep = Math.max(2, span * 0.02);
+  // minSep is relative to the data span so it is unit-independent.
+  const minSep = span * 0.02;
   const merged = [comps[0]];
   for (let i = 1; i < comps.length; i++) {
     const p = merged[merged.length - 1];
@@ -1114,17 +1130,22 @@ export function fitGmmModes(data, opts = {}) {
       merged[merged.length - 1] = { mu, sigma: Math.sqrt(v), weight: w };
     } else merged.push(c);
   }
-  const wSum = merged.reduce((s, c) => s + c.weight, 0) || 1;
-  for (const c of merged) c.weight /= wSum;
+  const filtered = merged.filter((c) => c.weight * n >= minSamples);
+  if (!filtered.length) {
+    const med = sorted[Math.floor(n / 2)];
+    filtered.push({ mu: med, sigma: Math.sqrt(varFloor), weight: 1 });
+  }
+  const wSum = filtered.reduce((s, c) => s + c.weight, 0) || 1;
+  for (const c of filtered) c.weight /= wSum;
   const boundaries = [];
-  for (let i = 0; i < merged.length - 1; i++)
-    boundaries.push(componentCrossing(merged[i], merged[i + 1]));
+  for (let i = 0; i < filtered.length - 1; i++)
+    boundaries.push(componentCrossing(filtered[i], filtered[i + 1]));
   return {
-    peakLocs: merged.map((c) => c.mu),
+    peakLocs: filtered.map((c) => c.mu),
     boundaries,
-    fracs: merged.map((c) => c.weight),
-    components: merged,
-    nModes: merged.length,
+    fracs: filtered.map((c) => c.weight),
+    components: filtered,
+    nModes: filtered.length,
   };
 }
 /**
@@ -1159,6 +1180,186 @@ export function assignLetters(locs) {
     out[i] = String.fromCharCode(65 + rank);
   });
   return out;
+}
+
+/**
+ * Mode detection driven by the KDE curve rather than by GMM.
+ *
+ * Finds every local maximum in the KDE grid, then merges adjacent peaks whose
+ * separating valley is too shallow: if the valley height exceeds
+ * `valleyRatio * min(peakA.y, peakB.y)`, the two peaks are considered one
+ * visual mode and the shorter one is absorbed into the taller. The default
+ * ratio 0.5 means the valley must drop below half the lower peak's height to
+ * count as a genuine separation.
+ *
+ * This gives exactly one mode per visual bump in the KDE — no over-fitting,
+ * because the KDE bandwidth already defines the resolution at which bumps are
+ * distinguishable.
+ *
+ * @param {ArrayLike<number>} kdeX  - x coordinates of the KDE grid
+ * @param {ArrayLike<number>} kdeY  - corresponding density values
+ * @param {number[]}          data  - raw sample values (for fraction counts)
+ * @param {object}            [opts]
+ * @param {number}            [opts.valleyRatio=0.5]
+ * @returns {{ peakLocs: number[], boundaries: number[], fracs: number[], components: object[] }}
+ */
+export function fitKdePeakModes(kdeX, kdeY, data, opts = {}) {
+  const { valleyRatio = 0.5, minFrac = 0.05 } = opts;
+  const n = kdeX.length;
+  if (n < 3 || !data.length)
+    return { peakLocs: [], boundaries: [], fracs: [], components: [] };
+
+  // Collect all local maxima (strict on right so plateaux pick their left edge)
+  let peaks = [];
+  for (let i = 1; i < n - 1; i++) {
+    if (kdeY[i] >= kdeY[i - 1] && kdeY[i] > kdeY[i + 1]) {
+      peaks.push({ x: kdeX[i], y: kdeY[i], idx: i });
+    }
+  }
+  if (!peaks.length) {
+    // No local max (e.g. monotone or all-equal) → treat the global max as one peak
+    let mi = 0;
+    for (let i = 1; i < n; i++) if (kdeY[i] > kdeY[mi]) mi = i;
+    peaks = [{ x: kdeX[mi], y: kdeY[mi], idx: mi }];
+  }
+
+  // Merge adjacent peaks where the separating valley is too shallow.
+  let changed = true;
+  while (changed && peaks.length > 1) {
+    changed = false;
+    for (let i = 0; i < peaks.length - 1; i++) {
+      const pA = peaks[i];
+      const pB = peaks[i + 1];
+      let valleyY = Infinity;
+      for (let j = pA.idx + 1; j < pB.idx; j++) {
+        if (kdeY[j] < valleyY) valleyY = kdeY[j];
+      }
+      if (valleyY > valleyRatio * Math.min(pA.y, pB.y)) {
+        // Shallow valley — keep the taller peak, drop the shorter
+        peaks.splice(i, 2, pA.y >= pB.y ? pA : pB);
+        changed = true;
+        break;
+      }
+    }
+  }
+
+  // Boundaries: x-position of the KDE minimum between each adjacent peak pair
+  const boundaries = [];
+  for (let i = 0; i < peaks.length - 1; i++) {
+    let valleyY = Infinity;
+    let valleyX = (peaks[i].x + peaks[i + 1].x) / 2;
+    for (let j = peaks[i].idx + 1; j < peaks[i + 1].idx; j++) {
+      if (kdeY[j] < valleyY) {
+        valleyY = kdeY[j];
+        valleyX = kdeX[j];
+      }
+    }
+    boundaries.push(valleyX);
+  }
+
+  // Fracs: fraction of data points that fall in each mode's region
+  const initialRegionBounds = [-Infinity, ...boundaries, Infinity];
+  const fracs = peaks.map((_, i) => {
+    const lo = initialRegionBounds[i];
+    const hi = initialRegionBounds[i + 1];
+    return data.reduce((c, v) => c + (v > lo && v <= hi ? 1 : 0), 0) / data.length;
+  });
+
+  // Drop modes whose data fraction is below minFrac — they're outlier bumps,
+  // not real modes. Merge into the nearest neighbour by dropping the shared
+  // boundary; keep the taller peak as the representative.
+  let mergedPeaks = [...peaks];
+  let mergedBoundaries = [...boundaries];
+  let mergedFrags = [...fracs];
+  let mchanged = true;
+  while (mchanged && mergedPeaks.length > 1) {
+    mchanged = false;
+    let minIdx = -1;
+    let minFracVal = Infinity;
+    for (let i = 0; i < mergedFrags.length; i++) {
+      if (mergedFrags[i] < minFracVal) { minFracVal = mergedFrags[i]; minIdx = i; }
+    }
+    if (minFracVal >= minFrac) break;
+    // Merge minIdx with its nearest neighbour (left preferred, else right)
+    const mergeWith = minIdx > 0 ? minIdx - 1 : 1;
+    const lo = Math.min(minIdx, mergeWith);
+    const hi = Math.max(minIdx, mergeWith);
+    const keepPeak = mergedPeaks[lo].y >= mergedPeaks[hi].y ? mergedPeaks[lo] : mergedPeaks[hi];
+    mergedPeaks.splice(lo, 2, keepPeak);
+    mergedBoundaries.splice(lo, 1);
+    // Recompute fracs for merged region
+    const regionBounds2 = [-Infinity, ...mergedBoundaries, Infinity];
+    mergedFrags = mergedPeaks.map((_, i) => {
+      const lo2 = regionBounds2[i], hi2 = regionBounds2[i + 1];
+      return data.reduce((c, v) => c + (v > lo2 && v <= hi2 ? 1 : 0), 0) / data.length;
+    });
+    mchanged = true;
+  }
+  peaks = mergedPeaks;
+  boundaries.length = 0;
+  mergedBoundaries.forEach((b) => boundaries.push(b));
+  fracs.length = 0;
+  mergedFrags.forEach((f) => fracs.push(f));
+  const regionBounds = [-Infinity, ...boundaries, Infinity];
+
+  // Lightweight component descriptors (mean/sigma from the region's data)
+  // for downstream compatibility with matchModeLetters / gmmDensity callers.
+  const components = peaks.map((p, i) => {
+    const lo = regionBounds[i];
+    const hi = regionBounds[i + 1];
+    const region = data.filter((v) => v > lo && v <= hi);
+    const mean =
+      region.length ? region.reduce((s, v) => s + v, 0) / region.length : p.x;
+    const variance =
+      region.length > 1
+        ? region.reduce((s, v) => s + (v - mean) ** 2, 0) / region.length
+        : 1;
+    return { mean, sigma: Math.sqrt(variance), weight: fracs[i] };
+  });
+
+  return { peakLocs: peaks.map((p) => p.x), boundaries, fracs, components };
+}
+
+/**
+ * Cross-series mode matching. Assigns letters to base modes by position
+ * (A = leftmost), then uses `matchModes` to pair new modes with base modes.
+ * Matched new modes inherit the base letter; unmatched new modes get the next
+ * unused letter. This lets the caller see "Base A shifted to New A" vs.
+ * "New B is a novel mode".
+ *
+ * @param {number[]} baseLocs  - peak positions for the base series
+ * @param {number[]} baseFracs - weight fractions for the base series
+ * @param {number[]} newLocs   - peak positions for the new series
+ * @param {number[]} newFracs  - weight fractions for the new series
+ * @returns {{ baseLetters: string[], newLetters: string[] }}
+ */
+export function matchModeLetters(baseLocs, baseFracs, newLocs, newFracs) {
+  const baseLetters = assignLetters(baseLocs);
+  if (!newLocs.length) return { baseLetters, newLetters: [] };
+  if (!baseLocs.length) return { baseLetters: [], newLetters: assignLetters(newLocs) };
+
+  const { pairs, un } = matchModes(baseLocs, baseFracs, newLocs, newFracs);
+
+  // Build a map from new-mode index → letter.
+  const newLetters = new Array(newLocs.length);
+  for (const [bi, ni] of pairs) {
+    newLetters[ni] = baseLetters[bi];
+  }
+
+  // Unmatched new modes get fresh letters not already used.
+  const usedLetters = new Set(baseLetters);
+  let nextCode = 65;
+  function freshLetter() {
+    while (usedLetters.has(String.fromCharCode(nextCode))) nextCode++;
+    const l = String.fromCharCode(nextCode++);
+    usedLetters.add(l);
+    return l;
+  }
+  for (const ni of un) {
+    newLetters[ni] = freshLetter();
+  }
+
+  return { baseLetters, newLetters };
 }
 function popcount(x) {
   let c = 0;

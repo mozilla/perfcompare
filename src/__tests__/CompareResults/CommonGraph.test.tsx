@@ -220,7 +220,8 @@ describe('CommonGraph', () => {
     // (the GMM overlay curves and mode markLines don't carry it).
     const kdeSeries = allSeries.filter(
       (s) =>
-        s.type === 'line' && (s as { triggerLineEvent?: boolean }).triggerLineEvent,
+        s.type === 'line' &&
+        (s as { triggerLineEvent?: boolean }).triggerLineEvent,
     );
     expect(kdeSeries).toHaveLength(2);
     // Base side has a resampled density curve.
@@ -389,12 +390,10 @@ describe('CommonGraph', () => {
   });
 
   it('emits a mode-overlay markLine series for each detected mode', () => {
-    // Modes come from a Gaussian-mixture fit on the RAW samples (not the KDE
-    // curve, which is mocked here). Each side is a single tight cluster, so the
-    // mixture has one component → one markLine overlay per series, centred on
-    // the cluster mean, labelled by series and letter A. Overlays share names
-    // with the parent KDE series (Base/New) so the legend can toggle them —
-    // identify them by the markLine config rather than name.
+    // Each side has one mode (KDE mock peaks at x=30). Each mode emits two
+    // series: an unlabeled horizontal span (z=3) and a vertical peak tick
+    // (z=2) carrying the combined series/letter/value/fraction label. So 4
+    // overlays total.
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
@@ -403,7 +402,6 @@ describe('CommonGraph', () => {
 
     const baseCluster = [100, 101, 99, 100, 102, 98, 101, 100];
     const newCluster = [200, 201, 199, 200, 202, 198, 201, 200];
-    const mean = (a: number[]) => a.reduce((s, v) => s + v, 0) / a.length;
 
     render(
       <CommonGraph
@@ -421,25 +419,39 @@ describe('CommonGraph', () => {
     const option = getLatestEChartsOption();
     const series = option.series as Array<{
       name?: string;
+      z?: number;
       markLine?: {
-        data?: Array<{ xAxis?: number }>;
-        label?: { formatter?: string };
+        data?: Array<[{ coord: number[] }, { coord: number[] }]>;
+        label?: { formatter?: string; show?: boolean };
         lineStyle?: { color?: string };
       };
     }>;
-    // Peak overlays are line-type series with a markLine. Scatter rows also
-    // carry a baseline markLine but they're scatter-type, so type filters them out.
+    // Line-type series with markLine: span (z=3) + tick (z=2) per mode per series.
     const overlays = series.filter(
       (s) => (s as { type?: string }).type === 'line' && Boolean(s.markLine),
     );
-    // One overlay per series (Base + New), each at its cluster mean.
-    expect(overlays).toHaveLength(2);
-    expect(overlays[0].name).toBe('Base');
-    expect(overlays[1].name).toBe('New');
-    expect(overlays[0].markLine?.data?.[0]?.xAxis).toBeCloseTo(mean(baseCluster), 5);
-    expect(overlays[1].markLine?.data?.[0]?.xAxis).toBeCloseTo(mean(newCluster), 5);
-    expect(overlays[0].markLine?.label?.formatter).toMatch(/^Base A: /);
-    expect(overlays[1].markLine?.label?.formatter).toMatch(/^New A: /);
+    // 2 series × (1 span + 1 tick) = 4 overlays total.
+    expect(overlays).toHaveLength(4);
+    // Spans are at even indices (0=Base, 2=New), ticks at odd (1=Base, 3=New).
+    const baseSpan = overlays[0];
+    const baseSpan2 = overlays[2];
+    expect(baseSpan.name).toBe('Base');
+    expect(baseSpan2.name).toBe('New');
+    // Spans carry no label — the combined label lives on the tick below.
+    expect(baseSpan.markLine?.label?.show).toBe(false);
+    expect(baseSpan2.markLine?.label?.show).toBe(false);
+    // Matched letter A → same color in both series.
+    expect(baseSpan.markLine?.lineStyle?.color).toBe(
+      baseSpan2.markLine?.lineStyle?.color,
+    );
+    // Vertical tick marks the KDE peak (x=30 from the mock) and carries the
+    // combined label.
+    const baseTick = overlays[1];
+    const newTick = overlays[3];
+    expect(baseTick.markLine?.label?.formatter).toMatch(/^Base A:/);
+    expect(newTick.markLine?.label?.formatter).toMatch(/^New A:/);
+    expect(baseTick.markLine?.data?.[0]?.[0]?.coord?.[0]).toBeCloseTo(30, 5);
+    expect(newTick.markLine?.data?.[0]?.[0]?.coord?.[0]).toBeCloseTo(30, 5);
   });
 
   it('shows raw run values in the scatter tooltip with the unit suffix', () => {

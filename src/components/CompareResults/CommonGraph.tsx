@@ -13,12 +13,12 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { getDisplayScale } from '../../utils/format';
 import {
-  assignLetters,
   fftkde,
-  fitGmmModes,
-  gmmDensity,
+  fitKdePeakModes,
   improvedSheatherJones,
+  matchModeLetters,
   silvermansRule,
+  type GmmComponent,
 } from '../../utils/kde.js';
 
 // This computes the min, max from a list of numbers.
@@ -54,32 +54,51 @@ function computeMax(a?: number, b?: number) {
 // it down to see structure.
 const LARGE_BW_RATIO = 0.5;
 const KDE_GRID_POINTS = 1024;
-const LABEL_ROW_PX = 16; // vertical space per stagger level
 const KDE_TOP_BASE = 28;
-const KDE_HEIGHT = 155;
-const SCATTER_TOP_BASE = 250;
+const KDE_HEIGHT = 230;
+const SCATTER_TOP_BASE = 340;
 const SCATTER_HEIGHT = 50;
-const CHART_HEIGHT_BASE = 340;
+const LEGEND_TOP = SCATTER_TOP_BASE - 18;
+const CHART_HEIGHT_BASE = 440;
 
-// Mode-sensitivity slider bounds. The slider value (0.1‒0.99) is mapped to the
-// GMM's BIC complexity penalty: higher slider = more modes (lower penalty).
+// One color per mode letter (A–E). Same letter = same color across Base/New.
+//
+// Visual grammar:
+//   color         — mode identity (A=blue, B=amber, …)
+//   markLine type — solid thick = Base (reference), dashed thinner = New
+//   horizontal span — shows the mode's x-extent near the KDE baseline
+//   vertical tick  — thin guide to the exact peak position (no label)
+// Darkened from a brighter starting palette so label text (11px, on a
+// near-white background) clears WCAG comfortably — every entry here is
+// 8:1+ against white, well past the 4.5:1 AA minimum for normal text.
+// (The original palette ranged 3.6:1-6.9:1; some letters failed AA outright.)
+const MODE_FILL_COLORS = [
+  '#0D47A1', // A – blue
+  '#7A4009', // B – amber
+  '#0F4D29', // C – green
+  '#8B2318', // D – red
+  '#5A2D77', // E – purple
+];
+
+// Mode-sensitivity slider bounds.
 const VT_MIN = 0.1;
 const VT_MAX = 0.99;
 const VT_STEP = 0.01;
 
-// Map the slider (0.1‒0.99) to a BIC penalty multiplier. The midpoint (0.5)
-// gives penalty 1.0 (standard BIC, which we cross-checked against sklearn);
-// dragging right lowers the penalty so finer modes survive, dragging left
-// raises it so only strongly-supported modes remain.
-function sensitivityToPenalty(vt: number): number {
-  return Math.pow(2, (0.5 - vt) * 4);
+// Map the slider (0.1–0.99) to a valley-depth ratio for KDE peak merging.
+// valleyRatio = fraction of the lower peak's height the valley must DROP BELOW
+// for two peaks to be treated as separate modes.
+//   vt→0 (left):  high ratio (0.95) → most valleys merge → few modes
+//   vt→1 (right): low ratio (0.05)  → only very shallow valleys merge → more modes
+//   midpoint 0.5: ratio ≈ 0.50  (valley must be <50% of lower peak)
+function sensitivityToValleyRatio(vt: number): number {
+  return Math.max(0.05, Math.min(0.95, 1 - vt));
 }
-
-type GmmComponent = { mu: number; sigma: number; weight: number };
 
 // Per-series mode summary, suitable both for chart overlays and the blurb.
 type ModeInfo = {
   peakLocs: number[];
+  boundaries: number[];
   fracs: number[];
   letters: string[];
   components: GmmComponent[];
@@ -87,55 +106,32 @@ type ModeInfo = {
 
 const EMPTY_MODE_INFO: ModeInfo = {
   peakLocs: [],
+  boundaries: [],
   fracs: [],
   letters: [],
   components: [],
 };
 
-// Detect modes by fitting a Gaussian mixture to the raw samples (BIC-selected
-// component count). Unlike carving the KDE at valley floors, this groups the
-// samples directly: each mode is a component with a probability mass (weight),
-// so a diffuse "slow path" is captured as one wide component instead of being
-// fragmented or absorbed, and the mode count comes from BIC rather than a
-// threshold the eye can't always match.
-function computeModeInfo(values: number[], penaltyScale: number): ModeInfo {
-  if (values.length < 2) {
-    return EMPTY_MODE_INFO;
-  }
-  const { peakLocs, fracs, components } = fitGmmModes(values, { penaltyScale });
-  if (!peakLocs.length) {
-    return EMPTY_MODE_INFO;
-  }
-  const letters = assignLetters(peakLocs);
-  return { peakLocs, fracs, letters, components };
+// Detect modes from the KDE curve: find local maxima, then merge adjacent
+// peaks whose separating valley is shallower than valleyRatio * lowerPeak.
+// This gives exactly one mode per visual bump — the KDE bandwidth controls
+// resolution, so GMM over-fitting (multiple tight Gaussians per peak) can't
+// happen.
+function computeModeInfo(
+  kde: { x: ArrayLike<number>; y: ArrayLike<number> } | null,
+  values: number[],
+  valleyRatio: number,
+): Omit<ModeInfo, 'letters'> | null {
+  if (!kde || values.length < 2) return null;
+  const result = fitKdePeakModes(kde.x, kde.y, values, { valleyRatio });
+  if (!result.peakLocs.length) return null;
+  return result;
 }
 
 // Stagger levels (0, 1, 2 …) for peak labels: peaks closer than ~13% of the
 // x-span get bumped to different levels so their labels don't overlap. Ported
 // from kde-widget.js's allPeaks.level pass; we use a fixed 13% threshold
 // because the chart's pixel width isn't known inside useMemo.
-type PeakRef = {
-  loc: number;
-  seriesIdx: number;
-  peakIdx: number;
-  level: number;
-};
-
-function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
-  peaks.sort((a, b) => a.loc - b.loc);
-  const threshold = xSpan * 0.2;
-  for (let idx = 0; idx < peaks.length; idx++) {
-    const used = new Set<number>();
-    for (let k = 0; k < idx; k++) {
-      if (Math.abs(peaks[k].loc - peaks[idx].loc) < threshold) {
-        used.add(peaks[k].level);
-      }
-    }
-    let level = 0;
-    while (used.has(level)) level++;
-    peaks[idx].level = level;
-  }
-}
 
 function quantileSorted(sorted: number[], q: number): number {
   const pos = (sorted.length - 1) * q;
@@ -180,6 +176,35 @@ function safeKde(values: number[], bw?: number) {
       return null;
     }
   }
+}
+
+// Measure a label's rendered width in pixels so it can be shifted left by
+// exactly that amount, keeping its right edge (rather than its left edge)
+// anchored to the peak — this is what prevents right-edge clipping near the
+// chart boundary.
+let measureCanvas: HTMLCanvasElement | null = null;
+function measureTextWidth(
+  text: string,
+  fontSize: number,
+  fontWeight: string,
+): number {
+  measureCanvas ??= document.createElement('canvas');
+  const ctx = measureCanvas.getContext('2d');
+  if (!ctx) return text.length * fontSize * 0.6;
+  ctx.font = `${fontWeight} ${fontSize}px sans-serif`;
+  return ctx.measureText(text).width;
+}
+
+// Scale a hex color's channels toward black. Used to give the New label a
+// visibly distinct (and only-higher-contrast) text color from Base's, rather
+// than relying on font-weight alone to tell them apart.
+function darkenHex(hex: string, factor: number): string {
+  const num = parseInt(hex.slice(1), 16);
+  const channel = (shift: number) =>
+    Math.round(((num >> shift) & 0xff) * factor)
+      .toString(16)
+      .padStart(2, '0');
+  return `#${channel(16)}${channel(8)}${channel(0)}`;
 }
 
 // Linearly resample a uniform-grid KDE curve onto an arbitrary target x array.
@@ -358,6 +383,7 @@ function CommonGraph({
       newScatterData,
       min,
       max,
+      sharedBw,
     };
   }, [baseValues, newValues, isSubtest, rawBandwidths, bwMultiplier]);
 
@@ -365,64 +391,28 @@ function CommonGraph({
   // lives in its own memo so it only re-runs when the sensitivity slider or the
   // underlying samples change — not on theme switch, scatter strip toggle, or
   // unit changes. Uses localVt (the live slider position) so mode lines track
-  // the thumb in real time. The GMM fit is ~0.3 ms per series, so re-running it
-  // on every drag pixel is fine.
+  // the thumb in real time.
   const modes = useMemo(() => {
-    const { bKde, nKde, sharedX, min, max } = analysis;
-    const penalty = sensitivityToPenalty(localVt);
+    const { bKde, nKde, min, max } = analysis;
+    const valleyRatio = sensitivityToValleyRatio(localVt);
 
-    const baseModes = bKde
-      ? computeModeInfo(baseValues, penalty)
+    const baseRaw = computeModeInfo(bKde, baseValues, valleyRatio);
+    const newRaw = computeModeInfo(nKde, newValues, valleyRatio);
+
+    const { baseLetters, newLetters } = matchModeLetters(
+      baseRaw?.peakLocs ?? [],
+      baseRaw?.fracs ?? [],
+      newRaw?.peakLocs ?? [],
+      newRaw?.fracs ?? [],
+    );
+    const baseModes: ModeInfo = baseRaw
+      ? { ...baseRaw, letters: baseLetters }
       : EMPTY_MODE_INFO;
-    const newModes = nKde ? computeModeInfo(newValues, penalty) : EMPTY_MODE_INFO;
+    const newModes: ModeInfo = newRaw
+      ? { ...newRaw, letters: newLetters }
+      : EMPTY_MODE_INFO;
 
-    // Density of each fitted mixture, sampled on the shared grid, so the chart
-    // can draw the model the modes came from (a diffuse slow component shows up
-    // as a wide low bump even where the KDE curve is nearly flat).
-    // Skip the overlay when any component is degenerate (σ≈0, the tiny/identical
-    // -sample fallback) — its density is a meaningless spike.
-    const hasWidth = (m: ModeInfo) =>
-      m.components.length > 0 && m.components.every((c) => c.sigma > 0);
-    const baseGmmY = bKde && hasWidth(baseModes)
-      ? gmmDensity(baseModes.components, sharedX)
-      : [];
-    const newGmmY = nKde && hasWidth(newModes)
-      ? gmmDensity(newModes.components, sharedX)
-      : [];
-    const baseGmmDensity: [number, number][] = baseGmmY.map((d, i) => [
-      sharedX[i],
-      d,
-    ]);
-    const newGmmDensity: [number, number][] = newGmmY.map((d, i) => [
-      sharedX[i],
-      d,
-    ]);
-
-    // Assign vertical stagger levels across all peaks so labels don't collide.
-    const allPeaks: PeakRef[] = [];
-    baseModes.peakLocs.forEach((loc, peakIdx) =>
-      allPeaks.push({ loc, seriesIdx: 0, peakIdx, level: 0 }),
-    );
-    newModes.peakLocs.forEach((loc, peakIdx) =>
-      allPeaks.push({ loc, seriesIdx: 1, peakIdx, level: 0 }),
-    );
-    const xSpan = max - min;
-    if (xSpan > 0) assignStaggerLevels(allPeaks, xSpan);
-    const levelLookup = new Map<string, number>();
-    for (const p of allPeaks) {
-      levelLookup.set(`${p.seriesIdx}-${p.peakIdx}`, p.level);
-    }
-
-    const maxLevel =
-      levelLookup.size > 0 ? Math.max(...levelLookup.values()) : 0;
-    return {
-      baseModes,
-      newModes,
-      baseGmmDensity,
-      newGmmDensity,
-      levelLookup,
-      maxLevel,
-    };
+    return { baseModes, newModes };
   }, [analysis, localVt, baseValues, newValues]);
 
   const option: EChartsOption = useMemo(() => {
@@ -435,26 +425,19 @@ function CommonGraph({
       newScatterData,
       min,
       max,
+      sharedBw,
     } = analysis;
-    const {
-      baseModes,
-      newModes,
-      baseGmmDensity,
-      newGmmDensity,
-      levelLookup,
-      maxLevel,
-    } = modes;
-    const extraTop = maxLevel * LABEL_ROW_PX;
+    const { baseModes, newModes } = modes;
     const kdeGrid = {
       left: 70,
       right: 70,
-      top: KDE_TOP_BASE + extraTop,
+      top: KDE_TOP_BASE,
       height: KDE_HEIGHT,
     };
     const scatterGrid = {
       left: 70,
       right: 70,
-      top: SCATTER_TOP_BASE + extraTop,
+      top: SCATTER_TOP_BASE,
       height: SCATTER_HEIGHT,
     };
 
@@ -465,49 +448,222 @@ function CommonGraph({
     const totalCount = baseValues.length + newValues.length;
     const symbolSize = totalCount < 20 ? 14 : 10;
     const tickFormatter = (value: number) => (value / scale).toFixed(decimals);
+    // Scale density y-values to match the display unit. KDE/GMM densities are
+    // computed in raw-unit space (e.g. per uWh); when the x-axis is shown in a
+    // larger unit (e.g. mWh, scale=1000), the probability density must be
+    // multiplied by scale so ∫f(x)dx = 1 still holds visually.
+    const scaleDensity = ([x, y]: [number, number]): [number, number] => [
+      x,
+      y * scale,
+    ];
+    const scaledBaseRunsDensity = baseRunsDensity.map(scaleDensity);
+    const scaledNewRunsDensity = newRunsDensity.map(scaleDensity);
 
-    // Build the per-peak markLine overlays. Each is a dataless line series
-    // whose markLine renders on its own. They share names with their parent
-    // series ('Base' / 'New') so the legend's toggle action cascades to the
-    // overlays automatically — clicking 'Base' hides every series named
-    // 'Base', including the overlays. The legend itself only renders the two
-    // entries listed in `legend.data` regardless of how many series share
-    // those names.
+    // Build mode overlays: one horizontal span line per mode per series.
+    //
+    // Each span runs from the mode's left boundary to its right boundary, drawn
+    // near the KDE baseline. Base = thick solid, New = thinner dashed. Same
+    // color = same mode letter (matched across Base/New). A thin vertical tick
+    // marks the exact peak position; the label on the span carries the detail.
+    const maxDensity = Math.max(
+      ...scaledBaseRunsDensity.map(([, y]) => y),
+      ...scaledNewRunsDensity.map(([, y]) => y),
+      0.001,
+    );
+    // Highest letter index across both series determines the topmost span row.
+    // We need to set the KDE y-axis max explicitly so ECharts doesn't clip spans
+    // (markLines don't participate in auto-range computation).
+    const maxLetterIdx = Math.max(
+      0,
+      ...[...baseModes.letters, ...newModes.letters].map(
+        (l) => l.charCodeAt(0) - 65,
+      ),
+    );
+    const kdeYAxisMax = showModes
+      ? maxDensity * (1.08 + maxLetterIdx * 0.45 + 0.45)
+      : undefined;
     const modeOverlays: EChartsOption['series'] = [];
-    function pushOverlays(
-      seriesIdx: 0 | 1,
+
+    // Peak-label placement: by default a label sits just to the left of the
+    // leftmost of its own tick and its matched Base/New counterpart's tick
+    // (so two nearby peaks share one consistent reference instead of each
+    // pushing left by its own, possibly very different, width). If that
+    // would run the label past the left axis, flip it to sit just to the
+    // right of its own tick instead.
+    const LABEL_GAP_PX = 6;
+    const chartWidthPx = chartInstanceRef.current?.getWidth?.() ?? 640;
+    const plotWidthPx = Math.max(1, chartWidthPx - 70 - 70);
+    const pxPerUnit = plotWidthPx / ((max - min) || 1);
+    const baseLocByLetter = new Map(
+      baseModes.letters.map((l, i) => [l, baseModes.peakLocs[i]]),
+    );
+    const newLocByLetter = new Map(
+      newModes.letters.map((l, i) => [l, newModes.peakLocs[i]]),
+    );
+
+    function pushModeOverlays(
       seriesName: 'Base' | 'New',
-      modes: ModeInfo,
-      color: string,
+      modeInfo: ModeInfo,
+      seriesValues: number[],
+      xStart: number,
+      xEnd: number,
     ) {
-      modes.peakLocs.forEach((loc, peakIdx) => {
-        const level = levelLookup.get(`${seriesIdx}-${peakIdx}`) ?? 0;
+      if (!modeInfo.peakLocs.length) return;
+      const bounds = [xStart, ...modeInfo.boundaries, xEnd];
+      const isBase = seriesName === 'Base';
+      // Horizontal spans must not extend past the series' own actual data —
+      // xStart/xEnd come from the (padded) shared KDE grid, so clamp to the
+      // real leftmost/rightmost sample value.
+      const dataMin = Math.min(...seriesValues);
+      const dataMax = Math.max(...seriesValues);
+
+      modeInfo.peakLocs.forEach((loc, peakIdx) => {
+        const regionStart = Math.max(bounds[peakIdx], dataMin);
+        const regionEnd = Math.min(bounds[peakIdx + 1], dataMax);
+        const letterIdx = modeInfo.letters[peakIdx].charCodeAt(0) - 65;
+        // Each mode letter occupies its own row (stagger by letterIdx).
+        // Within each row, Base sits above New with a visible gap.
+        // Row height 0.16 keeps adjacent mode rows clearly separated.
+        const spanY = maxDensity * (1.08 + letterIdx * 0.45 + (isBase ? 0.20 : 0));
+        const modeColor = MODE_FILL_COLORS[letterIdx % MODE_FILL_COLORS.length];
+        const letter = modeInfo.letters[peakIdx];
+        const frac = modeInfo.fracs[peakIdx];
+        const valueStr = (loc / scale).toFixed(decimals);
+        const fracPct = Math.round(frac * 100);
+        const labelText = `${seriesName} ${letter}: ${valueStr} ${displayUnit} (${fracPct}%)`;
+
+        // Horizontal span showing the mode's x-extent (unlabeled — the
+        // combined label lives on the vertical tick below).
         (modeOverlays as unknown[]).push({
           name: seriesName,
           type: 'line',
           xAxisIndex: 0,
           yAxisIndex: 0,
           data: [],
+          z: 3,
           markLine: {
             silent: true,
             symbol: 'none',
-            data: [{ xAxis: loc }],
-            lineStyle: { color, type: 'solid', width: 1.5 },
+            data: [
+              [{ coord: [regionStart, spanY] }, { coord: [regionEnd, spanY] }],
+            ],
+            lineStyle: {
+              color: modeColor,
+              type: isBase ? 'solid' : 'dashed',
+              width: isBase ? 2 : 1.5,
+              opacity: isBase ? 1 : 0.6,
+            },
+            label: { show: false },
+          },
+        });
+
+        // Vertical tick at the peak position, carrying the single combined
+        // label (series, letter, value, fraction) above its top.
+        const tickTopY = spanY + maxDensity * 0.001;
+        const labelFontSize = 11;
+        // Both bold — thin (normal-weight) text at 11px reads poorly even
+        // with good color contrast. Base and New are told apart by color
+        // (New is a darkened variant of the letter color), not weight.
+        const labelFontWeight = 'bold';
+        const labelColor = isBase ? modeColor : darkenHex(modeColor, 0.6);
+        const labelWidthPx = measureTextWidth(
+          labelText,
+          labelFontSize,
+          labelFontWeight,
+        );
+        const counterpartLoc = isBase
+          ? newLocByLetter.get(letter)
+          : baseLocByLetter.get(letter);
+        const anchorX = counterpartLoc !== undefined
+          ? Math.min(loc, counterpartLoc)
+          : loc;
+        const anchorPxFromLeft = (anchorX - min) * pxPerUnit;
+        const wouldCrossLeft =
+          anchorPxFromLeft - LABEL_GAP_PX - labelWidthPx < 0;
+        const deltaPx = (anchorX - loc) * pxPerUnit;
+        const labelAlign: 'left' | 'right' = wouldCrossLeft ? 'left' : 'right';
+        const labelOffset: [number, number] = wouldCrossLeft
+          ? [LABEL_GAP_PX, 4]
+          : [deltaPx - LABEL_GAP_PX, 4];
+        (modeOverlays as unknown[]).push({
+          name: seriesName,
+          type: 'line',
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: [],
+          z: 2,
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            data: [[{ coord: [loc, 0] }, { coord: [loc, tickTopY] }]],
+            lineStyle: {
+              color: modeColor,
+              type: isBase ? 'solid' : 'dashed',
+              width: 1,
+              opacity: 0.5,
+            },
             label: {
-              formatter:
-                `${seriesName} ${modes.letters[peakIdx]}: ` +
-                `${tickFormatter(loc)} (${Math.round(modes.fracs[peakIdx] * 100)}%)`,
-              distance: [0, level * 16],
-              color,
-              fontSize: 12,
+              show: true,
+              position: 'end',
+              align: labelAlign,
+              offset: labelOffset,
+              formatter: labelText,
+              color: labelColor,
+              opacity: 1,
+              fontSize: labelFontSize,
+              fontWeight: labelFontWeight,
+              backgroundColor: 'rgba(255,255,255,0.85)',
+              padding: [1, 3],
+              borderRadius: 2,
             },
           },
         });
       });
     }
+
     if (showModes) {
-      pushOverlays(0, 'Base', baseModes, Colors.ChartBase);
-      pushOverlays(1, 'New', newModes, Colors.ChartNew);
+      const xStart = analysis.sharedX[0] ?? min;
+      const xEnd = analysis.sharedX[analysis.sharedX.length - 1] ?? max;
+      pushModeOverlays('Base', baseModes, baseValues, xStart, xEnd);
+      pushModeOverlays('New', newModes, newValues, xStart, xEnd);
+
+      // Shift arrows: for each matched mode letter present in both series,
+      // draw a horizontal arrow from the Base peak to the New peak.
+      // Green = value decreased (good for lower-is-better), red = increased.
+      const basePeakByLetter = new Map(
+        baseModes.peakLocs.map((loc, i) => [baseModes.letters[i], loc]),
+      );
+      const newPeakByLetter = new Map(
+        newModes.peakLocs.map((loc, i) => [newModes.letters[i], loc]),
+      );
+      for (const [letter, baseLoc] of basePeakByLetter) {
+        const newLoc = newPeakByLetter.get(letter);
+        if (newLoc === undefined || newLoc === baseLoc) continue;
+        // Skip shifts smaller than the KDE bandwidth — below that scale the
+        // two peaks aren't distinguishable from smoothing noise, so drawing
+        // an arrow would overstate a difference that isn't significant.
+        if (sharedBw && Math.abs(newLoc - baseLoc) < sharedBw) continue;
+        const letterIdx = letter.charCodeAt(0) - 65;
+        // Place arrow between the New span row and the Base span row.
+        const arrowY = maxDensity * (1.08 + letterIdx * 0.45 + 0.10);
+        const arrowColor = newLoc < baseLoc ? '#1E8A4A' : '#C0392B';
+        (modeOverlays as unknown[]).push({
+          name: 'Base',
+          type: 'line',
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: [],
+          z: 4,
+          markLine: {
+            silent: true,
+            symbol: ['none', 'arrow'],
+            symbolSize: 8,
+            data: [[{ coord: [baseLoc, arrowY] }, { coord: [newLoc, arrowY] }]],
+            lineStyle: { color: arrowColor, width: 1.5 },
+            label: { show: false },
+          },
+        });
+      }
     }
 
     return {
@@ -545,10 +701,16 @@ function CommonGraph({
           gridIndex: 0,
           type: 'value',
           min: 0,
+          max: kdeYAxisMax,
           splitLine: { show: true, lineStyle: { color: '#eee' } },
           axisLine: { show: true, lineStyle: { color: '#999' } },
           axisTick: { show: false },
-          axisLabel: { show: true, color: textColor, fontSize: 12 },
+          axisLabel: {
+            show: true,
+            color: textColor,
+            fontSize: 12,
+            formatter: (v: number) => (v === 0 ? '0' : v.toPrecision(2)),
+          },
         },
         {
           gridIndex: 1,
@@ -629,7 +791,7 @@ function CommonGraph({
         data: ['Base', 'New'],
         // Sit below the centered x-axis unit label, between the KDE grid and
         // the scatter strip, with a small gap above and below.
-        top: 232,
+        top: LEGEND_TOP,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
@@ -641,7 +803,8 @@ function CommonGraph({
           triggerLineEvent: true,
           xAxisIndex: 0,
           yAxisIndex: 0,
-          data: baseRunsDensity,
+          z: 2,
+          data: scaledBaseRunsDensity,
           showSymbol: false,
           lineStyle: { width: 3, color: Colors.ChartBase },
           itemStyle: { color: Colors.ChartBase },
@@ -653,39 +816,12 @@ function CommonGraph({
           triggerLineEvent: true,
           xAxisIndex: 0,
           yAxisIndex: 0,
-          data: newRunsDensity,
+          z: 2,
+          data: scaledNewRunsDensity,
           showSymbol: false,
           lineStyle: { width: 3, color: Colors.ChartNew },
           itemStyle: { color: Colors.ChartNew },
           emphasis: { focus: 'none' },
-        },
-        // Fitted Gaussian-mixture densities (dashed), drawn over the KDE so the
-        // detected modes line up with a visible bump — including diffuse slow
-        // components that the KDE alone renders as a near-flat tail. They share
-        // the 'Base'/'New' names so the legend toggle hides them with the KDE.
-        {
-          name: 'Base',
-          type: 'line',
-          xAxisIndex: 0,
-          yAxisIndex: 0,
-          data: showModes ? baseGmmDensity : [],
-          showSymbol: false,
-          lineStyle: { width: 1.5, type: 'dashed', color: Colors.ChartBase },
-          itemStyle: { color: Colors.ChartBase },
-          emphasis: { focus: 'none' },
-          silent: true,
-        },
-        {
-          name: 'New',
-          type: 'line',
-          xAxisIndex: 0,
-          yAxisIndex: 0,
-          data: showModes ? newGmmDensity : [],
-          showSymbol: false,
-          lineStyle: { width: 1.5, type: 'dashed', color: Colors.ChartNew },
-          itemStyle: { color: Colors.ChartNew },
-          emphasis: { focus: 'none' },
-          silent: true,
         },
         {
           name: 'Base',
@@ -859,7 +995,7 @@ function CommonGraph({
           ref={chartContainerRef}
           style={{
             width: '100%',
-            height: CHART_HEIGHT_BASE + modes.maxLevel * LABEL_ROW_PX,
+            height: CHART_HEIGHT_BASE,
           }}
         />
       </Box>
@@ -880,6 +1016,7 @@ function CommonGraph({
           />
         </Box>
       )}
+
     </>
   );
 }
