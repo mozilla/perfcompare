@@ -54,6 +54,18 @@ export default function SearchInputAndResults({
     null as null | Changeset[],
   );
   const [searchError, setSearchError] = useState(null as null | string);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const displayedRevisionsRef = useRef(displayedRevisions);
+  const onSearchResultsToggleRef = useRef(onSearchResultsToggle);
+
+  useEffect(() => {
+    displayedRevisionsRef.current = displayedRevisions;
+  }, [displayedRevisions]);
+
+  useEffect(() => {
+    onSearchResultsToggleRef.current = onSearchResultsToggle;
+  }, [onSearchResultsToggle]);
 
   // The last used searchTerm is kept in a ref, so that it's possible to use it
   // in an effect when the repository prop changes. It's not stored in a state
@@ -199,6 +211,47 @@ export default function SearchInputAndResults({
         // Let's ignore the result then.
         if (results.length) {
           setRecentRevisions(results);
+
+          const isFullHash = searchTerm.length === 40;
+          const isPartialHash =
+            searchTerm.length >= 4 && /^[0-9a-fA-F]+$/.test(searchTerm);
+
+          if (
+            results.length === 1 &&
+            (isPartialHash || isFullHash) &&
+            !urlParams.has('newRev')
+          ) {
+            const result = results[0];
+            const isAlreadySelected = displayedRevisionsRef.current.some(
+              (rev) => rev.id === result.id,
+            );
+            if (!isAlreadySelected) {
+              onSearchResultsToggleRef.current(result);
+            }
+            if (isFullHash) {
+              setIsDropdownOpen(true);
+            }
+          } else if (
+            results.length > 1 &&
+            (isPartialHash || isFullHash) &&
+            !urlParams.has('newRev')
+          ) {
+            // Check if there's an exact match in results
+            const exactMatch = results.find(
+              (rev) => rev.revision === searchTerm,
+            );
+            if (exactMatch) {
+              const isAlreadySelected = displayedRevisionsRef.current.some(
+                (rev) => rev.id === exactMatch.id,
+              );
+              if (!isAlreadySelected) {
+                onSearchResultsToggleRef.current(exactMatch);
+              }
+              if (isFullHash) {
+                setIsDropdownOpen(true);
+              }
+            }
+          }
         } else {
           setSearchError('No results found');
           setRecentRevisions(null);
@@ -237,6 +290,15 @@ export default function SearchInputAndResults({
     void searchRecentRevisions(lastSearchTermRef.current);
   }, [repository]);
 
+  const prevDisplayedRevisionsCount = useRef(displayedRevisions.length);
+
+  useEffect(() => {
+    if (displayedRevisions.length < prevDisplayedRevisionsCount.current) {
+      setIsDropdownOpen(true);
+    }
+    prevDisplayedRevisionsCount.current = displayedRevisions.length;
+  }, [displayedRevisions]);
+
   const renderInput = (params: AutocompleteRenderInputParams) => (
     <RevisionAutocompleteInput
       params={params}
@@ -271,12 +333,20 @@ export default function SearchInputAndResults({
         multiple={listItemComponent !== 'radio'}
         disableCloseOnSelect={listItemComponent !== 'radio'}
         filterOptions={(options) => options}
-        onInputChange={(_, value) => onValueChange(value)}
+        onInputChange={(_, value) => {
+          onValueChange(value);
+          if (value === '') {
+            setIsDropdownOpen(false);
+          }
+        }}
         onChange={(_, value, _reason, details) => {
           if (details?.option) {
             onSearchResultsToggle(details.option);
           }
         }}
+        open={isDropdownOpen}
+        onOpen={() => setIsDropdownOpen(true)}
+        onClose={() => setIsDropdownOpen(false)}
         renderInput={renderInput}
         renderOption={renderOption}
         loading={recentRevisions?.length === 0}
