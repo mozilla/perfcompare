@@ -986,7 +986,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -1022,13 +1022,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-expanded="false"
+                    aria-controls="_r_4j_-listbox"
+                    aria-expanded="true"
                     aria-invalid="false"
                     aria-label="Search by revision ID or author email"
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4c_"
+                    id="_r_4j_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1039,10 +1040,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
                   >
                     <button
-                      aria-label="Open"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator MuiAutocomplete-popupIndicatorOpen css-3b6e3u-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
                       tabindex="-1"
-                      title="Open"
+                      title="Close"
                       type="button"
                     >
                       <svg
@@ -1333,7 +1334,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
+            class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -1369,13 +1370,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-expanded="false"
+                    aria-controls="_r_4s_-listbox"
+                    aria-expanded="true"
                     aria-invalid="false"
                     aria-label="Search by revision ID or author email"
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4l_"
+                    id="_r_4s_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1386,10 +1388,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
                   >
                     <button
-                      aria-label="Open"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator MuiAutocomplete-popupIndicatorOpen css-3b6e3u-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
                       tabindex="-1"
-                      title="Open"
+                      title="Close"
                       type="button"
                     >
                       <svg
@@ -1626,7 +1628,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4c_"
+                    id="_r_4j_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1973,7 +1975,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4l_"
+                    id="_r_4s_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2388,7 +2390,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4c_"
+                    id="_r_4j_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2735,7 +2737,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4l_"
+                    id="_r_4s_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3112,7 +3114,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -3148,13 +3150,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-expanded="false"
+                    aria-controls="_r_4j_-listbox"
+                    aria-expanded="true"
                     aria-invalid="false"
                     aria-label="Search by revision ID or author email"
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4c_"
+                    id="_r_4j_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3165,10 +3168,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
                   >
                     <button
-                      aria-label="Open"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator MuiAutocomplete-popupIndicatorOpen css-3b6e3u-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
                       tabindex="-1"
-                      title="Open"
+                      title="Close"
                       type="button"
                     >
                       <svg
@@ -3341,7 +3344,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4l_"
+                    id="_r_4s_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3750,7 +3753,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
+            class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasPopupIcon css-1tlcqt-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -3786,13 +3789,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-expanded="false"
+                    aria-controls="_r_4j_-listbox"
+                    aria-expanded="true"
                     aria-invalid="false"
                     aria-label="Search by revision ID or author email"
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4c_"
+                    id="_r_4j_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3803,10 +3807,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
                   >
                     <button
-                      aria-label="Open"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator MuiAutocomplete-popupIndicatorOpen css-3b6e3u-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
                       tabindex="-1"
-                      title="Open"
+                      title="Close"
                       type="button"
                     >
                       <svg
@@ -4097,7 +4101,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
+            class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -4133,13 +4137,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-expanded="false"
+                    aria-controls="_r_4s_-listbox"
+                    aria-expanded="true"
                     aria-invalid="false"
                     aria-label="Search by revision ID or author email"
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4l_"
+                    id="_r_4s_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4150,10 +4155,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
                   >
                     <button
-                      aria-label="Open"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator MuiAutocomplete-popupIndicatorOpen css-3b6e3u-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
                       tabindex="-1"
-                      title="Open"
+                      title="Close"
                       type="button"
                     >
                       <svg
@@ -4730,7 +4735,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
+                          class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
                           data-testid="autocomplete"
                         >
                           <div
@@ -4766,7 +4771,8 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                 </div>
                                 <input
                                   aria-autocomplete="list"
-                                  aria-expanded="false"
+                                  aria-controls="_r_3c_-listbox"
+                                  aria-expanded="true"
                                   aria-invalid="false"
                                   aria-label="Search by revision ID or author email"
                                   autocapitalize="none"
@@ -4783,10 +4789,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                   class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
                                 >
                                   <button
-                                    aria-label="Open"
-                                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                                    aria-label="Close"
+                                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator MuiAutocomplete-popupIndicatorOpen css-3b6e3u-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
                                     tabindex="-1"
-                                    title="Open"
+                                    title="Close"
                                     type="button"
                                   >
                                     <svg
@@ -5389,13 +5395,721 @@ exports[`Compare With Base should remove the checked revision once X button is c
       </section>
     </div>
   </div>
+  <div
+    class="MuiPopper-root MuiAutocomplete-popper css-2xrgrn-MuiPopper-root-MuiAutocomplete-popper"
+    data-popper-escaped=""
+    data-popper-placement="bottom"
+    data-popper-reference-hidden=""
+    role="presentation"
+    style="position: absolute; top: 0px; left: 0px; width: 0px; margin: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAutocomplete-paper css-h921y1-MuiPaper-root-MuiAutocomplete-paper"
+      style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+    >
+      <ul
+        aria-labelledby="_r_3c_-label"
+        aria-multiselectable="true"
+        class="MuiAutocomplete-listbox f8k10hi results-list-light css-hcvz0e-MuiAutocomplete-listbox"
+        id="_r_3c_-listbox"
+        role="listbox"
+      >
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="f1sxt1ji search-revision-item search-revision "
+          data-option-index="0"
+          data-testid="autocomplete-option"
+          id="_r_3c_-option-0"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="search-revision-item-icon search-revision MuiBox-root css-0"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium search-revision-item-checkbox css-zbfn9w-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              data-testid="checkbox-0"
+              role="button"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="search-revision-item-text MuiBox-root css-0"
+          >
+            <div
+              class="MuiListItemText-primary MuiBox-root css-0"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+              >
+                coconut
+              </span>
+              <div
+                class="info-caption"
+              >
+                <div
+                  class="info-caption-item item-author"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="MailOutlineOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+                    />
+                  </svg>
+                  johncleese@python.com
+                </div>
+                <div
+                  class="info-caption-item item-time"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="AccessTimeOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  <div
+                    aria-label="Mar 29, 51, 00:00 UTC"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                  >
+                    Mar 29, 51, 00:00 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+            >
+              you've got no arms left!
+            </span>
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="f1sxt1ji search-revision-item search-revision "
+          data-option-index="1"
+          data-testid="autocomplete-option"
+          id="_r_3c_-option-1"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="search-revision-item-icon search-revision MuiBox-root css-0"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium search-revision-item-checkbox css-zbfn9w-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              data-testid="checkbox-1"
+              role="button"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="search-revision-item-text MuiBox-root css-0"
+          >
+            <div
+              class="MuiListItemText-primary MuiBox-root css-0"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+              >
+                spam
+              </span>
+              <div
+                class="info-caption"
+              >
+                <div
+                  class="info-caption-item item-author"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="MailOutlineOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+                    />
+                  </svg>
+                  ericidle@python.com
+                </div>
+                <div
+                  class="info-caption-item item-time"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="AccessTimeOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  <div
+                    aria-label="Feb 22, 58, 00:00 UTC"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                  >
+                    Feb 22, 58, 00:00 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+            >
+              it's just a flesh wound
+            </span>
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="f1sxt1ji search-revision-item search-revision "
+          data-option-index="2"
+          data-testid="autocomplete-option"
+          id="_r_3c_-option-2"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="search-revision-item-icon search-revision MuiBox-root css-0"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium search-revision-item-checkbox css-zbfn9w-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              data-testid="checkbox-2"
+              role="button"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="search-revision-item-text MuiBox-root css-0"
+          >
+            <div
+              class="MuiListItemText-primary MuiBox-root css-0"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+              >
+                spamspam
+              </span>
+              <div
+                class="info-caption"
+              >
+                <div
+                  class="info-caption-item item-author"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="MailOutlineOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+                    />
+                  </svg>
+                  terrygilliam@python.com
+                </div>
+                <div
+                  class="info-caption-item item-time"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="AccessTimeOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  <div
+                    aria-label="Jul 29, 87, 00:00 UTC"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                  >
+                    Jul 29, 87, 00:00 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+            >
+              What, ridden on a horse?
+            </span>
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="f1sxt1ji search-revision-item search-revision "
+          data-option-index="3"
+          data-testid="autocomplete-option"
+          id="_r_3c_-option-3"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="search-revision-item-icon search-revision MuiBox-root css-0"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium search-revision-item-checkbox css-zbfn9w-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              data-testid="checkbox-3"
+              role="button"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="search-revision-item-text MuiBox-root css-0"
+          >
+            <div
+              class="MuiListItemText-primary MuiBox-root css-0"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+              >
+                spamspamspam
+              </span>
+              <div
+                class="info-caption"
+              >
+                <div
+                  class="info-caption-item item-author"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="MailOutlineOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+                    />
+                  </svg>
+                  michaelpalin@python.com
+                </div>
+                <div
+                  class="info-caption-item item-time"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="AccessTimeOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  <div
+                    aria-label="Jul 4, 20, 00:00 UTC"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                  >
+                    Jul 4, 20, 00:00 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+            >
+              You've got two empty 'alves of coconuts and you're bangin' 'em togetha!
+            </span>
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="f1sxt1ji search-revision-item search-revision "
+          data-option-index="4"
+          data-testid="autocomplete-option"
+          id="_r_3c_-option-4"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="search-revision-item-icon search-revision MuiBox-root css-0"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium search-revision-item-checkbox css-zbfn9w-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              data-testid="checkbox-4"
+              role="button"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="search-revision-item-text MuiBox-root css-0"
+          >
+            <div
+              class="MuiListItemText-primary MuiBox-root css-0"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+              >
+                spamspamspam
+              </span>
+              <div
+                class="info-caption"
+              >
+                <div
+                  class="info-caption-item item-author"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="MailOutlineOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+                    />
+                  </svg>
+                  grahamchapman@python.com
+                </div>
+                <div
+                  class="info-caption-item item-time"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="AccessTimeOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  <div
+                    aria-label="Apr 13, 22, 00:00 UTC"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                  >
+                    Apr 13, 22, 00:00 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+            >
+              She turned me into a newt!
+            </span>
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="f1sxt1ji search-revision-item search-revision "
+          data-option-index="5"
+          data-testid="autocomplete-option"
+          id="_r_3c_-option-5"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="search-revision-item-icon search-revision MuiBox-root css-0"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium search-revision-item-checkbox css-zbfn9w-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              data-testid="checkbox-5"
+              role="button"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="search-revision-item-text MuiBox-root css-0"
+          >
+            <div
+              class="MuiListItemText-primary MuiBox-root css-0"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+              >
+                ed24spamspam
+              </span>
+              <div
+                class="info-caption"
+              >
+                <div
+                  class="info-caption-item item-author"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="MailOutlineOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+                    />
+                  </svg>
+                  nathanniy@python.com
+                </div>
+                <div
+                  class="info-caption-item item-time"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="AccessTimeOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  <div
+                    aria-label="Apr 13, 22, 00:03 UTC"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                  >
+                    Apr 13, 22, 00:03 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+            >
+              Bug 123456 Fuzzy She turned me into a newt!
+            </span>
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="f1sxt1ji search-revision-item search-revision "
+          data-option-index="6"
+          data-testid="autocomplete-option"
+          id="_r_3c_-option-6"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="search-revision-item-icon search-revision MuiBox-root css-0"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium search-revision-item-checkbox css-zbfn9w-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+              data-testid="checkbox-6"
+              role="button"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                tabindex="-1"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="search-revision-item-text MuiBox-root css-0"
+          >
+            <div
+              class="MuiListItemText-primary MuiBox-root css-0"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body2 revision-hash css-33m884-MuiTypography-root"
+              >
+                spamspamspam
+              </span>
+              <div
+                class="info-caption"
+              >
+                <div
+                  class="info-caption-item item-author"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="MailOutlineOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"
+                    />
+                  </svg>
+                  grahamchapman@python.com
+                </div>
+                <div
+                  class="info-caption-item item-time"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-54rgmy-MuiSvgIcon-root"
+                    data-testid="AccessTimeOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  <div
+                    aria-label="Apr 13, 22, 00:00 UTC"
+                    class=""
+                    data-mui-internal-clone-element="true"
+                  >
+                    Apr 13, 22, 00:00 UTC
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="MuiTypography-root MuiTypography-body2 commit-message css-amtqhg-MuiTypography-root"
+            >
+              Commit message with no newline at the end
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </body>
 `;
 
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="_r_6n_"
+  id="_r_7c_"
   role="listbox"
   tabindex="-1"
 >
