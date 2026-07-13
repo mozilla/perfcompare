@@ -54,6 +54,10 @@ const SCATTER_TOP_BASE = 250;
 const SCATTER_HEIGHT = 50;
 const CHART_HEIGHT_BASE = 340;
 
+// Axis/grid line greys, shared across both grids and the tooltip crosshair.
+const AXIS_LINE_COLOR = '#999';
+const SPLIT_LINE_COLOR = '#eee';
+
 // Valley-depth threshold bounds for the mode-detection slider.
 const VT_MIN = 0.1;
 const VT_MAX = 0.99;
@@ -131,9 +135,9 @@ function CommonGraph({
   const chartInstanceRef = useRef<ECharts | null>(null);
   // ECharts renders into its own DOM/canvas and reads its colors from the
   // option object — it doesn't inherit from MUI's ThemeProvider or CSS vars.
-  // So we pull the current mode from the Redux theme slice and pass concrete
-  // hex values into the chart option below.
   const themeMode = useAppSelector((state) => state.theme.mode);
+  const textColor =
+    themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
 
   // Local mirror of vt that drives the slider thumb + percentage during drag.
   // We only push the value up to the parent (via onVtChange) when the user
@@ -272,8 +276,6 @@ function CommonGraph({
   }, [analysis, localVt]);
 
   const option: EChartsOption = useMemo(() => {
-    const textColor =
-      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
     const {
       baseRunsDensity,
       newRunsDensity,
@@ -365,8 +367,8 @@ function CommonGraph({
           nameGap: 30,
           nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: textColor },
           axisLabel: { formatter: tickFormatter, color: textColor },
-          splitLine: { show: true, lineStyle: { color: '#eee' } },
-          axisLine: { show: true, lineStyle: { color: '#999' } },
+          splitLine: { show: true, lineStyle: { color: SPLIT_LINE_COLOR } },
+          axisLine: { show: true, lineStyle: { color: AXIS_LINE_COLOR } },
         },
         {
           gridIndex: 1,
@@ -375,7 +377,7 @@ function CommonGraph({
           max,
           axisLabel: { show: false },
           splitLine: { show: false },
-          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisLine: { show: true, lineStyle: { color: AXIS_LINE_COLOR } },
           axisTick: { show: false },
         },
       ],
@@ -384,8 +386,8 @@ function CommonGraph({
           gridIndex: 0,
           type: 'value',
           min: 0,
-          splitLine: { show: true, lineStyle: { color: '#eee' } },
-          axisLine: { show: true, lineStyle: { color: '#999' } },
+          splitLine: { show: true, lineStyle: { color: SPLIT_LINE_COLOR } },
+          axisLine: { show: true, lineStyle: { color: AXIS_LINE_COLOR } },
           axisTick: { show: false },
           axisLabel: { show: true, color: textColor, fontSize: 12 },
         },
@@ -396,7 +398,7 @@ function CommonGraph({
           max: 1.5,
           interval: 1,
           axisTick: { show: false },
-          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisLine: { show: true, lineStyle: { color: AXIS_LINE_COLOR } },
           axisLabel: {
             color: textColor,
             fontSize: 12,
@@ -430,7 +432,11 @@ function CommonGraph({
       ],
       tooltip: {
         trigger: 'axis',
-        axisPointer: { type: 'line', snap: true, lineStyle: { color: '#999' } },
+        axisPointer: {
+          type: 'line',
+          snap: true,
+          lineStyle: { color: AXIS_LINE_COLOR },
+        },
         padding: 10,
         formatter: (params) => {
           const items = Array.isArray(params) ? params : [params];
@@ -466,12 +472,11 @@ function CommonGraph({
       },
       legend: {
         data: ['Base', 'New'],
-        // Sit below the centered x-axis unit label, between the KDE grid and
-        // the scatter strip, with a small gap above and below.
-        top: 232,
+        top: 240,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
+        textStyle: { color: textColor },
       },
       series: [
         {
@@ -506,7 +511,7 @@ function CommonGraph({
           data: baseScatterData,
           symbol: 'triangle',
           symbolSize,
-          itemStyle: { color: Colors.ChartBase, opacity: 0.6 },
+          itemStyle: { color: Colors.ChartBase },
           emphasis: { focus: 'none' },
           // Horizontal baseline through the Base row (y = 1) for a visual anchor.
           markLine: {
@@ -524,7 +529,6 @@ function CommonGraph({
               color: Colors.ChartBase,
               type: 'solid',
               width: 1,
-              opacity: 0.5,
             },
           },
         },
@@ -536,7 +540,7 @@ function CommonGraph({
           data: newScatterData,
           symbol: 'triangle',
           symbolSize,
-          itemStyle: { color: Colors.ChartNew, opacity: 0.6 },
+          itemStyle: { color: Colors.ChartNew },
           emphasis: { focus: 'none' },
           // Horizontal baseline through the New row (y = 0) for a visual anchor.
           markLine: {
@@ -554,7 +558,6 @@ function CommonGraph({
               color: Colors.ChartNew,
               type: 'solid',
               width: 1,
-              opacity: 0.5,
             },
           },
         },
@@ -601,7 +604,7 @@ function CommonGraph({
         <Typography
           variant='body2'
           sx={{
-            color: '#000',
+            color: 'text.primary',
             whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',
@@ -614,7 +617,10 @@ function CommonGraph({
           >
             <InfoIcon
               fontSize='small'
-              sx={{ color: '#000', cursor: 'help', mx: 0.5 }}
+              sx={{
+                cursor: 'help',
+                mx: 0.5,
+              }}
             />
           </Tooltip>
           :
@@ -641,7 +647,11 @@ function CommonGraph({
         />
         <Typography
           variant='body2'
-          sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
+          sx={{
+            color: 'text.secondary',
+            minWidth: 36,
+            textAlign: 'right',
+          }}
         >
           {Math.round(localVt * 100)}%
         </Typography>
