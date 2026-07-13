@@ -40,7 +40,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               <svg
                 aria-hidden="true"
                 aria-label="A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected."
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-19ly8km-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1qpfuiz-MuiSvgIcon-root"
                 data-mui-internal-clone-element="true"
                 data-testid="InfoOutlinedIcon"
                 focusable="false"
@@ -585,7 +585,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               <svg
                 aria-hidden="true"
                 aria-label="A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected."
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-19ly8km-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1qpfuiz-MuiSvgIcon-root"
                 data-mui-internal-clone-element="true"
                 data-testid="InfoOutlinedIcon"
                 focusable="false"
