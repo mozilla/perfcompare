@@ -216,11 +216,7 @@ export default function SearchInputAndResults({
           const isPartialHash =
             searchTerm.length >= 4 && /^[0-9a-fA-F]+$/.test(searchTerm);
 
-          if (
-            results.length === 1 &&
-            (isPartialHash || isFullHash) &&
-            !urlParams.has('newRev')
-          ) {
+          if (results.length === 1 && (isPartialHash || isFullHash)) {
             const result = results[0];
             const isAlreadySelected = displayedRevisionsRef.current.some(
               (rev) => rev.id === result.id,
@@ -231,11 +227,7 @@ export default function SearchInputAndResults({
             if (isFullHash) {
               setIsDropdownOpen(true);
             }
-          } else if (
-            results.length > 1 &&
-            (isPartialHash || isFullHash) &&
-            !urlParams.has('newRev')
-          ) {
+          } else if (results.length > 1 && (isPartialHash || isFullHash)) {
             // Check if there's an exact match in results
             const exactMatch = results.find(
               (rev) => rev.revision === searchTerm,
@@ -289,15 +281,6 @@ export default function SearchInputAndResults({
   useEffect(() => {
     void searchRecentRevisions(lastSearchTermRef.current);
   }, [repository]);
-
-  const prevDisplayedRevisionsCount = useRef(displayedRevisions.length);
-
-  useEffect(() => {
-    if (displayedRevisions.length < prevDisplayedRevisionsCount.current) {
-      setIsDropdownOpen(true);
-    }
-    prevDisplayedRevisionsCount.current = displayedRevisions.length;
-  }, [displayedRevisions]);
 
   const renderInput = (params: AutocompleteRenderInputParams) => (
     <RevisionAutocompleteInput

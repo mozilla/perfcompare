@@ -1221,7 +1221,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_d8_"
+                    id="_r_d1_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2011,7 +2011,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-o5oj2-MuiAutocomplete-root"
             data-testid="autocomplete"
           >
             <div
@@ -2047,8 +2047,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="_r_7q_-listbox"
-                    aria-expanded="true"
+                    aria-expanded="false"
                     aria-invalid="false"
                     aria-label="Search by revision ID or author email"
                     autocapitalize="none"
@@ -2065,10 +2064,10 @@ exports[`Compare Over Time should remove the checked revision once X button is c
                     class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
                   >
                     <button
-                      aria-label="Close"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator MuiAutocomplete-popupIndicatorOpen css-3b6e3u-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                      aria-label="Open"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-13weez0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
                       tabindex="-1"
-                      title="Close"
+                      title="Open"
                       type="button"
                     >
                       <svg
@@ -2994,7 +2993,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_eh_"
+                    id="_r_ea_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"

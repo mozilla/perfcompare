@@ -99,46 +99,4 @@ describe('Hash Auto-selection', () => {
     expect(options).toHaveLength(1);
     expect(options[0]).toHaveTextContent(fullHash.slice(0, 12));
   });
-
-  it('opens dropdown when a selected revision is removed', async () => {
-    expect.hasAssertions();
-    const mockHash = 'abcdef123456';
-    const mockResult = {
-      id: 3,
-      revision: mockHash,
-      author: 'Test Author',
-      desc: 'Test Description',
-      push_timestamp: 1715694240,
-      repository: 'try',
-      repository_id: 4,
-      revisions: [
-        {
-          comments: 'Test Comments',
-        },
-      ],
-    };
-
-    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
-      results: [mockResult],
-    });
-
-    const user = userEvent.setup({ delay: null });
-    await renderSearchViewComponent();
-
-    const placeholder =
-      Strings.components.searchDefault.base.collapsed.base.inputPlaceholder;
-    const searchInputs = screen.getAllByPlaceholderText(placeholder);
-    const searchInput = searchInputs[1];
-
-    await user.type(searchInput, mockHash);
-    await screen.findAllByText(mockHash.slice(0, 12));
-
-    // Let's remove the revision
-    const removeButton = screen.getByTestId('close-icon');
-    await user.click(removeButton);
-
-    // Verify dropdown is open
-    const options = await screen.findAllByTestId('autocomplete-option');
-    expect(options.length).toBeGreaterThan(0);
-  });
 });
