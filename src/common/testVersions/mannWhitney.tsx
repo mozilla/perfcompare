@@ -139,11 +139,11 @@ export function ensureModalityAnalysis(
 /**
  * Format the Mode Δ cell text:
  *   - cached number   → "X.XX %"
- *   - cached `null`   → "NM"  (modality pipeline ran, no usable pair)
+ *   - cached `null`   → "No modes"  (modality pipeline ran, no usable pair)
  *   - uncached        → "~X.XX %" using the backend's `delta_percentage`,
  *                       prefixed with `~` to signal "approximate, click
  *                       the column to compute the real Mode Δ"
- *   - no fallback     → "NM"
+ *   - no fallback     → "No modes"
  *
  * Cell renders run for EVERY row on every render. Triggering the modality
  * pipeline here would re-introduce the per-row load cost the lazy
@@ -153,13 +153,13 @@ export function ensureModalityAnalysis(
 function formatModeDelta(result: MannWhitneyResultsItem): string {
   const cached = result.modeDeltaPct;
   if (typeof cached === 'number') return `${cached.toFixed(2)} %`;
-  if (cached === null) return 'NM';
+  if (cached === null) return 'No modes';
   // Not yet computed — fall back to the backend's median diff percentage.
   const fallback = result.delta_percentage;
   if (typeof fallback === 'number' && Number.isFinite(fallback)) {
     return `~${fallback.toFixed(2)} %`;
   }
-  return 'NM';
+  return 'No modes';
 }
 
 export const mannWhitneyStrategy = {

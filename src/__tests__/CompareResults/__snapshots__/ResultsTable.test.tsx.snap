@@ -1390,7 +1390,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     role="columnheader"
                   >
                     <span
-                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "NM" (No Modes) means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "No modes" means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
@@ -4312,7 +4312,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     role="columnheader"
                   >
                     <span
-                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "NM" (No Modes) means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
+                      aria-label="Largest peak shift between the Base and New distributions, expressed as a percentage of the base peak location. Peaks are detected by KDE mode analysis and paired with the modality matcher; the matched pair with the largest absolute shift is shown. Positive values mean the new peak shifted higher. Values prefixed with "~" are the backend's median diff percentage shown as an approximation — click the column header to compute the real Mode Δ across all rows. "No modes" means the value could not be computed: too few runs (fewer than 2 per side), KDE could not find any peaks on one or both sides, or no base peak could be paired with a new peak (a path appeared or disappeared entirely)."
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
@@ -5972,26 +5972,26 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - macOS 10.15, NM, Improvement, 0.1, -, 25.00 %",
-  "  - Linux 18.04, NM, Regression, -, -, 45.00 %",
-  "  - Windows 10, NM, , -, , 50.00 %",
-  "  - Windows 10, NM, , -, , 100.00 %",
+  "  - macOS 10.15, No modes, Improvement, 0.1, -, 25.00 %",
+  "  - Linux 18.04, No modes, Regression, -, -, 45.00 %",
+  "  - Windows 10, No modes, , -, , 50.00 %",
+  "  - Windows 10, No modes, , -, , 100.00 %",
   "  rev: tictactoe",
-  "  - macOS 10.15, NM, Improvement, 0.9, -, 24.00 %",
-  "  - Linux 18.04, NM, Regression, 0.8, -, 44.00 %",
-  "  - Windows 10, NM, , 0.8, , 49.00 %",
-  "  - Windows 10, NM, , 0.8, , 99.00 %",
+  "  - macOS 10.15, No modes, Improvement, 0.9, -, 24.00 %",
+  "  - Linux 18.04, No modes, Regression, 0.8, -, 44.00 %",
+  "  - Windows 10, No modes, , 0.8, , 49.00 %",
+  "  - Windows 10, No modes, , 0.8, , 99.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - macOS 10.15, NM, Improvement, 1.3, -, 24.00 %",
-  "  - Linux 18.04, NM, Regression, 1.2, -, 44.00 %",
-  "  - Windows 10, NM, , 1.2, , 49.00 %",
-  "  - Windows 10, NM, , 1.2, , 99.00 %",
+  "  - macOS 10.15, No modes, Improvement, 1.3, -, 24.00 %",
+  "  - Linux 18.04, No modes, Regression, 1.2, -, 44.00 %",
+  "  - Windows 10, No modes, , 1.2, , 49.00 %",
+  "  - Windows 10, No modes, , 1.2, , 99.00 %",
   "  rev: tictactoe",
-  "  - macOS 10.15, NM, Improvement, 2.1, -, 23.00 %",
-  "  - Linux 18.04, NM, Regression, 2, -, 43.00 %",
-  "  - Windows 10, NM, , 2, , 48.00 %",
-  "  - Windows 10, NM, , 2, , 98.00 %",
+  "  - macOS 10.15, No modes, Improvement, 2.1, -, 23.00 %",
+  "  - Linux 18.04, No modes, Regression, 2, -, 43.00 %",
+  "  - Windows 10, No modes, , 2, , 48.00 %",
+  "  - Windows 10, No modes, , 2, , 98.00 %",
 ]
 `;
 
@@ -6055,26 +6055,26 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - macOS 10.15, NM, Improvement, 0.1, -, 25.00 %",
-  "  - Linux 18.04, NM, Regression, -, -, 45.00 %",
-  "  - Windows 10, NM, , -, , 50.00 %",
-  "  - Windows 10, NM, , -, , 100.00 %",
+  "  - macOS 10.15, No modes, Improvement, 0.1, -, 25.00 %",
+  "  - Linux 18.04, No modes, Regression, -, -, 45.00 %",
+  "  - Windows 10, No modes, , -, , 50.00 %",
+  "  - Windows 10, No modes, , -, , 100.00 %",
   "  rev: tictactoe",
-  "  - macOS 10.15, NM, Improvement, 0.9, -, 24.00 %",
-  "  - Linux 18.04, NM, Regression, 0.8, -, 44.00 %",
-  "  - Windows 10, NM, , 0.8, , 49.00 %",
-  "  - Windows 10, NM, , 0.8, , 99.00 %",
+  "  - macOS 10.15, No modes, Improvement, 0.9, -, 24.00 %",
+  "  - Linux 18.04, No modes, Regression, 0.8, -, 44.00 %",
+  "  - Windows 10, No modes, , 0.8, , 49.00 %",
+  "  - Windows 10, No modes, , 0.8, , 99.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - macOS 10.15, NM, Improvement, 1.3, -, 24.00 %",
-  "  - Linux 18.04, NM, Regression, 1.2, -, 44.00 %",
-  "  - Windows 10, NM, , 1.2, , 49.00 %",
-  "  - Windows 10, NM, , 1.2, , 99.00 %",
+  "  - macOS 10.15, No modes, Improvement, 1.3, -, 24.00 %",
+  "  - Linux 18.04, No modes, Regression, 1.2, -, 44.00 %",
+  "  - Windows 10, No modes, , 1.2, , 49.00 %",
+  "  - Windows 10, No modes, , 1.2, , 99.00 %",
   "  rev: tictactoe",
-  "  - macOS 10.15, NM, Improvement, 2.1, -, 23.00 %",
-  "  - Linux 18.04, NM, Regression, 2, -, 43.00 %",
-  "  - Windows 10, NM, , 2, , 48.00 %",
-  "  - Windows 10, NM, , 2, , 98.00 %",
+  "  - macOS 10.15, No modes, Improvement, 2.1, -, 23.00 %",
+  "  - Linux 18.04, No modes, Regression, 2, -, 43.00 %",
+  "  - Windows 10, No modes, , 2, , 48.00 %",
+  "  - Windows 10, No modes, , 2, , 98.00 %",
 ]
 `;
 
