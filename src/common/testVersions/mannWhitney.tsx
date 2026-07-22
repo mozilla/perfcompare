@@ -131,7 +131,7 @@ export function ensureModalityAnalysis(
       ? result.new_runs_replicates
       : (result.new_runs ?? []);
   const analysis = computeModalityAnalysis(baseValues, newValues, isSubtest);
-  result.modeDeltaPct = analysis.largestPeakShiftPct;
+  result.modeDeltaPct = analysis.dominantModeShiftPct;
   result.baseModeCount = analysis.baseModes.peakLocs.length;
   result.newModeCount = analysis.newModes.peakLocs.length;
 }
