@@ -1,6 +1,13 @@
 import { green, red } from '@mui/material/colors';
 
-import { Spacing, FontsRaw, FontSizeRaw, TooltipRaw, Select } from '../styles';
+import {
+  Spacing,
+  FontsRaw,
+  FontSizeRaw,
+  TooltipRaw,
+  Select,
+  Colors,
+} from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
 import linux from './img/linux.svg';
@@ -237,8 +244,12 @@ const components = {
   MuiTooltip: {
     styleOverrides: {
       tooltip: [
-        TooltipRaw.Light,
-        ({ theme }) => theme.applyStyles('dark', TooltipRaw.Dark),
+        { ...TooltipRaw.Light, '& a': { color: Colors.LinkText } },
+        ({ theme }) =>
+          theme.applyStyles('dark', {
+            ...TooltipRaw.Dark,
+            '& a': { color: Colors.LinkTextDark },
+          }),
       ],
     },
   },
