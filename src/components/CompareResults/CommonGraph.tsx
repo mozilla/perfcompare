@@ -13,13 +13,11 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { getDisplayScale } from '../../utils/format';
 import {
-  areaFracs,
-  assignLetters,
-  fftkde,
-  fitModesFromKde,
-  improvedSheatherJones,
-  silvermansRule,
-} from '../../utils/kde.js';
+  computeModeInfo,
+  KDE_GRID_POINTS,
+  safeKde,
+  type ModeInfo,
+} from '../../utils/kdeAnalysis';
 
 // This computes the min, max from a list of numbers.
 function computeStatisticsForRuns(data: number[]) {
@@ -49,11 +47,6 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-// Show the smoothing slider when the bandwidth exceeds half the data range —
-// at that point the KDE curve is genuinely flat and the user may want to dial
-// it down to see structure.
-const LARGE_BW_RATIO = 0.5;
-const KDE_GRID_POINTS = 1024;
 const LABEL_ROW_PX = 16; // vertical space per stagger level
 const KDE_TOP_BASE = 28;
 const KDE_HEIGHT = 155;
@@ -61,30 +54,14 @@ const SCATTER_TOP_BASE = 250;
 const SCATTER_HEIGHT = 50;
 const CHART_HEIGHT_BASE = 340;
 
+// Axis/grid line greys, shared across both grids and the tooltip crosshair.
+const AXIS_LINE_COLOR = '#999';
+const SPLIT_LINE_COLOR = '#eee';
+
 // Valley-depth threshold bounds for the mode-detection slider.
 const VT_MIN = 0.1;
 const VT_MAX = 0.99;
 const VT_STEP = 0.01;
-
-// Per-series mode summary, suitable both for chart overlays and the blurb.
-type ModeInfo = {
-  peakLocs: number[];
-  fracs: number[];
-  letters: string[];
-};
-
-function computeModeInfo(x: number[], y: number[], vt: number): ModeInfo {
-  if (!x.length || !y.length) {
-    return { peakLocs: [], fracs: [], letters: [] };
-  }
-  const { peakLocs, boundaries } = fitModesFromKde(x, y, vt);
-  if (!peakLocs.length) {
-    return { peakLocs: [], fracs: [], letters: [] };
-  }
-  const fracs = areaFracs(x, y, boundaries);
-  const letters = assignLetters(peakLocs);
-  return { peakLocs, fracs, letters };
-}
 
 // Stagger levels (0, 1, 2 …) for peak labels: peaks closer than ~13% of the
 // x-span get bumped to different levels so their labels don't overlap. Ported
@@ -110,51 +87,6 @@ function assignStaggerLevels(peaks: PeakRef[], xSpan: number): void {
     let level = 0;
     while (used.has(level)) level++;
     peaks[idx].level = level;
-  }
-}
-
-function quantileSorted(sorted: number[], q: number): number {
-  const pos = (sorted.length - 1) * q;
-  const base = Math.floor(pos);
-  const rest = pos - base;
-  if (sorted[base + 1] !== undefined) {
-    return sorted[base] + rest * (sorted[base + 1] - sorted[base]);
-  }
-  return sorted[base];
-}
-
-// Silverman-Jones bandwidth approximation — produces a wider (smoother) kernel
-// than ISJ, which works better for the small sample counts typical of top-level
-// aggregated results.
-function approximateSJBandwidth(sorted: number[]): number {
-  const n = sorted.length;
-  if (n < 2) return sorted[0] * 0.0015;
-  const q25 = quantileSorted(sorted, 0.25);
-  const q75 = quantileSorted(sorted, 0.75);
-  const iqr = q75 - q25;
-  const mean = sorted.reduce((a, b) => a + b, 0) / n;
-  const std = Math.sqrt(
-    sorted.reduce((sum, x) => sum + Math.pow(x - mean, 2), 0) / n,
-  );
-  const sigma = Math.min(std, iqr / 1.34);
-  if (sigma <= 0) return Math.abs(mean) * 0.001 || 1;
-  return 0.9 * sigma * Math.pow(n, -1 / 5);
-}
-
-// ISJ bandwidth selection can fail to converge on tiny or degenerate samples
-// (few unique values, near-identical numbers). Fall back to Silverman's rule
-// in that case — coarser, but it never fails.
-// When bw is provided it is passed straight through to fftkde.
-function safeKde(values: number[], bw?: number) {
-  if (values.length < 2) return null;
-  try {
-    return fftkde(values, bw ?? 'ISJ', undefined, KDE_GRID_POINTS);
-  } catch {
-    try {
-      return fftkde(values, 'silverman', undefined, KDE_GRID_POINTS);
-    } catch {
-      return null;
-    }
   }
 }
 
@@ -190,7 +122,10 @@ function CommonGraph({
   baseValues,
   newValues,
   unit,
-  isSubtest,
+  sharedBw,
+  bwMultiplier,
+  onBwMultiplierChange,
+  isLargeBw,
   vt,
   onVtChange,
   showModes,
@@ -200,38 +135,9 @@ function CommonGraph({
   const chartInstanceRef = useRef<ECharts | null>(null);
   // ECharts renders into its own DOM/canvas and reads its colors from the
   // option object — it doesn't inherit from MUI's ThemeProvider or CSS vars.
-  // So we pull the current mode from the Redux theme slice and pass concrete
-  // hex values into the chart option below.
   const themeMode = useAppSelector((state) => state.theme.mode);
-
-  const rawBandwidths = useMemo(() => {
-    const computeBw = (values: number[]) => {
-      if (values.length < 2) return undefined;
-      if (!isSubtest) {
-        return approximateSJBandwidth([...values].sort((a, b) => a - b));
-      }
-      try {
-        return improvedSheatherJones(values);
-      } catch {
-        return silvermansRule(values);
-      }
-    };
-    return { base: computeBw(baseValues), new: computeBw(newValues) };
-  }, [baseValues, newValues, isSubtest]);
-
-  const isLargeBw = useMemo(() => {
-    const allValues = [...baseValues, ...newValues];
-    if (allValues.length < 2) return false;
-    const lo = Math.min(...allValues);
-    const hi = Math.max(...allValues);
-    const range = hi - lo;
-    if (range === 0) return false;
-    const bw = Math.max(rawBandwidths?.base ?? 0, rawBandwidths?.new ?? 0);
-    return bw / range > LARGE_BW_RATIO;
-  }, [baseValues, newValues, rawBandwidths]);
-
-  const [bwMultiplier, setBwMultiplier] = useState(1.0);
-  useEffect(() => setBwMultiplier(1.0), [baseValues, newValues]);
+  const textColor =
+    themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
 
   // Local mirror of vt that drives the slider thumb + percentage during drag.
   // We only push the value up to the parent (via onVtChange) when the user
@@ -251,10 +157,6 @@ function CommonGraph({
   const analysis = useMemo(() => {
     const statsForBase = computeStatisticsForRuns(baseValues);
     const statsForNew = computeStatisticsForRuns(newValues);
-
-    const sharedBw = rawBandwidths
-      ? Math.max(rawBandwidths.base ?? 0, rawBandwidths.new ?? 0) * bwMultiplier
-      : undefined;
 
     const bKde = safeKde(baseValues, sharedBw);
     const nKde = safeKde(newValues, sharedBw);
@@ -335,7 +237,7 @@ function CommonGraph({
       min,
       max,
     };
-  }, [baseValues, newValues, isSubtest, rawBandwidths, bwMultiplier]);
+  }, [baseValues, newValues, sharedBw]);
 
   // Mode detection (peaks, area fractions, label assignment, stagger levels)
   // lives in its own memo so it only re-runs when the threshold or the
@@ -346,12 +248,12 @@ function CommonGraph({
   const modes = useMemo(() => {
     const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
 
-    const baseModes = bKde
+    const baseModes: ModeInfo = bKde
       ? computeModeInfo(sharedX, baseY, localVt)
-      : { peakLocs: [], fracs: [], letters: [] };
-    const newModes = nKde
+      : { peakLocs: [], boundaries: [], fracs: [], letters: [] };
+    const newModes: ModeInfo = nKde
       ? computeModeInfo(sharedX, newY, localVt)
-      : { peakLocs: [], fracs: [], letters: [] };
+      : { peakLocs: [], boundaries: [], fracs: [], letters: [] };
 
     // Assign vertical stagger levels across all peaks so labels don't collide.
     const allPeaks: PeakRef[] = [];
@@ -374,8 +276,6 @@ function CommonGraph({
   }, [analysis, localVt]);
 
   const option: EChartsOption = useMemo(() => {
-    const textColor =
-      themeMode === 'dark' ? Colors.PrimaryTextDark : Colors.PrimaryText;
     const {
       baseRunsDensity,
       newRunsDensity,
@@ -467,8 +367,8 @@ function CommonGraph({
           nameGap: 30,
           nameTextStyle: { fontSize: 13, fontWeight: 'bold', color: textColor },
           axisLabel: { formatter: tickFormatter, color: textColor },
-          splitLine: { show: true, lineStyle: { color: '#eee' } },
-          axisLine: { show: true, lineStyle: { color: '#999' } },
+          splitLine: { show: true, lineStyle: { color: SPLIT_LINE_COLOR } },
+          axisLine: { show: true, lineStyle: { color: AXIS_LINE_COLOR } },
         },
         {
           gridIndex: 1,
@@ -477,7 +377,7 @@ function CommonGraph({
           max,
           axisLabel: { show: false },
           splitLine: { show: false },
-          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisLine: { show: true, lineStyle: { color: AXIS_LINE_COLOR } },
           axisTick: { show: false },
         },
       ],
@@ -486,8 +386,8 @@ function CommonGraph({
           gridIndex: 0,
           type: 'value',
           min: 0,
-          splitLine: { show: true, lineStyle: { color: '#eee' } },
-          axisLine: { show: true, lineStyle: { color: '#999' } },
+          splitLine: { show: true, lineStyle: { color: SPLIT_LINE_COLOR } },
+          axisLine: { show: true, lineStyle: { color: AXIS_LINE_COLOR } },
           axisTick: { show: false },
           axisLabel: { show: true, color: textColor, fontSize: 12 },
         },
@@ -498,7 +398,7 @@ function CommonGraph({
           max: 1.5,
           interval: 1,
           axisTick: { show: false },
-          axisLine: { show: true, lineStyle: { color: '#999' } },
+          axisLine: { show: true, lineStyle: { color: AXIS_LINE_COLOR } },
           axisLabel: {
             color: textColor,
             fontSize: 12,
@@ -532,7 +432,11 @@ function CommonGraph({
       ],
       tooltip: {
         trigger: 'axis',
-        axisPointer: { type: 'line', snap: true, lineStyle: { color: '#999' } },
+        axisPointer: {
+          type: 'line',
+          snap: true,
+          lineStyle: { color: AXIS_LINE_COLOR },
+        },
         padding: 10,
         formatter: (params) => {
           const items = Array.isArray(params) ? params : [params];
@@ -568,12 +472,11 @@ function CommonGraph({
       },
       legend: {
         data: ['Base', 'New'],
-        // Sit below the centered x-axis unit label, between the KDE grid and
-        // the scatter strip, with a small gap above and below.
-        top: 232,
+        top: 240,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
+        textStyle: { color: textColor },
       },
       series: [
         {
@@ -608,7 +511,7 @@ function CommonGraph({
           data: baseScatterData,
           symbol: 'triangle',
           symbolSize,
-          itemStyle: { color: Colors.ChartBase, opacity: 0.6 },
+          itemStyle: { color: Colors.ChartBase },
           emphasis: { focus: 'none' },
           // Horizontal baseline through the Base row (y = 1) for a visual anchor.
           markLine: {
@@ -626,7 +529,6 @@ function CommonGraph({
               color: Colors.ChartBase,
               type: 'solid',
               width: 1,
-              opacity: 0.5,
             },
           },
         },
@@ -638,7 +540,7 @@ function CommonGraph({
           data: newScatterData,
           symbol: 'triangle',
           symbolSize,
-          itemStyle: { color: Colors.ChartNew, opacity: 0.6 },
+          itemStyle: { color: Colors.ChartNew },
           emphasis: { focus: 'none' },
           // Horizontal baseline through the New row (y = 0) for a visual anchor.
           markLine: {
@@ -656,7 +558,6 @@ function CommonGraph({
               color: Colors.ChartNew,
               type: 'solid',
               width: 1,
-              opacity: 0.5,
             },
           },
         },
@@ -703,7 +604,7 @@ function CommonGraph({
         <Typography
           variant='body2'
           sx={{
-            color: '#000',
+            color: 'text.primary',
             whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',
@@ -716,7 +617,10 @@ function CommonGraph({
           >
             <InfoIcon
               fontSize='small'
-              sx={{ color: '#000', cursor: 'help', mx: 0.5 }}
+              sx={{
+                cursor: 'help',
+                mx: 0.5,
+              }}
             />
           </Tooltip>
           :
@@ -743,7 +647,11 @@ function CommonGraph({
         />
         <Typography
           variant='body2'
-          sx={{ color: '#555', minWidth: 36, textAlign: 'right' }}
+          sx={{
+            color: 'text.secondary',
+            minWidth: 36,
+            textAlign: 'right',
+          }}
         >
           {Math.round(localVt * 100)}%
         </Typography>
@@ -779,7 +687,7 @@ function CommonGraph({
             max={1.5}
             step={0.05}
             value={bwMultiplier}
-            onChange={(_, v) => setBwMultiplier(v)}
+            onChange={(_, v) => onBwMultiplierChange(v)}
             valueLabelDisplay='auto'
             valueLabelFormat={(v) => `${v.toFixed(2)}×`}
           />
@@ -793,7 +701,13 @@ interface CommonGraphProps {
   baseValues: number[];
   newValues: number[];
   unit: string | null;
-  isSubtest: boolean;
+  sharedBw: number | undefined;
+  bwMultiplier: number;
+  onBwMultiplierChange: (value: number) => void;
+  // True when the raw (unscaled) bandwidth exceeds half the data range —
+  // surfaces the smoothing slider. Stays true while the user dials the
+  // multiplier down so the slider doesn't vanish under them.
+  isLargeBw: boolean;
   vt: number;
   onVtChange: (value: number) => void;
   showModes: boolean;

@@ -6,7 +6,6 @@ import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 
 import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
-import { ModeInterpretation } from '../../components/CompareResults/ModeInterpretation';
 import PValCliffsDeltaComp from '../../components/CompareResults/PValCliffsDeltaComp';
 import { StatisticsWarnings } from '../../components/CompareResults/StatisticsWarnings';
 import { FontSize } from '../../styles';
@@ -36,40 +35,35 @@ import {
 
 const tooltipCliffsDelta = (
   <span>
+    Cliff&apos;s Delta (CD) shows how different the New and Base results are. A
+    score near 0 means little difference. A score above 0.47 or below -0.47
+    means a large difference. A negative score means New values are usually
+    higher. See the{' '}
     <a
-      href='https://en.wikipedia.org/wiki/Effect_size#Effect_size_for_ordinal_data'
+      href='https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html#cliffs-delta'
       target='_blank'
       rel='noreferrer'
     >
-      Cliff&apos;s Delta
+      documentation
     </a>{' '}
-    quantifies the magnitude of the difference between Base and New values.
-    Anything beyond ±0.47 is considered a large difference while anything below
-    ±0.15 is negligible. A negative value means a New value is consistently
-    larger than a Base value.
+    for more information on how to interpret the Cliff’s Delta score.
   </span>
 );
 
 const tooltipEffectSize = (
   <span>
+    The Common Language Effect Size (CLES) shows the chance that a New value is
+    lower than a Base value. A score near 50% means New and Base are about
+    equally likely to be higher. The farther the score is from 50%, the clearer
+    the difference. See the{' '}
     <a
-      href='https://en.wikipedia.org/wiki/Probability_of_superiority'
+      href='https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html#cliffs-delta'
       target='_blank'
       rel='noreferrer'
     >
-      The Common Language Effect Size (CLES)
+      documentation
     </a>{' '}
-    is a percentage, from 0% to 100%, providing a clearer indication of how
-    large or meaningful the change is. An improvement or regression being shown
-    here means that the effect size is meaningful. If the effect size is close
-    to 50%, the distributions are probably identical, if not, they probably
-    differ. The sign of the Cliff&apos;s delta is also important, as it
-    indicates the direction of the change. If shifted to the left, it&apos;s
-    negative; to the right, it&apos;s positive. Pair this with higher is better
-    or lower is better to understand whether the change is an improvement or
-    regression. For example, given a Cliff&apos;s delta of 0.54 and CLES of 77%,
-    there&apos;s a 77% chance a value from new is lower than a value from old
-    (lower is better).
+    for more information on how to interpret the CLES score.
   </span>
 );
 
@@ -466,7 +460,6 @@ export const mannWhitneyStrategy = {
         {confidenceInterval && (
           <Alert severity='info'>{confidenceInterval}</Alert>
         )}
-        <ModeInterpretation result={mwResult} />
       </>
     );
   },

@@ -4,7 +4,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="_r_c4_"
+  id="_r_c8_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -34,13 +34,13 @@ exports[`Results View Should display Base, New and Common graphs with replicates
             class="MuiBox-root css-1ntc4s6"
           >
             <span
-              class="MuiTypography-root MuiTypography-body2 css-ftpr4e-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-1w162xa-MuiTypography-root"
             >
               Valley depth threshold
               <svg
                 aria-hidden="true"
                 aria-label="A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected."
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-86dkbz-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1qpfuiz-MuiSvgIcon-root"
                 data-mui-internal-clone-element="true"
                 data-testid="InfoOutlinedIcon"
                 focusable="false"
@@ -84,7 +84,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               </span>
             </span>
             <span
-              class="MuiTypography-root MuiTypography-body2 css-19x59xu-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-1fb5ptc-MuiTypography-root"
             >
               50
               %
@@ -549,7 +549,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="_r_ag_"
+  id="_r_ak_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -579,13 +579,13 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
             class="MuiBox-root css-1ntc4s6"
           >
             <span
-              class="MuiTypography-root MuiTypography-body2 css-ftpr4e-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-1w162xa-MuiTypography-root"
             >
               Valley depth threshold
               <svg
                 aria-hidden="true"
                 aria-label="A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected."
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-86dkbz-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1qpfuiz-MuiSvgIcon-root"
                 data-mui-internal-clone-element="true"
                 data-testid="InfoOutlinedIcon"
                 focusable="false"
@@ -629,7 +629,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               </span>
             </span>
             <span
-              class="MuiTypography-root MuiTypography-body2 css-19x59xu-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-1fb5ptc-MuiTypography-root"
             >
               50
               %
@@ -1806,7 +1806,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="revision-header fh103jg"
             >
               <div
-                class="f195ysgj"
+                class="fnf9lyn"
               >
                 <strong>
                   <a
@@ -1856,6 +1856,12 @@ exports[`Results View The table should match snapshot and other elements should 
                     </button>
                   </span>
                 </div>
+                <span
+                  class="MuiBox-root css-1bi5h41"
+                  data-testid="better-direction-indicator"
+                >
+                  Lower is better
+                </span>
               </div>
               <div
                 class="MuiBox-root css-56tgmi"
