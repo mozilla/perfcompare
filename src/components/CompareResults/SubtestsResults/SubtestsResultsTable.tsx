@@ -8,6 +8,8 @@ import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import { STUDENT_T } from '../../../common/constants';
+import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
+import useSeedAdvancedColumnsFromUrl from '../../../hooks/useSeedAdvancedColumnsFromUrl';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CombinedResultsItemType } from '../../../types/state';
@@ -79,9 +81,12 @@ function SubtestsResultsTable({
   replicates,
   testVersion,
 }: ResultsTableProps) {
-  const columnsConfiguration = getColumnsConfiguration(
-    true,
-    testVersion ?? STUDENT_T,
+  useSeedAdvancedColumnsFromUrl();
+  const advancedColumns = useAdvancedColumns();
+  const columnsConfiguration = useMemo(
+    () =>
+      getColumnsConfiguration(true, testVersion ?? STUDENT_T, advancedColumns),
+    [testVersion, advancedColumns],
   );
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.

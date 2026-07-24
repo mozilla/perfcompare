@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -10,7 +10,9 @@ import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 import { MANN_WHITNEY_U } from '../../common/constants';
+import useAdvancedColumns from '../../hooks/useAdvancedColumns';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
+import useSeedAdvancedColumnsFromUrl from '../../hooks/useSeedAdvancedColumnsFromUrl';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework, TestVersion } from '../../types/types';
@@ -35,9 +37,17 @@ export default function ResultsTable() {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
-  const columnsConfig = getColumnsConfiguration(
-    false,
-    testVersion ?? MANN_WHITNEY_U,
+  useSeedAdvancedColumnsFromUrl();
+  const advancedColumns = useAdvancedColumns();
+
+  const columnsConfig = useMemo(
+    () =>
+      getColumnsConfiguration(
+        false,
+        testVersion ?? MANN_WHITNEY_U,
+        advancedColumns,
+      ),
+    [testVersion, advancedColumns],
   );
 
   // This is our custom hook that manages table filters

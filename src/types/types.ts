@@ -461,6 +461,14 @@ export type TokenBearer = {
 
 export type TestVersion = 'student-t' | 'mann-whitney-u';
 
+// Per-column visibility for the advanced (power-user) statistics columns.
+// Each is toggled independently from the "Advanced columns" dropdown, so
+// either, both, or neither can be shown.
+export interface AdvancedColumns {
+  cliffsDelta: boolean;
+  cles: boolean;
+}
+
 export type SortFunc = (
   resultA: CombinedResultsItemType,
   resultB: CombinedResultsItemType,

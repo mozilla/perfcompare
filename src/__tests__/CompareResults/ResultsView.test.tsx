@@ -564,4 +564,24 @@ describe('Results View', () => {
       expect(screen.queryAllByTestId(/ExpandLessIcon/)).toHaveLength(0);
     });
   });
+
+  it('shows the "How to read the results" panel by default and lets the user dismiss it', async () => {
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    await screen.findByText('a11yr');
+
+    // Shown by default.
+    const panel = screen.getByTestId('how-to-read-results');
+    expect(panel).toBeInTheDocument();
+
+    // Dismiss via the panel's close button.
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(screen.getByRole('button', { name: /close/i }));
+    expect(screen.queryByTestId('how-to-read-results')).not.toBeInTheDocument();
+
+    // The "How to read the results" checkbox brings it back.
+    await user.click(
+      screen.getByRole('checkbox', { name: /How to read the results/i }),
+    );
+    expect(screen.getByTestId('how-to-read-results')).toBeInTheDocument();
+  });
 });

@@ -7,10 +7,15 @@ import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
+import HowToReadResults from './HowToReadResults';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
-import { STUDENT_T, MANN_WHITNEY_U } from '../../common/constants';
+import {
+  STUDENT_T,
+  MANN_WHITNEY_U,
+  RESULTS_TABLE_MAX_WIDTH,
+} from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import { Strings } from '../../resources/Strings';
@@ -146,7 +151,7 @@ function ResultsMain() {
   return (
     <Container
       maxWidth={false}
-      sx={{ maxWidth: '1400px' }}
+      sx={{ maxWidth: RESULTS_TABLE_MAX_WIDTH }}
       className={styles.container}
       data-testid='results-main'
     >
@@ -192,6 +197,7 @@ function ResultsMain() {
           {testWarnings[testVersion] ?? testWarnings[MANN_WHITNEY_U]}
         </Grid>
       </header>
+      <HowToReadResults />
       <ResultsTable />
     </Container>
   );
