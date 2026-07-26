@@ -40,7 +40,7 @@ describe('SubtestsRevisionRow Component', () => {
     await screen.findByText('dhtml.html');
     expect(await screen.findByText('971.38 ms')).toBeInTheDocument();
     expect(await screen.findByText('982.41 ms')).toBeInTheDocument();
-    expect(await screen.findByText('1.14 %')).toBeInTheDocument();
+    expect(await screen.findByText('+1.14 %')).toBeInTheDocument();
     expect(await screen.findByText('Low')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
   });

@@ -10,7 +10,7 @@ import { Strings } from '../../resources/Strings';
 import { FontSize } from '../../styles';
 import { CombinedResultsItemType, CompareResultsItem } from '../../types/state';
 import { TableConfig } from '../../types/types';
-import { formatNumber } from '../../utils/format';
+import { formatNumber, signPrefix } from '../../utils/format';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
   determineSign,
@@ -214,7 +214,7 @@ export const studentTStrategy = {
         </div>
         <div className='delta cell' role='cell'>
           {' '}
-          {`${deltaPercent} % `}
+          {`${signPrefix(deltaPercent)}${deltaPercent} % `}
         </div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
@@ -260,22 +260,26 @@ export const studentTStrategy = {
       baseMedian && newMedian
         ? formatTwoDigits.format(newMedian - baseMedian)
         : '';
-    const medianPercentage =
+    const medianPercentageNum =
       baseMedian && newMedian
-        ? formatTwoDigits.format(((newMedian - baseMedian) / baseMedian) * 100)
-        : '';
+        ? ((newMedian - baseMedian) / baseMedian) * 100
+        : 0;
+    const medianPercentage =
+      baseMedian && newMedian ? formatTwoDigits.format(medianPercentageNum) : '';
 
     const { confidenceNote } = Strings.components.expandableRow;
 
     return (
       <>
         <Box sx={{ whiteSpace: 'nowrap' }}>
-          <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
+          <b>Difference of means</b>: {signPrefix(deltaPercent)}
+          {deltaPercent}% ({formatNumber(delta)}
           {deltaUnit ? ' ' + deltaUnit : null})
         </Box>
         {newMedian && baseMedian ? (
           <Box sx={{ whiteSpace: 'nowrap' }}>
-            <b>Difference of medians</b>: {medianPercentage}% (
+            <b>Difference of medians</b>: {signPrefix(medianPercentageNum)}
+            {medianPercentage}% (
             {medianDifference}
             {deltaUnit ? ' ' + deltaUnit : null})
           </Box>
@@ -334,7 +338,7 @@ export const studentTStrategy = {
             {determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
-        <div className='delta cell' role='cell'>{` ${deltaPercent} % `}</div>
+        <div className='delta cell' role='cell'>{` ${signPrefix(deltaPercent)}${deltaPercent} % `}</div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText || '-'}

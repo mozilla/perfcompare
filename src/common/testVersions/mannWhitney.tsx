@@ -15,7 +15,7 @@ import {
 } from '../../types/state';
 import { TableConfig } from '../../types/types';
 import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
-import { adaptUnit, formatNumber } from '../../utils/format';
+import { adaptUnit, formatNumber, signPrefix } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
@@ -314,7 +314,7 @@ export const mannWhitneyStrategy = {
                   gap: '4px',
                 }}
               >
-                {`${formatNumber(pct)} %`}
+                {`${signPrefix(pct)}${formatNumber(pct)} %`}
                 {normality === 'one' && (
                   <WarningIcon
                     titleAccess="Distribution shapes aren't normal."
@@ -507,7 +507,7 @@ export const mannWhitneyStrategy = {
                 gap: '4px',
               }}
             >
-              {`${formatNumber(medianDiffPct)} %`}
+              {`${signPrefix(medianDiffPct)}${formatNumber(medianDiffPct)} %`}
               {normality === 'one' && (
                 <WarningIcon
                   titleAccess="Distribution shapes aren't normal."

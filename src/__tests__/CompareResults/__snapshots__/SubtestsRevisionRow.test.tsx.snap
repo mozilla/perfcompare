@@ -230,7 +230,7 @@ exports[`SubtestsRevisionRow Component renders doesnt render browser name when b
         role="cell"
       >
          
-        1.14 % 
+        +1.14 % 
       </div>
       <div
         class="confidence cell"
@@ -384,7 +384,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         role="cell"
       >
          
-        1.14 % 
+        +1.14 % 
       </div>
       <div
         class="confidence cell"
