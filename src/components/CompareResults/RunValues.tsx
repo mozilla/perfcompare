@@ -63,7 +63,7 @@ function RunValues(props: RunValuesProps) {
         ))}
         {expanded
           ? lastValues.map((value, index) => (
-              <div key={`${index}`}>{value}</div>
+              <div key={`${index}`}>{formatNumber(value)}</div>
             ))
           : null}
         {lastValues.length ? (
@@ -87,7 +87,7 @@ function RunValues(props: RunValuesProps) {
       </div>
       <div className={styles.deviation}>
         {values.length > 1
-          ? `${stddev} ${unit} = ${stddevPercent}% standard deviation`
+          ? `${formatNumber(stddev)} ${unit} = ${stddevPercent}% standard deviation`
           : 'N/A standard deviation'}
       </div>
     </>
