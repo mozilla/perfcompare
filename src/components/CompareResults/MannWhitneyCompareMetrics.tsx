@@ -6,7 +6,7 @@ import { getModeInterpretation } from '../../utils/helpers';
 
 const METRIC_HEADERS = ['Metric', 'Base', 'New', 'Interpretation'];
 
-// Group thousand-scale measurement values while keeping the 2-decimal display.
+// Format a stat with thousands grouping and 2 decimals, or "N/A" when the value is missing.
 const formatStat = (value: number | null | undefined) =>
   value != null ? formatNumberFixedTwo(value) : 'N/A';
 
