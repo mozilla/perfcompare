@@ -265,7 +265,9 @@ export const studentTStrategy = {
         ? ((newMedian - baseMedian) / baseMedian) * 100
         : 0;
     const medianPercentage =
-      baseMedian && newMedian ? formatTwoDigits.format(medianPercentageNum) : '';
+      baseMedian && newMedian
+        ? formatTwoDigits.format(medianPercentageNum)
+        : '';
 
     const { confidenceNote } = Strings.components.expandableRow;
 
@@ -279,8 +281,7 @@ export const studentTStrategy = {
         {newMedian && baseMedian ? (
           <Box sx={{ whiteSpace: 'nowrap' }}>
             <b>Difference of medians</b>: {signPrefix(medianPercentageNum)}
-            {medianPercentage}% (
-            {medianDifference}
+            {medianPercentage}% ({medianDifference}
             {deltaUnit ? ' ' + deltaUnit : null})
           </Box>
         ) : null}
@@ -338,7 +339,10 @@ export const studentTStrategy = {
             {determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
-        <div className='delta cell' role='cell'>{` ${signPrefix(deltaPercent)}${deltaPercent} % `}</div>
+        <div
+          className='delta cell'
+          role='cell'
+        >{` ${signPrefix(deltaPercent)}${deltaPercent} % `}</div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText || '-'}
