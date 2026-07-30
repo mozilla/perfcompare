@@ -51,7 +51,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -353,7 +353,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -550,7 +550,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>

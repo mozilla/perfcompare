@@ -192,7 +192,7 @@ describe('SearchResultsList', () => {
     });
 
     await user.click(darkModeToggle);
-    expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
+    expect(screen.getByLabelText('Switch to Light mode')).toBeInTheDocument();
     const autocomplete = screen.getAllByTestId('autocomplete')[0];
 
     // open dropdown using keyboard arrow down

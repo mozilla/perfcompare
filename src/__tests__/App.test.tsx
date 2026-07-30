@@ -96,10 +96,12 @@ describe('App', () => {
     });
 
     await user.click(darkModeButton);
-    expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
+    expect(screen.getByLabelText('Switch to Light mode')).toBeInTheDocument();
 
     await user.click(darkModeButton);
-    expect(screen.queryByLabelText('Light mode')).not.toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('Switch to Light mode'),
+    ).not.toBeInTheDocument();
   });
 
   describe('CompareResults or CompareOverTime loader', () => {

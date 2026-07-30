@@ -57,7 +57,7 @@ function ToggleDarkMode() {
               id={theme == 'light' ? strings.darkMode : strings.lightMode}
             />
           }
-          label={theme == 'light' ? strings.darkMode : strings.lightMode}
+          label={`Switch to ${theme == 'light' ? strings.darkMode : strings.lightMode}`}
         />
       </FormGroup>
     </Box>

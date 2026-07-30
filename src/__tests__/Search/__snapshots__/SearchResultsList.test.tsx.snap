@@ -847,7 +847,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
