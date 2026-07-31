@@ -36,7 +36,7 @@
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-redux": "^9.3.0",
-    "react-router": "^7.18.1",
+    "react-router": "^8.3.0",
     "react-virtuoso": "^4.18.11",
     "stream-browserify": "^3.0.0",
     "taskcluster-client-web": "^87.1.3",
