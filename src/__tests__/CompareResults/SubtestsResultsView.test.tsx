@@ -141,10 +141,8 @@ describe('SubtestsResultsView Component Tests', () => {
     const { subtestsResult } = getTestData();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
-    jest.spyOn(window, 'alert').mockImplementation();
-    const mockedWindowAlert = window.alert as jest.Mock;
-    jest.spyOn(window, 'open').mockImplementation();
-    const mockedWindowOpen = window.open as jest.Mock;
+    const mockedWindowAlert = jest.spyOn(window, 'alert').mockImplementation();
+    const mockedWindowOpen = jest.spyOn(window, 'open').mockImplementation();
 
     setup({
       element: (
@@ -172,7 +170,7 @@ describe('SubtestsResultsView Component Tests', () => {
     await user.click(retriggerButton);
     await user.click(await screen.findByRole('button', { name: /Sign in/ }));
 
-    let windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    let windowOpenUrlString = mockedWindowOpen.mock.lastCall![0] as string;
     let windowOpenUrl = new URL(windowOpenUrlString);
     expect(sessionStorage.requestState).toBe(
       windowOpenUrl.searchParams.get('state'),
@@ -182,7 +180,7 @@ describe('SubtestsResultsView Component Tests', () => {
     // Test requesting an authorization code from Taskcluster staging URL
     window.location.hash = 'taskcluster-staging';
     await user.click(retriggerButton);
-    windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    windowOpenUrlString = mockedWindowOpen.mock.lastCall![0] as string;
     windowOpenUrl = new URL(windowOpenUrlString);
     expect(sessionStorage.requestState).toBe(
       windowOpenUrl.searchParams.get('state'),
