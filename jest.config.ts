@@ -18,13 +18,24 @@ const config: Config.InitialOptions = {
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/__tests__/utils/'],
   testEnvironment: './src/__tests__/utils/custom-environment',
   transform: {
-    '^.+\\.(t|j)sx?$': [
+    '^.+\\.[cm]?[tj]sx?$': [
       '@swc/jest',
       {
         jsc: {
           transform: {
             react: {
               runtime: 'automatic',
+            },
+            // react-router (ESM-only since v8) guards a dev-only HMR branch
+            // with `import.meta.hot`, which is a syntax error once swc
+            // transforms the module to CommonJS for jest. There is no HMR in
+            // tests, so compile the check away.
+            optimizer: {
+              globals: {
+                vars: {
+                  'import.meta.hot': 'undefined',
+                },
+              },
             },
           },
         },
@@ -38,7 +49,7 @@ const config: Config.InitialOptions = {
   // dependencies of fetch-mock do! Hopefully this won't be needed in the future
   // when fetch-mock updates.
   transformIgnorePatterns: [
-    '/node_modules/(?!(taskcluster-client-web|data-uri-to-buffer|fetch-blob|formdata-polyfill|fetch-mock|@fetch-mock/jest)/)',
+    '/node_modules/(?!(taskcluster-client-web|data-uri-to-buffer|fetch-blob|formdata-polyfill|fetch-mock|@fetch-mock/jest|react-router|cookie-es)/)',
   ],
   modulePaths: [],
   moduleNameMapper: {
