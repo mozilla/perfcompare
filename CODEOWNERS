@@ -1,4 +1,4 @@
 # Automatically request reviews for dependency updates
 
-/package.json @esanuandra @beatrice-acasandrei @canova @kala-moz
-/package-lock.json @esanuandra @beatrice-acasandrei @canova @kala-moz
+/package.json @esanuandra @beatrice-acasandrei @kala-moz
+/package-lock.json @esanuandra @beatrice-acasandrei @kala-moz
