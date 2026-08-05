@@ -47,7 +47,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -2930,7 +2930,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>

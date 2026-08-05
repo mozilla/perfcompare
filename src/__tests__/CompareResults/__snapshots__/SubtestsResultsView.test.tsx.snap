@@ -387,7 +387,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -2306,7 +2306,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -3908,7 +3908,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -5510,7 +5510,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -7112,7 +7112,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
