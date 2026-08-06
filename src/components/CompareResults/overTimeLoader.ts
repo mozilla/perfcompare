@@ -229,6 +229,9 @@ export async function loader({ request }: { request: Request }) {
     testVersion,
     silvermanKDEEnabled,
   });
+  // No bootstrap CI precompute — the Sig column lazily computes (and caches)
+  // via `getBootstrapCi` in mannWhitney.tsx on the first filter/sort click.
+  // Same change as the main loader, applied here to keep load time aligned.
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
     memoizedFetchRevisionForRepository({

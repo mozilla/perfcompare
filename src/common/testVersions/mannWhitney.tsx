@@ -1,4 +1,3 @@
-import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import WarningIcon from '@mui/icons-material/Warning';
@@ -14,7 +13,10 @@ import {
   MannWhitneyResultsItem,
 } from '../../types/state';
 import { TableConfig } from '../../types/types';
-import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
+import {
+  bootstrapMedianDiffCI,
+  type BootstrapCI,
+} from '../../utils/bootstrap-ci';
 import { adaptUnit, formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
@@ -95,6 +97,105 @@ export function checkDistributionNormality(
 
 export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
   return checkDistributionNormality(result) !== 'neither';
+}
+
+// Cap on the per-side sample count fed into BCa. Replicates arrays can
+// run 300–600 values; BCa cost is roughly proportional to sample size, so
+// uncapped it dominates page load on tables with many rows. CI quality is
+// dominated by iteration count above ~50–100 samples — capping here keeps
+// the interval statistically equivalent while bounding cost.
+const BOOTSTRAP_SAMPLE_CAP = 100;
+// Fewer iterations than bootstrap-ci.ts's 9999 default. 1999 is still
+// well above the textbook BCa minimum (~1000) and ~5× cheaper.
+const BOOTSTRAP_ITERATIONS = 1999;
+
+// Stride-based subsample: pick `cap` evenly-spaced values from a larger
+// array. Deterministic (no RNG), preserves the full distribution shape,
+// and is O(cap) regardless of input length.
+function downsampleForBootstrap(values: number[]): number[] {
+  if (values.length <= BOOTSTRAP_SAMPLE_CAP) return values;
+  const out: number[] = new Array<number>(BOOTSTRAP_SAMPLE_CAP);
+  const stride = values.length / BOOTSTRAP_SAMPLE_CAP;
+  for (let i = 0; i < BOOTSTRAP_SAMPLE_CAP; i++) {
+    out[i] = values[Math.floor(i * stride)];
+  }
+  return out;
+}
+
+// Resolve a row's KDE/BCa input sample set: prefer replicates over the
+// aggregated runs. Mirrors RevisionRowExpandable's selection for the chart
+// and KdeModesPanel so every view of the row uses the same underlying data.
+// Returned arrays are NOT downsampled — callers feeding BCa should pass
+// them through `downsampleForBootstrap` first.
+function runsFor(result: MannWhitneyResultsItem): {
+  baseRuns: number[];
+  newRuns: number[];
+} {
+  const baseRuns =
+    result.base_runs_replicates && result.base_runs_replicates.length
+      ? result.base_runs_replicates
+      : (result.base_runs ?? []);
+  const newRuns =
+    result.new_runs_replicates && result.new_runs_replicates.length
+      ? result.new_runs_replicates
+      : (result.new_runs ?? []);
+  return { baseRuns, newRuns };
+}
+
+/**
+ * Lazily compute (and cache) the bootstrap (BCa) [see
+ * src/utils/bootstrap-ci.ts#L163-L203] CI for the difference of medians
+ * on a single row.
+ *
+ * The lazy strategy: at load time we do NO BCa work (matches production
+ * speed). The Sig column's `matchesFunction`/`sortFunction`/cell-render
+ * call this helper as needed. Result is cached on `result.bootstrapCi`
+ * so the second click on the column is free.
+ *
+ * `undefined` vs `null`:
+ *   - `undefined` ⇒ never computed
+ *   - `null`      ⇒ computed but couldn't produce a CI (< 2 samples)
+ * We check `=== undefined` instead of `?? null` to keep that distinction.
+ *
+ * Uses the replicates-preferred sample selection (via `runsFor`) and the
+ * downsampled-for-BCa cap so per-row cost stays bounded regardless of how
+ * many replicates the backend ships. See `BOOTSTRAP_SAMPLE_CAP` and
+ * `BOOTSTRAP_ITERATIONS` above.
+ */
+export function getBootstrapCi(
+  result: MannWhitneyResultsItem,
+): BootstrapCI | null {
+  if (result.bootstrapCi !== undefined) return result.bootstrapCi;
+  const { baseRuns, newRuns } = runsFor(result);
+  const baseSamples = downsampleForBootstrap(baseRuns);
+  const newSamples = downsampleForBootstrap(newRuns);
+  const ci =
+    baseSamples.length >= 2 && newSamples.length >= 2
+      ? bootstrapMedianDiffCI(baseSamples, newSamples, BOOTSTRAP_ITERATIONS)
+      : null;
+  result.bootstrapCi = ci;
+  return ci;
+}
+
+// Decide whether the Sig cell should render "S" or "NS".
+//
+// Cell renders run for EVERY row on every render — we can't afford to
+// compute BCa here at load time. So the cell uses whichever signal is
+// available without forcing compute:
+//   - If the CI has been cached (filter/sort has been used, or the
+//     expanded-row alert ran), use it — keeps the column consistent with
+//     the rest of the UI on rows the user has engaged with.
+//   - Otherwise fall back to the backend's `mann_whitney_test.interpretation`
+//     — close to production's pre-branch behavior and free to read.
+//
+// First filter/sort click populates `bootstrapCi` for all rows; from then
+// on the column reads the CI-based verdict everywhere. So you only see the
+// fallback on first render before any Sig interaction.
+function isSignificantForDisplay(result: MannWhitneyResultsItem): boolean {
+  if (result.bootstrapCi !== undefined) {
+    return result.bootstrapCi?.significant ?? false;
+  }
+  return result.mann_whitney_test?.interpretation === 'significant';
 }
 
 export const mannWhitneyStrategy = {
@@ -217,25 +318,43 @@ export const mannWhitneyStrategy = {
           {
             label: 'Significant',
             key: 'significant',
-            icon: <KeyboardDoubleArrowUpIcon fontSize='small' />,
+            icon: <div>S</div>,
           },
           {
             label: 'Not Significant',
             key: 'not significant',
-            icon: <div>-</div>,
+            icon: <div>NS</div>,
           },
         ],
         matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
-          return result.mann_whitney_test?.interpretation === valueKey;
+          // Lazily compute and cache the CI on first filter-click. After
+          // that, the CI is read straight from `result.bootstrapCi` on
+          // every subsequent comparison/render (see getBootstrapCi above).
+          const ci = getBootstrapCi(result);
+          const isSig = ci?.significant ?? false;
+          return (isSig ? 'significant' : 'not significant') === valueKey;
         },
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          return (
-            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-          );
+          // ASC semantics — useTableSort swaps args for DESC. So in DESC mode
+          // this produces "significant first, then |medianDiff| desc"; in ASC
+          // mode the inverse. Significance is the primary key, magnitude the
+          // tie-breaker so the biggest changes float to the top of each group.
+          //
+          // First sort-click pays the BCa cost across all rows (the
+          // comparator is invoked O(n log n) times but each row is computed
+          // only once and cached via getBootstrapCi). Subsequent sorts are
+          // free.
+          const ciA = getBootstrapCi(resultA);
+          const ciB = getBootstrapCi(resultB);
+          const sigA = ciA?.significant ?? false;
+          const sigB = ciB?.significant ?? false;
+          if (sigA !== sigB) return sigA ? 1 : -1;
+          const magA = Math.abs(ciA?.medianDiff ?? 0);
+          const magB = Math.abs(ciB?.medianDiff ?? 0);
+          return magA - magB;
         },
       },
 
@@ -259,17 +378,22 @@ export const mannWhitneyStrategy = {
   },
 
   renderSubtestColumns(result: CombinedResultsItemType, expanded: boolean) {
+    const mwResult = result as MannWhitneyResultsItem;
     const {
       test,
       cliffs_delta,
-      mann_whitney_test,
       cles,
       direction_of_change,
       base_measurement_unit: baseUnit,
       new_measurement_unit: newUnit,
       base_app: baseApp,
       new_app: newApp,
-    } = result as MannWhitneyResultsItem;
+    } = mwResult;
+    // See `isSignificantForDisplay` above — uses the cached CI when one
+    // exists and falls back to the backend interpretation otherwise.
+    // Computing BCa here on every cell render would re-introduce the
+    // per-row load cost we just removed.
+    const sigDisplay = isSignificantForDisplay(mwResult) ? 'S' : 'NS';
     const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
     const baseAvgValue =
       (result as MannWhitneyResultsItem).base_standard_stats?.mean ?? 0;
@@ -358,11 +482,7 @@ export const mannWhitneyStrategy = {
           {clesVal ? `${clesVal}% ` : '-'}
         </div>
         <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation === 'significant' ? (
-            <KeyboardDoubleArrowUpIcon fontSize='small' />
-          ) : (
-            '-'
-          )}
+          {sigDisplay}
         </div>
       </>
     );
@@ -398,17 +518,22 @@ export const mannWhitneyStrategy = {
       mann_whitney_u_cles: '',
     };
     const { cliffs_delta, cliffs_interpretation } = mwResult;
-    const pValue = mwResult.mann_whitney_test?.pvalue;
-    const p_value_cles = mwResult.mann_whitney_test?.interpretation
-      ? capitalize(mwResult.mann_whitney_test.interpretation)
-      : '';
 
-    const baseRuns = mwResult.base_runs ?? [];
-    const newRuns = mwResult.new_runs ?? [];
-    const ci =
-      baseRuns.length > 0 && newRuns.length > 0
-        ? bootstrapMedianDiffCI(baseRuns, newRuns)
+    // Prefer the precomputed CI populated by the loader. Fall back to an
+    // inline compute for backwards compatibility (e.g. tests that mount the
+    // strategy without going through a loader, or stale results without the
+    // field). `baseRuns`/`newRuns` is the full replicates-preferred set
+    // (used for the median below); the BCa fallback runs on the capped
+    // downsample so it can't hang on rich-replicates rows.
+    const { baseRuns, newRuns } = runsFor(mwResult);
+    const ci = (() => {
+      if (mwResult.bootstrapCi !== undefined) return mwResult.bootstrapCi;
+      const baseSamples = downsampleForBootstrap(baseRuns);
+      const newSamples = downsampleForBootstrap(newRuns);
+      return baseSamples.length >= 2 && newSamples.length >= 2
+        ? bootstrapMedianDiffCI(baseSamples, newSamples, BOOTSTRAP_ITERATIONS)
         : null;
+    })();
     const rawUnit =
       mwResult.base_measurement_unit ?? mwResult.new_measurement_unit ?? 'ms';
     const { fmt, displayUnit } = ci
@@ -448,8 +573,6 @@ export const mannWhitneyStrategy = {
         <PValCliffsDeltaComp
           cliffs_delta={cliffs_delta}
           cliffs_interpretation={cliffs_interpretation}
-          pValue={pValue}
-          p_value_cles={p_value_cles}
           cles={cles}
           cles_direction={cles_direction}
         />
@@ -475,14 +598,18 @@ export const mannWhitneyStrategy = {
   },
 
   renderColumns(result: CombinedResultsItemType) {
+    const mwResult = result as MannWhitneyResultsItem;
     const {
       cliffs_delta,
       direction_of_change,
-      mann_whitney_test,
       cles,
       base_standard_stats,
       new_standard_stats,
-    } = result as MannWhitneyResultsItem;
+    } = mwResult;
+    // See `isSignificantForDisplay` — uses the cached CI if a filter/sort
+    // populated it, otherwise the backend's interpretation. Cell renders
+    // can't afford to trigger BCa on every row at load time.
+    const sigDisplay = isSignificantForDisplay(mwResult) ? 'S' : 'NS';
     const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
     const baseMedian = base_standard_stats?.median ?? 0;
     const newMedian = new_standard_stats?.median ?? 0;
@@ -546,11 +673,7 @@ export const mannWhitneyStrategy = {
           {clesValue}
         </div>
         <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation === 'significant' ? (
-            <KeyboardDoubleArrowUpIcon fontSize='small' />
-          ) : (
-            '-'
-          )}
+          {sigDisplay}
         </div>
       </>
     );

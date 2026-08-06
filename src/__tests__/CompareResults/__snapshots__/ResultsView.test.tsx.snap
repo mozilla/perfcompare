@@ -208,19 +208,6 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                   <td
                     style="padding: 2px;"
                   >
-                    Significance (p-value)
-                  </td>
-                  <td
-                    style="padding: 2px;"
-                  />
-                  <td
-                    style="padding: 2px;"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    style="padding: 2px;"
-                  >
                     CLES
                   </td>
                   <td
@@ -290,15 +277,15 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                   Δ median
                 </strong>
                  = 
-                +9.00
+                +8.74
                  
                 ms
                  (+1.5%)
                  
                 95% CI [
-                +0.00
+                +3.57
                 , 
-                +18.01
+                +18.16
                 ]
               </span>
             </div>
@@ -332,12 +319,12 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 </strong>
                 : We are 95% confident the median difference is between 
                 <strong>
-                  +0.00
+                  +3.57
                 </strong>
                  and
                  
                 <strong>
-                  +18.01
+                  +18.16
                 </strong>
               </span>
             </div>
@@ -753,19 +740,6 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                   <td
                     style="padding: 2px;"
                   >
-                    Significance (p-value)
-                  </td>
-                  <td
-                    style="padding: 2px;"
-                  />
-                  <td
-                    style="padding: 2px;"
-                  />
-                </tr>
-                <tr>
-                  <td
-                    style="padding: 2px;"
-                  >
                     CLES
                   </td>
                   <td
@@ -841,7 +815,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                  (+1.5%)
                  
                 95% CI [
-                +3.27
+                +3.57
                 , 
                 +18.16
                 ]
@@ -877,7 +851,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 </strong>
                 : We are 95% confident the median difference is between 
                 <strong>
-                  +3.27
+                  +3.57
                 </strong>
                  and
                  
@@ -1979,7 +1953,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -2178,7 +2152,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -2377,7 +2351,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"
@@ -2576,7 +2550,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="significance cell"
                   role="cell"
                 >
-                  -
+                  NS
                 </div>
                 <div
                   class="total-runs cell"

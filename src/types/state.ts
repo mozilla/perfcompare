@@ -242,6 +242,10 @@ export type MannWhitneyResultsItem = {
   is_meaningful: boolean | null;
   more_runs_are_needed: boolean | null;
   warning_c_delta?: string | null;
+  // Bootstrap (BCa) [see src/utils/bootstrap-ci.ts#L163-L203] CI for the difference of medians.
+  // `null` means the CI couldn't be computed (e.g.
+  // missing base_runs/new_runs); callers treat that as "not significant".
+  bootstrapCi?: import('../utils/bootstrap-ci').BootstrapCI | null;
   /*
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.

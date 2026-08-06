@@ -213,6 +213,10 @@ export function loader({ request }: { request: Request }) {
     testVersion,
     silvermanKDEEnabled,
   });
+  // No bootstrap CI precompute — the Sig column lazily computes (and
+  // caches) via `getBootstrapCi` in mannWhitney.tsx on the first
+  // filter/sort click. Same change as the other loaders to keep load
+  // time aligned with production.
 
   return {
     results,

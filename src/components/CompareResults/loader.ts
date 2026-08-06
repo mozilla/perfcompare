@@ -197,6 +197,10 @@ export async function loader({ request }: { request: Request }) {
   const useFakeData = url.searchParams.has('fakedata');
   if (useFakeData) {
     const results = await fetchAllFakeCompareResults();
+    // No bootstrap CI precompute here — the Sig column lazily computes (and
+    // caches) on the first filter/sort interaction via `getBootstrapCi` in
+    // mannWhitney.tsx. Eagerly precomputing on every row was blocking the
+    // table render at load time.
     // They're all based on the same rev
     const baseRev = results[0][0].base_rev;
     // And the same repository
@@ -293,6 +297,10 @@ export async function getComparisonInformation(
     testVersion,
     silvermanKDEEnabled,
   });
+  // No bootstrap CI precompute here — see the lazy `getBootstrapCi` helper
+  // in mannWhitney.tsx. Eager precompute on every row was blocking table
+  // render; lazy compute defers the BCa cost to the first Sig filter/sort
+  // click (and caches per row from then on).
 
   // TODO what happens if there's no result?
   const baseRevInfoPromise = memoizedFetchRevisionForRepository({

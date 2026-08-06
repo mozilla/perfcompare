@@ -187,6 +187,9 @@ export function loader({ request }: { request: Request }) {
     testVersion,
     silvermanKDEEnabled,
   });
+  // No bootstrap CI precompute — the Sig column lazily computes (and
+  // caches) on the first filter/sort interaction via `getBootstrapCi` in
+  // mannWhitney.tsx. Eager precompute was blocking table render at load.
 
   return {
     results,

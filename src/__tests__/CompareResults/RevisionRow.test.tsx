@@ -281,49 +281,6 @@ describe('Expanded row', () => {
     expect(cliffsDeltaHeader).toBeInTheDocument();
   });
 
-  it('should display mann_whitney_test.interpretation for significance for mann-whitney-u testVersion', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const { testCompareMannWhitneyData: rowData } = getTestData();
-
-    renderWithRoute(
-      <RevisionRow
-        result={rowData[0]}
-        view={compareView}
-        gridTemplateColumns='none'
-        replicates={false}
-        testVersion='mann-whitney-u'
-        expandAll={false}
-      />,
-    );
-
-    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
-    await user.click(expandRowButton);
-
-    const notSignificant = await screen.findAllByText(/Not significant/);
-    expect(notSignificant[0]).toBeInTheDocument();
-  });
-
-  it('should handle empty mann_whitney_test.interpretation for significance for mann-whitney-u testVersion', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const { testCompareMannWhitneyData: rowData } = getTestData();
-    const resultNoInterpretation = { ...rowData[0], mann_whitney_test: null };
-    renderWithRoute(
-      <RevisionRow
-        result={resultNoInterpretation}
-        view={compareView}
-        gridTemplateColumns='none'
-        replicates={false}
-        testVersion='mann-whitney-u'
-        expandAll={false}
-      />,
-    );
-
-    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
-    await user.click(expandRowButton);
-    const emptySignificant = await screen.findAllByText(/-/);
-    expect(emptySignificant[0]).toBeInTheDocument();
-  });
-
   it('should display median diff and 95% CI alerts when base/new runs are present', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData: rowData } = getTestData();

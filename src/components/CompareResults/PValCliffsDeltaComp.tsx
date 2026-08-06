@@ -5,21 +5,12 @@ import { capitalize } from '../../utils/helpers';
 interface PValCliffsDeltaCompProps {
   cliffs_delta: number;
   cliffs_interpretation: string;
-  pValue: number | undefined | null;
-  p_value_cles: string;
   cles: number | string;
   cles_direction: string;
 }
 
 function PValCliffsDeltaComp(props: PValCliffsDeltaCompProps) {
-  const {
-    cliffs_delta,
-    cliffs_interpretation,
-    pValue,
-    p_value_cles,
-    cles,
-    cles_direction,
-  } = props;
+  const { cliffs_delta, cliffs_interpretation, cles, cles_direction } = props;
   return (
     <Box
       sx={{
@@ -46,11 +37,6 @@ function PValCliffsDeltaComp(props: PValCliffsDeltaCompProps) {
             <td style={{ padding: 2 }}>
               {capitalize(cliffs_interpretation ?? '')}
             </td>
-          </tr>
-          <tr>
-            <td style={{ padding: 2 }}>Significance (p-value)</td>
-            <td style={{ padding: 2 }}>{pValue}</td>
-            <td style={{ padding: 2 }}>{p_value_cles}</td>
           </tr>
           <tr>
             <td style={{ padding: 2 }}>CLES</td>
