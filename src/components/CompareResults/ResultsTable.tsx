@@ -11,6 +11,7 @@ import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 import { MANN_WHITNEY_U } from '../../common/constants';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
+import useInitializeTableStateFromCookies from '../../hooks/useInitializeTableStateFromCookies';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useSeedAdvancedColumnsFromUrl from '../../hooks/useSeedAdvancedColumnsFromUrl';
 import useTableFilters from '../../hooks/useTableFilters';
@@ -49,6 +50,10 @@ export default function ResultsTable() {
       ),
     [testVersion, advancedColumns],
   );
+
+  // On a fresh (uninitialized) URL, seed filter/sort from cookies into the URL
+  // and mark it initialized, so shared links reproduce the same view.
+  useInitializeTableStateFromCookies(columnsConfig);
 
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.

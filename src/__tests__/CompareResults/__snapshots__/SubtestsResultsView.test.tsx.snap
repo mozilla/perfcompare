@@ -55,7 +55,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
       style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        class="MuiTouchRipple-child"
       />
     </span>
     <span
@@ -108,7 +108,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
       style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving MuiTouchRipple-childPulsate"
+        class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
       />
     </span>
     <span
@@ -205,7 +205,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
       style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        class="MuiTouchRipple-child"
       />
     </span>
     <span
@@ -250,7 +250,7 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
       style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        class="MuiTouchRipple-child"
       />
     </span>
     <span
@@ -1878,7 +1878,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        class="MuiTouchRipple-child"
       />
     </span>
     <span
@@ -1931,7 +1931,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving MuiTouchRipple-childPulsate"
+        class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
       />
     </span>
     <span
@@ -2028,7 +2028,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        class="MuiTouchRipple-child"
       />
     </span>
     <span
@@ -2117,7 +2117,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
     >
       <span
-        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        class="MuiTouchRipple-child"
       />
     </span>
     <span
