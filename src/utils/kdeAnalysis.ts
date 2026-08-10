@@ -9,6 +9,7 @@ import {
   fftkde,
   fitModesFromKde,
   improvedSheatherJones,
+  matchModes,
   silvermansRule,
 } from './kde.js';
 
@@ -136,4 +137,105 @@ export function computeModeInfo(
     fracs: areaFracs(x, y, boundaries),
     letters: assignLetters(peakLocs),
   };
+}
+
+/**
+ * Combined output of the client-side modality pipeline. Used as the single
+ * source of truth for any UI that needs to talk about modes (counts in the
+ * Distribution Interpretation row, the Mode Δ column, KdeModesPanel, etc.)
+ * so the page never contradicts itself.
+ */
+export type ModalityAnalysis = {
+  baseModes: ModeInfo;
+  newModes: ModeInfo;
+  // How far the biggest group of runs moved from Base to New, as a % of the
+  // base peak's position. null when there's no trustworthy group to measure
+  // (see computeModalityAnalysis for the exact cases).
+  dominantModeShiftPct: number | null;
+};
+
+export const EMPTY_MODALITY_ANALYSIS: ModalityAnalysis = {
+  baseModes: EMPTY_MODE_INFO,
+  newModes: EMPTY_MODE_INFO,
+  dominantModeShiftPct: null,
+};
+
+// Each peak in the KDE curve covers some share of the runs (its "area
+// fraction"); all peaks on one side add up to ~1, i.e. 100% of the runs.
+// A peak must cover at least this share — 10% — to count as a real group of
+// runs. Smaller peaks are treated as noise (a few stray runs) and ignored, so
+// a tiny bump that happens to move a lot can't hijack the reported shift.
+const MODE_AREA_FLOOR = 0.1;
+
+/**
+ * Run the full client-side modality pipeline for a base/new pair.
+ *
+ * Pipeline (same as `KdeModesPanel`): shared bandwidth (max of per-side
+ * `bandwidthFor`), `safeKde` both sides, `computeModeInfo` to get peaks +
+ * area fractions, `matchModes` to align base/new peaks. Then derives the
+ * shift of the dominant matched mode — the pair holding the largest share
+ * of the runs — as a signed percentage of the base peak location (positive =
+ * new peak shifted higher). Picking the biggest group rather than the biggest
+ * mover keeps a small, noisy peak from driving the reported number when the
+ * main peak barely moved.
+ *
+ * `dominantModeShiftPct` is `null` when:
+ *   - either side has < 2 samples
+ *   - either KDE fails (e.g. degenerate inputs)
+ *   - mode detection finds no peaks on either side
+ *   - no matched pairs (e.g. only unmatched modes — paths appeared/disappeared)
+ *   - no matched pair clears MODE_AREA_FLOOR (only noise-level modes)
+ *   - the dominant matched base peak is at exactly zero (can't divide)
+ *
+ * Mode counts (`baseModes.peakLocs.length` / `newModes.peakLocs.length`)
+ * are 0 in the same conditions that drive `dominantModeShiftPct` to null
+ * (except the divide-by-zero / below-floor cases, which still yield counts).
+ *
+ * @param valleyThreshold Passed to `fitModesFromKde`. Defaults to 0.5 to
+ *   match `RevisionRowExpandable`'s slider default; the precompute path
+ *   has no slider to read from.
+ */
+export function computeModalityAnalysis(
+  baseValues: number[],
+  newValues: number[],
+  isSubtest: boolean,
+  valleyThreshold: number = 0.5,
+): ModalityAnalysis {
+  if (baseValues.length < 2 || newValues.length < 2) {
+    return EMPTY_MODALITY_ANALYSIS;
+  }
+  const baseBw = bandwidthFor(baseValues, isSubtest) ?? 0;
+  const newBw = bandwidthFor(newValues, isSubtest) ?? 0;
+  const rawSharedBw = Math.max(baseBw, newBw);
+  const sharedBw = rawSharedBw > 0 ? rawSharedBw : undefined;
+  const bKde = safeKde(baseValues, sharedBw);
+  const nKde = safeKde(newValues, sharedBw);
+  if (!bKde || !nKde) return EMPTY_MODALITY_ANALYSIS;
+  const baseModes = computeModeInfo(bKde.x, bKde.y, valleyThreshold);
+  const newModes = computeModeInfo(nKde.x, nKde.y, valleyThreshold);
+  if (!baseModes.peakLocs.length || !newModes.peakLocs.length) {
+    return { baseModes, newModes, dominantModeShiftPct: null };
+  }
+  const { pairs } = matchModes(
+    baseModes.peakLocs,
+    baseModes.fracs,
+    newModes.peakLocs,
+    newModes.fracs,
+  );
+  // Report how far the biggest group of runs moved — not whichever peak moved
+  // the most. Each matched pair's "size" is the average share of runs under
+  // its two peaks; pairs smaller than MODE_AREA_FLOOR are noise and skipped.
+  // Of the rest we keep the largest (the dominant group) and use its shift.
+  let dominantModeShiftPct: number | null = null;
+  let bestMag = -Infinity;
+  for (const [bi, ni] of pairs) {
+    const baseLoc = baseModes.peakLocs[bi];
+    const newLoc = newModes.peakLocs[ni];
+    if (baseLoc === 0) continue; // can't express the shift as a percentage
+    const mag = (baseModes.fracs[bi] + newModes.fracs[ni]) / 2;
+    if (mag < MODE_AREA_FLOOR || mag <= bestMag) continue;
+    bestMag = mag;
+    dominantModeShiftPct = ((newLoc - baseLoc) / baseLoc) * 100;
+  }
+  return { baseModes, newModes, dominantModeShiftPct };
 }

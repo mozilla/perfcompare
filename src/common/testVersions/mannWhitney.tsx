@@ -1,7 +1,6 @@
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import WarningIcon from '@mui/icons-material/Warning';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 
@@ -17,6 +16,7 @@ import { TableConfig } from '../../types/types';
 import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
 import { adaptUnit, formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
+import { computeModalityAnalysis } from '../../utils/kdeAnalysis';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
   determineSign,
@@ -26,7 +26,7 @@ import { shapiroWilkTest } from '../../utils/shapiroWilk';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
-  tooltipMedianDiff,
+  tooltipModeDelta,
   tooltipNewMean,
   tooltipSignificance,
   tooltipStatusMannWhitney,
@@ -97,6 +97,71 @@ export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
   return checkDistributionNormality(result) !== 'neither';
 }
 
+/**
+ * Lazily run (and cache) the client-side modality analysis for a single
+ * row. The first call computes KDE + mode detection + matchModes; every
+ * subsequent call returns immediately. Same lazy strategy as
+ * `getBootstrapCi` for the Sig column — keeps the loader cheap at the
+ * cost of a one-time burst when the user engages with the Mode Δ column.
+ *
+ * Cached fields on the result: `modeDeltaPct`, `baseModeCount`,
+ * `newModeCount`. The presence of `modeDeltaPct !== undefined` is the
+ * "already computed" sentinel (null distinguishes "computed but couldn't
+ * yield a value" — too few samples / no matched pairs).
+ *
+ * `isSubtest` controls the bandwidth strategy used by KDE: subtest tables
+ * use ISJ, top-level tables use the wider SJ approximation. Pass the same
+ * value the column config's `getColumns(isSubtestTable)` was created with.
+ */
+export function ensureModalityAnalysis(
+  result: MannWhitneyResultsItem,
+  isSubtest: boolean,
+): void {
+  if (result.modeDeltaPct !== undefined) return;
+  // Prefer replicates when present — same selection KdeModesPanel and the
+  // chart use in RevisionRowExpandable. Otherwise the cached counts /
+  // peak-shift would run KDE on fewer samples than the blurb, and the
+  // Distribution Interpretation row could disagree with the blurb.
+  const baseValues =
+    result.base_runs_replicates && result.base_runs_replicates.length
+      ? result.base_runs_replicates
+      : (result.base_runs ?? []);
+  const newValues =
+    result.new_runs_replicates && result.new_runs_replicates.length
+      ? result.new_runs_replicates
+      : (result.new_runs ?? []);
+  const analysis = computeModalityAnalysis(baseValues, newValues, isSubtest);
+  result.modeDeltaPct = analysis.dominantModeShiftPct;
+  result.baseModeCount = analysis.baseModes.peakLocs.length;
+  result.newModeCount = analysis.newModes.peakLocs.length;
+}
+
+/**
+ * Format the Mode Δ cell text:
+ *   - cached number   → "X.XX %"
+ *   - cached `null`   → "No modes"  (modality pipeline ran, no usable pair)
+ *   - uncached        → "~X.XX %" using the backend's `delta_percentage`,
+ *                       prefixed with `~` to signal "approximate, click
+ *                       the column to compute the real Mode Δ"
+ *   - no fallback     → "No modes"
+ *
+ * Cell renders run for EVERY row on every render. Triggering the modality
+ * pipeline here would re-introduce the per-row load cost the lazy
+ * refactor removed. So cells stay cheap; the real value populates after
+ * the first sort click via `ensureModalityAnalysis`.
+ */
+function formatModeDelta(result: MannWhitneyResultsItem): string {
+  const cached = result.modeDeltaPct;
+  if (typeof cached === 'number') return `${cached.toFixed(2)} %`;
+  if (cached === null) return 'No modes';
+  // Not yet computed — fall back to the backend's median diff percentage.
+  const fallback = result.delta_percentage;
+  if (typeof fallback === 'number' && Number.isFinite(fallback)) {
+    return `~${fallback.toFixed(2)} %`;
+  }
+  return 'No modes';
+}
+
 export const mannWhitneyStrategy = {
   getColumns(isSubtestTable: boolean): TableConfig {
     const platformConfig = isSubtestTable
@@ -133,31 +198,40 @@ export const mannWhitneyStrategy = {
       { key: 'comparisonSign', gridWidth: '0.25fr' },
       { name: 'New', key: 'new', gridWidth: '1fr', tooltip: tooltipNewMean },
       {
-        name: 'MD (%)',
-        key: 'median-diff',
-        gridWidth: '1fr',
+        name: 'Mode Δ (%)',
+        key: 'mode-delta',
+        gridWidth: '1.75fr',
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          // Compute a normalized median diff percentage where positive
-          // means "improved" regardless of whether lower or higher is better.
-          const normalizedDiffPct = (r: MannWhitneyResultsItem) => {
-            const base = r.base_standard_stats?.median ?? 0;
-            const newVal = r.new_standard_stats?.median ?? 0;
-            const rawPct = base !== 0 ? ((newVal - base) / base) * 100 : 0;
-            return r.lower_is_better ? -rawPct : rawPct;
+          // ASC semantics — useTableSort swaps args for DESC. So in DESC
+          // mode this produces "biggest improvement first" (largest
+          // normalized first); in ASC mode the inverse. The normalization
+          // makes a positive value always mean "improved" regardless of
+          // metric direction; rows without a computed shift sort as 0.
+          //
+          // First sort-click pays the modality-pipeline cost across all
+          // rows (the comparator is invoked O(n log n) times but each row
+          // is computed only once and cached via `ensureModalityAnalysis`).
+          // Subsequent sorts are free.
+          ensureModalityAnalysis(resultA, isSubtestTable);
+          ensureModalityAnalysis(resultB, isSubtestTable);
+          const normalized = (r: MannWhitneyResultsItem) => {
+            const pct = r.modeDeltaPct ?? 0;
+            return r.lower_is_better ? -pct : pct;
           };
-
-          return normalizedDiffPct(resultB) - normalizedDiffPct(resultA);
+          return normalized(resultA) - normalized(resultB);
         },
-        tooltip: tooltipMedianDiff,
+        tooltip: tooltipModeDelta,
+        tooltipIcon: true,
       },
       {
         name: 'Status',
         filter: true,
         key: 'status',
-        gridWidth: '1.5fr',
+        gridWidth: '1.75fr',
+        tooltipIcon: true,
         possibleValues: [
           { label: 'No changes', key: 'none' },
           { label: 'Improvement', key: 'improvement' },
@@ -181,7 +255,7 @@ export const mannWhitneyStrategy = {
       {
         name: 'CD',
         key: 'delta',
-        gridWidth: '1fr',
+        gridWidth: '1.25fr',
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
@@ -191,11 +265,13 @@ export const mannWhitneyStrategy = {
           );
         },
         tooltip: tooltipCliffsDelta,
+        tooltipIcon: true,
       },
       {
         name: 'CLES (%)',
         key: 'effects',
-        gridWidth: '1.25fr',
+        gridWidth: '1.5fr',
+        tooltipIcon: true,
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
@@ -211,8 +287,9 @@ export const mannWhitneyStrategy = {
         name: 'Sig',
         key: 'significance',
         filter: true,
-        gridWidth: '1.25fr',
+        gridWidth: '1.5fr',
         tooltip: tooltipSignificance,
+        tooltipIcon: true,
         possibleValues: [
           {
             label: 'Significant',
@@ -295,35 +372,8 @@ export const mannWhitneyStrategy = {
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
         </div>
-        <div className='median-diff cell' role='cell'>
-          {(() => {
-            const mwResult = result as MannWhitneyResultsItem;
-            const normality = checkDistributionNormality(mwResult);
-            if (normality === 'neither') return '-';
-            const baseMedian = mwResult.base_standard_stats?.median ?? 0;
-            const newMedian = mwResult.new_standard_stats?.median ?? 0;
-            const pct =
-              baseMedian !== 0
-                ? ((newMedian - baseMedian) / baseMedian) * 100
-                : 0;
-            return (
-              <span
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                }}
-              >
-                {`${formatNumber(pct)} %`}
-                {normality === 'one' && (
-                  <WarningIcon
-                    titleAccess="Distribution shapes aren't normal."
-                    sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
-                  />
-                )}
-              </span>
-            );
-          })()}
+        <div className='mode-delta cell' role='cell'>
+          {formatModeDelta(result as MannWhitneyResultsItem)}
         </div>
         <div className='status cell' role='cell'>
           <Box
@@ -475,45 +525,15 @@ export const mannWhitneyStrategy = {
   },
 
   renderColumns(result: CombinedResultsItemType) {
-    const {
-      cliffs_delta,
-      direction_of_change,
-      mann_whitney_test,
-      cles,
-      base_standard_stats,
-      new_standard_stats,
-    } = result as MannWhitneyResultsItem;
+    const mwResult = result as MannWhitneyResultsItem;
+    const { cliffs_delta, direction_of_change, mann_whitney_test, cles } =
+      mwResult;
     const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
-    const baseMedian = base_standard_stats?.median ?? 0;
-    const newMedian = new_standard_stats?.median ?? 0;
-    const medianDiffPct =
-      baseMedian !== 0 ? ((newMedian - baseMedian) / baseMedian) * 100 : 0;
-    const normality = checkDistributionNormality(
-      result as MannWhitneyResultsItem,
-    );
 
     return (
       <>
-        <div className='median-diff cell' role='cell'>
-          {normality === 'neither' ? (
-            '-'
-          ) : (
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              {`${formatNumber(medianDiffPct)} %`}
-              {normality === 'one' && (
-                <WarningIcon
-                  titleAccess="Distribution shapes aren't normal."
-                  sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
-                />
-              )}
-            </span>
-          )}
+        <div className='mode-delta cell' role='cell'>
+          {formatModeDelta(mwResult)}
         </div>
         <div className='status cell' role='cell'>
           <Box

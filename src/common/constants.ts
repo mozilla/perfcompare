@@ -337,5 +337,5 @@ export const tooltipConfidence =
   "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.";
 export const tooltipDelta =
   'The percentage difference between the Base and New values';
-export const tooltipMedianDiff =
-  'Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100.';
+export const tooltipModeDelta =
+  'Shows how much the main group of results moved from Base to New, as a percent. Runs tend to fall into groups, and this compares the biggest group on each side — so one odd run won\'t throw off the result. A positive number means New is higher. A "~" means it\'s a quick estimate; click the column title to get the exact number. "No modes" means there wasn\'t enough clear data to measure a shift.';

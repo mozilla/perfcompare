@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 
+import { ensureModalityAnalysis } from '../../common/testVersions/mannWhitney';
 import { MannWhitneyResultsItem } from '../../types/state';
 import { getModeInterpretation } from '../../utils/helpers';
 
@@ -52,11 +53,21 @@ export const MannWhitneyCompareMetrics = ({
     result.shapiro_wilk_test_base?.interpretation ?? 'N/A';
   const newShapiroWilkInterpretation =
     result.shapiro_wilk_test_new?.interpretation ?? 'N/A';
-  const baseMode = result?.silverman_kde?.base_mode_count ?? null;
-  const newMode = result?.silverman_kde?.new_mode_count ?? null;
+  // Mode counts come from the client-side modality pipeline (same one
+  // backing the Mode Δ column), not from the backend's wider-bandwidth
+  // Silverman KDE — otherwise this row could contradict the Mode Δ column.
+  // We trigger compute on demand here (no-op if a Mode Δ sort already
+  // ran). This only runs for the single expanded row, so the cost is
+  // bounded — unlike eager precompute on every row at load time.
+  // `isSubtest` is derived from base_parent_signature (same trick
+  // RevisionRowExpandable uses) so we pick the same KDE bandwidth.
+  ensureModalityAnalysis(result, result.base_parent_signature !== null);
+  const baseMode = result?.baseModeCount ?? null;
+  const newMode = result?.newModeCount ?? null;
 
   return (
     <Box
+      className='mann-whitney-compare-metrics'
       sx={{
         backgroundColor: 'manWhitneyComps.compareMetricsBg',
         marginBottom: 2,

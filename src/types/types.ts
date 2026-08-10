@@ -17,6 +17,9 @@ export interface BasicColumn {
   // Used in the grid CSS property to configure the width of the column.
   gridWidth: string;
   tooltip?: React.ReactNode;
+  // When true, render a small info icon next to the column title so users
+  // know a hover-tooltip is available. Opt-in per column.
+  tooltipIcon?: boolean;
 }
 
 // This interface is used for a column that can be filtered.

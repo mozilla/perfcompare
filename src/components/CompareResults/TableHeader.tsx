@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import StraightIcon from '@mui/icons-material/Straight';
 import SwapVert from '@mui/icons-material/SwapVert';
@@ -68,6 +69,17 @@ function SortDirectionIcon({
   }
 }
 
+// Render a small "info" icon. Used in column headers when a hover-tooltip
+// is attached, so the tooltip is discoverable instead of hidden until hover.
+function InfoIconHint() {
+  return (
+    <InfoOutlinedIcon
+      fontSize='small'
+      sx={{ fontSize: '0.95rem', opacity: 0.6, marginInlineStart: 0.5 }}
+    />
+  );
+}
+
 type FilterableColumnHeaderProps = {
   name: string;
   columnId: string;
@@ -78,6 +90,7 @@ type FilterableColumnHeaderProps = {
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
   tooltip?: ReactNode;
+  showInfoIcon?: boolean;
 };
 
 function FilterableColumnHeader({
@@ -87,6 +100,7 @@ function FilterableColumnHeader({
   checkedValues,
   onToggleFilter,
   onClearFilter,
+  showInfoIcon,
   tooltip,
 }: FilterableColumnHeaderProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
@@ -127,6 +141,7 @@ function FilterableColumnHeader({
           sx={{ paddingInline: 1.5, fontSize: '16px' }}
         >
           {name}
+          {showInfoIcon && <InfoIconHint />}
           <Box
             sx={{
               paddingInlineStart: 0.5,
@@ -211,6 +226,7 @@ type SortableColumnHeaderProps = {
   displayLabel: boolean;
   sortDirection: 'asc' | 'desc' | null;
   onToggle: (sortDirection: SortableColumnHeaderProps['sortDirection']) => void;
+  showInfoIcon?: boolean;
 };
 
 function SortableColumnHeader({
@@ -218,6 +234,7 @@ function SortableColumnHeader({
   displayLabel,
   sortDirection,
   onToggle,
+  showInfoIcon,
 }: SortableColumnHeaderProps) {
   const buttonAriaLabel = sortDirection
     ? `${name} (Currently sorted by this column. Click to change)`
@@ -263,6 +280,7 @@ function SortableColumnHeader({
         sx={inlineIconStyle}
       />
       {displayLabel ? name : null}
+      {displayLabel && showInfoIcon ? <InfoIconHint /> : null}
     </Button>
   );
 }
@@ -365,6 +383,7 @@ function TableHeader({
               onToggleFilter(header.key, checkedValues)
             }
             tooltip={header.tooltip}
+            showInfoIcon={header.tooltipIcon}
           />
         </ButtonGroup>
       );
@@ -377,6 +396,7 @@ function TableHeader({
           onToggle={(newSortDirection) =>
             onToggleSort(header.key, newSortDirection)
           }
+          showInfoIcon={header.tooltipIcon}
         />
       );
     } else if ('filter' in header) {
@@ -391,6 +411,7 @@ function TableHeader({
             onToggleFilter(header.key, checkedValues)
           }
           tooltip={header.tooltip}
+          showInfoIcon={header.tooltipIcon}
         />
       );
     }

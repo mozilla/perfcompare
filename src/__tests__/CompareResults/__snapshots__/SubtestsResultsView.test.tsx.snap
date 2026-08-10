@@ -22,6 +22,17 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
 </button>
 `;
 
@@ -47,6 +58,17 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -92,6 +114,17 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -145,6 +178,17 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -242,6 +286,17 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
     </title>
   </svg>
   CLES (%)
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -287,6 +342,17 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
 </button>
 `;
 
@@ -312,6 +378,17 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
 </button>
 `;
 
@@ -337,6 +414,17 @@ exports[`SubtestsResultsView Component Tests for mann-whitney-u testVersion tabl
     </title>
   </svg>
   CD
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+    data-testid="InfoOutlinedIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+    />
+  </svg>
 </button>
 `;
 
@@ -840,7 +928,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="f1itjsvw f1l733lh"
+                class="f18geslq f1l733lh"
                 data-testid="table-header"
                 role="row"
               >
@@ -900,16 +988,16 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </span>
                 </div>
                 <div
-                  class="cell median-diff-header"
+                  class="cell mode-delta-header"
                   role="columnheader"
                 >
                   <span
-                    aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                    aria-label="Shows how much the main group of results moved from Base to New, as a percent. Runs tend to fall into groups, and this compares the biggest group on each side — so one odd run won't throw off the result. A positive number means New is higher. A "~" means it's a quick estimate; click the column title to get the exact number. "No modes" means there wasn't enough clear data to measure a shift."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
-                      aria-label="MD (%) (Click to sort by this column)"
+                      aria-label="Mode Δ (%) (Click to sort by this column)"
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
@@ -925,10 +1013,21 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                           d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                         />
                         <title>
-                          Not sorted by MD (%)
+                          Not sorted by Mode Δ (%)
                         </title>
                       </svg>
-                      MD (%)
+                      Mode Δ (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -945,6 +1044,17 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     type="button"
                   >
                     Status
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                      />
+                    </svg>
                     <div
                       aria-label="3 items selected"
                       class="MuiBox-root css-18uhbjh"
@@ -995,6 +1105,17 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                         </title>
                       </svg>
                       CD
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -1027,6 +1148,17 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                         </title>
                       </svg>
                       CLES (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -1068,6 +1200,17 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       type="button"
                     >
                       Sig
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                       <div
                         aria-label="2 items selected"
                         class="MuiBox-root css-18uhbjh"
@@ -1112,7 +1255,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -1157,14 +1300,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   </span>
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -1274,7 +1413,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -1305,14 +1444,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -1422,7 +1557,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -1453,14 +1588,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -1570,7 +1701,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -1601,14 +1732,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -1718,7 +1845,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -1749,14 +1876,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"
@@ -2751,7 +2874,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               role="table"
             >
               <div
-                class="f1itjsvw f1l733lh"
+                class="f18geslq f1l733lh"
                 data-testid="table-header"
                 role="row"
               >
@@ -2811,16 +2934,16 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="cell median-diff-header"
+                  class="cell mode-delta-header"
                   role="columnheader"
                 >
                   <span
-                    aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                    aria-label="Shows how much the main group of results moved from Base to New, as a percent. Runs tend to fall into groups, and this compares the biggest group on each side — so one odd run won't throw off the result. A positive number means New is higher. A "~" means it's a quick estimate; click the column title to get the exact number. "No modes" means there wasn't enough clear data to measure a shift."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
-                      aria-label="MD (%) (Click to sort by this column)"
+                      aria-label="Mode Δ (%) (Click to sort by this column)"
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
@@ -2836,10 +2959,21 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                           d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                         />
                         <title>
-                          Not sorted by MD (%)
+                          Not sorted by Mode Δ (%)
                         </title>
                       </svg>
-                      MD (%)
+                      Mode Δ (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -2856,6 +2990,17 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     type="button"
                   >
                     Status
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                      />
+                    </svg>
                     <div
                       aria-label="3 items selected"
                       class="MuiBox-root css-18uhbjh"
@@ -2906,6 +3051,17 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                         </title>
                       </svg>
                       CD
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -2938,6 +3094,17 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                         </title>
                       </svg>
                       CLES (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -2979,6 +3146,17 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       type="button"
                     >
                       Sig
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                       <div
                         aria-label="2 items selected"
                         class="MuiBox-root css-18uhbjh"
@@ -3023,7 +3201,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -3070,14 +3248,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.963 %
-                  </span>
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -3187,7 +3361,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -3220,14 +3394,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    1.135 %
-                  </span>
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -3363,7 +3533,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -3396,14 +3566,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.963 %
-                  </span>
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -3526,7 +3692,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -3559,14 +3725,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    1.135 %
-                  </span>
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -3689,7 +3851,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -3722,14 +3884,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.98 %
-                  </span>
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"
@@ -4353,7 +4511,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               role="table"
             >
               <div
-                class="f1itjsvw f1l733lh"
+                class="f18geslq f1l733lh"
                 data-testid="table-header"
                 role="row"
               >
@@ -4413,16 +4571,16 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="cell median-diff-header"
+                  class="cell mode-delta-header"
                   role="columnheader"
                 >
                   <span
-                    aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                    aria-label="Shows how much the main group of results moved from Base to New, as a percent. Runs tend to fall into groups, and this compares the biggest group on each side — so one odd run won't throw off the result. A positive number means New is higher. A "~" means it's a quick estimate; click the column title to get the exact number. "No modes" means there wasn't enough clear data to measure a shift."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
-                      aria-label="MD (%) (Click to sort by this column)"
+                      aria-label="Mode Δ (%) (Click to sort by this column)"
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
@@ -4438,10 +4596,21 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                           d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                         />
                         <title>
-                          Not sorted by MD (%)
+                          Not sorted by Mode Δ (%)
                         </title>
                       </svg>
-                      MD (%)
+                      Mode Δ (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -4458,6 +4627,17 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     type="button"
                   >
                     Status
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                      />
+                    </svg>
                     <div
                       aria-label="3 items selected"
                       class="MuiBox-root css-18uhbjh"
@@ -4508,6 +4688,17 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                         </title>
                       </svg>
                       CD
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -4540,6 +4731,17 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                         </title>
                       </svg>
                       CLES (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -4581,6 +4783,17 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       type="button"
                     >
                       Sig
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                       <div
                         aria-label="2 items selected"
                         class="MuiBox-root css-18uhbjh"
@@ -4625,7 +4838,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 />
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -4672,14 +4885,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   </span>
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.963 %
-                  </span>
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -4789,7 +4998,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -4822,14 +5031,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    1.135 %
-                  </span>
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -4965,7 +5170,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -4998,14 +5203,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.963 %
-                  </span>
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -5128,7 +5329,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -5161,14 +5362,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    1.135 %
-                  </span>
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -5291,7 +5488,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -5324,14 +5521,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.98 %
-                  </span>
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"
@@ -5955,7 +6148,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
               role="table"
             >
               <div
-                class="f1itjsvw f1l733lh"
+                class="f18geslq f1l733lh"
                 data-testid="table-header"
                 role="row"
               >
@@ -6015,16 +6208,16 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </span>
                 </div>
                 <div
-                  class="cell median-diff-header"
+                  class="cell mode-delta-header"
                   role="columnheader"
                 >
                   <span
-                    aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                    aria-label="Shows how much the main group of results moved from Base to New, as a percent. Runs tend to fall into groups, and this compares the biggest group on each side — so one odd run won't throw off the result. A positive number means New is higher. A "~" means it's a quick estimate; click the column title to get the exact number. "No modes" means there wasn't enough clear data to measure a shift."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
-                      aria-label="MD (%) (Click to sort by this column)"
+                      aria-label="Mode Δ (%) (Click to sort by this column)"
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
@@ -6040,10 +6233,21 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                           d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                         />
                         <title>
-                          Not sorted by MD (%)
+                          Not sorted by Mode Δ (%)
                         </title>
                       </svg>
-                      MD (%)
+                      Mode Δ (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -6060,6 +6264,17 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     type="button"
                   >
                     Status
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                      />
+                    </svg>
                     <div
                       aria-label="3 items selected"
                       class="MuiBox-root css-18uhbjh"
@@ -6110,6 +6325,17 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                         </title>
                       </svg>
                       CD
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -6142,6 +6368,17 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                         </title>
                       </svg>
                       CLES (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -6183,6 +6420,17 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                       type="button"
                     >
                       Sig
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                       <div
                         aria-label="2 items selected"
                         class="MuiBox-root css-18uhbjh"
@@ -6227,7 +6475,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 />
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -6274,14 +6522,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   </span>
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.963 %
-                  </span>
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -6391,7 +6635,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -6424,14 +6668,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    1.135 %
-                  </span>
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -6567,7 +6807,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -6600,14 +6840,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.963 %
-                  </span>
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -6730,7 +6966,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -6763,14 +6999,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    1.135 %
-                  </span>
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -6893,7 +7125,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -6926,14 +7158,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0.98 %
-                  </span>
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"
@@ -7557,7 +7785,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="f1itjsvw f1l733lh"
+                class="f18geslq f1l733lh"
                 data-testid="table-header"
                 role="row"
               >
@@ -7617,16 +7845,16 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </span>
                 </div>
                 <div
-                  class="cell median-diff-header"
+                  class="cell mode-delta-header"
                   role="columnheader"
                 >
                   <span
-                    aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                    aria-label="Shows how much the main group of results moved from Base to New, as a percent. Runs tend to fall into groups, and this compares the biggest group on each side — so one odd run won't throw off the result. A positive number means New is higher. A "~" means it's a quick estimate; click the column title to get the exact number. "No modes" means there wasn't enough clear data to measure a shift."
                     class="MuiBox-root css-1tkq7a4"
                     data-mui-internal-clone-element="true"
                   >
                     <button
-                      aria-label="MD (%) (Click to sort by this column)"
+                      aria-label="Mode Δ (%) (Click to sort by this column)"
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
@@ -7642,10 +7870,21 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                         />
                         <title>
-                          Not sorted by MD (%)
+                          Not sorted by Mode Δ (%)
                         </title>
                       </svg>
-                      MD (%)
+                      Mode Δ (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -7662,6 +7901,17 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     type="button"
                   >
                     Status
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                      />
+                    </svg>
                     <div
                       aria-label="3 items selected"
                       class="MuiBox-root css-18uhbjh"
@@ -7712,6 +7962,17 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                         </title>
                       </svg>
                       CD
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -7744,6 +8005,17 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                         </title>
                       </svg>
                       CLES (%)
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                     </button>
                   </span>
                 </div>
@@ -7785,6 +8057,17 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       type="button"
                     >
                       Sig
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
                       <div
                         aria-label="2 items selected"
                         class="MuiBox-root css-18uhbjh"
@@ -7829,7 +8112,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -7874,14 +8157,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   </span>
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~-1.43 %
                 </div>
                 <div
                   class="status cell"
@@ -7991,7 +8270,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -8022,14 +8301,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~1.14 %
                 </div>
                 <div
                   class="status cell"
@@ -8139,7 +8414,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -8170,14 +8445,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~-1.44 %
                 </div>
                 <div
                   class="status cell"
@@ -8287,7 +8558,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -8318,14 +8589,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~1.04 %
                 </div>
                 <div
                   class="status cell"
@@ -8435,7 +8702,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-185znds"
+                class="revisionRow f146qxgq f1dlt78d MuiBox-root css-16hvrzr"
                 role="row"
               >
                 <div
@@ -8466,14 +8733,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   ms
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~0.98 %
                 </div>
                 <div
                   class="status cell"

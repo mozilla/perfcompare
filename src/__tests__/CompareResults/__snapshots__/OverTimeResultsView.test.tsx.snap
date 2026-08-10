@@ -346,7 +346,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="fdtnfac f1l733lh"
+      class="f1a6m55i f1l733lh"
       data-testid="table-header"
       role="row"
     >
@@ -413,16 +413,16 @@ exports[`Results View The table should match snapshot and other elements should 
         </span>
       </div>
       <div
-        class="cell median-diff-header"
+        class="cell mode-delta-header"
         role="columnheader"
       >
         <span
-          aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+          aria-label="Shows how much the main group of results moved from Base to New, as a percent. Runs tend to fall into groups, and this compares the biggest group on each side — so one odd run won't throw off the result. A positive number means New is higher. A "~" means it's a quick estimate; click the column title to get the exact number. "No modes" means there wasn't enough clear data to measure a shift."
           class="MuiBox-root css-1tkq7a4"
           data-mui-internal-clone-element="true"
         >
           <button
-            aria-label="MD (%) (Click to sort by this column)"
+            aria-label="Mode Δ (%) (Click to sort by this column)"
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
@@ -438,10 +438,21 @@ exports[`Results View The table should match snapshot and other elements should 
                 d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
               />
               <title>
-                Not sorted by MD (%)
+                Not sorted by Mode Δ (%)
               </title>
             </svg>
-            MD (%)
+            Mode Δ (%)
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+              data-testid="InfoOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+              />
+            </svg>
           </button>
         </span>
       </div>
@@ -458,6 +469,17 @@ exports[`Results View The table should match snapshot and other elements should 
           type="button"
         >
           Status
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+            data-testid="InfoOutlinedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+            />
+          </svg>
           <div
             aria-label="3 items selected"
             class="MuiBox-root css-18uhbjh"
@@ -508,6 +530,17 @@ exports[`Results View The table should match snapshot and other elements should 
               </title>
             </svg>
             CD
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+              data-testid="InfoOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+              />
+            </svg>
           </button>
         </span>
       </div>
@@ -540,6 +573,17 @@ exports[`Results View The table should match snapshot and other elements should 
               </title>
             </svg>
             CLES (%)
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+              data-testid="InfoOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+              />
+            </svg>
           </button>
         </span>
       </div>
@@ -581,6 +625,17 @@ exports[`Results View The table should match snapshot and other elements should 
             type="button"
           >
             Sig
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1ltkupd-MuiSvgIcon-root"
+              data-testid="InfoOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+              />
+            </svg>
             <div
               aria-label="2 items selected"
               class="MuiBox-root css-18uhbjh"
@@ -742,7 +797,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="revision-block fw0pvlu"
             >
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                 role="row"
               >
                 <div
@@ -791,14 +846,10 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~1.85 %
                 </div>
                 <div
                   class="status cell"
@@ -940,7 +991,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                 role="row"
               >
                 <div
@@ -990,14 +1041,10 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~1.08 %
                 </div>
                 <div
                   class="status cell"
@@ -1139,7 +1186,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                 role="row"
               >
                 <div
@@ -1189,14 +1236,10 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~-24.00 %
                 </div>
                 <div
                   class="status cell"
@@ -1338,7 +1381,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1iua0ib"
                 role="row"
               >
                 <div
@@ -1388,14 +1431,10 @@ exports[`Results View The table should match snapshot and other elements should 
                    
                 </div>
                 <div
-                  class="median-diff cell"
+                  class="mode-delta cell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 4px;"
-                  >
-                    0 %
-                  </span>
+                  ~-2.40 %
                 </div>
                 <div
                   class="status cell"
