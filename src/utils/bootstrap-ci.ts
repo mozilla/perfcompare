@@ -136,6 +136,12 @@ export type BootstrapCI = {
  *   - Skewness: the interval may need to be asymmetric (a, the acceleration,
  *     estimated via leave-one-out jackknife).
  *
+ * Returns null when either group has fewer than 2 observations: BCa relies on
+ * a leave-one-out jackknife for the acceleration term, which is undefined for a
+ * single observation (leaving it out yields an empty sample), and a one-point
+ * sample carries no resampling variability to form an interval from.
+ *
+ *
  * @param base    - baseline sample values
  * @param newData - new/comparison sample values
  * @param nIter   - bootstrap resamples; 9999 is standard for BCa
@@ -148,7 +154,9 @@ export function bootstrapMedianDiffCI(
   nIter: number = 9999,
   alpha: number = 0.05,
   seed: number = 42,
-): BootstrapCI {
+): BootstrapCI | null {
+  if (base.length < 2 || newData.length < 2) return null;
+
   const rng = mulberry32(seed);
   const baseArr = new Float64Array(base);
   const newArr = new Float64Array(newData);
