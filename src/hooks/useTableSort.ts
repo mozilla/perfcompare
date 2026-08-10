@@ -8,6 +8,12 @@ import type {
   SortFunc,
 } from '../types/types';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
+import {
+  SORT_PARAM,
+  SORT_COOKIE,
+  isTableStateInitialized,
+  currentUrlParams,
+} from '../utils/tableStatePersistence';
 
 // This hook handles the state that handles table sorting, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -25,8 +31,13 @@ const useTableSort = (
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
+  // Cookies are only consulted for an uninitialized URL; an initialized URL is
+  // the single source of truth so a shared link reproduces the same view.
+  const initialized = isTableStateInitialized(window.location.search);
   const sortFromUrl =
-    rawSearchParams.get('sort') ?? getCookie('perfcompare_sort') ?? '';
+    rawSearchParams.get(SORT_PARAM) ??
+    (initialized ? null : getCookie(SORT_COOKIE)) ??
+    '';
   const [columnId, direction] = useMemo(() => {
     const [columnId, direction] = sortFromUrl.split('|');
     if (!columnId) {
@@ -57,18 +68,19 @@ const useTableSort = (
     columnId: string,
     newSortDirection: 'asc' | 'desc' | null,
   ) => {
+    const params = currentUrlParams();
     if (newSortDirection === null) {
       setSortColumn(null);
       setSortDirection(null);
-      rawSearchParams.delete('sort');
-      deleteCookie('perfcompare_sort');
+      params.delete(SORT_PARAM);
+      deleteCookie(SORT_COOKIE);
     } else {
       setSortColumn(columnId);
       setSortDirection(newSortDirection);
-      rawSearchParams.set('sort', columnId + '|' + newSortDirection);
-      setCookie('perfcompare_sort', columnId + '|' + newSortDirection);
+      params.set(SORT_PARAM, columnId + '|' + newSortDirection);
+      setCookie(SORT_COOKIE, columnId + '|' + newSortDirection);
     }
-    updateRawSearchParams(rawSearchParams);
+    updateRawSearchParams(params);
   };
 
   return { sortDirection, sortColumn, onToggleSort };

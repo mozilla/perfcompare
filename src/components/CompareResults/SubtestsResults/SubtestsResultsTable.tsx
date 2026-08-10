@@ -9,6 +9,7 @@ import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import { STUDENT_T } from '../../../common/constants';
 import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
+import useInitializeTableStateFromCookies from '../../../hooks/useInitializeTableStateFromCookies';
 import useSeedAdvancedColumnsFromUrl from '../../../hooks/useSeedAdvancedColumnsFromUrl';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
@@ -88,6 +89,11 @@ function SubtestsResultsTable({
       getColumnsConfiguration(true, testVersion ?? STUDENT_T, advancedColumns),
     [testVersion, advancedColumns],
   );
+
+  // On a fresh (uninitialized) URL, seed filter/sort from cookies into the URL
+  // and mark it initialized, so shared links reproduce the same view.
+  useInitializeTableStateFromCookies(columnsConfiguration);
+
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
