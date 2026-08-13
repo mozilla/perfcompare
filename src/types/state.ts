@@ -137,13 +137,6 @@ export type StatisticsTestItem = {
 /*
  KDE plot values for base or new runs.
 */
-export type KDEItem = {
-  median: number;
-  sample_count: number;
-  kde_x: number[];
-  kde_y: number[];
-};
-
 /*
  Common Language Effect Size (CLES) results with Mann-Whitney U test. Interpretation of statistical effect and significance with what level of confidence interval.
 */
@@ -221,15 +214,10 @@ export type MannWhitneyResultsItem = {
   cliffs_delta: number;
   cliffs_interpretation: string;
   cles?: CLESItem; // CLES: Common Language Effect Size, statistical effect interpretation from Mann-Whitney U
-  kde_new: KDEItem; // KDE plots and summary plot with ISJ bandwidth for new runs
-  kde_base: KDEItem; // KDE plots and summary plot with ISJ bandwidth for base runs
   kde_warnings: string[];
   silverman_warnings?: string[] | null; // silverman warnings about multimodal data
   silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
-  is_fit_good: boolean | null; // short form interpretation of KS test goodness of fit
-  is_significant: boolean | null; // is the result statistically significant
   is_new_better: boolean | null; // is the new revision better than the base revision
-  performance_intepretation: string; // short text interpretation of the performance change
   direction_of_change: 'no change' | 'improvement' | 'regression' | null;
   new_is_better: boolean | null;
   lower_is_better: boolean | null;
@@ -241,7 +229,6 @@ export type MannWhitneyResultsItem = {
   is_regression: boolean | null;
   is_meaningful: boolean | null;
   more_runs_are_needed: boolean | null;
-  warning_c_delta?: string | null;
   /*
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
