@@ -405,8 +405,10 @@ export const mannWhitneyStrategy = {
 
     const baseRuns = mwResult.base_runs ?? [];
     const newRuns = mwResult.new_runs ?? [];
+    // A BCa CI needs at least 2 runs per side (see bootstrapMedianDiffCI);
+    // with fewer it returns null and we render no interval rather than NaNs.
     const ci =
-      baseRuns.length > 0 && newRuns.length > 0
+      baseRuns.length >= 2 && newRuns.length >= 2
         ? bootstrapMedianDiffCI(baseRuns, newRuns)
         : null;
     const rawUnit =
