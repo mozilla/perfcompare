@@ -22,7 +22,6 @@ type FetchProps = {
   framework: Framework['id'];
   replicates: boolean;
   testVersion?: TestVersion;
-  silvermanKDEEnabled?: boolean;
 };
 
 type FetchOverTimeProps = {
@@ -33,7 +32,6 @@ type FetchOverTimeProps = {
   interval: TimeRange['value'];
   replicates: boolean;
   testVersion?: TestVersion;
-  silvermanKDEEnabled?: boolean;
 };
 
 type FetchSubtestsProps = {
@@ -46,7 +44,6 @@ type FetchSubtestsProps = {
   newParentSignature: string;
   replicates: boolean;
   testVersion?: TestVersion;
-  silvermanKDEEnabled?: boolean;
 };
 
 type FetchSubtestsOverTimeProps = {
@@ -59,7 +56,6 @@ type FetchSubtestsOverTimeProps = {
   newParentSignature: string;
   replicates: boolean;
   testVersion?: TestVersion;
-  silvermanKDEEnabled?: boolean;
 };
 
 export async function fetchRevisionFromHash(
@@ -109,7 +105,6 @@ export async function fetchCompareResults({
   framework,
   replicates,
   testVersion,
-  silvermanKDEEnabled,
 }: FetchProps) {
   const searchParams = new URLSearchParams({
     base_repository: baseRepo,
@@ -120,7 +115,6 @@ export async function fetchCompareResults({
     no_subtests: 'true',
     replicates: String(replicates),
     test_version: testVersion ?? STUDENT_T,
-    enable_silverman_kde: String(silvermanKDEEnabled),
   });
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
@@ -137,7 +131,6 @@ export async function fetchCompareOverTimeResults({
   interval,
   replicates,
   testVersion,
-  silvermanKDEEnabled,
 }: FetchOverTimeProps) {
   const searchParams = new URLSearchParams({
     base_repository: baseRepo,
@@ -148,7 +141,6 @@ export async function fetchCompareOverTimeResults({
     no_subtests: 'true',
     replicates: String(replicates),
     test_version: testVersion ?? STUDENT_T,
-    enable_silverman_kde: String(silvermanKDEEnabled),
   });
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
@@ -167,7 +159,6 @@ export async function fetchSubtestsCompareResults({
   newParentSignature,
   replicates,
   testVersion,
-  silvermanKDEEnabled,
 }: FetchSubtestsProps) {
   const searchParams = new URLSearchParams({
     base_repository: baseRepo,
@@ -179,7 +170,6 @@ export async function fetchSubtestsCompareResults({
     new_parent_signature: newParentSignature,
     replicates: String(replicates),
     test_version: testVersion ?? STUDENT_T,
-    enable_silverman_kde: String(silvermanKDEEnabled),
   });
 
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
@@ -199,7 +189,6 @@ export async function fetchSubtestsCompareOverTimeResults({
   newParentSignature,
   replicates,
   testVersion,
-  silvermanKDEEnabled,
 }: FetchSubtestsOverTimeProps) {
   const searchParams = new URLSearchParams({
     base_repository: baseRepo,
@@ -211,7 +200,6 @@ export async function fetchSubtestsCompareOverTimeResults({
     new_parent_signature: newParentSignature,
     replicates: String(replicates),
     test_version: testVersion ?? STUDENT_T,
-    enable_silverman_kde: String(silvermanKDEEnabled),
   });
 
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;

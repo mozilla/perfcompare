@@ -57,7 +57,6 @@ export function useSubtestRegressionCount({
     setIsLoading(true);
 
     const searchParams = new URLSearchParams(location.search);
-    const silvermanKDEEnabled = searchParams.has('enable_silverman_kde');
     let interval: TimeRange['value'] | null = null;
     if (view !== compareView) {
       const intervalStr = searchParams.get('selectedTimeRange');
@@ -78,7 +77,6 @@ export function useSubtestRegressionCount({
             newParentSignature: String(new_signature_id),
             replicates,
             testVersion,
-            silvermanKDEEnabled,
           })
         : memoizedFetchSubtestsCompareOverTimeResults({
             baseRepo: base_repository_name,
@@ -90,7 +88,6 @@ export function useSubtestRegressionCount({
             newParentSignature: String(new_signature_id),
             replicates,
             testVersion,
-            silvermanKDEEnabled,
           });
 
     const strategy: TestVersionStrategy = getStrategy(testVersion);

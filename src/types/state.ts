@@ -150,35 +150,6 @@ export type CLESItem = {
   cles_explanation?: string;
 } | null;
 
-export type ModeItem = {
-  mode_name: string;
-  mode_start?: string;
-  mode_end?: string;
-  ci_low?: number | null;
-  ci_high?: number | null;
-  ci_warning?: string | null;
-  shift?: number | null;
-  shift_summary?: string | null;
-  median_shift_summary?: string | null;
-};
-
-/*
-  Results from Silverman KDE test for multimodal data.
-*/
-export type SilvermanKDEItem = {
-  bandwidth: string;
-  base_mode_count: number;
-  new_mode_count: number;
-  base_locations: number[];
-  new_locations: number[];
-  base_prominence: number;
-  new_prominence: number;
-  warnings: string[];
-  modes: ModeItem[];
-  is_regression: boolean | null;
-  is_improvement: boolean | null;
-};
-
 /*
   Results from the Mann-Whitney U test comparing two sets of runs.
 */
@@ -216,7 +187,6 @@ export type MannWhitneyResultsItem = {
   cles?: CLESItem; // CLES: Common Language Effect Size, statistical effect interpretation from Mann-Whitney U
   kde_warnings: string[];
   silverman_warnings?: string[] | null; // silverman warnings about multimodal data
-  silverman_kde: SilvermanKDEItem; // Silverman KDE multimodal warnings and confidence interval
   is_new_better: boolean | null; // is the new revision better than the base revision
   direction_of_change: 'no change' | 'improvement' | 'regression' | null;
   new_is_better: boolean | null;

@@ -516,26 +516,6 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 <td />
                 <td />
               </tr>
-              <tr
-                class="test-label-row"
-                style="margin-top: 2px;"
-              >
-                <td>
-                  Distribution
-                </td>
-              </tr>
-              <tr
-                class="test-row-container"
-              >
-                <td>
-                  Estimated Modes
-                </td>
-                <td />
-                <td />
-                <td>
-                  No modes or data for Base and New, possible oversmoothing, KDE evaluation failed
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -1060,26 +1040,6 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 <td />
                 <td />
                 <td />
-              </tr>
-              <tr
-                class="test-label-row"
-                style="margin-top: 2px;"
-              >
-                <td>
-                  Distribution
-                </td>
-              </tr>
-              <tr
-                class="test-row-container"
-              >
-                <td>
-                  Estimated Modes
-                </td>
-                <td />
-                <td />
-                <td>
-                  No modes or data for Base and New, possible oversmoothing, KDE evaluation failed
-                </td>
               </tr>
             </tbody>
           </table>

@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 
 import { MannWhitneyResultsItem } from '../../types/state';
-import { getModeInterpretation } from '../../utils/helpers';
 
 const METRIC_HEADERS = ['Metric', 'Base', 'New', 'Interpretation'];
 
@@ -52,8 +51,6 @@ export const MannWhitneyCompareMetrics = ({
     result.shapiro_wilk_test_base?.interpretation ?? 'N/A';
   const newShapiroWilkInterpretation =
     result.shapiro_wilk_test_new?.interpretation ?? 'N/A';
-  const baseMode = result?.silverman_kde?.base_mode_count ?? null;
-  const newMode = result?.silverman_kde?.new_mode_count ?? null;
 
   return (
     <Box
@@ -160,15 +157,6 @@ export const MannWhitneyCompareMetrics = ({
             <td></td>
             <td></td>
             <td>{`${result?.ks_test?.interpretation ?? ''}`}</td>
-          </tr>
-          <tr className='test-label-row' style={{ marginTop: 2 }}>
-            <td>Distribution</td>
-          </tr>
-          <tr className='test-row-container'>
-            <td>Estimated Modes</td>
-            <td>{baseMode}</td>
-            <td>{newMode}</td>
-            <td>{getModeInterpretation(baseMode, newMode)}</td>
           </tr>
         </tbody>
       </table>
