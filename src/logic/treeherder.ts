@@ -85,15 +85,30 @@ export async function fetchRevisionFromHash(
 async function fetchFromTreeherder(url: string) {
   const response = await fetch(url);
   if (!response.ok) {
+    const errorText = await response.text();
     if (response.status === 400) {
-      throw new Error(
-        `Error when requesting treeherder: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
-      );
+      let errorJson: Record<string, string[]> | null = null;
+      try {
+        errorJson = JSON.parse(errorText) as Record<string, string[]>;
+      } catch {
+        // Fall through to the generic error below if parsing fails
+      }
+
+      if (
+        errorJson?.new_revision?.[0]?.trim() === 'This field may not be blank.'
+      ) {
+        throw new Error(
+          'The comparison cannot be performed because the `new_revision` field is missing. ' +
+            'This typically happens when the `mach try perf` push is still being processed by Lando. ' +
+            'Please wait a few moments for the push to complete and then refresh the page.',
+        );
+      }
+
+      throw new Error(`Error when requesting treeherder: ${errorText}`);
     }
+    throw new Error(
+      `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
+    );
   }
   return response;
 }
