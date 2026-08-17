@@ -625,7 +625,8 @@ export const mannWhitneyStrategy = {
       mann_whitney_test,
       cles,
     } = mwResult;
-    const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
+    const clesValue =
+      cles?.cles != null ? `${(cles.cles * 100).toFixed(2)} %` : '-';
 
     return (
       <>

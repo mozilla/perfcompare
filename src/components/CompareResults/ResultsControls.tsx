@@ -11,7 +11,10 @@ import { DownloadButton } from './DownloadButton';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
-import { updateShowHowToRead } from '../../reducers/ColumnPrefsSlice';
+import {
+  updateShowHowToRead,
+  HOW_TO_READ_STORAGE_KEY,
+} from '../../reducers/ColumnPrefsSlice';
 import { Strings } from '../../resources/Strings';
 import type { CombinedResultsItemType } from '../../types/state';
 import type { Framework, TestVersion } from '../../types/types';
@@ -53,7 +56,7 @@ export default function ResultsControls({
   );
   const onShowHowToReadChange = (checked: boolean) => {
     dispatch(updateShowHowToRead(checked));
-    localStorage.setItem('showHowToRead', String(checked));
+    localStorage.setItem(HOW_TO_READ_STORAGE_KEY, String(checked));
   };
   return (
     <Grid

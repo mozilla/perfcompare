@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+export const HOW_TO_READ_STORAGE_KEY = 'showHowToRead';
+
 // Results-view display preferences:
 //   - showCliffsDelta / showCles: the two advanced statistics columns, toggled
 //     independently from the "Advanced columns" dropdown. Persisted in the URL
@@ -14,7 +16,7 @@ const initialState: {
 } = {
   showCliffsDelta: false,
   showCles: false,
-  showHowToRead: localStorage.getItem('showHowToRead') !== 'false',
+  showHowToRead: localStorage.getItem(HOW_TO_READ_STORAGE_KEY) !== 'false',
 };
 
 const columnPrefs = createSlice({

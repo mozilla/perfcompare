@@ -36,13 +36,13 @@ function AdvancedColumnsMenu() {
   });
   const dispatch = useAppDispatch();
   const { cliffsDelta, cles } = useAdvancedColumns();
-  const [, updateRawSearchParams] = useRawSearchParams();
+  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
   const applyAdvancedColumns = (next: AdvancedColumns) => {
     dispatch(updateShowCliffsDelta(next.cliffsDelta));
     dispatch(updateShowCles(next.cles));
 
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(rawSearchParams);
     const value = serializeAdvancedColumns(next);
     if (value) {
       params.set(ADVANCED_COLUMNS_PARAM, value);
