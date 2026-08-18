@@ -2,7 +2,6 @@ import { Box } from '@mui/material';
 
 import { MannWhitneyResultsItem } from '../../types/state';
 import { formatNumberFixedTwo } from '../../utils/format';
-import { getModeInterpretation } from '../../utils/helpers';
 
 const METRIC_HEADERS = ['Metric', 'Base', 'New', 'Interpretation'];
 
