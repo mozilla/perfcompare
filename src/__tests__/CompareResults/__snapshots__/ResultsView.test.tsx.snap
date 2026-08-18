@@ -4,7 +4,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="_r_cq_"
+  id="_r_ck_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -528,7 +528,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="_r_b3_"
+  id="_r_au_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -1126,7 +1126,76 @@ exports[`Results View The table should match snapshot and other elements should 
       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 f1wpas00 results-controls css-13620ud-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-grow css-1l62nh8-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
+      >
+        <div
+          class="results-controls-selections MuiBox-root css-1rh9huw"
+        >
+          <label
+            aria-label="Show the "How to read the results" guide above the table"
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
+            data-mui-internal-clone-element="true"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+            >
+              <input
+                checked=""
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                data-testid="CheckBoxIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+            >
+              How to read the results
+            </span>
+          </label>
+          <label
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
+          >
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+            >
+              <input
+                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                data-indeterminate="false"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+            >
+              Expand all rows
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
@@ -1171,7 +1240,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-invalid="false"
                     aria-label="Search by title, platform, revision or options"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_l_"
+                    id="_r_m_"
                     placeholder="Filter results"
                     type="search"
                     value=""
@@ -1414,6 +1483,64 @@ exports[`Results View The table should match snapshot and other elements should 
             </div>
           </div>
           <div
+            class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
+          >
+            <div
+              aria-label="Show the advanced statistics columns (Cliff's Delta, CLES)"
+              class="MuiFormControl-root css-7549ua-MuiFormControl-root"
+              data-mui-internal-clone-element="true"
+            >
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-columns-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                data-testid="advanced-columns-select"
+              >
+                <div
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-label="Advanced columns"
+                  class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                  role="combobox"
+                  tabindex="0"
+                >
+                  Advanced columns
+                </div>
+                <input
+                  aria-hidden="true"
+                  aria-invalid="false"
+                  class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                  tabindex="-1"
+                  value=""
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                  data-testid="ArrowDropDownIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+                <fieldset
+                  aria-hidden="true"
+                  class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="css-1nf2c5d-MuiNotchedOutlined-root"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="notranslate"
+                    >
+                      ​
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div
             class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-wautn6-MuiGrid-root"
           >
             <div
@@ -1428,102 +1555,6 @@ exports[`Results View The table should match snapshot and other elements should 
               </button>
             </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-1cmvap5-MuiGrid-root"
-      >
-        <div
-          class="results-controls-selections MuiBox-root css-1qjdzf5"
-        >
-          <button
-            aria-haspopup="true"
-            aria-label="Advanced columns"
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedInherit MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorInherit MuiButton-disableElevation advanced-columns-button css-h55mtz-MuiButtonBase-root-MuiButton-root"
-            data-mui-internal-clone-element="true"
-            tabindex="0"
-            type="button"
-          >
-            Advanced columns
-            <span
-              class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                data-testid="KeyboardArrowDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
-                />
-              </svg>
-            </span>
-          </button>
-          <label
-            aria-label="Show the "How to read the results" guide above the table"
-            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
-            data-mui-internal-clone-element="true"
-          >
-            <span
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
-            >
-              <input
-                checked=""
-                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
-                data-indeterminate="false"
-                type="checkbox"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                data-testid="CheckBoxIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-            >
-              How to read the results
-            </span>
-          </label>
-          <label
-            aria-label="Expand all rows"
-            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
-            data-mui-internal-clone-element="true"
-          >
-            <span
-              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
-            >
-              <input
-                class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
-                data-indeterminate="false"
-                type="checkbox"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                data-testid="CheckBoxOutlineBlankIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-            >
-              Expand all
-            </span>
-          </label>
         </div>
       </div>
     </div>
@@ -2089,7 +2120,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1f_"
+                      aria-controls="_r_1e_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -2282,7 +2313,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1m_"
+                      aria-controls="_r_1l_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -2475,7 +2506,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_1t_"
+                      aria-controls="_r_1s_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -2668,7 +2699,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="_r_24_"
+                      aria-controls="_r_23_"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"

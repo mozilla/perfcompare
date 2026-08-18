@@ -1331,18 +1331,20 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(header().querySelector('.effects-header')).toBeFalsy();
 
     // Open the dropdown and enable Cliff's Delta only.
-    await user.click(screen.getByRole('button', { name: /Advanced columns/ }));
-    await user.click(screen.getByRole('checkbox', { name: "Cliff's Delta" }));
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced columns' }),
+    );
+    await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
     expect(header().querySelector('.delta-header')).toBeTruthy();
     expect(header().querySelector('.effects-header')).toBeFalsy();
 
     // Enable CLES too — both show.
-    await user.click(screen.getByRole('checkbox', { name: 'CLES' }));
+    await user.click(screen.getByRole('option', { name: 'CLES' }));
     expect(header().querySelector('.delta-header')).toBeTruthy();
     expect(header().querySelector('.effects-header')).toBeTruthy();
 
     // Turn Cliff's Delta back off — only CLES remains.
-    await user.click(screen.getByRole('checkbox', { name: "Cliff's Delta" }));
+    await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
     expect(header().querySelector('.delta-header')).toBeFalsy();
     expect(header().querySelector('.effects-header')).toBeTruthy();
   });
@@ -1370,18 +1372,20 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
       new URLSearchParams(window.location.search).get('advanced_columns');
     expect(advancedParam()).toBeNull();
 
-    await user.click(screen.getByRole('button', { name: /Advanced columns/ }));
-    await user.click(screen.getByRole('checkbox', { name: "Cliff's Delta" }));
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced columns' }),
+    );
+    await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
     expect(advancedParam()).toBe('cliffs_delta');
 
-    await user.click(screen.getByRole('checkbox', { name: 'CLES' }));
+    await user.click(screen.getByRole('option', { name: 'CLES' }));
     expect(advancedParam()).toBe('cliffs_delta,cles');
 
     // Turning a column off updates the param; turning the last one off removes it.
-    await user.click(screen.getByRole('checkbox', { name: "Cliff's Delta" }));
+    await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
     expect(advancedParam()).toBe('cles');
 
-    await user.click(screen.getByRole('checkbox', { name: 'CLES' }));
+    await user.click(screen.getByRole('option', { name: 'CLES' }));
     expect(advancedParam()).toBeNull();
   });
 });

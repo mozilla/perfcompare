@@ -835,31 +835,60 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-1spwhcy-MuiGrid-root"
                 >
-                  <button
-                    aria-haspopup="true"
-                    aria-label="Advanced columns"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedInherit MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorInherit MuiButton-disableElevation advanced-columns-button css-h55mtz-MuiButtonBase-root-MuiButton-root"
+                  <div
+                    aria-label="Show the advanced statistics columns (Cliff's Delta, CLES)"
+                    class="MuiFormControl-root css-7549ua-MuiFormControl-root"
                     data-mui-internal-clone-element="true"
-                    tabindex="0"
-                    type="button"
                   >
-                    Advanced columns
-                    <span
-                      class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
+                    <div
+                      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-columns-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                      data-testid="advanced-columns-select"
                     >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-label="Advanced columns"
+                        class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                        role="combobox"
+                        tabindex="0"
+                      >
+                        Advanced columns
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        aria-invalid="false"
+                        class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value=""
+                      />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+                          d="M7 10l5 5 5-5z"
                         />
                       </svg>
-                    </span>
-                  </button>
+                      <fieldset
+                        aria-hidden="true"
+                        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                      >
+                        <legend
+                          class="css-1nf2c5d-MuiNotchedOutlined-root"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="notranslate"
+                          >
+                            ​
+                          </span>
+                        </legend>
+                      </fieldset>
+                    </div>
+                  </div>
                 </div>
               </div>
             </header>
@@ -2736,31 +2765,60 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-1spwhcy-MuiGrid-root"
                 >
-                  <button
-                    aria-haspopup="true"
-                    aria-label="Advanced columns"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedInherit MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorInherit MuiButton-disableElevation advanced-columns-button css-h55mtz-MuiButtonBase-root-MuiButton-root"
+                  <div
+                    aria-label="Show the advanced statistics columns (Cliff's Delta, CLES)"
+                    class="MuiFormControl-root css-7549ua-MuiFormControl-root"
                     data-mui-internal-clone-element="true"
-                    tabindex="0"
-                    type="button"
                   >
-                    Advanced columns
-                    <span
-                      class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
+                    <div
+                      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-columns-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                      data-testid="advanced-columns-select"
                     >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-label="Advanced columns"
+                        class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                        role="combobox"
+                        tabindex="0"
+                      >
+                        Advanced columns
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        aria-invalid="false"
+                        class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value=""
+                      />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+                          d="M7 10l5 5 5-5z"
                         />
                       </svg>
-                    </span>
-                  </button>
+                      <fieldset
+                        aria-hidden="true"
+                        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                      >
+                        <legend
+                          class="css-1nf2c5d-MuiNotchedOutlined-root"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="notranslate"
+                          >
+                            ​
+                          </span>
+                        </legend>
+                      </fieldset>
+                    </div>
+                  </div>
                 </div>
               </div>
             </header>
@@ -4289,31 +4347,60 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 <div
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-1spwhcy-MuiGrid-root"
                 >
-                  <button
-                    aria-haspopup="true"
-                    aria-label="Advanced columns"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedInherit MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorInherit MuiButton-disableElevation advanced-columns-button css-h55mtz-MuiButtonBase-root-MuiButton-root"
+                  <div
+                    aria-label="Show the advanced statistics columns (Cliff's Delta, CLES)"
+                    class="MuiFormControl-root css-7549ua-MuiFormControl-root"
                     data-mui-internal-clone-element="true"
-                    tabindex="0"
-                    type="button"
                   >
-                    Advanced columns
-                    <span
-                      class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
+                    <div
+                      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-columns-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                      data-testid="advanced-columns-select"
                     >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-label="Advanced columns"
+                        class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                        role="combobox"
+                        tabindex="0"
+                      >
+                        Advanced columns
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        aria-invalid="false"
+                        class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value=""
+                      />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+                          d="M7 10l5 5 5-5z"
                         />
                       </svg>
-                    </span>
-                  </button>
+                      <fieldset
+                        aria-hidden="true"
+                        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                      >
+                        <legend
+                          class="css-1nf2c5d-MuiNotchedOutlined-root"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="notranslate"
+                          >
+                            ​
+                          </span>
+                        </legend>
+                      </fieldset>
+                    </div>
+                  </div>
                 </div>
               </div>
             </header>
@@ -5842,31 +5929,60 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 <div
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-1spwhcy-MuiGrid-root"
                 >
-                  <button
-                    aria-haspopup="true"
-                    aria-label="Advanced columns"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedInherit MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorInherit MuiButton-disableElevation advanced-columns-button css-h55mtz-MuiButtonBase-root-MuiButton-root"
+                  <div
+                    aria-label="Show the advanced statistics columns (Cliff's Delta, CLES)"
+                    class="MuiFormControl-root css-7549ua-MuiFormControl-root"
                     data-mui-internal-clone-element="true"
-                    tabindex="0"
-                    type="button"
                   >
-                    Advanced columns
-                    <span
-                      class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
+                    <div
+                      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-columns-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                      data-testid="advanced-columns-select"
                     >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-label="Advanced columns"
+                        class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                        role="combobox"
+                        tabindex="0"
+                      >
+                        Advanced columns
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        aria-invalid="false"
+                        class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value=""
+                      />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+                          d="M7 10l5 5 5-5z"
                         />
                       </svg>
-                    </span>
-                  </button>
+                      <fieldset
+                        aria-hidden="true"
+                        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                      >
+                        <legend
+                          class="css-1nf2c5d-MuiNotchedOutlined-root"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="notranslate"
+                          >
+                            ​
+                          </span>
+                        </legend>
+                      </fieldset>
+                    </div>
+                  </div>
                 </div>
               </div>
             </header>
@@ -7395,31 +7511,60 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-1spwhcy-MuiGrid-root"
                 >
-                  <button
-                    aria-haspopup="true"
-                    aria-label="Advanced columns"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedInherit MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorInherit MuiButton-disableElevation advanced-columns-button css-h55mtz-MuiButtonBase-root-MuiButton-root"
+                  <div
+                    aria-label="Show the advanced statistics columns (Cliff's Delta, CLES)"
+                    class="MuiFormControl-root css-7549ua-MuiFormControl-root"
                     data-mui-internal-clone-element="true"
-                    tabindex="0"
-                    type="button"
                   >
-                    Advanced columns
-                    <span
-                      class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
+                    <div
+                      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-columns-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                      data-testid="advanced-columns-select"
                     >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-label="Advanced columns"
+                        class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                        role="combobox"
+                        tabindex="0"
+                      >
+                        Advanced columns
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        aria-invalid="false"
+                        class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value=""
+                      />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"
+                          d="M7 10l5 5 5-5z"
                         />
                       </svg>
-                    </span>
-                  </button>
+                      <fieldset
+                        aria-hidden="true"
+                        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                      >
+                        <legend
+                          class="css-1nf2c5d-MuiNotchedOutlined-root"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="notranslate"
+                          >
+                            ​
+                          </span>
+                        </legend>
+                      </fieldset>
+                    </div>
+                  </div>
                 </div>
               </div>
             </header>

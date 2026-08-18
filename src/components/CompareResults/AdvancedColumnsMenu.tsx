@@ -1,17 +1,11 @@
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Menu from '@mui/material/Menu';
+import FormControl from '@mui/material/FormControl';
+import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
-import {
-  usePopupState,
-  bindTrigger,
-  bindMenu,
-} from 'material-ui-popup-state/hooks';
 
-import { useAppDispatch } from '../../hooks/app';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import {
@@ -24,19 +18,26 @@ import {
   serializeAdvancedColumns,
 } from '../../utils/advancedColumnsUrl';
 
-// Dropdown that reveals a checkbox for each advanced statistics column
-// (Cliff's Delta, CLES). Each is toggled independently — either, both, or
-// neither can be shown. The selection is stored in the URL so a shared link
-// reproduces it (via history.replaceState — no data refetch) and mirrored to
-// Redux for reactive rendering. Shared by the main and subtests controls.
+// The advanced statistics columns (Cliff's Delta, CLES) are toggled
+// independently — either, both, or neither can be shown.
+// Shared by the main and subtests controls.
+
+// The option keys match the URL serializer (see utils/advancedColumnsUrl).
+const COLUMN_OPTIONS = [
+  { key: 'cliffs_delta', label: "Cliff's Delta" },
+  { key: 'cles', label: 'CLES' },
+] as const;
+
 function AdvancedColumnsMenu() {
-  const popupState = usePopupState({
-    variant: 'popover',
-    popupId: 'advanced-columns-menu',
-  });
   const dispatch = useAppDispatch();
+  const mode = useAppSelector((state) => state.theme.mode);
   const { cliffsDelta, cles } = useAdvancedColumns();
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
+
+  const selectedKeys = [
+    cliffsDelta ? 'cliffs_delta' : null,
+    cles ? 'cles' : null,
+  ].filter(Boolean) as string[];
 
   const applyAdvancedColumns = (next: AdvancedColumns) => {
     dispatch(updateShowCliffsDelta(next.cliffsDelta));
@@ -52,62 +53,50 @@ function AdvancedColumnsMenu() {
     updateRawSearchParams(params);
   };
 
-  const columns = [
-    {
-      label: "Cliff's Delta",
-      checked: cliffsDelta,
-      onChange: (checked: boolean) =>
-        applyAdvancedColumns({ cliffsDelta: checked, cles }),
-    },
-    {
-      label: 'CLES',
-      checked: cles,
-      onChange: (checked: boolean) =>
-        applyAdvancedColumns({ cliffsDelta, cles: checked }),
-    },
-  ];
+  const onChange = (event: SelectChangeEvent<string[]>) => {
+    const { value } = event.target;
+    const keys = typeof value === 'string' ? value.split(',') : value;
+    applyAdvancedColumns({
+      cliffsDelta: keys.includes('cliffs_delta'),
+      cles: keys.includes('cles'),
+    });
+  };
 
   return (
-    <>
-      <Tooltip title="Show the advanced statistics columns (Cliff's Delta, CLES)">
-        <Button
-          {...bindTrigger(popupState)}
-          // Keep the accessible name as the visible label; without this MUI's
-          // Tooltip would set the (Cliff's-Delta-mentioning) title as aria-label.
-          aria-label='Advanced columns'
-          color='inherit'
+    <Tooltip
+      placement='top'
+      title="Show the advanced statistics columns (Cliff's Delta, CLES)"
+    >
+      <FormControl size='small' sx={{ width: '100%' }}>
+        <Select
+          multiple
+          displayEmpty
+          data-testid='advanced-columns-select'
+          className='advanced-columns-select'
+          value={selectedKeys}
+          onChange={onChange}
+          // Always show a fixed label rather than the selected column keys.
+          renderValue={() => 'Advanced columns'}
+          variant='outlined'
           size='small'
-          endIcon={<KeyboardArrowDownIcon />}
-          className='advanced-columns-button'
+          // Keep the visible label as the accessible name; without this MUI's
+          // Tooltip would set the (Cliff's-Delta-mentioning) title as aria-label.
+          inputProps={{ 'aria-label': 'Advanced columns' }}
+          MenuProps={{
+            classes: {
+              paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
+            },
+          }}
         >
-          Advanced columns
-        </Button>
-      </Tooltip>
-      <Menu {...bindMenu(popupState)}>
-        {columns.map(({ label, checked, onChange }) => (
-          <MenuItem
-            disableRipple
-            key={label}
-            onClick={() => onChange(!checked)}
-          >
-            <FormControlLabel
-              // Stop clicks on the checkbox/label from also bubbling to the
-              // MenuItem's onClick, which would toggle a second time and cancel
-              // out. The Checkbox's own onChange handles those clicks.
-              onClick={(e) => e.stopPropagation()}
-              control={
-                <Checkbox
-                  checked={checked}
-                  onChange={(e) => onChange(e.target.checked)}
-                  size='small'
-                />
-              }
-              label={label}
-            />
-          </MenuItem>
-        ))}
-      </Menu>
-    </>
+          {COLUMN_OPTIONS.map(({ key, label }) => (
+            <MenuItem key={key} value={key}>
+              <Checkbox checked={selectedKeys.includes(key)} size='small' />
+              <ListItemText primary={label} />
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Tooltip>
   );
 }
 

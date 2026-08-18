@@ -64,9 +64,48 @@ export default function ResultsControls({
       className={`${controlsStyles} results-controls`}
       spacing={2}
     >
-      {/* Group 1: the input controls. Grows to fill the available width, and
-        stacks full-width above the selections group once the screen narrows. */}
-      <Grid size={{ xs: 12, md: 'grow' }}>
+      {/* Row 1: the checkbox-style selections, on their own full-width row
+        above the input controls. */}
+      <Grid size={12}>
+        <Box
+          className='results-controls-selections'
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            columnGap: 2,
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          <Tooltip title='Show the "How to read the results" guide above the table'>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={showHowToRead}
+                  onChange={(e) => onShowHowToReadChange(e.target.checked)}
+                  size='small'
+                />
+              }
+              label='How to read the results'
+            />
+          </Tooltip>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={expandAll}
+                onChange={(e) => onExpandAllChange(e.target.checked)}
+                size='small'
+              />
+            }
+            label='Expand all rows'
+          />
+        </Box>
+      </Grid>
+
+      {/* Row 2: the input controls, full-width below the selections. */}
+      <Grid size={12}>
         <Grid container spacing={2} className='results-controls-inputs'>
           <Grid
             size={{
@@ -115,53 +154,13 @@ export default function ResultsControls({
           <Grid size='grow' sx={{ minWidth: 150 }}>
             <RevisionSelect />
           </Grid>
+          <Grid size='auto'>
+            <AdvancedColumnsMenu />
+          </Grid>
           <Grid size='grow' sx={{ minWidth: 140 }}>
             <DownloadButton resultsPromise={resultsPromise} />
           </Grid>
         </Grid>
-      </Grid>
-
-      {/* Group 2: the checkbox-style selections. Sits as a compact column on
-        the right on wide screens; drops to a full-width wrapping row below the
-        inputs on narrow screens, spreading out to use the available space. */}
-      <Grid size={{ xs: 12, md: 'auto' }}>
-        <Box
-          className='results-controls-selections'
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'row', md: 'column' },
-            flexWrap: 'wrap',
-            columnGap: 2,
-            alignItems: { xs: 'center', md: 'flex-start' },
-            whiteSpace: 'nowrap',
-          }}
-        >
-          <AdvancedColumnsMenu />
-          <Tooltip title='Show the "How to read the results" guide above the table'>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={showHowToRead}
-                  onChange={(e) => onShowHowToReadChange(e.target.checked)}
-                  size='small'
-                />
-              }
-              label='How to read the results'
-            />
-          </Tooltip>
-          <Tooltip title='Expand all rows'>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={expandAll}
-                  onChange={(e) => onExpandAllChange(e.target.checked)}
-                  size='small'
-                />
-              }
-              label='Expand all'
-            />
-          </Tooltip>
-        </Box>
       </Grid>
     </Grid>
   );
