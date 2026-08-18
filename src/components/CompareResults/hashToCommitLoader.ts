@@ -67,9 +67,6 @@ export async function loader({ request }: { request: Request }) {
   const baseRevsFromHash = commits_from_hashes.baseRevision;
   const newRevsFromHash = [commits_from_hashes.newRevision];
   const replicatesFromUrl = url.searchParams.has('replicates');
-  const enableSilvermanKDEFromUrl = url.searchParams.has(
-    'enable_silverman_kde',
-  );
   const {
     baseRev,
     baseRepo,
@@ -79,7 +76,6 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     replicates,
     testVersion,
-    silvermanKDEEnabled,
   } = checkValues({
     baseRev: baseRevsFromHash,
     baseRepo: baseRepoFromUrl,
@@ -88,7 +84,6 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
-    silvermanKDEEnabled: enableSilvermanKDEFromUrl,
   });
   return await getComparisonInformation(
     baseRev,
@@ -98,7 +93,6 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     replicates,
-    silvermanKDEEnabled,
     testVersion,
   );
 }
@@ -116,7 +110,6 @@ type HashLoaderData = {
   view: typeof compareView;
   generation: number;
   testVersion: TestVersion;
-  silvermanKDEEnabled: boolean;
 };
 
 export type HashLoaderReturnValue = HashLoaderData;
