@@ -452,7 +452,6 @@ const getTestData = () => {
 
       is_new_better: null,
       direction_of_change: 'improvement',
-      kde_warnings: [],
     },
     {
       base_rev: 'coconut',
@@ -543,7 +542,6 @@ const getTestData = () => {
       is_new_better: null,
       direction_of_change: 'regression',
       shapiro_wilk_test_base: null,
-      kde_warnings: [],
     },
     {
       base_rev: 'coconut',
@@ -627,7 +625,6 @@ const getTestData = () => {
       },
       is_new_better: null,
       direction_of_change: null,
-      kde_warnings: [],
     },
     {
       base_rev: 'coconut',
@@ -710,7 +707,6 @@ const getTestData = () => {
       },
       is_new_better: null,
       direction_of_change: null,
-      kde_warnings: [],
     },
   ];
 
@@ -1301,11 +1297,6 @@ const getTestData = () => {
       effect_size: '',
       cles_explanation: '',
     },
-    silverman_warnings: [],
-    kde_warnings: [
-      'Less than 2 datapoints or no standard variance for a meaningful fit Kernel Density Estimator (KDE) with an ISJ bandwidth to Base.',
-      'Less than 2 datapoints or no standard variance for a meaningful fit Kernel Density Estimator (KDE) with an ISJ bandwidth to New.',
-    ],
     new_is_better: null,
   };
 
@@ -1398,7 +1389,6 @@ const getTestData = () => {
       },
       cliffs_delta: 0.02,
       cliffs_interpretation: 'negligible',
-      kde_warnings: [],
       cles: {
         cles: 0.6,
         cles_direction: '',
@@ -1506,7 +1496,6 @@ const getTestData = () => {
         effect_size: '',
         cles_explanation: '',
       },
-      kde_warnings: [],
       is_new_better: null,
       direction_of_change: 'improvement',
     },
@@ -1596,7 +1585,6 @@ const getTestData = () => {
         effect_size: '',
         cles_explanation: '',
       },
-      kde_warnings: [],
       is_new_better: null,
       direction_of_change: null,
     },
@@ -1686,7 +1674,6 @@ const getTestData = () => {
         effect_size: '',
         cles_explanation: '',
       },
-      kde_warnings: [],
       is_new_better: null,
       direction_of_change: null,
     },
@@ -1776,7 +1763,6 @@ const getTestData = () => {
         effect_size: '',
         cles_explanation: '',
       },
-      kde_warnings: [],
       is_new_better: null,
       direction_of_change: null,
     },

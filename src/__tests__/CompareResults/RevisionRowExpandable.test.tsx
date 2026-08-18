@@ -73,15 +73,11 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
       />,
     );
 
-    const expectedWarning1 =
-      'Less than 2 datapoints or no standard variance for a meaningful fit Kernel Density Estimator (KDE) with an ISJ bandwidth to Base.';
     const shapiroWarning =
       'Shapiro-Wilk test cannot be run on Base with fewer than 3 data points.';
     const shapiroWarning2 =
       'Shapiro-Wilk test cannot be run on New with fewer than 3 data points.';
 
-    const warning1 = await screen.findByText(expectedWarning1);
-    expect(warning1).toBeInTheDocument();
     const swWarning = await screen.findByText(shapiroWarning);
     expect(swWarning).toBeInTheDocument();
     const swWarning2 = await screen.findByText(shapiroWarning2);
