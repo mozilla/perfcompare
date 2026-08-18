@@ -185,8 +185,6 @@ export type MannWhitneyResultsItem = {
   cliffs_delta: number;
   cliffs_interpretation: string;
   cles?: CLESItem; // CLES: Common Language Effect Size, statistical effect interpretation from Mann-Whitney U
-  kde_warnings: string[];
-  silverman_warnings?: string[] | null; // silverman warnings about multimodal data
   is_new_better: boolean | null; // is the new revision better than the base revision
   direction_of_change: 'no change' | 'improvement' | 'regression' | null;
   new_is_better: boolean | null;

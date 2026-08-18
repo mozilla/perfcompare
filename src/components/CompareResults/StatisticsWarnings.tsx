@@ -32,9 +32,7 @@ export const StatisticsWarnings = ({
   // Combine all warnings into a single list
   const warnings: string[] = [
     ...(result?.shapiro_wilk_warnings ?? []),
-    ...(result?.silverman_warnings ?? []),
     ...(result?.ks_warning ? [result?.ks_warning] : []),
-    ...(result?.kde_warnings ?? []),
   ];
   return (
     <>
