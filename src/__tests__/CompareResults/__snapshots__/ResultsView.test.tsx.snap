@@ -1461,7 +1461,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="fdtnfac f1l733lh"
+      class="ftvoz88 f1l733lh"
       data-testid="table-header"
       role="row"
     >
@@ -1857,7 +1857,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="revision-block fw0pvlu"
             >
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1v96cc6"
                 role="row"
               >
                 <div
@@ -2055,7 +2055,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1v96cc6"
                 role="row"
               >
                 <div
@@ -2254,7 +2254,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1v96cc6"
                 role="row"
               >
                 <div
@@ -2453,7 +2453,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1v96cc6"
                 role="row"
               >
                 <div

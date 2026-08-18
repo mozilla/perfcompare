@@ -8,6 +8,10 @@ import { IconButton, Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
+import {
+  ProfileCompareButton,
+  supportsProfileCompare,
+} from './ProfileCompare/ProfileCompareButton';
 import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
@@ -340,6 +344,13 @@ function RevisionRow(props: RevisionRowProps) {
                 >
                   <SubtestsIcon />
                 </IconButton>
+              </div>
+            </div>
+          )}
+          {supportsProfileCompare(result.suite) && (
+            <div className='profile-compare' role='cell'>
+              <div className='profile-compare-button-container'>
+                <ProfileCompareButton result={result as CompareResultsItem} />
               </div>
             </div>
           )}

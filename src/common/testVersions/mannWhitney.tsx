@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 
 import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
 import PValCliffsDeltaComp from '../../components/CompareResults/PValCliffsDeltaComp';
+import { rowButtonsGridWidth } from '../../components/CompareResults/rowButtonSlots';
 import { StatisticsWarnings } from '../../components/CompareResults/StatisticsWarnings';
 import { FontSize } from '../../styles';
 import {
@@ -119,8 +120,6 @@ export const mannWhitneyStrategy = {
             return getPlatformShortName(result.platform) === label;
           },
         };
-
-    const colWidthMultiply = isSubtestTable ? 1 : 2.5;
 
     return [
       platformConfig,
@@ -245,7 +244,7 @@ export const mannWhitneyStrategy = {
         gridWidth: '1fr',
         tooltip: tooltipTotalRuns,
       },
-      { key: 'buttons', gridWidth: `calc(${colWidthMultiply} * 34px)` },
+      { key: 'buttons', gridWidth: rowButtonsGridWidth(isSubtestTable) },
       { key: 'expand', gridWidth: '34px' },
     ] as TableConfig;
   },

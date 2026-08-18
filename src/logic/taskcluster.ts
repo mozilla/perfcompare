@@ -172,6 +172,47 @@ type Action = {
   name: string;
 };
 
+type TaskArtifact = {
+  name: string;
+  storageType: string;
+  contentType: string;
+};
+
+// Lists the artifacts produced by a given run of a Taskcluster task. Used by
+// the profile-comparison dialog to check which runs have a profile artifact.
+export async function fetchTaskArtifacts(
+  rootUrl: string,
+  taskId: string,
+  runId: number,
+): Promise<TaskArtifact[]> {
+  const url = `${rootUrl}/api/queue/v1/task/${taskId}/runs/${runId}/artifacts`;
+  const response = await fetch(url);
+  await checkTaskclusterResponse(response);
+  const json = (await response.json()) as { artifacts: TaskArtifact[] };
+  return json.artifacts;
+}
+
+export type TaskRunStatus = {
+  runId: number;
+  state: string;
+  workerGroup?: string;
+  workerId?: string;
+};
+
+// Fetches Taskcluster task status, which includes per-run worker information.
+export async function fetchTaskStatus(
+  rootUrl: string,
+  taskId: string,
+): Promise<{ runs: TaskRunStatus[] }> {
+  const url = `${rootUrl}/api/queue/v1/task/${taskId}/status`;
+  const response = await fetch(url);
+  await checkTaskclusterResponse(response);
+  const json = (await response.json()) as {
+    status: { runs: TaskRunStatus[] };
+  };
+  return json.status;
+}
+
 export async function fetchActionsFromDecisionTask(
   rootUrl: string,
   decisionTaskId: string,
