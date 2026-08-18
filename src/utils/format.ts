@@ -22,8 +22,18 @@ export const formatNumber = (value: number) => {
   return numberFormatter.format(value);
 };
 
-// Returns a leading "+" for positive values only (negatives already carry "-").
-export const signPrefix = (value: number) => (value > 0 ? '+' : '');
+// Returns the value as a string with a leading "+" when it is positive; negatives
+// already carry "-", zero gets no sign. A negative that rounds to zero ("-0",
+// "-0.00") is really zero, so its stray minus is dropped. Accepts a raw number or an
+// already-formatted string, so the sign is decided from the exact text displayed.
+export const withSign = (value: number | string) => {
+  const numeric = typeof value === 'number' ? value : parseFloat(value);
+  if (numeric > 0) return `+${value}`;
+  if (numeric === 0 && typeof value === 'string' && value.startsWith('-')) {
+    return value.slice(1);
+  }
+  return `${value}`;
+};
 
 export const formatNumberFixedTwo = (value: number) => {
   return numberFormatterFixedTwo.format(value);
