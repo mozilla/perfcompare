@@ -467,6 +467,7 @@ export type TestVersion = 'student-t' | 'mann-whitney-u';
 export interface AdvancedColumns {
   cliffsDelta: boolean;
   cles: boolean;
+  significance: boolean;
 }
 
 export type SortFunc = (

@@ -12,7 +12,13 @@ function useAdvancedColumns(): AdvancedColumns {
     (state) => state.columnPrefs.showCliffsDelta,
   );
   const cles = useAppSelector((state) => state.columnPrefs.showCles);
-  return useMemo(() => ({ cliffsDelta, cles }), [cliffsDelta, cles]);
+  const significance = useAppSelector(
+    (state) => state.columnPrefs.showSignificance,
+  );
+  return useMemo(
+    () => ({ cliffsDelta, cles, significance }),
+    [cliffsDelta, cles, significance],
+  );
 }
 
 export default useAdvancedColumns;

@@ -50,7 +50,10 @@ function HowToReadResults() {
         <li>
           <strong>Status</strong> says whether the change is an{' '}
           <strong>Improvement</strong>, a <strong>Regression</strong>, or{' '}
-          <strong>No change</strong>.
+          <strong>No change</strong>. If a result is likely just{' '}
+          <strong>Noise</strong> (random run-to-run variation) rather than a
+          real change, a &ldquo;Noise&rdquo; tag appears above the status — use
+          the Status filter to hide or focus on the noisy rows.
         </li>
         <li>
           <strong>Magnitude</strong> says how big the difference is: negligible,
@@ -58,13 +61,8 @@ function HowToReadResults() {
           changes.
         </li>
         <li>
-          <strong>Significance</strong> tells you whether the difference is
-          likely a <strong>Real</strong> change or just <strong>Noise </strong>
-          (random run-to-run variation).
-        </li>
-        <li>
-          Tick <strong>Advanced columns</strong> to add the expert stats
-          (Cliff&apos;s Delta and CLES).
+          Use <strong>Advanced columns</strong> to add the expert stats
+          (Cliff&apos;s Delta, CLES, and Significance).
         </li>
       </Box>
     </Alert>

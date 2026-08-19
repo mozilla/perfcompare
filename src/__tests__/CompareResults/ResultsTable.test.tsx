@@ -921,64 +921,39 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    await clickMenuItem(user, 'Status', /No changes/);
+
+    // Noise is mutually exclusive with the direction buckets: selecting only
+    // Noise shows the not-significant rows regardless of their direction.
+    await clickMenuItem(user, 'Status', /Select only.*Noise/);
     expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
       '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
     ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['improvement', 'regression'],
-    });
+    expect(summarizeTableFiltersFromUrl()).toEqual({ status: ['noise'] });
 
-    await clickMenuItem(user, 'Status', /Improvement/);
-    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
-      'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
-    ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['regression'],
-    });
-
+    // Unchecking Noise (the three direction buckets stay checked) hides the
+    // noisy rows and leaves only the real (significant) rows.
     await clickMenuItem(user, 'Status', /Select all values/);
-    await clickMenuItem(user, 'Status', /Regression/);
+    await clickMenuItem(user, 'Status', /^Noise/);
     expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
       '  - Windows 10, -, , -, Real, 100.00 %',
       '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['none', 'improvement'],
+      status: ['none', 'improvement', 'regression'],
     });
 
-    await clickMenuItem(user, 'Status', /Regression/);
+    // A direction bucket only matches real rows, so "No changes" shows the two
+    // significant no-change rows.
+    await clickMenuItem(user, 'Status', /Select only.*No changes/);
     expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
-      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
       '  - Windows 10, -, , -, Real, 100.00 %',
       '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({});
-
-    await clickMenuItem(user, 'Status', /Select only.*Regression/);
-    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
-      'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
-    ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['regression'],
-    });
-
-    await clickMenuItem(user, 'Status', /Select only.*Improvement/);
-    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
-      'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
-    ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['improvement'],
-    });
+    expect(summarizeTableFiltersFromUrl()).toEqual({ status: ['none'] });
   });
 
   it('can load the filter parameters from the URL on mann-whitney-u test_version', async () => {
@@ -997,7 +972,7 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(await summarizeTableFiltersFromCheckboxes(user)).toEqual({
       'Platform(2)': ['macOS', 'Android'],
       'Sig(2)': ['Real', 'Noise'],
-      'Status(3)': ['No changes', 'Improvement', 'Regression'],
+      'Status(4)': ['No changes', 'Improvement', 'Regression', 'Noise'],
     });
 
     // After a change, "foo" should disappear
@@ -1280,20 +1255,21 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 });
 
 describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
-  it('shows Sig but hides CD/CLES in the simplified (default) view', async () => {
+  it('shows Magnitude but hides CD/CLES/Sig in the simplified (default) view', async () => {
     const { testCompareMannWhitneyData } = getTestData();
     setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
     await screen.findByText('a11yr');
 
     const header = screen.getByTestId('table-header');
-    // Sig and Magnitude are shown in the simplified view; CD/CLES are hidden.
-    expect(header.querySelector('.significance-header')).toBeTruthy();
+    // Only Magnitude is shown in the simplified view; CD/CLES/Sig are all
+    // advanced columns and hidden by default.
     expect(header.querySelector('.magnitude-header')).toBeTruthy();
+    expect(header.querySelector('.significance-header')).toBeFalsy();
     expect(header.querySelector('.delta-header')).toBeFalsy();
     expect(header.querySelector('.effects-header')).toBeFalsy();
   });
 
-  it('reveals CD/CLES and hides Magnitude when advanced columns are enabled (Sig stays)', async () => {
+  it('reveals CD/CLES/Sig and hides Magnitude when advanced columns are enabled', async () => {
     enableAdvancedColumns();
     const { testCompareMannWhitneyData } = getTestData();
     setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');

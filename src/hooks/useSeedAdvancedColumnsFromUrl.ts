@@ -4,6 +4,7 @@ import { useAppDispatch } from './app';
 import {
   updateShowCliffsDelta,
   updateShowCles,
+  updateShowSignificance,
 } from '../reducers/ColumnPrefsSlice';
 import {
   ADVANCED_COLUMNS_PARAM,
@@ -21,9 +22,10 @@ function useSeedAdvancedColumnsFromUrl() {
     if (!params.has(ADVANCED_COLUMNS_PARAM)) {
       return;
     }
-    const { cliffsDelta, cles } = parseAdvancedColumns(params);
+    const { cliffsDelta, cles, significance } = parseAdvancedColumns(params);
     dispatch(updateShowCliffsDelta(cliffsDelta));
     dispatch(updateShowCles(cles));
+    dispatch(updateShowSignificance(significance));
   }, []);
 }
 

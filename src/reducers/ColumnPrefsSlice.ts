@@ -12,10 +12,12 @@ export const HOW_TO_READ_STORAGE_KEY = 'showHowToRead';
 const initialState: {
   showCliffsDelta: boolean;
   showCles: boolean;
+  showSignificance: boolean;
   showHowToRead: boolean;
 } = {
   showCliffsDelta: false,
   showCles: false,
+  showSignificance: false,
   showHowToRead: localStorage.getItem(HOW_TO_READ_STORAGE_KEY) !== 'false',
 };
 
@@ -29,12 +31,19 @@ const columnPrefs = createSlice({
     updateShowCles(state, action: PayloadAction<boolean>) {
       state.showCles = action.payload;
     },
+    updateShowSignificance(state, action: PayloadAction<boolean>) {
+      state.showSignificance = action.payload;
+    },
     updateShowHowToRead(state, action: PayloadAction<boolean>) {
       state.showHowToRead = action.payload;
     },
   },
 });
 
-export const { updateShowCliffsDelta, updateShowCles, updateShowHowToRead } =
-  columnPrefs.actions;
+export const {
+  updateShowCliffsDelta,
+  updateShowCles,
+  updateShowSignificance,
+  updateShowHowToRead,
+} = columnPrefs.actions;
 export default columnPrefs.reducer;

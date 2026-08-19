@@ -163,10 +163,14 @@ export function formatMedianDiffPct(pct: number): string {
   return `${pct >= 0 ? '+' : ''}${pct.toFixed(2)}%`;
 }
 
-// Status cell: the direction of change (Improvement/Regression/No change).
+// Status cell: the direction of change (Improvement/Regression/No change),
+// with a "Noise" label above it when the result isn't statistically
+// significant. The Significance column is hidden by default (it's an advanced
+// column), so this keeps the noise signal visible in the simplified view.
 // Shared by the main and subtests rows so they render identically.
 function renderStatusCell(
   directionOfChange: MannWhitneyResultsItem['direction_of_change'],
+  isNoise: boolean,
 ) {
   const isImprovement = directionOfChange === 'improvement';
   const isRegression = directionOfChange === 'regression';
@@ -174,23 +178,58 @@ function renderStatusCell(
     <div className='status cell' role='cell'>
       <Box
         sx={{
-          bgcolor: isImprovement
-            ? 'status.improvement'
-            : isRegression
-              ? 'status.regression'
-              : 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 0.5,
         }}
-        className={`status-hint ${determineStatusHintClass(
-          isImprovement,
-          isRegression,
-        )}`}
       >
-        {isImprovement ? <ThumbUpIcon color='success' /> : null}
-        {isRegression ? <ThumbDownIcon color='error' /> : null}
-        {capitalize(directionOfChange ?? '')}
+        {isNoise ? (
+          <Box
+            className='noise-label'
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              borderRadius: '4px',
+              padding: '2px 8px',
+              fontSize: '11px',
+              fontWeight: 600,
+              lineHeight: 1.2,
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em',
+              color: 'text.secondary',
+              bgcolor: 'action.hover',
+            }}
+          >
+            Noise
+          </Box>
+        ) : null}
+        <Box
+          sx={{
+            bgcolor: isImprovement
+              ? 'status.improvement'
+              : isRegression
+                ? 'status.regression'
+                : 'none',
+          }}
+          className={`status-hint ${determineStatusHintClass(
+            isImprovement,
+            isRegression,
+          )}`}
+        >
+          {isImprovement ? <ThumbUpIcon color='success' /> : null}
+          {isRegression ? <ThumbDownIcon color='error' /> : null}
+          {capitalize(directionOfChange ?? '')}
+        </Box>
       </Box>
     </div>
   );
+}
+
+// Single source of truth for the check, used by the Status cell /
+// filter and the Significance cell.
+function resultIsNoise(result: MannWhitneyResultsItem): boolean {
+  return result.mann_whitney_test?.interpretation === 'not significant';
 }
 
 // Magnitude cell — the plain-language Cliff's Delta interpretation
@@ -201,6 +240,21 @@ function renderMagnitudeCell(interpretation: string) {
   return (
     <div className='magnitude cell' role='cell'>
       {interpretation ? capitalize(interpretation) : '-'}
+    </div>
+  );
+}
+
+// Significance cell — plain-language "Real" / "Noise" from the Mann-Whitney-U
+// interpretation. Only shown when the (advanced) Significance column is on.
+// Shared by the main and subtests rows.
+function renderSignificanceCell(interpretation: string | null | undefined) {
+  return (
+    <div className='significance cell' role='cell'>
+      {interpretation === 'significant'
+        ? 'Real'
+        : interpretation === 'not significant'
+          ? 'Noise'
+          : '-'}
     </div>
   );
 }
@@ -237,9 +291,15 @@ export const mannWhitneyStrategy = {
     isSubtestTable: boolean,
     advancedColumns: AdvancedColumns,
   ): TableConfig {
-    const { cliffsDelta: showCliffsDelta, cles: showCles } = advancedColumns;
-    // Whether any advanced column is showing — used to widen Δ Median % and to
-    // abbreviate the Significance header so it doesn't crowd Total Trials.
+    const {
+      cliffsDelta: showCliffsDelta,
+      cles: showCles,
+      significance: showSignificance,
+    } = advancedColumns;
+    // Whether an effect-size advanced column (CD/CLES) is showing — used to
+    // widen Δ Median %, hide the plain-language Magnitude column, and abbreviate
+    // the Significance header so it doesn't crowd Total Trials. Significance is
+    // its own independent toggle and doesn't affect these.
     const anyAdvanced = showCliffsDelta || showCles;
     const platformConfig = isSubtestTable
       ? {
@@ -303,8 +363,18 @@ export const mannWhitneyStrategy = {
           { label: 'No changes', key: 'none' },
           { label: 'Improvement', key: 'improvement' },
           { label: 'Regression', key: 'regression' },
+          { label: 'Noise', key: 'noise' },
         ],
         matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
+          // Noise is mutually exclusive with the direction buckets: a noisy
+          // (not-significant) row belongs to "Noise" only, so unchecking Noise
+          // hides it, and the direction buckets match only real changes.
+          if (valueKey === 'noise') {
+            return resultIsNoise(result);
+          }
+          if (resultIsNoise(result)) {
+            return false;
+          }
           switch (valueKey) {
             case 'improvement':
               return result.direction_of_change === 'improvement';
@@ -354,9 +424,6 @@ export const mannWhitneyStrategy = {
             },
           ]
         : []),
-      // Advanced (power-user) columns — CD and CLES are hidden in the
-      // simplified view and toggled independently from the "Advanced columns"
-      // dropdown.
       ...(showCliffsDelta
         ? [
             {
@@ -395,35 +462,44 @@ export const mannWhitneyStrategy = {
             },
           ]
         : []),
-      // Significance is shown in both the simplified and advanced views. The
-      // full "Significance" label fits the roomier simplified view; in the
-      // advanced view the extra CD/CLES columns crowd it, so abbreviate to
-      // "Sig" to avoid the header overflowing into "Total Trials".
-      {
-        name: 'Sig',
-        key: 'significance',
-        filter: true,
-        gridWidth: '1.25fr',
-        tooltip: tooltipSignificance,
-        possibleValues: [
-          // Plain-language labels matching the cell text; the keys still map to
-          // the backend's "significant" / "not significant" interpretation.
-          { label: 'Real', key: 'significant' },
-          { label: 'Noise', key: 'not significant' },
-        ],
-        matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
-          return result.mann_whitney_test?.interpretation === valueKey;
-        },
-        sortFunction(
-          resultA: MannWhitneyResultsItem,
-          resultB: MannWhitneyResultsItem,
-        ) {
-          return (
-            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-          );
-        },
-      },
+      // Significance is a power-user column, hidden by default and toggled from
+      // the "Advanced columns" dropdown. The noise signal is still surfaced in
+      // the simplified view via the Status cell / filter below. When shown
+      // alongside CD/CLES the header is crowded, so abbreviate to "Sig";
+      // otherwise the full "Significance" label fits.
+      ...(showSignificance
+        ? [
+            {
+              name: anyAdvanced ? 'Sig' : 'Significance',
+              key: 'significance',
+              filter: true,
+              gridWidth: '1.25fr',
+              tooltip: tooltipSignificance,
+              possibleValues: [
+                // Plain-language labels matching the cell text; the keys still
+                // map to the backend's "significant" / "not significant"
+                // interpretation.
+                { label: 'Real', key: 'significant' },
+                { label: 'Noise', key: 'not significant' },
+              ],
+              matchesFunction(
+                result: MannWhitneyResultsItem,
+                valueKey: string,
+              ) {
+                return result.mann_whitney_test?.interpretation === valueKey;
+              },
+              sortFunction(
+                resultA: MannWhitneyResultsItem,
+                resultB: MannWhitneyResultsItem,
+              ) {
+                return (
+                  Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
+                  Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
+                );
+              },
+            },
+          ]
+        : []),
 
       {
         name: 'Total Trials',
@@ -487,7 +563,10 @@ export const mannWhitneyStrategy = {
           )}
         </div>
         {renderMedianDiffCell(result as MannWhitneyResultsItem)}
-        {renderStatusCell(direction_of_change)}
+        {renderStatusCell(
+          direction_of_change,
+          resultIsNoise(result as MannWhitneyResultsItem),
+        )}
         {!advancedColumns.cliffsDelta &&
           !advancedColumns.cles &&
           renderMagnitudeCell(cliffs_interpretation)}
@@ -502,13 +581,8 @@ export const mannWhitneyStrategy = {
             {clesVal !== null ? `${clesVal}% ` : '-'}
           </div>
         )}
-        <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation === 'significant'
-            ? 'Real'
-            : mann_whitney_test?.interpretation === 'not significant'
-              ? 'Noise'
-              : '-'}
-        </div>
+        {advancedColumns.significance &&
+          renderSignificanceCell(mann_whitney_test?.interpretation)}
       </>
     );
   },
@@ -631,7 +705,7 @@ export const mannWhitneyStrategy = {
     return (
       <>
         {renderMedianDiffCell(mwResult)}
-        {renderStatusCell(direction_of_change)}
+        {renderStatusCell(direction_of_change, resultIsNoise(mwResult))}
         {!advancedColumns.cliffsDelta &&
           !advancedColumns.cles &&
           renderMagnitudeCell(cliffs_interpretation)}
@@ -645,13 +719,8 @@ export const mannWhitneyStrategy = {
             {clesValue}
           </div>
         )}
-        <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation === 'significant'
-            ? 'Real'
-            : mann_whitney_test?.interpretation === 'not significant'
-              ? 'Noise'
-              : '-'}
-        </div>
+        {advancedColumns.significance &&
+          renderSignificanceCell(mann_whitney_test?.interpretation)}
       </>
     );
   },

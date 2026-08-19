@@ -6,8 +6,11 @@ import type { AdvancedColumns } from '../types/types';
 // param means neither is shown (the simplified view).
 export const ADVANCED_COLUMNS_PARAM = 'advanced_columns';
 
-const CLIFFS_DELTA = 'cliffs_delta';
-const CLES = 'cles';
+// The URL key for each advanced column. Exported so the dropdown's option
+// values reuse them and can't drift from the URL encoding.
+export const CLIFFS_DELTA = 'cliffs_delta';
+export const CLES = 'cles';
+export const SIGNIFICANCE = 'significance';
 
 // Parse advanced-column visibility from a URL search string or params.
 export function parseAdvancedColumns(
@@ -21,6 +24,7 @@ export function parseAdvancedColumns(
   return {
     cliffsDelta: enabled.includes(CLIFFS_DELTA),
     cles: enabled.includes(CLES),
+    significance: enabled.includes(SIGNIFICANCE),
   };
 }
 
@@ -32,6 +36,7 @@ export function serializeAdvancedColumns(
   const enabled = [
     advanced.cliffsDelta ? CLIFFS_DELTA : null,
     advanced.cles ? CLES : null,
+    advanced.significance ? SIGNIFICANCE : null,
   ].filter(Boolean);
   return enabled.length ? enabled.join(',') : null;
 }
