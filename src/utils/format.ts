@@ -4,6 +4,12 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 
 const numberFormatter = new Intl.NumberFormat('en-US');
 
+// Groups thousands while keeping exactly 2 decimals (e.g. 2,113.69).
+const numberFormatterFixedTwo = new Intl.NumberFormat('en-US', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
 export function formatDate(date: Date) {
   return dateFormatter.format(date);
 }
@@ -14,6 +20,23 @@ export function formatDateRange(date1: Date, date2: Date) {
 
 export const formatNumber = (value: number) => {
   return numberFormatter.format(value);
+};
+
+// Returns the value as a string with a leading "+" when it is positive; negatives
+// already carry "-", zero gets no sign. A negative that rounds to zero ("-0",
+// "-0.00") is really zero, so its stray minus is dropped. Accepts a raw number or an
+// already-formatted string, so the sign is decided from the exact text displayed.
+export const withSign = (value: number | string) => {
+  const numeric = typeof value === 'number' ? value : parseFloat(value);
+  if (numeric > 0) return `+${value}`;
+  if (numeric === 0 && typeof value === 'string' && value.startsWith('-')) {
+    return value.slice(1);
+  }
+  return `${value}`;
+};
+
+export const formatNumberFixedTwo = (value: number) => {
+  return numberFormatterFixedTwo.format(value);
 };
 
 // Determine the best human-readable scale for a unit given a set of values.

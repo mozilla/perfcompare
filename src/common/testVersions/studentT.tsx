@@ -10,7 +10,7 @@ import { Strings } from '../../resources/Strings';
 import { FontSize } from '../../styles';
 import { CombinedResultsItemType, CompareResultsItem } from '../../types/state';
 import { TableConfig } from '../../types/types';
-import { formatNumber } from '../../utils/format';
+import { formatNumber, withSign } from '../../utils/format';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
   determineSign,
@@ -214,7 +214,7 @@ export const studentTStrategy = {
         </div>
         <div className='delta cell' role='cell'>
           {' '}
-          {`${deltaPercent} % `}
+          {`${withSign(deltaPercent)} % `}
         </div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
@@ -270,12 +270,13 @@ export const studentTStrategy = {
     return (
       <>
         <Box sx={{ whiteSpace: 'nowrap' }}>
-          <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
+          <b>Difference of means</b>: {withSign(deltaPercent)}% (
+          {formatNumber(delta)}
           {deltaUnit ? ' ' + deltaUnit : null})
         </Box>
         {newMedian && baseMedian ? (
           <Box sx={{ whiteSpace: 'nowrap' }}>
-            <b>Difference of medians</b>: {medianPercentage}% (
+            <b>Difference of medians</b>: {withSign(medianPercentage)}% (
             {medianDifference}
             {deltaUnit ? ' ' + deltaUnit : null})
           </Box>
@@ -334,7 +335,10 @@ export const studentTStrategy = {
             {determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
-        <div className='delta cell' role='cell'>{` ${deltaPercent} % `}</div>
+        <div
+          className='delta cell'
+          role='cell'
+        >{` ${withSign(deltaPercent)} % `}</div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText || '-'}
