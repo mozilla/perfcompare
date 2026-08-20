@@ -323,10 +323,20 @@ export const platformMap: Record<Platform, string> = {
 export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
 export const STUDENT_T = 'student-t' as TestVersion;
 
+// The results table locks to this width so the column headers never shrink
+// below their controls and collide. On narrower screens the page scrolls
+// horizontally instead (the sticky header and rows scroll together, since the
+// rows are virtualized in window-scroll mode).
+export const RESULTS_TABLE_MIN_WIDTH = '1200px';
+
+export const RESULTS_TABLE_MAX_WIDTH = '1450px';
+
 export const tooltipSignificance =
   'Significance of the comparison as determined by a Mann Whitney U test. A significant comparison has a p-value of less than 0.05.';
 export const tooltipStatusMannWhitney =
-  'An improvement or regression being shown here means that the effect size is meaningful, and the difference has a significant p-value.';
+  'Whether New is an Improvement, a Regression, or No change compared to Base. Results whose difference is likely just noise (not statistically significant) are tagged "Noise" above the status; filter the Status column by "Noise" to hide or focus on those rows.';
+export const tooltipMagnitude =
+  'How big the difference between Base and New is, in plain words: negligible (barely any), small, medium, or large. It comes from how much the two sets of results overlap — the less they overlap, the bigger the difference. Sort or filter by it to focus on the biggest changes.';
 export const tooltipTotalRuns =
   'The total number of tasks/jobs that ran for this metric.';
 export const tooltipBaseMean =
@@ -338,4 +348,4 @@ export const tooltipConfidence =
 export const tooltipDelta =
   'The percentage difference between the Base and New values';
 export const tooltipMedianDiff =
-  'Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100.';
+  'Shows how much the middle result changed from Base to New. We line up all the runs from smallest to biggest and pick the middle one for each side, then show the change as a percent. A positive sign means New is higher; a negative sign means New is lower.';

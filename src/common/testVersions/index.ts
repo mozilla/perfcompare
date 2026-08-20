@@ -3,18 +3,25 @@ import type { ReactNode } from 'react';
 import { mannWhitneyStrategy } from './mannWhitney';
 import { studentTStrategy } from './studentT';
 import { CombinedResultsItemType } from '../../types/state';
-import { TableConfig, TestVersion } from '../../types/types';
+import { AdvancedColumns, TableConfig, TestVersion } from '../../types/types';
 
 export interface TestVersionStrategy {
-  getColumns(isSubtestTable: boolean): TableConfig;
+  getColumns(
+    isSubtestTable: boolean,
+    advancedColumns: AdvancedColumns,
+  ): TableConfig;
   getAvgValues(result: CombinedResultsItemType): {
     baseAvg: number | null;
     newAvg: number | null;
   };
-  renderColumns(result: CombinedResultsItemType): ReactNode;
+  renderColumns(
+    result: CombinedResultsItemType,
+    advancedColumns: AdvancedColumns,
+  ): ReactNode;
   renderSubtestColumns(
     result: CombinedResultsItemType,
     expanded: boolean,
+    advancedColumns: AdvancedColumns,
   ): ReactNode;
   renderExpandedLeft(result: CombinedResultsItemType): ReactNode;
   getComparisonResult(result: CombinedResultsItemType): string;
@@ -54,6 +61,7 @@ export function getStrategy(testVersion: TestVersion): TestVersionStrategy {
 export function getColumnsForVersion(
   testVersion: TestVersion,
   isSubtestTable: boolean,
+  advancedColumns: AdvancedColumns,
 ): TableConfig {
-  return registry[testVersion].getColumns(isSubtestTable);
+  return registry[testVersion].getColumns(isSubtestTable, advancedColumns);
 }

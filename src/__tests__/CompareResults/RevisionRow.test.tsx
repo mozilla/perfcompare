@@ -11,7 +11,11 @@ import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount
 import { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
 import { Platform } from '../../types/types';
 import getTestData from '../utils/fixtures';
-import { screen, renderWithRouter } from '../utils/test-utils';
+import {
+  screen,
+  renderWithRouter,
+  enableAdvancedColumns,
+} from '../utils/test-utils';
 
 jest.mock('../../hooks/useSubtestRegressionCount');
 const mockUseSubtestRegressionCount = useSubtestRegressionCount as jest.Mock;
@@ -427,6 +431,7 @@ describe('Expanded row', () => {
   });
 
   it('should display mean for base or new in row headers for mann-whitney-u testVersion', async () => {
+    enableAdvancedColumns();
     const { testCompareMannWhitneyData: rowData } = getTestData();
     renderWithRoute(
       <RevisionRow
@@ -541,7 +546,7 @@ describe('Expanded row', () => {
       };
     }
 
-    it('shows dash when neither distribution is normal', async () => {
+    it('shows value with warning icon when neither distribution is normal', async () => {
       const result = makeResult(tooFewRuns, tooFewRuns);
       expect(isDistributionNormal(result)).toBe(false);
       renderWithRoute(
@@ -555,7 +560,10 @@ describe('Expanded row', () => {
         />,
       );
       const roles = await screen.findAllByRole('cell');
-      expect(roles[4]).toHaveTextContent('-');
+      // The median difference is rank-based, so it's shown even for non-normal
+      // data; only a warning icon flags the shape.
+      expect(roles[4]).toHaveTextContent('%');
+      expect(roles[4].querySelector('svg[role="img"]')).toBeTruthy();
     });
 
     it('shows value with warning icon when only one distribution is normal', async () => {
@@ -572,7 +580,7 @@ describe('Expanded row', () => {
         />,
       );
       const roles = await screen.findAllByRole('cell');
-      expect(roles[4]).not.toHaveTextContent('-');
+      expect(roles[4]).toHaveTextContent('%');
       expect(roles[4].querySelector('svg[role="img"]')).toBeTruthy();
     });
 
@@ -590,7 +598,7 @@ describe('Expanded row', () => {
         />,
       );
       const roles = await screen.findAllByRole('cell');
-      expect(roles[4]).not.toHaveTextContent('-');
+      expect(roles[4]).toHaveTextContent('%');
       expect(roles[4].querySelector('svg[role="img"]')).toBeFalsy();
     });
   });

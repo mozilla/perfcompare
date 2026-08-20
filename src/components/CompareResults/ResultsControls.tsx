@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -5,10 +6,12 @@ import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
+import AdvancedColumnsMenu from './AdvancedColumnsMenu';
 import { DownloadButton } from './DownloadButton';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
-import { useAppSelector } from '../../hooks/app';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import { updateShowHowToRead } from '../../reducers/ColumnPrefsSlice';
 import { Strings } from '../../resources/Strings';
 import type { CombinedResultsItemType } from '../../types/state';
 import type { Framework, TestVersion } from '../../types/types';
@@ -44,60 +47,46 @@ export default function ResultsControls({
   onExpandAllChange,
 }: Props) {
   const mode = useAppSelector((state) => state.theme.mode);
+  const dispatch = useAppDispatch();
+  const showHowToRead = useAppSelector(
+    (state) => state.columnPrefs.showHowToRead,
+  );
+  const onShowHowToReadChange = (checked: boolean) => {
+    dispatch(updateShowHowToRead(checked));
+  };
   return (
-    <Grid container className={controlsStyles} spacing={2}>
-      <Grid
-        size={{
-          md: 3,
-          xs: 12,
-        }}
-      >
-        <SearchInput
-          defaultValue={initialSearchTerm}
-          onChange={onSearchTermChange}
-          strings={Strings.components.searchResultsInput}
-        />
-      </Grid>
-      <Grid
-        size={{
-          md: 2,
-          xs: 6,
-        }}
-      >
-        <FormControl sx={{ width: '100%' }}>
-          <FrameworkDropdown
-            frameworkId={frameworkId}
-            size='small'
-            variant='outlined'
-            mode={mode}
-            onChange={onFrameworkChange}
-          />
-        </FormControl>
-      </Grid>
-      <Grid
-        size={{
-          md: 2,
-          xs: 6,
-        }}
-      >
-        <FormControl sx={{ width: '100%' }}>
-          <TestVersionDropdown
-            testType={testType}
-            size='small'
-            variant='outlined'
-            mode={mode}
-            onChange={onTestVersionChange}
-          />
-        </FormControl>
-      </Grid>
-      <Grid size='grow'>
-        <RevisionSelect />
-      </Grid>
-      <Grid size='grow'>
-        <DownloadButton resultsPromise={resultsPromise} />
-      </Grid>
-      <Grid size='auto'>
-        <Tooltip title='Expand all rows'>
+    <Grid
+      container
+      className={`${controlsStyles} results-controls`}
+      spacing={2}
+    >
+      {/* Row 1: the checkbox-style selections, on their own full-width row
+        above the input controls. */}
+      <Grid size={12}>
+        <Box
+          className='results-controls-selections'
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            columnGap: 2,
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          <Tooltip title='Show the "How to read the results" guide above the table'>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={showHowToRead}
+                  onChange={(e) => onShowHowToReadChange(e.target.checked)}
+                  size='small'
+                />
+              }
+              label='How to read the results'
+            />
+          </Tooltip>
           <FormControlLabel
             control={
               <Checkbox
@@ -106,9 +95,68 @@ export default function ResultsControls({
                 size='small'
               />
             }
-            label='Expand all'
+            label='Expand all rows'
           />
-        </Tooltip>
+        </Box>
+      </Grid>
+
+      {/* Row 2: the input controls, full-width below the selections. */}
+      <Grid size={12}>
+        <Grid container spacing={2} className='results-controls-inputs'>
+          <Grid
+            size={{
+              md: 3,
+              xs: 12,
+            }}
+          >
+            <SearchInput
+              defaultValue={initialSearchTerm}
+              onChange={onSearchTermChange}
+              strings={Strings.components.searchResultsInput}
+            />
+          </Grid>
+          <Grid
+            size={{
+              md: 2,
+              xs: 6,
+            }}
+          >
+            <FormControl sx={{ width: '100%' }}>
+              <FrameworkDropdown
+                frameworkId={frameworkId}
+                size='small'
+                variant='outlined'
+                mode={mode}
+                onChange={onFrameworkChange}
+              />
+            </FormControl>
+          </Grid>
+          <Grid
+            size={{
+              md: 2,
+              xs: 6,
+            }}
+          >
+            <FormControl sx={{ width: '100%' }}>
+              <TestVersionDropdown
+                testType={testType}
+                size='small'
+                variant='outlined'
+                mode={mode}
+                onChange={onTestVersionChange}
+              />
+            </FormControl>
+          </Grid>
+          <Grid size='grow' sx={{ minWidth: 150 }}>
+            <RevisionSelect />
+          </Grid>
+          <Grid size='auto'>
+            <AdvancedColumnsMenu />
+          </Grid>
+          <Grid size='grow' sx={{ minWidth: 140 }}>
+            <DownloadButton resultsPromise={resultsPromise} />
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

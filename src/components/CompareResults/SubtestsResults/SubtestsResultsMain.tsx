@@ -10,6 +10,7 @@ import { style } from 'typestyle';
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
+import AdvancedColumnsMenu from '.././AdvancedColumnsMenu';
 import { DownloadButton, DisabledDownloadButton } from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
 import {
@@ -17,6 +18,7 @@ import {
   subtestsOverTimeView,
   MANN_WHITNEY_U,
   STUDENT_T,
+  RESULTS_TABLE_MAX_WIDTH,
 } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
@@ -88,6 +90,9 @@ function SubtestsResultsHeader({
         <Grid size='auto'>
           <RetriggerButton result={loadedResults[0]} variant='text' />
         </Grid>
+        <Grid size='auto' sx={{ whiteSpace: 'nowrap' }}>
+          <AdvancedColumnsMenu />
+        </Grid>
       </Grid>
     </>
   );
@@ -119,7 +124,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       backgroundColor: themeColor100,
       margin: '0 auto',
       marginBottom: '80px',
-      maxWidth: '1400px',
+      maxWidth: RESULTS_TABLE_MAX_WIDTH,
     }),
     title: style({
       margin: 0,

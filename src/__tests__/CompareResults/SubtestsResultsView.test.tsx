@@ -10,7 +10,11 @@ import type { CombinedResultsItemType } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen } from '../utils/test-utils';
+import {
+  renderWithRouter,
+  screen,
+  enableAdvancedColumns,
+} from '../utils/test-utils';
 
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
@@ -48,7 +52,7 @@ const setup = ({
 // This handy function parses the results page and returns an array of visible
 // rows. It makes it easy to assert visible rows when filtering them in a
 // user-friendly way without using snapshots.
-function summarizeVisibleRows(testVersion?: TestVersion) {
+function summarizeVisibleRows(testVersion?: TestVersion, advanced = false) {
   const rows = screen.getAllByRole('row');
   const result = [];
   for (const row of rows) {
@@ -59,10 +63,19 @@ function summarizeVisibleRows(testVersion?: TestVersion) {
     }
     const rowClasses =
       testVersion === 'mann-whitney-u'
-        ? ['.median-diff', '.delta', '.significance', '.effects']
+        ? advanced
+          ? ['.median-diff', '.delta', '.significance', '.effects']
+          : ['.median-diff', '.status-hint', '.magnitude', '.significance']
         : ['.delta', '.confidence'];
     const rowString = rowClasses
-      .map((selector) => row.querySelector(selector)?.textContent.trim())
+      .map((selector) => {
+        const cell = row.querySelector(selector);
+        if (!cell) return undefined;
+        // Strip icon <title> text (e.g. the median-diff normality warning).
+        const clone = cell.cloneNode(true) as HTMLElement;
+        clone.querySelectorAll('svg').forEach((svg) => svg.remove());
+        return clone.textContent?.trim();
+      })
       .join(', ');
     result.push(`${subtest}: ${rowString}`);
   }
@@ -497,6 +510,11 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
   });
 
   describe('table sorting', () => {
+    // These sort by CD and Significance, which are advanced-only columns.
+    beforeEach(() => {
+      enableAdvancedColumns();
+    });
+
     async function setupForSorting({
       extraParameters,
     }: Partial<{
@@ -524,12 +542,12 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
     it('can sort the table and persist the information to the URL of mann-whitney-u values', async () => {
       await setupForSorting();
       // Initial view (alphabetical ordered, even if "sort by subtests" isn't specified
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
       ]);
 
       // Sort by Delta
@@ -539,12 +557,12 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
       expect(window.location.search).not.toContain('sort=');
       // Sort descending
       await user.click(deltaButton);
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
       ]);
 
       // It should have the "descending" SVG.
@@ -554,12 +572,12 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
 
       // Sort ascending
       await user.click(deltaButton);
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
       ]);
       // It should have the "ascending" SVG.
       expect(deltaButton).toMatchSnapshot();
@@ -571,12 +589,12 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
         name: /Sig.*sort/,
       });
       await user.click(significanceButton);
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
       ]);
       // It should have the "no sort" SVG.
       expect(deltaButton).toMatchSnapshot();
@@ -587,26 +605,26 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
 
       // Sort by Significance ascending
       await user.click(significanceButton);
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
       ]);
       expectParameterToHaveValue('sort', 'significance|asc');
 
       // Sort by Effect Size descending
       const effectButton = screen.getByRole('button', {
-        name: /CLES \(%\).*sort/,
+        name: /CLES.*sort/,
       });
       await user.click(effectButton);
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
       ]);
 
       // It should have the "descending" SVG.
@@ -616,12 +634,12 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
 
       // Sort by Effect Size ascending
       await user.click(effectButton);
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
       ]);
       expectParameterToHaveValue('sort', 'effects|asc');
     });
@@ -629,12 +647,12 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
     it('initializes the sort from the URL at load time for an ascending sort', async () => {
       await setupForSorting({ extraParameters: 'sort=delta|asc' });
       await screen.findByText('dhtml.html');
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'regression.html: 1.135 %, 0.12, , 25.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
       ]);
       // It should have the "ascending" SVG.
       expect(screen.getByRole('button', { name: /CD/ })).toMatchSnapshot();
@@ -643,12 +661,12 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
     it('initializes the sort from the URL at load time for an implicit descending sort', async () => {
       await setupForSorting({ extraParameters: 'sort=delta' });
       await screen.findByText('dhtml.html');
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
       ]);
       // It should have the "descending" SVG.
       expect(screen.getByRole('button', { name: /CD/ })).toMatchSnapshot();
@@ -656,12 +674,12 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
 
     it('initializes the sort from the URL at load time for a descending sort', async () => {
       await setupForSorting({ extraParameters: 'sort=delta|desc' });
-      expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-        'regression.html: 1.135 %, 0.12, , 25.00%',
-        'improvement.html: 0.963 %, -0.05, , 50.00%',
-        'browser.html: 0.963 %, -0.04, -, 15.00%',
-        'dhtml.html: 1.135 %, 0.02, , 60.00%',
-        'tablemutation.html: 0.98 %, 0.01, -, 45.00%',
+      expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
+        'regression.html: +1.14%, 0.12, Real, 25.00%',
+        'improvement.html: +1.14%, -0.05, Real, 50.00%',
+        'browser.html: +1.14%, -0.04, Noise, 15.00%',
+        'dhtml.html: +1.14%, 0.02, Real, 60.00%',
+        'tablemutation.html: +0.98%, 0.01, -, 45.00%',
       ]);
       // It should have the "descending" SVG.
       expect(screen.getByRole('button', { name: /CD/ })).toMatchSnapshot();

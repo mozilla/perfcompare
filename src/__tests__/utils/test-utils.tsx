@@ -14,7 +14,22 @@ import { VirtuosoMockContext } from 'react-virtuoso';
 
 import { store } from './setupTests';
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
+import {
+  updateShowCliffsDelta,
+  updateShowCles,
+  updateShowSignificance,
+} from '../../reducers/ColumnPrefsSlice';
 import getProtocolTheme from '../../theme/protocolTheme';
+
+// Turn on all advanced results columns (Cliff's Delta, CLES, Significance) for
+// tests that exercise them. They're hidden by default (simplified view), so
+// call this before rendering in tests that assert on those columns. The store
+// is recreated in each test's beforeEach, so this only affects the current test.
+export function enableAdvancedColumns() {
+  store.dispatch(updateShowCliffsDelta(true));
+  store.dispatch(updateShowCles(true));
+  store.dispatch(updateShowSignificance(true));
+}
 
 type ThemeConfig = Partial<Theme> | null;
 export function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {

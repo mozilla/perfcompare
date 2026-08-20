@@ -3,7 +3,11 @@ import { style } from 'typestyle';
 import LinkToRevision from './LinkToRevision';
 import RevisionRow from './RevisionRow';
 import TestHeader from './TestHeader';
-import type { compareView, compareOverTimeView } from '../../common/constants';
+import {
+  RESULTS_TABLE_MIN_WIDTH,
+  type compareView,
+  type compareOverTimeView,
+} from '../../common/constants';
 import { Spacing } from '../../styles';
 import type { CombinedResultsItemType } from '../../types/state';
 import { TestVersion } from '../../types/types';
@@ -17,6 +21,9 @@ const styles = {
   testBlock: style({
     /* Note that this padding will be added to the padding below */
     paddingTop: Spacing.Small,
+    // Floor the row width to match the header, so columns can't compress into
+    // each other; below this the page scrolls horizontally.
+    minWidth: RESULTS_TABLE_MIN_WIDTH,
   }),
   revisionBlock: style({ paddingBottom: Spacing.Large }),
 };

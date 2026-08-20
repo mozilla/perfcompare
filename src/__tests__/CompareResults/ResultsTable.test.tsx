@@ -14,7 +14,13 @@ import getTestData, {
   augmentCompareMannWhitneyDataWithSeveralRevisions,
   augmentCompareMannWhitneyDataWithSeveralTests,
 } from '../utils/fixtures';
-import { renderWithRouter, screen, waitFor, within } from '../utils/test-utils';
+import {
+  renderWithRouter,
+  screen,
+  waitFor,
+  within,
+  enableAdvancedColumns,
+} from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement, extraParameters?: string) {
   return renderWithRouter(component, {
@@ -48,7 +54,7 @@ function setupAndRender(
 // This handy function parses the results page and returns an array of visible
 // rows. It makes it easy to assert visible rows when filtering them in a
 // user-friendly way without using snapshots.
-function summarizeVisibleRows(testVersion?: TestVersion) {
+function summarizeVisibleRows(testVersion?: TestVersion, advanced = false) {
   const rowGroups = screen.getAllByRole('rowgroup');
   const result = [];
 
@@ -83,17 +89,34 @@ function summarizeVisibleRows(testVersion?: TestVersion) {
       for (const row of rows) {
         const rowClasses =
           testVersion === 'mann-whitney-u'
-            ? [
-                '.platform span',
-                '.median-diff',
-                '.status',
-                '.delta',
-                '.significance',
-                '.effects',
-              ]
+            ? advanced
+              ? [
+                  '.platform span',
+                  '.median-diff',
+                  '.status-hint',
+                  '.delta',
+                  '.significance',
+                  '.effects',
+                ]
+              : [
+                  '.platform span',
+                  '.median-diff',
+                  '.status-hint',
+                  '.magnitude',
+                  '.significance',
+                ]
             : ['.platform span', '.status', '.delta', '.confidence'];
         const rowString = rowClasses
-          .map((selector) => row.querySelector(selector)?.textContent?.trim())
+          .map((selector) => {
+            const cell = row.querySelector(selector);
+            if (!cell) return undefined;
+            // Strip icon <title> text (e.g. the median-diff normality warning)
+            // so the data-focused expectations stay stable; icon presence is
+            // asserted separately.
+            const clone = cell.cloneNode(true) as HTMLElement;
+            clone.querySelectorAll('svg').forEach((svg) => svg.remove());
+            return clone.textContent?.trim();
+          })
           .join(', ');
 
         result.push('  - ' + rowString);
@@ -690,6 +713,13 @@ describe('Results Table', () => {
 });
 
 describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion', () => {
+  // These tests exercise the full (advanced) table — CD, CLES, Sig columns and
+  // their sort/filter behavior. The simplified default view (which hides
+  // CD/CLES and shows the Magnitude column) is covered separately below.
+  beforeEach(() => {
+    enableAdvancedColumns();
+  });
+
   it('Should match snapshot', async () => {
     const { testCompareMannWhitneyData } = getTestData();
 
@@ -719,12 +749,12 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     setupAndRender(simplerTestCompareData, 'test_version=mann-whitney-u');
     await screen.findByText('a11yr');
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
       '  rev: devilrabbit',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
     ]);
     expect(screen.getByRole('rowgroup')).toMatchSnapshot();
   });
@@ -746,25 +776,25 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
 
     await screen.findByText('a11yr');
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - inexistant, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Android, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - inexistant, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
 
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await clickMenuItem(user, 'Platform', /Windows/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
+      '  - Android, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android', 'ios'],
@@ -773,78 +803,78 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     // Clicking Windows again should remove the search param and make the
     // "inexitant" platform visible again.
     await clickMenuItem(user, 'Platform', /Windows/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - inexistant, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Android, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - inexistant, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     await clickMenuItem(user, 'Platform', /Windows/);
     await clickMenuItem(user, 'Platform', /Linux/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
+      '  - Android, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'ios'],
     });
 
     await clickMenuItem(user, 'Platform', /Linux/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
+      '  - Android, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'ios', 'linux'],
     });
 
     await clickMenuItem(user, 'Platform', 'Select all values');
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - inexistant, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Android, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - inexistant, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     await clickMenuItem(user, 'Platform', /macOS/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Android, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'android', 'ios'],
     });
 
     await clickMenuItem(user, 'Platform', /Android/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'ios'],
     });
 
     await clickMenuItem(user, 'Platform', /Select only.*Android/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, 1.078 %, Improvement, 0.1, -, 25.00 %',
+      '  - Android, +1.08%, Improvement, 0.1, Noise, 25.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['android'],
@@ -858,16 +888,16 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
-    // Filter only "Significant"
+    // Filter only "Real" (significant)
     const signifianceMenu = await screen.findByRole('button', {
       name: /Sig.*filter/,
     });
     await user.click(signifianceMenu);
     expect(signifianceMenu).toMatchSnapshot();
 
-    // significant item 0 and Not significant item 1
+    // "Real" is item 0, "Noise" (not significant) is item 1
     const significantOptions = await screen.findAllByRole('menuitemcheckbox', {
-      name: /Significant/,
+      name: /Real|Noise/,
     });
     await user.click(significantOptions[1]);
     await user.keyboard('[Escape]');
@@ -881,74 +911,49 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
 
     await screen.findByText('a11yr');
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    await clickMenuItem(user, 'Status', /No changes/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-      'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-    ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['improvement', 'regression'],
-    });
 
-    await clickMenuItem(user, 'Status', /Improvement/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    // Noise is mutually exclusive with the direction buckets: selecting only
+    // Noise shows the not-significant rows regardless of their direction.
+    await clickMenuItem(user, 'Status', /Select only.*Noise/);
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
     ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['regression'],
-    });
+    expect(summarizeTableFiltersFromUrl()).toEqual({ status: ['noise'] });
 
+    // Unchecking Noise (the three direction buckets stay checked) hides the
+    // noisy rows and leaves only the real (significant) rows.
     await clickMenuItem(user, 'Status', /Select all values/);
-    await clickMenuItem(user, 'Status', /Regression/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    await clickMenuItem(user, 'Status', /^Noise/);
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['none', 'improvement'],
+      status: ['none', 'improvement', 'regression'],
     });
 
-    await clickMenuItem(user, 'Status', /Regression/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    // A direction bucket only matches real rows, so "No changes" shows the two
+    // significant no-change rows.
+    await clickMenuItem(user, 'Status', /Select only.*No changes/);
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({});
-
-    await clickMenuItem(user, 'Status', /Select only.*Regression/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-      'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-    ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['regression'],
-    });
-
-    await clickMenuItem(user, 'Status', /Select only.*Improvement/);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
-      'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-    ]);
-    expect(summarizeTableFiltersFromUrl()).toEqual({
-      status: ['improvement'],
-    });
+    expect(summarizeTableFiltersFromUrl()).toEqual({ status: ['none'] });
   });
 
   it('can load the filter parameters from the URL on mann-whitney-u test_version', async () => {
@@ -959,15 +964,15 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     );
     await screen.findByText('dhtml.html');
 
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
     ]);
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(await summarizeTableFiltersFromCheckboxes(user)).toEqual({
       'Platform(2)': ['macOS', 'Android'],
-      'Sig(2)': ['Significant', 'Not Significant-'],
-      'Status(3)': ['No changes', 'Improvement', 'Regression'],
+      'Sig(2)': ['Real', 'Noise'],
+      'Status(4)': ['No changes', 'Improvement', 'Regression', 'Noise'],
     });
 
     // After a change, "foo" should disappear
@@ -994,29 +999,29 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
     expect(deltaButton).toMatchSnapshot();
 
     // // Sort descending
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %',
-      '  - Windows 10, -, , 1.2, , 99.00 %',
-      '  - Windows 10, -2.401 %, , 1.2, , 49.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 1.2, Noise, 44.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 1.3, Noise, 24.00 %',
+      '  - Windows 10, -, , 1.2, Real, 99.00 %',
+      '  - Windows 10, -2.40%, , 1.2, Real, 49.00 %',
       '  rev: tictactoe',
-      '  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %',
-      '  - Windows 10, -, , 2, , 98.00 %',
-      '  - Windows 10, -2.401 %, , 2, , 48.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 2, Noise, 43.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 2.1, Noise, 23.00 %',
+      '  - Windows 10, -, , 2, Real, 98.00 %',
+      '  - Windows 10, -2.40%, , 2, Real, 48.00 %',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
       '  rev: tictactoe',
-      '  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %',
-      '  - Windows 10, -, , 0.8, , 99.00 %',
-      '  - Windows 10, -2.401 %, , 0.8, , 49.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 0.8, Noise, 44.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.9, Noise, 24.00 %',
+      '  - Windows 10, -, , 0.8, Real, 99.00 %',
+      '  - Windows 10, -2.40%, , 0.8, Real, 49.00 %',
     ]);
     // It should have the "descending" SVG.
     expect(deltaButton).toMatchSnapshot();
@@ -1025,29 +1030,29 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     // sort ascending
     await user.click(deltaButton);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %',
-      '  - Windows 10, -2.401 %, , 2, , 48.00 %',
-      '  - Windows 10, -, , 2, , 98.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 2.1, Noise, 23.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 2, Noise, 43.00 %',
+      '  - Windows 10, -2.40%, , 2, Real, 48.00 %',
+      '  - Windows 10, -, , 2, Real, 98.00 %',
       '  rev: spam',
-      '  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %',
-      '  - Windows 10, -2.401 %, , 1.2, , 49.00 %',
-      '  - Windows 10, -, , 1.2, , 99.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 1.3, Noise, 24.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 1.2, Noise, 44.00 %',
+      '  - Windows 10, -2.40%, , 1.2, Real, 49.00 %',
+      '  - Windows 10, -, , 1.2, Real, 99.00 %',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %',
-      '  - Windows 10, -2.401 %, , 0.8, , 49.00 %',
-      '  - Windows 10, -, , 0.8, , 99.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.9, Noise, 24.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 0.8, Noise, 44.00 %',
+      '  - Windows 10, -2.40%, , 0.8, Real, 49.00 %',
+      '  - Windows 10, -, , 0.8, Real, 99.00 %',
       '  rev: spam',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
     ]);
     // It should have the "ascending" SVG.
     expect(deltaButton).toMatchSnapshot();
@@ -1059,29 +1064,29 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
       name: /Sig.*sort/,
     });
     await user.click(significanceButton);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %',
-      '  - Windows 10, -, , 2, , 98.00 %',
-      '  - Windows 10, -2.401 %, , 2, , 48.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 2.1, Noise, 23.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 2, Noise, 43.00 %',
+      '  - Windows 10, -, , 2, Real, 98.00 %',
+      '  - Windows 10, -2.40%, , 2, Real, 48.00 %',
       '  rev: spam',
-      '  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %',
-      '  - Windows 10, -, , 1.2, , 99.00 %',
-      '  - Windows 10, -2.401 %, , 1.2, , 49.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 1.3, Noise, 24.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 1.2, Noise, 44.00 %',
+      '  - Windows 10, -, , 1.2, Real, 99.00 %',
+      '  - Windows 10, -2.40%, , 1.2, Real, 49.00 %',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %',
-      '  - Windows 10, -, , 0.8, , 99.00 %',
-      '  - Windows 10, -2.401 %, , 0.8, , 49.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.9, Noise, 24.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 0.8, Noise, 44.00 %',
+      '  - Windows 10, -, , 0.8, Real, 99.00 %',
+      '  - Windows 10, -2.40%, , 0.8, Real, 49.00 %',
       '  rev: spam',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
     ]);
     // It should have the "descending" SVG.
     expect(significanceButton).toMatchSnapshot();
@@ -1090,29 +1095,29 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     // Sort by Significance ascending
     await user.click(significanceButton);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, -2.401 %, , 0.8, , 49.00 %',
-      '  - Windows 10, -, , 0.8, , 99.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %',
+      '  - Windows 10, -2.40%, , 0.8, Real, 49.00 %',
+      '  - Windows 10, -, , 0.8, Real, 99.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.9, Noise, 24.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 0.8, Noise, 44.00 %',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, -2.401 %, , 1.2, , 49.00 %',
-      '  - Windows 10, -, , 1.2, , 99.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %',
+      '  - Windows 10, -2.40%, , 1.2, Real, 49.00 %',
+      '  - Windows 10, -, , 1.2, Real, 99.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 1.3, Noise, 24.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 1.2, Noise, 44.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, -2.401 %, , 2, , 48.00 %',
-      '  - Windows 10, -, , 2, , 98.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %',
+      '  - Windows 10, -2.40%, , 2, Real, 48.00 %',
+      '  - Windows 10, -, , 2, Real, 98.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 2.1, Noise, 23.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 2, Noise, 43.00 %',
     ]);
     // It should have the "descending" SVG.
     expect(significanceButton).toMatchSnapshot();
@@ -1121,32 +1126,32 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     // Sort by Effect Size (%) descending
     const effectSizeButton = screen.getByRole('button', {
-      name: /CLES \(%\).*sort/,
+      name: /CLES.*sort/,
     });
     await user.click(effectSizeButton);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, -, , -, , 100.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, -, , 0.8, , 99.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %',
-      '  - Windows 10, -2.401 %, , 0.8, , 49.00 %',
+      '  - Windows 10, -, , 0.8, Real, 99.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.9, Noise, 24.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 0.8, Noise, 44.00 %',
+      '  - Windows 10, -2.40%, , 0.8, Real, 49.00 %',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, -, , 1.2, , 99.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %',
-      '  - Windows 10, -2.401 %, , 1.2, , 49.00 %',
+      '  - Windows 10, -, , 1.2, Real, 99.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 1.3, Noise, 24.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 1.2, Noise, 44.00 %',
+      '  - Windows 10, -2.40%, , 1.2, Real, 49.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, -, , 2, , 98.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %',
-      '  - Windows 10, -2.401 %, , 2, , 48.00 %',
+      '  - Windows 10, -, , 2, Real, 98.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 2.1, Noise, 23.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 2, Noise, 43.00 %',
+      '  - Windows 10, -2.40%, , 2, Real, 48.00 %',
     ]);
 
     expect(effectSizeButton).toMatchSnapshot();
@@ -1155,46 +1160,46 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
 
     // Sort by Effect Size (%) ascending
     await user.click(effectSizeButton);
-    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, -2.401 %, , -, , 50.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %',
-      '  - Windows 10, -, , -, , 100.00 %',
+      '  - Windows 10, -2.40%, , -, Real, 50.00 %',
+      '  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %',
+      '  - Windows 10, -, , -, Real, 100.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, -2.401 %, , 0.8, , 49.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %',
-      '  - Windows 10, -, , 0.8, , 99.00 %',
+      '  - Windows 10, -2.40%, , 0.8, Real, 49.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 0.8, Noise, 44.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 0.9, Noise, 24.00 %',
+      '  - Windows 10, -, , 0.8, Real, 99.00 %',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Windows 10, -2.401 %, , 1.2, , 49.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %',
-      '  - Windows 10, -, , 1.2, , 99.00 %',
+      '  - Windows 10, -2.40%, , 1.2, Real, 49.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 1.2, Noise, 44.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 1.3, Noise, 24.00 %',
+      '  - Windows 10, -, , 1.2, Real, 99.00 %',
       '  rev: tictactoe',
-      '  - Windows 10, -2.401 %, , 2, , 48.00 %',
-      '  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %',
-      '  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %',
-      '  - Windows 10, -, , 2, , 98.00 %',
+      '  - Windows 10, -2.40%, , 2, Real, 48.00 %',
+      '  - Linux 18.04, +1.85%, Regression, 2, Noise, 43.00 %',
+      '  - macOS 10.15, +1.08%, Improvement, 2.1, Noise, 23.00 %',
+      '  - Windows 10, -, , 2, Real, 98.00 %',
     ]);
     expect(effectSizeButton).toMatchSnapshot();
     // It should be persisted in the URL
     expectParameterToHaveValue('sort', 'effects|asc');
 
-    // Sort by MD(%) descending
+    // Sort by Δ Median descending
     const medianDiffButton = screen.getByRole('button', {
-      name: /MD \(%\).*sort/,
+      name: /Δ Median.*sort/,
     });
     await user.click(medianDiffButton);
-    expect(summarizeVisibleRows('mann-whitney-u')).toMatchSnapshot();
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toMatchSnapshot();
     expect(medianDiffButton).toMatchSnapshot();
     expectParameterToHaveValue('sort', 'median-diff|desc');
 
     // Sort by MD(%) ascending
     await user.click(medianDiffButton);
-    expect(summarizeVisibleRows('mann-whitney-u')).toMatchSnapshot();
+    expect(summarizeVisibleRows('mann-whitney-u', true)).toMatchSnapshot();
     expect(medianDiffButton).toMatchSnapshot();
     expectParameterToHaveValue('sort', 'median-diff|asc');
   });
@@ -1246,5 +1251,117 @@ describe('Results Table for MannWhitneyResultsItem for mann-whitney-u testVersio
       const searchParams = new URLSearchParams(window.location.search);
       expect(searchParams.has('replicates')).toBe(false);
     });
+  });
+});
+
+describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
+  it('shows Magnitude but hides CD/CLES/Sig in the simplified (default) view', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    const header = screen.getByTestId('table-header');
+    // Only Magnitude is shown in the simplified view; CD/CLES/Sig are all
+    // advanced columns and hidden by default.
+    expect(header.querySelector('.magnitude-header')).toBeTruthy();
+    expect(header.querySelector('.significance-header')).toBeFalsy();
+    expect(header.querySelector('.delta-header')).toBeFalsy();
+    expect(header.querySelector('.effects-header')).toBeFalsy();
+  });
+
+  it('reveals CD/CLES/Sig and hides Magnitude when advanced columns are enabled', async () => {
+    enableAdvancedColumns();
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    const header = screen.getByTestId('table-header');
+    expect(header.querySelector('.delta-header')).toBeTruthy();
+    expect(header.querySelector('.effects-header')).toBeTruthy();
+    expect(header.querySelector('.significance-header')).toBeTruthy();
+    expect(header.querySelector('.magnitude-header')).toBeFalsy();
+  });
+
+  it('can filter on the Magnitude column', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await clickMenuItem(user, 'Magnitude', /Select only.*Negligible/);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      magnitude: ['negligible'],
+    });
+  });
+
+  it('toggles Cliff’s Delta and CLES independently from the Advanced columns dropdown', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    const header = () => screen.getByTestId('table-header');
+    // Simplified default: neither advanced column.
+    expect(header().querySelector('.delta-header')).toBeFalsy();
+    expect(header().querySelector('.effects-header')).toBeFalsy();
+
+    // Open the dropdown and enable Cliff's Delta only.
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced columns' }),
+    );
+    await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
+    expect(header().querySelector('.delta-header')).toBeTruthy();
+    expect(header().querySelector('.effects-header')).toBeFalsy();
+
+    // Enable CLES too — both show.
+    await user.click(screen.getByRole('option', { name: 'CLES' }));
+    expect(header().querySelector('.delta-header')).toBeTruthy();
+    expect(header().querySelector('.effects-header')).toBeTruthy();
+
+    // Turn Cliff's Delta back off — only CLES remains.
+    await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
+    expect(header().querySelector('.delta-header')).toBeFalsy();
+    expect(header().querySelector('.effects-header')).toBeTruthy();
+  });
+
+  it('shows the advanced columns named in the advanced_columns URL param', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&advanced_columns=cliffs_delta',
+    );
+    await screen.findByText('a11yr');
+
+    const header = screen.getByTestId('table-header');
+    expect(header.querySelector('.delta-header')).toBeTruthy();
+    expect(header.querySelector('.effects-header')).toBeFalsy();
+  });
+
+  it('persists the advanced-column selection to the advanced_columns URL param', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    const advancedParam = () =>
+      new URLSearchParams(window.location.search).get('advanced_columns');
+    expect(advancedParam()).toBeNull();
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced columns' }),
+    );
+    await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
+    expect(advancedParam()).toBe('cliffs_delta');
+
+    await user.click(screen.getByRole('option', { name: 'CLES' }));
+    expect(advancedParam()).toBe('cliffs_delta,cles');
+
+    // Turning a column off updates the param; turning the last one off removes it.
+    await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
+    expect(advancedParam()).toBe('cles');
+
+    await user.click(screen.getByRole('option', { name: 'CLES' }));
+    expect(advancedParam()).toBeNull();
   });
 });

@@ -7,8 +7,12 @@ import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
 import RevisionRowExpandable from '.././RevisionRowExpandable';
-import { MANN_WHITNEY_U } from '../../../common/constants';
+import {
+  MANN_WHITNEY_U,
+  RESULTS_TABLE_MIN_WIDTH,
+} from '../../../common/constants';
 import { getStrategy } from '../../../common/testVersions';
+import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
 import { Strings } from '../../../resources/Strings';
 import { Spacing } from '../../../styles';
 import type { CombinedResultsItemType } from '../../../types/state';
@@ -17,6 +21,11 @@ import { TestVersion } from '../../../types/types';
 const revisionRow = style({
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
+  // Keep this gap in sync with the header grid in TableHeader.
+  columnGap: `${Spacing.Small}px`,
+  // Floor the row width to match the header, so columns can't compress into
+  // each other; below this the page scrolls horizontally.
+  minWidth: RESULTS_TABLE_MIN_WIDTH,
   margin: `${Spacing.Small}px 0px 0px 0px`,
   alignItems: 'center',
   $nest: {
@@ -119,6 +128,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
   };
 
   const strategy = getStrategy(testVersion ?? MANN_WHITNEY_U);
+  const advancedColumns = useAdvancedColumns();
 
   return (
     <>
@@ -127,7 +137,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         sx={{ gridTemplateColumns, backgroundColor: 'revisionRow.background' }}
         role='row'
       >
-        {strategy.renderSubtestColumns(result, expanded)}
+        {strategy.renderSubtestColumns(result, expanded, advancedColumns)}
         <div
           className='total-runs cell'
           title={`Base runs: ${baseRunsCount}, New runs: ${newRunsCount}`}

@@ -7,7 +7,11 @@ import { loader } from '../../components/CompareResults/loader';
 import SubtestsRevisionRow from '../../components/CompareResults/SubtestsResults/SubtestsRevisionRow';
 import { MannWhitneyResultsItem } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { screen, renderWithRouter } from '../utils/test-utils';
+import {
+  screen,
+  renderWithRouter,
+  enableAdvancedColumns,
+} from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   fetchMock
@@ -178,6 +182,7 @@ describe('SubtestsRevisionRow Component', () => {
   });
 
   it('should display cliffs delta, significance, and effects size in subtests for mann-whitney-u testVersion', async () => {
+    enableAdvancedColumns();
     const { subtestsMannWhitneyResult } = getTestData();
     const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
     renderWithRoute(
@@ -194,7 +199,7 @@ describe('SubtestsRevisionRow Component', () => {
     expect(effects).toHaveTextContent('60.00%');
 
     const significanceCell = roles[8];
-    expect(significanceCell?.querySelector('svg')).not.toBeNull();
+    expect(significanceCell).toHaveTextContent('Real');
 
     const cliffs_delta = roles[6]?.childNodes[1];
     expect(cliffs_delta).toHaveTextContent('0.02');
@@ -213,7 +218,7 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles = await screen.findAllByRole('cell');
-    const status = roles[5]?.childNodes[0];
+    const status = roles[5]?.querySelector('.status-hint');
     expect(status).toHaveTextContent('Regression');
     expect(status).toHaveClass('status-hint-regression');
   });
@@ -231,7 +236,7 @@ describe('SubtestsRevisionRow Component', () => {
     );
 
     const roles1 = await screen.findAllByRole('cell');
-    const status1 = roles1[5]?.childNodes[0];
+    const status1 = roles1[5]?.querySelector('.status-hint');
     expect(status1).toHaveTextContent('Improvement');
     expect(status1).toHaveClass('status-hint-improvement');
   });
@@ -253,7 +258,7 @@ describe('SubtestsRevisionRow Component', () => {
       };
     }
 
-    it('shows dash when neither distribution is normal', async () => {
+    it('shows value with warning icon when neither distribution is normal', async () => {
       renderWithRoute(
         <SubtestsRevisionRow
           result={makeResult(tooFewRuns, tooFewRuns)}
@@ -263,7 +268,10 @@ describe('SubtestsRevisionRow Component', () => {
         />,
       );
       const roles = await screen.findAllByRole('cell');
-      expect(roles[4]).toHaveTextContent('-');
+      // The median difference is rank-based, so it's shown even for non-normal
+      // data; only a warning icon flags the shape.
+      expect(roles[4]).toHaveTextContent('%');
+      expect(roles[4].querySelector('svg[role="img"]')).toBeTruthy();
     });
 
     it('shows value with warning icon when only one distribution is normal', async () => {
@@ -276,7 +284,7 @@ describe('SubtestsRevisionRow Component', () => {
         />,
       );
       const roles = await screen.findAllByRole('cell');
-      expect(roles[4]).not.toHaveTextContent('-');
+      expect(roles[4]).toHaveTextContent('%');
       expect(roles[4].querySelector('svg[role="img"]')).toBeTruthy();
     });
 
@@ -290,7 +298,7 @@ describe('SubtestsRevisionRow Component', () => {
         />,
       );
       const roles = await screen.findAllByRole('cell');
-      expect(roles[4]).not.toHaveTextContent('-');
+      expect(roles[4]).toHaveTextContent('%');
       expect(roles[4].querySelector('svg[role="img"]')).toBeFalsy();
     });
   });
