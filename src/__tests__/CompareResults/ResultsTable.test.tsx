@@ -1443,7 +1443,10 @@ describe('cookie persistence vs. shareable URLs', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     // Submit with Enter so the write happens immediately (bypasses the input's
     // debounce, which fake timers don't flush after typing).
-    await user.type(screen.getByPlaceholderText('Filter results'), 'linux{Enter}');
+    await user.type(
+      screen.getByPlaceholderText('Filter results'),
+      'linux{Enter}',
+    );
 
     // The search term is written, and the out-of-band params survive.
     const params = new URLSearchParams(window.location.search);
