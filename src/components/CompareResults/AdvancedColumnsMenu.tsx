@@ -23,6 +23,7 @@ import {
   SIGNIFICANCE,
   serializeAdvancedColumns,
 } from '../../utils/advancedColumnsUrl';
+import { currentUrlParams } from '../../utils/tableStatePersistence';
 
 // The advanced statistics columns are toggled independently — any combination
 // can be shown. The option values reuse the URL keys so the dropdown, the URL
@@ -38,7 +39,7 @@ function AdvancedColumnsMenu() {
   const dispatch = useAppDispatch();
   const mode = useAppSelector((state) => state.theme.mode);
   const advancedColumns = useAdvancedColumns();
-  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
+  const [, updateRawSearchParams] = useRawSearchParams();
   // Track the Select's open state so the tooltip can be suppressed while the
   // dropdown is open — otherwise it renders over (and hides) the checkboxes.
   const [menuOpen, setMenuOpen] = useState(false);
@@ -54,7 +55,9 @@ function AdvancedColumnsMenu() {
     dispatch(updateShowCles(next.cles));
     dispatch(updateShowSignificance(next.significance));
 
-    const params = new URLSearchParams(rawSearchParams);
+    // Build from the live URL so toggling columns doesn't drop params written
+    // out-of-band (e.g. the `initialized` marker and cookie-seeded filter/sort).
+    const params = currentUrlParams();
     const value = serializeAdvancedColumns(next);
     if (value) {
       params.set(ADVANCED_COLUMNS_PARAM, value);
