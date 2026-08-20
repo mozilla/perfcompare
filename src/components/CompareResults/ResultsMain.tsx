@@ -23,6 +23,7 @@ import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
 import type { TestVersion } from '../../types/types';
+import { currentUrlParams } from '../../utils/tableStatePersistence';
 import EditTitleInput from '../CompareResults/EditTitleInput';
 import ToggleReplicatesButton from '../Shared/ToggleReplicatesButton';
 
@@ -116,8 +117,11 @@ function ResultsMain() {
   };
 
   const onSaveButtonClick = () => {
-    rawSearchParams.set('title', comparisonTitleName);
-    updateRawSearchParams(rawSearchParams);
+    // Build from the live URL so we don't drop params written out-of-band
+    // (e.g. the `initialized` marker and cookie-seeded filter/sort).
+    const params = currentUrlParams();
+    params.set('title', comparisonTitleName);
+    updateRawSearchParams(params);
     showEditComparisonTitleInput(false);
   };
 

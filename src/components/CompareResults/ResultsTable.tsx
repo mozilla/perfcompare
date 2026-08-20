@@ -21,6 +21,7 @@ import {
   getColumnsConfiguration,
   toGridTemplateColumns,
 } from '../../utils/rowTemplateColumns';
+import { currentUrlParams } from '../../utils/tableStatePersistence';
 
 type CombinedLoaderReturnValue = LoaderReturnValue | OverTimeLoaderReturnValue;
 export default function ResultsTable() {
@@ -33,7 +34,7 @@ export default function ResultsTable() {
     testVersion,
   } = useLoaderData<CombinedLoaderReturnValue>();
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
@@ -70,29 +71,36 @@ export default function ResultsTable() {
   );
   const [expandAll, setExpandAll] = useState(false);
 
+  // These writers build from the *live* URL (currentUrlParams) rather than a
+  // render-time snapshot, so they preserve params written out-of-band — most
+  // importantly the `initialized` marker and cookie-seeded filter/sort — that a
+  // stale snapshot would drop (see useRawSearchParams / tableStatePersistence).
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
-    searchParams.set('framework', newFrameworkId.toString());
-    setSearchParams(searchParams);
+    const params = currentUrlParams();
+    params.set('framework', newFrameworkId.toString());
+    setSearchParams(params);
   };
 
   const onSearchTermChange = (newSearchTerm: string) => {
     setSearchTerm(newSearchTerm);
+    const params = currentUrlParams();
     if (newSearchTerm) {
-      rawSearchParams.set('search', newSearchTerm);
+      params.set('search', newSearchTerm);
     } else {
-      rawSearchParams.delete('search');
+      params.delete('search');
     }
-    updateRawSearchParams(rawSearchParams);
+    updateRawSearchParams(params);
   };
 
   const onTestVersionChange = (testVersion: TestVersion): void => {
     setTestVersionVal(testVersion);
-    searchParams.set('test_version', testVersion);
+    const params = currentUrlParams();
+    params.set('test_version', testVersion);
     if (testVersion !== MANN_WHITNEY_U) {
-      searchParams.delete('replicates');
+      params.delete('replicates');
     }
-    setSearchParams(searchParams);
+    setSearchParams(params);
   };
 
   const rowGridTemplateColumns = toGridTemplateColumns(columnsConfig);

@@ -1426,4 +1426,57 @@ describe('cookie persistence vs. shareable URLs', () => {
       '1',
     );
   });
+
+  it('keeps the initialized marker and seeded filters after a search-term change', async () => {
+    document.cookie = 'perfcompare_filter_status=regression; path=/';
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+
+    // Seeded from the cookie and marked initialized.
+    expect(summarizeTableFiltersFromUrl()).toEqual({ status: ['regression'] });
+    expect(new URLSearchParams(window.location.search).get('initialized')).toBe(
+      '1',
+    );
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    // Submit with Enter so the write happens immediately (bypasses the input's
+    // debounce, which fake timers don't flush after typing).
+    await user.type(screen.getByPlaceholderText('Filter results'), 'linux{Enter}');
+
+    // The search term is written, and the out-of-band params survive.
+    const params = new URLSearchParams(window.location.search);
+    expect(params.get('search')).toBe('linux');
+    expect(params.get('initialized')).toBe('1');
+    expect(params.get('filter_status')).toBe('regression');
+  });
+
+  it('keeps the initialized marker and seeded filters after a test-version change', async () => {
+    document.cookie = 'perfcompare_filter_status=regression; path=/';
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+    expect(new URLSearchParams(window.location.search).get('initialized')).toBe(
+      '1',
+    );
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(
+      screen.getByRole('combobox', { name: 'Stats Test Version' }),
+    );
+    await user.click(
+      await screen.findByRole('option', { name: 'Mann-Whitney-U' }),
+    );
+
+    // The test version changes (a router navigation), and the marker + seeded
+    // filter ride along instead of being dropped.
+    await waitFor(() => {
+      const params = new URLSearchParams(window.location.search);
+      expect(params.get('test_version')).toBe('mann-whitney-u');
+      expect(params.get('initialized')).toBe('1');
+      expect(params.get('filter_status')).toBe('regression');
+    });
+  });
 });
