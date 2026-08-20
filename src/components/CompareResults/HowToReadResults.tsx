@@ -3,10 +3,7 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Box from '@mui/material/Box';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
-import {
-  updateShowHowToRead,
-  HOW_TO_READ_STORAGE_KEY,
-} from '../../reducers/ColumnPrefsSlice';
+import { updateShowHowToRead } from '../../reducers/ColumnPrefsSlice';
 
 // Beginner-friendly guide shown above the results table, explaining what each
 // column means in plain language.
@@ -22,7 +19,6 @@ function HowToReadResults() {
 
   const onClose = () => {
     dispatch(updateShowHowToRead(false));
-    localStorage.setItem(HOW_TO_READ_STORAGE_KEY, 'false');
   };
 
   return (

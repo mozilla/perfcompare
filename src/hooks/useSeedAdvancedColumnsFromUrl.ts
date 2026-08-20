@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import { useAppDispatch } from './app';
+import useRawSearchParams from './useRawSearchParams';
 import {
   updateShowCliffsDelta,
   updateShowCles,
@@ -16,9 +17,10 @@ import {
 // and Redux (for reactive rendering); this only handles the initial
 // URL → Redux direction. Call once per results view.
 function useSeedAdvancedColumnsFromUrl() {
+  const [rawSearchParams] = useRawSearchParams();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(rawSearchParams);
     if (!params.has(ADVANCED_COLUMNS_PARAM)) {
       return;
     }

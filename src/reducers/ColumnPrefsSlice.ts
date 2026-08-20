@@ -36,6 +36,7 @@ const columnPrefs = createSlice({
     },
     updateShowHowToRead(state, action: PayloadAction<boolean>) {
       state.showHowToRead = action.payload;
+      localStorage.setItem(HOW_TO_READ_STORAGE_KEY, String(action.payload));
     },
   },
 });
