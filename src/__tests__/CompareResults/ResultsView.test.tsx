@@ -15,7 +15,7 @@ import type { Framework } from '../../types/types';
 import { fftkde } from '../../utils/kde.js';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen, waitFor } from '../utils/test-utils';
+import { renderWithRouter, screen, waitFor, within } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   const { testCompareData, testData } = getTestData();
@@ -573,9 +573,10 @@ describe('Results View', () => {
     const panel = screen.getByTestId('how-to-read-results');
     expect(panel).toBeInTheDocument();
 
-    // Dismiss via the panel's close button.
+    // Dismiss via the panel's close button (scoped: the MWU warning banner
+    // also has a close button).
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    await user.click(screen.getByRole('button', { name: /close/i }));
+    await user.click(within(panel).getByRole('button', { name: /close/i }));
     expect(screen.queryByTestId('how-to-read-results')).not.toBeInTheDocument();
 
     // The "How to read the results" checkbox brings it back.
@@ -583,5 +584,21 @@ describe('Results View', () => {
       screen.getByRole('checkbox', { name: /How to read the results/i }),
     );
     expect(screen.getByTestId('how-to-read-results')).toBeInTheDocument();
+  });
+
+  it('shows the Mann-Whitney-U warning banner and lets the user dismiss it with the X', async () => {
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    await screen.findByText('a11yr');
+
+    // Shown by default (the default test version is Mann-Whitney-U).
+    const warning = await screen.findByText(/experimental stage/i);
+    const banner = warning.closest('.MuiAlert-root') as HTMLElement;
+    expect(banner).toBeInTheDocument();
+
+    // Dismiss via the banner's close button.
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(within(banner).getByRole('button', { name: /close/i }));
+
+    expect(screen.queryByText(/experimental stage/i)).not.toBeInTheDocument();
   });
 });
