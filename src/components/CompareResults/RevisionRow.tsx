@@ -139,21 +139,20 @@ const loadingMessage = style({
   padding: `0 0 ${Spacing.xSmall}px`,
 });
 
-const regressionPill = style({
+const pillStyle = {
   display: 'inline-flex',
   alignItems: 'center',
   borderRadius: '4px',
   padding: '2px 8px',
   fontSize: '0.75rem',
-});
+  cursor: 'pointer',
+  color: 'inherit',
+  textDecoration: 'none',
+};
 
-const improvementPill = style({
-  display: 'inline-flex',
-  alignItems: 'center',
-  borderRadius: '4px',
-  padding: '2px 8px',
-  fontSize: '0.75rem',
-});
+const regressionPill = style(pillStyle);
+
+const improvementPill = style(pillStyle);
 
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,
@@ -413,6 +412,10 @@ function RevisionRow(props: RevisionRowProps) {
           <div className={subtestCountsRow}>
             {subtestCounts.regressionCount > 0 && (
               <Box
+                component='a'
+                href={subtestsCompareLink}
+                target='_blank'
+                rel='noreferrer'
                 sx={{ backgroundColor: 'status.regression' }}
                 className={regressionPill}
               >
@@ -424,6 +427,10 @@ function RevisionRow(props: RevisionRowProps) {
             )}
             {subtestCounts.improvementCount > 0 && (
               <Box
+                component='a'
+                href={subtestsCompareLink}
+                target='_blank'
+                rel='noreferrer'
                 sx={{ backgroundColor: 'status.improvement' }}
                 className={improvementPill}
               >
