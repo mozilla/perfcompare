@@ -47,7 +47,7 @@ const revisionRow = style({
     '.subtests': {
       borderRadius: '4px 0 0 4px',
       paddingLeft: Spacing.Medium, // Synchronize with its header
-      maxWidth: '150px',
+      maxWidth: '200px',
       wordBreak: 'break-word',
     },
 

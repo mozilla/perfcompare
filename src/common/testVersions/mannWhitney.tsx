@@ -305,14 +305,14 @@ export const mannWhitneyStrategy = {
       ? {
           name: 'Subtests',
           key: 'subtests',
-          gridWidth: '1.5fr',
+          gridWidth: '1.25fr',
           sortFunction: defaultSortFunction,
         }
       : {
           name: 'Platform',
           filter: true,
           key: 'platform',
-          gridWidth: '1.5fr',
+          gridWidth: '1.25fr',
           possibleValues: PLATFORM_FILTER_VALUES,
           matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
             const label = this.possibleValues.find(
@@ -329,15 +329,15 @@ export const mannWhitneyStrategy = {
       {
         name: 'Base',
         key: 'base',
-        gridWidth: '1fr',
+        gridWidth: '.75fr',
         tooltip: tooltipBaseMean,
       },
       { key: 'comparisonSign', gridWidth: '0.25fr' },
-      { name: 'New', key: 'new', gridWidth: '1fr', tooltip: tooltipNewMean },
+      { name: 'New', key: 'new', gridWidth: '.75fr', tooltip: tooltipNewMean },
       {
         name: 'Δ Median',
         key: 'median-diff',
-        gridWidth: '1.5fr',
+        gridWidth: '1fr',
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
@@ -358,7 +358,7 @@ export const mannWhitneyStrategy = {
         name: 'Status',
         filter: true,
         key: 'status',
-        gridWidth: '1.5fr',
+        gridWidth: '1fr',
         possibleValues: [
           { label: 'No changes', key: 'none' },
           { label: 'Improvement', key: 'improvement' },
@@ -395,7 +395,7 @@ export const mannWhitneyStrategy = {
               name: 'Magnitude',
               filter: true,
               key: 'magnitude',
-              gridWidth: '1.55fr',
+              gridWidth: '1.25fr',
               possibleValues: [
                 { label: 'Negligible', key: 'negligible' },
                 { label: 'Small', key: 'small' },
@@ -448,7 +448,7 @@ export const mannWhitneyStrategy = {
             {
               name: 'CLES',
               key: 'effects',
-              gridWidth: '1.25fr',
+              gridWidth: '1fr',
               sortFunction(
                 resultA: MannWhitneyResultsItem,
                 resultB: MannWhitneyResultsItem,
@@ -473,7 +473,7 @@ export const mannWhitneyStrategy = {
               name: anyAdvanced ? 'Sig' : 'Significance',
               key: 'significance',
               filter: true,
-              gridWidth: '1.25fr',
+              gridWidth: '1fr',
               tooltip: tooltipSignificance,
               possibleValues: [
                 // Plain-language labels matching the cell text; the keys still
