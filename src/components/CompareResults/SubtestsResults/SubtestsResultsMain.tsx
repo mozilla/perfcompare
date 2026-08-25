@@ -20,8 +20,9 @@ import {
   STUDENT_T,
   RESULTS_TABLE_MAX_WIDTH,
 } from '../../../common/constants';
-import { useAppSelector } from '../../../hooks/app';
+import { useAppSelector, useAppDispatch } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
+import { updateShowMannWhitneyWarning } from '../../../reducers/ColumnPrefsSlice';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {
@@ -107,7 +108,12 @@ type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   const { results, replicates, testVersion } =
     useLoaderData<CombinedLoaderReturnValue>();
-  const displayMannWhitneyUWarning = testVersion === MANN_WHITNEY_U;
+  const dispatch = useAppDispatch();
+  const showMannWhitneyWarning = useAppSelector(
+    (state) => state.columnPrefs.showMannWhitneyWarning,
+  );
+  const displayMannWhitneyUWarning =
+    testVersion === MANN_WHITNEY_U && showMannWhitneyWarning;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
@@ -155,7 +161,11 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
           </Grid>
         )}
         {displayMannWhitneyUWarning && (
-          <Alert severity='warning' className={styles.title}>
+          <Alert
+            severity='warning'
+            className={styles.title}
+            onClose={() => dispatch(updateShowMannWhitneyWarning(false))}
+          >
             {Strings.components.mannWhitneyUWarning.text}{' '}
             <Link
               href={Strings.components.mannWhitneyUWarning.href}
@@ -163,7 +173,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
             >
               {Strings.components.mannWhitneyUWarning.linkText}
             </Link>
-            {'. '}
+            {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}
           </Alert>
         )}
         <Suspense

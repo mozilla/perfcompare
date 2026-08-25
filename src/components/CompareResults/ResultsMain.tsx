@@ -16,8 +16,9 @@ import {
   MANN_WHITNEY_U,
   RESULTS_TABLE_MAX_WIDTH,
 } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
+import { useAppSelector, useAppDispatch } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
+import { updateShowMannWhitneyWarning } from '../../reducers/ColumnPrefsSlice';
 import { Strings } from '../../resources/Strings';
 import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
@@ -32,6 +33,10 @@ function ResultsMain() {
   const loaderData = useLoaderData<CombinedLoaderReturnValue>();
   const testVersion = loaderData.testVersion;
   const themeMode = useAppSelector((state) => state.theme.mode);
+  const dispatch = useAppDispatch();
+  const showMannWhitneyWarning = useAppSelector(
+    (state) => state.columnPrefs.showMannWhitneyWarning,
+  );
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -130,7 +135,11 @@ function ResultsMain() {
 
   const testWarnings: Record<TestVersion, React.JSX.Element> = {
     'mann-whitney-u': (
-      <Alert severity='warning' className={styles.alert}>
+      <Alert
+        severity='warning'
+        className={styles.alert}
+        onClose={() => dispatch(updateShowMannWhitneyWarning(false))}
+      >
         {Strings.components.mannWhitneyUWarning.text}{' '}
         <Link
           href={Strings.components.mannWhitneyUWarning.href}
@@ -194,7 +203,11 @@ function ResultsMain() {
         </Grid>
 
         <Grid container sx={titleContainerSx}>
-          {testWarnings[testVersion] ?? testWarnings[MANN_WHITNEY_U]}
+          {testVersion === STUDENT_T
+            ? testWarnings[STUDENT_T]
+            : showMannWhitneyWarning
+              ? testWarnings[MANN_WHITNEY_U]
+              : null}
         </Grid>
       </header>
       <HowToReadResults />
