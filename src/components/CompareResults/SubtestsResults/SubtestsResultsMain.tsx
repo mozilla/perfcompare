@@ -1,8 +1,6 @@
 import { useState, Suspense } from 'react';
 
 import { Grid, Skeleton, Stack } from '@mui/material';
-import Alert from '@mui/material/Alert';
-import Link from '@mui/material/Link';
 import { Container } from '@mui/system';
 import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
@@ -16,13 +14,11 @@ import SearchInput from '.././SearchInput';
 import {
   subtestsView,
   subtestsOverTimeView,
-  MANN_WHITNEY_U,
   STUDENT_T,
   RESULTS_TABLE_MAX_WIDTH,
 } from '../../../common/constants';
-import { useAppSelector, useAppDispatch } from '../../../hooks/app';
+import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
-import { updateShowMannWhitneyWarning } from '../../../reducers/ColumnPrefsSlice';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {
@@ -34,6 +30,7 @@ import {
   RetriggerButton,
   DisabledRetriggerButton,
 } from '../Retrigger/RetriggerButton';
+import { TestVersionWarning } from '../TestVersionWarning';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
@@ -108,13 +105,6 @@ type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   const { results, replicates, testVersion } =
     useLoaderData<CombinedLoaderReturnValue>();
-  const dispatch = useAppDispatch();
-  const showMannWhitneyWarning = useAppSelector(
-    (state) => state.columnPrefs.showMannWhitneyWarning,
-  );
-  const displayMannWhitneyUWarning =
-    testVersion === MANN_WHITNEY_U && showMannWhitneyWarning;
-
   const themeMode = useAppSelector((state) => state.theme.mode);
 
   // This is our custom hook that updates the search params without a rerender.
@@ -131,11 +121,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       margin: '0 auto',
       marginBottom: '80px',
       maxWidth: RESULTS_TABLE_MAX_WIDTH,
-    }),
-    title: style({
-      margin: 0,
-      marginBottom: Spacing.Medium,
-      fontSize: '16px',
     }),
   };
 
@@ -160,22 +145,9 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
             <ToggleReplicatesButton />
           </Grid>
         )}
-        {displayMannWhitneyUWarning && (
-          <Alert
-            severity='warning'
-            className={styles.title}
-            onClose={() => dispatch(updateShowMannWhitneyWarning(false))}
-          >
-            {Strings.components.mannWhitneyUWarning.text}{' '}
-            <Link
-              href={Strings.components.mannWhitneyUWarning.href}
-              target='_blank'
-            >
-              {Strings.components.mannWhitneyUWarning.linkText}
-            </Link>
-            {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}
-          </Alert>
-        )}
+        <Grid container sx={{ margin: `0 0 ${Spacing.Medium}px 0` }}>
+          <TestVersionWarning testVersion={testVersion} />
+        </Grid>
         <Suspense
           fallback={
             <>

@@ -1,8 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 
 import { Button, Grid } from '@mui/material';
-import Alert from '@mui/material/Alert';
-import Link from '@mui/material/Link';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
@@ -11,19 +9,13 @@ import HowToReadResults from './HowToReadResults';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
-import {
-  STUDENT_T,
-  MANN_WHITNEY_U,
-  RESULTS_TABLE_MAX_WIDTH,
-} from '../../common/constants';
-import { useAppSelector, useAppDispatch } from '../../hooks/app';
+import { TestVersionWarning } from './TestVersionWarning';
+import { STUDENT_T, RESULTS_TABLE_MAX_WIDTH } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
-import { updateShowMannWhitneyWarning } from '../../reducers/ColumnPrefsSlice';
-import { Strings } from '../../resources/Strings';
 import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
-import type { TestVersion } from '../../types/types';
 import EditTitleInput from '../CompareResults/EditTitleInput';
 import ToggleReplicatesButton from '../Shared/ToggleReplicatesButton';
 
@@ -33,19 +25,11 @@ function ResultsMain() {
   const loaderData = useLoaderData<CombinedLoaderReturnValue>();
   const testVersion = loaderData.testVersion;
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const dispatch = useAppDispatch();
-  const showMannWhitneyWarning = useAppSelector(
-    (state) => state.columnPrefs.showMannWhitneyWarning,
-  );
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
 
   const styles = {
-    alert: style({
-      width: '100%',
-      fontSize: '16px',
-    }),
     container: style({
       backgroundColor: themeColor100,
       margin: '0 auto',
@@ -133,30 +117,6 @@ function ResultsMain() {
     />
   );
 
-  const testWarnings: Record<TestVersion, React.JSX.Element> = {
-    'mann-whitney-u': (
-      <Alert
-        severity='warning'
-        className={styles.alert}
-        onClose={() => dispatch(updateShowMannWhitneyWarning(false))}
-      >
-        {Strings.components.mannWhitneyUWarning.text}{' '}
-        <Link
-          href={Strings.components.mannWhitneyUWarning.href}
-          target='_blank'
-        >
-          {Strings.components.mannWhitneyUWarning.linkText}
-        </Link>
-        {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}
-      </Alert>
-    ),
-    'student-t': (
-      <Alert severity='warning' className={styles.alert}>
-        {Strings.components.studentTTestWarning.text}
-      </Alert>
-    ),
-  };
-
   return (
     <Container
       maxWidth={false}
@@ -203,11 +163,7 @@ function ResultsMain() {
         </Grid>
 
         <Grid container sx={titleContainerSx}>
-          {testVersion === STUDENT_T
-            ? testWarnings[STUDENT_T]
-            : showMannWhitneyWarning
-              ? testWarnings[MANN_WHITNEY_U]
-              : null}
+          <TestVersionWarning testVersion={testVersion} />
         </Grid>
       </header>
       <HowToReadResults />

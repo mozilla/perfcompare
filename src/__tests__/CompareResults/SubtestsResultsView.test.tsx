@@ -13,6 +13,7 @@ import getTestData from '../utils/fixtures';
 import {
   renderWithRouter,
   screen,
+  within,
   enableAdvancedColumns,
 } from '../utils/test-utils';
 
@@ -480,6 +481,34 @@ describe('SubtestsResultsView Component Tests for mann-whitney-u testVersion', (
     await user.click(expandRowButton[1]);
     const openedSubtests = await screen.findAllByText(/Normality Test/i);
     expect(openedSubtests).toHaveLength(2);
+  });
+
+  it('shows the Mann-Whitney-U warning banner in full and lets the user dismiss it with the X', async () => {
+    const { subtestsMannWhitneyResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u',
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+
+    const warning = await screen.findByText(/experimental stage/i);
+    const banner = warning.closest('.MuiAlert-root') as HTMLElement;
+    expect(banner).toBeInTheDocument();
+    expect(
+      screen.getByText(/may not reflect what performance alerts/i),
+    ).toBeInTheDocument();
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(within(banner).getByRole('button', { name: /close/i }));
+
+    expect(screen.queryByText(/experimental stage/i)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/may not reflect what performance alerts/i),
+    ).not.toBeInTheDocument();
   });
 
   it('should make blobUrl available when "Download JSON" button is clicked', async () => {
