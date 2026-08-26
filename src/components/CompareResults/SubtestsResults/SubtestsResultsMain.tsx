@@ -10,7 +10,7 @@ import { style } from 'typestyle';
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
-import AdvancedColumnsMenu from '.././AdvancedColumnsMenu';
+import AdvancedOptionsMenu from '.././AdvancedOptionsMenu';
 import { DownloadButton, DisabledDownloadButton } from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
 import {
@@ -93,7 +93,7 @@ function SubtestsResultsHeader({
           <RetriggerButton result={loadedResults[0]} variant='text' />
         </Grid>
         <Grid size='auto' sx={{ whiteSpace: 'nowrap' }}>
-          <AdvancedColumnsMenu />
+          <AdvancedOptionsMenu />
         </Grid>
       </Grid>
     </>
