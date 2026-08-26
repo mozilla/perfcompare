@@ -20,7 +20,7 @@ export const StatisticsWarnings = ({
     flexWrap: 'wrap',
     borderRadius: 1,
     padding: 1,
-    width: '55%',
+    width: '100%',
     '& .warning-row': {
       verticalAlign: 'bottom',
       display: 'flex',

@@ -57,7 +57,6 @@ export const MannWhitneyCompareMetrics = ({
       sx={{
         backgroundColor: 'manWhitneyComps.compareMetricsBg',
         marginBottom: 2,
-        maxWidth: '85%',
         width: '100%',
         borderRadius: '5px',
         padding: 2,

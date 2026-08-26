@@ -885,7 +885,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                         tabindex="-1"
-                        value=""
+                        value="effect_size,modes,stats_table,warnings"
                       />
                       <svg
                         aria-hidden="true"
@@ -2771,7 +2771,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                         tabindex="-1"
-                        value=""
+                        value="effect_size,modes,stats_table,warnings"
                       />
                       <svg
                         aria-hidden="true"
@@ -4314,7 +4314,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                         tabindex="-1"
-                        value=""
+                        value="effect_size,modes,stats_table,warnings"
                       />
                       <svg
                         aria-hidden="true"
@@ -5857,7 +5857,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                         tabindex="-1"
-                        value=""
+                        value="effect_size,modes,stats_table,warnings"
                       />
                       <svg
                         aria-hidden="true"
@@ -7400,7 +7400,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                         tabindex="-1"
-                        value=""
+                        value="effect_size,modes,stats_table,warnings"
                       />
                       <svg
                         aria-hidden="true"
