@@ -41,10 +41,7 @@ export function TestVersionWarning({ testVersion }: TestVersionWarningProps) {
       onClose={() => dispatch(updateShowMannWhitneyWarning(false))}
     >
       {Strings.components.mannWhitneyUWarning.text}{' '}
-      <Link
-        href={Strings.components.mannWhitneyUWarning.href}
-        target='_blank'
-      >
+      <Link href={Strings.components.mannWhitneyUWarning.href} target='_blank'>
         {Strings.components.mannWhitneyUWarning.linkText}
       </Link>
       {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}

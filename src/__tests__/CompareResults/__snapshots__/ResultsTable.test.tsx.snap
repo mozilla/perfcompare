@@ -935,7 +935,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
               >
                 <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f1q43ty0 css-gb7yta-MuiPaper-root-MuiAlert-root"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard css-7lymnx-MuiPaper-root-MuiAlert-root"
                   role="alert"
                   style="--Paper-shadow: none;"
                 >
@@ -3972,7 +3972,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
               >
                 <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f1q43ty0 css-gb7yta-MuiPaper-root-MuiAlert-root"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard css-7lymnx-MuiPaper-root-MuiAlert-root"
                   role="alert"
                   style="--Paper-shadow: none;"
                 >

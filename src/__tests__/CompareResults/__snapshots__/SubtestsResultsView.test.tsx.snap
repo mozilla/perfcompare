@@ -570,64 +570,68 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </nav>
               </div>
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
-                role="alert"
-                style="--Paper-shadow: none;"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-1tu7fz5-MuiGrid-root"
               >
                 <div
-                  class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard css-7lymnx-MuiPaper-root-MuiAlert-root"
+                  role="alert"
+                  style="--Paper-shadow: none;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                    data-testid="ReportProblemOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="MuiAlert-message css-zioonp-MuiAlert-message"
-                >
-                  The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
-                   
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                    href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
-                    target="_blank"
-                  >
-                    report it on Bugzilla
-                  </a>
-                  . 
-                   
-                  The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
-                </div>
-                <div
-                  class="MuiAlert-action css-rgppqo-MuiAlert-action"
-                >
-                  <button
-                    aria-label="Close"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="Close"
-                    type="button"
+                  <div
+                    class="MuiAlert-icon css-vab54s-MuiAlert-icon"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                      data-testid="CloseIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                      data-testid="ReportProblemOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
                       />
                     </svg>
-                  </button>
+                  </div>
+                  <div
+                    class="MuiAlert-message css-zioonp-MuiAlert-message"
+                  >
+                    The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
+                     
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
+                      href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                      target="_blank"
+                    >
+                      report it on Bugzilla
+                    </a>
+                    . 
+                     
+                    The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
+                     
+                  </div>
+                  <div
+                    class="MuiAlert-action css-rgppqo-MuiAlert-action"
+                  >
+                    <button
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      title="Close"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div
@@ -2464,64 +2468,68 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </nav>
               </div>
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
-                role="alert"
-                style="--Paper-shadow: none;"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-1tu7fz5-MuiGrid-root"
               >
                 <div
-                  class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard css-7lymnx-MuiPaper-root-MuiAlert-root"
+                  role="alert"
+                  style="--Paper-shadow: none;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                    data-testid="ReportProblemOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="MuiAlert-message css-zioonp-MuiAlert-message"
-                >
-                  The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
-                   
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                    href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
-                    target="_blank"
-                  >
-                    report it on Bugzilla
-                  </a>
-                  . 
-                   
-                  The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
-                </div>
-                <div
-                  class="MuiAlert-action css-rgppqo-MuiAlert-action"
-                >
-                  <button
-                    aria-label="Close"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="Close"
-                    type="button"
+                  <div
+                    class="MuiAlert-icon css-vab54s-MuiAlert-icon"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                      data-testid="CloseIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                      data-testid="ReportProblemOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
                       />
                     </svg>
-                  </button>
+                  </div>
+                  <div
+                    class="MuiAlert-message css-zioonp-MuiAlert-message"
+                  >
+                    The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
+                     
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
+                      href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                      target="_blank"
+                    >
+                      report it on Bugzilla
+                    </a>
+                    . 
+                     
+                    The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
+                     
+                  </div>
+                  <div
+                    class="MuiAlert-action css-rgppqo-MuiAlert-action"
+                  >
+                    <button
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      title="Close"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div
@@ -2656,7 +2664,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_sn_"
+                          id="_r_u2_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -3156,7 +3164,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_sv_"
+                    aria-controls="_r_ua_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3310,7 +3318,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_t2_"
+                    aria-controls="_r_ud_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3451,7 +3459,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_t5_"
+                    aria-controls="_r_ug_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3592,7 +3600,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_t8_"
+                    aria-controls="_r_uj_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3746,7 +3754,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_tb_"
+                    aria-controls="_r_um_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4007,64 +4015,68 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 </nav>
               </div>
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
-                role="alert"
-                style="--Paper-shadow: none;"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-1tu7fz5-MuiGrid-root"
               >
                 <div
-                  class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard css-7lymnx-MuiPaper-root-MuiAlert-root"
+                  role="alert"
+                  style="--Paper-shadow: none;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                    data-testid="ReportProblemOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="MuiAlert-message css-zioonp-MuiAlert-message"
-                >
-                  The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
-                   
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                    href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
-                    target="_blank"
-                  >
-                    report it on Bugzilla
-                  </a>
-                  . 
-                   
-                  The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
-                </div>
-                <div
-                  class="MuiAlert-action css-rgppqo-MuiAlert-action"
-                >
-                  <button
-                    aria-label="Close"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="Close"
-                    type="button"
+                  <div
+                    class="MuiAlert-icon css-vab54s-MuiAlert-icon"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                      data-testid="CloseIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                      data-testid="ReportProblemOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
                       />
                     </svg>
-                  </button>
+                  </div>
+                  <div
+                    class="MuiAlert-message css-zioonp-MuiAlert-message"
+                  >
+                    The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
+                     
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
+                      href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                      target="_blank"
+                    >
+                      report it on Bugzilla
+                    </a>
+                    . 
+                     
+                    The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
+                     
+                  </div>
+                  <div
+                    class="MuiAlert-action css-rgppqo-MuiAlert-action"
+                  >
+                    <button
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      title="Close"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div
@@ -4199,7 +4211,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                           aria-invalid="false"
                           aria-label="Search by title"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="_r_q0_"
+                          id="_r_rb_"
                           placeholder="Filter results"
                           type="search"
                           value=""
@@ -4699,7 +4711,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_q8_"
+                    aria-controls="_r_rj_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4853,7 +4865,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_qb_"
+                    aria-controls="_r_rm_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -4994,7 +5006,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_qe_"
+                    aria-controls="_r_rp_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5135,7 +5147,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_qh_"
+                    aria-controls="_r_rs_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5289,7 +5301,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   role="cell"
                 >
                   <button
-                    aria-controls="_r_qk_"
+                    aria-controls="_r_rv_"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -5550,64 +5562,68 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 </nav>
               </div>
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
-                role="alert"
-                style="--Paper-shadow: none;"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-1tu7fz5-MuiGrid-root"
               >
                 <div
-                  class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard css-7lymnx-MuiPaper-root-MuiAlert-root"
+                  role="alert"
+                  style="--Paper-shadow: none;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                    data-testid="ReportProblemOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="MuiAlert-message css-zioonp-MuiAlert-message"
-                >
-                  The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
-                   
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                    href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
-                    target="_blank"
-                  >
-                    report it on Bugzilla
-                  </a>
-                  . 
-                   
-                  The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
-                </div>
-                <div
-                  class="MuiAlert-action css-rgppqo-MuiAlert-action"
-                >
-                  <button
-                    aria-label="Close"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="Close"
-                    type="button"
+                  <div
+                    class="MuiAlert-icon css-vab54s-MuiAlert-icon"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                      data-testid="CloseIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                      data-testid="ReportProblemOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
                       />
                     </svg>
-                  </button>
+                  </div>
+                  <div
+                    class="MuiAlert-message css-zioonp-MuiAlert-message"
+                  >
+                    The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
+                     
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
+                      href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                      target="_blank"
+                    >
+                      report it on Bugzilla
+                    </a>
+                    . 
+                     
+                    The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
+                     
+                  </div>
+                  <div
+                    class="MuiAlert-action css-rgppqo-MuiAlert-action"
+                  >
+                    <button
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      title="Close"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div
@@ -7093,64 +7109,68 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </nav>
               </div>
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard f12anyom css-gb7yta-MuiPaper-root-MuiAlert-root"
-                role="alert"
-                style="--Paper-shadow: none;"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-1tu7fz5-MuiGrid-root"
               >
                 <div
-                  class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard css-7lymnx-MuiPaper-root-MuiAlert-root"
+                  role="alert"
+                  style="--Paper-shadow: none;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
-                    data-testid="ReportProblemOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="MuiAlert-message css-zioonp-MuiAlert-message"
-                >
-                  The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
-                   
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                    href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
-                    target="_blank"
-                  >
-                    report it on Bugzilla
-                  </a>
-                  . 
-                   
-                  The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
-                </div>
-                <div
-                  class="MuiAlert-action css-rgppqo-MuiAlert-action"
-                >
-                  <button
-                    aria-label="Close"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
-                    tabindex="0"
-                    title="Close"
-                    type="button"
+                  <div
+                    class="MuiAlert-icon css-vab54s-MuiAlert-icon"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                      data-testid="CloseIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                      data-testid="ReportProblemOutlinedIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
                       <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
                       />
                     </svg>
-                  </button>
+                  </div>
+                  <div
+                    class="MuiAlert-message css-zioonp-MuiAlert-message"
+                  >
+                    The Mann-Whitney comparison technique is still in the experimental stage. If you encounter any issues, have suggestions for improvements, or wish to provide feedback, please
+                     
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
+                      href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+                      target="_blank"
+                    >
+                      report it on Bugzilla
+                    </a>
+                    . 
+                     
+                    The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
+                     
+                  </div>
+                  <div
+                    class="MuiAlert-action css-rgppqo-MuiAlert-action"
+                  >
+                    <button
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      title="Close"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div

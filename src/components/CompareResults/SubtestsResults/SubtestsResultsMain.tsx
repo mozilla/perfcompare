@@ -14,6 +14,7 @@ import SearchInput from '.././SearchInput';
 import {
   subtestsView,
   subtestsOverTimeView,
+  MANN_WHITNEY_U,
   STUDENT_T,
   RESULTS_TABLE_MAX_WIDTH,
 } from '../../../common/constants';
@@ -30,9 +31,9 @@ import {
   RetriggerButton,
   DisabledRetriggerButton,
 } from '../Retrigger/RetriggerButton';
-import { TestVersionWarning } from '../TestVersionWarning';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
+import { TestVersionWarning } from '../TestVersionWarning';
 
 type SubtestsResultsHeaderProps = {
   loadedResults: CompareResultsItem[];
@@ -146,7 +147,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
           </Grid>
         )}
         <Grid container sx={{ margin: `0 0 ${Spacing.Medium}px 0` }}>
-          <TestVersionWarning testVersion={testVersion} />
+          <TestVersionWarning testVersion={testVersion ?? MANN_WHITNEY_U} />
         </Grid>
         <Suspense
           fallback={
