@@ -446,7 +446,7 @@ export const mannWhitneyStrategy = {
             {
               name: 'CLES',
               key: 'effects',
-              gridWidth: '1fr',
+              gridWidth: '.75fr',
               sortFunction(
                 resultA: MannWhitneyResultsItem,
                 resultB: MannWhitneyResultsItem,
