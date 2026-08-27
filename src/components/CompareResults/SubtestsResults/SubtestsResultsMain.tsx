@@ -29,6 +29,7 @@ import type {
   CompareResultsItem,
   SubtestsRevisionsHeader,
 } from '../../../types/state';
+import { currentUrlParams } from '../../../utils/tableStatePersistence';
 import ToggleReplicatesButton from '../../Shared/ToggleReplicatesButton';
 import {
   RetriggerButton,
@@ -141,12 +142,17 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
 
   const onSearchTermChange = (newSearchTerm: string) => {
     setSearchTerm(newSearchTerm);
+    // Build from the live URL (not the memoized rawSearchParams snapshot) so we
+    // don't clobber params written out-of-band after mount — the `initialized`
+    // marker and cookie-seeded filter/sort that let a shared URL supersede the
+    // recipient's cookies (see useRawSearchParams / tableStatePersistence).
+    const params = currentUrlParams();
     if (newSearchTerm) {
-      rawSearchParams.set('search', newSearchTerm);
+      params.set('search', newSearchTerm);
     } else {
-      rawSearchParams.delete('search');
+      params.delete('search');
     }
-    updateRawSearchParams(rawSearchParams);
+    updateRawSearchParams(params);
   };
 
   return (
