@@ -145,6 +145,11 @@ export const Strings = {
       mainMessage: 'No results found',
       note: 'For the selected revision(s), no results when compared to the base revision.',
     },
+    filteredRowsNotice: {
+      // e.g. "1 row hidden by filters" / "3 rows hidden by filters"
+      summary: (count: number) =>
+        `${count} ${count === 1 ? 'row' : 'rows'} hidden by filters`,
+    },
     comparisonRevisionDropdown: {
       allRevisions: {
         key: 'all-revisions',
