@@ -1365,3 +1365,121 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(advancedParam()).toBeNull();
   });
 });
+
+describe('cookie persistence vs. shareable URLs', () => {
+  it('seeds filters from cookies and marks the URL initialized on a fresh URL', async () => {
+    document.cookie = 'perfcompare_filter_status=regression; path=/';
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+
+    // The remembered cookie is applied to the view...
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+    ]);
+    // ...and materialised into the URL, which is now marked initialized so the
+    // link reproduces this exact view for anyone.
+    expect(summarizeTableFiltersFromUrl()).toEqual({ status: ['regression'] });
+    expect(new URLSearchParams(window.location.search).get('initialized')).toBe(
+      '1',
+    );
+  });
+
+  it('ignores cookies when the URL is already initialized', async () => {
+    // A different viewer's cookie must not change what an initialized (shared)
+    // URL displays.
+    document.cookie = 'perfcompare_filter_status=regression; path=/';
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t&initialized=1');
+
+    await screen.findByText('a11yr');
+
+    // Cookie is ignored: every status stays visible.
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
+    ]);
+    // ...and the cookie is not written into the URL.
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+  });
+
+  it('keeps the initialized marker after toggling a filter', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+
+    const user = userEvent.setup({
+      advanceTimers: jest.advanceTimersByTime,
+    });
+    await clickMenuItem(user, 'Status', /No changes/);
+
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      status: ['improvement', 'regression'],
+    });
+    expect(new URLSearchParams(window.location.search).get('initialized')).toBe(
+      '1',
+    );
+  });
+
+  it('keeps the initialized marker and seeded filters after a search-term change', async () => {
+    document.cookie = 'perfcompare_filter_status=regression; path=/';
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+
+    // Seeded from the cookie and marked initialized.
+    expect(summarizeTableFiltersFromUrl()).toEqual({ status: ['regression'] });
+    expect(new URLSearchParams(window.location.search).get('initialized')).toBe(
+      '1',
+    );
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    // Submit with Enter so the write happens immediately (bypasses the input's
+    // debounce, which fake timers don't flush after typing).
+    await user.type(
+      screen.getByPlaceholderText('Filter results'),
+      'linux{Enter}',
+    );
+
+    // The search term is written, and the out-of-band params survive.
+    const params = new URLSearchParams(window.location.search);
+    expect(params.get('search')).toBe('linux');
+    expect(params.get('initialized')).toBe('1');
+    expect(params.get('filter_status')).toBe('regression');
+  });
+
+  it('keeps the initialized marker and seeded filters after a test-version change', async () => {
+    document.cookie = 'perfcompare_filter_status=regression; path=/';
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+    expect(new URLSearchParams(window.location.search).get('initialized')).toBe(
+      '1',
+    );
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(
+      screen.getByRole('combobox', { name: 'Stats Test Version' }),
+    );
+    await user.click(
+      await screen.findByRole('option', { name: 'Mann-Whitney-U' }),
+    );
+
+    // The test version changes (a router navigation), and the marker + seeded
+    // filter ride along instead of being dropped.
+    await waitFor(() => {
+      const params = new URLSearchParams(window.location.search);
+      expect(params.get('test_version')).toBe('mann-whitney-u');
+      expect(params.get('initialized')).toBe('1');
+      expect(params.get('filter_status')).toBe('regression');
+    });
+  });
+});

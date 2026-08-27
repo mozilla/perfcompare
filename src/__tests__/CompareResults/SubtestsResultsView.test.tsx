@@ -748,3 +748,45 @@ describe('SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVers
     expect(document.body).toMatchSnapshot();
   });
 });
+
+describe('cookie persistence vs. shareable URLs (subtests)', () => {
+  it('keeps the initialized marker and seeded filters after a search-term change', async () => {
+    // Regression test: the subtests search handler must build its URL write
+    // from the live URL, otherwise the cookie-seeded filter/sort and the
+    // `initialized` marker (written out-of-band on mount) get clobbered.
+    document.cookie = 'perfcompare_filter_status=regression; path=/';
+    const { subtestsResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=student-t',
+      subtestsResult,
+    });
+
+    // Wait on filter-independent page chrome (the regression filter may hide
+    // every row, so don't key on a specific subtest).
+    await screen.findByText('All results');
+
+    // Seeded from the cookie and marked initialized on mount.
+    const seeded = new URLSearchParams(window.location.search);
+    expect(seeded.get('filter_status')).toBe('regression');
+    expect(seeded.get('initialized')).toBe('1');
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    // Submit with Enter so the write happens immediately (bypasses the input's
+    // debounce, which fake timers don't flush after typing).
+    await user.type(
+      screen.getByPlaceholderText('Filter results'),
+      'dhtml{Enter}',
+    );
+
+    // The search term is written, and the out-of-band params survive.
+    const params = new URLSearchParams(window.location.search);
+    expect(params.get('search')).toBe('dhtml');
+    expect(params.get('initialized')).toBe('1');
+    expect(params.get('filter_status')).toBe('regression');
+  });
+});
