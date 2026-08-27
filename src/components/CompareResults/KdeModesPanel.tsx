@@ -311,6 +311,10 @@ type KdeModesPanelProps = {
   // throughput/score-style metrics. Drives improvement/regression wording so
   // the blurb doesn't presuppose timing.
   lowerIsBetter: boolean;
+  // When true, render a placeholder box instead of nothing if no mode-by-mode
+  // breakdown could be produced (e.g. a unimodal comparison). Used by the Mann-
+  // Whitney-U expanded grid so the "Mode analysis" cell isn't left empty.
+  showEmptyState?: boolean;
 };
 
 function KdeModesPanel({
@@ -321,6 +325,7 @@ function KdeModesPanel({
   vt,
   showModes,
   lowerIsBetter,
+  showEmptyState = false,
 }: KdeModesPanelProps) {
   // ECharts-equivalent reasoning: MUI's ThemeProvider sets the Box background
   // for us, but the inline text colors for the success/regression signals
@@ -358,7 +363,26 @@ function KdeModesPanel({
     };
   }, [blurb, unit, palette, lowerIsBetter]);
 
-  if (!blurb || !derived) return null;
+  if (!blurb || !derived) {
+    // Mode analysis was requested (showModes) but this comparison didn't yield
+    // a multi-mode breakdown — surface that instead of leaving an empty cell.
+    if (showEmptyState && showModes) {
+      return (
+        <Box
+          aria-label='Mode analysis unavailable'
+          sx={{
+            backgroundColor: 'manWhitneyComps.background',
+            padding: 1.5,
+            borderRadius: 1,
+            color: 'text.secondary',
+          }}
+        >
+          <Typography variant='body2'>No mode analysis available</Typography>
+        </Box>
+      );
+    }
+    return null;
+  }
 
   const { pairs, unmatchedBase, unmatchedNew, baseModes, newModes } = blurb;
   const { v, verdictColor, unitLabel, baseCount, newCount, modeStr } = derived;

@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import type { ExpandedRowOptions } from '../types/types';
+
 export const HOW_TO_READ_STORAGE_KEY = 'showHowToRead';
 export const MANN_WHITNEY_WARNING_STORAGE_KEY = 'showMannWhitneyWarning';
 
@@ -13,12 +15,16 @@ export const MANN_WHITNEY_WARNING_STORAGE_KEY = 'showMannWhitneyWarning';
 //   - showMannWhitneyWarning: when true the experimental Mann-Whitney-U warning
 //     banner is shown (on both the Results and Subtests pages). Persisted to
 //     localStorage so dismissing it sticks across reloads and both pages.
+//   - expandedRow: visibility of the (power-user) components in the MWU
+//     expanded row, toggled from the "Advanced options" dropdown. Persisted in
+//     the URL (see utils/expandedRowUrl). All off by default (simplified view).
 const initialState: {
   showCliffsDelta: boolean;
   showCles: boolean;
   showSignificance: boolean;
   showHowToRead: boolean;
   showMannWhitneyWarning: boolean;
+  expandedRow: ExpandedRowOptions;
 } = {
   showCliffsDelta: false,
   showCles: false,
@@ -26,6 +32,12 @@ const initialState: {
   showHowToRead: localStorage.getItem(HOW_TO_READ_STORAGE_KEY) !== 'false',
   showMannWhitneyWarning:
     localStorage.getItem(MANN_WHITNEY_WARNING_STORAGE_KEY) !== 'false',
+  expandedRow: {
+    effectSize: false,
+    modes: false,
+    statsTable: false,
+    warnings: false,
+  },
 };
 
 const columnPrefs = createSlice({
@@ -52,6 +64,9 @@ const columnPrefs = createSlice({
         String(action.payload),
       );
     },
+    updateExpandedRow(state, action: PayloadAction<ExpandedRowOptions>) {
+      state.expandedRow = action.payload;
+    },
   },
 });
 
@@ -61,5 +76,6 @@ export const {
   updateShowSignificance,
   updateShowHowToRead,
   updateShowMannWhitneyWarning,
+  updateExpandedRow,
 } = columnPrefs.actions;
 export default columnPrefs.reducer;

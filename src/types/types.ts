@@ -470,6 +470,16 @@ export interface AdvancedColumns {
   significance: boolean;
 }
 
+// Visibility of the (power-user) components in the Mann-Whitney-U expanded row.
+// Hidden by default (the simplified expanded view); toggled from the "Advanced
+// options" dropdown. Persisted in the URL like AdvancedColumns.
+export interface ExpandedRowOptions {
+  effectSize: boolean;
+  modes: boolean;
+  statsTable: boolean;
+  warnings: boolean;
+}
+
 export type SortFunc = (
   resultA: CombinedResultsItemType,
   resultB: CombinedResultsItemType,

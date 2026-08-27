@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
-import AdvancedColumnsMenu from './AdvancedColumnsMenu';
+import AdvancedOptionsMenu from './AdvancedOptionsMenu';
 import { DownloadButton } from './DownloadButton';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
@@ -151,7 +151,7 @@ export default function ResultsControls({
             <RevisionSelect />
           </Grid>
           <Grid size='auto'>
-            <AdvancedColumnsMenu />
+            <AdvancedOptionsMenu />
           </Grid>
           <Grid size='grow' sx={{ minWidth: 140 }}>
             <DownloadButton resultsPromise={resultsPromise} />

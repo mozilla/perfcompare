@@ -1308,7 +1308,7 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
 
     // Open the dropdown and enable Cliff's Delta only.
     await user.click(
-      screen.getByRole('combobox', { name: 'Advanced columns' }),
+      screen.getByRole('combobox', { name: 'Advanced options' }),
     );
     await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
     expect(header().querySelector('.delta-header')).toBeTruthy();
@@ -1349,7 +1349,7 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(advancedParam()).toBeNull();
 
     await user.click(
-      screen.getByRole('combobox', { name: 'Advanced columns' }),
+      screen.getByRole('combobox', { name: 'Advanced options' }),
     );
     await user.click(screen.getByRole('option', { name: "Cliff's Delta" }));
     expect(advancedParam()).toBe('cliffs_delta');
@@ -1363,6 +1363,76 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
 
     await user.click(screen.getByRole('option', { name: 'CLES' }));
     expect(advancedParam()).toBeNull();
+  });
+
+  it('groups the dropdown into Columns and Expanded row sections', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+
+    // Both group headers and one option from each group are present.
+    expect(screen.getByText('Columns')).toBeInTheDocument();
+    expect(screen.getByText('Expanded row')).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: "Cliff's Delta" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'Statistics table' }),
+    ).toBeInTheDocument();
+  });
+
+  it('seeds the expanded-row selection from the advanced_expanded URL param', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&advanced_expanded=stats_table',
+    );
+    await screen.findByText('a11yr');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+
+    // The seeded option is checked; an unseeded one is not.
+    expect(
+      screen.getByRole('option', { name: 'Statistics table' }),
+    ).toHaveAttribute('aria-selected', 'true');
+    expect(
+      screen.getByRole('option', { name: 'Data warnings' }),
+    ).toHaveAttribute('aria-selected', 'false');
+  });
+
+  it('persists the expanded-row selection to the advanced_expanded URL param', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    const expandedParam = () =>
+      new URLSearchParams(window.location.search).get('advanced_expanded');
+    expect(expandedParam()).toBeNull();
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    expect(expandedParam()).toBe('stats_table');
+
+    await user.click(screen.getByRole('option', { name: 'Data warnings' }));
+    expect(expandedParam()).toBe('stats_table,warnings');
+
+    // Turning the columns off leaves the expanded-row param untouched.
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    expect(expandedParam()).toBe('warnings');
+
+    await user.click(screen.getByRole('option', { name: 'Data warnings' }));
+    expect(expandedParam()).toBeNull();
   });
 });
 
@@ -1481,5 +1551,42 @@ describe('cookie persistence vs. shareable URLs', () => {
       expect(params.get('initialized')).toBe('1');
       expect(params.get('filter_status')).toBe('regression');
     });
+  });
+});
+
+// Placed at the end of the file on purpose: this test performs extra renders /
+// menu interactions, and React's useId counter is global across renders in a
+// jest run, so running it before the snapshot tests above would shift their
+// generated ids. Keeping it last avoids perturbing those snapshots.
+describe('Filtered-rows notice', () => {
+  it('shows how many rows the active filters hide, and why', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+    // No active filters → no notice.
+    expect(
+      screen.queryByTestId('filtered-rows-notice'),
+    ).not.toBeInTheDocument();
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // Hide the two "No changes" rows; the notice reports the count and reason.
+    await clickMenuItem(user, 'Status', /No changes/);
+    const notice = await screen.findByTestId('filtered-rows-notice');
+    expect(notice).toHaveTextContent('2 rows hidden by filters');
+    expect(notice).toHaveTextContent('Status: No changes');
+
+    // Narrowing to a single status hides more rows and the count updates.
+    await clickMenuItem(user, 'Status', /Select only.*Regression/);
+    expect(await screen.findByTestId('filtered-rows-notice')).toHaveTextContent(
+      '3 rows hidden by filters',
+    );
+
+    // Clearing the filter removes the notice again.
+    await clickMenuItem(user, 'Status', /Select all values/);
+    expect(
+      screen.queryByTestId('filtered-rows-notice'),
+    ).not.toBeInTheDocument();
   });
 });
