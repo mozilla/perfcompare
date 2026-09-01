@@ -278,6 +278,53 @@ export const memoizedFetchRevisionForRepository = moize(
   { isPromise: true, isShallowEqual: true, maxSize: 5 },
 ) as typeof fetchRevisionForRepository;
 
+// Memoized versions of the compare results fetch functions.
+// Going back and forth between the t-test and MWU views re-runs the route
+// loader, which would refetch the results from Treeherder every time.
+// We cache the value in memory which is keyed on the request parameters
+const compareResultsCache = new Map<string, Promise<CompareResultsItem[]>>();
+export function memoizedFetchCompareResults(
+  params: FetchProps,
+): Promise<CompareResultsItem[]> {
+  const normalizedParams = {
+    ...params,
+    testVersion: params.testVersion ?? STUDENT_T,
+  };
+  const key = JSON.stringify(normalizedParams);
+  const cached = compareResultsCache.get(key);
+  if (cached) return cached;
+  const promise = fetchCompareResults(normalizedParams).catch((error) => {
+    compareResultsCache.delete(key);
+    throw error;
+  });
+  compareResultsCache.set(key, promise);
+  return promise;
+}
+
+const compareOverTimeResultsCache = new Map<
+  string,
+  Promise<CompareResultsItem[]>
+>();
+export function memoizedFetchCompareOverTimeResults(
+  params: FetchOverTimeProps,
+): Promise<CompareResultsItem[]> {
+  const normalizedParams = {
+    ...params,
+    testVersion: params.testVersion ?? STUDENT_T,
+  };
+  const key = JSON.stringify(normalizedParams);
+  const cached = compareOverTimeResultsCache.get(key);
+  if (cached) return cached;
+  const promise = fetchCompareOverTimeResults(normalizedParams).catch(
+    (error) => {
+      compareOverTimeResultsCache.delete(key);
+      throw error;
+    },
+  );
+  compareOverTimeResultsCache.set(key, promise);
+  return promise;
+}
+
 // Memoized versions of the subtest fetch functions.
 // Each RevisionRow with has_subtests fires its own fetch, so memoization
 // prevents duplicate network calls when rows share the same signature IDs,
@@ -294,7 +341,10 @@ export function memoizedFetchSubtestsCompareResults(
   const key = JSON.stringify(params);
   const cached = subtestCompareResultsCache.get(key);
   if (cached) return cached;
-  const promise = fetchSubtestsCompareResults(params);
+  const promise = fetchSubtestsCompareResults(params).catch((error) => {
+    subtestCompareResultsCache.delete(key);
+    throw error;
+  });
   subtestCompareResultsCache.set(key, promise);
   return promise;
 }
@@ -309,9 +359,21 @@ export function memoizedFetchSubtestsCompareOverTimeResults(
   const key = JSON.stringify(params);
   const cached = subtestCompareOverTimeResultsCache.get(key);
   if (cached) return cached;
-  const promise = fetchSubtestsCompareOverTimeResults(params);
+  const promise = fetchSubtestsCompareOverTimeResults(params).catch((error) => {
+    subtestCompareOverTimeResultsCache.delete(key);
+    throw error;
+  });
   subtestCompareOverTimeResultsCache.set(key, promise);
   return promise;
+}
+
+// Clears all the memoization caches in this file. Only tests should need
+// this, to isolate the module-level caches between test cases.
+export function clearTreeherderCaches() {
+  compareResultsCache.clear();
+  compareOverTimeResultsCache.clear();
+  subtestCompareResultsCache.clear();
+  subtestCompareOverTimeResultsCache.clear();
 }
 
 export async function fetchJobInformationFromJobId(
