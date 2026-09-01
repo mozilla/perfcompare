@@ -16,6 +16,7 @@ import { Hooks } from 'taskcluster-client-web';
 
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
+import { clearTreeherderCaches } from '../../logic/treeherder';
 import { fftkde } from '../../utils/kde.js';
 
 let store: Store;
@@ -97,6 +98,9 @@ afterEach(() => {
 
   // Also restore the fetch mock
   fetchMock.mockReset();
+
+  // Clear the treeherder memoization caches so that tests aren't polluted.
+  clearTreeherderCaches();
 
   // Clear perfcompare cookies so they don't leak between tests.
   for (const cookie of document.cookie.split(';')) {

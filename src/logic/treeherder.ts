@@ -367,6 +367,15 @@ export function memoizedFetchSubtestsCompareOverTimeResults(
   return promise;
 }
 
+// Clears all the memoization caches in this file. Only tests should need
+// this, to isolate the module-level caches between test cases.
+export function clearTreeherderCaches() {
+  compareResultsCache.clear();
+  compareOverTimeResultsCache.clear();
+  subtestCompareResultsCache.clear();
+  subtestCompareOverTimeResultsCache.clear();
+}
+
 export async function fetchJobInformationFromJobId(
   repo: string,
   jobId: number,
