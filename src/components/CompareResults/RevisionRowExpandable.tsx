@@ -70,7 +70,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const modeAnalysisEnabled = isMannWhitney ? expandedRow.modes : true;
   const showModesForChart = modeAnalysisEnabled && showModes;
 
-  // The statistics table and data warnings are Mann-Whitney-U-only components.
+  // Both of these are only read inside the `isMannWhitney` JSX branch below;
+  // they're computed here (rather than in the branch) just to keep the render
+  // return readable. They're harmless no-ops for the Student-T render.
+  // `mwResult` narrows the result for the Mann-Whitney-U-only statistics table
+  // and data warnings; `anyExpandedCell` is whether any expanded-row option is on.
   const mwResult = result as MannWhitneyResultsItem;
   const anyExpandedCell =
     expandedRow.effectSize ||
@@ -198,7 +202,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           // instead of each spanning the full width.
           <Stack spacing={2}>
             <div>{comparisonSummary}</div>
-            <Box sx={{ color: 'text.secondary' }}>{GRAPH_BLURB}</Box>
+            {graph && <Box sx={{ color: 'text.secondary' }}>{GRAPH_BLURB}</Box>}
             {graph}
             {anyExpandedCell && (
               <Grid container spacing={2}>
