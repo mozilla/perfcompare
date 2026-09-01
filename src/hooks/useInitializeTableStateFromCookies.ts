@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type {
-  CompareResultsTableConfig,
-  CompareMannWhitneyResultsTableConfig,
-} from '../types/types';
+import type { TableHeaderConfig } from '../types/types';
 import { getCookie } from '../utils/cookies';
 import {
   INITIALIZED_PARAM,
@@ -26,9 +23,7 @@ import {
 // (through useRawSearchParams), so it never triggers a re-render or a loader
 // refetch. It intentionally has no effect on an already-initialized URL.
 const useInitializeTableStateFromCookies = (
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
+  columnsConfiguration: TableHeaderConfig,
 ) => {
   const [, updateRawSearchParams] = useRawSearchParams();
 

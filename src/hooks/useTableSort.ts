@@ -5,6 +5,7 @@ import { CombinedResultsItemType } from '../types/state';
 import type {
   CompareMannWhitneyResultsTableConfig,
   CompareResultsTableConfig,
+  TableHeaderConfig,
   SortFunc,
 } from '../types/types';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
@@ -23,11 +24,7 @@ import {
 // * otherwise, a single sort parameter contains both the column and the
 // direction, separated by a character |.
 
-const useTableSort = (
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
-) => {
+const useTableSort = (columnsConfiguration: TableHeaderConfig) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 

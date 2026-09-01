@@ -17,6 +17,9 @@ export interface BasicColumn {
   // Used in the grid CSS property to configure the width of the column.
   gridWidth: string;
   tooltip?: React.ReactNode;
+  // Rendered just before the label in the header, for columns whose label
+  // alone is ambiguous (eg. the platform columns of the cross-platform table).
+  icon?: React.ReactNode;
 }
 
 // This interface is used for a column that can be filtered.
@@ -172,6 +175,38 @@ export type TableConfig<
   TResult extends CombinedResultsItemType = CombinedResultsItemType,
 > = TableColumn<TResult>[];
 /* --- End of generic column types for column configuration --- */
+
+/* --- Structural column types for the shared table header and state hooks ---
+ * TableHeader, useTableFilters, useTableSort and useInitializeTableStateFromCookies
+ * only ever read key/name/gridWidth/tooltip/icon/possibleValues and detect
+ * capabilities with `'filter' in column` / `'sortFunction' in column`; none of
+ * them invoke matchesFunction or sortFunction. Typing them against the row type
+ * would needlessly exclude tables over other row shapes (eg. the cross-platform
+ * subtest matrix, whose rows aren't CombinedResultsItemType), so these types
+ * leave the callbacks as `unknown`. Every CompareResultsTableConfig,
+ * CompareMannWhitneyResultsTableConfig and TableConfig<T> stays assignable.
+ */
+
+interface HeaderFilterableMixin {
+  name: string;
+  filter: true;
+  possibleValues: Array<{ label: string; key: string; icon?: React.ReactNode }>;
+  matchesFunction: unknown;
+}
+
+interface HeaderSortableMixin {
+  name: string;
+  sortFunction: unknown;
+}
+
+export type TableHeaderColumn =
+  | BasicColumn
+  | (BasicColumn & HeaderFilterableMixin)
+  | (BasicColumn & HeaderSortableMixin)
+  | (BasicColumn & HeaderFilterableMixin & HeaderSortableMixin);
+
+export type TableHeaderConfig = TableHeaderColumn[];
+/* --- End of structural column types --- */
 
 export type ConfidenceText = 'High' | 'Medium' | 'Low' | '';
 

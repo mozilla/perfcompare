@@ -1483,3 +1483,58 @@ describe('cookie persistence vs. shareable URLs', () => {
     });
   });
 });
+
+describe('cross-platform subtests link', () => {
+  it('links every platform of the group that has subtests', async () => {
+    const { testCompareData } = getTestData();
+    // Only two of the four platform rows have subtests.
+    const withSubtests = testCompareData.map((item, index) => ({
+      ...item,
+      has_subtests: index < 2,
+    }));
+    setupAndRender(withSubtests, 'test_version=student-t');
+
+    const link = await screen.findByRole('link', {
+      name: Strings.components.revisionRow.title.crossPlatformLink,
+    });
+    const url = new URL(link.getAttribute('href')!, 'http://localhost');
+    expect(url.pathname).toBe('/subtests-cross-platform-results');
+    expect(url.searchParams.getAll('baseParentSignature')).toHaveLength(2);
+    // The rows keep the order they have in the table, and each platform is
+    // paired with its own signature.
+    expect(url.searchParams.getAll('platform').toSorted()).toEqual(
+      withSubtests
+        .slice(0, 2)
+        .map((item) => item.platform)
+        .toSorted(),
+    );
+    expect(url.searchParams.get('test_version')).toBe('student-t');
+  });
+
+  it('is absent when no platform of the group has subtests', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+    expect(
+      screen.queryByRole('link', {
+        name: Strings.components.revisionRow.title.crossPlatformLink,
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('is absent when the group holds several new revisions', async () => {
+    const { testCompareData } = getTestData();
+    const withSubtests = augmentCompareDataWithSeveralRevisions(
+      testCompareData,
+    ).map((item) => ({ ...item, has_subtests: true }));
+    setupAndRender(withSubtests, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+    expect(
+      screen.queryByRole('link', {
+        name: Strings.components.revisionRow.title.crossPlatformLink,
+      }),
+    ).not.toBeInTheDocument();
+  });
+});

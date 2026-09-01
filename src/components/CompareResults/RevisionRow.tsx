@@ -1,6 +1,5 @@
-import { useId, useState, useEffect, type ReactNode } from 'react';
+import { useId, useState, useEffect } from 'react';
 
-import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TimelineIcon from '@mui/icons-material/Timeline';
@@ -19,7 +18,6 @@ import { FontSize, Spacing } from '../../styles';
 import type {
   CombinedResultsItemType,
   CompareResultsItem,
-  PlatformShortName,
 } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
@@ -29,10 +27,9 @@ import {
   getBrowserDisplay,
 } from '../../utils/platform';
 import { determineSign } from '../../utils/revisionRowHelpers';
-import AndroidIcon from '../Shared/Icons/AndroidIcon';
-import LinuxIcon from '../Shared/Icons/LinuxIcon';
+import { getSubtestsCompareWithBaseLink } from '../../utils/subtestsLinks';
+import { platformIcons } from '../Shared/Icons/platformIcons';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
-import WindowsIcon from '../Shared/Icons/WindowsIcon';
 
 const typography = style({
   fontFamily: 'SF Pro',
@@ -153,33 +150,6 @@ const pillStyle = {
 const regressionPill = style(pillStyle);
 
 const improvementPill = style(pillStyle);
-
-const platformIcons: Record<PlatformShortName, ReactNode> = {
-  Linux: <LinuxIcon />,
-  macOS: <AppleIcon />,
-  iOS: <AppleIcon />,
-  Windows: <WindowsIcon />,
-  Android: <AndroidIcon />,
-  Unspecified: '',
-};
-
-const getSubtestsCompareWithBaseLink = (
-  result: CombinedResultsItemType,
-  testVersion: TestVersion,
-) => {
-  const params = new URLSearchParams({
-    baseRev: result.base_rev,
-    baseRepo: result.base_repository_name,
-    newRev: result.new_rev,
-    newRepo: result.new_repository_name,
-    framework: String(result.framework_id),
-    baseParentSignature: String(result.base_signature_id),
-    newParentSignature: String(result.new_signature_id),
-    test_version: testVersion,
-  });
-
-  return `/subtests-compare-results?${params.toString()}`;
-};
 
 const getSubtestsCompareOverTimeLink = (
   result: CombinedResultsItemType,

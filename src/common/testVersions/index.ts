@@ -27,6 +27,10 @@ export interface TestVersionStrategy {
   getComparisonResult(result: CombinedResultsItemType): string;
   isRegression(result: CombinedResultsItemType): boolean;
   isImprovement(result: CombinedResultsItemType): boolean;
+  // True when the comparison isn't statistically meaningful, so callers can
+  // treat the row as "no signal" rather than as an improvement or regression.
+  // Only Mann-Whitney-U has such a notion; Student-T always returns false.
+  isNoise(result: CombinedResultsItemType): boolean;
   renderExpandedRight(result: CombinedResultsItemType): ReactNode;
   renderExpandedBottom(result: CombinedResultsItemType): ReactNode;
 }

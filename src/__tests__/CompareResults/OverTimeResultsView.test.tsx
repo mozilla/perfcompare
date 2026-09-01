@@ -8,12 +8,17 @@ import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, screen } from '../utils/test-utils';
 
-function renderWithRoute(component: ReactElement) {
+function renderWithRoute(
+  component: ReactElement,
+  { withSubtests = false } = {},
+) {
   const { testCompareData, testData } = getTestData();
   fetchMock
     .get(
       'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      testCompareData,
+      withSubtests
+        ? testCompareData.map((item) => ({ ...item, has_subtests: true }))
+        : testCompareData,
     )
     .get('begin:https://treeherder.mozilla.org/api/project/', {
       results: [testData[0]],
@@ -39,5 +44,21 @@ describe('Results View', () => {
     expect(await screen.findByRole('table')).toMatchSnapshot();
     const link = screen.getByRole('link', { name: /link to home/i });
     expect(link).toBeInTheDocument();
+  });
+
+  it('does not offer the cross-platform subtests link', async () => {
+    // The cross-platform matrix is compare-with-base only, so the over-time
+    // table must not link to it even when the rows do have subtests.
+    renderWithRoute(
+      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
+      { withSubtests: true },
+    );
+
+    await screen.findByRole('table');
+    expect(
+      screen.queryByRole('link', {
+        name: Strings.components.revisionRow.title.crossPlatformLink,
+      }),
+    ).not.toBeInTheDocument();
   });
 });

@@ -3,16 +3,15 @@ import { fetchSubtestsCompareResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
 
-// This function checks and sanitizes the input values, then returns values that
-// we can then use in the rest of the application.
-function checkValues({
+// Checks and sanitizes the values that every subtests page needs, whatever the
+// number of parent signatures it compares. The parent signatures themselves are
+// checked by the caller, because the cross-platform loader takes a list of them.
+export function checkCommonSubtestsValues({
   baseRev,
   baseRepo,
   newRev,
   newRepo,
   framework,
-  baseParentSignature,
-  newParentSignature,
   replicates,
   testVersion,
 }: {
@@ -21,8 +20,6 @@ function checkValues({
   newRev: string | null;
   newRepo: Repository['name'] | null;
   framework: string | number | null;
-  baseParentSignature: string | null;
-  newParentSignature: string | null;
   replicates: boolean;
   testVersion?: TestVersion;
 }): {
@@ -32,10 +29,8 @@ function checkValues({
   newRepo: Repository['name'];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
-  baseParentSignature: string;
-  newParentSignature: string;
   replicates: boolean;
-  testVersion?: TestVersion;
+  testVersion: TestVersion;
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -67,14 +62,6 @@ function checkValues({
         ', ',
       )}.`,
     );
-  }
-
-  if (baseParentSignature === null) {
-    throw new Error('The parameter baseParentSignature is missing.');
-  }
-
-  if (newParentSignature === null) {
-    throw new Error('The parameter newParentSignature is missing.');
   }
 
   if (framework === null) {
@@ -112,11 +99,32 @@ function checkValues({
     newRepo,
     frameworkId,
     frameworkName,
-    baseParentSignature,
-    newParentSignature,
     replicates,
     testVersion,
   };
+}
+
+// This function checks and sanitizes the input values, then returns values that
+// we can then use in the rest of the application.
+function checkValues({
+  baseParentSignature,
+  newParentSignature,
+  ...commonValues
+}: Parameters<typeof checkCommonSubtestsValues>[0] & {
+  baseParentSignature: string | null;
+  newParentSignature: string | null;
+}) {
+  const checkedCommonValues = checkCommonSubtestsValues(commonValues);
+
+  if (baseParentSignature === null) {
+    throw new Error('The parameter baseParentSignature is missing.');
+  }
+
+  if (newParentSignature === null) {
+    throw new Error('The parameter newParentSignature is missing.');
+  }
+
+  return { ...checkedCommonValues, baseParentSignature, newParentSignature };
 }
 
 // This function is responsible for fetching the data from the URL. It's called

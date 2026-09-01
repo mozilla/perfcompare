@@ -7,6 +7,7 @@ import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { CombinedResultsItemType } from '../../types/state';
 import { getDocsURL } from '../../utils/helpers';
+import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 
 const styles = {
   revisionHeader: style({
@@ -104,7 +105,7 @@ function getExtraOptions(extraOptions: string) {
 }
 
 export default function TestHeader(props: TestHeaderProps) {
-  const { result, withRevision } = props;
+  const { result, withRevision, crossPlatformLink } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     result.suite,
     result.framework_id,
@@ -121,6 +122,29 @@ export default function TestHeader(props: TestHeaderProps) {
           </>
         )}
         <BetterDirectionIndicator lowerIsBetter={result.lower_is_better} />
+        {crossPlatformLink && (
+          <>
+            {' '}
+            <Link
+              className='cross-platform-link'
+              href={crossPlatformLink}
+              underline='hover'
+              title={Strings.components.revisionRow.title.crossPlatformLink}
+              aria-label={
+                Strings.components.revisionRow.title.crossPlatformLink
+              }
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                verticalAlign: 'middle',
+              }}
+            >
+              <SubtestsIcon />
+              {Strings.components.crossPlatformSubtests.linkLabel}
+            </Link>
+          </>
+        )}
       </div>
       <Box
         sx={{
@@ -157,4 +181,7 @@ export default function TestHeader(props: TestHeaderProps) {
 interface TestHeaderProps {
   result: HeaderProperties;
   withRevision: boolean;
+  // When set, the header offers a jump to the cross-platform subtests matrix
+  // for this whole test group. Null when no platform of the group has subtests.
+  crossPlatformLink?: string | null;
 }

@@ -1783,6 +1783,37 @@ const getTestData = () => {
 };
 export default getTestData;
 
+// Clones a list of subtest results as if they had run on another platform:
+// the platform string changes, and so do the signature ids so that each
+// platform is a distinct parent-signature pair in the URL. Use `mutate` to
+// give the clone a different outcome (eg. make it an improvement).
+export function cloneSubtestsForPlatform<
+  T extends CompareResultsItem | MannWhitneyResultsItem,
+>(
+  rows: T[],
+  platform: string,
+  signatureOffset: number,
+  mutate?: (row: T, index: number) => Partial<T>,
+): T[] {
+  return rows.map((row, index) => {
+    const clone = {
+      ...row,
+      platform,
+      base_parent_signature:
+        row.base_parent_signature === null
+          ? null
+          : row.base_parent_signature + signatureOffset,
+      new_parent_signature:
+        row.new_parent_signature === null
+          ? null
+          : row.new_parent_signature + signatureOffset,
+      base_signature_id: row.base_signature_id + signatureOffset,
+      new_signature_id: row.new_signature_id + signatureOffset,
+    };
+    return mutate ? { ...clone, ...mutate(clone, index) } : clone;
+  });
+}
+
 // This function is used to reduce the number of digits after doing calculations
 // on floats, so that we don't end up in a large count of digits in the UI.
 // In the future we'll probably want to handle that when rendering the UI instead.

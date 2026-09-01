@@ -247,6 +247,11 @@ export const studentTStrategy = {
     return (result as CompareResultsItem).is_improvement === true;
   },
 
+  isNoise(): boolean {
+    // Student-T has no notion of statistical noise.
+    return false;
+  },
+
   renderExpandedRight(result: CombinedResultsItemType) {
     const {
       delta_percentage: deltaPercent,

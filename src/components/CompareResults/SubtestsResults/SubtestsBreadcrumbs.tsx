@@ -2,10 +2,17 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
-import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
+import {
+  subtestsView,
+  subtestsOverTimeView,
+  subtestsCrossPlatformView,
+} from '../../../common/constants';
 
 type SubtestsBreadcrumbsProps = {
-  view: typeof subtestsView | typeof subtestsOverTimeView;
+  view:
+    | typeof subtestsView
+    | typeof subtestsOverTimeView
+    | typeof subtestsCrossPlatformView;
 };
 
 const getPreviousCompareWithBaseURL = () => {
@@ -47,10 +54,12 @@ const getPreviousCompareOverTimeURL = () => {
 };
 
 function SubtestsBreadcrumbs({ view }: SubtestsBreadcrumbsProps) {
+  // The cross-platform page is compare-with-base only, so it goes back to the
+  // same place as the single-platform compare-with-base subtests page.
   const allResultsURL =
-    view === subtestsView
-      ? getPreviousCompareWithBaseURL()
-      : getPreviousCompareOverTimeURL();
+    view === subtestsOverTimeView
+      ? getPreviousCompareOverTimeURL()
+      : getPreviousCompareWithBaseURL();
 
   return (
     <Breadcrumbs

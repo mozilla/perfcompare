@@ -22,10 +22,9 @@ import { RESULTS_TABLE_MIN_WIDTH } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 import type {
-  CompareResultsTableConfig,
+  TableHeaderConfig,
   FilterableColumn,
-  CompareResultsTableColumn,
-  CompareMannWhitneyResultsTableConfig,
+  TableHeaderColumn,
 } from '../../types/types';
 import { toGridTemplateColumns } from '../../utils/gridTemplateColumns';
 
@@ -283,9 +282,7 @@ function SortableColumnHeader({
 }
 
 type TableHeaderProps = {
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig;
+  columnsConfiguration: TableHeaderConfig;
 
   // Filter properties
   filters: Map<string, Set<string>>;
@@ -354,7 +351,7 @@ function TableHeader({
     }),
   };
 
-  function renderColumnHeader(header: CompareResultsTableColumn) {
+  function renderColumnHeader(header: TableHeaderColumn) {
     let content: ReactNode = header.name;
 
     if ('sortFunction' in header && 'filter' in header) {
@@ -449,6 +446,11 @@ function TableHeader({
           className={`cell ${header.key}-header`}
           role='columnheader'
         >
+          {header.icon ? (
+            <Box component='span' sx={{ display: 'inline-flex', mr: 0.5 }}>
+              {header.icon}
+            </Box>
+          ) : null}
           {renderColumnHeader(header)}
         </div>
       ))}

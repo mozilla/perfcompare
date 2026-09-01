@@ -415,4 +415,42 @@ describe('App', () => {
       await waitForAllFetches();
     });
   });
+
+  describe('Cross-platform subtests route', () => {
+    it('Should render the matrix for a valid URL', async () => {
+      const { subtestsResult } = getTestData();
+      fetchMock.get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        subtestsResult,
+      );
+
+      await router.navigate(
+        '/subtests-cross-platform-results?baseRev=spam&baseRepo=try&newRev=eggs&newRepo=try&framework=1&test_version=student-t' +
+          '&baseParentSignature=90001&newParentSignature=90002&platform=linux1804-64-shippable-qr',
+      );
+      render(<App />);
+
+      await screen.findByText('dhtml.html');
+      const tableHeader = screen.getByTestId('table-header');
+      expect(within(tableHeader).getByText('Agreement')).toBeInTheDocument();
+
+      await waitForAllFetches();
+    });
+
+    it('Should render an error page when the signature parameters are missing', async () => {
+      jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      await router.navigate(
+        '/subtests-cross-platform-results?baseRev=spam&baseRepo=try&newRev=eggs&newRepo=try&framework=1',
+      );
+      render(<App />);
+
+      expect(
+        await screen.findByText(/baseParentSignature/),
+      ).toBeInTheDocument();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error('The parameter baseParentSignature is missing.'),
+      );
+    });
+  });
 });

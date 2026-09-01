@@ -228,7 +228,7 @@ function renderStatusCell(
 
 // Single source of truth for the check, used by the Status cell /
 // filter and the Significance cell.
-function resultIsNoise(result: MannWhitneyResultsItem): boolean {
+export function resultIsNoise(result: MannWhitneyResultsItem): boolean {
   return result.mann_whitney_test?.interpretation === 'not significant';
 }
 
@@ -607,6 +607,10 @@ export const mannWhitneyStrategy = {
     return (
       (result as MannWhitneyResultsItem).direction_of_change === 'improvement'
     );
+  },
+
+  isNoise(result: CombinedResultsItemType): boolean {
+    return resultIsNoise(result as MannWhitneyResultsItem);
   },
 
   renderExpandedRight(result: CombinedResultsItemType) {

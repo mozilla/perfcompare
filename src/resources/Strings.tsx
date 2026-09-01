@@ -4,6 +4,7 @@ export const Strings = {
       search: 'PerfCompare - Search',
       results: 'PerfCompare - Results',
       subtests: 'PerfCompare - Subtests Results',
+      subtestsCrossPlatform: 'PerfCompare - Subtests Across Platforms',
     },
   },
   components: {
@@ -122,11 +123,26 @@ export const Strings = {
     revisionRow: {
       title: {
         subtestsLink: 'open the subtests for this result',
+        crossPlatformLink: 'compare subtests across platforms',
         graphLink: 'open the evolution graph for this job in treeherder',
         jobLink: 'open treeherder view for',
         retriggerJobs: 'retrigger jobs',
         suiteLink: 'Link to suite documentation  ',
       },
+    },
+    crossPlatformSubtests: {
+      linkLabel: 'Compare across platforms',
+      linkTitle:
+        'Compare the subtests of this test across every platform it ran on',
+      heading: 'Subtests across platforms',
+      platformCount: (count: number) =>
+        `${count} platform${count === 1 ? '' : 's'}`,
+      missingCell: 'This subtest is not present on this platform',
+      platformError: (platform: string) =>
+        `The subtests of ${platform} could not be loaded.`,
+      allPlatformsFailed:
+        'None of the platforms could be loaded. Try reloading the page.',
+      noiseLabel: 'Noise',
     },
     betterDirection: {
       lower: 'Lower is better',

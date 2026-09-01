@@ -7,9 +7,8 @@ import type {
 } from '../types/state';
 import type {
   CompareResultsTableConfig,
-  CompareResultsTableColumn,
-  CompareMannWhitneyResultsTableConfig,
-  CompareMannWhitneyResultsTableColumn,
+  TableHeaderConfig,
+  TableHeaderColumn,
 } from '../types/types';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
 import {
@@ -42,15 +41,8 @@ import {
 // * "filter_confidence=" means that no line will be displayed, which isn't
 //   super useful actually (but is supported).
 
-const useTableFilters = (
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
-) => {
-  const columnIdToConfiguration: Map<
-    string,
-    CompareResultsTableColumn | CompareMannWhitneyResultsTableColumn
-  > = useMemo(
+const useTableFilters = (columnsConfiguration: TableHeaderConfig) => {
+  const columnIdToConfiguration: Map<string, TableHeaderColumn> = useMemo(
     () => new Map(columnsConfiguration.map((val) => [val.key, val])),
     [columnsConfiguration],
   );
