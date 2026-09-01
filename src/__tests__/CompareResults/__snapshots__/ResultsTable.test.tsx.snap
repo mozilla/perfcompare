@@ -1496,23 +1496,23 @@ exports[`Results Table Should match snapshot 1`] = `
                         class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
                       >
                         <div
-                          aria-label="Show the advanced statistics columns (Cliff's Delta, CLES, Significance)"
+                          aria-label="Show advanced columns and expanded-row details"
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
                           data-mui-internal-clone-element="true"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-columns-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                            data-testid="advanced-columns-select"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-options-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                            data-testid="advanced-options-select"
                           >
                             <div
                               aria-expanded="false"
                               aria-haspopup="listbox"
-                              aria-label="Advanced columns"
+                              aria-label="Advanced options"
                               class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                               role="combobox"
                               tabindex="0"
                             >
-                              Advanced columns
+                              Advanced options
                             </div>
                             <input
                               aria-hidden="true"
@@ -4533,23 +4533,23 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                         class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
                       >
                         <div
-                          aria-label="Show the advanced statistics columns (Cliff's Delta, CLES, Significance)"
+                          aria-label="Show advanced columns and expanded-row details"
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
                           data-mui-internal-clone-element="true"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-columns-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                            data-testid="advanced-columns-select"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-options-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                            data-testid="advanced-options-select"
                           >
                             <div
                               aria-expanded="false"
                               aria-haspopup="listbox"
-                              aria-label="Advanced columns"
+                              aria-label="Advanced options"
                               class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                               role="combobox"
                               tabindex="0"
                             >
-                              Advanced columns
+                              Advanced options
                             </div>
                             <input
                               aria-hidden="true"
@@ -4606,7 +4606,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   </div>
                 </div>
                 <div
-                  class="f1d31dwl f1l733lh table-header"
+                  class="f4rch20 f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >
@@ -5002,7 +5002,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-ypd37h"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
                             role="row"
                           >
                             <div
@@ -5222,7 +5222,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-ypd37h"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
                             role="row"
                           >
                             <div
@@ -5443,7 +5443,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-ypd37h"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
                             role="row"
                           >
                             <div
@@ -5733,7 +5733,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-ypd37h"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
                             role="row"
                           >
                             <div
@@ -6539,7 +6539,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow fxapxfk f1dlt78d MuiBox-root css-ypd37h"
+      class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
       role="row"
     >
       <div
@@ -6799,7 +6799,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow fxapxfk f1dlt78d MuiBox-root css-ypd37h"
+      class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
       role="row"
     >
       <div

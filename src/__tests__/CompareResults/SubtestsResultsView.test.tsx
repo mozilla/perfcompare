@@ -14,10 +14,17 @@ import {
   renderWithRouter,
   screen,
   enableAdvancedColumns,
+  enableExpandedRowOptions,
 } from '../utils/test-utils';
 
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
+
+// The Mann-Whitney-U expanded row hides its statistical components (stats
+// table, warnings, effect size, modes) behind "Advanced options" by default.
+// These tests assert on those components, so enable them everywhere here. This
+// is a no-op for rows that aren't expanded and for the Student-T layout.
+beforeEach(() => enableExpandedRowOptions());
 
 const setup = ({
   element,

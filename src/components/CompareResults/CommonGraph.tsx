@@ -47,12 +47,12 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const LABEL_ROW_PX = 16; // vertical space per stagger level
-const KDE_TOP_BASE = 28;
+const LABEL_ROW_PX = 16;
+const KDE_TOP_BASE = 44;
 const KDE_HEIGHT = 155;
-const SCATTER_TOP_BASE = 250;
+const SCATTER_TOP_BASE = 274;
 const SCATTER_HEIGHT = 50;
-const CHART_HEIGHT_BASE = 340;
+const CHART_HEIGHT_BASE = 364;
 
 // Axis/grid line greys, shared across both grids and the tooltip crosshair.
 const AXIS_LINE_COLOR = '#999';
@@ -130,6 +130,7 @@ function CommonGraph({
   onVtChange,
   showModes,
   onShowModesChange,
+  showModeControls = true,
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
@@ -472,7 +473,7 @@ function CommonGraph({
       },
       legend: {
         data: ['Base', 'New'],
-        top: 240,
+        top: 0,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
@@ -592,81 +593,89 @@ function CommonGraph({
       <Typography id='retrigger-modal-title' component='h3' variant='h3'>
         Runs Density Distribution
       </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 1.5,
-          mt: 1,
-          mb: 0.5,
-        }}
-      >
-        <Typography
-          variant='body2'
+      {/*
+        The valley-depth slider and "Show modes" checkbox are the mode-analysis
+        controls; they render together as a unit. In the simplified Mann-
+        Whitney-U view they're hidden until the "Mode analysis" expanded-row
+        option is enabled (showModeControls); Student-T always shows them.
+      */}
+      {showModeControls && (
+        <Box
           sx={{
-            color: 'text.primary',
-            whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',
+            gap: 1.5,
+            mt: 1,
+            mb: 0.5,
           }}
         >
-          Valley depth threshold
-          <Tooltip
-            placement='top'
-            title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
+          <Typography
+            variant='body2'
+            sx={{
+              color: 'text.primary',
+              whiteSpace: 'nowrap',
+              display: 'flex',
+              alignItems: 'center',
+            }}
           >
-            <InfoIcon
-              fontSize='small'
-              sx={{
-                cursor: 'help',
-                mx: 0.5,
-              }}
-            />
-          </Tooltip>
-          :
-        </Typography>
-        {/*
-          MUI Slider exposes two events: `onChange` fires continuously during
-          drag (we send it to local state for a smooth thumb), and
-          `onChangeCommitted` fires once when the user releases (we push the
-          final value up to the parent then). This is the moral equivalent of
-          a debounce — the expensive consumer (`computeModeInfo`) runs once
-          per drag instead of on every pixel of movement.
-        */}
-        <Slider
-          size='small'
-          value={localVt}
-          min={VT_MIN}
-          max={VT_MAX}
-          step={VT_STEP}
-          disabled={!showModes}
-          onChange={(_, value) => setLocalVt(value)}
-          onChangeCommitted={(_, value) => onVtChange(value)}
-          aria-label='Valley depth threshold'
-          sx={{ maxWidth: 240 }}
-        />
-        <Typography
-          variant='body2'
-          sx={{
-            color: 'text.secondary',
-            minWidth: 36,
-            textAlign: 'right',
-          }}
-        >
-          {Math.round(localVt * 100)}%
-        </Typography>
-        <FormControlLabel
-          control={
-            <Checkbox
-              size='small'
-              checked={showModes}
-              onChange={(_, checked) => onShowModesChange(checked)}
-            />
-          }
-          label='Show modes'
-          sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
-        />
-      </Box>
+            Valley depth threshold
+            <Tooltip
+              placement='top'
+              title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
+            >
+              <InfoIcon
+                fontSize='small'
+                sx={{
+                  cursor: 'help',
+                  mx: 0.5,
+                }}
+              />
+            </Tooltip>
+            :
+          </Typography>
+          {/*
+            MUI Slider exposes two events: `onChange` fires continuously during
+            drag (we send it to local state for a smooth thumb), and
+            `onChangeCommitted` fires once when the user releases (we push the
+            final value up to the parent then). This is the moral equivalent of
+            a debounce — the expensive consumer (`computeModeInfo`) runs once
+            per drag instead of on every pixel of movement.
+          */}
+          <Slider
+            size='small'
+            value={localVt}
+            min={VT_MIN}
+            max={VT_MAX}
+            step={VT_STEP}
+            disabled={!showModes}
+            onChange={(_, value) => setLocalVt(value)}
+            onChangeCommitted={(_, value) => onVtChange(value)}
+            aria-label='Valley depth threshold'
+            sx={{ maxWidth: 240 }}
+          />
+          <Typography
+            variant='body2'
+            sx={{
+              color: 'text.secondary',
+              minWidth: 36,
+              textAlign: 'right',
+            }}
+          >
+            {Math.round(localVt * 100)}%
+          </Typography>
+          <FormControlLabel
+            control={
+              <Checkbox
+                size='small'
+                checked={showModes}
+                onChange={(_, checked) => onShowModesChange(checked)}
+              />
+            }
+            label='Show modes'
+            sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
+          />
+        </Box>
+      )}
       <Box sx={{ flex: 0 }}>
         <div
           ref={chartContainerRef}
@@ -712,6 +721,10 @@ interface CommonGraphProps {
   onVtChange: (value: number) => void;
   showModes: boolean;
   onShowModesChange: (value: boolean) => void;
+  // Whether to render the mode-analysis controls (valley-depth slider + "Show
+  // modes" checkbox). Defaults to true; the Mann-Whitney-U simplified view sets
+  // it to false until the "Mode analysis" expanded-row option is turned on.
+  showModeControls?: boolean;
 }
 
 export default CommonGraph;

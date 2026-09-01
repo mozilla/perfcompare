@@ -7,10 +7,17 @@ import Stack from '@mui/material/Stack';
 
 import CommonGraph from './CommonGraph';
 import KdeModesPanel from './KdeModesPanel';
+import { MannWhitneyCompareMetrics } from './MannWhitneyCompareMetrics';
+import { StatisticsWarnings } from './StatisticsWarnings';
+import { MANN_WHITNEY_U } from '../../common/constants';
 import { getStrategy } from '../../common/testVersions';
+import useExpandedRowOptions from '../../hooks/useExpandedRowOptions';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
-import type { CombinedResultsItemType } from '../../types/state';
+import type {
+  CombinedResultsItemType,
+  MannWhitneyResultsItem,
+} from '../../types/state';
 import { TestVersion } from '../../types/types';
 import { bandwidthFor } from '../../utils/kdeAnalysis';
 
@@ -20,6 +27,14 @@ import { bandwidthFor } from '../../utils/kdeAnalysis';
 const LARGE_BW_RATIO = 0.5;
 
 const { singleRun } = Strings.components.expandableRow;
+
+// Plain-language help shown above the density graph in the simplified
+// Mann-Whitney-U expanded view.
+const GRAPH_BLURB =
+  'This graph shows how the Base and New results are distributed. Two curves ' +
+  'that mostly overlap mean the builds performed about the same; curves that ' +
+  'sit apart suggest a real difference — the further apart, the bigger the ' +
+  'change.';
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id, testVersion } = props;
@@ -45,6 +60,27 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   } = result;
 
   const strategy = getStrategy(testVersion);
+  const isMannWhitney = testVersion === MANN_WHITNEY_U;
+  const expandedRow = useExpandedRowOptions();
+
+  // In the Mann-Whitney-U simplified view the mode-analysis controls (valley-
+  // depth slider + "Show modes" checkbox) and the on-chart mode overlays stay
+  // hidden until the "Mode analysis" expanded-row option is enabled. Student-T
+  // always shows them.
+  const modeAnalysisEnabled = isMannWhitney ? expandedRow.modes : true;
+  const showModesForChart = modeAnalysisEnabled && showModes;
+
+  // Both of these are only read inside the `isMannWhitney` JSX branch below;
+  // they're computed here (rather than in the branch) just to keep the render
+  // return readable. They're harmless no-ops for the Student-T render.
+  // `mwResult` narrows the result for the Mann-Whitney-U-only statistics table
+  // and data warnings; `anyExpandedCell` is whether any expanded-row option is on.
+  const mwResult = result as MannWhitneyResultsItem;
+  const anyExpandedCell =
+    expandedRow.effectSize ||
+    expandedRow.modes ||
+    expandedRow.statsTable ||
+    expandedRow.warnings;
 
   const baseValues =
     baseRunsReplicates && baseRunsReplicates.length
@@ -79,6 +115,61 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     return { sharedBw: sharedBwOut, isLargeBw: isLargeBwOut };
   }, [baseValues, newValues, isSubtest, bwMultiplier]);
 
+  // Rendered identically in both layouts; declared once so the two branches
+  // don't duplicate the (long) prop lists.
+  const graph =
+    baseValues.length > 0 || newValues.length > 0 ? (
+      <CommonGraph
+        baseValues={baseValues}
+        newValues={newValues}
+        unit={baseUnit || newUnit}
+        sharedBw={sharedBw}
+        bwMultiplier={bwMultiplier}
+        onBwMultiplierChange={setBwMultiplier}
+        isLargeBw={isLargeBw}
+        vt={vt}
+        onVtChange={setVt}
+        showModes={showModesForChart}
+        onShowModesChange={setShowModes}
+        showModeControls={modeAnalysisEnabled}
+      />
+    ) : null;
+
+  const modesPanel = (
+    <KdeModesPanel
+      baseValues={baseValues}
+      newValues={newValues}
+      unit={baseUnit || newUnit}
+      sharedBw={sharedBw}
+      vt={vt}
+      showModes={showModesForChart}
+      lowerIsBetter={lowerIsBetter ?? true}
+      // In the MWU grid the "Mode analysis" cell should never be left blank;
+      // fall back to a placeholder when there's no breakdown to show.
+      showEmptyState={isMannWhitney}
+    />
+  );
+
+  const comparisonSummary = (
+    <>
+      {moreRunsAreNeeded && <div>{singleRun} </div>}
+      {baseApplication && (
+        <div>
+          <b>Base application</b>: {baseApplication}{' '}
+        </div>
+      )}
+      {newApplication && (
+        <div>
+          <b>New application</b>: {newApplication}{' '}
+        </div>
+      )}
+      <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
+        <b>Comparison result</b>: {strategy.getComparisonResult(result)} (
+        {lowerIsBetter ? 'lower' : 'higher'} is better)
+      </Box>
+    </>
+  );
+
   return (
     <Box
       component='section'
@@ -102,58 +193,60 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         }}
       >
         <b>{platform}</b>
-        <Grid container spacing={2}>
-          <Grid size={8}>
-            <Stack spacing={2}>
-              {(baseValues.length > 0 || newValues.length > 0) && (
-                <CommonGraph
-                  baseValues={baseValues}
-                  newValues={newValues}
-                  unit={baseUnit || newUnit}
-                  sharedBw={sharedBw}
-                  bwMultiplier={bwMultiplier}
-                  onBwMultiplierChange={setBwMultiplier}
-                  isLargeBw={isLargeBw}
-                  vt={vt}
-                  onVtChange={setVt}
-                  showModes={showModes}
-                  onShowModesChange={setShowModes}
-                />
-              )}
-              {strategy.renderExpandedLeft(result)}
-            </Stack>
-          </Grid>
-          <Grid size={4}>
-            <div>
-              {moreRunsAreNeeded && <div>{singleRun} </div>}
-              {baseApplication && (
+        {isMannWhitney ? (
+          // Simplified Mann-Whitney-U view: full-width graph with a how-to-read
+          // blurb. The heavier statistical components are shown only when their
+          // "Advanced options → Expanded row" checkbox is on, laid out below the
+          // graph in a two-column grid so they pair up (effect size + mode
+          // analysis on one row, statistics table + data warnings on the next)
+          // instead of each spanning the full width.
+          <Stack spacing={2}>
+            <div>{comparisonSummary}</div>
+            {graph && <Box sx={{ color: 'text.secondary' }}>{GRAPH_BLURB}</Box>}
+            {graph}
+            {anyExpandedCell && (
+              <Grid container spacing={2}>
+                {expandedRow.effectSize && (
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    {strategy.renderExpandedRight(result)}
+                  </Grid>
+                )}
+                {expandedRow.modes && (
+                  <Grid size={{ xs: 12, md: 6 }}>{modesPanel}</Grid>
+                )}
+                {expandedRow.statsTable && (
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <MannWhitneyCompareMetrics result={mwResult} />
+                  </Grid>
+                )}
+                {expandedRow.warnings && (
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <StatisticsWarnings result={mwResult} />
+                  </Grid>
+                )}
+              </Grid>
+            )}
+          </Stack>
+        ) : (
+          <>
+            <Grid container spacing={2}>
+              <Grid size={8}>
+                <Stack spacing={2}>
+                  {graph}
+                  {strategy.renderExpandedLeft(result)}
+                </Stack>
+              </Grid>
+              <Grid size={4}>
                 <div>
-                  <b>Base application</b>: {baseApplication}{' '}
+                  {comparisonSummary}
+                  {strategy.renderExpandedRight(result)}
+                  {modesPanel}
                 </div>
-              )}
-              {newApplication && (
-                <div>
-                  <b>New application</b>: {newApplication}{' '}
-                </div>
-              )}
-              <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
-                <b>Comparison result</b>: {strategy.getComparisonResult(result)}{' '}
-                ({lowerIsBetter ? 'lower' : 'higher'} is better)
-              </Box>
-              {strategy.renderExpandedRight(result)}
-              <KdeModesPanel
-                baseValues={baseValues}
-                newValues={newValues}
-                unit={baseUnit || newUnit}
-                sharedBw={sharedBw}
-                vt={vt}
-                showModes={showModes}
-                lowerIsBetter={lowerIsBetter ?? true}
-              />
-            </div>
-          </Grid>
-        </Grid>
-        <Stack>{strategy.renderExpandedBottom(result)}</Stack>
+              </Grid>
+            </Grid>
+            <Stack>{strategy.renderExpandedBottom(result)}</Stack>
+          </>
+        )}
       </Stack>
     </Box>
   );

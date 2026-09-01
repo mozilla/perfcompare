@@ -15,6 +15,7 @@ import {
   screen,
   renderWithRouter,
   enableAdvancedColumns,
+  enableExpandedRowOptions,
 } from '../utils/test-utils';
 
 jest.mock('../../hooks/useSubtestRegressionCount');
@@ -167,6 +168,10 @@ describe('Subtest count pills', () => {
 });
 
 describe('Expanded row', () => {
+  // Several tests assert the (advanced) MWU expanded-row components, which are
+  // hidden by default; enable them. No-op for Student-T expanded rows.
+  beforeEach(() => enableExpandedRowOptions());
+
   it('should display "Show 39 more" and "Show less" for base runs when row is expanded', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareDataWithReplicatesMultipleValues: rowData } =

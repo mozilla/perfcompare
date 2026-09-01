@@ -10,7 +10,7 @@ import TableHeader from '.././TableHeader';
 import { STUDENT_T } from '../../../common/constants';
 import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
 import useInitializeTableStateFromCookies from '../../../hooks/useInitializeTableStateFromCookies';
-import useSeedAdvancedColumnsFromUrl from '../../../hooks/useSeedAdvancedColumnsFromUrl';
+import useSeedAdvancedOptionsFromUrl from '../../../hooks/useSeedAdvancedOptionsFromUrl';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CombinedResultsItemType } from '../../../types/state';
@@ -82,7 +82,7 @@ function SubtestsResultsTable({
   replicates,
   testVersion,
 }: ResultsTableProps) {
-  useSeedAdvancedColumnsFromUrl();
+  useSeedAdvancedOptionsFromUrl();
   const advancedColumns = useAdvancedColumns();
   const columnsConfiguration = useMemo(
     () =>

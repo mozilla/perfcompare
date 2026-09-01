@@ -11,6 +11,7 @@ import {
   screen,
   renderWithRouter,
   enableAdvancedColumns,
+  enableExpandedRowOptions,
 } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
@@ -124,6 +125,7 @@ describe('SubtestsRevisionRow Component', () => {
   });
 
   it('renders subtests results with mann-whitney-u testVersion', async () => {
+    enableExpandedRowOptions();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { subtestsResult } = getTestData();
     const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
@@ -145,6 +147,7 @@ describe('SubtestsRevisionRow Component', () => {
   });
 
   it('renders subtests results defaulting to mann-whitney-u with no testVersion', async () => {
+    enableExpandedRowOptions();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { subtestsMannWhitneyResult } = getTestData();
     const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';

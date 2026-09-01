@@ -13,7 +13,7 @@ import { MANN_WHITNEY_U } from '../../common/constants';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
 import useInitializeTableStateFromCookies from '../../hooks/useInitializeTableStateFromCookies';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
-import useSeedAdvancedColumnsFromUrl from '../../hooks/useSeedAdvancedColumnsFromUrl';
+import useSeedAdvancedOptionsFromUrl from '../../hooks/useSeedAdvancedOptionsFromUrl';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework, TestVersion } from '../../types/types';
@@ -39,7 +39,7 @@ export default function ResultsTable() {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
-  useSeedAdvancedColumnsFromUrl();
+  useSeedAdvancedOptionsFromUrl();
   const advancedColumns = useAdvancedColumns();
 
   const columnsConfig = useMemo(

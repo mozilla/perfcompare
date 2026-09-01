@@ -4,9 +4,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 
-import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
 import PValCliffsDeltaComp from '../../components/CompareResults/PValCliffsDeltaComp';
-import { StatisticsWarnings } from '../../components/CompareResults/StatisticsWarnings';
 import { FontSize } from '../../styles';
 import {
   CombinedResultsItemType,
@@ -448,7 +446,7 @@ export const mannWhitneyStrategy = {
             {
               name: 'CLES',
               key: 'effects',
-              gridWidth: '1fr',
+              gridWidth: '.75fr',
               sortFunction(
                 resultA: MannWhitneyResultsItem,
                 resultB: MannWhitneyResultsItem,
@@ -677,14 +675,11 @@ export const mannWhitneyStrategy = {
     );
   },
 
-  renderExpandedBottom(result: CombinedResultsItemType) {
-    const mwResult = result as MannWhitneyResultsItem;
-    return (
-      <div style={{ display: 'flex' }}>
-        <MannWhitneyCompareMetrics result={mwResult} />
-        <StatisticsWarnings result={mwResult} />
-      </div>
-    );
+  renderExpandedBottom() {
+    // The Mann-Whitney-U statistics table and data warnings are now rendered
+    // (and individually gated) by RevisionRowExpandable's two-column expanded
+    // grid, so there is nothing to render from the strategy's bottom slot.
+    return null;
   },
 
   renderColumns(

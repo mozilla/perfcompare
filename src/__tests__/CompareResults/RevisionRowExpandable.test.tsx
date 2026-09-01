@@ -5,7 +5,11 @@ import fetchMock from '@fetch-mock/jest';
 import { loader } from '../../components/CompareResults/loader';
 import RevisionRowExpandable from '../../components/CompareResults/RevisionRowExpandable';
 import getTestData from '../utils/fixtures';
-import { screen, renderWithRouter } from '../utils/test-utils';
+import {
+  screen,
+  renderWithRouter,
+  enableExpandedRowOptions,
+} from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   fetchMock
@@ -62,6 +66,9 @@ describe('RevisionRowExpandable for student-t testVersion', () => {
 });
 
 describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
+  // These assert the (advanced) expanded-row components, hidden by default.
+  beforeEach(() => enableExpandedRowOptions());
+
   it('should display warnings', async () => {
     const { mockMannWhitneyResultData } = getTestData();
 
@@ -145,5 +152,108 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
 
     const goodFit = await screen.findByText(/KS test p-value: 1.000, good fit/);
     expect(goodFit).toBeInTheDocument();
+  });
+});
+
+describe('RevisionRowExpandable simplified Mann-Whitney-U view', () => {
+  // Text unique to each advanced expanded-row component, used to assert whether
+  // that component is currently rendered.
+  const EFFECT_SIZE_TEXT = /Effect Size:/;
+  const STATS_TABLE_TEXT = /Normality Test/;
+  const WARNINGS_TEXT = /Shapiro-Wilk test cannot be run/;
+  const MODES_LABEL = 'Mode-by-mode breakdown';
+
+  function renderMwuRow() {
+    const { mockMannWhitneyResultData } = getTestData();
+    renderWithRoute(
+      <RevisionRowExpandable
+        result={mockMannWhitneyResultData}
+        testVersion='mann-whitney-u'
+        id='mwu-simple'
+      />,
+    );
+  }
+
+  it('shows the graph blurb and hides every advanced component by default', async () => {
+    renderMwuRow();
+
+    // The how-to-read blurb is always present in the simplified view.
+    expect(
+      await screen.findByText(/how the Base and New results are distributed/i),
+    ).toBeInTheDocument();
+
+    // None of the advanced (checkbox-gated) components render by default.
+    expect(screen.queryByText(EFFECT_SIZE_TEXT)).not.toBeInTheDocument();
+    expect(screen.queryByText(STATS_TABLE_TEXT)).not.toBeInTheDocument();
+    expect(screen.queryByText(WARNINGS_TEXT)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(MODES_LABEL)).not.toBeInTheDocument();
+  });
+
+  it('reveals only the effect size component when that option is on', async () => {
+    enableExpandedRowOptions({ effectSize: true });
+    renderMwuRow();
+
+    expect(await screen.findByText(EFFECT_SIZE_TEXT)).toBeInTheDocument();
+    expect(screen.queryByText(STATS_TABLE_TEXT)).not.toBeInTheDocument();
+    expect(screen.queryByText(WARNINGS_TEXT)).not.toBeInTheDocument();
+  });
+
+  it('reveals only the statistics table when that option is on', async () => {
+    enableExpandedRowOptions({ statsTable: true });
+    renderMwuRow();
+
+    expect(await screen.findByText(STATS_TABLE_TEXT)).toBeInTheDocument();
+    expect(screen.queryByText(EFFECT_SIZE_TEXT)).not.toBeInTheDocument();
+    expect(screen.queryByText(WARNINGS_TEXT)).not.toBeInTheDocument();
+  });
+
+  it('reveals only the data warnings when that option is on', async () => {
+    enableExpandedRowOptions({ warnings: true });
+    renderMwuRow();
+
+    // Base and New each contribute a Shapiro-Wilk warning.
+    expect((await screen.findAllByText(WARNINGS_TEXT)).length).toBeGreaterThan(
+      0,
+    );
+    expect(screen.queryByText(EFFECT_SIZE_TEXT)).not.toBeInTheDocument();
+    expect(screen.queryByText(STATS_TABLE_TEXT)).not.toBeInTheDocument();
+  });
+
+  it('hides the mode-analysis controls (valley-depth slider + Show modes) by default', async () => {
+    renderMwuRow();
+    await screen.findByText(/how the Base and New results are distributed/i);
+
+    expect(
+      screen.queryByRole('slider', { name: /valley depth threshold/i }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('checkbox', { name: /show modes/i }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('reveals the mode-analysis controls when Mode analysis is enabled', async () => {
+    enableExpandedRowOptions({ modes: true });
+    renderMwuRow();
+
+    expect(
+      await screen.findByRole('slider', { name: /valley depth threshold/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('checkbox', { name: /show modes/i }),
+    ).toBeInTheDocument();
+  });
+
+  it('shows a placeholder when Mode analysis is on but no breakdown is available', async () => {
+    // The mock is a sparse/unimodal comparison, so no mode-by-mode breakdown is
+    // produced; the cell should surface a placeholder rather than stay empty.
+    enableExpandedRowOptions({ modes: true });
+    renderMwuRow();
+
+    expect(
+      await screen.findByText(/No mode analysis available/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('Mode-by-mode breakdown'),
+    ).not.toBeInTheDocument();
   });
 });
