@@ -6,7 +6,7 @@ import {
   MANN_WHITNEY_U,
 } from '../../common/constants';
 import {
-  fetchCompareOverTimeResults,
+  memoizedFetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import {
@@ -147,7 +147,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   testVersion: TestVersion;
 }) {
   const promises = newRevs.map((newRev, i) =>
-    fetchCompareOverTimeResults({
+    memoizedFetchCompareOverTimeResults({
       baseRepo,
       newRev,
       newRepo: newRepos[i],
