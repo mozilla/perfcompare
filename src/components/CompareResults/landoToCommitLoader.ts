@@ -1,12 +1,32 @@
 import { checkValues, getComparisonInformation } from './loader';
 import { compareView } from '../../common/constants';
 import { fetchRevisionFromLandoId, LandoInstance } from '../../logic/lando';
+import { fetchRecentRevisions } from '../../logic/treeherder';
+import { Strings } from '../../resources/Strings';
 import {
   Changeset,
   CombinedResultsItemType,
   Repository,
 } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
+
+async function ensureTryPushExists({
+  landoId,
+  commitId,
+  repo,
+}: {
+  landoId: string;
+  commitId: string;
+  repo: Repository['name'];
+}) {
+  const pushes = await fetchRecentRevisions({
+    repository: repo,
+    hash: commitId,
+  });
+  if (!pushes.length) {
+    throw new Error(Strings.errors.lando.notInTreeherder(landoId, commitId));
+  }
+}
 
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-lando-results route is requested.
@@ -62,6 +82,16 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
+  });
+  await ensureTryPushExists({
+    landoId: baseLandoIDFromUrl,
+    commitId: baseRev,
+    repo: baseRepo,
+  });
+  await ensureTryPushExists({
+    landoId: newLandoIDFromUrl,
+    commitId: newRevs[0],
+    repo: newRepos[0],
   });
   return await getComparisonInformation(
     baseRev,

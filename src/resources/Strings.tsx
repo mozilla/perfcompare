@@ -184,5 +184,17 @@ export const Strings = {
   },
   errors: {
     warningText: 'The search input must be at least three characters.',
+    lando: {
+      pending: (landoId: string, status: string) =>
+        `Lando has not finished creating the try push for job ${landoId} yet (status: ${status}). Please wait a few moments for the push to complete and then refresh the page.`,
+      failed: (landoId: string, status: string, detail?: string) =>
+        detail
+          ? `Lando could not create the try push for job ${landoId} (status: ${status}): ${detail}`
+          : `Lando could not create the try push for job ${landoId} (status: ${status}).`,
+      landedWithoutRevision: (landoId: string, status: string) =>
+        `Lando reports job ${landoId} as ${status}, but no Treeherder revision is available yet. Please wait a few moments and then refresh the page.`,
+      notInTreeherder: (landoId: string, revision: string) =>
+        `Lando job ${landoId} has revision ${revision}, but Treeherder does not have this try push yet. If the push exists, it will appear in a few minutes once Treeherder has processed it. If this Lando ID is from lando.moz.tools, add landoInstance=lando-prod-2025 to the URL.`,
+    },
   },
 };
