@@ -132,6 +132,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         showModes={showModesForChart}
         onShowModesChange={setShowModes}
         showModeControls={modeAnalysisEnabled}
+        infoTooltip={isMannWhitney ? GRAPH_BLURB : undefined}
       />
     ) : null;
 
@@ -194,15 +195,13 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       >
         <b>{platform}</b>
         {isMannWhitney ? (
-          // Simplified Mann-Whitney-U view: full-width graph with a how-to-read
-          // blurb. The heavier statistical components are shown only when their
-          // "Advanced options → Expanded row" checkbox is on, laid out below the
-          // graph in a two-column grid so they pair up (effect size + mode
-          // analysis on one row, statistics table + data warnings on the next)
-          // instead of each spanning the full width.
+          // Simplified Mann-Whitney-U view: The heavier statistical components
+          // are shown only when their  "Advanced options → Expanded row" checkbox
+          // is on, laid out below the graph in a two-column grid so they pair up
+          // (effect size + mode analysis on one row, statistics table + data warnings
+          // on the next) instead of each spanning the full width.
           <Stack spacing={2}>
             <div>{comparisonSummary}</div>
-            {graph && <Box sx={{ color: 'text.secondary' }}>{GRAPH_BLURB}</Box>}
             {graph}
             {anyExpandedCell && (
               <Grid container spacing={2}>

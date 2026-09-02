@@ -4,7 +4,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 <section
   aria-label="Revision Row Details"
   class="MuiBox-root css-13s8wtg"
-  id="_r_c7_"
+  id="_r_c8_"
 >
   <div
     class="MuiStack-root css-1714cpj-MuiStack-root"
@@ -52,16 +52,29 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         </div>
       </div>
       <div
-        class="MuiBox-root css-7d9gin"
+        class="MuiBox-root css-1ijwczz"
       >
-        This graph shows how the Base and New results are distributed. Two curves that mostly overlap mean the builds performed about the same; curves that sit apart suggest a real difference — the further apart, the bigger the change.
+        <h3
+          class="MuiTypography-root MuiTypography-h3 css-1pqsu90-MuiTypography-root"
+          id="retrigger-modal-title"
+        >
+          Runs Density Distribution
+        </h3>
+        <svg
+          aria-hidden="true"
+          aria-label="How to read this graph"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1rgdjgz-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          tabindex="0"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+          />
+        </svg>
       </div>
-      <h3
-        class="MuiTypography-root MuiTypography-h3 css-1pqsu90-MuiTypography-root"
-        id="retrigger-modal-title"
-      >
-        Runs Density Distribution
-      </h3>
       <div
         class="MuiBox-root css-72fd9l"
       >
@@ -126,16 +139,29 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         </div>
       </div>
       <div
-        class="MuiBox-root css-7d9gin"
+        class="MuiBox-root css-1ijwczz"
       >
-        This graph shows how the Base and New results are distributed. Two curves that mostly overlap mean the builds performed about the same; curves that sit apart suggest a real difference — the further apart, the bigger the change.
+        <h3
+          class="MuiTypography-root MuiTypography-h3 css-1pqsu90-MuiTypography-root"
+          id="retrigger-modal-title"
+        >
+          Runs Density Distribution
+        </h3>
+        <svg
+          aria-hidden="true"
+          aria-label="How to read this graph"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1rgdjgz-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          tabindex="0"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+          />
+        </svg>
       </div>
-      <h3
-        class="MuiTypography-root MuiTypography-h3 css-1pqsu90-MuiTypography-root"
-        id="retrigger-modal-title"
-      >
-        Runs Density Distribution
-      </h3>
       <div
         class="MuiBox-root css-72fd9l"
       >

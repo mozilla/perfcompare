@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 
 import fetchMock from '@fetch-mock/jest';
+import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/loader';
 import RevisionRowExpandable from '../../components/CompareResults/RevisionRowExpandable';
@@ -174,10 +175,15 @@ describe('RevisionRowExpandable simplified Mann-Whitney-U view', () => {
     );
   }
 
-  it('shows the graph blurb and hides every advanced component by default', async () => {
+  it('shows the how-to-read blurb in a graph tooltip and hides every advanced component by default', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     renderMwuRow();
 
-    // The how-to-read blurb is always present in the simplified view.
+    // The how-to-read blurb is a tooltip on the graph's info icon .
+    expect(
+      screen.queryByText(/how the Base and New results are distributed/i),
+    ).not.toBeInTheDocument();
+    await user.hover(await screen.findByLabelText('How to read this graph'));
     expect(
       await screen.findByText(/how the Base and New results are distributed/i),
     ).toBeInTheDocument();
@@ -221,7 +227,8 @@ describe('RevisionRowExpandable simplified Mann-Whitney-U view', () => {
 
   it('hides the mode-analysis controls (valley-depth slider + Show modes) by default', async () => {
     renderMwuRow();
-    await screen.findByText(/how the Base and New results are distributed/i);
+    // Wait for the graph header (its info icon) to render.
+    await screen.findByLabelText('How to read this graph');
 
     expect(
       screen.queryByRole('slider', { name: /valley depth threshold/i }),

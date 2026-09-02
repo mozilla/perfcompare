@@ -131,6 +131,7 @@ function CommonGraph({
   showModes,
   onShowModesChange,
   showModeControls = true,
+  infoTooltip,
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
@@ -590,9 +591,28 @@ function CommonGraph({
 
   return (
     <>
-      <Typography id='retrigger-modal-title' component='h3' variant='h3'>
-        Runs Density Distribution
-      </Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: 1,
+        }}
+      >
+        <Typography id='retrigger-modal-title' component='h3' variant='h3'>
+          Runs Density Distribution
+        </Typography>
+        {infoTooltip && (
+          <Tooltip placement='top' title={infoTooltip} arrow>
+            <InfoIcon
+              fontSize='small'
+              tabIndex={0}
+              aria-label='How to read this graph'
+              sx={{ cursor: 'help', color: 'text.secondary' }}
+            />
+          </Tooltip>
+        )}
+      </Box>
       {/*
         The valley-depth slider and "Show modes" checkbox are the mode-analysis
         controls; they render together as a unit. In the simplified Mann-
@@ -725,6 +745,10 @@ interface CommonGraphProps {
   // modes" checkbox). Defaults to true; the Mann-Whitney-U simplified view sets
   // it to false until the "Mode analysis" expanded-row option is turned on.
   showModeControls?: boolean;
+  // When provided, an info icon is shown at the top-right of the graph header
+  // whose hover tooltip contains this help text (the "how to read the graph"
+  // blurb in the Mann-Whitney-U simplified view). Omitted for Student-T.
+  infoTooltip?: string;
 }
 
 export default CommonGraph;
