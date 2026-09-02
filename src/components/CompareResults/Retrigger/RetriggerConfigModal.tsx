@@ -25,11 +25,15 @@ function RetriggerCountSelect({
   return (
     <FormControl sx={{ width: '100%' }} disabled={disabled}>
       <InputLabel id={`${prefix}-retrigger-count-label`}>{label}</InputLabel>
+      {/*
+        defaultValue is safe here because CenteredModal unmounts when closed,
+        so the select remounts with a fresh default each time the modal opens.
+        FormControl's disabled state is passed to Select via context.
+      */}
       <Select
         labelId={`${prefix}-retrigger-count-label`}
         name={`${prefix}-retrigger-count`}
         defaultValue={disabled ? 0 : 5}
-        disabled={disabled}
         label={label}
         sx={{ height: 32 }}
       >
@@ -101,7 +105,12 @@ export function RetriggerConfigModal(props: RetriggerModalProps) {
               ml: 'auto',
             }}
           >
-            <Button type='submit'>{retriggerStrings.submitButton}</Button>
+            <Button
+              type='submit'
+              disabled={!props.hasBaseJobs && !props.hasNewJobs}
+            >
+              {retriggerStrings.submitButton}
+            </Button>
           </Grid>
         </Grid>
       </form>
