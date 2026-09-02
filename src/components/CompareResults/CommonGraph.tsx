@@ -130,7 +130,6 @@ function CommonGraph({
   onVtChange,
   showModes,
   onShowModesChange,
-  showModeControls = true,
   infoTooltip,
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
@@ -614,46 +613,45 @@ function CommonGraph({
         )}
       </Box>
       {/*
-        The valley-depth slider and "Show modes" checkbox are the mode-analysis
-        controls; they render together as a unit. In the simplified Mann-
-        Whitney-U view they're hidden until the "Mode analysis" expanded-row
-        option is enabled (showModeControls); Student-T always shows them.
+        The valley-depth slider and "Show modes" checkbox — the mode-analysis
+        controls. Always shown so users can explore modes directly on the graph
+        in the simplified view, independent of the "Mode analysis" option (which
+        only gates the separate mode-by-mode breakdown panel).
       */}
-      {showModeControls && (
-        <Box
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1.5,
+          mt: 1,
+          mb: 0.5,
+        }}
+      >
+        <Typography
+          variant='body2'
           sx={{
+            color: 'text.primary',
+            whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',
-            gap: 1.5,
-            mt: 1,
-            mb: 0.5,
           }}
         >
-          <Typography
-            variant='body2'
-            sx={{
-              color: 'text.primary',
-              whiteSpace: 'nowrap',
-              display: 'flex',
-              alignItems: 'center',
-            }}
+          Valley depth threshold
+          <Tooltip
+            placement='top'
+            title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
           >
-            Valley depth threshold
-            <Tooltip
-              placement='top'
-              title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
-            >
-              <InfoIcon
-                fontSize='small'
-                sx={{
-                  cursor: 'help',
-                  mx: 0.5,
-                }}
-              />
-            </Tooltip>
-            :
-          </Typography>
-          {/*
+            <InfoIcon
+              fontSize='small'
+              sx={{
+                cursor: 'help',
+                mx: 0.5,
+              }}
+            />
+          </Tooltip>
+          :
+        </Typography>
+        {/*
             MUI Slider exposes two events: `onChange` fires continuously during
             drag (we send it to local state for a smooth thumb), and
             `onChangeCommitted` fires once when the user releases (we push the
@@ -661,41 +659,40 @@ function CommonGraph({
             a debounce — the expensive consumer (`computeModeInfo`) runs once
             per drag instead of on every pixel of movement.
           */}
-          <Slider
-            size='small'
-            value={localVt}
-            min={VT_MIN}
-            max={VT_MAX}
-            step={VT_STEP}
-            disabled={!showModes}
-            onChange={(_, value) => setLocalVt(value)}
-            onChangeCommitted={(_, value) => onVtChange(value)}
-            aria-label='Valley depth threshold'
-            sx={{ maxWidth: 240 }}
-          />
-          <Typography
-            variant='body2'
-            sx={{
-              color: 'text.secondary',
-              minWidth: 36,
-              textAlign: 'right',
-            }}
-          >
-            {Math.round(localVt * 100)}%
-          </Typography>
-          <FormControlLabel
-            control={
-              <Checkbox
-                size='small'
-                checked={showModes}
-                onChange={(_, checked) => onShowModesChange(checked)}
-              />
-            }
-            label='Show modes'
-            sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
-          />
-        </Box>
-      )}
+        <Slider
+          size='small'
+          value={localVt}
+          min={VT_MIN}
+          max={VT_MAX}
+          step={VT_STEP}
+          disabled={!showModes}
+          onChange={(_, value) => setLocalVt(value)}
+          onChangeCommitted={(_, value) => onVtChange(value)}
+          aria-label='Valley depth threshold'
+          sx={{ maxWidth: 240 }}
+        />
+        <Typography
+          variant='body2'
+          sx={{
+            color: 'text.secondary',
+            minWidth: 36,
+            textAlign: 'right',
+          }}
+        >
+          {Math.round(localVt * 100)}%
+        </Typography>
+        <FormControlLabel
+          control={
+            <Checkbox
+              size='small'
+              checked={showModes}
+              onChange={(_, checked) => onShowModesChange(checked)}
+            />
+          }
+          label='Show modes'
+          sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
+        />
+      </Box>
       <Box sx={{ flex: 0 }}>
         <div
           ref={chartContainerRef}
@@ -741,10 +738,6 @@ interface CommonGraphProps {
   onVtChange: (value: number) => void;
   showModes: boolean;
   onShowModesChange: (value: boolean) => void;
-  // Whether to render the mode-analysis controls (valley-depth slider + "Show
-  // modes" checkbox). Defaults to true; the Mann-Whitney-U simplified view sets
-  // it to false until the "Mode analysis" expanded-row option is turned on.
-  showModeControls?: boolean;
   // When provided, an info icon is shown at the top-right of the graph header
   // whose hover tooltip contains this help text (the "how to read the graph"
   // blurb in the Mann-Whitney-U simplified view). Omitted for Student-T.

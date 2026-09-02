@@ -179,7 +179,7 @@ describe('RevisionRowExpandable simplified Mann-Whitney-U view', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     renderMwuRow();
 
-    // The how-to-read blurb is a tooltip on the graph's info icon .
+    // The how-to-read blurb is a tooltip on the graph's info icon.
     expect(
       screen.queryByText(/how the Base and New results are distributed/i),
     ).not.toBeInTheDocument();
@@ -225,23 +225,11 @@ describe('RevisionRowExpandable simplified Mann-Whitney-U view', () => {
     expect(screen.queryByText(STATS_TABLE_TEXT)).not.toBeInTheDocument();
   });
 
-  it('hides the mode-analysis controls (valley-depth slider + Show modes) by default', async () => {
-    renderMwuRow();
-    // Wait for the graph header (its info icon) to render.
-    await screen.findByLabelText('How to read this graph');
-
-    expect(
-      screen.queryByRole('slider', { name: /valley depth threshold/i }),
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByRole('checkbox', { name: /show modes/i }),
-    ).not.toBeInTheDocument();
-  });
-
-  it('reveals the mode-analysis controls when Mode analysis is enabled', async () => {
-    enableExpandedRowOptions({ modes: true });
+  it('shows the graph mode controls (valley-depth slider + Show modes) by default, independent of the Mode analysis option', async () => {
     renderMwuRow();
 
+    // The controls live on the graph and are available in the simplified view
+    // without enabling the "Mode analysis" expanded-row option.
     expect(
       await screen.findByRole('slider', { name: /valley depth threshold/i }),
     ).toBeInTheDocument();

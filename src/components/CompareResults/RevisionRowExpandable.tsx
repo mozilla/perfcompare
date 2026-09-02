@@ -63,13 +63,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const isMannWhitney = testVersion === MANN_WHITNEY_U;
   const expandedRow = useExpandedRowOptions();
 
-  // In the Mann-Whitney-U simplified view the mode-analysis controls (valley-
-  // depth slider + "Show modes" checkbox) and the on-chart mode overlays stay
-  // hidden until the "Mode analysis" expanded-row option is enabled. Student-T
-  // always shows them.
-  const modeAnalysisEnabled = isMannWhitney ? expandedRow.modes : true;
-  const showModesForChart = modeAnalysisEnabled && showModes;
-
   // Both of these are only read inside the `isMannWhitney` JSX branch below;
   // they're computed here (rather than in the branch) just to keep the render
   // return readable. They're harmless no-ops for the Student-T render.
@@ -129,9 +122,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         isLargeBw={isLargeBw}
         vt={vt}
         onVtChange={setVt}
-        showModes={showModesForChart}
+        // Mode controls/overlays are always available on the graph in the
+        // simplified view, driven only by this "Show modes" state — not by the
+        // "Mode analysis" expanded-row option (which gates the breakdown panel).
+        showModes={showModes}
         onShowModesChange={setShowModes}
-        showModeControls={modeAnalysisEnabled}
         infoTooltip={isMannWhitney ? GRAPH_BLURB : undefined}
       />
     ) : null;
@@ -143,7 +138,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       unit={baseUnit || newUnit}
       sharedBw={sharedBw}
       vt={vt}
-      showModes={showModesForChart}
+      showModes={showModes}
       lowerIsBetter={lowerIsBetter ?? true}
       // In the MWU grid the "Mode analysis" cell should never be left blank;
       // fall back to a placeholder when there's no breakdown to show.
