@@ -1365,7 +1365,7 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(advancedParam()).toBeNull();
   });
 
-  it('groups the dropdown into Columns and Expanded row sections', async () => {
+  it('groups the dropdown into Advanced Columns and Advanced expanded row details sections', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
     setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
@@ -1376,8 +1376,10 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     );
 
     // Both group headers and one option from each group are present.
-    expect(screen.getByText('Columns')).toBeInTheDocument();
-    expect(screen.getByText('Expanded row')).toBeInTheDocument();
+    expect(screen.getByText('Advanced Columns')).toBeInTheDocument();
+    expect(
+      screen.getByText('Advanced expanded row details'),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole('option', { name: "Cliff's Delta" }),
     ).toBeInTheDocument();

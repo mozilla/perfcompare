@@ -1,12 +1,9 @@
-import { useState } from 'react';
-
 import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Tooltip from '@mui/material/Tooltip';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
@@ -60,10 +57,6 @@ function AdvancedOptionsMenu() {
   const advancedColumns = useAdvancedColumns();
   const expandedRow = useExpandedRowOptions();
   const [, updateRawSearchParams] = useRawSearchParams();
-  // Track the Select's open state so the tooltip can be suppressed while the
-  // dropdown is open — otherwise it renders over (and hides) the checkboxes.
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [tooltipOpen, setTooltipOpen] = useState(false);
 
   // Derive the selected option values from the same serializers used for the
   // URL, so the Select's value can't drift from the URL encoding.
@@ -113,45 +106,36 @@ function AdvancedOptionsMenu() {
   );
 
   return (
-    <Tooltip
-      placement='top'
-      title='Show advanced columns and expanded-row details'
-      // Suppress the tooltip while the dropdown is open so it can't render over
-      // the checkboxes.
-      open={tooltipOpen && !menuOpen}
-      onOpen={() => setTooltipOpen(true)}
-      onClose={() => setTooltipOpen(false)}
-    >
-      <FormControl size='small' sx={{ width: '100%' }}>
-        <Select
-          multiple
-          displayEmpty
-          open={menuOpen}
-          onOpen={() => setMenuOpen(true)}
-          onClose={() => setMenuOpen(false)}
-          data-testid='advanced-options-select'
-          className='advanced-options-select'
-          value={selectedKeys}
-          onChange={onChange}
-          renderValue={() => 'Advanced options'}
-          variant='outlined'
-          size='small'
-          // Keep the visible label as the accessible name; without this MUI's
-          // Tooltip would set the title as aria-label.
-          inputProps={{ 'aria-label': 'Advanced options' }}
-          MenuProps={{
-            classes: {
-              paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
-            },
-          }}
-        >
-          <ListSubheader>Columns</ListSubheader>
-          {COLUMN_OPTIONS.map(renderOption)}
-          <ListSubheader>Expanded row</ListSubheader>
-          {EXPANDED_OPTIONS.map(renderOption)}
-        </Select>
-      </FormControl>
-    </Tooltip>
+    // Fixed width (rather than width:100% in an `auto` grid column) so the
+    // control can't be re-measured wider each time the menu opens/closes — the
+    // renderValue label is constant, so its size should be too.
+    <FormControl size='small' sx={{ width: 190 }}>
+      <Select
+        multiple
+        displayEmpty
+        data-testid='advanced-options-select'
+        className='advanced-options-select'
+        value={selectedKeys}
+        onChange={onChange}
+        renderValue={() => 'Advanced options'}
+        variant='outlined'
+        size='small'
+        inputProps={{ 'aria-label': 'Advanced options' }}
+        MenuProps={{
+          // Don't lock body scroll on open; the resulting padding-right reflow
+          // is what nudges this control's width on open/close.
+          disableScrollLock: true,
+          classes: {
+            paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
+          },
+        }}
+      >
+        <ListSubheader>Advanced Columns</ListSubheader>
+        {COLUMN_OPTIONS.map(renderOption)}
+        <ListSubheader>Advanced expanded row details</ListSubheader>
+        {EXPANDED_OPTIONS.map(renderOption)}
+      </Select>
+    </FormControl>
   );
 }
 
