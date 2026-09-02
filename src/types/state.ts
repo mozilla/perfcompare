@@ -222,9 +222,10 @@ export type HashToCommit = {
 };
 
 export type LandoToCommit = {
-  commit_id: string;
-  id: string;
+  commit_id: string | null;
+  id: string | number;
   status: string;
+  error?: string;
 };
 
 export type InputType = 'base' | 'new';
