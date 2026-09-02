@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Fade from '@mui/material/Fade';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
@@ -35,6 +36,19 @@ const GRAPH_BLURB =
   'that mostly overlap mean the builds performed about the same; curves that ' +
   'sit apart suggest a real difference — the further apart, the bigger the ' +
   'change.';
+
+// A half-width expanded-row cell that fades its contents in on mount, so when a
+// user turns an option on from the Advanced options dropdown the newly-shown
+// component visibly appears below the graph rather than popping in silently.
+function ExpandedCell({ children }: { children: ReactNode }) {
+  return (
+    <Grid size={{ xs: 12, md: 6 }}>
+      <Fade in appear timeout={500}>
+        <Box>{children}</Box>
+      </Fade>
+    </Grid>
+  );
+}
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id, testVersion } = props;
@@ -201,22 +215,20 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
             {anyExpandedCell && (
               <Grid container spacing={2}>
                 {expandedRow.effectSize && (
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <ExpandedCell>
                     {strategy.renderExpandedRight(result)}
-                  </Grid>
+                  </ExpandedCell>
                 )}
-                {expandedRow.modes && (
-                  <Grid size={{ xs: 12, md: 6 }}>{modesPanel}</Grid>
-                )}
+                {expandedRow.modes && <ExpandedCell>{modesPanel}</ExpandedCell>}
                 {expandedRow.statsTable && (
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <ExpandedCell>
                     <MannWhitneyCompareMetrics result={mwResult} />
-                  </Grid>
+                  </ExpandedCell>
                 )}
                 {expandedRow.warnings && (
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <ExpandedCell>
                     <StatisticsWarnings result={mwResult} />
-                  </Grid>
+                  </ExpandedCell>
                 )}
               </Grid>
             )}

@@ -52,14 +52,14 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         </div>
       </div>
       <div
-        class="MuiBox-root css-1ijwczz"
+        class="MuiBox-root css-axw7ok"
       >
-        <h3
-          class="MuiTypography-root MuiTypography-h3 css-1pqsu90-MuiTypography-root"
+        <h2
+          class="MuiTypography-root MuiTypography-h2 css-x2md7a-MuiTypography-root"
           id="retrigger-modal-title"
         >
           Runs Density Distribution
-        </h3>
+        </h2>
         <svg
           aria-hidden="true"
           aria-label="How to read this graph"
@@ -76,7 +76,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         </svg>
       </div>
       <div
-        class="MuiBox-root css-1ntc4s6"
+        class="MuiBox-root css-jo77n3"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-1w162xa-MuiTypography-root"
@@ -229,14 +229,14 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         </div>
       </div>
       <div
-        class="MuiBox-root css-1ijwczz"
+        class="MuiBox-root css-axw7ok"
       >
-        <h3
-          class="MuiTypography-root MuiTypography-h3 css-1pqsu90-MuiTypography-root"
+        <h2
+          class="MuiTypography-root MuiTypography-h2 css-x2md7a-MuiTypography-root"
           id="retrigger-modal-title"
         >
           Runs Density Distribution
-        </h3>
+        </h2>
         <svg
           aria-hidden="true"
           aria-label="How to read this graph"
@@ -253,7 +253,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         </svg>
       </div>
       <div
-        class="MuiBox-root css-1ntc4s6"
+        class="MuiBox-root css-jo77n3"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-1w162xa-MuiTypography-root"

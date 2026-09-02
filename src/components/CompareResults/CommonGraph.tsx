@@ -594,11 +594,15 @@ function CommonGraph({
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
           gap: 1,
         }}
       >
-        <Typography id='retrigger-modal-title' component='h3' variant='h3'>
+        <Typography
+          id='retrigger-modal-title'
+          component='h2'
+          variant='h2'
+          sx={{ fontSize: '1rem' }}
+        >
           Runs Density Distribution
         </Typography>
         {infoTooltip && (
@@ -623,7 +627,6 @@ function CommonGraph({
           display: 'flex',
           alignItems: 'center',
           gap: 1.5,
-          mt: 1,
           mb: 0.5,
         }}
       >

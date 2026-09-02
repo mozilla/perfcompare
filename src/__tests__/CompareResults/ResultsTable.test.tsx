@@ -1436,6 +1436,29 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     await user.click(screen.getByRole('option', { name: 'Data warnings' }));
     expect(expandedParam()).toBeNull();
   });
+
+  it('shows a confirmation toast when an expanded-row option is toggled', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    expect(
+      await screen.findByText(/Statistics table added to the expanded rows/i),
+    ).toBeInTheDocument();
+
+    // Turning it back off toasts the removal.
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    expect(
+      await screen.findByText(
+        /Statistics table removed from the expanded rows/i,
+      ),
+    ).toBeInTheDocument();
+  });
 });
 
 describe('cookie persistence vs. shareable URLs', () => {

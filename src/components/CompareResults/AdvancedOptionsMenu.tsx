@@ -4,6 +4,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { useSnackbar } from 'notistack';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
@@ -44,12 +45,22 @@ const COLUMN_OPTIONS = [
   { key: SIGNIFICANCE, label: 'Significance' },
 ] as const;
 
+// `field` maps each option to its ExpandedRowOptions key so we can tell which
+// expanded-row component was just toggled (for the confirmation toast).
 const EXPANDED_OPTIONS = [
-  { key: EFFECT_SIZE, label: 'Effect size & confidence intervals' },
-  { key: MODES, label: 'Mode analysis' },
-  { key: STATS_TABLE, label: 'Statistics table' },
-  { key: WARNINGS, label: 'Data warnings' },
-] as const;
+  {
+    key: EFFECT_SIZE,
+    field: 'effectSize',
+    label: 'Effect size & confidence intervals',
+  },
+  { key: MODES, field: 'modes', label: 'Mode analysis' },
+  { key: STATS_TABLE, field: 'statsTable', label: 'Statistics table' },
+  { key: WARNINGS, field: 'warnings', label: 'Data warnings' },
+] as const satisfies ReadonlyArray<{
+  key: string;
+  field: keyof ExpandedRowOptions;
+  label: string;
+}>;
 
 function AdvancedOptionsMenu() {
   const dispatch = useAppDispatch();
@@ -57,6 +68,7 @@ function AdvancedOptionsMenu() {
   const advancedColumns = useAdvancedColumns();
   const expandedRow = useExpandedRowOptions();
   const [, updateRawSearchParams] = useRawSearchParams();
+  const { enqueueSnackbar } = useSnackbar();
 
   // Derive the selected option values from the same serializers used for the
   // URL, so the Select's value can't drift from the URL encoding.
@@ -82,6 +94,22 @@ function AdvancedOptionsMenu() {
     dispatch(updateShowCles(columns.cles));
     dispatch(updateShowSignificance(columns.significance));
     dispatch(updateExpandedRow(expanded));
+
+    // Confirm expanded-row toggles with a toast — those components appear below
+    // the graph (often out of view), so without feedback it's easy to miss that
+    // anything happened. Column toggles are visible in the table, so we skip
+    // those. onChange fires per single toggle, so at most one option changes.
+    const toggled = EXPANDED_OPTIONS.find(
+      ({ field }) => expanded[field] !== expandedRow[field],
+    );
+    if (toggled) {
+      enqueueSnackbar(
+        expanded[toggled.field]
+          ? `${toggled.label} added to the expanded rows`
+          : `${toggled.label} removed from the expanded rows`,
+        { variant: 'info' },
+      );
+    }
 
     // Write both params onto the live URL so neither group clobbers the other.
     const params = currentUrlParams();
