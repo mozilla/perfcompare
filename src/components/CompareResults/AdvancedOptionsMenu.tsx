@@ -34,19 +34,12 @@ import {
 } from '../../utils/expandedRowUrl';
 import { currentUrlParams } from '../../utils/tableStatePersistence';
 
-// Power-user options for the Mann-Whitney-U view, in two independent groups:
-// extra table columns and extra expanded-row components. Any combination can be
-// shown. Option values reuse the URL keys so the dropdown, the URL and the
-// serializers share one source of truth. Shared by the main and subtests
-// controls.
 const COLUMN_OPTIONS = [
   { key: CLIFFS_DELTA, label: "Cliff's Delta" },
   { key: CLES, label: 'CLES' },
   { key: SIGNIFICANCE, label: 'Significance' },
 ] as const;
 
-// `field` maps each option to its ExpandedRowOptions key so we can tell which
-// expanded-row component was just toggled (for the confirmation toast).
 const EXPANDED_OPTIONS = [
   {
     key: EFFECT_SIZE,
@@ -95,20 +88,14 @@ function AdvancedOptionsMenu() {
     dispatch(updateShowSignificance(columns.significance));
     dispatch(updateExpandedRow(expanded));
 
-    // Confirm expanded-row toggles with a toast — those components appear below
-    // the graph (often out of view), so without feedback it's easy to miss that
-    // anything happened. Column toggles are visible in the table, so we skip
-    // those. onChange fires per single toggle, so at most one option changes.
-    const toggled = EXPANDED_OPTIONS.find(
-      ({ field }) => expanded[field] !== expandedRow[field],
+    const added = EXPANDED_OPTIONS.find(
+      ({ field }) => expanded[field] && !expandedRow[field],
     );
-    if (toggled) {
-      enqueueSnackbar(
-        expanded[toggled.field]
-          ? `${toggled.label} added to the expanded rows`
-          : `${toggled.label} removed from the expanded rows`,
-        { variant: 'info' },
-      );
+    if (added) {
+      enqueueSnackbar(`${added.label} added to the expanded rows`, {
+        variant: 'info',
+        autoHideDuration: 3000,
+      });
     }
 
     // Write both params onto the live URL so neither group clobbers the other.
@@ -134,9 +121,6 @@ function AdvancedOptionsMenu() {
   );
 
   return (
-    // Fixed width (rather than width:100% in an `auto` grid column) so the
-    // control can't be re-measured wider each time the menu opens/closes — the
-    // renderValue label is constant, so its size should be too.
     <FormControl size='small' sx={{ width: 190 }}>
       <Select
         multiple
@@ -150,8 +134,6 @@ function AdvancedOptionsMenu() {
         size='small'
         inputProps={{ 'aria-label': 'Advanced options' }}
         MenuProps={{
-          // Don't lock body scroll on open; the resulting padding-right reflow
-          // is what nudges this control's width on open/close.
           disableScrollLock: true,
           classes: {
             paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,

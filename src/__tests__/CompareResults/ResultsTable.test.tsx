@@ -1437,7 +1437,7 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(expandedParam()).toBeNull();
   });
 
-  it('shows a confirmation toast when an expanded-row option is toggled', async () => {
+  it('toasts when an expanded-row option is added, but not when removed', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
     setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
@@ -1451,13 +1451,11 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
       await screen.findByText(/Statistics table added to the expanded rows/i),
     ).toBeInTheDocument();
 
-    // Turning it back off toasts the removal.
+    // Turning it back off should NOT toast.
     await user.click(screen.getByRole('option', { name: 'Statistics table' }));
     expect(
-      await screen.findByText(
-        /Statistics table removed from the expanded rows/i,
-      ),
-    ).toBeInTheDocument();
+      screen.queryByText(/removed from the expanded rows/i),
+    ).not.toBeInTheDocument();
   });
 });
 

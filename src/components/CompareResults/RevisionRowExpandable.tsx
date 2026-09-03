@@ -29,17 +29,12 @@ const LARGE_BW_RATIO = 0.5;
 
 const { singleRun } = Strings.components.expandableRow;
 
-// Plain-language help shown above the density graph in the simplified
-// Mann-Whitney-U expanded view.
 const GRAPH_BLURB =
   'This graph shows how the Base and New results are distributed. Two curves ' +
   'that mostly overlap mean the builds performed about the same; curves that ' +
   'sit apart suggest a real difference — the further apart, the bigger the ' +
   'change.';
 
-// A half-width expanded-row cell that fades its contents in on mount, so when a
-// user turns an option on from the Advanced options dropdown the newly-shown
-// component visibly appears below the graph rather than popping in silently.
 function ExpandedCell({ children }: { children: ReactNode }) {
   return (
     <Grid size={{ xs: 12, md: 6 }}>
@@ -136,9 +131,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         isLargeBw={isLargeBw}
         vt={vt}
         onVtChange={setVt}
-        // Mode controls/overlays are always available on the graph in the
-        // simplified view, driven only by this "Show modes" state — not by the
-        // "Mode analysis" expanded-row option (which gates the breakdown panel).
         showModes={showModes}
         onShowModesChange={setShowModes}
         infoTooltip={isMannWhitney ? GRAPH_BLURB : undefined}
@@ -204,11 +196,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       >
         <b>{platform}</b>
         {isMannWhitney ? (
-          // Simplified Mann-Whitney-U view: The heavier statistical components
-          // are shown only when their  "Advanced options → Expanded row" checkbox
-          // is on, laid out below the graph in a two-column grid so they pair up
-          // (effect size + mode analysis on one row, statistics table + data warnings
-          // on the next) instead of each spanning the full width.
           <Stack spacing={2}>
             <div>{comparisonSummary}</div>
             {graph}

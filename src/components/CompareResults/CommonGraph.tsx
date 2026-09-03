@@ -616,12 +616,7 @@ function CommonGraph({
           </Tooltip>
         )}
       </Box>
-      {/*
-        The valley-depth slider and "Show modes" checkbox — the mode-analysis
-        controls. Always shown so users can explore modes directly on the graph
-        in the simplified view, independent of the "Mode analysis" option (which
-        only gates the separate mode-by-mode breakdown panel).
-      */}
+
       <Box
         sx={{
           display: 'flex',
@@ -654,14 +649,6 @@ function CommonGraph({
           </Tooltip>
           :
         </Typography>
-        {/*
-            MUI Slider exposes two events: `onChange` fires continuously during
-            drag (we send it to local state for a smooth thumb), and
-            `onChangeCommitted` fires once when the user releases (we push the
-            final value up to the parent then). This is the moral equivalent of
-            a debounce — the expensive consumer (`computeModeInfo`) runs once
-            per drag instead of on every pixel of movement.
-          */}
         <Slider
           size='small'
           value={localVt}
@@ -733,17 +720,11 @@ interface CommonGraphProps {
   sharedBw: number | undefined;
   bwMultiplier: number;
   onBwMultiplierChange: (value: number) => void;
-  // True when the raw (unscaled) bandwidth exceeds half the data range —
-  // surfaces the smoothing slider. Stays true while the user dials the
-  // multiplier down so the slider doesn't vanish under them.
   isLargeBw: boolean;
   vt: number;
   onVtChange: (value: number) => void;
   showModes: boolean;
   onShowModesChange: (value: boolean) => void;
-  // When provided, an info icon is shown at the top-right of the graph header
-  // whose hover tooltip contains this help text (the "how to read the graph"
-  // blurb in the Mann-Whitney-U simplified view). Omitted for Student-T.
   infoTooltip?: string;
 }
 
