@@ -7,17 +7,24 @@ import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router';
 import { style } from 'typestyle';
 
+import HowToReadResults from './HowToReadResults';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
-import { STUDENT_T, MANN_WHITNEY_U } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
+import {
+  STUDENT_T,
+  MANN_WHITNEY_U,
+  RESULTS_TABLE_MAX_WIDTH,
+} from '../../common/constants';
+import { useAppSelector, useAppDispatch } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
+import { updateShowMannWhitneyWarning } from '../../reducers/ColumnPrefsSlice';
 import { Strings } from '../../resources/Strings';
 import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
 import type { TestVersion } from '../../types/types';
+import { currentUrlParams } from '../../utils/tableStatePersistence';
 import EditTitleInput from '../CompareResults/EditTitleInput';
 import ToggleReplicatesButton from '../Shared/ToggleReplicatesButton';
 
@@ -27,6 +34,10 @@ function ResultsMain() {
   const loaderData = useLoaderData<CombinedLoaderReturnValue>();
   const testVersion = loaderData.testVersion;
   const themeMode = useAppSelector((state) => state.theme.mode);
+  const dispatch = useAppDispatch();
+  const showMannWhitneyWarning = useAppSelector(
+    (state) => state.columnPrefs.showMannWhitneyWarning,
+  );
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -111,8 +122,11 @@ function ResultsMain() {
   };
 
   const onSaveButtonClick = () => {
-    rawSearchParams.set('title', comparisonTitleName);
-    updateRawSearchParams(rawSearchParams);
+    // Build from the live URL so we don't drop params written out-of-band
+    // (e.g. the `initialized` marker and cookie-seeded filter/sort).
+    const params = currentUrlParams();
+    params.set('title', comparisonTitleName);
+    updateRawSearchParams(params);
     showEditComparisonTitleInput(false);
   };
 
@@ -125,7 +139,11 @@ function ResultsMain() {
 
   const testWarnings: Record<TestVersion, React.JSX.Element> = {
     'mann-whitney-u': (
-      <Alert severity='warning' className={styles.alert}>
+      <Alert
+        severity='warning'
+        className={styles.alert}
+        onClose={() => dispatch(updateShowMannWhitneyWarning(false))}
+      >
         {Strings.components.mannWhitneyUWarning.text}{' '}
         <Link
           href={Strings.components.mannWhitneyUWarning.href}
@@ -146,7 +164,7 @@ function ResultsMain() {
   return (
     <Container
       maxWidth={false}
-      sx={{ maxWidth: '1400px' }}
+      sx={{ maxWidth: RESULTS_TABLE_MAX_WIDTH }}
       className={styles.container}
       data-testid='results-main'
     >
@@ -189,9 +207,14 @@ function ResultsMain() {
         </Grid>
 
         <Grid container sx={titleContainerSx}>
-          {testWarnings[testVersion] ?? testWarnings[MANN_WHITNEY_U]}
+          {testVersion === STUDENT_T
+            ? testWarnings[STUDENT_T]
+            : showMannWhitneyWarning
+              ? testWarnings[MANN_WHITNEY_U]
+              : null}
         </Grid>
       </header>
+      <HowToReadResults />
       <ResultsTable />
     </Container>
   );

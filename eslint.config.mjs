@@ -82,6 +82,15 @@ export default defineConfig([
         projectService: true,
       },
     },
+
+    rules: {
+      // Allow intentionally-unused args to be marked with a leading underscore
+      // (e.g. interface methods that ignore a parameter).
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_' },
+      ],
+    },
   },
   {
     // Typescript test files

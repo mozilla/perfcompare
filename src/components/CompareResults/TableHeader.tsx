@@ -18,6 +18,7 @@ import {
 } from 'material-ui-popup-state/hooks';
 import { style } from 'typestyle';
 
+import { RESULTS_TABLE_MIN_WIDTH } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 import type {
@@ -124,7 +125,13 @@ function FilterableColumnHeader({
           color='tableHeaderButton'
           size='small'
           aria-label={buttonAriaLabel}
-          sx={{ paddingInline: 1.5, fontSize: '16px' }}
+          sx={{
+            paddingInline: 1.5,
+            fontSize: '16px',
+            whiteSpace: 'normal',
+            flexWrap: 'wrap',
+            lineHeight: 1.2,
+          }}
         >
           {name}
           <Box
@@ -240,9 +247,17 @@ function SortableColumnHeader({
   }
 
   // MUI sets a minWidth of 40px using 2 classes, it's not appropriate for icons and difficult to override without !important.
-  const inlineStyle = displayLabel
-    ? { padding: '6px 12px', fontSize: '16px' }
-    : { padding: 0, minWidth: '24px !important', fontSize: '16px' };
+  const inlineStyle: SxProps<Theme> = displayLabel
+    ? {
+        padding: '6px 12px',
+        fontSize: '16px',
+        // Allow the icon + label to wrap on narrow screens rather than
+        // overflowing the cell and colliding with the next column.
+        whiteSpace: 'normal',
+        flexWrap: 'wrap',
+        lineHeight: 1.2,
+      }
+    : { padding: 0, minWidth: '24px !important', fontSize: '14px' };
   // Have some margin between the icon and the text, and some less margin at the
   // start, but only when there's some actual text.
   const inlineIconStyle = displayLabel
@@ -299,12 +314,14 @@ function TableHeader({
   const styles = {
     tableHeader: style({
       display: 'grid',
-      // Should be kept in sync with the gridTemplateColumns from RevisionRow
+      // Should be kept in sync with the gridTemplateColumns and gap from RevisionRow
       gridTemplateColumns: toGridTemplateColumns(columnsConfiguration),
+      columnGap: `${Spacing.Small}px`,
+      minWidth: RESULTS_TABLE_MIN_WIDTH,
       background:
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',
-      paddingBlock: Spacing.Small,
+      paddingBlock: Spacing.Medium,
       marginTop: Spacing.Medium,
       marginBottom: Spacing.Large,
       $nest: {
@@ -422,7 +439,7 @@ function TableHeader({
 
   return (
     <div
-      className={`${styles.tableHeader} ${styles.typography}`}
+      className={`${styles.tableHeader} ${styles.typography} table-header`}
       data-testid='table-header'
       role='row'
     >

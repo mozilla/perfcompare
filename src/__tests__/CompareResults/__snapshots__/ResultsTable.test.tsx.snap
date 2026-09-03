@@ -47,7 +47,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -264,7 +264,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--base"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1bf5zjw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="combobox"
                           tabindex="0"
                         >
@@ -591,7 +591,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--new"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1bf5zjw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="combobox"
                           tabindex="0"
                         >
@@ -894,7 +894,7 @@ exports[`Results Table Should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-1oyihlh-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-15b5cu7-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -971,9 +971,159 @@ exports[`Results Table Should match snapshot 1`] = `
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
                      
                   </div>
+                  <div
+                    class="MuiAlert-action css-rgppqo-MuiAlert-action"
+                  >
+                    <button
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      title="Close"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </header>
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard css-6r948r-MuiPaper-root-MuiAlert-root"
+              data-testid="how-to-read-results"
+              role="alert"
+              style="--Paper-shadow: none;"
+            >
+              <div
+                class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                  data-testid="InfoOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="MuiAlert-message css-zioonp-MuiAlert-message"
+              >
+                <div
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom MuiAlertTitle-root css-4xzt87-MuiTypography-root-MuiAlertTitle-root"
+                >
+                  How to read the results
+                </div>
+                <ul
+                  class="MuiBox-root css-n1ol3p"
+                >
+                  <li>
+                    Each row is one 
+                    <strong>
+                      platform
+                    </strong>
+                    . 
+                    <strong>
+                      Base
+                    </strong>
+                     is the old build; 
+                    <strong>
+                      New
+                    </strong>
+                     is your change.
+                  </li>
+                  <li>
+                    <strong>
+                      Base
+                    </strong>
+                     and 
+                    <strong>
+                      New
+                    </strong>
+                     show the average result for each build, in the test's unit.
+                  </li>
+                  <li>
+                    <strong>
+                      Δ Median %
+                    </strong>
+                     shows how much the middle result moved from Base to New. A plus sign means New is higher; a minus sign means New is lower.
+                  </li>
+                  <li>
+                    <strong>
+                      Status
+                    </strong>
+                     says whether the change is an
+                     
+                    <strong>
+                      Improvement
+                    </strong>
+                    , a 
+                    <strong>
+                      Regression
+                    </strong>
+                    , or
+                     
+                    <strong>
+                      No change
+                    </strong>
+                    . If a result is likely just
+                     
+                    <strong>
+                      Noise
+                    </strong>
+                     (random run-to-run variation) rather than a real change, a “Noise” tag appears above the status — use the Status filter to hide or focus on the noisy rows.
+                  </li>
+                  <li>
+                    <strong>
+                      Magnitude
+                    </strong>
+                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                  </li>
+                  <li>
+                    Use 
+                    <strong>
+                      Advanced columns
+                    </strong>
+                     to add the expert stats (Cliff's Delta, CLES, and Significance).
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="MuiAlert-action css-rgppqo-MuiAlert-action"
+              >
+                <button
+                  aria-label="Close"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
+                  title="Close"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                    data-testid="CloseIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
             <div
               class="MuiBox-root css-hshm0p"
               data-testid="results-table"
@@ -983,343 +1133,441 @@ exports[`Results Table Should match snapshot 1`] = `
                 class="MuiBox-root css-1rw0zd7"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 f1wpas00 css-13620ud-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 f1wpas00 results-controls css-13620ud-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
                   >
-                    <form
-                      aria-label="Search by title, platform, revision or options"
-                      class="MuiBox-root css-1wxqtyp"
+                    <div
+                      class="results-controls-selections MuiBox-root css-1rh9huw"
                     >
-                      <div
-                        class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
+                      <label
+                        aria-label="Show the "How to read the results" guide above the table"
+                        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
                         data-mui-internal-clone-element="true"
                       >
-                        <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
+                        <span
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+                        >
+                          <input
+                            checked=""
+                            class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                            data-indeterminate="false"
+                            type="checkbox"
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                            data-testid="CheckBoxIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+                        >
+                          How to read the results
+                        </span>
+                      </label>
+                      <label
+                        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
+                      >
+                        <span
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+                        >
+                          <input
+                            class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                            data-indeterminate="false"
+                            type="checkbox"
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                            data-testid="CheckBoxOutlineBlankIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+                        >
+                          Expand all rows
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
+                    >
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                      >
+                        <form
+                          aria-label="Search by title, platform, revision or options"
+                          class="MuiBox-root css-1wxqtyp"
                         >
                           <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1nowbqt-MuiInputAdornment-root"
+                            class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
+                            data-mui-internal-clone-element="true"
                           >
-                            <span
-                              aria-hidden="true"
-                              class="notranslate"
+                            <div
+                              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
                             >
-                              ​
-                            </span>
+                              <div
+                                class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1nowbqt-MuiInputAdornment-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                  data-testid="SearchIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                                  />
+                                </svg>
+                              </div>
+                              <input
+                                aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
+                                aria-invalid="false"
+                                aria-label="Search by title, platform, revision or options"
+                                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
+                                id="_r_n_"
+                                placeholder="Filter results"
+                                type="search"
+                                value=""
+                              />
+                              <div
+                                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-elo8k2-MuiInputAdornment-root"
+                              >
+                                <button
+                                  aria-label="Clear the search input"
+                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeSmall css-13mnts1-MuiButtonBase-root-MuiIconButton-root"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                    data-testid="CloseIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                              <fieldset
+                                aria-hidden="true"
+                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                              >
+                                <legend
+                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    class="notranslate"
+                                  >
+                                    ​
+                                  </span>
+                                </legend>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                      >
+                        <div
+                          class="MuiFormControl-root css-7549ua-MuiFormControl-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                            data-testid="framework-select"
+                          >
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-label="Framework"
+                              aria-labelledby="mui-component-select-framework"
+                              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                              id="mui-component-select-framework"
+                              role="combobox"
+                              tabindex="0"
+                            >
+                              talos
+                            </div>
+                            <input
+                              aria-hidden="true"
+                              aria-invalid="false"
+                              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                              name="framework"
+                              tabindex="-1"
+                              value="1"
+                            />
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                              data-testid="SearchIcon"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                              data-testid="ArrowDropDownIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
                               <path
-                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                                d="M7 10l5 5 5-5z"
                               />
                             </svg>
+                            <fieldset
+                              aria-hidden="true"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                            >
+                              <legend
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                              </legend>
+                            </fieldset>
                           </div>
-                          <input
-                            aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
-                            aria-invalid="false"
-                            aria-label="Search by title, platform, revision or options"
-                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="_r_k_"
-                            placeholder="Filter results"
-                            type="search"
-                            value=""
-                          />
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                      >
+                        <div
+                          class="MuiFormControl-root css-7549ua-MuiFormControl-root"
+                        >
                           <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-elo8k2-MuiInputAdornment-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall test-version-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                            data-testid="test-version-select"
                           >
-                            <button
-                              aria-label="Clear the search input"
-                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeSmall css-13mnts1-MuiButtonBase-root-MuiIconButton-root"
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-label="Stats Test Version"
+                              aria-labelledby="test-version-type mui-component-select-test_version"
+                              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                              id="mui-component-select-test_version"
+                              role="combobox"
                               tabindex="0"
-                              type="button"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                                data-testid="CloseIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                />
-                              </svg>
-                            </button>
-                          </div>
-                          <fieldset
-                            aria-hidden="true"
-                            class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                          >
-                            <legend
-                              class="css-1nf2c5d-MuiNotchedOutlined-root"
-                            >
-                              <span
-                                aria-hidden="true"
-                                class="notranslate"
-                              >
-                                ​
-                              </span>
-                            </legend>
-                          </fieldset>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiFormControl-root css-7549ua-MuiFormControl-root"
-                    >
-                      <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                        data-testid="framework-select"
-                      >
-                        <div
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="Framework"
-                          aria-labelledby="mui-component-select-framework"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="mui-component-select-framework"
-                          role="combobox"
-                          tabindex="0"
-                        >
-                          talos
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          aria-invalid="false"
-                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                          name="framework"
-                          tabindex="-1"
-                          value="1"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
-                          data-testid="ArrowDropDownIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M7 10l5 5 5-5z"
-                          />
-                        </svg>
-                        <fieldset
-                          aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                        >
-                          <legend
-                            class="css-1nf2c5d-MuiNotchedOutlined-root"
-                          >
-                            <span
+                              Mann-Whitney-U
+                            </div>
+                            <input
                               aria-hidden="true"
-                              class="notranslate"
-                            >
-                              ​
-                            </span>
-                          </legend>
-                        </fieldset>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiFormControl-root css-7549ua-MuiFormControl-root"
-                    >
-                      <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall test-version-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                        data-testid="test-version-select"
-                      >
-                        <div
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="Stats Test Version"
-                          aria-labelledby="test-version-type mui-component-select-test_version"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="mui-component-select-test_version"
-                          role="combobox"
-                          tabindex="0"
-                        >
-                          Mann-Whitney-U
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          aria-invalid="false"
-                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                          name="test_version"
-                          tabindex="-1"
-                          value="mann-whitney-u"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
-                          data-testid="ArrowDropDownIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M7 10l5 5 5-5z"
-                          />
-                        </svg>
-                        <fieldset
-                          aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                        >
-                          <legend
-                            class="css-1nf2c5d-MuiNotchedOutlined-root"
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="notranslate"
-                            >
-                              ​
-                            </span>
-                          </legend>
-                        </fieldset>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-t3of1j-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiBox-root css-0"
-                      data-testid="revision-select"
-                    >
-                      <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                      >
-                        <div
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="Filter by revision"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                          role="combobox"
-                          tabindex="0"
-                        >
-                          <div
-                            class="fbc330 MuiBox-root css-0"
-                          >
+                              aria-invalid="false"
+                              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                              name="test_version"
+                              tabindex="-1"
+                              value="mann-whitney-u"
+                            />
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                              data-testid="ArrowDropDownIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                                data-testid="SortIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M3 18h6v-2H3zM3 6v2h18V6zm0 7h12v-2H3z"
-                                />
-                              </svg>
+                              <path
+                                d="M7 10l5 5 5-5z"
+                              />
                             </svg>
-                            All revisions
+                            <fieldset
+                              aria-hidden="true"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                            >
+                              <legend
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                              </legend>
+                            </fieldset>
                           </div>
                         </div>
-                        <input
-                          aria-hidden="true"
-                          aria-invalid="false"
-                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                          tabindex="-1"
-                          value="all-revisions"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
-                          data-testid="ArrowDropDownIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-vvfr7q-MuiGrid-root"
+                      >
+                        <div
+                          class="MuiBox-root css-0"
+                          data-testid="revision-select"
                         >
-                          <path
-                            d="M7 10l5 5 5-5z"
-                          />
-                        </svg>
-                        <fieldset
-                          aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                        >
-                          <legend
-                            class="css-1nf2c5d-MuiNotchedOutlined-root"
+                          <div
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                           >
-                            <span
-                              aria-hidden="true"
-                              class="notranslate"
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-label="Filter by revision"
+                              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                              role="combobox"
+                              tabindex="0"
                             >
-                              ​
-                            </span>
-                          </legend>
-                        </fieldset>
+                              <div
+                                class="fbc330 MuiBox-root css-0"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                    data-testid="SortIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M3 18h6v-2H3zM3 6v2h18V6zm0 7h12v-2H3z"
+                                    />
+                                  </svg>
+                                </svg>
+                                All revisions
+                              </div>
+                            </div>
+                            <input
+                              aria-hidden="true"
+                              aria-invalid="false"
+                              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                              tabindex="-1"
+                              value="all-revisions"
+                            />
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                              data-testid="ArrowDropDownIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M7 10l5 5 5-5z"
+                              />
+                            </svg>
+                            <fieldset
+                              aria-hidden="true"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                            >
+                              <legend
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                              </legend>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
+                      >
+                        <div
+                          class="MuiFormControl-root css-1pn2fn8-MuiFormControl-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-options-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                            data-testid="advanced-options-select"
+                          >
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-label="Advanced options"
+                              class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                              role="combobox"
+                              tabindex="0"
+                            >
+                              Advanced options
+                            </div>
+                            <input
+                              aria-hidden="true"
+                              aria-invalid="false"
+                              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                              tabindex="-1"
+                              value=""
+                            />
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                              data-testid="ArrowDropDownIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M7 10l5 5 5-5z"
+                              />
+                            </svg>
+                            <fieldset
+                              aria-hidden="true"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                            >
+                              <legend
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                              </legend>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-wautn6-MuiGrid-root"
+                      >
+                        <div
+                          class="f6hg2jo"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                            tabindex="0"
+                            type="button"
+                          >
+                            Download JSON
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-t3of1j-MuiGrid-root"
-                  >
-                    <div
-                      class="f6hg2jo"
-                    >
-                      <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
-                        tabindex="0"
-                        type="button"
-                      >
-                        Download JSON
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
-                  >
-                    <label
-                      aria-label="Expand all rows"
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <span
-                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
-                      >
-                        <input
-                          class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
-                          data-indeterminate="false"
-                          type="checkbox"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                          data-testid="CheckBoxOutlineBlankIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-                      >
-                        Expand all
-                      </span>
-                    </label>
-                  </div>
                 </div>
                 <div
-                  class="fdtnfac f1l733lh"
+                  class="flb4c18 f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1330,7 +1578,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Platform (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-kne8o5-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -1390,13 +1638,13 @@ exports[`Results Table Should match snapshot 1`] = `
                     role="columnheader"
                   >
                     <span
-                      aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                      aria-label="Shows how much the middle result changed from Base to New. We line up all the runs from smallest to biggest and pick the middle one for each side, then show the change as a percent. A positive sign means New is higher; a negative sign means New is lower."
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       <button
-                        aria-label="MD (%) (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        aria-label="Δ Median (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -1411,10 +1659,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                           />
                           <title>
-                            Not sorted by MD (%)
+                            Not sorted by Δ Median
                           </title>
                         </svg>
-                        MD (%)
+                        Δ Median
                       </button>
                     </span>
                   </div>
@@ -1425,18 +1673,18 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-kne8o5-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
                     >
                       Status
                       <div
-                        aria-label="3 items selected"
+                        aria-label="4 items selected"
                         class="MuiBox-root css-18uhbjh"
                       >
                         (
-                        3
+                        4
                         )
                       </div>
                       <svg
@@ -1453,71 +1701,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     </button>
                   </div>
                   <div
-                    class="cell delta-header"
-                    role="columnheader"
-                  >
-                    <span
-                      class="MuiBox-root css-1tkq7a4"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <button
-                        aria-label="CD (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <svg
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
-                          data-testid="SwapVertIcon"
-                          focusable="false"
-                          role="img"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
-                          />
-                          <title>
-                            Not sorted by CD
-                          </title>
-                        </svg>
-                        CD
-                      </button>
-                    </span>
-                  </div>
-                  <div
-                    class="cell effects-header"
-                    role="columnheader"
-                  >
-                    <span
-                      class="MuiBox-root css-1tkq7a4"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <button
-                        aria-label="CLES (%) (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <svg
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-10d4m26-MuiSvgIcon-root"
-                          data-testid="SwapVertIcon"
-                          focusable="false"
-                          role="img"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
-                          />
-                          <title>
-                            Not sorted by CLES (%)
-                          </title>
-                        </svg>
-                        CLES (%)
-                      </button>
-                    </span>
-                  </div>
-                  <div
-                    class="cell significance-header"
+                    class="cell magnitude-header"
                     role="columnheader"
                   >
                     <div
@@ -1525,8 +1709,8 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="group"
                     >
                       <button
-                        aria-label="Sig (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                        aria-label="Magnitude (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-1hwjy5n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -1541,25 +1725,25 @@ exports[`Results Table Should match snapshot 1`] = `
                             d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                           />
                           <title>
-                            Not sorted by Sig
+                            Not sorted by Magnitude
                           </title>
                         </svg>
                       </button>
                       <button
                         aria-haspopup="true"
-                        aria-label="Sig (Click to filter values)"
-                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                        aria-label="Magnitude (Click to filter values)"
+                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-kne8o5-MuiButtonBase-root-MuiButton-root"
                         data-mui-internal-clone-element="true"
                         tabindex="0"
                         type="button"
                       >
-                        Sig
+                        Magnitude
                         <div
-                          aria-label="2 items selected"
+                          aria-label="4 items selected"
                           class="MuiBox-root css-18uhbjh"
                         >
                           (
-                          2
+                          4
                           )
                         </div>
                         <svg
@@ -1617,7 +1801,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       style="overflow-anchor: none;"
                     >
                       <div
-                        class="table-revision-content f1k5y3nc"
+                        class="table-revision-content f7mnrcj"
                         role="rowgroup"
                       >
                         <div
@@ -1715,7 +1899,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-m7w6pu"
                             role="row"
                           >
                             <div
@@ -1770,7 +1954,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                0 %
+                                +1.85%
                               </span>
                             </div>
                             <div
@@ -1778,23 +1962,15 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               <div
-                                class="status-hint MuiBox-root css-1dj4wrv"
-                              />
+                                class="MuiBox-root css-izuqqr"
+                              >
+                                <div
+                                  class="status-hint MuiBox-root css-1dj4wrv"
+                                />
+                              </div>
                             </div>
                             <div
-                              class="delta cell"
-                              role="cell"
-                            >
-                              -
-                            </div>
-                            <div
-                              class="effects cell"
-                              role="cell"
-                            >
-                              -
-                            </div>
-                            <div
-                              class="significance cell"
+                              class="magnitude cell"
                               role="cell"
                             >
                               -
@@ -1890,7 +2066,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1c_"
+                                  aria-controls="_r_1b_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1913,7 +2089,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-m7w6pu"
                             role="row"
                           >
                             <div
@@ -1969,7 +2145,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                0 %
+                                +1.08%
                               </span>
                             </div>
                             <div
@@ -1977,23 +2153,15 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               <div
-                                class="status-hint MuiBox-root css-1dj4wrv"
-                              />
+                                class="MuiBox-root css-izuqqr"
+                              >
+                                <div
+                                  class="status-hint MuiBox-root css-1dj4wrv"
+                                />
+                              </div>
                             </div>
                             <div
-                              class="delta cell"
-                              role="cell"
-                            >
-                              -
-                            </div>
-                            <div
-                              class="effects cell"
-                              role="cell"
-                            >
-                              -
-                            </div>
-                            <div
-                              class="significance cell"
+                              class="magnitude cell"
                               role="cell"
                             >
                               -
@@ -2089,7 +2257,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1j_"
+                                  aria-controls="_r_1i_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2112,7 +2280,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-m7w6pu"
                             role="row"
                           >
                             <div
@@ -2168,7 +2336,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                0 %
+                                -2.40%
                               </span>
                             </div>
                             <div
@@ -2176,23 +2344,15 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               <div
-                                class="status-hint MuiBox-root css-1dj4wrv"
-                              />
+                                class="MuiBox-root css-izuqqr"
+                              >
+                                <div
+                                  class="status-hint MuiBox-root css-1dj4wrv"
+                                />
+                              </div>
                             </div>
                             <div
-                              class="delta cell"
-                              role="cell"
-                            >
-                              -
-                            </div>
-                            <div
-                              class="effects cell"
-                              role="cell"
-                            >
-                              -
-                            </div>
-                            <div
-                              class="significance cell"
+                              class="magnitude cell"
                               role="cell"
                             >
                               -
@@ -2288,7 +2448,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_1q_"
+                                  aria-controls="_r_1p_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2320,7 +2480,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       style="overflow-anchor: none;"
                     >
                       <div
-                        class="table-revision-content f1k5y3nc"
+                        class="table-revision-content f7mnrcj"
                         role="rowgroup"
                       >
                         <div
@@ -2398,7 +2558,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-m7w6pu"
                             role="row"
                           >
                             <div
@@ -2454,7 +2614,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                0 %
+                                -2.40%
                               </span>
                             </div>
                             <div
@@ -2462,23 +2622,15 @@ exports[`Results Table Should match snapshot 1`] = `
                               role="cell"
                             >
                               <div
-                                class="status-hint MuiBox-root css-1dj4wrv"
-                              />
+                                class="MuiBox-root css-izuqqr"
+                              >
+                                <div
+                                  class="status-hint MuiBox-root css-1dj4wrv"
+                                />
+                              </div>
                             </div>
                             <div
-                              class="delta cell"
-                              role="cell"
-                            >
-                              -
-                            </div>
-                            <div
-                              class="effects cell"
-                              role="cell"
-                            >
-                              -
-                            </div>
-                            <div
-                              class="significance cell"
+                              class="magnitude cell"
                               role="cell"
                             >
                               -
@@ -2574,7 +2726,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_22_"
+                                  aria-controls="_r_21_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2614,7 +2766,7 @@ exports[`Results Table Should match snapshot 1`] = `
 exports[`Results Table can load the sort parameters from the URL for a descending sort 1`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2639,7 +2791,7 @@ exports[`Results Table can load the sort parameters from the URL for a descendin
 exports[`Results Table can load the sort parameters from the URL for an ascending sort 1`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2664,7 +2816,7 @@ exports[`Results Table can load the sort parameters from the URL for an ascendin
 exports[`Results Table can sort the table and persist the sort parameters to the URL 1`] = `
 <button
   aria-label="Delta (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2689,7 +2841,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 exports[`Results Table can sort the table and persist the sort parameters to the URL 2`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2734,7 +2886,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 exports[`Results Table can sort the table and persist the sort parameters to the URL 3`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2787,7 +2939,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 exports[`Results Table can sort the table and persist the sort parameters to the URL 4`] = `
 <button
   aria-label="Delta (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2840,7 +2992,7 @@ exports[`Results Table can sort the table and persist the sort parameters to the
 exports[`Results Table can sort the table and persist the sort parameters to the URL 5`] = `
 <button
   aria-label="Confidence (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-1hwjy5n-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -2930,7 +3082,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -3147,7 +3299,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--base"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1bf5zjw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="combobox"
                           tabindex="0"
                         >
@@ -3224,7 +3376,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 autocapitalize="none"
                                 autocomplete="off"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_qb_"
+                                id="_r_qp_"
                                 placeholder="Search by revision ID or author email"
                                 role="combobox"
                                 spellcheck="false"
@@ -3474,7 +3626,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--new"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-10dumzv-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1bf5zjw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="combobox"
                           tabindex="0"
                         >
@@ -3551,7 +3703,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 autocapitalize="none"
                                 autocomplete="off"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_qj_"
+                                id="_r_r1_"
                                 placeholder="Search by revision ID or author email"
                                 role="combobox"
                                 spellcheck="false"
@@ -3777,7 +3929,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-1oyihlh-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-15b5cu7-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -3854,9 +4006,159 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
                      
                   </div>
+                  <div
+                    class="MuiAlert-action css-rgppqo-MuiAlert-action"
+                  >
+                    <button
+                      aria-label="Close"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="0"
+                      title="Close"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </header>
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorInfo MuiAlert-standardInfo MuiAlert-standard css-6r948r-MuiPaper-root-MuiAlert-root"
+              data-testid="how-to-read-results"
+              role="alert"
+              style="--Paper-shadow: none;"
+            >
+              <div
+                class="MuiAlert-icon css-vab54s-MuiAlert-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-6gorna-MuiSvgIcon-root"
+                  data-testid="InfoOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="MuiAlert-message css-zioonp-MuiAlert-message"
+              >
+                <div
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom MuiAlertTitle-root css-4xzt87-MuiTypography-root-MuiAlertTitle-root"
+                >
+                  How to read the results
+                </div>
+                <ul
+                  class="MuiBox-root css-n1ol3p"
+                >
+                  <li>
+                    Each row is one 
+                    <strong>
+                      platform
+                    </strong>
+                    . 
+                    <strong>
+                      Base
+                    </strong>
+                     is the old build; 
+                    <strong>
+                      New
+                    </strong>
+                     is your change.
+                  </li>
+                  <li>
+                    <strong>
+                      Base
+                    </strong>
+                     and 
+                    <strong>
+                      New
+                    </strong>
+                     show the average result for each build, in the test's unit.
+                  </li>
+                  <li>
+                    <strong>
+                      Δ Median %
+                    </strong>
+                     shows how much the middle result moved from Base to New. A plus sign means New is higher; a minus sign means New is lower.
+                  </li>
+                  <li>
+                    <strong>
+                      Status
+                    </strong>
+                     says whether the change is an
+                     
+                    <strong>
+                      Improvement
+                    </strong>
+                    , a 
+                    <strong>
+                      Regression
+                    </strong>
+                    , or
+                     
+                    <strong>
+                      No change
+                    </strong>
+                    . If a result is likely just
+                     
+                    <strong>
+                      Noise
+                    </strong>
+                     (random run-to-run variation) rather than a real change, a “Noise” tag appears above the status — use the Status filter to hide or focus on the noisy rows.
+                  </li>
+                  <li>
+                    <strong>
+                      Magnitude
+                    </strong>
+                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                  </li>
+                  <li>
+                    Use 
+                    <strong>
+                      Advanced columns
+                    </strong>
+                     to add the expert stats (Cliff's Delta, CLES, and Significance).
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="MuiAlert-action css-rgppqo-MuiAlert-action"
+              >
+                <button
+                  aria-label="Close"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-ak37b0-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
+                  title="Close"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                    data-testid="CloseIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
             <div
               class="MuiBox-root css-hshm0p"
               data-testid="results-table"
@@ -3866,343 +4168,441 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                 class="MuiBox-root css-1rw0zd7"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 f1wpas00 css-13620ud-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 f1wpas00 results-controls css-13620ud-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
                   >
-                    <form
-                      aria-label="Search by title, platform, revision or options"
-                      class="MuiBox-root css-1wxqtyp"
+                    <div
+                      class="results-controls-selections MuiBox-root css-1rh9huw"
                     >
-                      <div
-                        class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
+                      <label
+                        aria-label="Show the "How to read the results" guide above the table"
+                        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
                         data-mui-internal-clone-element="true"
                       >
-                        <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
+                        <span
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+                        >
+                          <input
+                            checked=""
+                            class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                            data-indeterminate="false"
+                            type="checkbox"
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                            data-testid="CheckBoxIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+                        >
+                          How to read the results
+                        </span>
+                      </label>
+                      <label
+                        class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
+                      >
+                        <span
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+                        >
+                          <input
+                            class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+                            data-indeterminate="false"
+                            type="checkbox"
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+                            data-testid="CheckBoxOutlineBlankIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+                        >
+                          Expand all rows
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
+                    >
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                      >
+                        <form
+                          aria-label="Search by title, platform, revision or options"
+                          class="MuiBox-root css-1wxqtyp"
                         >
                           <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1nowbqt-MuiInputAdornment-root"
+                            class="MuiFormControl-root MuiTextField-root css-q16m8p-MuiFormControl-root-MuiTextField-root"
+                            data-mui-internal-clone-element="true"
                           >
-                            <span
-                              aria-hidden="true"
-                              class="notranslate"
+                            <div
+                              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1cqjfkd-MuiInputBase-root-MuiOutlinedInput-root"
                             >
-                              ​
-                            </span>
+                              <div
+                                class="MuiInputAdornment-root MuiInputAdornment-positionStart MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1nowbqt-MuiInputAdornment-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                  data-testid="SearchIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                                  />
+                                </svg>
+                              </div>
+                              <input
+                                aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
+                                aria-invalid="false"
+                                aria-label="Search by title, platform, revision or options"
+                                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
+                                id="_r_rc_"
+                                placeholder="Filter results"
+                                type="search"
+                                value=""
+                              />
+                              <div
+                                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-elo8k2-MuiInputAdornment-root"
+                              >
+                                <button
+                                  aria-label="Clear the search input"
+                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeSmall css-13mnts1-MuiButtonBase-root-MuiIconButton-root"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                    data-testid="CloseIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                              <fieldset
+                                aria-hidden="true"
+                                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                              >
+                                <legend
+                                  class="css-1nf2c5d-MuiNotchedOutlined-root"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    class="notranslate"
+                                  >
+                                    ​
+                                  </span>
+                                </legend>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                      >
+                        <div
+                          class="MuiFormControl-root css-7549ua-MuiFormControl-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                            data-testid="framework-select"
+                          >
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-label="Framework"
+                              aria-labelledby="mui-component-select-framework"
+                              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                              id="mui-component-select-framework"
+                              role="combobox"
+                              tabindex="0"
+                            >
+                              talos
+                            </div>
+                            <input
+                              aria-hidden="true"
+                              aria-invalid="false"
+                              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                              name="framework"
+                              tabindex="-1"
+                              value="1"
+                            />
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                              data-testid="SearchIcon"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                              data-testid="ArrowDropDownIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
                               <path
-                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                                d="M7 10l5 5 5-5z"
                               />
                             </svg>
+                            <fieldset
+                              aria-hidden="true"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                            >
+                              <legend
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                              </legend>
+                            </fieldset>
                           </div>
-                          <input
-                            aria-description="Tip: You can search with multiple words (all must match). Use -word to exclude results containing that word."
-                            aria-invalid="false"
-                            aria-label="Search by title, platform, revision or options"
-                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="_r_qr_"
-                            placeholder="Filter results"
-                            type="search"
-                            value=""
-                          />
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                      >
+                        <div
+                          class="MuiFormControl-root css-7549ua-MuiFormControl-root"
+                        >
                           <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-elo8k2-MuiInputAdornment-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall test-version-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                            data-testid="test-version-select"
                           >
-                            <button
-                              aria-label="Clear the search input"
-                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeSmall css-13mnts1-MuiButtonBase-root-MuiIconButton-root"
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-label="Stats Test Version"
+                              aria-labelledby="test-version-type mui-component-select-test_version"
+                              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                              id="mui-component-select-test_version"
+                              role="combobox"
                               tabindex="0"
-                              type="button"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                                data-testid="CloseIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                />
-                              </svg>
-                            </button>
-                          </div>
-                          <fieldset
-                            aria-hidden="true"
-                            class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                          >
-                            <legend
-                              class="css-1nf2c5d-MuiNotchedOutlined-root"
-                            >
-                              <span
-                                aria-hidden="true"
-                                class="notranslate"
-                              >
-                                ​
-                              </span>
-                            </legend>
-                          </fieldset>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiFormControl-root css-7549ua-MuiFormControl-root"
-                    >
-                      <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                        data-testid="framework-select"
-                      >
-                        <div
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="Framework"
-                          aria-labelledby="mui-component-select-framework"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="mui-component-select-framework"
-                          role="combobox"
-                          tabindex="0"
-                        >
-                          talos
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          aria-invalid="false"
-                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                          name="framework"
-                          tabindex="-1"
-                          value="1"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
-                          data-testid="ArrowDropDownIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M7 10l5 5 5-5z"
-                          />
-                        </svg>
-                        <fieldset
-                          aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                        >
-                          <legend
-                            class="css-1nf2c5d-MuiNotchedOutlined-root"
-                          >
-                            <span
+                              Mann-Whitney-U
+                            </div>
+                            <input
                               aria-hidden="true"
-                              class="notranslate"
-                            >
-                              ​
-                            </span>
-                          </legend>
-                        </fieldset>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiFormControl-root css-7549ua-MuiFormControl-root"
-                    >
-                      <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall test-version-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                        data-testid="test-version-select"
-                      >
-                        <div
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="Stats Test Version"
-                          aria-labelledby="test-version-type mui-component-select-test_version"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="mui-component-select-test_version"
-                          role="combobox"
-                          tabindex="0"
-                        >
-                          Mann-Whitney-U
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          aria-invalid="false"
-                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                          name="test_version"
-                          tabindex="-1"
-                          value="mann-whitney-u"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
-                          data-testid="ArrowDropDownIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M7 10l5 5 5-5z"
-                          />
-                        </svg>
-                        <fieldset
-                          aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                        >
-                          <legend
-                            class="css-1nf2c5d-MuiNotchedOutlined-root"
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="notranslate"
-                            >
-                              ​
-                            </span>
-                          </legend>
-                        </fieldset>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-t3of1j-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiBox-root css-0"
-                      data-testid="revision-select"
-                    >
-                      <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                      >
-                        <div
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="Filter by revision"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1hw1663-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                          role="combobox"
-                          tabindex="0"
-                        >
-                          <div
-                            class="fbc330 MuiBox-root css-0"
-                          >
+                              aria-invalid="false"
+                              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                              name="test_version"
+                              tabindex="-1"
+                              value="mann-whitney-u"
+                            />
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                              data-testid="ArrowDropDownIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
-                                data-testid="SortIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M3 18h6v-2H3zM3 6v2h18V6zm0 7h12v-2H3z"
-                                />
-                              </svg>
+                              <path
+                                d="M7 10l5 5 5-5z"
+                              />
                             </svg>
-                            All revisions
+                            <fieldset
+                              aria-hidden="true"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                            >
+                              <legend
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                              </legend>
+                            </fieldset>
                           </div>
                         </div>
-                        <input
-                          aria-hidden="true"
-                          aria-invalid="false"
-                          class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                          tabindex="-1"
-                          value="all-revisions"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
-                          data-testid="ArrowDropDownIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-vvfr7q-MuiGrid-root"
+                      >
+                        <div
+                          class="MuiBox-root css-0"
+                          data-testid="revision-select"
                         >
-                          <path
-                            d="M7 10l5 5 5-5z"
-                          />
-                        </svg>
-                        <fieldset
-                          aria-hidden="true"
-                          class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
-                        >
-                          <legend
-                            class="css-1nf2c5d-MuiNotchedOutlined-root"
+                          <div
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall f96or0t MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                           >
-                            <span
-                              aria-hidden="true"
-                              class="notranslate"
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-label="Filter by revision"
+                              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                              role="combobox"
+                              tabindex="0"
                             >
-                              ​
-                            </span>
-                          </legend>
-                        </fieldset>
+                              <div
+                                class="fbc330 MuiBox-root css-0"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
+                                    data-testid="SortIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M3 18h6v-2H3zM3 6v2h18V6zm0 7h12v-2H3z"
+                                    />
+                                  </svg>
+                                </svg>
+                                All revisions
+                              </div>
+                            </div>
+                            <input
+                              aria-hidden="true"
+                              aria-invalid="false"
+                              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                              tabindex="-1"
+                              value="all-revisions"
+                            />
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                              data-testid="ArrowDropDownIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M7 10l5 5 5-5z"
+                              />
+                            </svg>
+                            <fieldset
+                              aria-hidden="true"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                            >
+                              <legend
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                              </legend>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
+                      >
+                        <div
+                          class="MuiFormControl-root css-1pn2fn8-MuiFormControl-root"
+                        >
+                          <div
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall advanced-options-select MuiSelect-root css-fcr66i-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                            data-testid="advanced-options-select"
+                          >
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-label="Advanced options"
+                              class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                              role="combobox"
+                              tabindex="0"
+                            >
+                              Advanced options
+                            </div>
+                            <input
+                              aria-hidden="true"
+                              aria-invalid="false"
+                              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                              tabindex="-1"
+                              value="cliffs_delta,cles,significance"
+                            />
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-h42w4p-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                              data-testid="ArrowDropDownIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M7 10l5 5 5-5z"
+                              />
+                            </svg>
+                            <fieldset
+                              aria-hidden="true"
+                              class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+                            >
+                              <legend
+                                class="css-1nf2c5d-MuiNotchedOutlined-root"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  class="notranslate"
+                                >
+                                  ​
+                                </span>
+                              </legend>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-wautn6-MuiGrid-root"
+                      >
+                        <div
+                          class="f6hg2jo"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
+                            tabindex="0"
+                            type="button"
+                          >
+                            Download JSON
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow css-t3of1j-MuiGrid-root"
-                  >
-                    <div
-                      class="f6hg2jo"
-                    >
-                      <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-disableElevation css-14hwkrj-MuiButtonBase-root-MuiButton-root"
-                        tabindex="0"
-                        type="button"
-                      >
-                        Download JSON
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-auto css-zh2j38-MuiGrid-root"
-                  >
-                    <label
-                      aria-label="Expand all rows"
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1bsjtco-MuiFormControlLabel-root"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <span
-                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
-                      >
-                        <input
-                          class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
-                          data-indeterminate="false"
-                          type="checkbox"
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                          data-testid="CheckBoxOutlineBlankIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-                      >
-                        Expand all
-                      </span>
-                    </label>
-                  </div>
                 </div>
                 <div
-                  class="fdtnfac f1l733lh"
+                  class="f4rch20 f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >
@@ -4213,7 +4613,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     <button
                       aria-haspopup="true"
                       aria-label="Platform (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-kne8o5-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
@@ -4273,13 +4673,13 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     role="columnheader"
                   >
                     <span
-                      aria-label="Median Diff %: The percentage change in median from Base to New: ((New − Base) / Base) × 100."
+                      aria-label="Shows how much the middle result changed from Base to New. We line up all the runs from smallest to biggest and pick the middle one for each side, then show the change as a percent. A positive sign means New is higher; a negative sign means New is lower."
                       class="MuiBox-root css-1tkq7a4"
                       data-mui-internal-clone-element="true"
                     >
                       <button
-                        aria-label="MD (%) (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        aria-label="Δ Median (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4294,10 +4694,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                           />
                           <title>
-                            Not sorted by MD (%)
+                            Not sorted by Δ Median
                           </title>
                         </svg>
-                        MD (%)
+                        Δ Median
                       </button>
                     </span>
                   </div>
@@ -4308,18 +4708,18 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     <button
                       aria-haspopup="true"
                       aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-kne8o5-MuiButtonBase-root-MuiButton-root"
                       data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
                     >
                       Status
                       <div
-                        aria-label="3 items selected"
+                        aria-label="4 items selected"
                         class="MuiBox-root css-18uhbjh"
                       >
                         (
-                        3
+                        4
                         )
                       </div>
                       <svg
@@ -4345,7 +4745,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     >
                       <button
                         aria-label="CD (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4376,8 +4776,8 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       data-mui-internal-clone-element="true"
                     >
                       <button
-                        aria-label="CLES (%) (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+                        aria-label="CLES (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4392,10 +4792,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z"
                           />
                           <title>
-                            Not sorted by CLES (%)
+                            Not sorted by CLES
                           </title>
                         </svg>
-                        CLES (%)
+                        CLES
                       </button>
                     </span>
                   </div>
@@ -4409,7 +4809,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     >
                       <button
                         aria-label="Sig (Click to sort by this column)"
-                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-1hwjy5n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -4431,7 +4831,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       <button
                         aria-haspopup="true"
                         aria-label="Sig (Click to filter values)"
-                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-kne8o5-MuiButtonBase-root-MuiButton-root"
                         data-mui-internal-clone-element="true"
                         tabindex="0"
                         type="button"
@@ -4500,7 +4900,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       style="overflow-anchor: none;"
                     >
                       <div
-                        class="table-revision-content f1k5y3nc"
+                        class="table-revision-content f7mnrcj"
                         role="rowgroup"
                       >
                         <div
@@ -4598,7 +4998,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
                             role="row"
                           >
                             <div
@@ -4653,7 +5053,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                1.849 %
+                                +1.85%
                               </span>
                             </div>
                             <div
@@ -4661,20 +5061,29 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               role="cell"
                             >
                               <div
-                                class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
+                                class="MuiBox-root css-izuqqr"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-r7hube-MuiSvgIcon-root"
-                                  data-testid="ThumbDownIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
+                                <div
+                                  class="noise-label MuiBox-root css-ub7h36"
                                 >
-                                  <path
-                                    d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2m4 0v12h4V3z"
-                                  />
-                                </svg>
-                                Regression
+                                  Noise
+                                </div>
+                                <div
+                                  class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-r7hube-MuiSvgIcon-root"
+                                    data-testid="ThumbDownIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2m4 0v12h4V3z"
+                                    />
+                                  </svg>
+                                  Regression
+                                </div>
                               </div>
                             </div>
                             <div
@@ -4693,7 +5102,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              -
+                              Noise
                             </div>
                             <div
                               class="total-runs cell"
@@ -4786,7 +5195,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_rj_"
+                                  aria-controls="_r_s4_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -4809,7 +5218,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
                             role="row"
                           >
                             <div
@@ -4865,7 +5274,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                1.078 %
+                                +1.08%
                               </span>
                             </div>
                             <div
@@ -4873,20 +5282,29 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               role="cell"
                             >
                               <div
-                                class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                                class="MuiBox-root css-izuqqr"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-p35293-MuiSvgIcon-root"
-                                  data-testid="ThumbUpIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
+                                <div
+                                  class="noise-label MuiBox-root css-ub7h36"
                                 >
-                                  <path
-                                    d="M1 21h4V9H1zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"
-                                  />
-                                </svg>
-                                Improvement
+                                  Noise
+                                </div>
+                                <div
+                                  class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-p35293-MuiSvgIcon-root"
+                                    data-testid="ThumbUpIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M1 21h4V9H1zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"
+                                    />
+                                  </svg>
+                                  Improvement
+                                </div>
                               </div>
                             </div>
                             <div
@@ -4905,7 +5323,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              -
+                              Noise
                             </div>
                             <div
                               class="total-runs cell"
@@ -4998,7 +5416,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_rq_"
+                                  aria-controls="_r_sb_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -5021,7 +5439,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
                             role="row"
                           >
                             <div
@@ -5077,7 +5495,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               <span
                                 style="display: inline-flex; align-items: center; gap: 4px;"
                               >
-                                -2.401 %
+                                -2.40%
                               </span>
                             </div>
                             <div
@@ -5085,8 +5503,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               role="cell"
                             >
                               <div
-                                class="status-hint MuiBox-root css-1dj4wrv"
-                              />
+                                class="MuiBox-root css-izuqqr"
+                              >
+                                <div
+                                  class="status-hint MuiBox-root css-1dj4wrv"
+                                />
+                              </div>
                             </div>
                             <div
                               class="delta cell"
@@ -5104,20 +5526,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              Real
                             </div>
                             <div
                               class="total-runs cell"
@@ -5210,7 +5619,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_s1_"
+                                  aria-controls="_r_si_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -5242,7 +5651,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       style="overflow-anchor: none;"
                     >
                       <div
-                        class="table-revision-content f1k5y3nc"
+                        class="table-revision-content f7mnrcj"
                         role="rowgroup"
                       >
                         <div
@@ -5320,7 +5729,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-block fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+                            class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
                             role="row"
                           >
                             <div
@@ -5380,8 +5789,12 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               role="cell"
                             >
                               <div
-                                class="status-hint MuiBox-root css-1dj4wrv"
-                              />
+                                class="MuiBox-root css-izuqqr"
+                              >
+                                <div
+                                  class="status-hint MuiBox-root css-1dj4wrv"
+                                />
+                              </div>
                             </div>
                             <div
                               class="delta cell"
@@ -5399,20 +5812,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                               class="significance cell"
                               role="cell"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
-                                data-testid="KeyboardDoubleArrowUpIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
-                                />
-                                <path
-                                  d="m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
-                                />
-                              </svg>
+                              Real
                             </div>
                             <div
                               class="total-runs cell"
@@ -5505,7 +5905,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_s9_"
+                                  aria-controls="_r_sq_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -5545,7 +5945,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 1`] = `
 <button
   aria-label="CD (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5570,7 +5970,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 2`] = `
 <button
   aria-label="CD (Click to sort by this column)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5595,7 +5995,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 3`] = `
 <button
   aria-label="CD (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5640,7 +6040,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 4`] = `
 <button
   aria-label="Sig (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-1hwjy5n-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5684,7 +6084,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 5`] = `
 <button
   aria-label="Sig (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-17eldkb-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root Mui-focusVisible MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButtonGroup-firstButton css-1hwjy5n-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5735,8 +6135,8 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 6`] = `
 <button
-  aria-label="CLES (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  aria-label="CLES (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5751,10 +6151,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by CLES (%) in descending order
+      Sorted by CLES in descending order
     </title>
   </svg>
-  CLES (%)
+  CLES
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5780,8 +6180,8 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 7`] = `
 <button
-  aria-label="CLES (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  aria-label="CLES (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5796,10 +6196,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by CLES (%) in ascending order
+      Sorted by CLES in ascending order
     </title>
   </svg>
-  CLES (%)
+  CLES
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5835,33 +6235,33 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %",
-  "  - Windows 10, -, , -, , 100.00 %",
-  "  - Windows 10, -2.401 %, , -, , 50.00 %",
+  "  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %",
+  "  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %",
+  "  - Windows 10, -, , -, Real, 100.00 %",
+  "  - Windows 10, -2.40%, , -, Real, 50.00 %",
   "  rev: tictactoe",
-  "  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %",
-  "  - Windows 10, -, , 0.8, , 99.00 %",
-  "  - Windows 10, -2.401 %, , 0.8, , 49.00 %",
+  "  - Linux 18.04, +1.85%, Regression, 0.8, Noise, 44.00 %",
+  "  - macOS 10.15, +1.08%, Improvement, 0.9, Noise, 24.00 %",
+  "  - Windows 10, -, , 0.8, Real, 99.00 %",
+  "  - Windows 10, -2.40%, , 0.8, Real, 49.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %",
-  "  - Windows 10, -, , 1.2, , 99.00 %",
-  "  - Windows 10, -2.401 %, , 1.2, , 49.00 %",
+  "  - Linux 18.04, +1.85%, Regression, 1.2, Noise, 44.00 %",
+  "  - macOS 10.15, +1.08%, Improvement, 1.3, Noise, 24.00 %",
+  "  - Windows 10, -, , 1.2, Real, 99.00 %",
+  "  - Windows 10, -2.40%, , 1.2, Real, 49.00 %",
   "  rev: tictactoe",
-  "  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %",
-  "  - Windows 10, -, , 2, , 98.00 %",
-  "  - Windows 10, -2.401 %, , 2, , 48.00 %",
+  "  - Linux 18.04, +1.85%, Regression, 2, Noise, 43.00 %",
+  "  - macOS 10.15, +1.08%, Improvement, 2.1, Noise, 23.00 %",
+  "  - Windows 10, -, , 2, Real, 98.00 %",
+  "  - Windows 10, -2.40%, , 2, Real, 48.00 %",
 ]
 `;
 
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 9`] = `
 <button
-  aria-label="MD (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  aria-label="Δ Median (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5876,10 +6276,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by MD (%) in descending order
+      Sorted by Δ Median in descending order
     </title>
   </svg>
-  MD (%)
+  Δ Median
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5907,33 +6307,33 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 [
   "a11yr dhtml.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Windows 10, -2.401 %, , -, , 50.00 %",
-  "  - Windows 10, -, , -, , 100.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.1, -, 25.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, -, -, 45.00 %",
+  "  - Windows 10, -2.40%, , -, Real, 50.00 %",
+  "  - Windows 10, -, , -, Real, 100.00 %",
+  "  - macOS 10.15, +1.08%, Improvement, 0.1, Noise, 25.00 %",
+  "  - Linux 18.04, +1.85%, Regression, -, Noise, 45.00 %",
   "  rev: tictactoe",
-  "  - Windows 10, -2.401 %, , 0.8, , 49.00 %",
-  "  - Windows 10, -, , 0.8, , 99.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 0.9, -, 24.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 0.8, -, 44.00 %",
+  "  - Windows 10, -2.40%, , 0.8, Real, 49.00 %",
+  "  - Windows 10, -, , 0.8, Real, 99.00 %",
+  "  - macOS 10.15, +1.08%, Improvement, 0.9, Noise, 24.00 %",
+  "  - Linux 18.04, +1.85%, Regression, 0.8, Noise, 44.00 %",
   "a11yr aria.html opt e10s fission stylo webrender",
   "  rev: spam",
-  "  - Windows 10, -2.401 %, , 1.2, , 49.00 %",
-  "  - Windows 10, -, , 1.2, , 99.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 1.3, -, 24.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 1.2, -, 44.00 %",
+  "  - Windows 10, -2.40%, , 1.2, Real, 49.00 %",
+  "  - Windows 10, -, , 1.2, Real, 99.00 %",
+  "  - macOS 10.15, +1.08%, Improvement, 1.3, Noise, 24.00 %",
+  "  - Linux 18.04, +1.85%, Regression, 1.2, Noise, 44.00 %",
   "  rev: tictactoe",
-  "  - Windows 10, -2.401 %, , 2, , 48.00 %",
-  "  - Windows 10, -, , 2, , 98.00 %",
-  "  - macOS 10.15, 1.078 %, Improvement, 2.1, -, 23.00 %",
-  "  - Linux 18.04, 1.849 %, Regression, 2, -, 43.00 %",
+  "  - Windows 10, -2.40%, , 2, Real, 48.00 %",
+  "  - Windows 10, -, , 2, Real, 98.00 %",
+  "  - macOS 10.15, +1.08%, Improvement, 2.1, Noise, 23.00 %",
+  "  - Linux 18.04, +1.85%, Regression, 2, Noise, 43.00 %",
 ]
 `;
 
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion can sort params from the URL on mann-whitney-u test_version 11`] = `
 <button
-  aria-label="MD (%) (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-7upxw3-MuiButtonBase-root-MuiButton-root"
+  aria-label="Δ Median (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root Mui-focusVisible MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation css-1w0uvhi-MuiButtonBase-root-MuiButton-root"
   tabindex="0"
   type="button"
 >
@@ -5948,10 +6348,10 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by MD (%) in ascending order
+      Sorted by Δ Median in ascending order
     </title>
   </svg>
-  MD (%)
+  Δ Median
   <span
     class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
   >
@@ -5988,7 +6388,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
   aria-controls="significance"
   aria-haspopup="true"
   aria-label="Sig (Click to filter values)"
-  class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-l81dbu-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorTableHeaderButton MuiButton-disableElevation MuiButtonGroup-lastButton css-kne8o5-MuiButtonBase-root-MuiButton-root"
   data-mui-internal-clone-element="true"
   tabindex="0"
   type="button"
@@ -6038,7 +6438,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 
 exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion should render different blocks when rendering several revisions 1`] = `
 <div
-  class="table-revision-content f1k5y3nc"
+  class="table-revision-content f7mnrcj"
   role="rowgroup"
 >
   <div
@@ -6135,7 +6535,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+      class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
       role="row"
     >
       <div
@@ -6191,7 +6591,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         <span
           style="display: inline-flex; align-items: center; gap: 4px;"
         >
-          1.078 %
+          +1.08%
         </span>
       </div>
       <div
@@ -6199,20 +6599,29 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         role="cell"
       >
         <div
-          class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+          class="MuiBox-root css-izuqqr"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-p35293-MuiSvgIcon-root"
-            data-testid="ThumbUpIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <div
+            class="noise-label MuiBox-root css-ub7h36"
           >
-            <path
-              d="M1 21h4V9H1zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"
-            />
-          </svg>
-          Improvement
+            Noise
+          </div>
+          <div
+            class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-p35293-MuiSvgIcon-root"
+              data-testid="ThumbUpIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M1 21h4V9H1zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"
+              />
+            </svg>
+            Improvement
+          </div>
         </div>
       </div>
       <div
@@ -6231,7 +6640,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="significance cell"
         role="cell"
       >
-        -
+        Noise
       </div>
       <div
         class="total-runs cell"
@@ -6324,7 +6733,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_v7_"
+            aria-controls="_r_vu_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -6386,7 +6795,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
       </span>
     </div>
     <div
-      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1woqe0l"
+      class="revisionRow fxapxfk f1dlt78d MuiBox-root css-19q1c17"
       role="row"
     >
       <div
@@ -6442,7 +6851,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         <span
           style="display: inline-flex; align-items: center; gap: 4px;"
         >
-          1.078 %
+          +1.08%
         </span>
       </div>
       <div
@@ -6450,20 +6859,29 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         role="cell"
       >
         <div
-          class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+          class="MuiBox-root css-izuqqr"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-p35293-MuiSvgIcon-root"
-            data-testid="ThumbUpIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <div
+            class="noise-label MuiBox-root css-ub7h36"
           >
-            <path
-              d="M1 21h4V9H1zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"
-            />
-          </svg>
-          Improvement
+            Noise
+          </div>
+          <div
+            class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-p35293-MuiSvgIcon-root"
+              data-testid="ThumbUpIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M1 21h4V9H1zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"
+              />
+            </svg>
+            Improvement
+          </div>
         </div>
       </div>
       <div
@@ -6482,7 +6900,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="significance cell"
         role="cell"
       >
-        -
+        Noise
       </div>
       <div
         class="total-runs cell"
@@ -6575,7 +6993,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls="_r_vf_"
+            aria-controls="_r_106_"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -6603,7 +7021,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
 
 exports[`Results Table should render different blocks when rendering several revisions 1`] = `
 <div
-  class="table-revision-content f1k5y3nc"
+  class="table-revision-content f7mnrcj"
   role="rowgroup"
 >
   <div
@@ -6700,7 +7118,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1auw4i3"
+      class="revisionRow fxapxfk f1dlt78d MuiBox-root css-1auw4i3"
       role="row"
     >
       <div
@@ -6946,7 +7364,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </span>
     </div>
     <div
-      class="revisionRow f1wmgkbg f1dlt78d MuiBox-root css-1auw4i3"
+      class="revisionRow fxapxfk f1dlt78d MuiBox-root css-1auw4i3"
       role="row"
     >
       <div

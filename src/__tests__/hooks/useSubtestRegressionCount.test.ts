@@ -104,7 +104,6 @@ describe('useSubtestRegressionCount', () => {
         newParentSignature: '200',
         replicates: false,
         testVersion: 'mann-whitney-u',
-        silvermanKDEEnabled: false,
       });
     });
   });
@@ -245,30 +244,6 @@ describe('useSubtestRegressionCount', () => {
     expect(hookResult.current.counts).not.toBeNull();
   });
 
-  it('passes silvermanKDEEnabled as true when the URL param is present', async () => {
-    window.history.replaceState(
-      null,
-      '',
-      '/compare-results?baseRev=abc&baseRepo=mozilla-central&framework=1&enable_silverman_kde',
-    );
-    mockedFetchCompare.mockResolvedValue([]);
-
-    renderHook(() =>
-      useSubtestRegressionCount({
-        result: baseResult,
-        view: compareView,
-        replicates: false,
-        testVersion: 'mann-whitney-u',
-      }),
-    );
-
-    await waitFor(() => {
-      expect(mockedFetchCompare).toHaveBeenCalledWith(
-        expect.objectContaining({ silvermanKDEEnabled: true }),
-      );
-    });
-  });
-
   it('calls memoizedFetchSubtestsCompareOverTimeResults with interval from URL for compareOverTimeView', async () => {
     window.history.replaceState(
       null,
@@ -290,7 +265,6 @@ describe('useSubtestRegressionCount', () => {
       expect(mockedFetchCompareOverTime).toHaveBeenCalledWith(
         expect.objectContaining({
           interval: 86400,
-          silvermanKDEEnabled: false,
         }),
       );
     });

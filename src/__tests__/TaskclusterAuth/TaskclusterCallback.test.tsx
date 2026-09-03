@@ -12,7 +12,9 @@ describe('Taskcluster Callback', () => {
   function setup({ inputState }: { inputState: string }) {
     // Make window.close a noop so that the component can be rendered after the
     // authentication process.
-    jest.spyOn(window, 'close').mockImplementation(() => {});
+    const mockedWindowClose = jest
+      .spyOn(window, 'close')
+      .mockImplementation(() => {});
 
     sessionStorage.setItem('requestState', inputState);
     sessionStorage.setItem(
@@ -21,6 +23,8 @@ describe('Taskcluster Callback', () => {
     );
 
     mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
+
+    return { mockedWindowClose };
   }
 
   it('should fetch credentials with token bearer', async () => {
@@ -31,7 +35,7 @@ describe('Taskcluster Callback', () => {
     const returnedClientId =
       'mozilla-auth0/ad|Mozilla-LDAP|ldapuser/perfcompare-localhost-3000-client-OCvzh5';
 
-    setup({ inputState });
+    const { mockedWindowClose } = setup({ inputState });
 
     fetchMock.post(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
@@ -61,7 +65,7 @@ describe('Taskcluster Callback', () => {
       await screen.findByText(/Credentials were found/),
     ).toBeInTheDocument();
 
-    expect(window.fetch).toHaveFetched(
+    expect(global.fetch).toHaveFetched(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
       {
         method: 'POST',
@@ -88,7 +92,7 @@ describe('Taskcluster Callback', () => {
       redirect_uri: 'http://localhost/taskcluster-auth',
     });
 
-    expect(window.fetch).toHaveLastFetched(
+    expect(global.fetch).toHaveLastFetched(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
       {
         headers: {
@@ -106,7 +110,7 @@ describe('Taskcluster Callback', () => {
       `{"https://firefox-ci-tc.services.mozilla.com":{"expires":"2024-05-20T14:07:40.828Z","credentials":{"clientId":"${returnedClientId}","accessToken":"${returnedUserToken}"}}}`,
     );
 
-    expect(window.close).toHaveBeenCalled();
+    expect(mockedWindowClose).toHaveBeenCalled();
   });
 
   it('should show a spinner while waiting for the credentials', async () => {

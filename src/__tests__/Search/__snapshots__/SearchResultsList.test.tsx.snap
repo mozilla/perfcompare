@@ -847,7 +847,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 <span
                   class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
                 >
-                  Dark mode
+                  Switch to Dark mode
                 </span>
               </label>
             </div>
@@ -1059,7 +1059,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--base"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -1247,7 +1247,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--new"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -1428,7 +1428,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         aria-haspopup="listbox"
                         aria-label="Framework"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="combobox"
                         tabindex="0"
@@ -1586,7 +1586,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             id="mui-component-select-baseRepo"
                             role="combobox"
                             tabindex="0"
@@ -1631,7 +1631,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             id="mui-component-select-selectedTimeRange"
                             role="combobox"
                             tabindex="0"
@@ -1713,7 +1713,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--overtime"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="combobox"
                             tabindex="0"
                           >
@@ -1893,7 +1893,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         aria-haspopup="listbox"
                         aria-label="Framework"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-12fteis-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="combobox"
                         tabindex="0"

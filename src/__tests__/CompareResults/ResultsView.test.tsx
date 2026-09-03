@@ -15,7 +15,7 @@ import type { Framework } from '../../types/types';
 import { fftkde } from '../../utils/kde.js';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen, waitFor } from '../utils/test-utils';
+import { renderWithRouter, screen, waitFor, within } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   const { testCompareData, testData } = getTestData();
@@ -345,10 +345,8 @@ describe('Results View', () => {
         results: [testData[0]],
       });
 
-    jest.spyOn(window, 'alert').mockImplementation();
-    const mockedWindowAlert = window.alert as jest.Mock;
-    jest.spyOn(window, 'open').mockImplementation();
-    const mockedWindowOpen = window.open as jest.Mock;
+    const mockedWindowAlert = jest.spyOn(window, 'alert').mockImplementation();
+    const mockedWindowOpen = jest.spyOn(window, 'open').mockImplementation();
 
     renderWithRouter(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
@@ -375,7 +373,7 @@ describe('Results View', () => {
     await user.click(retriggerButton);
     await user.click(await screen.findByRole('button', { name: /Sign in/ }));
 
-    let windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    let windowOpenUrlString = mockedWindowOpen.mock.lastCall![0] as string;
     let windowOpenUrl = new URL(windowOpenUrlString);
     expect(sessionStorage.requestState).toBe(
       windowOpenUrl.searchParams.get('state'),
@@ -385,7 +383,7 @@ describe('Results View', () => {
     // Test requesting an authorization code from Taskcluster staging URL
     window.location.hash = 'taskcluster-staging';
     await user.click(retriggerButton);
-    windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    windowOpenUrlString = mockedWindowOpen.mock.lastCall![0] as string;
     windowOpenUrl = new URL(windowOpenUrlString);
     expect(sessionStorage.requestState).toBe(
       windowOpenUrl.searchParams.get('state'),
@@ -565,5 +563,42 @@ describe('Results View', () => {
     await waitFor(() => {
       expect(screen.queryAllByTestId(/ExpandLessIcon/)).toHaveLength(0);
     });
+  });
+
+  it('shows the "How to read the results" panel by default and lets the user dismiss it', async () => {
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    await screen.findByText('a11yr');
+
+    // Shown by default.
+    const panel = screen.getByTestId('how-to-read-results');
+    expect(panel).toBeInTheDocument();
+
+    // Dismiss via the panel's close button (scoped: the MWU warning banner
+    // also has a close button).
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(within(panel).getByRole('button', { name: /close/i }));
+    expect(screen.queryByTestId('how-to-read-results')).not.toBeInTheDocument();
+
+    // The "How to read the results" checkbox brings it back.
+    await user.click(
+      screen.getByRole('checkbox', { name: /How to read the results/i }),
+    );
+    expect(screen.getByTestId('how-to-read-results')).toBeInTheDocument();
+  });
+
+  it('shows the Mann-Whitney-U warning banner and lets the user dismiss it with the X', async () => {
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    await screen.findByText('a11yr');
+
+    // Shown by default (the default test version is Mann-Whitney-U).
+    const warning = await screen.findByText(/experimental stage/i);
+    const banner = warning.closest('.MuiAlert-root') as HTMLElement;
+    expect(banner).toBeInTheDocument();
+
+    // Dismiss via the banner's close button.
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(within(banner).getByRole('button', { name: /close/i }));
+
+    expect(screen.queryByText(/experimental stage/i)).not.toBeInTheDocument();
   });
 });

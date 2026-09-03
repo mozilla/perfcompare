@@ -8,6 +8,9 @@ import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import { STUDENT_T } from '../../../common/constants';
+import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
+import useInitializeTableStateFromCookies from '../../../hooks/useInitializeTableStateFromCookies';
+import useSeedAdvancedOptionsFromUrl from '../../../hooks/useSeedAdvancedOptionsFromUrl';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CombinedResultsItemType } from '../../../types/state';
@@ -79,10 +82,18 @@ function SubtestsResultsTable({
   replicates,
   testVersion,
 }: ResultsTableProps) {
-  const columnsConfiguration = getColumnsConfiguration(
-    true,
-    testVersion ?? STUDENT_T,
+  useSeedAdvancedOptionsFromUrl();
+  const advancedColumns = useAdvancedColumns();
+  const columnsConfiguration = useMemo(
+    () =>
+      getColumnsConfiguration(true, testVersion ?? STUDENT_T, advancedColumns),
+    [testVersion, advancedColumns],
   );
+
+  // On a fresh (uninitialized) URL, seed filter/sort from cookies into the URL
+  // and mark it initialized, so shared links reproduce the same view.
+  useInitializeTableStateFromCookies(columnsConfiguration);
+
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =

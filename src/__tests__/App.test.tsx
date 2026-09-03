@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import App, { router } from '../components/App';
 import getTestData from './utils/fixtures';
-import { act, render, screen } from './utils/test-utils';
+import { act, render, screen, within } from './utils/test-utils';
 
 describe('App', () => {
   beforeEach(() => {
@@ -96,10 +96,12 @@ describe('App', () => {
     });
 
     await user.click(darkModeButton);
-    expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
+    expect(screen.getByLabelText('Switch to Light mode')).toBeInTheDocument();
 
     await user.click(darkModeButton);
-    expect(screen.queryByLabelText('Light mode')).not.toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('Switch to Light mode'),
+    ).not.toBeInTheDocument();
   });
 
   describe('CompareResults or CompareOverTime loader', () => {
@@ -396,11 +398,13 @@ describe('App', () => {
       // Wait for the page to load
       await screen.findByText('a11yr');
 
-      // Verify that Mann-Whitney-U specific columns are rendered
-      // (this indicates the testVersion defaulted to mann-whitney-u)
-      expect(screen.getByText('CD')).toBeInTheDocument();
-      expect(screen.getByText('Sig')).toBeInTheDocument();
-      expect(screen.getByText('CLES (%)')).toBeInTheDocument();
+      // Verify a Mann-Whitney-U specific column is rendered — "Δ Median" is
+      // unique to the Mann-Whitney strategy (Student-T uses "Delta"), so its
+      // presence in the table header indicates the testVersion defaulted to
+      // mann-whitney-u. Scope to the header since the "How to read the results"
+      // panel also names it.
+      const tableHeader = screen.getByTestId('table-header');
+      expect(within(tableHeader).getByText('Δ Median')).toBeInTheDocument();
 
       // Verify the Stats Test Version dropdown shows Mann-Whitney-U as selected
       const testVersionDropdown = screen.getByRole('combobox', {

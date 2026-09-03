@@ -1,19 +1,16 @@
-import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import WarningIcon from '@mui/icons-material/Warning';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 
-import { MannWhitneyCompareMetrics } from '../../components/CompareResults/MannWhitneyCompareMetrics';
 import PValCliffsDeltaComp from '../../components/CompareResults/PValCliffsDeltaComp';
-import { StatisticsWarnings } from '../../components/CompareResults/StatisticsWarnings';
 import { FontSize } from '../../styles';
 import {
   CombinedResultsItemType,
   MannWhitneyResultsItem,
 } from '../../types/state';
-import { TableConfig } from '../../types/types';
+import { AdvancedColumns, TableConfig } from '../../types/types';
 import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
 import { adaptUnit, formatNumber } from '../../utils/format';
 import { capitalize } from '../../utils/helpers';
@@ -26,6 +23,7 @@ import { shapiroWilkTest } from '../../utils/shapiroWilk';
 import { defaultSortFunction } from '../../utils/sortFunctions';
 import {
   tooltipBaseMean,
+  tooltipMagnitude,
   tooltipMedianDiff,
   tooltipNewMean,
   tooltipSignificance,
@@ -79,38 +77,240 @@ const SW_NORMALITY_THRESHOLD = 0.2;
 
 type NormalityResult = 'both' | 'one' | 'neither';
 
+// Shapiro-Wilk is run twice (base + new) per call and cell renderers invoke
+// this for every row on every render. Cache by the (stable) result object so
+// the test runs once per result rather than once per render.
+//
+// A WeakMap is a lookup table whose keys are objects (here, the result object).
+// "Weak" means it does not keep those objects alive: once a result is no longer
+// used anywhere else (e.g. the user loads new data), it gets garbage-collected
+// and its cache entry disappears on its own — so this cache never leaks memory
+// and needs no manual cleanup.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
+const normalityCache = new WeakMap<MannWhitneyResultsItem, NormalityResult>();
+
 export function checkDistributionNormality(
   result: MannWhitneyResultsItem,
 ): NormalityResult {
+  const cached = normalityCache.get(result);
+  if (cached !== undefined) return cached;
+
   const baseResult = shapiroWilkTest(result.base_runs);
   const newResult = shapiroWilkTest(result.new_runs);
   const baseNormal =
     baseResult !== null && baseResult.pvalue > SW_NORMALITY_THRESHOLD;
   const newNormal =
     newResult !== null && newResult.pvalue > SW_NORMALITY_THRESHOLD;
-  if (baseNormal && newNormal) return 'both';
-  if (baseNormal || newNormal) return 'one';
-  return 'neither';
+  const value: NormalityResult =
+    baseNormal && newNormal
+      ? 'both'
+      : baseNormal || newNormal
+        ? 'one'
+        : 'neither';
+
+  normalityCache.set(result, value);
+  return value;
 }
 
 export function isDistributionNormal(result: MannWhitneyResultsItem): boolean {
   return checkDistributionNormality(result) !== 'neither';
 }
 
+function medianOf(values: number[]): number | null {
+  if (!values.length) return null;
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? (sorted[mid - 1] + sorted[mid]) / 2
+    : sorted[mid];
+}
+
+// Δ median as a signed percentage of the base median, computed from the raw
+// runs. This is the same basis as the expanded panel's "Δ median" blurb
+// (bootstrapMedianDiffCI's point estimate is median(new) - median(base) over
+// the same runs), so the column and the panel always agree.
+//
+// Cached by the (stable) result object (see the WeakMap note on normalityCache
+// above): this is called per row on every render and, in the Δ Median % sort
+// comparator, on every comparison — recomputing the median (which sorts both
+// run arrays) each time would be wasteful.
+const medianDiffPctCache = new WeakMap<MannWhitneyResultsItem, number | null>();
+
+export function medianDiffPct(result: MannWhitneyResultsItem): number | null {
+  const cached = medianDiffPctCache.get(result);
+  if (cached !== undefined) return cached;
+
+  const baseMedian = medianOf(result.base_runs ?? []);
+  const newMedian = medianOf(result.new_runs ?? []);
+  let value: number | null;
+  if (baseMedian === null || newMedian === null) {
+    // No data to compute from → "-".
+    value = null;
+  } else if (baseMedian === 0) {
+    // A zero base median yields 0% rather than an undefined division.
+    value = 0;
+  } else {
+    value = ((newMedian - baseMedian) / baseMedian) * 100;
+  }
+
+  medianDiffPctCache.set(result, value);
+  return value;
+}
+
+export function formatMedianDiffPct(pct: number): string {
+  return `${pct >= 0 ? '+' : ''}${pct.toFixed(2)}%`;
+}
+
+// Status cell: the direction of change (Improvement/Regression/No change),
+// with a "Noise" label above it when the result isn't statistically
+// significant. The Significance column is hidden by default (it's an advanced
+// column), so this keeps the noise signal visible in the simplified view.
+// Shared by the main and subtests rows so they render identically.
+function renderStatusCell(
+  directionOfChange: MannWhitneyResultsItem['direction_of_change'],
+  isNoise: boolean,
+) {
+  const isImprovement = directionOfChange === 'improvement';
+  const isRegression = directionOfChange === 'regression';
+  return (
+    <div className='status cell' role='cell'>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 0.5,
+        }}
+      >
+        {isNoise ? (
+          <Box
+            className='noise-label'
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              borderRadius: '4px',
+              padding: '2px 8px',
+              fontSize: '11px',
+              fontWeight: 600,
+              lineHeight: 1.2,
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em',
+              color: 'text.secondary',
+              bgcolor: 'action.hover',
+            }}
+          >
+            Noise
+          </Box>
+        ) : null}
+        <Box
+          sx={{
+            bgcolor: isImprovement
+              ? 'status.improvement'
+              : isRegression
+                ? 'status.regression'
+                : 'none',
+          }}
+          className={`status-hint ${determineStatusHintClass(
+            isImprovement,
+            isRegression,
+          )}`}
+        >
+          {isImprovement ? <ThumbUpIcon color='success' /> : null}
+          {isRegression ? <ThumbDownIcon color='error' /> : null}
+          {capitalize(directionOfChange ?? '')}
+        </Box>
+      </Box>
+    </div>
+  );
+}
+
+// Single source of truth for the check, used by the Status cell /
+// filter and the Significance cell.
+function resultIsNoise(result: MannWhitneyResultsItem): boolean {
+  return result.mann_whitney_test?.interpretation === 'not significant';
+}
+
+// Magnitude cell — the plain-language Cliff's Delta interpretation
+// (negligible/small/medium/large). Shown only in the simplified view; the
+// numeric CD column covers it once advanced columns are on. Shared by the
+// main and subtests rows.
+function renderMagnitudeCell(interpretation: string) {
+  return (
+    <div className='magnitude cell' role='cell'>
+      {interpretation ? capitalize(interpretation) : '-'}
+    </div>
+  );
+}
+
+// Significance cell — plain-language "Real" / "Noise" from the Mann-Whitney-U
+// interpretation. Only shown when the (advanced) Significance column is on.
+// Shared by the main and subtests rows.
+function renderSignificanceCell(interpretation: string | null | undefined) {
+  return (
+    <div className='significance cell' role='cell'>
+      {interpretation === 'significant'
+        ? 'Real'
+        : interpretation === 'not significant'
+          ? 'Noise'
+          : '-'}
+    </div>
+  );
+}
+
+// Δ Median % cell, shared by the main and subtests rows. Shows the run-based
+// median difference; a warning icon flags non-normal distributions, and "-"
+// when the value can't be computed.
+function renderMedianDiffCell(result: MannWhitneyResultsItem) {
+  const pct = medianDiffPct(result);
+  const normality = checkDistributionNormality(result);
+  return (
+    <div className='median-diff cell' role='cell'>
+      {pct === null ? (
+        '-'
+      ) : (
+        <span
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+        >
+          {formatMedianDiffPct(pct)}
+          {normality !== 'both' && (
+            <WarningIcon
+              titleAccess="Distribution shapes aren't normal."
+              sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
+            />
+          )}
+        </span>
+      )}
+    </div>
+  );
+}
+
 export const mannWhitneyStrategy = {
-  getColumns(isSubtestTable: boolean): TableConfig {
+  getColumns(
+    isSubtestTable: boolean,
+    advancedColumns: AdvancedColumns,
+  ): TableConfig {
+    const {
+      cliffsDelta: showCliffsDelta,
+      cles: showCles,
+      significance: showSignificance,
+    } = advancedColumns;
+    // Whether an effect-size advanced column (CD/CLES) is showing — used to
+    // widen Δ Median %, hide the plain-language Magnitude column, and abbreviate
+    // the Significance header so it doesn't crowd Total Trials. Significance is
+    // its own independent toggle and doesn't affect these.
+    const anyAdvanced = showCliffsDelta || showCles;
     const platformConfig = isSubtestTable
       ? {
           name: 'Subtests',
           key: 'subtests',
-          gridWidth: '1.5fr',
+          gridWidth: '1.25fr',
           sortFunction: defaultSortFunction,
         }
       : {
           name: 'Platform',
           filter: true,
           key: 'platform',
-          gridWidth: '1.5fr',
+          gridWidth: '1.25fr',
           possibleValues: PLATFORM_FILTER_VALUES,
           matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
             const label = this.possibleValues.find(
@@ -127,26 +327,25 @@ export const mannWhitneyStrategy = {
       {
         name: 'Base',
         key: 'base',
-        gridWidth: '1fr',
+        gridWidth: '.75fr',
         tooltip: tooltipBaseMean,
       },
       { key: 'comparisonSign', gridWidth: '0.25fr' },
-      { name: 'New', key: 'new', gridWidth: '1fr', tooltip: tooltipNewMean },
+      { name: 'New', key: 'new', gridWidth: '.75fr', tooltip: tooltipNewMean },
       {
-        name: 'MD (%)',
+        name: 'Δ Median',
         key: 'median-diff',
         gridWidth: '1fr',
         sortFunction(
           resultA: MannWhitneyResultsItem,
           resultB: MannWhitneyResultsItem,
         ) {
-          // Compute a normalized median diff percentage where positive
-          // means "improved" regardless of whether lower or higher is better.
+          // Normalize so positive means "improved" regardless of whether lower
+          // or higher is better. Uses the same run-based Δ median % the cell
+          // displays, so sort order matches the shown values.
           const normalizedDiffPct = (r: MannWhitneyResultsItem) => {
-            const base = r.base_standard_stats?.median ?? 0;
-            const newVal = r.new_standard_stats?.median ?? 0;
-            const rawPct = base !== 0 ? ((newVal - base) / base) * 100 : 0;
-            return r.lower_is_better ? -rawPct : rawPct;
+            const pct = medianDiffPct(r) ?? 0;
+            return r.lower_is_better ? -pct : pct;
           };
 
           return normalizedDiffPct(resultB) - normalizedDiffPct(resultA);
@@ -157,13 +356,23 @@ export const mannWhitneyStrategy = {
         name: 'Status',
         filter: true,
         key: 'status',
-        gridWidth: '1.5fr',
+        gridWidth: '1fr',
         possibleValues: [
           { label: 'No changes', key: 'none' },
           { label: 'Improvement', key: 'improvement' },
           { label: 'Regression', key: 'regression' },
+          { label: 'Noise', key: 'noise' },
         ],
         matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
+          // Noise is mutually exclusive with the direction buckets: a noisy
+          // (not-significant) row belongs to "Noise" only, so unchecking Noise
+          // hides it, and the direction buckets match only real changes.
+          if (valueKey === 'noise') {
+            return resultIsNoise(result);
+          }
+          if (resultIsNoise(result)) {
+            return false;
+          }
           switch (valueKey) {
             case 'improvement':
               return result.direction_of_change === 'improvement';
@@ -178,66 +387,117 @@ export const mannWhitneyStrategy = {
         },
         tooltip: tooltipStatusMannWhitney,
       },
-      {
-        name: 'CD',
-        key: 'delta',
-        gridWidth: '1fr',
-        sortFunction(
-          resultA: MannWhitneyResultsItem,
-          resultB: MannWhitneyResultsItem,
-        ) {
-          return (
-            Math.abs(resultA.cliffs_delta) - Math.abs(resultB.cliffs_delta)
-          );
-        },
-        tooltip: tooltipCliffsDelta,
-      },
-      {
-        name: 'CLES (%)',
-        key: 'effects',
-        gridWidth: '1.25fr',
-        sortFunction(
-          resultA: MannWhitneyResultsItem,
-          resultB: MannWhitneyResultsItem,
-        ) {
-          return (
-            Math.abs((resultA.cles?.cles ?? 0.5) - 0.5) -
-            Math.abs((resultB.cles?.cles ?? 0.5) - 0.5)
-          );
-        },
-        tooltip: tooltipEffectSize,
-      },
-      {
-        name: 'Sig',
-        key: 'significance',
-        filter: true,
-        gridWidth: '1.25fr',
-        tooltip: tooltipSignificance,
-        possibleValues: [
-          {
-            label: 'Significant',
-            key: 'significant',
-            icon: <KeyboardDoubleArrowUpIcon fontSize='small' />,
-          },
-          {
-            label: 'Not Significant',
-            key: 'not significant',
-            icon: <div>-</div>,
-          },
-        ],
-        matchesFunction(result: MannWhitneyResultsItem, valueKey: string) {
-          return result.mann_whitney_test?.interpretation === valueKey;
-        },
-        sortFunction(
-          resultA: MannWhitneyResultsItem,
-          resultB: MannWhitneyResultsItem,
-        ) {
-          return (
-            Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
-            Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
-          );
-        },
-      },
+      ...(!anyAdvanced
+        ? [
+            {
+              name: 'Magnitude',
+              filter: true,
+              key: 'magnitude',
+              gridWidth: '1.25fr',
+              possibleValues: [
+                { label: 'Negligible', key: 'negligible' },
+                { label: 'Small', key: 'small' },
+                { label: 'Medium', key: 'medium' },
+                { label: 'Large', key: 'large' },
+              ],
+              matchesFunction(
+                result: MannWhitneyResultsItem,
+                valueKey: string,
+              ) {
+                return result.cliffs_interpretation === valueKey;
+              },
+              sortFunction(
+                resultA: MannWhitneyResultsItem,
+                resultB: MannWhitneyResultsItem,
+              ) {
+                // The interpretation buckets derive from |Cliff's Delta|, so
+                // sorting by that magnitude matches the label order
+                // (negligible → large).
+                return (
+                  Math.abs(resultA.cliffs_delta) -
+                  Math.abs(resultB.cliffs_delta)
+                );
+              },
+              tooltip: tooltipMagnitude,
+            },
+          ]
+        : []),
+      ...(showCliffsDelta
+        ? [
+            {
+              name: 'CD',
+              key: 'delta',
+              gridWidth: '1fr',
+              sortFunction(
+                resultA: MannWhitneyResultsItem,
+                resultB: MannWhitneyResultsItem,
+              ) {
+                return (
+                  Math.abs(resultA.cliffs_delta) -
+                  Math.abs(resultB.cliffs_delta)
+                );
+              },
+              tooltip: tooltipCliffsDelta,
+            },
+          ]
+        : []),
+      ...(showCles
+        ? [
+            {
+              name: 'CLES',
+              key: 'effects',
+              gridWidth: '.75fr',
+              sortFunction(
+                resultA: MannWhitneyResultsItem,
+                resultB: MannWhitneyResultsItem,
+              ) {
+                return (
+                  Math.abs((resultA.cles?.cles ?? 0.5) - 0.5) -
+                  Math.abs((resultB.cles?.cles ?? 0.5) - 0.5)
+                );
+              },
+              tooltip: tooltipEffectSize,
+            },
+          ]
+        : []),
+      // Significance is a power-user column, hidden by default and toggled from
+      // the "Advanced columns" dropdown. The noise signal is still surfaced in
+      // the simplified view via the Status cell / filter below. When shown
+      // alongside CD/CLES the header is crowded, so abbreviate to "Sig";
+      // otherwise the full "Significance" label fits.
+      ...(showSignificance
+        ? [
+            {
+              name: anyAdvanced ? 'Sig' : 'Significance',
+              key: 'significance',
+              filter: true,
+              gridWidth: '1fr',
+              tooltip: tooltipSignificance,
+              possibleValues: [
+                // Plain-language labels matching the cell text; the keys still
+                // map to the backend's "significant" / "not significant"
+                // interpretation.
+                { label: 'Real', key: 'significant' },
+                { label: 'Noise', key: 'not significant' },
+              ],
+              matchesFunction(
+                result: MannWhitneyResultsItem,
+                valueKey: string,
+              ) {
+                return result.mann_whitney_test?.interpretation === valueKey;
+              },
+              sortFunction(
+                resultA: MannWhitneyResultsItem,
+                resultB: MannWhitneyResultsItem,
+              ) {
+                return (
+                  Math.abs(resultA.mann_whitney_test?.pvalue ?? 0) -
+                  Math.abs(resultB.mann_whitney_test?.pvalue ?? 0)
+                );
+              },
+            },
+          ]
+        : []),
 
       {
         name: 'Total Trials',
@@ -258,10 +518,15 @@ export const mannWhitneyStrategy = {
     };
   },
 
-  renderSubtestColumns(result: CombinedResultsItemType, expanded: boolean) {
+  renderSubtestColumns(
+    result: CombinedResultsItemType,
+    expanded: boolean,
+    advancedColumns: AdvancedColumns,
+  ) {
     const {
       test,
       cliffs_delta,
+      cliffs_interpretation,
       mann_whitney_test,
       cles,
       direction_of_change,
@@ -270,7 +535,7 @@ export const mannWhitneyStrategy = {
       base_app: baseApp,
       new_app: newApp,
     } = result as MannWhitneyResultsItem;
-    const clesVal = ((cles?.cles ?? 0) * 100).toFixed(2);
+    const clesVal = cles?.cles != null ? (cles.cles * 100).toFixed(2) : null;
     const baseAvgValue =
       (result as MannWhitneyResultsItem).base_standard_stats?.mean ?? 0;
     const newAvgValue =
@@ -295,75 +560,27 @@ export const mannWhitneyStrategy = {
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
         </div>
-        <div className='median-diff cell' role='cell'>
-          {(() => {
-            const mwResult = result as MannWhitneyResultsItem;
-            const normality = checkDistributionNormality(mwResult);
-            if (normality === 'neither') return '-';
-            const baseMedian = mwResult.base_standard_stats?.median ?? 0;
-            const newMedian = mwResult.new_standard_stats?.median ?? 0;
-            const pct =
-              baseMedian !== 0
-                ? ((newMedian - baseMedian) / baseMedian) * 100
-                : 0;
-            return (
-              <span
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                }}
-              >
-                {`${formatNumber(pct)} %`}
-                {normality === 'one' && (
-                  <WarningIcon
-                    titleAccess="Distribution shapes aren't normal."
-                    sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
-                  />
-                )}
-              </span>
-            );
-          })()}
-        </div>
-        <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor:
-                direction_of_change === 'improvement'
-                  ? 'status.improvement'
-                  : direction_of_change === 'regression'
-                    ? 'status.regression'
-                    : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              direction_of_change === 'improvement',
-              direction_of_change === 'regression',
-            )}`}
-          >
-            {direction_of_change === 'improvement' ? (
-              <ThumbUpIcon color='success' />
-            ) : null}
-            {direction_of_change === 'regression' ? (
-              <ThumbDownIcon color='error' />
-            ) : null}
-            {capitalize(direction_of_change ?? '')}
-          </Box>
-        </div>
-        <div className='delta cell' role='cell'>
-          {' '}
-          {cliffs_delta || '-'}
-        </div>
-
-        <div className='effects cell' role='cell'>
-          {clesVal ? `${clesVal}% ` : '-'}
-        </div>
-        <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation === 'significant' ? (
-            <KeyboardDoubleArrowUpIcon fontSize='small' />
-          ) : (
-            '-'
-          )}
-        </div>
+        {renderMedianDiffCell(result as MannWhitneyResultsItem)}
+        {renderStatusCell(
+          direction_of_change,
+          resultIsNoise(result as MannWhitneyResultsItem),
+        )}
+        {!advancedColumns.cliffsDelta &&
+          !advancedColumns.cles &&
+          renderMagnitudeCell(cliffs_interpretation)}
+        {advancedColumns.cliffsDelta && (
+          <div className='delta cell' role='cell'>
+            {' '}
+            {cliffs_delta || '-'}
+          </div>
+        )}
+        {advancedColumns.cles && (
+          <div className='effects cell' role='cell'>
+            {clesVal !== null ? `${clesVal}% ` : '-'}
+          </div>
+        )}
+        {advancedColumns.significance &&
+          renderSignificanceCell(mann_whitney_test?.interpretation)}
       </>
     );
   },
@@ -405,8 +622,10 @@ export const mannWhitneyStrategy = {
 
     const baseRuns = mwResult.base_runs ?? [];
     const newRuns = mwResult.new_runs ?? [];
+    // A BCa CI needs at least 2 runs per side (see bootstrapMedianDiffCI);
+    // with fewer it returns null and we render no interval rather than NaNs.
     const ci =
-      baseRuns.length > 0 && newRuns.length > 0
+      baseRuns.length >= 2 && newRuns.length >= 2
         ? bootstrapMedianDiffCI(baseRuns, newRuns)
         : null;
     const rawUnit =
@@ -415,21 +634,13 @@ export const mannWhitneyStrategy = {
       ? adaptUnit([ci.medianDiff, ci.ciLow, ci.ciHigh], rawUnit)
       : adaptUnit([], rawUnit);
     const ciCrossesZero = ci && ci.ciLow < 0 && ci.ciHigh > 0;
-    const baseMedian = (() => {
-      if (!baseRuns.length) return null;
-      const s = [...baseRuns].sort((a, b) => a - b);
-      const m = Math.floor(s.length / 2);
-      return s.length % 2 === 0 ? (s[m - 1] + s[m]) / 2 : s[m];
-    })();
-    const pctDiff =
-      baseMedian && ci ? ((ci.medianDiff / baseMedian) * 100).toFixed(1) : null;
+    // Same run-based Δ median % the column shows, formatted identically.
+    const pctDiff = medianDiffPct(mwResult);
     const summary = ci ? (
       <span>
         <strong>Δ median</strong> = {fmt(ci.medianDiff)} {displayUnit}
-        {pctDiff !== null
-          ? ` (${Number(pctDiff) >= 0 ? '+' : ''}${pctDiff}%)`
-          : ''}{' '}
-        95% CI [{fmt(ci.ciLow)}, {fmt(ci.ciHigh)}]
+        {pctDiff !== null ? ` (${formatMedianDiffPct(pctDiff)})` : ''} 95% CI [
+        {fmt(ci.ciLow)}, {fmt(ci.ciHigh)}]
         {ciCrossesZero
           ? ' ⚠ interval includes zero — effect direction uncertain'
           : ''}
@@ -464,94 +675,47 @@ export const mannWhitneyStrategy = {
     );
   },
 
-  renderExpandedBottom(result: CombinedResultsItemType) {
-    const mwResult = result as MannWhitneyResultsItem;
-    return (
-      <div style={{ display: 'flex' }}>
-        <MannWhitneyCompareMetrics result={mwResult} />
-        <StatisticsWarnings result={mwResult} />
-      </div>
-    );
+  renderExpandedBottom() {
+    // The Mann-Whitney-U statistics table and data warnings are now rendered
+    // (and individually gated) by RevisionRowExpandable's two-column expanded
+    // grid, so there is nothing to render from the strategy's bottom slot.
+    return null;
   },
 
-  renderColumns(result: CombinedResultsItemType) {
+  renderColumns(
+    result: CombinedResultsItemType,
+    advancedColumns: AdvancedColumns,
+  ) {
+    const mwResult = result as MannWhitneyResultsItem;
     const {
       cliffs_delta,
+      cliffs_interpretation,
       direction_of_change,
       mann_whitney_test,
       cles,
-      base_standard_stats,
-      new_standard_stats,
-    } = result as MannWhitneyResultsItem;
-    const clesValue = cles?.cles ? `${(cles.cles * 100).toFixed(2)} %` : '-';
-    const baseMedian = base_standard_stats?.median ?? 0;
-    const newMedian = new_standard_stats?.median ?? 0;
-    const medianDiffPct =
-      baseMedian !== 0 ? ((newMedian - baseMedian) / baseMedian) * 100 : 0;
-    const normality = checkDistributionNormality(
-      result as MannWhitneyResultsItem,
-    );
+    } = mwResult;
+    const clesValue =
+      cles?.cles != null ? `${(cles.cles * 100).toFixed(2)} %` : '-';
 
     return (
       <>
-        <div className='median-diff cell' role='cell'>
-          {normality === 'neither' ? (
-            '-'
-          ) : (
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              {`${formatNumber(medianDiffPct)} %`}
-              {normality === 'one' && (
-                <WarningIcon
-                  titleAccess="Distribution shapes aren't normal."
-                  sx={{ fontSize: '0.9rem', opacity: 0.5, ml: '4px' }}
-                />
-              )}
-            </span>
-          )}
-        </div>
-        <div className='status cell' role='cell'>
-          <Box
-            sx={{
-              bgcolor:
-                direction_of_change === 'improvement'
-                  ? 'status.improvement'
-                  : direction_of_change === 'regression'
-                    ? 'status.regression'
-                    : 'none',
-            }}
-            className={`status-hint ${determineStatusHintClass(
-              direction_of_change === 'improvement',
-              direction_of_change === 'regression',
-            )}`}
-          >
-            {direction_of_change === 'improvement' ? (
-              <ThumbUpIcon color='success' />
-            ) : null}
-            {direction_of_change === 'regression' ? (
-              <ThumbDownIcon color='error' />
-            ) : null}
-            {capitalize(direction_of_change ?? '')}
-          </Box>
-        </div>
-        <div className='delta cell' role='cell'>
-          {cliffs_delta || '-'}
-        </div>
-        <div className='effects cell' role='cell'>
-          {clesValue}
-        </div>
-        <div className='significance cell' role='cell'>
-          {mann_whitney_test?.interpretation === 'significant' ? (
-            <KeyboardDoubleArrowUpIcon fontSize='small' />
-          ) : (
-            '-'
-          )}
-        </div>
+        {renderMedianDiffCell(mwResult)}
+        {renderStatusCell(direction_of_change, resultIsNoise(mwResult))}
+        {!advancedColumns.cliffsDelta &&
+          !advancedColumns.cles &&
+          renderMagnitudeCell(cliffs_interpretation)}
+        {advancedColumns.cliffsDelta && (
+          <div className='delta cell' role='cell'>
+            {cliffs_delta || '-'}
+          </div>
+        )}
+        {advancedColumns.cles && (
+          <div className='effects cell' role='cell'>
+            {clesValue}
+          </div>
+        )}
+        {advancedColumns.significance &&
+          renderSignificanceCell(mann_whitney_test?.interpretation)}
       </>
     );
   },

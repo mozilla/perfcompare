@@ -47,12 +47,12 @@ function computeMax(a?: number, b?: number) {
   return Math.max(a, b);
 }
 
-const LABEL_ROW_PX = 16; // vertical space per stagger level
-const KDE_TOP_BASE = 28;
+const LABEL_ROW_PX = 16;
+const KDE_TOP_BASE = 44;
 const KDE_HEIGHT = 155;
-const SCATTER_TOP_BASE = 250;
+const SCATTER_TOP_BASE = 274;
 const SCATTER_HEIGHT = 50;
-const CHART_HEIGHT_BASE = 340;
+const CHART_HEIGHT_BASE = 364;
 
 // Axis/grid line greys, shared across both grids and the tooltip crosshair.
 const AXIS_LINE_COLOR = '#999';
@@ -130,6 +130,7 @@ function CommonGraph({
   onVtChange,
   showModes,
   onShowModesChange,
+  infoTooltip,
 }: CommonGraphProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartInstanceRef = useRef<ECharts | null>(null);
@@ -472,7 +473,7 @@ function CommonGraph({
       },
       legend: {
         data: ['Base', 'New'],
-        top: 240,
+        top: 0,
         left: 'center',
         itemHeight: 10,
         itemWidth: 30,
@@ -589,15 +590,38 @@ function CommonGraph({
 
   return (
     <>
-      <Typography id='retrigger-modal-title' component='h3' variant='h3'>
-        Runs Density Distribution
-      </Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1,
+        }}
+      >
+        <Typography
+          id='retrigger-modal-title'
+          component='h2'
+          variant='h2'
+          sx={{ fontSize: '1rem' }}
+        >
+          Runs Density Distribution
+        </Typography>
+        {infoTooltip && (
+          <Tooltip placement='top' title={infoTooltip} arrow>
+            <InfoIcon
+              fontSize='small'
+              tabIndex={0}
+              aria-label='How to read this graph'
+              sx={{ cursor: 'help', color: 'text.secondary' }}
+            />
+          </Tooltip>
+        )}
+      </Box>
+
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           gap: 1.5,
-          mt: 1,
           mb: 0.5,
         }}
       >
@@ -625,14 +649,6 @@ function CommonGraph({
           </Tooltip>
           :
         </Typography>
-        {/*
-          MUI Slider exposes two events: `onChange` fires continuously during
-          drag (we send it to local state for a smooth thumb), and
-          `onChangeCommitted` fires once when the user releases (we push the
-          final value up to the parent then). This is the moral equivalent of
-          a debounce — the expensive consumer (`computeModeInfo`) runs once
-          per drag instead of on every pixel of movement.
-        */}
         <Slider
           size='small'
           value={localVt}
@@ -704,14 +720,12 @@ interface CommonGraphProps {
   sharedBw: number | undefined;
   bwMultiplier: number;
   onBwMultiplierChange: (value: number) => void;
-  // True when the raw (unscaled) bandwidth exceeds half the data range —
-  // surfaces the smoothing slider. Stays true while the user dials the
-  // multiplier down so the slider doesn't vanish under them.
   isLargeBw: boolean;
   vt: number;
   onVtChange: (value: number) => void;
   showModes: boolean;
   onShowModesChange: (value: boolean) => void;
+  infoTooltip?: string;
 }
 
 export default CommonGraph;

@@ -20,7 +20,7 @@ export const StatisticsWarnings = ({
     flexWrap: 'wrap',
     borderRadius: 1,
     padding: 1,
-    width: '55%',
+    width: '100%',
     '& .warning-row': {
       verticalAlign: 'bottom',
       display: 'flex',
@@ -32,9 +32,7 @@ export const StatisticsWarnings = ({
   // Combine all warnings into a single list
   const warnings: string[] = [
     ...(result?.shapiro_wilk_warnings ?? []),
-    ...(result?.silverman_warnings ?? []),
     ...(result?.ks_warning ? [result?.ks_warning] : []),
-    ...(result?.kde_warnings ?? []),
   ];
   return (
     <>

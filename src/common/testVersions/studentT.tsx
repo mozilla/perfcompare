@@ -9,7 +9,7 @@ import Distribution from '../../components/CompareResults/Distribution';
 import { Strings } from '../../resources/Strings';
 import { FontSize } from '../../styles';
 import { CombinedResultsItemType, CompareResultsItem } from '../../types/state';
-import { TableConfig } from '../../types/types';
+import { AdvancedColumns, TableConfig } from '../../types/types';
 import { formatNumber } from '../../utils/format';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
@@ -41,7 +41,10 @@ const confidenceIcons: Record<'Low' | 'Medium' | 'High', React.ReactNode> = {
 };
 
 export const studentTStrategy = {
-  getColumns(isSubtestTable: boolean): TableConfig {
+  getColumns(
+    isSubtestTable: boolean,
+    _advancedColumns: AdvancedColumns,
+  ): TableConfig {
     const platformConfig = isSubtestTable
       ? {
           name: 'Subtests',
@@ -159,7 +162,11 @@ export const studentTStrategy = {
     };
   },
 
-  renderSubtestColumns(result: CombinedResultsItemType, expanded: boolean) {
+  renderSubtestColumns(
+    result: CombinedResultsItemType,
+    expanded: boolean,
+    _advancedColumns: AdvancedColumns,
+  ) {
     const {
       test,
       delta_percentage: deltaPercent,
@@ -308,7 +315,10 @@ export const studentTStrategy = {
     return null;
   },
 
-  renderColumns(result: CombinedResultsItemType) {
+  renderColumns(
+    result: CombinedResultsItemType,
+    _advancedColumns: AdvancedColumns,
+  ) {
     const {
       is_improvement: improvement,
       is_regression: regression,

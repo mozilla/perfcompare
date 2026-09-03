@@ -14,7 +14,44 @@ import { VirtuosoMockContext } from 'react-virtuoso';
 
 import { store } from './setupTests';
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
+import {
+  updateShowCliffsDelta,
+  updateShowCles,
+  updateShowSignificance,
+  updateExpandedRow,
+} from '../../reducers/ColumnPrefsSlice';
 import getProtocolTheme from '../../theme/protocolTheme';
+import type { ExpandedRowOptions } from '../../types/types';
+
+// Turn on all advanced results columns (Cliff's Delta, CLES, Significance) for
+// tests that exercise them. They're hidden by default (simplified view), so
+// call this before rendering in tests that assert on those columns. The store
+// is recreated in each test's beforeEach, so this only affects the current test.
+export function enableAdvancedColumns() {
+  store.dispatch(updateShowCliffsDelta(true));
+  store.dispatch(updateShowCles(true));
+  store.dispatch(updateShowSignificance(true));
+}
+
+// Turn on advanced Mann-Whitney-U expanded-row components (effect size, mode
+// analysis, statistics table, warnings). They're hidden by default; call this
+// before rendering in tests that assert on those expanded-row components. With
+// no argument every component is enabled; pass an override to enable only a
+// subset (e.g. `{ statsTable: true }` turns on the stats table alone).
+export function enableExpandedRowOptions(
+  overrides?: Partial<ExpandedRowOptions>,
+) {
+  const allEnabled = !overrides;
+  store.dispatch(
+    updateExpandedRow({
+      effectSize: allEnabled,
+      modes: allEnabled,
+      statsTable: allEnabled,
+      warnings: allEnabled,
+      ...overrides,
+    }),
+  );
+}
 
 type ThemeConfig = Partial<Theme> | null;
 export function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {

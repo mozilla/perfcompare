@@ -461,6 +461,25 @@ export type TokenBearer = {
 
 export type TestVersion = 'student-t' | 'mann-whitney-u';
 
+// Per-column visibility for the advanced (power-user) statistics columns.
+// Each is toggled independently from the "Advanced columns" dropdown, so
+// either, both, or neither can be shown.
+export interface AdvancedColumns {
+  cliffsDelta: boolean;
+  cles: boolean;
+  significance: boolean;
+}
+
+// Visibility of the (power-user) components in the Mann-Whitney-U expanded row.
+// Hidden by default (the simplified expanded view); toggled from the "Advanced
+// options" dropdown. Persisted in the URL like AdvancedColumns.
+export interface ExpandedRowOptions {
+  effectSize: boolean;
+  modes: boolean;
+  statsTable: boolean;
+  warnings: boolean;
+}
+
 export type SortFunc = (
   resultA: CombinedResultsItemType,
   resultB: CombinedResultsItemType,

@@ -12,6 +12,7 @@ import { RetriggerButton } from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { getStrategy } from '../../common/testVersions';
+import useAdvancedColumns from '../../hooks/useAdvancedColumns';
 import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
@@ -52,6 +53,8 @@ const browserName = style({
 const revisionRow = style({
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
+  // Keep this gap in sync with the header grid in TableHeader.
+  columnGap: `${Spacing.Small}px`,
   margin: `${Spacing.Small}px 0px 0px 0px`,
   $nest: {
     '.cell': {
@@ -136,21 +139,20 @@ const loadingMessage = style({
   padding: `0 0 ${Spacing.xSmall}px`,
 });
 
-const regressionPill = style({
+const pillStyle = {
   display: 'inline-flex',
   alignItems: 'center',
   borderRadius: '4px',
   padding: '2px 8px',
   fontSize: '0.75rem',
-});
+  cursor: 'pointer',
+  color: 'inherit',
+  textDecoration: 'none',
+};
 
-const improvementPill = style({
-  display: 'inline-flex',
-  alignItems: 'center',
-  borderRadius: '4px',
-  padding: '2px 8px',
-  fontSize: '0.75rem',
-});
+const regressionPill = style(pillStyle);
+
+const improvementPill = style(pillStyle);
 
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,
@@ -246,6 +248,7 @@ function RevisionRow(props: RevisionRowProps) {
     : baseRuns.length;
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
   const strategy = getStrategy(testVersion);
+  const advancedColumns = useAdvancedColumns();
   const { baseAvg: baseAvgValue, newAvg: newAvgValue } =
     strategy.getAvgValues(result);
   const [expanded, setExpanded] = useState(false);
@@ -312,7 +315,7 @@ function RevisionRow(props: RevisionRowProps) {
             <span className={FontSize.xSmall}>({newApp})</span>
           )}
         </div>
-        {strategy.renderColumns(result)}
+        {strategy.renderColumns(result, advancedColumns)}
         <div
           className='total-runs cell'
           title={`Base runs: ${baseRunsCount}, New runs: ${newRunsCount}`}
@@ -409,6 +412,10 @@ function RevisionRow(props: RevisionRowProps) {
           <div className={subtestCountsRow}>
             {subtestCounts.regressionCount > 0 && (
               <Box
+                component='a'
+                href={subtestsCompareLink}
+                target='_blank'
+                rel='noreferrer'
                 sx={{ backgroundColor: 'status.regression' }}
                 className={regressionPill}
               >
@@ -420,6 +427,10 @@ function RevisionRow(props: RevisionRowProps) {
             )}
             {subtestCounts.improvementCount > 0 && (
               <Box
+                component='a'
+                href={subtestsCompareLink}
+                target='_blank'
+                rel='noreferrer'
                 sx={{ backgroundColor: 'status.improvement' }}
                 className={improvementPill}
               >

@@ -1,5 +1,5 @@
 import { getColumnsForVersion } from '../common/testVersions';
-import { TableConfig, TestVersion } from '../types/types';
+import { AdvancedColumns, TableConfig, TestVersion } from '../types/types';
 
 // Re-exported for consumers that import sort utilities from this module.
 export {
@@ -11,6 +11,8 @@ export {
 export const getColumnsConfiguration = (
   isSubtestTable: boolean,
   testVersion: TestVersion,
-): TableConfig => getColumnsForVersion(testVersion, isSubtestTable);
+  advancedColumns: AdvancedColumns,
+): TableConfig =>
+  getColumnsForVersion(testVersion, isSubtestTable, advancedColumns);
 
 export { toGridTemplateColumns } from './gridTemplateColumns';

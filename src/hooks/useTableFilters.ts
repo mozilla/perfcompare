@@ -12,6 +12,12 @@ import type {
   CompareMannWhitneyResultsTableColumn,
 } from '../types/types';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
+import {
+  filterParam,
+  filterCookie,
+  isTableStateInitialized,
+  currentUrlParams,
+} from '../utils/tableStatePersistence';
 
 // This hook handles the state that handles table filtering, and also takes care
 // of handling the URL parameters that mirror this state.
@@ -65,6 +71,10 @@ const useTableFilters = (
 
   // This function collects the table filters from the search params. It will
   // only be called once at mount time.
+  // Cookies are only consulted for an uninitialized URL; an initialized URL is
+  // the single source of truth so a shared link reproduces the same view.
+  const initialized = isTableStateInitialized(window.location.search);
+
   const getInitialTableFilters = () => {
     const result: Map<string, Set<string>> = new Map();
     for (const columnConfiguration of columnsConfiguration) {
@@ -75,8 +85,8 @@ const useTableFilters = (
       const { key: columnKey, possibleValues } = columnConfiguration;
 
       const paramValue =
-        rawSearchParams.get('filter_' + columnKey) ??
-        getCookie('perfcompare_filter_' + columnKey);
+        rawSearchParams.get(filterParam(columnKey)) ??
+        (initialized ? null : getCookie(filterCookie(columnKey)));
       if (paramValue) {
         const configuredValuesSet = new Set(
           paramValue.split(',').map((item) => item.trim()),
@@ -101,9 +111,10 @@ const useTableFilters = (
   const [tableFilters, setTableFilters] = useState(getInitialTableFilters);
 
   const onClearFilter = (columnId: string) => {
-    rawSearchParams.delete(`filter_${columnId}`);
-    updateRawSearchParams(rawSearchParams);
-    deleteCookie(`perfcompare_filter_${columnId}`);
+    const params = currentUrlParams();
+    params.delete(filterParam(columnId));
+    updateRawSearchParams(params);
+    deleteCookie(filterCookie(columnId));
 
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
@@ -123,14 +134,15 @@ const useTableFilters = (
       return;
     }
 
+    const params = currentUrlParams();
     if (filters.size < columnConfiguration.possibleValues.length) {
-      rawSearchParams.set(`filter_${columnId}`, [...filters].join(','));
-      setCookie(`perfcompare_filter_${columnId}`, [...filters].join(','));
+      params.set(filterParam(columnId), [...filters].join(','));
+      setCookie(filterCookie(columnId), [...filters].join(','));
     } else {
-      rawSearchParams.delete(`filter_${columnId}`);
-      deleteCookie(`perfcompare_filter_${columnId}`);
+      params.delete(filterParam(columnId));
+      deleteCookie(filterCookie(columnId));
     }
-    updateRawSearchParams(rawSearchParams);
+    updateRawSearchParams(params);
 
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
