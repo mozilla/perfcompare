@@ -1,12 +1,10 @@
-import { useState } from 'react';
-
 import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Tooltip from '@mui/material/Tooltip';
+import { useSnackbar } from 'notistack';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
@@ -36,11 +34,6 @@ import {
 } from '../../utils/expandedRowUrl';
 import { currentUrlParams } from '../../utils/tableStatePersistence';
 
-// Power-user options for the Mann-Whitney-U view, in two independent groups:
-// extra table columns and extra expanded-row components. Any combination can be
-// shown. Option values reuse the URL keys so the dropdown, the URL and the
-// serializers share one source of truth. Shared by the main and subtests
-// controls.
 const COLUMN_OPTIONS = [
   { key: CLIFFS_DELTA, label: "Cliff's Delta" },
   { key: CLES, label: 'CLES' },
@@ -48,11 +41,19 @@ const COLUMN_OPTIONS = [
 ] as const;
 
 const EXPANDED_OPTIONS = [
-  { key: EFFECT_SIZE, label: 'Effect size & confidence intervals' },
-  { key: MODES, label: 'Mode analysis' },
-  { key: STATS_TABLE, label: 'Statistics table' },
-  { key: WARNINGS, label: 'Data warnings' },
-] as const;
+  {
+    key: EFFECT_SIZE,
+    field: 'effectSize',
+    label: 'Effect size & confidence intervals',
+  },
+  { key: MODES, field: 'modes', label: 'Mode analysis' },
+  { key: STATS_TABLE, field: 'statsTable', label: 'Statistics table' },
+  { key: WARNINGS, field: 'warnings', label: 'Data warnings' },
+] as const satisfies ReadonlyArray<{
+  key: string;
+  field: keyof ExpandedRowOptions;
+  label: string;
+}>;
 
 function AdvancedOptionsMenu() {
   const dispatch = useAppDispatch();
@@ -60,10 +61,7 @@ function AdvancedOptionsMenu() {
   const advancedColumns = useAdvancedColumns();
   const expandedRow = useExpandedRowOptions();
   const [, updateRawSearchParams] = useRawSearchParams();
-  // Track the Select's open state so the tooltip can be suppressed while the
-  // dropdown is open — otherwise it renders over (and hides) the checkboxes.
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
   // Derive the selected option values from the same serializers used for the
   // URL, so the Select's value can't drift from the URL encoding.
@@ -90,6 +88,16 @@ function AdvancedOptionsMenu() {
     dispatch(updateShowSignificance(columns.significance));
     dispatch(updateExpandedRow(expanded));
 
+    const added = EXPANDED_OPTIONS.find(
+      ({ field }) => expanded[field] && !expandedRow[field],
+    );
+    if (added) {
+      enqueueSnackbar(`${added.label} added to the expanded rows`, {
+        variant: 'info',
+        autoHideDuration: 3000,
+      });
+    }
+
     // Write both params onto the live URL so neither group clobbers the other.
     const params = currentUrlParams();
     const setOrDelete = (param: string, value: string | null) =>
@@ -113,45 +121,31 @@ function AdvancedOptionsMenu() {
   );
 
   return (
-    <Tooltip
-      placement='top'
-      title='Show advanced columns and expanded-row details'
-      // Suppress the tooltip while the dropdown is open so it can't render over
-      // the checkboxes.
-      open={tooltipOpen && !menuOpen}
-      onOpen={() => setTooltipOpen(true)}
-      onClose={() => setTooltipOpen(false)}
-    >
-      <FormControl size='small' sx={{ width: '100%' }}>
-        <Select
-          multiple
-          displayEmpty
-          open={menuOpen}
-          onOpen={() => setMenuOpen(true)}
-          onClose={() => setMenuOpen(false)}
-          data-testid='advanced-options-select'
-          className='advanced-options-select'
-          value={selectedKeys}
-          onChange={onChange}
-          renderValue={() => 'Advanced options'}
-          variant='outlined'
-          size='small'
-          // Keep the visible label as the accessible name; without this MUI's
-          // Tooltip would set the title as aria-label.
-          inputProps={{ 'aria-label': 'Advanced options' }}
-          MenuProps={{
-            classes: {
-              paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
-            },
-          }}
-        >
-          <ListSubheader>Columns</ListSubheader>
-          {COLUMN_OPTIONS.map(renderOption)}
-          <ListSubheader>Expanded row</ListSubheader>
-          {EXPANDED_OPTIONS.map(renderOption)}
-        </Select>
-      </FormControl>
-    </Tooltip>
+    <FormControl size='small' sx={{ width: 190 }}>
+      <Select
+        multiple
+        displayEmpty
+        data-testid='advanced-options-select'
+        className='advanced-options-select'
+        value={selectedKeys}
+        onChange={onChange}
+        renderValue={() => 'Advanced options'}
+        variant='outlined'
+        size='small'
+        inputProps={{ 'aria-label': 'Advanced options' }}
+        MenuProps={{
+          disableScrollLock: true,
+          classes: {
+            paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
+          },
+        }}
+      >
+        <ListSubheader>Advanced Columns</ListSubheader>
+        {COLUMN_OPTIONS.map(renderOption)}
+        <ListSubheader>Advanced expanded row details</ListSubheader>
+        {EXPANDED_OPTIONS.map(renderOption)}
+      </Select>
+    </FormControl>
   );
 }
 

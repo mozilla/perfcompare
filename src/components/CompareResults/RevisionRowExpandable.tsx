@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Fade from '@mui/material/Fade';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
@@ -28,13 +29,21 @@ const LARGE_BW_RATIO = 0.5;
 
 const { singleRun } = Strings.components.expandableRow;
 
-// Plain-language help shown above the density graph in the simplified
-// Mann-Whitney-U expanded view.
 const GRAPH_BLURB =
   'This graph shows how the Base and New results are distributed. Two curves ' +
   'that mostly overlap mean the builds performed about the same; curves that ' +
   'sit apart suggest a real difference — the further apart, the bigger the ' +
   'change.';
+
+function ExpandedCell({ children }: { children: ReactNode }) {
+  return (
+    <Grid size={{ xs: 12, md: 6 }}>
+      <Fade in appear timeout={500}>
+        <Box>{children}</Box>
+      </Fade>
+    </Grid>
+  );
+}
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id, testVersion } = props;
@@ -62,13 +71,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const strategy = getStrategy(testVersion);
   const isMannWhitney = testVersion === MANN_WHITNEY_U;
   const expandedRow = useExpandedRowOptions();
-
-  // In the Mann-Whitney-U simplified view the mode-analysis controls (valley-
-  // depth slider + "Show modes" checkbox) and the on-chart mode overlays stay
-  // hidden until the "Mode analysis" expanded-row option is enabled. Student-T
-  // always shows them.
-  const modeAnalysisEnabled = isMannWhitney ? expandedRow.modes : true;
-  const showModesForChart = modeAnalysisEnabled && showModes;
 
   // Both of these are only read inside the `isMannWhitney` JSX branch below;
   // they're computed here (rather than in the branch) just to keep the render
@@ -129,9 +131,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         isLargeBw={isLargeBw}
         vt={vt}
         onVtChange={setVt}
-        showModes={showModesForChart}
+        showModes={showModes}
         onShowModesChange={setShowModes}
-        showModeControls={modeAnalysisEnabled}
+        infoTooltip={isMannWhitney ? GRAPH_BLURB : undefined}
       />
     ) : null;
 
@@ -142,7 +144,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       unit={baseUnit || newUnit}
       sharedBw={sharedBw}
       vt={vt}
-      showModes={showModesForChart}
+      showModes={showModes}
       lowerIsBetter={lowerIsBetter ?? true}
       // In the MWU grid the "Mode analysis" cell should never be left blank;
       // fall back to a placeholder when there's no breakdown to show.
@@ -194,35 +196,26 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       >
         <b>{platform}</b>
         {isMannWhitney ? (
-          // Simplified Mann-Whitney-U view: full-width graph with a how-to-read
-          // blurb. The heavier statistical components are shown only when their
-          // "Advanced options → Expanded row" checkbox is on, laid out below the
-          // graph in a two-column grid so they pair up (effect size + mode
-          // analysis on one row, statistics table + data warnings on the next)
-          // instead of each spanning the full width.
           <Stack spacing={2}>
             <div>{comparisonSummary}</div>
-            {graph && <Box sx={{ color: 'text.secondary' }}>{GRAPH_BLURB}</Box>}
             {graph}
             {anyExpandedCell && (
               <Grid container spacing={2}>
                 {expandedRow.effectSize && (
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <ExpandedCell>
                     {strategy.renderExpandedRight(result)}
-                  </Grid>
+                  </ExpandedCell>
                 )}
-                {expandedRow.modes && (
-                  <Grid size={{ xs: 12, md: 6 }}>{modesPanel}</Grid>
-                )}
+                {expandedRow.modes && <ExpandedCell>{modesPanel}</ExpandedCell>}
                 {expandedRow.statsTable && (
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <ExpandedCell>
                     <MannWhitneyCompareMetrics result={mwResult} />
-                  </Grid>
+                  </ExpandedCell>
                 )}
                 {expandedRow.warnings && (
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <ExpandedCell>
                     <StatisticsWarnings result={mwResult} />
-                  </Grid>
+                  </ExpandedCell>
                 )}
               </Grid>
             )}

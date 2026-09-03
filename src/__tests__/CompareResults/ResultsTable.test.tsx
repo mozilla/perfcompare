@@ -1365,7 +1365,7 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(advancedParam()).toBeNull();
   });
 
-  it('groups the dropdown into Columns and Expanded row sections', async () => {
+  it('groups the dropdown into Advanced Columns and Advanced expanded row details sections', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
     setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
@@ -1376,8 +1376,10 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     );
 
     // Both group headers and one option from each group are present.
-    expect(screen.getByText('Columns')).toBeInTheDocument();
-    expect(screen.getByText('Expanded row')).toBeInTheDocument();
+    expect(screen.getByText('Advanced Columns')).toBeInTheDocument();
+    expect(
+      screen.getByText('Advanced expanded row details'),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole('option', { name: "Cliff's Delta" }),
     ).toBeInTheDocument();
@@ -1433,6 +1435,27 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
 
     await user.click(screen.getByRole('option', { name: 'Data warnings' }));
     expect(expandedParam()).toBeNull();
+  });
+
+  it('toasts when an expanded-row option is added, but not when removed', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    expect(
+      await screen.findByText(/Statistics table added to the expanded rows/i),
+    ).toBeInTheDocument();
+
+    // Turning it back off should NOT toast.
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    expect(
+      screen.queryByText(/removed from the expanded rows/i),
+    ).not.toBeInTheDocument();
   });
 });
 
