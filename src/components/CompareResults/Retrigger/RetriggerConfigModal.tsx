@@ -16,17 +16,24 @@ const retriggerStrings = Strings.components.retrigger.config;
 function RetriggerCountSelect({
   prefix,
   label,
+  disabled = false,
 }: {
   prefix: string;
   label: string;
+  disabled?: boolean;
 }) {
   return (
-    <FormControl sx={{ width: '100%' }}>
+    <FormControl sx={{ width: '100%' }} disabled={disabled}>
       <InputLabel id={`${prefix}-retrigger-count-label`}>{label}</InputLabel>
+      {/*
+        defaultValue is safe here because CenteredModal unmounts when closed,
+        so the select remounts with a fresh default each time the modal opens.
+        FormControl's disabled state is passed to Select via context.
+      */}
       <Select
         labelId={`${prefix}-retrigger-count-label`}
         name={`${prefix}-retrigger-count`}
-        defaultValue={5}
+        defaultValue={disabled ? 0 : 5}
         label={label}
         sx={{ height: 32 }}
       >
@@ -44,6 +51,8 @@ type RetriggerModalProps = {
   open: boolean;
   onClose: () => unknown;
   onRetriggerClick: (times: { baseTimes: number; newTimes: number }) => unknown;
+  hasBaseJobs: boolean;
+  hasNewJobs: boolean;
 };
 
 export function RetriggerConfigModal(props: RetriggerModalProps) {
@@ -77,10 +86,18 @@ export function RetriggerConfigModal(props: RetriggerModalProps) {
           }}
         >
           <Grid size={3}>
-            <RetriggerCountSelect prefix='base' label='Base' />
+            <RetriggerCountSelect
+              prefix='base'
+              label='Base'
+              disabled={!props.hasBaseJobs}
+            />
           </Grid>
           <Grid size={3}>
-            <RetriggerCountSelect prefix='new' label='New' />
+            <RetriggerCountSelect
+              prefix='new'
+              label='New'
+              disabled={!props.hasNewJobs}
+            />
           </Grid>
           <Grid
             size='auto'
@@ -88,7 +105,12 @@ export function RetriggerConfigModal(props: RetriggerModalProps) {
               ml: 'auto',
             }}
           >
-            <Button type='submit'>{retriggerStrings.submitButton}</Button>
+            <Button
+              type='submit'
+              disabled={!props.hasBaseJobs && !props.hasNewJobs}
+            >
+              {retriggerStrings.submitButton}
+            </Button>
           </Grid>
         </Grid>
       </form>

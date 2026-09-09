@@ -127,6 +127,25 @@ describe('Retrigger', () => {
     mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
   });
 
+  async function openRetriggerConfigModal(
+    compareResult: typeof result = result,
+  ) {
+    setUpUserCredentials();
+    render(<RetriggerButton result={compareResult} variant='icon' />);
+
+    const openModalButton = await screen.findByRole('button', {
+      name: 'retrigger jobs',
+    });
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await user.click(openModalButton);
+
+    return {
+      baseSelect: await screen.findByLabelText('Base'),
+      newSelect: await screen.findByLabelText('New'),
+    };
+  }
+
   it('should display Sign In modal when there are no credentials', async () => {
     render(<RetriggerButton result={result} variant='icon' />);
 
@@ -266,6 +285,47 @@ describe('Retrigger', () => {
     expect(newNotification).toMatchSnapshot();
 
     expect(new MockedHooks().triggerHook).toHaveBeenCalled();
+  });
+
+  it('should disable the Base dropdown when there are no base retriggerable jobs', async () => {
+    const { baseSelect, newSelect } = await openRetriggerConfigModal({
+      ...result,
+      base_retriggerable_job_ids: [],
+    });
+
+    // MUI Select uses a combobox div with aria-disabled rather than native disabled.
+    expect(baseSelect).toHaveAttribute('aria-disabled', 'true');
+    expect(baseSelect).toHaveTextContent('0');
+    expect(newSelect).not.toHaveAttribute('aria-disabled', 'true');
+    expect(newSelect).toHaveTextContent('5');
+    expect(screen.getByRole('button', { name: 'Retrigger' })).toBeEnabled();
+  });
+
+  it('should disable the New dropdown when there are no new retriggerable jobs', async () => {
+    const { baseSelect, newSelect } = await openRetriggerConfigModal({
+      ...result,
+      new_retriggerable_job_ids: [],
+    });
+
+    expect(baseSelect).not.toHaveAttribute('aria-disabled', 'true');
+    expect(baseSelect).toHaveTextContent('5');
+    expect(newSelect).toHaveAttribute('aria-disabled', 'true');
+    expect(newSelect).toHaveTextContent('0');
+    expect(screen.getByRole('button', { name: 'Retrigger' })).toBeEnabled();
+  });
+
+  it('should disable both dropdowns when there are no retriggerable jobs', async () => {
+    const { baseSelect, newSelect } = await openRetriggerConfigModal({
+      ...result,
+      base_retriggerable_job_ids: [],
+      new_retriggerable_job_ids: [],
+    });
+
+    expect(baseSelect).toHaveAttribute('aria-disabled', 'true');
+    expect(baseSelect).toHaveTextContent('0');
+    expect(newSelect).toHaveAttribute('aria-disabled', 'true');
+    expect(newSelect).toHaveTextContent('0');
+    expect(screen.getByRole('button', { name: 'Retrigger' })).toBeDisabled();
   });
 });
 
