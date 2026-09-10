@@ -53,12 +53,7 @@ function SubtestsBreadcrumbs({ view }: SubtestsBreadcrumbsProps) {
       : getPreviousCompareOverTimeURL();
 
   return (
-    <Breadcrumbs
-      separator={<ChevronLeftIcon fontSize='small' />}
-      sx={{
-        marginBottom: 3,
-      }}
-    >
+    <Breadcrumbs separator={<ChevronLeftIcon fontSize='small' />}>
       <span role='presentation'></span>
       <Link href='/'>Home</Link>
       <Link href={allResultsURL}>All results</Link>

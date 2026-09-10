@@ -499,10 +499,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           >
             <header>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-233p9k-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -2391,10 +2391,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
           >
             <header>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-233p9k-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -3932,10 +3932,10 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
           >
             <header>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-233p9k-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -5473,10 +5473,10 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
           >
             <header>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-233p9k-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
@@ -7014,10 +7014,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           >
             <header>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-cv4vpp-MuiGrid-root"
               >
                 <nav
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-12zd3mg-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-233p9k-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
