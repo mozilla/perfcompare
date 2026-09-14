@@ -134,6 +134,41 @@ describe('Lando to commit validating', () => {
     (console.error as jest.Mock).mockClear();
   });
 
+  it('should explain a failed Lando try push that returned an empty commit_id', async () => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    fetchMock.get('glob:https://lando.moz.tools/*', ({ url }) => {
+      return url.includes('91073')
+        ? {
+            commit_id: '',
+            error:
+              'Unexpected error while pushing to try.\nhg error in cmd: hg push -r tip ssh://hg.mozilla.org/try -f: pushing to ssh://hg.mozilla.org/try\n\nremote: Connection closed by 63.245.208.203 port 22\nabort: no suitable response from remote hg',
+            id: 91073,
+            status: 'FAILED',
+          }
+        : {
+            commit_id: '8920f830aab97b1912099621e73bd4cd1ee5fa23',
+            error: '',
+            id: 91086,
+            status: 'LANDED',
+          };
+    });
+    await router.navigate(
+      '/compare-lando-results?landoInstance=lando-prod-2025&baseLando=91073&newLando=91086&baseRepo=try&newRepo=try&framework=13',
+    );
+    render(<App />);
+    expect(console.error).toHaveBeenCalledWith(
+      new Error(
+        Strings.errors.lando.failed(
+          '91073',
+          'FAILED',
+          'Unexpected error while pushing to try.',
+        ),
+      ),
+    );
+    expect(console.error).toHaveBeenCalledTimes(1);
+    (console.error as jest.Mock).mockClear();
+  });
+
   it('should explain when Lando landed but still has no revision', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
     fetchMock.get('glob:https://api.lando.services.mozilla.com/*', {

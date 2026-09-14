@@ -23,7 +23,18 @@ const PENDING_STATUSES = new Set([
 const FAILED_STATUSES = new Set(['failed', 'aborted', 'cancelled', 'canceled']);
 
 function hasCommitId(job: LandoToCommit): job is LandoRevision {
-  return typeof job.commit_id === 'string' && job.commit_id.length > 0;
+  // New Lando returns "" rather than null when a job has not produced a revision.
+  return typeof job.commit_id === 'string' && job.commit_id.trim().length > 0;
+}
+
+function firstLine(text: string | undefined) {
+  if (!text) {
+    return undefined;
+  }
+  return text
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .find((line) => line.length > 0);
 }
 
 export function messageForMissingLandoRevision(
@@ -34,11 +45,7 @@ export function messageForMissingLandoRevision(
   const normalizedStatus = status.toLowerCase();
 
   if (FAILED_STATUSES.has(normalizedStatus)) {
-    return Strings.errors.lando.failed(
-      landoid,
-      status,
-      job.error?.trim() || undefined,
-    );
+    return Strings.errors.lando.failed(landoid, status, firstLine(job.error));
   }
 
   if (PENDING_STATUSES.has(normalizedStatus)) {
