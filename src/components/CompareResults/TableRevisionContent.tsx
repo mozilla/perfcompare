@@ -5,13 +5,13 @@ import RevisionRow from './RevisionRow';
 import TestHeader from './TestHeader';
 import {
   RESULTS_TABLE_MIN_WIDTH,
-  compareView,
+  type compareView,
   type compareOverTimeView,
 } from '../../common/constants';
 import { Spacing } from '../../styles';
 import type { CombinedResultsItemType } from '../../types/state';
 import { TestVersion } from '../../types/types';
-import { getCrossPlatformSubtestsLink } from '../../utils/subtestsLinks';
+import { crossPlatformGroupKey } from '../../utils/subtestsLinks';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
 // MUI's sx prop for these numerous elements.
@@ -37,6 +37,7 @@ function TableRevisionContent(props: Props) {
     replicates,
     testVersion,
     expandAll,
+    crossPlatformLinks,
   } = props;
 
   if (!results.length) {
@@ -55,11 +56,13 @@ function TableRevisionContent(props: Props) {
   const hasMoreThanOneNewRev = results.length > 1;
 
   // The cross-platform matrix compares one base revision against one new one,
-  // so a group that holds several new revisions gets no link for now.
-  const crossPlatformLink =
-    view === compareView && !hasMoreThanOneNewRev
-      ? getCrossPlatformSubtestsLink(results[0][1], testVersion)
-      : null;
+  // so a group that holds several new revisions gets no link for now. The links
+  // are computed by the table across header groups (see buildCrossPlatformLinks).
+  const crossPlatformLink = hasMoreThanOneNewRev
+    ? null
+    : (crossPlatformLinks?.get(
+        crossPlatformGroupKey(representativeResultForHeader),
+      ) ?? null);
 
   return (
     <div
@@ -106,6 +109,9 @@ interface Props {
   replicates: boolean;
   testVersion: TestVersion;
   expandAll: boolean;
+  // Cross-platform subtests links keyed by crossPlatformGroupKey; absent for
+  // the over-time view.
+  crossPlatformLinks?: Map<string, string>;
 }
 
 export default TableRevisionContent;

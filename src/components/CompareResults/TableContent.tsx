@@ -4,10 +4,7 @@ import { Virtuoso } from 'react-virtuoso';
 
 import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
-import {
-  type compareView,
-  type compareOverTimeView,
-} from '../../common/constants';
+import { compareView, type compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { filterResults } from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
@@ -22,6 +19,7 @@ import type {
   CompareResultsTableConfig,
   TestVersion,
 } from '../../types/types';
+import { buildCrossPlatformLinks } from '../../utils/subtestsLinks';
 
 // The data structure returned by processResults may look complex at first, so
 // here are some extra explanation.
@@ -182,29 +180,40 @@ function TableContent({
     (state) => state.comparison.activeComparison,
   );
 
-  const filteredResults = useMemo(() => {
-    const resultsForCurrentComparison =
+  const resultsForCurrentComparison = useMemo(
+    () =>
       activeComparison === allRevisionsOption
         ? results.flat()
         : (results?.find((result) => result[0]?.new_rev === activeComparison) ??
-          []);
+          []),
+    [results, activeComparison],
+  );
 
-    const filteredResults = filterResults(
+  const filteredResults = useMemo(() => {
+    return filterResults(
       columnsConfiguration,
       resultsForCurrentComparison,
       filteringSearchTerm,
       tableFilters,
       resultMatchesSearchTerm,
     );
-    return filteredResults;
   }, [
-    results,
-    activeComparison,
+    resultsForCurrentComparison,
     filteringSearchTerm,
     tableFilters,
     columnsConfiguration,
     testVersion, // trigger refetch for new testVersion selection
   ]);
+
+  // Built from the unfiltered rows so that filtering the table by platform
+  // doesn't shrink the set of platforms the cross-platform page compares.
+  const crossPlatformLinks = useMemo(
+    () =>
+      view === compareView
+        ? buildCrossPlatformLinks(resultsForCurrentComparison, testVersion)
+        : undefined,
+    [view, resultsForCurrentComparison, testVersion],
+  );
 
   const sortedResults = useMemo(() => {
     return sortResults(
@@ -245,6 +254,7 @@ function TableContent({
           replicates={replicates}
           testVersion={testVersion}
           expandAll={expandAll}
+          crossPlatformLinks={crossPlatformLinks}
         />
       )}
     />

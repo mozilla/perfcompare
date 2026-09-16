@@ -1511,6 +1511,34 @@ describe('cross-platform subtests link', () => {
     expect(url.searchParams.get('test_version')).toBe('student-t');
   });
 
+  it('spans header groups that differ only by options or app', async () => {
+    const { testCompareData } = getTestData();
+    // Same suite and test, but Android runs with different extra options and a
+    // different app, so the main page shows them as two header groups. They
+    // are still the same subtests and must be compared together.
+    const desktop = { ...testCompareData[0], has_subtests: true };
+    const android = {
+      ...testCompareData[1],
+      has_subtests: true,
+      platform: 'android-hw-g5-7-0-arm7-api-16-shippable' as const,
+      extra_options: 'webrender',
+      new_app: 'fenix',
+      header_name: `${desktop.suite} ${desktop.option_name} webrender fenix`,
+    };
+    setupAndRender([desktop, android], 'test_version=student-t');
+
+    const links = await screen.findAllByRole('link', {
+      name: Strings.components.revisionRow.title.crossPlatformLink,
+    });
+    expect(links).toHaveLength(2);
+    for (const link of links) {
+      const url = new URL(link.getAttribute('href')!, 'http://localhost');
+      expect(url.searchParams.getAll('platform').toSorted()).toEqual(
+        [desktop.platform, android.platform].toSorted(),
+      );
+    }
+  });
+
   it('is absent when no platform of the group has subtests', async () => {
     const { testCompareData } = getTestData();
     setupAndRender(testCompareData, 'test_version=student-t');
