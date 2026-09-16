@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 import { NavBarLink } from './NavBarLink';
@@ -31,7 +32,24 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
           marginBotton: 2,
         }}
       >
-        <ToggleDarkMode />
+        <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+          <Link
+            ref={(link: HTMLAnchorElement | null) => {
+              // React blocks javascript: href props; set this fixed bookmarklet
+              // directly so dragging it saves executable code, not a page URL.
+              link?.setAttribute(
+                'href',
+                "javascript:void(location.href='https://mgaudet-perfcompare.quick.mozilla.cloud'+location.pathname+location.search+location.hash)",
+              );
+            }}
+            draggable
+            title='Drag this link to your bookmarks bar, then click the bookmark on perf.compare to open the same URL in Cross-platform Compare.'
+            sx={{ marginLeft: `${Spacing.xLarge}px`, color: 'inherit' }}
+          >
+            Open For Cross-platform Compare
+          </Link>
+          <ToggleDarkMode />
+        </Box>
         {!isHome && (
           <Typography
             variant='h2'

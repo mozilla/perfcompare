@@ -18,42 +18,54 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="MuiBox-root css-1e39pab"
         >
           <div
-            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+            class="MuiBox-root css-1dtnjt5"
           >
-            <div
-              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1muypue-MuiTypography-root-MuiLink-root"
+              draggable="true"
+              href="javascript:void(location.href='https://mgaudet-perfcompare.quick.mozilla.cloud'+location.pathname+location.search+location.hash)"
+              title="Drag this link to your bookmarks bar, then click the bookmark on perf.compare to open the same URL in Cross-platform Compare."
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+              Open For Cross-platform Compare
+            </a>
+            <div
+              class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+            >
+              <div
+                class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
               >
-                <span
-                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+                <label
+                  class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                    class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                   >
-                    <input
-                      aria-label="Dark mode switch"
-                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                      id="Dark mode"
-                      name="toggle-dark-mode"
-                      role="switch"
-                      type="checkbox"
-                    />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                    >
+                      <input
+                        aria-label="Dark mode switch"
+                        class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                        id="Dark mode"
+                        name="toggle-dark-mode"
+                        role="switch"
+                        type="checkbox"
+                      />
+                      <span
+                        class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      />
+                    </span>
+                    <span
+                      class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-                >
-                  Switch to Dark mode
-                </span>
-              </label>
+                    class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+                  >
+                    Switch to Dark mode
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
           <h2
@@ -320,42 +332,54 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="MuiBox-root css-1e39pab"
         >
           <div
-            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+            class="MuiBox-root css-1dtnjt5"
           >
-            <div
-              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1muypue-MuiTypography-root-MuiLink-root"
+              draggable="true"
+              href="javascript:void(location.href='https://mgaudet-perfcompare.quick.mozilla.cloud'+location.pathname+location.search+location.hash)"
+              title="Drag this link to your bookmarks bar, then click the bookmark on perf.compare to open the same URL in Cross-platform Compare."
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+              Open For Cross-platform Compare
+            </a>
+            <div
+              class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+            >
+              <div
+                class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
               >
-                <span
-                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+                <label
+                  class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                    class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                   >
-                    <input
-                      aria-label="Dark mode switch"
-                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                      id="Dark mode"
-                      name="toggle-dark-mode"
-                      role="switch"
-                      type="checkbox"
-                    />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                    >
+                      <input
+                        aria-label="Dark mode switch"
+                        class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                        id="Dark mode"
+                        name="toggle-dark-mode"
+                        role="switch"
+                        type="checkbox"
+                      />
+                      <span
+                        class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      />
+                    </span>
+                    <span
+                      class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-                >
-                  Switch to Dark mode
-                </span>
-              </label>
+                    class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+                  >
+                    Switch to Dark mode
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
           <h2
@@ -517,42 +541,54 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="MuiBox-root css-1e39pab"
         >
           <div
-            class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+            class="MuiBox-root css-1dtnjt5"
           >
-            <div
-              class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1muypue-MuiTypography-root-MuiLink-root"
+              draggable="true"
+              href="javascript:void(location.href='https://mgaudet-perfcompare.quick.mozilla.cloud'+location.pathname+location.search+location.hash)"
+              title="Drag this link to your bookmarks bar, then click the bookmark on perf.compare to open the same URL in Cross-platform Compare."
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
+              Open For Cross-platform Compare
+            </a>
+            <div
+              class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
+            >
+              <div
+                class="MuiFormGroup-root css-1mac7pt-MuiFormGroup-root"
               >
-                <span
-                  class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
+                <label
+                  class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-1lhdpr4-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                    class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-rehya9-MuiSwitch-root"
                   >
-                    <input
-                      aria-label="Dark mode switch"
-                      class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
-                      id="Dark mode"
-                      name="toggle-dark-mode"
-                      role="switch"
-                      type="checkbox"
-                    />
                     <span
-                      class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1jkkk7l-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
+                    >
+                      <input
+                        aria-label="Dark mode switch"
+                        class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
+                        id="Dark mode"
+                        name="toggle-dark-mode"
+                        role="switch"
+                        type="checkbox"
+                      />
+                      <span
+                        class="MuiSwitch-thumb css-1mw77bv-MuiSwitch-thumb"
+                      />
+                    </span>
+                    <span
+                      class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-1kf3qur-MuiSwitch-track"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
-                >
-                  Switch to Dark mode
-                </span>
-              </label>
+                    class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-n290n7-MuiTypography-root"
+                  >
+                    Switch to Dark mode
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
           <h2
