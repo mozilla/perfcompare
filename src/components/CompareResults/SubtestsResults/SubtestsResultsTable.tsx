@@ -5,13 +5,17 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { Await } from 'react-router';
 
 import SubtestsTableContent from './SubtestsTableContent';
+import FilteredRowsNotice from '.././FilteredRowsNotice';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import { STUDENT_T } from '../../../common/constants';
 import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
 import useInitializeTableStateFromCookies from '../../../hooks/useInitializeTableStateFromCookies';
 import useSeedAdvancedOptionsFromUrl from '../../../hooks/useSeedAdvancedOptionsFromUrl';
-import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
+import useTableFilters, {
+  filterResults,
+  getFilterHiddenSummary,
+} from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CombinedResultsItemType } from '../../../types/state';
 import type { TestVersion } from '../../../types/types';
@@ -160,12 +164,42 @@ function SubtestsResultsTable({
               return processResults(filteredAndSortedResults);
             }, [filteredAndSortedResults]);
 
+            // Which column filters are narrowing the view, and how many rows
+            // they hide (excluding rows the search term already removed).
+            const { activeFilters, hiddenCount: hiddenByFilters } =
+              getFilterHiddenSummary(
+                columnsConfiguration,
+                results,
+                filteringSearchTerm,
+                tableFilters,
+                resultMatchesSearchTerm,
+                filteredResults.length,
+              );
+
+            // Gate on the count here (rather than only inside
+            // FilteredRowsNotice) so that when nothing is hidden no element
+            // enters the tree — otherwise its slot would shift the React-
+            // generated ids of the rows below it.
+            const notice =
+              hiddenByFilters > 0 ? (
+                <FilteredRowsNotice
+                  hiddenCount={hiddenByFilters}
+                  activeFilters={activeFilters}
+                />
+              ) : null;
+
             if (processedResults.length === 0) {
-              return <NoResultsFound />;
+              return (
+                <>
+                  {notice}
+                  <NoResultsFound />
+                </>
+              );
             }
 
             return (
               <>
+                {notice}
                 {processedResults.map((res) => (
                   <SubtestsTableContent
                     key={res.key}
