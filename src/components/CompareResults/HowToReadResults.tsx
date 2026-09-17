@@ -57,8 +57,31 @@ function HowToReadResults() {
           changes.
         </li>
         <li>
-          Use <strong>Advanced columns</strong> to add the expert stats
-          (Cliff&apos;s Delta, CLES, and Significance).
+          Use <strong>Advanced options</strong> to add these expert stats as
+          extra columns:
+          <Box component='ul' sx={{ m: 0, mt: 0.5, pl: 2.5 }}>
+            <li>
+              <strong>Cliff&apos;s Delta</strong> (header: <strong>CD</strong>)
+              is the number behind Magnitude, so it takes the Magnitude
+              column&apos;s place. It runs from -1 to 1: a score near 0 means
+              little difference, and a score above 0.47 or below -0.47 means a
+              large one. A negative score means New values are usually higher.
+            </li>
+            <li>
+              <strong>CLES</strong> (Common Language Effect Size) is shown as a
+              percentage: the chance that a New value is lower than a Base
+              value. Near 50% means New and Base are about equally likely to be
+              higher; the farther from 50%, the clearer the difference.
+            </li>
+            <li>
+              <strong>Significance</strong> (header: <strong>Sig</strong> when
+              space is tight) says whether the difference is{' '}
+              <strong>Real</strong> or just <strong>Noise</strong>, based on a
+              Mann-Whitney U test — &ldquo;Real&rdquo; means a p-value under
+              0.05. It&apos;s the same signal as the &ldquo;Noise&rdquo; tag on
+              Status, as its own sortable, filterable column.
+            </li>
+          </Box>
         </li>
       </Box>
     </Alert>
