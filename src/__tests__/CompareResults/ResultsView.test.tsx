@@ -589,6 +589,16 @@ describe('Results View', () => {
     const panel = screen.getByTestId('how-to-read-results');
     expect(panel).toBeInTheDocument();
 
+    // The advanced stats are explained in a nested list, even though those
+    // columns are off by default.
+    expect(within(panel).getByText(/Cliff's Delta/)).toBeInTheDocument();
+    expect(within(panel).getByText('CLES')).toBeInTheDocument();
+    expect(
+      within(panel).getByText(/Common Language Effect Size/),
+    ).toBeInTheDocument();
+    expect(within(panel).getByText('Significance')).toBeInTheDocument();
+    expect(within(panel).getByText(/Mann-Whitney U test/)).toBeInTheDocument();
+
     // Dismiss via the panel's close button (scoped: the MWU warning banner
     // also has a close button).
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
