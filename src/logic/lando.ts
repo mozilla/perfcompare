@@ -27,32 +27,35 @@ function hasCommitId(job: LandoToCommit): job is LandoRevision {
   return typeof job.commit_id === 'string' && job.commit_id.trim().length > 0;
 }
 
-function firstLine(text: string | undefined) {
+function firstLine(text: string | undefined): string | undefined {
   if (!text) {
     return undefined;
   }
-  return text
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .find((line) => line.length > 0);
+  for (const line of text.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (trimmed) {
+      return trimmed;
+    }
+  }
+  return undefined;
 }
 
 export function messageForMissingLandoRevision(
-  landoid: string,
+  landoId: string,
   job: LandoToCommit,
 ) {
   const status = job.status?.trim() ? job.status : 'unknown';
   const normalizedStatus = status.toLowerCase();
 
   if (FAILED_STATUSES.has(normalizedStatus)) {
-    return Strings.errors.lando.failed(landoid, status, firstLine(job.error));
+    return Strings.errors.lando.failed(landoId, status, firstLine(job.error));
   }
 
   if (PENDING_STATUSES.has(normalizedStatus)) {
-    return Strings.errors.lando.pending(landoid, status);
+    return Strings.errors.lando.pending(landoId, status);
   }
 
-  return Strings.errors.lando.landedWithoutRevision(landoid, status);
+  return Strings.errors.lando.landedWithoutRevision(landoId, status);
 }
 
 async function fetchFromLando(url: string) {
@@ -66,16 +69,16 @@ async function fetchFromLando(url: string) {
 }
 
 export async function fetchRevisionFromLandoId(
-  landoid: string,
+  landoId: string,
   instance: LandoInstance = 'lando-prod',
 ): Promise<LandoRevision> {
   const host = landoInstances[instance] ?? landoInstances['lando-prod'];
-  const url = `https://${host}/landing_jobs/${landoid}`;
+  const url = `https://${host}/landing_jobs/${landoId}`;
   const response = await fetchFromLando(url);
   const job = (await response.json()) as LandoToCommit;
 
   if (!hasCommitId(job)) {
-    throw new Error(messageForMissingLandoRevision(landoid, job));
+    throw new Error(messageForMissingLandoRevision(landoId, job));
   }
 
   return job;
