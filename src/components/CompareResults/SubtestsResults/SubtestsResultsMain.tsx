@@ -138,6 +138,16 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       marginBottom: Spacing.Medium,
       fontSize: '16px',
     }),
+    replicates: style({
+      marginRight: '10px',
+    }),
+  };
+
+  const titleContainerSx = {
+    alignItems: 'center',
+    gap: '9px',
+    margin: `0 0 ${Spacing.Medium}px 0`,
+    justifyContent: 'space-between',
   };
 
   const onSearchTermChange = (newSearchTerm: string) => {
@@ -158,14 +168,14 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   return (
     <Container className={styles.container} data-testid='subtests-main'>
       <header>
-        <Grid container spacing={1}>
+        <Grid container sx={titleContainerSx}>
           <SubtestsBreadcrumbs view={view} />
+          {testVersion === STUDENT_T && (
+            <Grid component='h2' className={styles.replicates}>
+              <ToggleReplicatesButton />
+            </Grid>
+          )}
         </Grid>
-        {testVersion === STUDENT_T && (
-          <Grid sx={{ marginRight: '10px' }}>
-            <ToggleReplicatesButton />
-          </Grid>
-        )}
         {displayMannWhitneyUWarning && (
           <Alert
             severity='warning'
