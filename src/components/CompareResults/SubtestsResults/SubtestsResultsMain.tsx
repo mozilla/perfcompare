@@ -145,7 +145,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
 
   const titleContainerSx = {
     alignItems: 'center',
-    gap: '9px',
+    gap: 1,
     margin: `0 0 ${Spacing.Medium}px 0`,
     justifyContent: 'space-between',
   };
@@ -171,7 +171,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <Grid container sx={titleContainerSx}>
           <SubtestsBreadcrumbs view={view} />
           {testVersion === STUDENT_T && (
-            <Grid component='h2' className={styles.replicates}>
+            <Grid className={styles.replicates}>
               <ToggleReplicatesButton />
             </Grid>
           )}
