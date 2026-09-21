@@ -295,8 +295,10 @@ describe('Retrigger', () => {
 
     // MUI Select uses a combobox div with aria-disabled rather than native disabled.
     expect(baseSelect).toHaveAttribute('aria-disabled', 'true');
+    expect(baseSelect).toHaveClass('Mui-disabled');
     expect(baseSelect).toHaveTextContent('0');
     expect(newSelect).not.toHaveAttribute('aria-disabled', 'true');
+    expect(newSelect).not.toHaveClass('Mui-disabled');
     expect(newSelect).toHaveTextContent('5');
     expect(screen.getByRole('button', { name: 'Retrigger' })).toBeEnabled();
   });
@@ -308,8 +310,10 @@ describe('Retrigger', () => {
     });
 
     expect(baseSelect).not.toHaveAttribute('aria-disabled', 'true');
+    expect(baseSelect).not.toHaveClass('Mui-disabled');
     expect(baseSelect).toHaveTextContent('5');
     expect(newSelect).toHaveAttribute('aria-disabled', 'true');
+    expect(newSelect).toHaveClass('Mui-disabled');
     expect(newSelect).toHaveTextContent('0');
     expect(screen.getByRole('button', { name: 'Retrigger' })).toBeEnabled();
   });
@@ -322,8 +326,10 @@ describe('Retrigger', () => {
     });
 
     expect(baseSelect).toHaveAttribute('aria-disabled', 'true');
+    expect(baseSelect).toHaveClass('Mui-disabled');
     expect(baseSelect).toHaveTextContent('0');
     expect(newSelect).toHaveAttribute('aria-disabled', 'true');
+    expect(newSelect).toHaveClass('Mui-disabled');
     expect(newSelect).toHaveTextContent('0');
     expect(screen.getByRole('button', { name: 'Retrigger' })).toBeDisabled();
   });

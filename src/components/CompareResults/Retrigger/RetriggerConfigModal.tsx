@@ -23,7 +23,20 @@ function RetriggerCountSelect({
   disabled?: boolean;
 }) {
   return (
-    <FormControl sx={{ width: '100%' }} disabled={disabled}>
+    <FormControl
+      disabled={disabled}
+      sx={(theme) => ({
+        width: '100%',
+        // Use secondary text so disabled dropdowns are visibly grayed out.
+        '&.Mui-disabled .MuiInputLabel-root': {
+          color: theme.palette.text.secondary,
+        },
+        '&.Mui-disabled .MuiSelect-select': {
+          color: theme.palette.text.secondary,
+          WebkitTextFillColor: theme.palette.text.secondary,
+        },
+      })}
+    >
       <InputLabel id={`${prefix}-retrigger-count-label`}>{label}</InputLabel>
       {/*
         defaultValue is safe here because CenteredModal unmounts when closed,
