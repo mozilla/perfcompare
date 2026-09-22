@@ -18,7 +18,7 @@ interface ResultsViewProps {
 function ResultsView(props: ResultsViewProps) {
   const {
     newRevsInfo,
-    frameworkId,
+    frameworkIds,
     intervalValue,
     baseRepo,
     newRepos,
@@ -51,7 +51,7 @@ function ResultsView(props: ResultsViewProps) {
           hasEditButton={true}
           newRevs={newRevsInfo ?? []}
           isExpanded={true}
-          frameworkIdVal={frameworkId}
+          frameworkIdVal={frameworkIds}
           intervalValue={intervalValue}
           baseRepo={baseRepo}
           newRepo={newRepo}

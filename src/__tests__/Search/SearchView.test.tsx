@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 
-import { repoMap } from '../../common/constants';
+import { frameworks, repoMap } from '../../common/constants';
 import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
@@ -462,6 +462,99 @@ describe('Base and OverTime Search', () => {
     searchParams.sort();
     expect(searchParams.toString()).toBe(
       'baseRepo=try&baseRev=coconut&framework=1&newRepo=mozilla-central&newRev=spam',
+    );
+  });
+
+  it('should submit each selected framework as its own framework param', async () => {
+    setupTestData();
+    const router = createBrowserRouter([
+      {
+        path: '/',
+        element: <SearchView title={Strings.metaData.pageTitle.search} />,
+        loader,
+        hydrateFallbackElement: <></>,
+      },
+      { path: '/compare-results', element: <div /> },
+    ]);
+
+    await router.navigate('/');
+    render(<RouterProvider router={router} />);
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // Select a base revision.
+    const inputs = screen.getAllByPlaceholderText(searchRevisionPlaceholder);
+    await user.click(inputs[0]);
+    const items = await screen.findAllByText("you've got no arms left!");
+    await user.click(items[0]);
+    await user.keyboard('{Escape}');
+
+    // Talos is selected by default, so selecting build_metrics adds a second
+    // framework to the selection.
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    await user.click(frameworkDropdown);
+    await user.click(screen.getByRole('option', { name: 'build_metrics' }));
+    expect(frameworkDropdown).toHaveTextContent('build_metrics, talos');
+
+    // Close the framework menu, then press the compare button.
+    await user.keyboard('{Escape}');
+
+    // Press the compare button
+    await user.click(screen.getByRole('button', { name: /Compare/ }));
+
+    expect(window.location.pathname).toBe('/compare-results');
+    const frameworkParams = new URLSearchParams(window.location.search).getAll(
+      'framework',
+    );
+    expect(frameworkParams.sort()).toEqual(['1', '2']);
+  });
+
+  it('should submit every framework when All frameworks is checked', async () => {
+    setupTestData();
+    const router = createBrowserRouter([
+      {
+        path: '/',
+        element: <SearchView title={Strings.metaData.pageTitle.search} />,
+        loader,
+        hydrateFallbackElement: <></>,
+      },
+      { path: '/compare-results', element: <div /> },
+    ]);
+
+    await router.navigate('/');
+    render(<RouterProvider router={router} />);
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // Select a base revision.
+    const inputs = screen.getAllByPlaceholderText(searchRevisionPlaceholder);
+    await user.click(inputs[0]);
+    const items = await screen.findAllByText("you've got no arms left!");
+    await user.click(items[0]);
+    await user.keyboard('{Escape}');
+
+    // Select every framework.
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    await user.click(frameworkDropdown);
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('All frameworks');
+
+    // Close the framework menu, then press the compare button.
+    await user.keyboard('{Escape}');
+
+    // Press the compare button
+    await user.click(screen.getByRole('button', { name: /Compare/ }));
+
+    expect(window.location.pathname).toBe('/compare-results');
+    const frameworkParams = new URLSearchParams(window.location.search).getAll(
+      'framework',
+    );
+    expect(frameworkParams.sort()).toEqual(
+      frameworks.map((framework) => framework.id.toString()).sort(),
     );
   });
 });

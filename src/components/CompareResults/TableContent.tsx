@@ -93,12 +93,20 @@ function processResults(
   > = new Map();
 
   for (const result of results) {
-    const { new_rev: newRevision, header_name: header } = result;
+    const {
+      new_rev: newRevision,
+      header_name: header,
+      framework_id: frameworkId,
+    } = result;
 
-    let resultsForHeader = processedResults.get(header);
+    // The framework is part of the group key: results for the same test coming
+    // from different frameworks must not be merged under one header.
+    const groupKey = `${header} ${frameworkId}`;
+
+    let resultsForHeader = processedResults.get(groupKey);
     if (!resultsForHeader) {
       resultsForHeader = new Map();
-      processedResults.set(header, resultsForHeader);
+      processedResults.set(groupKey, resultsForHeader);
     }
 
     const resultsForRevision = resultsForHeader.get(newRevision);
@@ -137,14 +145,16 @@ const stringComparisonCollator = new Intl.Collator('en', {
   sensitivity: 'base',
 });
 // The default sort orders by header_name (which is a concatenation of suite,
-// test and options), and platform, so that the order is stable when reloading
-// the page.
+// test and options), framework and platform, so that the order is stable when
+// reloading the page.
 function defaultSortFunction(
   itemA: CombinedResultsItemType,
   itemB: CombinedResultsItemType,
 ) {
-  const keyA = itemA.header_name + ' ' + itemA.platform;
-  const keyB = itemB.header_name + ' ' + itemB.platform;
+  const keyA =
+    itemA.header_name + ' ' + itemA.framework_id + ' ' + itemA.platform;
+  const keyB =
+    itemB.header_name + ' ' + itemB.framework_id + ' ' + itemB.platform;
   return stringComparisonCollator.compare(keyA, keyB);
 }
 

@@ -3,6 +3,7 @@ import { style } from 'typestyle';
 
 import BetterDirectionIndicator from './BetterDirectionIndicator';
 import LinkToRevision from './LinkToRevision';
+import { frameworks } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { CombinedResultsItemType } from '../../types/state';
@@ -103,6 +104,15 @@ function getExtraOptions(extraOptions: string) {
   return extraOptions ? extraOptions.split(' ') : [];
 }
 
+// The framework name for the result. Unknown ids (which shouldn't happen
+// outside of tests) fall back to the numeric id instead of rendering nothing.
+function getFrameworkName(result: HeaderProperties) {
+  return (
+    frameworks.find((framework) => framework.id === result.framework_id)
+      ?.name ?? result.framework_id
+  );
+}
+
 export default function TestHeader(props: TestHeaderProps) {
   const { result, withRevision } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
@@ -121,6 +131,7 @@ export default function TestHeader(props: TestHeaderProps) {
           </>
         )}
         <BetterDirectionIndicator lowerIsBetter={result.lower_is_better} />
+        <span data-testid='framework-name'>{`- ${getFrameworkName(result)}`}</span>
       </div>
       <Box
         sx={{

@@ -1393,7 +1393,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 dropDown_frp1utb css-1nxoejh-MuiGrid-root"
                 >
                   <div
-                    class="MuiFormControl-root framework-dropdown f1ttr4cl css-1iw3t7y-MuiFormControl-root"
+                    class="MuiFormControl-root framework-dropdown f1nl4oko css-1iw3t7y-MuiFormControl-root"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 css-1yu4dci-MuiGrid-root"
@@ -1419,6 +1419,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         />
                       </svg>
                     </div>
+                    <input
+                      name="framework"
+                      type="hidden"
+                      value="1"
+                    />
                     <div
                       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="framework-select"
@@ -1427,19 +1432,26 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-label="Framework"
-                        aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-framework"
+                        aria-labelledby="select-framework-label"
+                        class="MuiSelect-select MuiSelect-standard MuiSelect-multiple MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         role="combobox"
                         tabindex="0"
                       >
-                        talos
+                        <span
+                          class="MuiBox-root css-z4xr20"
+                        >
+                          <span
+                            class="MuiBox-root css-idlrhm"
+                            data-testid="framework-summary-names"
+                          >
+                            talos
+                          </span>
+                        </span>
                       </div>
                       <input
                         aria-hidden="true"
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                        name="framework"
                         tabindex="-1"
                         value="1"
                       />
@@ -1858,7 +1870,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 dropDown_frp1utb css-1nxoejh-MuiGrid-root"
                 >
                   <div
-                    class="MuiFormControl-root framework-dropdown f1ttr4cl css-1iw3t7y-MuiFormControl-root"
+                    class="MuiFormControl-root framework-dropdown f1nl4oko css-1iw3t7y-MuiFormControl-root"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 css-1yu4dci-MuiGrid-root"
@@ -1884,6 +1896,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         />
                       </svg>
                     </div>
+                    <input
+                      name="framework"
+                      type="hidden"
+                      value="1"
+                    />
                     <div
                       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="framework-select"
@@ -1892,19 +1909,26 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-label="Framework"
-                        aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-framework"
+                        aria-labelledby="select-framework-label"
+                        class="MuiSelect-select MuiSelect-standard MuiSelect-multiple MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         role="combobox"
                         tabindex="0"
                       >
-                        talos
+                        <span
+                          class="MuiBox-root css-z4xr20"
+                        >
+                          <span
+                            class="MuiBox-root css-idlrhm"
+                            data-testid="framework-summary-names"
+                          >
+                            talos
+                          </span>
+                        </span>
                       </div>
                       <input
                         aria-hidden="true"
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                        name="framework"
                         tabindex="-1"
                         value="1"
                       />

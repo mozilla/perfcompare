@@ -105,7 +105,7 @@ describe('App', () => {
   });
 
   describe('CompareResults or CompareOverTime loader', () => {
-    it('Should render an error page when the treeherder request fails with an error 500', async () => {
+    it('Should display a banner when the treeherder request fails with an error 500', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
       fetchMock.get(
@@ -118,8 +118,15 @@ describe('App', () => {
       );
       render(<App />);
 
-      await screen.findByText(/Error/);
-      expect(console.error).toHaveBeenCalledWith(
+      const banner = await screen.findByTestId('failed-frameworks-banner');
+      expect(
+        within(banner).getByText(/Unable to load the following frameworks:/),
+      ).toBeInTheDocument();
+      expect(within(banner).getByText('build_metrics')).toBeInTheDocument();
+      expect(
+        within(banner).getByText(/Please try again later./),
+      ).toBeInTheDocument();
+      expect(console.error).not.toHaveBeenCalledWith(
         new Error(
           'Error when requesting treeherder: (500) Internal Server Error',
         ),
@@ -127,7 +134,7 @@ describe('App', () => {
       expect(document.body).toMatchSnapshot();
     });
 
-    it('Should render an error page when the treeherder request fails with an error 400', async () => {
+    it('Should display a banner when the treeherder request fails with an error 400', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
       fetchMock.get(
@@ -143,14 +150,15 @@ describe('App', () => {
       );
       render(<App />);
 
-      await screen.findByText(/Error/);
-      expect(console.error).toHaveBeenCalledWith(
+      const banner = await screen.findByTestId('failed-frameworks-banner');
+      expect(within(banner).getByText('build_metrics')).toBeInTheDocument();
+      expect(console.error).not.toHaveBeenCalledWith(
         new Error('Error when requesting treeherder: Treeherder request error'),
       );
       expect(document.body).toMatchSnapshot();
     });
 
-    it('Should render an error page for compare over time when the treeherder request fails with an error 400', async () => {
+    it('Should display a banner for compare over time when the treeherder request fails with an error 400', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
       fetchMock.get(
@@ -166,10 +174,33 @@ describe('App', () => {
       );
       render(<App />);
 
-      await screen.findByText(/Error/);
-      expect(console.error).toHaveBeenCalledWith(
-        new Error('Error when requesting treeherder: Treeherder request error'),
+      const banner = await screen.findByTestId('failed-frameworks-banner');
+      expect(within(banner).getByText('talos')).toBeInTheDocument();
+      expect(document.body).toMatchSnapshot();
+    });
+
+    it('Should only list the failed framework in the banner and keep the other results', async () => {
+      jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { testCompareData } = getTestData();
+      fetchMock.get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        ({ url: urlAsString }) => {
+          const framework = new URL(urlAsString).searchParams.get('framework');
+          return framework === '1' ? testCompareData : 500;
+        },
       );
+
+      await router.navigate(
+        '/compare-results/?baseRev=spam&baseRepo=mozilla-central&framework=1&framework=2',
+      );
+      render(<App />);
+
+      const banner = await screen.findByTestId('failed-frameworks-banner');
+      expect(within(banner).getByText('build_metrics')).toBeInTheDocument();
+      expect(within(banner).queryByText('talos')).not.toBeInTheDocument();
+
+      // The results of the framework that loaded are still displayed.
+      expect(await screen.findByText('a11yr')).toBeInTheDocument();
       expect(document.body).toMatchSnapshot();
     });
 
@@ -413,6 +444,34 @@ describe('App', () => {
       expect(testVersionDropdown).toHaveTextContent('Mann-Whitney-U');
 
       await waitForAllFetches();
+    });
+
+    it('Should request each framework separately when several framework params are provided', async () => {
+      const { testCompareMannWhitneyData } = getTestData();
+      fetchMock.get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        ({ url: urlAsString }) => {
+          const framework = new URL(urlAsString).searchParams.get('framework');
+          return framework === '1' ? testCompareMannWhitneyData : [];
+        },
+      );
+
+      await router.navigate(
+        '/compare-results/?baseRev=spam&baseRepo=try&framework=1&framework=4',
+      );
+      render(<App />);
+
+      // Wait for the results of the framework that returned data
+      await screen.findByText('a11yr');
+      await waitForAllFetches();
+
+      const resultsCalls = fetchMock.callHistory
+        .calls()
+        .filter((call) => call.url.includes('/api/perfcompare/results/'));
+      const requestedFrameworks = resultsCalls
+        .map((call) => new URL(call.url).searchParams.get('framework'))
+        .sort();
+      expect(requestedFrameworks).toEqual(['1', '4']);
     });
   });
 });

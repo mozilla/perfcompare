@@ -1,4 +1,9 @@
-import { repoMap, frameworks, MANN_WHITNEY_U } from '../../common/constants';
+import {
+  repoMap,
+  frameworks,
+  MANN_WHITNEY_U,
+  DEFAULT_FRAMEWORK_ID,
+} from '../../common/constants';
 import { fetchSubtestsCompareResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { Framework, TestVersion } from '../../types/types';
@@ -78,7 +83,9 @@ function checkValues({
   }
 
   if (framework === null) {
-    framework = 1; // default to talos so that manually typing the URL is easier
+    // Default to the default framework (talos) so that manually typing the URL
+    // is easier.
+    framework = DEFAULT_FRAMEWORK_ID;
   }
 
   const frameworkId = +framework as Framework['id'];

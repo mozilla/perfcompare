@@ -1,10 +1,10 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, Suspense } from 'react';
 
-import { Button, Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import Link from '@mui/material/Link';
 import { Container } from '@mui/system';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
 
 import HowToReadResults from './HowToReadResults';
@@ -213,10 +213,54 @@ function ResultsMain() {
               ? testWarnings[MANN_WHITNEY_U]
               : null}
         </Grid>
+
+        <FailedFrameworksBanner
+          key={loaderData.generation}
+          failedFrameworksPromise={loaderData.failedFrameworks}
+        />
       </header>
       <HowToReadResults />
       <ResultsTable />
     </Container>
+  );
+}
+
+// A dismissible banner listing the frameworks whose results couldn't be
+// loaded. The results of the other frameworks are still displayed. Keyed by
+// generation so it reappears for each new load.
+function FailedFrameworksBanner({
+  failedFrameworksPromise,
+}: {
+  failedFrameworksPromise: Promise<string[]>;
+}) {
+  const [dismissed, setDismissed] = useState(false);
+
+  return (
+    <Suspense fallback={null}>
+      <Await resolve={failedFrameworksPromise}>
+        {(failedFrameworks) => {
+          if (dismissed || !failedFrameworks.length) {
+            return null;
+          }
+          return (
+            <Alert
+              severity='warning'
+              data-testid='failed-frameworks-banner'
+              sx={{ width: '100%', fontSize: '16px', marginBottom: '12px' }}
+              onClose={() => setDismissed(true)}
+            >
+              {Strings.components.failedFrameworksBanner.intro}
+              <Box component='ul' sx={{ margin: '1em 0', paddingLeft: '20px' }}>
+                {failedFrameworks.map((frameworkName) => (
+                  <li key={frameworkName}>{frameworkName}</li>
+                ))}
+              </Box>
+              {Strings.components.failedFrameworksBanner.outro}
+            </Alert>
+          );
+        }}
+      </Await>
+    </Suspense>
   );
 }
 

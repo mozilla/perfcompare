@@ -6,7 +6,10 @@ import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
-import type { CombinedResultsItemType } from '../../types/state';
+import type {
+  CombinedResultsItemType,
+  CompareResultsItem,
+} from '../../types/state';
 import type { Platform, TestVersion } from '../../types/types';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
@@ -63,12 +66,14 @@ function summarizeVisibleRows(testVersion?: TestVersion, advanced = false) {
     const optionsElements = Array.from(
       titleElement.nextElementSibling!.children,
     );
-    // The "better direction" indicator is asserted separately (and via
-    // snapshots); strip it here so the data-focused expectations stay stable.
+    // The "better direction" indicator and the framework name are asserted
+    // separately (and via snapshots); strip them here so the data-focused
+    // expectations stay stable.
     const titleClone = titleElement.cloneNode(true) as HTMLElement;
     titleClone
       .querySelector('[data-testid="better-direction-indicator"]')
       ?.remove();
+    titleClone.querySelector('[data-testid="framework-name"]')?.remove();
     const title = [
       titleClone.textContent,
       ...optionsElements.map((element) => element.textContent),
@@ -231,6 +236,26 @@ describe('Results Table', () => {
       '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(screen.getByRole('rowgroup')).toMatchSnapshot();
+  });
+
+  it('should render a separate block per framework', async () => {
+    const { testCompareData } = getTestData();
+    const browsertimeResults = testCompareData.map(
+      (result): CompareResultsItem => ({
+        ...result,
+        framework_id: 13,
+      }),
+    );
+
+    setupAndRender([...testCompareData, ...browsertimeResults]);
+
+    await screen.findAllByText('a11yr');
+    expect(
+      screen
+        .getAllByTestId('framework-name')
+        .map((element) => element.textContent),
+    ).toEqual(['- talos', '- browsertime']);
+    expect(screen.getAllByRole('rowgroup')).toHaveLength(2);
   });
 
   it('should filter on the Platform column', async () => {
