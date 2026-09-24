@@ -17,6 +17,10 @@ import { Hooks } from 'taskcluster-client-web';
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
 import { clearTreeherderCaches } from '../../logic/treeherder';
+import {
+  HOW_TO_READ_STORAGE_KEY,
+  MANN_WHITNEY_WARNING_STORAGE_KEY,
+} from '../../reducers/ColumnPrefsSlice';
 import { fftkde } from '../../utils/kde.js';
 
 let store: Store;
@@ -84,9 +88,12 @@ fetchMock.mockGlobal();
 
 beforeEach(() => {
   jest.useFakeTimers({ now: new Date('Wed, 09 Oct 2024 12:45:17 GMT') });
-  // The store seeds some state from the URL (e.g. advanced columns), so start
-  // each test from a clean URL rather than the previous test's.
+  // The store seeds some state from the URL (e.g. advanced columns) and from
+  // localStorage (dismissed panels), so start each test from a clean URL and
+  // clear those keys rather than inheriting the previous test's.
   window.history.replaceState(null, '', '/');
+  localStorage.removeItem(HOW_TO_READ_STORAGE_KEY);
+  localStorage.removeItem(MANN_WHITNEY_WARNING_STORAGE_KEY);
   store = createStore();
 
   fetchMock.catch(404);

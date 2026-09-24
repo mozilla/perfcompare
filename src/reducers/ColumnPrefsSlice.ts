@@ -31,10 +31,6 @@ type ColumnPrefsState = {
   expandedRow: ExpandedRowOptions;
 };
 
-const showHowToRead = localStorage.getItem(HOW_TO_READ_STORAGE_KEY) !== 'false';
-const showMannWhitneyWarning =
-  localStorage.getItem(MANN_WHITNEY_WARNING_STORAGE_KEY) !== 'false';
-
 // Lazy so the URL is read when each store is created rather than at module
 // load.
 const getInitialState = (): ColumnPrefsState => {
@@ -43,8 +39,9 @@ const getInitialState = (): ColumnPrefsState => {
     showCliffsDelta: advancedColumns.cliffsDelta,
     showCles: advancedColumns.cles,
     showSignificance: advancedColumns.significance,
-    showHowToRead,
-    showMannWhitneyWarning,
+    showHowToRead: localStorage.getItem(HOW_TO_READ_STORAGE_KEY) !== 'false',
+    showMannWhitneyWarning:
+      localStorage.getItem(MANN_WHITNEY_WARNING_STORAGE_KEY) !== 'false',
     expandedRow: {
       effectSize: false,
       modes: false,
