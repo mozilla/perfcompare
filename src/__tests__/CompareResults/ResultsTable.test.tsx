@@ -17,6 +17,7 @@ import getTestData, {
   augmentCompareMannWhitneyDataWithSeveralRevisions,
   augmentCompareMannWhitneyDataWithSeveralTests,
 } from '../utils/fixtures';
+import { recreateStore } from '../utils/setupTests';
 import {
   renderWithRouter,
   screen,
@@ -25,12 +26,19 @@ import {
   enableAdvancedColumns,
 } from '../utils/test-utils';
 
+const ROUTE = '/compare-results/';
+
+function searchFor(extraParameters?: string) {
+  return (
+    '?baseRev=spam&baseRepo=try&framework=1' +
+    (extraParameters ? '&' + extraParameters : '')
+  );
+}
+
 function renderWithRoute(component: ReactElement, extraParameters?: string) {
   return renderWithRouter(component, {
-    route: '/compare-results/',
-    search:
-      '?baseRev=spam&baseRepo=try&framework=1' +
-      (extraParameters ? '&' + extraParameters : ''),
+    route: ROUTE,
+    search: searchFor(extraParameters),
     loader,
   });
 }
@@ -52,6 +60,17 @@ function setupAndRender(
     <ResultsView title={Strings.metaData.pageTitle.results} />,
     extraParameters,
   );
+}
+
+// Like setupAndRender, but simulates a full page load (reload or opening a
+// shared link): the store is created after the URL is set, as in the app.
+function setupAndRenderAsPageLoad(
+  testCompareData: CombinedResultsItemType[],
+  extraParameters?: string,
+) {
+  window.history.replaceState(null, '', ROUTE + searchFor(extraParameters));
+  recreateStore();
+  setupAndRender(testCompareData, extraParameters);
 }
 
 // This handy function parses the results page and returns an array of visible
@@ -1388,6 +1407,66 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
 
     await user.click(screen.getByRole('option', { name: 'CLES' }));
     expect(advancedParam()).toBeNull();
+  });
+
+  it('restores the Significance filter from the URL on page load', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&advanced_columns=significance&filter_significance=significant&initialized=1',
+    );
+    await screen.findByText('a11yr');
+
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -, , -, Real',
+      '  - Windows 10, -2.40%, , -, Real',
+    ]);
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    expect(await summarizeTableFiltersFromCheckboxes(user)).toMatchObject({
+      'Significance(1)': ['Real'],
+    });
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      significance: ['significant'],
+    });
+  });
+
+  it('restores the Significance sort from the URL on page load', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&advanced_columns=significance&sort=significance|asc&initialized=1',
+    );
+    await screen.findByText('a11yr');
+
+    expect(
+      screen.getByRole('button', {
+        name: /Significance.*Currently sorted by this column/,
+      }),
+    ).toBeInTheDocument();
+    // Ascending p-value: the significant ("Real") rows come first.
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -2.40%, , -, Real',
+      '  - Windows 10, -, , -, Real',
+      '  - macOS 10.15, +1.08%, Improvement, -, Noise',
+      '  - Linux 18.04, +1.85%, Regression, Negligible, Noise',
+    ]);
+    expectParameterToHaveValue('sort', 'significance|asc');
+  });
+
+  it('ignores a Significance filter in the URL when the column is hidden', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&filter_significance=significant&initialized=1',
+    );
+    await screen.findByText('a11yr');
+
+    const header = screen.getByTestId('table-header');
+    expect(header.querySelector('.significance-header')).toBeFalsy();
+    // All four rows are still shown.
+    expect(summarizeVisibleRows('mann-whitney-u')).toHaveLength(5);
   });
 
   it('groups the dropdown into Advanced Columns and Advanced expanded row details sections', async () => {
