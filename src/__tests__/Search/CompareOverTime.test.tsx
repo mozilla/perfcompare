@@ -202,24 +202,84 @@ describe('Compare Over Time', () => {
     renderSearchViewComponent();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await expandOverTimeComponent();
-    const formElement = await waitForPageReadyAndReturnForm();
-
-    expect(within(formElement).getByText(/talos/i)).toBeInTheDocument();
-
-    expect(
-      within(formElement).queryByText(/build_metrics/i),
-    ).not.toBeInTheDocument();
+    await waitForPageReadyAndReturnForm();
 
     const frameworkDropdown = screen.getByRole('combobox', {
-      name: 'Framework Framework',
+      name: 'Framework',
     });
+    // Talos is the default framework.
+    expect(frameworkDropdown).toHaveTextContent('talos');
 
     await user.click(frameworkDropdown);
-    const buildMetricsItem = screen.getByRole('option', {
-      name: 'build_metrics',
+    expect(screen.getByRole('option', { name: 'talos' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+
+    await user.click(screen.getByRole('option', { name: 'build_metrics' }));
+
+    // Both frameworks are selected now.
+    expect(screen.getByRole('option', { name: 'talos' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(
+      screen.getByRole('option', { name: 'build_metrics' }),
+    ).toHaveAttribute('aria-selected', 'true');
+    expect(frameworkDropdown).toHaveTextContent('build_metrics, talos');
+  });
+
+  it('selects all frameworks and restores the previous selection with the All frameworks checkbox', async () => {
+    renderSearchViewComponent();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await expandOverTimeComponent();
+    await waitForPageReadyAndReturnForm();
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
     });
-    await user.click(buildMetricsItem);
-    expect(frameworkDropdown).toHaveTextContent('build_metrics');
+    expect(frameworkDropdown).toHaveTextContent('talos');
+
+    await user.click(frameworkDropdown);
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+
+    expect(frameworkDropdown).toHaveTextContent('All frameworks');
+    expect(screen.getByRole('option', { name: 'awsy' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(
+      within(screen.getByRole('option', { name: 'All frameworks' })).getByRole(
+        'checkbox',
+      ),
+    ).toBeChecked();
+
+    // Unchecking it restores the selection from before it was checked.
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('talos');
+    expect(screen.getByRole('option', { name: 'awsy' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
+  });
+
+  it('summarizes the selected frameworks when more than three are selected', async () => {
+    renderSearchViewComponent();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    await expandOverTimeComponent();
+    await waitForPageReadyAndReturnForm();
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    await user.click(frameworkDropdown);
+
+    await user.click(screen.getByRole('option', { name: 'awsy' }));
+    await user.click(screen.getByRole('option', { name: 'browsertime' }));
+    await user.click(screen.getByRole('option', { name: 'build_metrics' }));
+    expect(frameworkDropdown).toHaveTextContent(
+      'awsy, browsertime, build_metrics + 1 other',
+    );
   });
 
   it('selects and displays new time range when clicked', async () => {

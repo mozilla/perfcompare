@@ -23,7 +23,7 @@ const stringsOverTime = Strings.components.searchDefault.overTime;
 interface CompareWithTimeProps {
   hasEditButton: boolean;
   newRevs: Changeset[];
-  frameworkIdVal: Framework['id'];
+  frameworkIdVal: Framework['id'][];
   intervalValue: TimeRange['value'];
   newRepo: Repository['name'];
   baseRepo: Repository['name'];
@@ -200,7 +200,7 @@ function CompareOverTime({
               }}
             >
               {!hasEditButton && (
-                <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+                <SearchFrameworkDropdown frameworkIdVal={frameworkIdVal} />
               )}
 
               <CancelAndCompareButtons
@@ -215,11 +215,14 @@ function CompareOverTime({
           {/**** Hidden Input to capture framework and testVersion when user updates revisions ****/}
           {hasEditButton && (
             <>
-              <input
-                value={frameworkIdVal}
-                name='framework'
-                type='hidden'
-              ></input>
+              {frameworkIdVal.map((frameworkId) => (
+                <input
+                  value={frameworkId}
+                  name='framework'
+                  type='hidden'
+                  key={frameworkId}
+                ></input>
+              ))}
               <input
                 type='hidden'
                 value={testVersion}

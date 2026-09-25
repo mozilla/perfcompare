@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
+import { frameworks } from '../../common/constants';
 import { loader as withBaseLoader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { loader as searchLoader } from '../../components/Search/loader';
@@ -140,26 +141,210 @@ describe('Compare With Base', () => {
 
   it('selects and displays new framework when clicked', async () => {
     await renderSearchViewComponent();
-    const formElement = await waitForPageReadyAndReturnForm();
+    await waitForPageReadyAndReturnForm();
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    expect(within(formElement).getByText(/talos/i)).toBeInTheDocument();
-    expect(
-      within(formElement).queryByText(/build_metrics/i),
-    ).not.toBeInTheDocument();
 
     const frameworkDropdown = screen.getByRole('combobox', {
-      name: 'Framework Framework',
+      name: 'Framework',
     });
+    // Talos is the default framework.
+    expect(frameworkDropdown).toHaveTextContent('talos');
 
     await user.click(frameworkDropdown);
     expect(screen.getByRole('listbox')).toMatchSnapshot();
-    const buildMetricsItem = screen.getByRole('option', {
-      name: 'build_metrics',
+
+    expect(screen.getByRole('option', { name: 'talos' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(
+      screen.getByRole('option', { name: 'build_metrics' }),
+    ).toHaveAttribute('aria-selected', 'false');
+
+    await user.click(screen.getByRole('option', { name: 'build_metrics' }));
+
+    // Both frameworks are selected now.
+    expect(screen.getByRole('option', { name: 'talos' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(
+      screen.getByRole('option', { name: 'build_metrics' }),
+    ).toHaveAttribute('aria-selected', 'true');
+    expect(frameworkDropdown).toHaveTextContent('build_metrics, talos');
+  });
+
+  it('falls back to talos when the last framework is unchecked', async () => {
+    await renderSearchViewComponent();
+    await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
     });
+    await user.click(frameworkDropdown);
 
-    await user.click(buildMetricsItem);
+    // Uncheck the only selected framework.
+    await user.click(screen.getByRole('option', { name: 'talos' }));
 
-    expect(within(formElement).getByText(/build_metrics/i)).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: 'talos' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(frameworkDropdown).toHaveTextContent('talos');
+  });
+
+  it('selects all frameworks and restores the previous selection with the All frameworks checkbox', async () => {
+    await renderSearchViewComponent();
+    await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    expect(frameworkDropdown).toHaveTextContent('talos');
+
+    await user.click(frameworkDropdown);
+
+    // "All frameworks" is a regular checkbox, only checked when everything is.
+    expect(
+      within(screen.getByRole('option', { name: 'All frameworks' })).getByRole(
+        'checkbox',
+      ),
+    ).not.toBeChecked();
+
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+
+    // Every framework is selected now.
+    expect(frameworkDropdown).toHaveTextContent('All frameworks');
+    expect(
+      within(screen.getByRole('option', { name: 'All frameworks' })).getByRole(
+        'checkbox',
+      ),
+    ).toBeChecked();
+    expect(screen.getByRole('option', { name: 'talos' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(screen.getByRole('option', { name: 'awsy' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+
+    // Clicking it again restores the selection from before it was checked.
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('talos');
+    expect(
+      within(screen.getByRole('option', { name: 'All frameworks' })).getByRole(
+        'checkbox',
+      ),
+    ).not.toBeChecked();
+    expect(screen.getByRole('option', { name: 'talos' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(screen.getByRole('option', { name: 'awsy' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
+  });
+
+  it('restores the selection from before All frameworks was checked', async () => {
+    await renderSearchViewComponent();
+    await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    await user.click(frameworkDropdown);
+
+    // Select a second framework before checking "All frameworks".
+    await user.click(screen.getByRole('option', { name: 'build_metrics' }));
+    expect(frameworkDropdown).toHaveTextContent('build_metrics, talos');
+
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('All frameworks');
+
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('build_metrics, talos');
+  });
+
+  it('keeps the remaining frameworks selected when unchecking some after All frameworks', async () => {
+    await renderSearchViewComponent();
+    await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    await user.click(frameworkDropdown);
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('All frameworks');
+
+    // Unchecking a few is a quick way to get most frameworks.
+    await user.click(screen.getByRole('option', { name: 'awsy' }));
+    await user.click(screen.getByRole('option', { name: 'browsertime' }));
+
+    expect(screen.getByRole('option', { name: 'awsy' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
+    expect(screen.getByRole('option', { name: 'browsertime' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
+    expect(screen.getByRole('option', { name: 'talos' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    // "All frameworks" auto-unchecks since it's no longer everything.
+    expect(
+      within(screen.getByRole('option', { name: 'All frameworks' })).getByRole(
+        'checkbox',
+      ),
+    ).not.toBeChecked();
+  });
+
+  it('summarizes the selected frameworks when more than three are selected', async () => {
+    await renderSearchViewComponent();
+    await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    await user.click(frameworkDropdown);
+
+    // Three selected frameworks are all displayed, with no "+ N others".
+    await user.click(screen.getByRole('option', { name: 'awsy' }));
+    await user.click(screen.getByRole('option', { name: 'browsertime' }));
+    expect(frameworkDropdown).toHaveTextContent('awsy, browsertime, talos');
+    expect(
+      screen.queryByTestId('framework-summary-remaining'),
+    ).not.toBeInTheDocument();
+
+    // A fourth one truncates the summary, keeping only the first three names.
+    await user.click(screen.getByRole('option', { name: 'build_metrics' }));
+    expect(frameworkDropdown).toHaveTextContent(
+      'awsy, browsertime, build_metrics + 1 other',
+    );
+    expect(screen.getByTestId('framework-summary-remaining')).toHaveTextContent(
+      '+ 1 other',
+    );
+
+    // A fifth one updates the remaining count.
+    await user.click(screen.getByRole('option', { name: 'devtools' }));
+    expect(frameworkDropdown).toHaveTextContent(
+      'awsy, browsertime, build_metrics + 2 others',
+    );
+    expect(screen.getByTestId('framework-summary-remaining')).toHaveTextContent(
+      '+ 2 others',
+    );
+
+    // The "All frameworks" summary stays the same.
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('All frameworks');
   });
 
   it('should remove the checked revision once X button is clicked', async () => {
@@ -304,6 +489,8 @@ describe('Compare With Base', () => {
     const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework',
     });
+    // build_metrics comes from the URL.
+    expect(frameworkDropdown).toHaveTextContent('build_metrics');
 
     await user.click(frameworkDropdown);
 
@@ -312,13 +499,80 @@ describe('Compare With Base', () => {
     const option = await screen.findByRole('option', { name: 'awsy' });
     await user.click(option);
 
-    await waitFor(() => {
-      expect(location.href).toContain('framework=4');
-    });
-
+    // Both frameworks are selected in the dropdown.
+    expect(frameworkDropdown).toHaveTextContent('awsy, build_metrics');
     expect(list).toMatchSnapshot('after awsy is selected');
-    const awsy = screen.getByText('awsy');
-    expect(awsy).toBeInTheDocument();
+
+    // The selection is committed to the URL when the menu closes.
+    await user.keyboard('{Escape}');
+    await waitFor(() => {
+      const frameworkParams = new URLSearchParams(location.search).getAll(
+        'framework',
+      );
+      expect(frameworkParams.sort()).toEqual(['2', '4']);
+    });
+  });
+
+  it('updates the url with every framework when All frameworks is checked in the results view', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    await waitForPageReadyAndReturnForm();
+    await screen.findByText('Results');
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    await user.click(frameworkDropdown);
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('All frameworks');
+
+    // The selection is committed to the URL when the menu closes.
+    await user.keyboard('{Escape}');
+    await waitFor(() => {
+      const frameworkParams = new URLSearchParams(location.search).getAll(
+        'framework',
+      );
+      expect(frameworkParams.sort()).toEqual(
+        frameworks.map((framework) => framework.id.toString()).sort(),
+      );
+    });
+  });
+
+  it('defaults to talos when All frameworks arrives checked from the url and is unchecked', async () => {
+    setUpTestData();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    renderWithRouter(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+      {
+        route: '/compare-results/',
+        search: `?baseRev=coconut&baseRepo=try&newRev=spam&newRepo=mozilla-central&${frameworks
+          .map((framework) => `framework=${framework.id}`)
+          .join('&')}`,
+        loader: withBaseLoader,
+      },
+    );
+    await waitForPageReadyAndReturnForm();
+    await screen.findByText('Results');
+
+    const frameworkDropdown = screen.getByRole('combobox', {
+      name: 'Framework',
+    });
+    expect(frameworkDropdown).toHaveTextContent('All frameworks');
+
+    // There's no in-session selection to restore, so unchecking defaults to
+    // talos.
+    await user.click(frameworkDropdown);
+    await user.click(screen.getByRole('option', { name: 'All frameworks' }));
+    expect(frameworkDropdown).toHaveTextContent('talos');
+
+    await user.keyboard('{Escape}');
+    await waitFor(() => {
+      expect(new URLSearchParams(location.search).getAll('framework')).toEqual([
+        '1',
+      ]);
+    });
   });
 
   it('should move back to the previously selected base and new revisions when Cancel is clicked', async () => {

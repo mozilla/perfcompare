@@ -3,6 +3,7 @@ import {
   frameworks,
   timeRanges,
   MANN_WHITNEY_U,
+  DEFAULT_FRAMEWORK_ID,
 } from '../../common/constants';
 import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
@@ -80,7 +81,9 @@ function checkValues({
   }
 
   if (framework === null) {
-    framework = 1; // default to talos so that manually typing the URL is easier
+    // Default to the default framework (talos) so that manually typing the URL
+    // is easier.
+    framework = DEFAULT_FRAMEWORK_ID;
   }
 
   const frameworkId = +framework as Framework['id'];

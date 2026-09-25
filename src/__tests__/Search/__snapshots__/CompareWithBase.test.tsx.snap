@@ -741,6 +741,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
 exports[`Compare With Base selects and displays new framework when clicked 1`] = `
 <ul
   aria-labelledby="select-framework-label"
+  aria-multiselectable="true"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
   id="_r_2k_"
   role="listbox"
@@ -749,11 +750,76 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   <li
     aria-selected="false"
     class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="all-frameworks"
+    role="option"
+    tabindex="-1"
+  >
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        All frameworks
+      </span>
+    </div>
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
     tabindex="-1"
   >
-    awsy
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        awsy
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -762,7 +828,35 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="-1"
   >
-    browsertime
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        browsertime
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -771,7 +865,35 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="-1"
   >
-    build_metrics
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        build_metrics
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -780,7 +902,35 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="-1"
   >
-    devtools
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        devtools
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -789,7 +939,35 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="-1"
   >
-    fxrecord
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        fxrecord
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -798,7 +976,35 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="-1"
   >
-    js-bench
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        js-bench
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -807,7 +1013,35 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="-1"
   >
-    mozharness
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        mozharness
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -816,7 +1050,35 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="-1"
   >
-    mozperftest
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        mozperftest
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -825,7 +1087,35 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="-1"
   >
-    platform_microbench
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        platform_microbench
+      </span>
+    </div>
   </li>
   <li
     aria-selected="true"
@@ -834,7 +1124,36 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
     role="option"
     tabindex="0"
   >
-    talos
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        checked=""
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        talos
+      </span>
+    </div>
   </li>
 </ul>
 `;
@@ -1028,7 +1347,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4b_"
+                    id="_r_8i_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1375,7 +1694,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4k_"
+                    id="_r_8r_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1626,7 +1945,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4b_"
+                    id="_r_8i_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1973,7 +2292,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4k_"
+                    id="_r_8r_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2388,7 +2707,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4b_"
+                    id="_r_8i_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2735,7 +3054,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4k_"
+                    id="_r_8r_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3154,7 +3473,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4b_"
+                    id="_r_8i_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3341,7 +3660,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4k_"
+                    id="_r_8r_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3792,7 +4111,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4b_"
+                    id="_r_8i_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4139,7 +4458,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_4k_"
+                    id="_r_8r_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4585,7 +4904,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                   autocapitalize="none"
                                   autocomplete="off"
                                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                                  id="_r_36_"
+                                  id="_r_7d_"
                                   placeholder="Search by revision ID or author email"
                                   role="combobox"
                                   spellcheck="false"
@@ -4772,7 +5091,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                   autocapitalize="none"
                                   autocomplete="off"
                                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                                  id="_r_3b_"
+                                  id="_r_7i_"
                                   placeholder="Search by revision ID or author email"
                                   role="combobox"
                                   spellcheck="false"
@@ -4841,7 +5160,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 dropDown_frp1utb css-1nxoejh-MuiGrid-root"
                 >
                   <div
-                    class="MuiFormControl-root framework-dropdown f1ttr4cl css-1iw3t7y-MuiFormControl-root"
+                    class="MuiFormControl-root framework-dropdown f1nl4oko css-1iw3t7y-MuiFormControl-root"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 css-1yu4dci-MuiGrid-root"
@@ -4867,6 +5186,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         />
                       </svg>
                     </div>
+                    <input
+                      name="framework"
+                      type="hidden"
+                      value="1"
+                    />
                     <div
                       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="framework-select"
@@ -4875,19 +5199,26 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-label="Framework"
-                        aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-framework"
+                        aria-labelledby="select-framework-label"
+                        class="MuiSelect-select MuiSelect-standard MuiSelect-multiple MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         role="combobox"
                         tabindex="0"
                       >
-                        talos
+                        <span
+                          class="MuiBox-root css-z4xr20"
+                        >
+                          <span
+                            class="MuiBox-root css-idlrhm"
+                            data-testid="framework-summary-names"
+                          >
+                            talos
+                          </span>
+                        </span>
                       </div>
                       <input
                         aria-hidden="true"
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                        name="framework"
                         tabindex="-1"
                         value="1"
                       />
@@ -5238,7 +5569,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                                   autocapitalize="none"
                                   autocomplete="off"
                                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                                  id="_r_3n_"
+                                  id="_r_7u_"
                                   placeholder="Search by revision ID or author email"
                                   role="combobox"
                                   spellcheck="false"
@@ -5306,7 +5637,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 dropDown_frp1utb css-1nxoejh-MuiGrid-root"
                 >
                   <div
-                    class="MuiFormControl-root framework-dropdown f1ttr4cl css-1iw3t7y-MuiFormControl-root"
+                    class="MuiFormControl-root framework-dropdown f1nl4oko css-1iw3t7y-MuiFormControl-root"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 css-1yu4dci-MuiGrid-root"
@@ -5332,6 +5663,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         />
                       </svg>
                     </div>
+                    <input
+                      name="framework"
+                      type="hidden"
+                      value="1"
+                    />
                     <div
                       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="framework-select"
@@ -5340,19 +5676,26 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-label="Framework"
-                        aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-framework"
+                        aria-labelledby="select-framework-label"
+                        class="MuiSelect-select MuiSelect-standard MuiSelect-multiple MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         role="combobox"
                         tabindex="0"
                       >
-                        talos
+                        <span
+                          class="MuiBox-root css-z4xr20"
+                        >
+                          <span
+                            class="MuiBox-root css-idlrhm"
+                            data-testid="framework-summary-names"
+                          >
+                            talos
+                          </span>
+                        </span>
                       </div>
                       <input
                         aria-hidden="true"
                         aria-invalid="false"
                         class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                        name="framework"
                         tabindex="-1"
                         value="1"
                       />
@@ -5394,19 +5737,85 @@ exports[`Compare With Base should remove the checked revision once X button is c
 
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
+  aria-multiselectable="true"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="_r_6o_"
+  id="_r_av_"
   role="listbox"
   tabindex="-1"
 >
   <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="all-frameworks"
+    role="option"
+    tabindex="-1"
+  >
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        All frameworks
+      </span>
+    </div>
+  </li>
+  <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
-    tabindex="0"
+    tabindex="-1"
   >
-    awsy
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        awsy
+      </span>
+    </div>
     <span
       class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
     >
@@ -5427,16 +5836,73 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     role="option"
     tabindex="-1"
   >
-    browsertime
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        browsertime
+      </span>
+    </div>
   </li>
   <li
-    aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    aria-selected="true"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2"
     role="option"
-    tabindex="-1"
+    tabindex="0"
   >
-    build_metrics
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        checked=""
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        build_metrics
+      </span>
+    </div>
     <span
       class="MuiTouchRipple-root css-r3djoj-MuiTouchRipple-root"
     />
@@ -5448,7 +5914,35 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     role="option"
     tabindex="-1"
   >
-    devtools
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        devtools
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -5457,7 +5951,35 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     role="option"
     tabindex="-1"
   >
-    fxrecord
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        fxrecord
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -5466,7 +5988,35 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     role="option"
     tabindex="-1"
   >
-    js-bench
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        js-bench
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -5475,7 +6025,35 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     role="option"
     tabindex="-1"
   >
-    mozharness
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        mozharness
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -5484,7 +6062,35 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     role="option"
     tabindex="-1"
   >
-    mozperftest
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        mozperftest
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -5493,7 +6099,35 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     role="option"
     tabindex="-1"
   >
-    platform_microbench
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        platform_microbench
+      </span>
+    </div>
   </li>
   <li
     aria-selected="false"
@@ -5502,7 +6136,35 @@ exports[`Compare With Base updates the framework and url when a new one is selec
     role="option"
     tabindex="-1"
   >
-    talos
+    <span
+      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeSmall css-1nff2up-MuiButtonBase-root-MuiSwitchBase-root-MuiCheckbox-root"
+    >
+      <input
+        class="PrivateSwitchBase-input css-12xagqm-MuiSwitchBase-root"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-54rgmy-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-n290n7-MuiTypography-root"
+      >
+        talos
+      </span>
+    </div>
   </li>
 </ul>
 `;

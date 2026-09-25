@@ -27,7 +27,7 @@ interface CompareWithBaseProps {
   newRevs: Changeset[];
   baseRepo: Repository['name'];
   newRepo: Repository['name'];
-  frameworkIdVal: Framework['id'];
+  frameworkIdVal: Framework['id'][];
   testVersion: TestVersion;
   isExpanded: boolean;
   setIsExpanded?: () => unknown;
@@ -291,7 +291,7 @@ function CompareWithBase({
               }}
             >
               {!hasEditButton && (
-                <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+                <SearchFrameworkDropdown frameworkIdVal={frameworkIdVal} />
               )}
 
               <CancelAndCompareButtons
@@ -305,11 +305,14 @@ function CompareWithBase({
           {/**** Hidden Input to capture framework and testVersion when user updates revisions ****/}
           {hasEditButton && (
             <>
-              <input
-                type='hidden'
-                value={frameworkIdVal}
-                name='framework'
-              ></input>
+              {frameworkIdVal.map((frameworkId) => (
+                <input
+                  type='hidden'
+                  value={frameworkId}
+                  name='framework'
+                  key={frameworkId}
+                ></input>
+              ))}
               <input
                 type='hidden'
                 value={testVersion}
