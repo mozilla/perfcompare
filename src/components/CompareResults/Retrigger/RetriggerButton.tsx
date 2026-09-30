@@ -210,6 +210,8 @@ export function RetriggerButton({ result, variant }: RetriggerButtonProps) {
         open={status === 'retrigger-modal'}
         onClose={() => setStatus('pending')}
         onRetriggerClick={onRetriggerConfirm}
+        hasBaseJobs={baseRetriggerableJobIds.length > 0}
+        hasNewJobs={newRetriggerableJobIds.length > 0}
       />
     </>
   );
