@@ -4,6 +4,11 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 
 const numberFormatter = new Intl.NumberFormat('en-US');
 
+const deltaFormatter = new Intl.NumberFormat('en-US', {
+  signDisplay: 'exceptZero',
+  maximumFractionDigits: 2,
+});
+
 export function formatDate(date: Date) {
   return dateFormatter.format(date);
 }
@@ -14,6 +19,10 @@ export function formatDateRange(date1: Date, date2: Date) {
 
 export const formatNumber = (value: number) => {
   return numberFormatter.format(value);
+};
+
+export const formatDelta = (value: number) => {
+  return deltaFormatter.format(value);
 };
 
 // Determine the best human-readable scale for a unit given a set of values.
