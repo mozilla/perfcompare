@@ -344,7 +344,10 @@ export const studentTStrategy = {
             {determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
-        <div className='delta cell' role='cell'>{` ${formatDelta(deltaPercent)} % `}</div>
+        <div
+          className='delta cell'
+          role='cell'
+        >{` ${formatDelta(deltaPercent)} % `}</div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText || '-'}
