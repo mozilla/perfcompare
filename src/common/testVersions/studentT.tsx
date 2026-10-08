@@ -269,7 +269,7 @@ export const studentTStrategy = {
         : '';
     const medianPercentage =
       baseMedian && newMedian
-        ? formatTwoDigits.format(((newMedian - baseMedian) / baseMedian) * 100)
+        ? formatDelta(((newMedian - baseMedian) / baseMedian) * 100)
         : '';
 
     const { confidenceNote } = Strings.components.expandableRow;
@@ -277,7 +277,7 @@ export const studentTStrategy = {
     return (
       <>
         <Box sx={{ whiteSpace: 'nowrap' }}>
-          <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
+          <b>Difference of means</b>: {formatDelta(deltaPercent)}% ({formatNumber(delta)}
           {deltaUnit ? ' ' + deltaUnit : null})
         </Box>
         {newMedian && baseMedian ? (
