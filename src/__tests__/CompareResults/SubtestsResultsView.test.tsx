@@ -278,10 +278,10 @@ describe('SubtestsResultsView Component Tests', () => {
       // Initial view (alphabetical ordered, even if "sort by subtests" isn't specified
       expect(summarizeVisibleRows()).toEqual([
         'browser.html: -1.43 %, Low',
-        'dhtml.html: 1.14 %, Low',
+        'dhtml.html: +1.14 %, Low',
         'improvement.html: -1.44 %, Low',
-        'regression.html: 1.04 %, High',
-        'tablemutation.html: 0.98 %, Low',
+        'regression.html: +1.04 %, High',
+        'tablemutation.html: +0.98 %, Low',
       ]);
 
       // Sort by Delta
@@ -294,9 +294,9 @@ describe('SubtestsResultsView Component Tests', () => {
       expect(summarizeVisibleRows()).toEqual([
         'improvement.html: -1.44 %, Low',
         'browser.html: -1.43 %, Low',
-        'dhtml.html: 1.14 %, Low',
-        'regression.html: 1.04 %, High',
-        'tablemutation.html: 0.98 %, Low',
+        'dhtml.html: +1.14 %, Low',
+        'regression.html: +1.04 %, High',
+        'tablemutation.html: +0.98 %, Low',
       ]);
       // It should have the "descending" SVG.
       expect(deltaButton).toMatchSnapshot();
@@ -306,9 +306,9 @@ describe('SubtestsResultsView Component Tests', () => {
       // Sort ascending
       await user.click(deltaButton);
       expect(summarizeVisibleRows()).toEqual([
-        'tablemutation.html: 0.98 %, Low',
-        'regression.html: 1.04 %, High',
-        'dhtml.html: 1.14 %, Low',
+        'tablemutation.html: +0.98 %, Low',
+        'regression.html: +1.04 %, High',
+        'dhtml.html: +1.14 %, Low',
         'browser.html: -1.43 %, Low',
         'improvement.html: -1.44 %, Low',
       ]);
@@ -323,11 +323,11 @@ describe('SubtestsResultsView Component Tests', () => {
       });
       await user.click(confidenceButton);
       expect(summarizeVisibleRows()).toEqual([
-        'regression.html: 1.04 %, High',
+        'regression.html: +1.04 %, High',
         'improvement.html: -1.44 %, Low',
         'browser.html: -1.43 %, Low',
-        'dhtml.html: 1.14 %, Low',
-        'tablemutation.html: 0.98 %, Low',
+        'dhtml.html: +1.14 %, Low',
+        'tablemutation.html: +0.98 %, Low',
       ]);
       // It should have the "no sort" SVG.
       expect(deltaButton).toMatchSnapshot();
@@ -340,10 +340,10 @@ describe('SubtestsResultsView Component Tests', () => {
       const subtestsButton = screen.getByRole('button', { name: /Subtests/ });
       await user.click(subtestsButton);
       expect(summarizeVisibleRows()).toEqual([
-        'tablemutation.html: 0.98 %, Low',
-        'regression.html: 1.04 %, High',
+        'tablemutation.html: +0.98 %, Low',
+        'regression.html: +1.04 %, High',
         'improvement.html: -1.44 %, Low',
-        'dhtml.html: 1.14 %, Low',
+        'dhtml.html: +1.14 %, Low',
         'browser.html: -1.43 %, Low',
       ]);
       // It should have the "no sort" SVG.
@@ -363,9 +363,9 @@ describe('SubtestsResultsView Component Tests', () => {
       await setupForSorting({ extraParameters: 'sort=delta|asc' });
       await screen.findByText('dhtml.html');
       expect(summarizeVisibleRows()).toEqual([
-        'tablemutation.html: 0.98 %, Low',
-        'regression.html: 1.04 %, High',
-        'dhtml.html: 1.14 %, Low',
+        'tablemutation.html: +0.98 %, Low',
+        'regression.html: +1.04 %, High',
+        'dhtml.html: +1.14 %, Low',
         'browser.html: -1.43 %, Low',
         'improvement.html: -1.44 %, Low',
       ]);
@@ -379,9 +379,9 @@ describe('SubtestsResultsView Component Tests', () => {
       expect(summarizeVisibleRows()).toEqual([
         'improvement.html: -1.44 %, Low',
         'browser.html: -1.43 %, Low',
-        'dhtml.html: 1.14 %, Low',
-        'regression.html: 1.04 %, High',
-        'tablemutation.html: 0.98 %, Low',
+        'dhtml.html: +1.14 %, Low',
+        'regression.html: +1.04 %, High',
+        'tablemutation.html: +0.98 %, Low',
       ]);
       // It should have the "descending" SVG.
       expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
@@ -392,9 +392,9 @@ describe('SubtestsResultsView Component Tests', () => {
       expect(summarizeVisibleRows()).toEqual([
         'improvement.html: -1.44 %, Low',
         'browser.html: -1.43 %, Low',
-        'dhtml.html: 1.14 %, Low',
-        'regression.html: 1.04 %, High',
-        'tablemutation.html: 0.98 %, Low',
+        'dhtml.html: +1.14 %, Low',
+        'regression.html: +1.04 %, High',
+        'tablemutation.html: +0.98 %, Low',
       ]);
       // It should have the "descending" SVG.
       expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
