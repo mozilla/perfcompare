@@ -277,7 +277,8 @@ export const studentTStrategy = {
     return (
       <>
         <Box sx={{ whiteSpace: 'nowrap' }}>
-          <b>Difference of means</b>: {formatDelta(deltaPercent)}% ({formatNumber(delta)}
+          <b>Difference of means</b>: {formatDelta(deltaPercent)}% (
+          {formatNumber(delta)}
           {deltaUnit ? ' ' + deltaUnit : null})
         </Box>
         {newMedian && baseMedian ? (
