@@ -29,7 +29,8 @@ export const test = base.extend<Options & Fixtures>({
 
   app: [
     async ({ page, allowConsoleErrors }, use) => {
-      const { testCompareData, testData } = getTestData();
+      const { testCompareMannWhitneyData: testCompareData, testData } =
+        getTestData();
       const problems: string[] = [];
 
       page.on('console', (message) => {
