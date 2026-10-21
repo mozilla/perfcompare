@@ -11,6 +11,7 @@ import type {
   CompareResultsItem,
 } from '../../types/state';
 import type { Platform, TestVersion } from '../../types/types';
+import { getCookie } from '../../utils/cookies';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
   augmentCompareDataWithSeveralRevisions,
@@ -1541,6 +1542,41 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(expandedParam()).toBeNull();
   });
 
+  it('carries the Advanced options selection into the subtests links', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    // The subtests link only renders for results that have subtests.
+    setupAndRender(
+      testCompareMannWhitneyData.map((result) => ({
+        ...result,
+        has_subtests: true,
+      })),
+      'test_version=mann-whitney-u',
+    );
+    await screen.findByText('a11yr');
+
+    const subtestsLinkParams = () =>
+      new URL(
+        screen
+          .getAllByTitle(Strings.components.revisionRow.title.subtestsLink)[0]
+          .getAttribute('href') as string,
+        'http://localhost',
+      ).searchParams;
+    // Simplified default: "none" is pinned explicitly.
+    expect(subtestsLinkParams().get('advanced_columns')).toBe('');
+    expect(subtestsLinkParams().get('advanced_expanded')).toBe('');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    await user.click(screen.getByRole('option', { name: 'Significance' }));
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    await user.keyboard('{Escape}');
+
+    expect(subtestsLinkParams().get('advanced_columns')).toBe('significance');
+    expect(subtestsLinkParams().get('advanced_expanded')).toBe('stats_table');
+  });
+
   it('toasts when an expanded-row option is added, but not when removed', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
@@ -1678,6 +1714,89 @@ describe('cookie persistence vs. shareable URLs', () => {
       expect(params.get('initialized')).toBe('1');
       expect(params.get('filter_status')).toBe('regression');
     });
+  });
+});
+
+describe('Advanced options cookie persistence', () => {
+  const header = () => screen.getByTestId('table-header');
+  const urlParam = (name: string) =>
+    new URLSearchParams(window.location.search).get(name);
+
+  it('restores the remembered selection on a fresh URL and writes it into the URL', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+    document.cookie = 'perfcompare_advanced_expanded=stats_table; path=/';
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u',
+    );
+    await screen.findByText('a11yr');
+
+    expect(header().querySelector('.significance-header')).toBeTruthy();
+    expect(urlParam('advanced_columns')).toBe('significance');
+    expect(urlParam('advanced_expanded')).toBe('stats_table');
+    expect(urlParam('initialized')).toBe('1');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    expect(
+      screen.getByRole('option', { name: 'Statistics table' }),
+    ).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('ignores the cookie when the URL is already initialized', async () => {
+    document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&initialized=1',
+    );
+    await screen.findByText('a11yr');
+
+    expect(header().querySelector('.significance-header')).toBeFalsy();
+    expect(urlParam('advanced_columns')).toBeNull();
+  });
+
+  it.each([
+    { param: 'cles', expectCles: true },
+    { param: '', expectCles: false },
+  ])(
+    'prefers the URL param over the cookie on a fresh URL (advanced_columns=$param)',
+    async ({ param, expectCles }) => {
+      document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+      const { testCompareMannWhitneyData } = getTestData();
+      setupAndRenderAsPageLoad(
+        testCompareMannWhitneyData,
+        `test_version=mann-whitney-u&advanced_columns=${param}`,
+      );
+      await screen.findByText('a11yr');
+
+      expect(header().querySelector('.significance-header')).toBeFalsy();
+      expect(Boolean(header().querySelector('.effects-header'))).toBe(
+        expectCles,
+      );
+    },
+  );
+
+  it('remembers the selection in cookies when it changes', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    await user.click(screen.getByRole('option', { name: 'Significance' }));
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    expect(getCookie('perfcompare_advanced_columns')).toBe('significance');
+    expect(getCookie('perfcompare_advanced_expanded')).toBe('stats_table');
+
+    await user.click(screen.getByRole('option', { name: 'Significance' }));
+    expect(getCookie('perfcompare_advanced_columns')).toBeNull();
+    expect(getCookie('perfcompare_advanced_expanded')).toBe('stats_table');
   });
 });
 

@@ -3,12 +3,19 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
+import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
+import useExpandedRowOptions from '../../../hooks/useExpandedRowOptions';
+import type { AdvancedColumns, ExpandedRowOptions } from '../../../types/types';
+import { setAdvancedOptionsParams } from '../../../utils/advancedOptionsUrl';
 
 type SubtestsBreadcrumbsProps = {
   view: typeof subtestsView | typeof subtestsOverTimeView;
 };
 
-const getPreviousCompareWithBaseURL = () => {
+const getPreviousCompareWithBaseURL = (
+  advancedColumns: AdvancedColumns,
+  expandedRow: ExpandedRowOptions,
+) => {
   const currentSearchParams = new URLSearchParams(location.search);
   const baseRev = currentSearchParams.get('baseRev') as string;
   const baseRepo = currentSearchParams.get('baseRepo') as string;
@@ -23,11 +30,18 @@ const getPreviousCompareWithBaseURL = () => {
     newRepo,
     framework,
   });
+  // Open the results page with the same Advanced options.
+  setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
+    explicit: true,
+  });
 
   return `/compare-results?${params.toString()}`;
 };
 
-const getPreviousCompareOverTimeURL = () => {
+const getPreviousCompareOverTimeURL = (
+  advancedColumns: AdvancedColumns,
+  expandedRow: ExpandedRowOptions,
+) => {
   const currentSearchParams = new URLSearchParams(location.search);
   const interval = currentSearchParams.get('selectedTimeRange') as string;
   const baseRepo = currentSearchParams.get('baseRepo') as string;
@@ -42,15 +56,20 @@ const getPreviousCompareOverTimeURL = () => {
     newRepo,
     framework,
   });
+  setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
+    explicit: true,
+  });
 
   return `/compare-over-time-results?${params.toString()}`;
 };
 
 function SubtestsBreadcrumbs({ view }: SubtestsBreadcrumbsProps) {
+  const advancedColumns = useAdvancedColumns();
+  const expandedRow = useExpandedRowOptions();
   const allResultsURL =
     view === subtestsView
-      ? getPreviousCompareWithBaseURL()
-      : getPreviousCompareOverTimeURL();
+      ? getPreviousCompareWithBaseURL(advancedColumns, expandedRow)
+      : getPreviousCompareOverTimeURL(advancedColumns, expandedRow);
 
   return (
     <Breadcrumbs separator={<ChevronLeftIcon fontSize='small' />}>
