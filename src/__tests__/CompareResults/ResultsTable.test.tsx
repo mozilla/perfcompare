@@ -1541,6 +1541,41 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(expandedParam()).toBeNull();
   });
 
+  it('carries the Advanced options selection into the subtests links', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    // The subtests link only renders for results that have subtests.
+    setupAndRender(
+      testCompareMannWhitneyData.map((result) => ({
+        ...result,
+        has_subtests: true,
+      })),
+      'test_version=mann-whitney-u',
+    );
+    await screen.findByText('a11yr');
+
+    const subtestsLinkParams = () =>
+      new URL(
+        screen
+          .getAllByTitle(Strings.components.revisionRow.title.subtestsLink)[0]
+          .getAttribute('href') as string,
+        'http://localhost',
+      ).searchParams;
+    // Simplified default: the link stays clean.
+    expect(subtestsLinkParams().has('advanced_columns')).toBe(false);
+    expect(subtestsLinkParams().has('advanced_expanded')).toBe(false);
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    await user.click(screen.getByRole('option', { name: 'Significance' }));
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    await user.keyboard('{Escape}');
+
+    expect(subtestsLinkParams().get('advanced_columns')).toBe('significance');
+    expect(subtestsLinkParams().get('advanced_expanded')).toBe('stats_table');
+  });
+
   it('toasts when an expanded-row option is added, but not when removed', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();

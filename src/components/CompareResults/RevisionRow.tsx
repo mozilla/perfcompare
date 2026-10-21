@@ -13,6 +13,7 @@ import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { getStrategy } from '../../common/testVersions';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
+import useExpandedRowOptions from '../../hooks/useExpandedRowOptions';
 import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
@@ -21,7 +22,12 @@ import type {
   CompareResultsItem,
   PlatformShortName,
 } from '../../types/state';
-import { TestVersion } from '../../types/types';
+import type {
+  AdvancedColumns,
+  ExpandedRowOptions,
+  TestVersion,
+} from '../../types/types';
+import { setAdvancedOptionsParams } from '../../utils/advancedOptionsUrl';
 import { formatNumber } from '../../utils/format';
 import {
   getPlatformShortName,
@@ -166,6 +172,8 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
 const getSubtestsCompareWithBaseLink = (
   result: CombinedResultsItemType,
   testVersion: TestVersion,
+  advancedColumns: AdvancedColumns,
+  expandedRow: ExpandedRowOptions,
 ) => {
   const params = new URLSearchParams({
     baseRev: result.base_rev,
@@ -177,6 +185,9 @@ const getSubtestsCompareWithBaseLink = (
     newParentSignature: String(result.new_signature_id),
     test_version: testVersion,
   });
+  // Carry the Advanced options selection over so the subtests page opens with
+  // the same columns and expanded-row details.
+  setAdvancedOptionsParams(params, advancedColumns, expandedRow);
 
   return `/subtests-compare-results?${params.toString()}`;
 };
@@ -184,6 +195,8 @@ const getSubtestsCompareWithBaseLink = (
 const getSubtestsCompareOverTimeLink = (
   result: CombinedResultsItemType,
   testVersion: TestVersion,
+  advancedColumns: AdvancedColumns,
+  expandedRow: ExpandedRowOptions,
 ) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
@@ -212,6 +225,7 @@ const getSubtestsCompareOverTimeLink = (
     newParentSignature: String(result.new_signature_id),
     test_version: testVersion,
   });
+  setAdvancedOptionsParams(params, advancedColumns, expandedRow);
 
   return `/subtests-compare-over-time-results?${params.toString()}`;
 };
@@ -249,6 +263,7 @@ function RevisionRow(props: RevisionRowProps) {
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
   const strategy = getStrategy(testVersion);
   const advancedColumns = useAdvancedColumns();
+  const expandedRow = useExpandedRowOptions();
   const { baseAvg: baseAvgValue, newAvg: newAvgValue } =
     strategy.getAvgValues(result);
   const [expanded, setExpanded] = useState(false);
@@ -267,8 +282,18 @@ function RevisionRow(props: RevisionRowProps) {
   // Note that the return type is different depending on the view we're in
   const subtestsCompareLink =
     view === compareView
-      ? getSubtestsCompareWithBaseLink(result, testVersion)
-      : getSubtestsCompareOverTimeLink(result, testVersion);
+      ? getSubtestsCompareWithBaseLink(
+          result,
+          testVersion,
+          advancedColumns,
+          expandedRow,
+        )
+      : getSubtestsCompareOverTimeLink(
+          result,
+          testVersion,
+          advancedColumns,
+          expandedRow,
+        );
 
   return (
     <>

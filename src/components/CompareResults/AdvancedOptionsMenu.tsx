@@ -18,14 +18,13 @@ import {
 } from '../../reducers/ColumnPrefsSlice';
 import type { AdvancedColumns, ExpandedRowOptions } from '../../types/types';
 import {
-  ADVANCED_COLUMNS_PARAM,
   CLIFFS_DELTA,
   CLES,
   SIGNIFICANCE,
   serializeAdvancedColumns,
 } from '../../utils/advancedColumnsUrl';
+import { setAdvancedOptionsParams } from '../../utils/advancedOptionsUrl';
 import {
-  EXPANDED_ROW_PARAM,
   EFFECT_SIZE,
   MODES,
   STATS_TABLE,
@@ -99,12 +98,9 @@ function AdvancedOptionsMenu() {
     }
 
     // Write both params onto the live URL so neither group clobbers the other.
-    const params = currentUrlParams();
-    const setOrDelete = (param: string, value: string | null) =>
-      value ? params.set(param, value) : params.delete(param);
-    setOrDelete(ADVANCED_COLUMNS_PARAM, serializeAdvancedColumns(columns));
-    setOrDelete(EXPANDED_ROW_PARAM, serializeExpandedRow(expanded));
-    updateRawSearchParams(params);
+    updateRawSearchParams(
+      setAdvancedOptionsParams(currentUrlParams(), columns, expanded),
+    );
   };
 
   const onChange = (event: SelectChangeEvent<string[]>) => {
