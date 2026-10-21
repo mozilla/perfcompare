@@ -23,7 +23,10 @@ import {
   SIGNIFICANCE,
   serializeAdvancedColumns,
 } from '../../utils/advancedColumnsUrl';
-import { setAdvancedOptionsParams } from '../../utils/advancedOptionsUrl';
+import {
+  setAdvancedOptionsCookies,
+  setAdvancedOptionsParams,
+} from '../../utils/advancedOptionsUrl';
 import {
   EFFECT_SIZE,
   MODES,
@@ -96,6 +99,8 @@ function AdvancedOptionsMenu() {
         autoHideDuration: 3000,
       });
     }
+
+    setAdvancedOptionsCookies(columns, expanded);
 
     // Write both params onto the live URL so neither group clobbers the other.
     updateRawSearchParams(

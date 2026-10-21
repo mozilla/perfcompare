@@ -797,6 +797,32 @@ describe('Advanced options carry-over between results and subtests', () => {
   });
 
   it.each([
+    { extra: '&advanced_columns=', expectCles: false },
+    { extra: '', expectCles: true },
+  ])(
+    'resolves the cookie against the URL (extra params: "$extra")',
+    async ({ extra, expectCles }) => {
+      document.cookie = 'perfcompare_advanced_columns=cles; path=/';
+      const { subtestsMannWhitneyResult } = getTestData();
+      setup({
+        element: (
+          <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+        ),
+        route: '/subtests-compare-results/',
+        search: `${mannWhitneySearch}${extra}`,
+        subtestsResult: subtestsMannWhitneyResult,
+      });
+      await screen.findByText('dhtml.html');
+
+      expect(
+        Boolean(
+          screen.getByTestId('table-header').querySelector('.effects-header'),
+        ),
+      ).toBe(expectCles);
+    },
+  );
+
+  it.each([
     {
       name: 'compare with base',
       element: (
@@ -840,10 +866,8 @@ describe('Advanced options carry-over between results and subtests', () => {
           'http://localhost',
         );
       expect(allResultsLink().pathname).toBe(resultsPath);
-      expect(allResultsLink().searchParams.has('advanced_columns')).toBe(false);
-      expect(allResultsLink().searchParams.has('advanced_expanded')).toBe(
-        false,
-      );
+      expect(allResultsLink().searchParams.get('advanced_columns')).toBe('');
+      expect(allResultsLink().searchParams.get('advanced_expanded')).toBe('');
 
       await user.click(
         screen.getByRole('combobox', { name: 'Advanced options' }),

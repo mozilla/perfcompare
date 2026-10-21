@@ -185,9 +185,10 @@ const getSubtestsCompareWithBaseLink = (
     newParentSignature: String(result.new_signature_id),
     test_version: testVersion,
   });
-  // Carry the Advanced options selection over so the subtests page opens with
-  // the same columns and expanded-row details.
-  setAdvancedOptionsParams(params, advancedColumns, expandedRow);
+  // Open the subtests page with the same Advanced options.
+  setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
+    explicit: true,
+  });
 
   return `/subtests-compare-results?${params.toString()}`;
 };
@@ -225,7 +226,9 @@ const getSubtestsCompareOverTimeLink = (
     newParentSignature: String(result.new_signature_id),
     test_version: testVersion,
   });
-  setAdvancedOptionsParams(params, advancedColumns, expandedRow);
+  setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
+    explicit: true,
+  });
 
   return `/subtests-compare-over-time-results?${params.toString()}`;
 };

@@ -561,7 +561,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                        href="/compare-results?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
+                        href="/compare-results?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_columns=&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
                       >
                         All results
                       </a>
@@ -2453,7 +2453,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
+                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_columns=&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
                       >
                         All results
                       </a>
@@ -3994,7 +3994,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
+                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_columns=&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
                       >
                         All results
                       </a>
@@ -5535,7 +5535,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
+                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_columns=&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
                       >
                         All results
                       </a>
@@ -7076,7 +7076,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-17o977x-MuiTypography-root-MuiLink-root"
-                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
+                        href="/compare-over-time-results?baseRepo=mozilla-central&selectedTimeRange=86400&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&advanced_columns=&advanced_expanded=effect_size%2Cmodes%2Cstats_table%2Cwarnings"
                       >
                         All results
                       </a>
