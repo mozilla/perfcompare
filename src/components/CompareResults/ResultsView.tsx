@@ -26,7 +26,7 @@ function ResultsView(props: ResultsViewProps) {
   const {
     baseRevInfo,
     newRevsInfo,
-    frameworkId,
+    frameworkIds,
     baseRepo,
     newRepos,
     testVersion,
@@ -59,7 +59,7 @@ function ResultsView(props: ResultsViewProps) {
           hasEditButton={true}
           baseRev={baseRevInfo ?? null}
           newRevs={newRevsInfo ?? []}
-          frameworkIdVal={frameworkId}
+          frameworkIdVal={frameworkIds}
           isExpanded={true}
           baseRepo={baseRepo}
           newRepo={newRepo}

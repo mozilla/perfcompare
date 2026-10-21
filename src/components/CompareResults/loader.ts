@@ -3,10 +3,11 @@ import {
   frameworks,
   compareView,
   MANN_WHITNEY_U,
+  DEFAULT_FRAMEWORK_ID,
 } from '../../common/constants';
 import {
-  fetchCompareResults,
   fetchFakeCompareResults,
+  memoizedFetchCompareResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import {
@@ -16,6 +17,41 @@ import {
 } from '../../types/state';
 import { FakeCommitHash, Framework, TestVersion } from '../../types/types';
 
+// Parses the raw `framework` URL values into a validated, de-duplicated list
+// of framework ids. When no value is provided, it defaults to the default
+// framework (talos) so that manually typing the URL is easier.
+export function parseFrameworkIds(
+  frameworkValues: string[],
+): Framework['id'][] {
+  if (!frameworkValues.length) {
+    return [DEFAULT_FRAMEWORK_ID];
+  }
+
+  const frameworkIds = [
+    ...new Set(
+      frameworkValues.map((value) => {
+        const frameworkId = +value as Framework['id'];
+        if (Number.isNaN(frameworkId)) {
+          throw new Error(
+            `The parameter framework should be a number, but it is "${value}".`,
+          );
+        }
+        return frameworkId;
+      }),
+    ),
+  ];
+
+  for (const frameworkId of frameworkIds) {
+    if (!frameworks.some((entry) => entry.id === frameworkId)) {
+      throw new Error(
+        `The parameter framework isn't a valid value: "${frameworkId}".`,
+      );
+    }
+  }
+
+  return frameworkIds;
+}
+
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
 export function checkValues({
@@ -23,7 +59,7 @@ export function checkValues({
   baseRepo,
   newRevs,
   newRepos,
-  framework,
+  frameworkValues,
   replicates,
   testVersion,
 }: {
@@ -31,7 +67,7 @@ export function checkValues({
   baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
-  framework: string | number | null;
+  frameworkValues: string[];
   replicates: boolean;
   testVersion: TestVersion | null;
 }): {
@@ -39,8 +75,7 @@ export function checkValues({
   baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
-  frameworkId: Framework['id'];
-  frameworkName: Framework['name'];
+  frameworkIds: Framework['id'][];
   replicates: boolean;
   testVersion: TestVersion;
 } {
@@ -61,25 +96,7 @@ export function checkValues({
     );
   }
 
-  if (framework === null) {
-    framework = 1; // default to talos so that manually typing the URL is easier
-  }
-
-  const frameworkId = +framework as Framework['id'];
-  if (Number.isNaN(frameworkId)) {
-    throw new Error(
-      `The parameter framework should be a number, but it is "${framework}".`,
-    );
-  }
-  const frameworkName = frameworks.find(
-    (entry) => entry.id === frameworkId,
-  )?.name;
-
-  if (!frameworkName) {
-    throw new Error(
-      `The parameter framework isn't a valid value: "${framework}".`,
-    );
-  }
+  const frameworkIds = parseFrameworkIds(frameworkValues);
 
   if (testVersion === MANN_WHITNEY_U || testVersion === null) {
     replicates = true;
@@ -95,8 +112,7 @@ export function checkValues({
       baseRepo,
       newRevs: [baseRev],
       newRepos: [baseRepo],
-      frameworkId,
-      frameworkName,
+      frameworkIds,
       replicates,
       testVersion,
     };
@@ -120,21 +136,24 @@ export function checkValues({
     baseRepo,
     newRevs,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     replicates,
     testVersion,
   };
 }
 
 // This is essentially a glue to call the related function from
-// /logic/treeherder.ts for all the revs we need results for.
+// /logic/treeherder.ts for all the revs we need results for. Each framework
+// is requested separately so that the server doesn't have to handle one giant
+// request for all frameworks at once. The results of all frameworks are then
+// merged per revision. Failures are tracked per framework so that the results
+// of the frameworks that did load can still be displayed.
 async function fetchCompareResultsOnTreeherder({
   baseRev,
   baseRepo,
   newRevs,
   newRepos,
-  framework,
+  frameworkIds,
   replicates,
   testVersion,
 }: {
@@ -142,22 +161,45 @@ async function fetchCompareResultsOnTreeherder({
   baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
-  framework: Framework['id'];
+  frameworkIds: Framework['id'][];
   replicates: boolean;
   testVersion?: TestVersion;
-}) {
-  const promises = newRevs.map((newRev, i) =>
-    fetchCompareResults({
-      baseRev,
-      baseRepo,
-      newRev,
-      newRepo: newRepos[i],
-      framework,
-      replicates,
-      testVersion,
-    }),
+}): Promise<{
+  results: CombinedResultsItemType[][];
+  failedFrameworkIds: Framework['id'][];
+}> {
+  const settledResults = await Promise.allSettled(
+    frameworkIds.map((framework) =>
+      Promise.all(
+        newRevs.map((newRev, i) =>
+          memoizedFetchCompareResults({
+            baseRev,
+            baseRepo,
+            newRev,
+            newRepo: newRepos[i],
+            framework,
+            replicates,
+            testVersion,
+          }),
+        ),
+      ),
+    ),
   );
-  return Promise.all(promises);
+
+  const results = newRevs.map(() => [] as CombinedResultsItemType[]);
+  const failedFrameworkIds: Framework['id'][] = [];
+
+  settledResults.forEach((settled, index) => {
+    if (settled.status === 'fulfilled') {
+      settled.value.forEach((revResults, revIndex) => {
+        results[revIndex].push(...revResults);
+      });
+    } else {
+      failedFrameworkIds.push(frameworkIds[index]);
+    }
+  });
+
+  return { results, failedFrameworkIds };
 }
 
 const fakeCommitHashes: FakeCommitHash[] = [
@@ -197,17 +239,15 @@ export async function loader({ request }: { request: Request }) {
     const newRevs = fakeCommitHashes;
     const newRepos = results.map((result) => result[0].new_repository_name);
     const frameworkId = results[0][0].framework_id;
-    const frameworkName =
-      frameworks.find((entry) => entry.id === frameworkId)?.name ?? '';
 
     return {
       results,
+      failedFrameworks: Promise.resolve([]),
       baseRev,
       baseRepo,
       newRevs,
       newRepos,
-      frameworkId,
-      frameworkName,
+      frameworkIds: [frameworkId],
       view: compareView,
       generation: generationCounter++,
     };
@@ -221,7 +261,7 @@ export async function loader({ request }: { request: Request }) {
   const newReposFromUrl = url.searchParams.getAll(
     'newRepo',
   ) as Repository['name'][];
-  const frameworkFromUrl = url.searchParams.get('framework');
+  const frameworkFromUrl = url.searchParams.getAll('framework');
   const replicatesFromUrl = url.searchParams.has('replicates');
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
@@ -232,8 +272,7 @@ export async function loader({ request }: { request: Request }) {
     baseRepo,
     newRevs,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     replicates,
     testVersion,
   } = checkValues({
@@ -241,7 +280,7 @@ export async function loader({ request }: { request: Request }) {
     baseRepo: baseRepoFromUrl,
     newRevs: newRevsFromUrl,
     newRepos: newReposFromUrl,
-    framework: frameworkFromUrl,
+    frameworkValues: frameworkFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
@@ -251,8 +290,7 @@ export async function loader({ request }: { request: Request }) {
     baseRepo,
     newRevs,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     replicates,
     testVersion,
   );
@@ -263,20 +301,29 @@ export async function getComparisonInformation(
   baseRepo: Repository['name'],
   newRevs: string[],
   newRepos: Repository['name'][],
-  frameworkId: Framework['id'],
-  frameworkName: Framework['name'],
+  frameworkIds: Framework['id'][],
   replicates: boolean,
   testVersion?: TestVersion,
 ) {
-  const resultsPromise = fetchCompareResultsOnTreeherder({
+  const fetchPromise = fetchCompareResultsOnTreeherder({
     baseRev,
     baseRepo,
     newRevs,
     newRepos,
-    framework: frameworkId,
+    frameworkIds,
     replicates,
     testVersion,
   });
+
+  const resultsPromise = fetchPromise.then(({ results }) => results);
+  const failedFrameworksPromise = fetchPromise.then(({ failedFrameworkIds }) =>
+    failedFrameworkIds
+      .map(
+        (frameworkId) =>
+          frameworks.find((framework) => framework.id === frameworkId)?.name,
+      )
+      .filter((name): name is Framework['name'] => name !== undefined),
+  );
 
   // TODO what happens if there's no result?
   const baseRevInfoPromise = memoizedFetchRevisionForRepository({
@@ -297,14 +344,14 @@ export async function getComparisonInformation(
 
   return {
     results: resultsPromise,
+    failedFrameworks: failedFrameworksPromise,
     baseRev,
     baseRevInfo,
     baseRepo,
     newRevs,
     newRevsInfo,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     view: compareView,
     generation: generationCounter++,
     replicates,
@@ -314,14 +361,14 @@ export async function getComparisonInformation(
 
 type DeferredLoaderData = {
   results: Promise<CombinedResultsItemType[][]>;
+  failedFrameworks: Promise<Framework['name'][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];
   newRevs: string[];
   newRevsInfo: Changeset[];
   newRepos: Repository['name'][];
-  frameworkId: Framework['id'];
-  frameworkName: Framework['name'];
+  frameworkIds: Framework['id'][];
   view: typeof compareView;
   generation: number;
   replicates: boolean;

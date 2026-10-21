@@ -2,6 +2,7 @@ import { useMemo, memo } from 'react';
 
 import { Virtuoso } from 'react-virtuoso';
 
+import FilteredRowsNotice from './FilteredRowsNotice';
 import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
 import {
@@ -9,7 +10,10 @@ import {
   type compareOverTimeView,
 } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
-import { filterResults } from '../../hooks/useTableFilters';
+import {
+  filterResults,
+  getFilterHiddenSummary,
+} from '../../hooks/useTableFilters';
 import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
 import type {
@@ -89,12 +93,20 @@ function processResults(
   > = new Map();
 
   for (const result of results) {
-    const { new_rev: newRevision, header_name: header } = result;
+    const {
+      new_rev: newRevision,
+      header_name: header,
+      framework_id: frameworkId,
+    } = result;
 
-    let resultsForHeader = processedResults.get(header);
+    // The framework is part of the group key: results for the same test coming
+    // from different frameworks must not be merged under one header.
+    const groupKey = `${header} ${frameworkId}`;
+
+    let resultsForHeader = processedResults.get(groupKey);
     if (!resultsForHeader) {
       resultsForHeader = new Map();
-      processedResults.set(header, resultsForHeader);
+      processedResults.set(groupKey, resultsForHeader);
     }
 
     const resultsForRevision = resultsForHeader.get(newRevision);
@@ -133,14 +145,16 @@ const stringComparisonCollator = new Intl.Collator('en', {
   sensitivity: 'base',
 });
 // The default sort orders by header_name (which is a concatenation of suite,
-// test and options), and platform, so that the order is stable when reloading
-// the page.
+// test and options), framework and platform, so that the order is stable when
+// reloading the page.
 function defaultSortFunction(
   itemA: CombinedResultsItemType,
   itemB: CombinedResultsItemType,
 ) {
-  const keyA = itemA.header_name + ' ' + itemA.platform;
-  const keyB = itemB.header_name + ' ' + itemB.platform;
+  const keyA =
+    itemA.header_name + ' ' + itemA.framework_id + ' ' + itemA.platform;
+  const keyB =
+    itemB.header_name + ' ' + itemB.framework_id + ' ' + itemB.platform;
   return stringComparisonCollator.compare(keyA, keyB);
 }
 
@@ -182,29 +196,54 @@ function TableContent({
     (state) => state.comparison.activeComparison,
   );
 
-  const filteredResults = useMemo(() => {
-    const resultsForCurrentComparison =
+  const resultsForCurrentComparison = useMemo(
+    () =>
       activeComparison === allRevisionsOption
         ? results.flat()
         : (results?.find((result) => result[0]?.new_rev === activeComparison) ??
-          []);
+          []),
+    [
+      results,
+      activeComparison,
+      testVersion, // trigger refetch for new testVersion selection
+    ],
+  );
 
-    const filteredResults = filterResults(
+  const filteredResults = useMemo(() => {
+    return filterResults(
       columnsConfiguration,
       resultsForCurrentComparison,
       filteringSearchTerm,
       tableFilters,
       resultMatchesSearchTerm,
     );
-    return filteredResults;
   }, [
-    results,
-    activeComparison,
+    resultsForCurrentComparison,
     filteringSearchTerm,
     tableFilters,
     columnsConfiguration,
-    testVersion, // trigger refetch for new testVersion selection
   ]);
+
+  // Which column filters are narrowing the view, and how many rows they hide
+  // (excluding rows the search term already removed). Powers FilteredRowsNotice.
+  const { activeFilters, hiddenCount: hiddenByFilters } = useMemo(
+    () =>
+      getFilterHiddenSummary(
+        columnsConfiguration,
+        resultsForCurrentComparison,
+        filteringSearchTerm,
+        tableFilters,
+        resultMatchesSearchTerm,
+        filteredResults.length,
+      ),
+    [
+      columnsConfiguration,
+      resultsForCurrentComparison,
+      filteringSearchTerm,
+      tableFilters,
+      filteredResults,
+    ],
+  );
 
   const sortedResults = useMemo(() => {
     return sortResults(
@@ -220,34 +259,53 @@ function TableContent({
     return processResults(sortedResults);
   }, [sortedResults]);
 
+  // Gate on the count here (rather than only inside FilteredRowsNotice) so that
+  // when nothing is hidden no element enters the tree — otherwise its slot would
+  // shift the React-generated ids of the rows below it.
+  const notice =
+    hiddenByFilters > 0 ? (
+      <FilteredRowsNotice
+        hiddenCount={hiddenByFilters}
+        activeFilters={activeFilters}
+      />
+    ) : null;
+
   if (!filteredResults.length) {
-    return <NoResultsFound />;
+    return (
+      <>
+        {notice}
+        <NoResultsFound />
+      </>
+    );
   }
   return (
-    <Virtuoso
-      useWindowScroll
-      totalCount={processedResults.length}
-      overscan={{
-        /* These values are pretty arbitrary. The goal is to have more rows
-         * rendered than the current viewport, so that when scrolling fast
-         * (but not too fast) the white checkerboarding doesn't appear.
-         */
-        main: 5000,
-        reverse: 5000,
-      }}
-      data={processedResults}
-      computeItemKey={(_, [header]) => header}
-      itemContent={(_, [, resultsForHeader]) => (
-        <TableRevisionContent
-          results={resultsForHeader}
-          view={view}
-          rowGridTemplateColumns={rowGridTemplateColumns}
-          replicates={replicates}
-          testVersion={testVersion}
-          expandAll={expandAll}
-        />
-      )}
-    />
+    <>
+      {notice}
+      <Virtuoso
+        useWindowScroll
+        totalCount={processedResults.length}
+        overscan={{
+          /* These values are pretty arbitrary. The goal is to have more rows
+           * rendered than the current viewport, so that when scrolling fast
+           * (but not too fast) the white checkerboarding doesn't appear.
+           */
+          main: 5000,
+          reverse: 5000,
+        }}
+        data={processedResults}
+        computeItemKey={(_, [header]) => header}
+        itemContent={(_, [, resultsForHeader]) => (
+          <TableRevisionContent
+            results={resultsForHeader}
+            view={view}
+            rowGridTemplateColumns={rowGridTemplateColumns}
+            replicates={replicates}
+            testVersion={testVersion}
+            expandAll={expandAll}
+          />
+        )}
+      />
+    </>
   );
 }
 

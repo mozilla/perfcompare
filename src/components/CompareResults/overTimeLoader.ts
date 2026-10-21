@@ -1,3 +1,4 @@
+import { parseFrameworkIds } from './loader';
 import {
   repoMap,
   frameworks,
@@ -6,7 +7,7 @@ import {
   MANN_WHITNEY_U,
 } from '../../common/constants';
 import {
-  fetchCompareOverTimeResults,
+  memoizedFetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import {
@@ -22,7 +23,7 @@ function checkValues({
   baseRepo,
   newRevs,
   newRepos,
-  framework,
+  frameworkValues,
   interval,
   replicates,
   testVersion,
@@ -30,7 +31,7 @@ function checkValues({
   baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
-  framework: string | number | null;
+  frameworkValues: string[];
   interval: string | number | null;
   replicates: boolean;
   testVersion?: TestVersion | null;
@@ -38,8 +39,7 @@ function checkValues({
   baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
-  frameworkId: Framework['id'];
-  frameworkName: Framework['name'];
+  frameworkIds: Framework['id'][];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
   replicates: boolean;
@@ -69,25 +69,7 @@ function checkValues({
     throw new Error('The parameter interval is missing.');
   }
 
-  if (framework === null) {
-    framework = 1; // default to talos so that manually typing the URL is easier
-  }
-
-  const frameworkId = +framework as Framework['id'];
-  if (Number.isNaN(frameworkId)) {
-    throw new Error(
-      `The parameter framework should be a number, but it is "${framework}".`,
-    );
-  }
-  const frameworkName = frameworks.find(
-    (entry) => entry.id === frameworkId,
-  )?.name;
-
-  if (!frameworkName) {
-    throw new Error(
-      `The parameter framework isn't a valid value: "${framework}".`,
-    );
-  }
+  const frameworkIds = parseFrameworkIds(frameworkValues);
 
   const intervalValue = +interval as TimeRange['value'];
   if (Number.isNaN(intervalValue)) {
@@ -118,8 +100,7 @@ function checkValues({
     baseRepo,
     newRevs,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     intervalText,
     intervalValue,
     replicates,
@@ -128,12 +109,16 @@ function checkValues({
 }
 
 //Compare over time results are fetched in a similar way to compare results.
-// /logic/treeherder.ts for all the revs we need results for.
+// /logic/treeherder.ts for all the revs we need results for. Each framework
+// is requested separately so that the server doesn't have to handle one giant
+// request for all frameworks at once. The results of all frameworks are then
+// merged per revision. Failures are tracked per framework so that the results
+// of the frameworks that did load can still be displayed.
 async function fetchCompareOverTimeResultsOnTreeherder({
   baseRepo,
   newRevs,
   newRepos,
-  framework,
+  frameworkIds,
   interval,
   replicates,
   testVersion,
@@ -141,23 +126,46 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
-  framework: Framework['id'];
+  frameworkIds: Framework['id'][];
   interval: TimeRange['value'];
   replicates: boolean;
   testVersion: TestVersion;
-}) {
-  const promises = newRevs.map((newRev, i) =>
-    fetchCompareOverTimeResults({
-      baseRepo,
-      newRev,
-      newRepo: newRepos[i],
-      framework,
-      interval,
-      replicates,
-      testVersion,
-    }),
+}): Promise<{
+  results: CombinedResultsItemType[][];
+  failedFrameworkIds: Framework['id'][];
+}> {
+  const settledResults = await Promise.allSettled(
+    frameworkIds.map((framework) =>
+      Promise.all(
+        newRevs.map((newRev, i) =>
+          memoizedFetchCompareOverTimeResults({
+            baseRepo,
+            newRev,
+            newRepo: newRepos[i],
+            framework,
+            interval,
+            replicates,
+            testVersion,
+          }),
+        ),
+      ),
+    ),
   );
-  return Promise.all(promises);
+
+  const results = newRevs.map(() => [] as CombinedResultsItemType[]);
+  const failedFrameworkIds: Framework['id'][] = [];
+
+  settledResults.forEach((settled, index) => {
+    if (settled.status === 'fulfilled') {
+      settled.value.forEach((revResults, revIndex) => {
+        results[revIndex].push(...revResults);
+      });
+    } else {
+      failedFrameworkIds.push(frameworkIds[index]);
+    }
+  });
+
+  return { results, failedFrameworkIds };
 }
 
 // This counter is incremented for each call of the loader. This allows the
@@ -180,7 +188,7 @@ export async function loader({ request }: { request: Request }) {
   const newReposFromUrl = url.searchParams.getAll(
     'newRepo',
   ) as Repository['name'][];
-  const frameworkFromUrl = url.searchParams.get('framework');
+  const frameworkFromUrl = url.searchParams.getAll('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const replicatesFromUrl = url.searchParams.has('replicates');
   const testVersionFromUrl = url.searchParams.get(
@@ -191,8 +199,7 @@ export async function loader({ request }: { request: Request }) {
     baseRepo,
     newRevs,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     intervalValue,
     intervalText,
     replicates,
@@ -201,21 +208,31 @@ export async function loader({ request }: { request: Request }) {
     baseRepo: baseRepoFromUrl,
     newRevs: newRevsFromUrl,
     newRepos: newReposFromUrl,
-    framework: frameworkFromUrl,
+    frameworkValues: frameworkFromUrl,
     interval: intervalFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
 
-  const resultsTimePromise = fetchCompareOverTimeResultsOnTreeherder({
+  const fetchPromise = fetchCompareOverTimeResultsOnTreeherder({
     baseRepo,
     newRevs,
     newRepos,
-    framework: frameworkId,
+    frameworkIds,
     interval: intervalValue,
     replicates,
     testVersion,
   });
+
+  const resultsTimePromise = fetchPromise.then(({ results }) => results);
+  const failedFrameworksPromise = fetchPromise.then(({ failedFrameworkIds }) =>
+    failedFrameworkIds
+      .map(
+        (frameworkId) =>
+          frameworks.find((framework) => framework.id === frameworkId)?.name,
+      )
+      .filter((name): name is Framework['name'] => name !== undefined),
+  );
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
     memoizedFetchRevisionForRepository({
@@ -228,12 +245,12 @@ export async function loader({ request }: { request: Request }) {
 
   return {
     results: resultsTimePromise,
+    failedFrameworks: failedFrameworksPromise,
     baseRepo,
     newRevs,
     newRevsInfo,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     intervalValue,
     intervalText,
     view: compareOverTimeView,
@@ -245,12 +262,12 @@ export async function loader({ request }: { request: Request }) {
 
 type DeferredLoaderData = {
   results: Promise<CombinedResultsItemType[][]>;
+  failedFrameworks: Promise<Framework['name'][]>;
   baseRepo: Repository['name'];
   newRevs: string[];
   newRevsInfo: Changeset[];
   newRepos: Repository['name'][];
-  frameworkId: Framework['id'];
-  frameworkName: Framework['name'];
+  frameworkIds: Framework['id'][];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
   view: typeof compareOverTimeView;

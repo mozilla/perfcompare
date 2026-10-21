@@ -1,15 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import type { ExpandedRowOptions } from '../types/types';
+import { parseAdvancedColumns } from '../utils/advancedColumnsUrl';
 
 export const HOW_TO_READ_STORAGE_KEY = 'showHowToRead';
 export const MANN_WHITNEY_WARNING_STORAGE_KEY = 'showMannWhitneyWarning';
 
 // Results-view display preferences:
-//   - showCliffsDelta / showCles: the two advanced statistics columns, toggled
-//     independently from the "Advanced columns" dropdown. Persisted in the URL
-//     (see utils/advancedColumnsUrl) so shared links reproduce the selection;
-//     seeded into this slice on mount. Default off (the simplified view).
+//   - showCliffsDelta / showCles / showSignificance: the advanced statistics
+//     columns, toggled independently from the "Advanced options" dropdown.
+//     Persisted in the URL (see utils/advancedColumnsUrl) so shared links
+//     reproduce the selection. Read from the URL when the store is created, so
+//     the very first render already has the right columns — the table's filter
+//     and sort hooks read their URL params only once, against the columns
+//     present at mount. Default off (the simplified view).
 //   - showHowToRead: when true the "How to read the results" helper panel is
 //     shown above the table. Persisted to localStorage.
 //   - showMannWhitneyWarning: when true the experimental Mann-Whitney-U warning
@@ -18,31 +22,38 @@ export const MANN_WHITNEY_WARNING_STORAGE_KEY = 'showMannWhitneyWarning';
 //   - expandedRow: visibility of the (power-user) components in the MWU
 //     expanded row, toggled from the "Advanced options" dropdown. Persisted in
 //     the URL (see utils/expandedRowUrl). All off by default (simplified view).
-const initialState: {
+type ColumnPrefsState = {
   showCliffsDelta: boolean;
   showCles: boolean;
   showSignificance: boolean;
   showHowToRead: boolean;
   showMannWhitneyWarning: boolean;
   expandedRow: ExpandedRowOptions;
-} = {
-  showCliffsDelta: false,
-  showCles: false,
-  showSignificance: false,
-  showHowToRead: localStorage.getItem(HOW_TO_READ_STORAGE_KEY) !== 'false',
-  showMannWhitneyWarning:
-    localStorage.getItem(MANN_WHITNEY_WARNING_STORAGE_KEY) !== 'false',
-  expandedRow: {
-    effectSize: false,
-    modes: false,
-    statsTable: false,
-    warnings: false,
-  },
+};
+
+// Lazy so the URL is read when each store is created rather than at module
+// load.
+const getInitialState = (): ColumnPrefsState => {
+  const advancedColumns = parseAdvancedColumns(window.location.search);
+  return {
+    showCliffsDelta: advancedColumns.cliffsDelta,
+    showCles: advancedColumns.cles,
+    showSignificance: advancedColumns.significance,
+    showHowToRead: localStorage.getItem(HOW_TO_READ_STORAGE_KEY) !== 'false',
+    showMannWhitneyWarning:
+      localStorage.getItem(MANN_WHITNEY_WARNING_STORAGE_KEY) !== 'false',
+    expandedRow: {
+      effectSize: false,
+      modes: false,
+      statsTable: false,
+      warnings: false,
+    },
+  };
 };
 
 const columnPrefs = createSlice({
   name: 'columnPrefs',
-  initialState,
+  initialState: getInitialState,
   reducers: {
     updateShowCliffsDelta(state, action: PayloadAction<boolean>) {
       state.showCliffsDelta = action.payload;

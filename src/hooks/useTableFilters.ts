@@ -157,6 +157,83 @@ const useTableFilters = (
 export default useTableFilters;
 
 /* --- Functions used to implement the filtering --- */
+
+// A column whose filter is actively hiding rows, with the human-readable labels
+// of the values it excludes. Used to explain to the user which filters are
+// hiding results (see FilteredRowsNotice).
+export type ActiveColumnFilter = {
+  name: string;
+  excludedLabels: string[];
+};
+
+// Describe every column whose filter is narrowing the results — i.e. some of
+// its possible values are unchecked. A column with all values checked (or no
+// entry in the map) isn't narrowing anything and is skipped. Labels come from
+// the column configuration so they always match what the header shows.
+function getActiveColumnFilters(
+  columnsConfiguration: CompareResultsTableConfig,
+  tableFilters: Map<string, Set<string>>,
+): ActiveColumnFilter[] {
+  const active: ActiveColumnFilter[] = [];
+  for (const column of columnsConfiguration) {
+    if (!('filter' in column)) {
+      continue;
+    }
+    const checkedValues = tableFilters.get(column.key);
+    if (!checkedValues || checkedValues.size >= column.possibleValues.length) {
+      continue;
+    }
+    const excludedLabels = column.possibleValues
+      .filter(({ key }) => !checkedValues.has(key))
+      .map(({ label }) => label);
+    if (excludedLabels.length) {
+      active.push({ name: column.name, excludedLabels });
+    }
+  }
+  return active;
+}
+
+// Stable empty filter map used to compute the "search only" result set, so we
+// can tell how many rows the column filters (as opposed to the search term) are
+// hiding.
+const NO_FILTERS: Map<string, Set<string>> = new Map();
+
+// Summarize what the active column filters are hiding, for FilteredRowsNotice:
+// the active filters (with their excluded value labels) and how many rows they
+// remove — counting only rows the column filters drop, not ones the search term
+// already removed. `filteredCount` is the length of the already-computed
+// search+filter result, passed in so we don't filter that set a second time.
+export function getFilterHiddenSummary(
+  columnsConfiguration: CompareResultsTableConfig,
+  results: CombinedResultsItemType[],
+  searchTerm: string,
+  tableFilters: Map<string, Set<string>>,
+  resultMatchesSearchTerm: (
+    result: CombinedResultsItemType,
+    searchTerm: string,
+  ) => boolean,
+  filteredCount: number,
+): { activeFilters: ActiveColumnFilter[]; hiddenCount: number } {
+  const activeFilters = getActiveColumnFilters(
+    columnsConfiguration,
+    tableFilters,
+  );
+  if (!activeFilters.length) {
+    return { activeFilters, hiddenCount: 0 };
+  }
+  const searchOnlyResults = filterResults(
+    columnsConfiguration,
+    results,
+    searchTerm,
+    NO_FILTERS,
+    resultMatchesSearchTerm,
+  );
+  return {
+    activeFilters,
+    hiddenCount: searchOnlyResults.length - filteredCount,
+  };
+}
+
 function resultMatchesColumnFilter(
   columnsConfiguration: CompareResultsTableConfig,
   result: CombinedResultsItemType,

@@ -38,7 +38,7 @@ function SearchContainer(props: SearchViewProps) {
         {/* hard code the frameworkIdVal  because talos is the
        default framework; refer to frameworkMap in constants.ts */}
         <CompareWithBase
-          frameworkIdVal={frameworkId}
+          frameworkIdVal={[frameworkId]}
           hasEditButton={false}
           baseRev={null}
           newRevs={newRevInfo ? [newRevInfo] : []}
@@ -63,7 +63,7 @@ function SearchContainer(props: SearchViewProps) {
           newRevs={newRevInfo ? [newRevInfo] : []}
           isExpanded={!isBaseSearchExpanded}
           setIsExpanded={() => setIsBaseSearchExpanded(false)}
-          frameworkIdVal={frameworkId}
+          frameworkIdVal={[frameworkId]}
           intervalValue={86400}
           baseRepo={newRepo}
           newRepo={newRepo}

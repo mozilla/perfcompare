@@ -11,23 +11,25 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { ButtonsLightRaw, ButtonsDarkRaw } from '../../styles';
 import type { Framework } from '../../types/types';
-import FrameworkDropdown from '../Shared/FrameworkDropdown';
+import FrameworkMultiSelect from '../Shared/FrameworkMultiSelect';
 
 const strings = Strings.components.searchDefault.sharedCollasped.framework;
 
 interface SearchFrameworkDropdownProps {
-  frameworkId: Framework['id'];
+  frameworkIdVal: Framework['id'][];
 }
 
 function SearchFrameworkDropdown({
-  frameworkId,
+  frameworkIdVal,
 }: SearchFrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
-  const [frameworkIdVal, setFrameWorkValue] = useState(frameworkId);
+  const [selectedIds, setSelectedIds] =
+    useState<Framework['id'][]>(frameworkIdVal);
 
   const styles = {
     container: style({
-      minWidth: '319px',
+      width: '319px',
+      maxWidth: '100%',
       $nest: {
         '.MuiInputBase-root': {
           ...(mode === 'light'
@@ -64,12 +66,13 @@ function SearchFrameworkDropdown({
           <InfoIcon fontSize='small' className='dropdown-info-icon' />
         </Tooltip>
       </Grid>
-      <FrameworkDropdown
-        frameworkId={frameworkIdVal}
+      <FrameworkMultiSelect
+        selection={selectedIds}
+        onChange={setSelectedIds}
+        mode={mode}
+        name='framework'
         labelId='select-framework-label'
         variant='standard'
-        mode={mode}
-        onChange={setFrameWorkValue}
       />
     </FormControl>
   );

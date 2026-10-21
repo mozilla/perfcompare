@@ -37,6 +37,9 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   18: 'mozharness',
 };
 
+// The framework selected by default when no framework is specified in the URL.
+export const DEFAULT_FRAMEWORK_ID: Framework['id'] = 1;
+
 export const timeRangeMap: Record<TimeRange['value'], TimeRange['text']> = {
   86400: 'Last day',
   172800: 'Last 2 days',
@@ -87,6 +90,12 @@ export const frameworks: Framework[] = [
   { id: 16, name: 'fxrecord' },
   { id: 18, name: 'mozharness' },
 ];
+
+// The frameworks sorted alphabetically by name, shared by the framework
+// selection components.
+export const sortedFrameworks: [string, Framework['name']][] = Object.entries(
+  frameworkMap,
+).sort((a, b) => a[1].localeCompare(b[1]));
 
 export const timeRanges: TimeRange[] = [
   { value: 86400, text: 'Last day' },

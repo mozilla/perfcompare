@@ -10,7 +10,7 @@ import { Strings } from '../../resources/Strings';
 import { FontSize } from '../../styles';
 import { CombinedResultsItemType, CompareResultsItem } from '../../types/state';
 import { AdvancedColumns, TableConfig } from '../../types/types';
-import { formatNumber } from '../../utils/format';
+import { formatDelta, formatNumber } from '../../utils/format';
 import { getBrowserDisplay, getPlatformShortName } from '../../utils/platform';
 import {
   determineSign,
@@ -221,7 +221,7 @@ export const studentTStrategy = {
         </div>
         <div className='delta cell' role='cell'>
           {' '}
-          {`${deltaPercent} % `}
+          {`${formatDelta(deltaPercent)} % `}
         </div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
@@ -269,7 +269,7 @@ export const studentTStrategy = {
         : '';
     const medianPercentage =
       baseMedian && newMedian
-        ? formatTwoDigits.format(((newMedian - baseMedian) / baseMedian) * 100)
+        ? formatDelta(((newMedian - baseMedian) / baseMedian) * 100)
         : '';
 
     const { confidenceNote } = Strings.components.expandableRow;
@@ -277,7 +277,8 @@ export const studentTStrategy = {
     return (
       <>
         <Box sx={{ whiteSpace: 'nowrap' }}>
-          <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
+          <b>Difference of means</b>: {formatDelta(deltaPercent)}% (
+          {formatNumber(delta)}
           {deltaUnit ? ' ' + deltaUnit : null})
         </Box>
         {newMedian && baseMedian ? (
@@ -344,7 +345,10 @@ export const studentTStrategy = {
             {determineStatus(!!improvement, !!regression)}
           </Box>
         </div>
-        <div className='delta cell' role='cell'>{` ${deltaPercent} % `}</div>
+        <div
+          className='delta cell'
+          role='cell'
+        >{` ${formatDelta(deltaPercent)} % `}</div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText || '-'}

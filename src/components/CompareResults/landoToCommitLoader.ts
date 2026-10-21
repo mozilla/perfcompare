@@ -23,7 +23,7 @@ export async function loader({ request }: { request: Request }) {
   const newReposFromUrl = url.searchParams.getAll(
     'newRepo',
   ) as Repository['name'][];
-  const frameworkFromUrl = url.searchParams.get('framework');
+  const frameworkFromUrl = url.searchParams.getAll('framework');
   const landoInstanceFromUrl =
     (url.searchParams.get('landoInstance') as LandoInstance | null) ??
     undefined;
@@ -50,8 +50,7 @@ export async function loader({ request }: { request: Request }) {
     baseRepo,
     newRevs,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     replicates,
     testVersion,
   } = checkValues({
@@ -59,7 +58,7 @@ export async function loader({ request }: { request: Request }) {
     baseRepo: baseRepoFromUrl,
     newRevs: [newRevisionsFromLando.commit_id],
     newRepos: newReposFromUrl,
-    framework: frameworkFromUrl,
+    frameworkValues: frameworkFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
@@ -68,8 +67,7 @@ export async function loader({ request }: { request: Request }) {
     baseRepo,
     newRevs,
     newRepos,
-    frameworkId,
-    frameworkName,
+    frameworkIds,
     replicates,
     testVersion,
   );
@@ -77,14 +75,14 @@ export async function loader({ request }: { request: Request }) {
 
 type LandoLoaderData = {
   results: Promise<CombinedResultsItemType[][]>;
+  failedFrameworks: Promise<Framework['name'][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];
   newRevs: string[];
   newRevsInfo: Changeset[];
   newRepos: Repository['name'][];
-  frameworkId: Framework['id'];
-  frameworkName: Framework['name'];
+  frameworkIds: Framework['id'][];
   view: typeof compareView;
   generation: number;
   testVersion: TestVersion;

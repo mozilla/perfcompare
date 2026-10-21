@@ -187,19 +187,25 @@ exports[`Results View The table should match snapshot and other elements should 
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Framework"
-                  aria-labelledby="mui-component-select-framework"
-                  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="mui-component-select-framework"
+                  class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1rcoerw-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                   role="combobox"
                   tabindex="0"
                 >
-                  talos
+                  <span
+                    class="MuiBox-root css-z4xr20"
+                  >
+                    <span
+                      class="MuiBox-root css-idlrhm"
+                      data-testid="framework-summary-names"
+                    >
+                      talos
+                    </span>
+                  </span>
                 </div>
                 <input
                   aria-hidden="true"
                   aria-invalid="false"
                   class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-                  name="framework"
                   tabindex="-1"
                   value="1"
                 />
@@ -740,6 +746,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   data-testid="better-direction-indicator"
                 >
                   Lower is better
+                </span>
+                <span
+                  data-testid="framework-name"
+                >
+                  - talos
                 </span>
               </div>
               <div

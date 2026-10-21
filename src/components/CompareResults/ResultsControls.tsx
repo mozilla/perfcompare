@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
@@ -15,7 +17,7 @@ import { updateShowHowToRead } from '../../reducers/ColumnPrefsSlice';
 import { Strings } from '../../resources/Strings';
 import type { CombinedResultsItemType } from '../../types/state';
 import type { Framework, TestVersion } from '../../types/types';
-import FrameworkDropdown from '../Shared/FrameworkDropdown';
+import FrameworkMultiSelect from '../Shared/FrameworkMultiSelect';
 import TestVersionDropdown from '../Shared/TestVersionDropdown';
 
 const controlsStyles = style({
@@ -26,18 +28,18 @@ const controlsStyles = style({
 
 interface Props {
   initialSearchTerm: string;
-  frameworkId: Framework['id'];
+  frameworkSelection: Framework['id'][];
   testType?: TestVersion;
   resultsPromise: Promise<CombinedResultsItemType[][]>;
   expandAll: boolean;
   onSearchTermChange: (searchTerm: string) => unknown;
-  onFrameworkChange: (frameworkId: Framework['id']) => unknown;
+  onFrameworkChange: (selection: Framework['id'][]) => unknown;
   onTestVersionChange: (testType: TestVersion) => void;
   onExpandAllChange: (checked: boolean) => void;
 }
 export default function ResultsControls({
   initialSearchTerm,
-  frameworkId,
+  frameworkSelection,
   testType,
   resultsPromise,
   expandAll,
@@ -53,6 +55,26 @@ export default function ResultsControls({
   );
   const onShowHowToReadChange = (checked: boolean) => {
     dispatch(updateShowHowToRead(checked));
+  };
+
+  // Framework changes are staged locally and committed when the menu closes,
+  // so selecting several frameworks results in a single results reload.
+  const [draftFrameworkSelection, setDraftFrameworkSelection] =
+    useState(frameworkSelection);
+
+  // Keep the draft in sync when the selection changes outside the toolbar
+  // (e.g. browser back/forward navigation).
+  useEffect(() => {
+    setDraftFrameworkSelection(frameworkSelection);
+  }, [frameworkSelection]);
+
+  const onFrameworkMenuClose = () => {
+    const changed =
+      draftFrameworkSelection.length !== frameworkSelection.length ||
+      draftFrameworkSelection.some((id) => !frameworkSelection.includes(id));
+    if (changed) {
+      onFrameworkChange(draftFrameworkSelection);
+    }
   };
   return (
     <Grid
@@ -122,12 +144,13 @@ export default function ResultsControls({
             }}
           >
             <FormControl sx={{ width: '100%' }}>
-              <FrameworkDropdown
-                frameworkId={frameworkId}
+              <FrameworkMultiSelect
+                selection={draftFrameworkSelection}
+                onChange={setDraftFrameworkSelection}
+                onMenuClose={onFrameworkMenuClose}
                 size='small'
                 variant='outlined'
                 mode={mode}
-                onChange={onFrameworkChange}
               />
             </FormControl>
           </Grid>

@@ -353,7 +353,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
     class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 dropDown_frp1utb css-1nxoejh-MuiGrid-root"
   >
     <div
-      class="MuiFormControl-root framework-dropdown f1ttr4cl css-1iw3t7y-MuiFormControl-root"
+      class="MuiFormControl-root framework-dropdown f1nl4oko css-1iw3t7y-MuiFormControl-root"
     >
       <div
         class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 css-1yu4dci-MuiGrid-root"
@@ -379,6 +379,11 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           />
         </svg>
       </div>
+      <input
+        name="framework"
+        type="hidden"
+        value="1"
+      />
       <div
         class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
         data-testid="framework-select"
@@ -387,19 +392,26 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Framework"
-          aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-          id="mui-component-select-framework"
+          aria-labelledby="select-framework-label"
+          class="MuiSelect-select MuiSelect-standard MuiSelect-multiple MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           role="combobox"
           tabindex="0"
         >
-          talos
+          <span
+            class="MuiBox-root css-z4xr20"
+          >
+            <span
+              class="MuiBox-root css-idlrhm"
+              data-testid="framework-summary-names"
+            >
+              talos
+            </span>
+          </span>
         </div>
         <input
           aria-hidden="true"
           aria-invalid="false"
           class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-          name="framework"
           tabindex="-1"
           value="1"
         />
@@ -742,7 +754,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 <ul
   aria-labelledby="select-timerange-label"
   class="MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list"
-  id="_r_5p_"
+  id="_r_7f_"
   role="listbox"
   tabindex="-1"
 >
@@ -1221,7 +1233,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_cu_"
+                    id="_r_ek_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2053,7 +2065,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_7p_"
+                    id="_r_9f_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2121,7 +2133,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
     class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 dropDown_frp1utb css-1nxoejh-MuiGrid-root"
   >
     <div
-      class="MuiFormControl-root framework-dropdown f1ttr4cl css-1iw3t7y-MuiFormControl-root"
+      class="MuiFormControl-root framework-dropdown f1nl4oko css-1iw3t7y-MuiFormControl-root"
     >
       <div
         class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 css-1yu4dci-MuiGrid-root"
@@ -2147,6 +2159,11 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           />
         </svg>
       </div>
+      <input
+        name="framework"
+        type="hidden"
+        value="1"
+      />
       <div
         class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
         data-testid="framework-select"
@@ -2155,19 +2172,26 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Framework"
-          aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-          id="mui-component-select-framework"
+          aria-labelledby="select-framework-label"
+          class="MuiSelect-select MuiSelect-standard MuiSelect-multiple MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           role="combobox"
           tabindex="0"
         >
-          talos
+          <span
+            class="MuiBox-root css-z4xr20"
+          >
+            <span
+              class="MuiBox-root css-idlrhm"
+              data-testid="framework-summary-names"
+            >
+              talos
+            </span>
+          </span>
         </div>
         <input
           aria-hidden="true"
           aria-invalid="false"
           class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
-          name="framework"
           tabindex="-1"
           value="1"
         />
@@ -2993,7 +3017,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_e6_"
+                    id="_r_fs_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"

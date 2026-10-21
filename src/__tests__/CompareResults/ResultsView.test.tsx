@@ -91,7 +91,7 @@ describe('Results View', () => {
     expect(link).toBeInTheDocument();
   });
 
-  it('renders framework dropdown in closed condition', async () => {
+  it('renders framework multiselect in closed condition', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
@@ -99,18 +99,30 @@ describe('Results View', () => {
 
     expect(header).toBeInTheDocument();
 
-    const frameworkDropdown = screen.getByRole('combobox', {
+    const frameworkSelect = screen.getByRole('combobox', {
       name: 'Framework',
     });
 
-    expect(frameworkDropdown).toMatchSnapshot();
+    expect(frameworkSelect).toMatchSnapshot();
 
-    expect(screen.getAllByText(/build_metrics/i)[0]).toBeInTheDocument();
-    expect(screen.queryByText(/talos/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
+    // build_metrics comes from the URL and is the only selected framework.
+    expect(frameworkSelect).toHaveTextContent('build_metrics');
+    expect(frameworkSelect).not.toHaveTextContent('talos');
+    expect(frameworkSelect).not.toHaveTextContent('awsy');
 
-    await user.click(frameworkDropdown);
-    expect(screen.getByText(/awsy/i)).toBeInTheDocument();
+    await user.click(frameworkSelect);
+
+    // The menu shows the All frameworks checkbox and every framework checkbox.
+    expect(
+      screen.getByRole('option', { name: 'All frameworks' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'build_metrics' }),
+    ).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByRole('option', { name: 'awsy' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
   });
 
   it('renders test version dropdown defaults to Mann-Whitney U test', async () => {
@@ -166,6 +178,8 @@ describe('Results View', () => {
       'link to suite documentation',
     );
     expect(linkToSuite).toBeInTheDocument();
+    // The framework name is always displayed next to the better-direction label.
+    expect(screen.getByTestId('framework-name')).toHaveTextContent('- talos');
   });
 
   it('Should render revision header without link to suite docs for unsupported framework', async () => {
@@ -184,6 +198,8 @@ describe('Results View', () => {
     await screen.findByText(/idle-bg/);
     const linkToSuite = screen.queryByLabelText('link to suite documentation');
     expect(linkToSuite).not.toBeInTheDocument();
+    // Unknown framework ids fall back to the numeric id.
+    expect(screen.getByTestId('framework-name')).toHaveTextContent('- 10');
   });
 
   it('Should show the better-direction label based on lower_is_better', async () => {

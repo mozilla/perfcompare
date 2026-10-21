@@ -6,7 +6,10 @@ import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
-import type { CombinedResultsItemType } from '../../types/state';
+import type {
+  CombinedResultsItemType,
+  CompareResultsItem,
+} from '../../types/state';
 import type { Platform, TestVersion } from '../../types/types';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
@@ -14,6 +17,7 @@ import getTestData, {
   augmentCompareMannWhitneyDataWithSeveralRevisions,
   augmentCompareMannWhitneyDataWithSeveralTests,
 } from '../utils/fixtures';
+import { recreateStore } from '../utils/setupTests';
 import {
   renderWithRouter,
   screen,
@@ -22,12 +26,19 @@ import {
   enableAdvancedColumns,
 } from '../utils/test-utils';
 
+const ROUTE = '/compare-results/';
+
+function searchFor(extraParameters?: string) {
+  return (
+    '?baseRev=spam&baseRepo=try&framework=1' +
+    (extraParameters ? '&' + extraParameters : '')
+  );
+}
+
 function renderWithRoute(component: ReactElement, extraParameters?: string) {
   return renderWithRouter(component, {
-    route: '/compare-results/',
-    search:
-      '?baseRev=spam&baseRepo=try&framework=1' +
-      (extraParameters ? '&' + extraParameters : ''),
+    route: ROUTE,
+    search: searchFor(extraParameters),
     loader,
   });
 }
@@ -51,6 +62,17 @@ function setupAndRender(
   );
 }
 
+// Like setupAndRender, but simulates a full page load (reload or opening a
+// shared link): the store is created after the URL is set, as in the app.
+function setupAndRenderAsPageLoad(
+  testCompareData: CombinedResultsItemType[],
+  extraParameters?: string,
+) {
+  window.history.replaceState(null, '', ROUTE + searchFor(extraParameters));
+  recreateStore();
+  setupAndRender(testCompareData, extraParameters);
+}
+
 // This handy function parses the results page and returns an array of visible
 // rows. It makes it easy to assert visible rows when filtering them in a
 // user-friendly way without using snapshots.
@@ -63,12 +85,14 @@ function summarizeVisibleRows(testVersion?: TestVersion, advanced = false) {
     const optionsElements = Array.from(
       titleElement.nextElementSibling!.children,
     );
-    // The "better direction" indicator is asserted separately (and via
-    // snapshots); strip it here so the data-focused expectations stay stable.
+    // The "better direction" indicator and the framework name are asserted
+    // separately (and via snapshots); strip them here so the data-focused
+    // expectations stay stable.
     const titleClone = titleElement.cloneNode(true) as HTMLElement;
     titleClone
       .querySelector('[data-testid="better-direction-indicator"]')
       ?.remove();
+    titleClone.querySelector('[data-testid="framework-name"]')?.remove();
     const title = [
       titleClone.textContent,
       ...optionsElements.map((element) => element.textContent),
@@ -226,11 +250,31 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  rev: devilrabbit',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
     ]);
     expect(screen.getByRole('rowgroup')).toMatchSnapshot();
+  });
+
+  it('should render a separate block per framework', async () => {
+    const { testCompareData } = getTestData();
+    const browsertimeResults = testCompareData.map(
+      (result): CompareResultsItem => ({
+        ...result,
+        framework_id: 13,
+      }),
+    );
+
+    setupAndRender([...testCompareData, ...browsertimeResults]);
+
+    await screen.findAllByText('a11yr');
+    expect(
+      screen
+        .getAllByTestId('framework-name')
+        .map((element) => element.textContent),
+    ).toEqual(['- talos', '- browsertime']);
+    expect(screen.getAllByRole('rowgroup')).toHaveLength(2);
   });
 
   it('should filter on the Platform column', async () => {
@@ -252,10 +296,10 @@ describe('Results Table', () => {
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 1.08 %, Low',
-      '  - inexistant, Improvement, 1.08 %, Low',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Android, Improvement, +1.08 %, Low',
+      '  - inexistant, Improvement, +1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -266,9 +310,9 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Windows/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 1.08 %, Low',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Android, Improvement, +1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android', 'ios'],
@@ -279,10 +323,10 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Windows/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 1.08 %, Low',
-      '  - inexistant, Improvement, 1.08 %, Low',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Android, Improvement, +1.08 %, Low',
+      '  - inexistant, Improvement, +1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -292,8 +336,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 1.08 %, Low',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Android, Improvement, +1.08 %, Low',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'ios'],
@@ -302,9 +346,9 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 1.08 %, Low',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Android, Improvement, +1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android', 'ios', 'linux'],
@@ -313,10 +357,10 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', 'Select all values');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 1.08 %, Low',
-      '  - inexistant, Improvement, 1.08 %, Low',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Android, Improvement, +1.08 %, Low',
+      '  - inexistant, Improvement, +1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -325,8 +369,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /macOS/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 1.08 %, Low',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Android, Improvement, +1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -337,7 +381,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Android/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -348,7 +392,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Select only.*Android/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, 1.08 %, Low',
+      '  - Android, Improvement, +1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['android'],
@@ -362,8 +406,8 @@ describe('Results Table', () => {
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -373,8 +417,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Status', /No changes/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement', 'regression'],
@@ -384,7 +428,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Status', /Improvement/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -405,7 +449,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Status', /Select only.*Regression/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['regression'],
@@ -419,8 +463,8 @@ describe('Results Table', () => {
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -430,7 +474,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /Low/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -441,7 +485,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /High/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
       '  - Windows 10, -, -24 %, -',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
@@ -460,8 +504,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /Select all values/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -470,8 +514,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /No value/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
@@ -482,8 +526,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /No value/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -509,7 +553,7 @@ describe('Results Table', () => {
 
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
     ]);
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     expect(await summarizeTableFiltersFromCheckboxes(user)).toEqual({
@@ -537,24 +581,24 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Linux 18.04, Regression, 1.97 %, Medium',
-      '  - macOS 10.15, Improvement, 1.2 %, Low',
+      '  - Linux 18.04, Regression, +1.97 %, Medium',
+      '  - macOS 10.15, Improvement, +1.2 %, Low',
       '  - Windows 10, -, -23.88 %, -',
       '  - Windows 10, -, -2.28 %, High',
       '  rev: tictactoe',
-      '  - Linux 18.04, Regression, 2.05 %, Medium',
-      '  - macOS 10.15, Improvement, 1.28 %, Low',
+      '  - Linux 18.04, Regression, +2.05 %, Medium',
+      '  - macOS 10.15, Improvement, +1.28 %, Low',
       '  - Windows 10, -, -23.8 %, -',
       '  - Windows 10, -, -2.2 %, High',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
       '  rev: tictactoe',
-      '  - Linux 18.04, Regression, 1.93 %, Medium',
-      '  - macOS 10.15, Improvement, 1.16 %, Low',
+      '  - Linux 18.04, Regression, +1.93 %, Medium',
+      '  - macOS 10.15, Improvement, +1.16 %, Low',
       '  - Windows 10, -, -23.92 %, -',
       '  - Windows 10, -, -2.32 %, High',
     ]);
@@ -571,24 +615,24 @@ describe('Results Table', () => {
       '  rev: spam',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  rev: tictactoe',
       '  - Windows 10, -, -23.92 %, -',
       '  - Windows 10, -, -2.32 %, High',
-      '  - Linux 18.04, Regression, 1.93 %, Medium',
-      '  - macOS 10.15, Improvement, 1.16 %, Low',
+      '  - Linux 18.04, Regression, +1.93 %, Medium',
+      '  - macOS 10.15, Improvement, +1.16 %, Low',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
       '  - Windows 10, -, -23.88 %, -',
       '  - Windows 10, -, -2.28 %, High',
-      '  - Linux 18.04, Regression, 1.97 %, Medium',
-      '  - macOS 10.15, Improvement, 1.2 %, Low',
+      '  - Linux 18.04, Regression, +1.97 %, Medium',
+      '  - macOS 10.15, Improvement, +1.2 %, Low',
       '  rev: tictactoe',
       '  - Windows 10, -, -23.8 %, -',
       '  - Windows 10, -, -2.2 %, High',
-      '  - Linux 18.04, Regression, 2.05 %, Medium',
-      '  - macOS 10.15, Improvement, 1.28 %, Low',
+      '  - Linux 18.04, Regression, +2.05 %, Medium',
+      '  - macOS 10.15, Improvement, +1.28 %, Low',
     ]);
     // It should have the "descending" SVG.
     expect(deltaButton).toMatchSnapshot();
@@ -600,24 +644,24 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
       '  - Windows 10, -, -2.4 %, High',
       '  - Windows 10, -, -24 %, -',
       '  rev: tictactoe',
-      '  - macOS 10.15, Improvement, 1.16 %, Low',
-      '  - Linux 18.04, Regression, 1.93 %, Medium',
+      '  - macOS 10.15, Improvement, +1.16 %, Low',
+      '  - Linux 18.04, Regression, +1.93 %, Medium',
       '  - Windows 10, -, -2.32 %, High',
       '  - Windows 10, -, -23.92 %, -',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - macOS 10.15, Improvement, 1.2 %, Low',
-      '  - Linux 18.04, Regression, 1.97 %, Medium',
+      '  - macOS 10.15, Improvement, +1.2 %, Low',
+      '  - Linux 18.04, Regression, +1.97 %, Medium',
       '  - Windows 10, -, -2.28 %, High',
       '  - Windows 10, -, -23.88 %, -',
       '  rev: tictactoe',
-      '  - macOS 10.15, Improvement, 1.28 %, Low',
-      '  - Linux 18.04, Regression, 2.05 %, Medium',
+      '  - macOS 10.15, Improvement, +1.28 %, Low',
+      '  - Linux 18.04, Regression, +2.05 %, Medium',
       '  - Windows 10, -, -2.2 %, High',
       '  - Windows 10, -, -23.8 %, -',
     ]);
@@ -635,24 +679,24 @@ describe('Results Table', () => {
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
       '  - Windows 10, -, -2.2 %, High',
-      '  - Linux 18.04, Regression, 2.05 %, Medium',
-      '  - macOS 10.15, Improvement, 1.28 %, Low',
+      '  - Linux 18.04, Regression, +2.05 %, Medium',
+      '  - macOS 10.15, Improvement, +1.28 %, Low',
       '  - Windows 10, -, -23.8 %, -',
       '  rev: spam',
       '  - Windows 10, -, -2.28 %, High',
-      '  - Linux 18.04, Regression, 1.97 %, Medium',
-      '  - macOS 10.15, Improvement, 1.2 %, Low',
+      '  - Linux 18.04, Regression, +1.97 %, Medium',
+      '  - macOS 10.15, Improvement, +1.2 %, Low',
       '  - Windows 10, -, -23.88 %, -',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
       '  - Windows 10, -, -2.32 %, High',
-      '  - Linux 18.04, Regression, 1.93 %, Medium',
-      '  - macOS 10.15, Improvement, 1.16 %, Low',
+      '  - Linux 18.04, Regression, +1.93 %, Medium',
+      '  - macOS 10.15, Improvement, +1.16 %, Low',
       '  - Windows 10, -, -23.92 %, -',
       '  rev: spam',
       '  - Windows 10, -, -2.4 %, High',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
     ]);
     // It should have the "no sort" SVG.
@@ -674,8 +718,8 @@ describe('Results Table', () => {
 
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
       '  - Windows 10, -, -2.4 %, High',
       '  - Windows 10, -, -24 %, -',
     ]);
@@ -685,8 +729,8 @@ describe('Results Table', () => {
     await user.click(deltaButton);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -706,8 +750,8 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
     ]);
   });
 });
@@ -1365,6 +1409,66 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(advancedParam()).toBeNull();
   });
 
+  it('restores the Significance filter from the URL on page load', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&advanced_columns=significance&filter_significance=significant&initialized=1',
+    );
+    await screen.findByText('a11yr');
+
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -, , -, Real',
+      '  - Windows 10, -2.40%, , -, Real',
+    ]);
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    expect(await summarizeTableFiltersFromCheckboxes(user)).toMatchObject({
+      'Significance(1)': ['Real'],
+    });
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      significance: ['significant'],
+    });
+  });
+
+  it('restores the Significance sort from the URL on page load', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&advanced_columns=significance&sort=significance|asc&initialized=1',
+    );
+    await screen.findByText('a11yr');
+
+    expect(
+      screen.getByRole('button', {
+        name: /Significance.*Currently sorted by this column/,
+      }),
+    ).toBeInTheDocument();
+    // Ascending p-value: the significant ("Real") rows come first.
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -2.40%, , -, Real',
+      '  - Windows 10, -, , -, Real',
+      '  - macOS 10.15, +1.08%, Improvement, -, Noise',
+      '  - Linux 18.04, +1.85%, Regression, Negligible, Noise',
+    ]);
+    expectParameterToHaveValue('sort', 'significance|asc');
+  });
+
+  it('ignores a Significance filter in the URL when the column is hidden', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&filter_significance=significant&initialized=1',
+    );
+    await screen.findByText('a11yr');
+
+    const header = screen.getByTestId('table-header');
+    expect(header.querySelector('.significance-header')).toBeFalsy();
+    // All four rows are still shown.
+    expect(summarizeVisibleRows('mann-whitney-u')).toHaveLength(5);
+  });
+
   it('groups the dropdown into Advanced Columns and Advanced expanded row details sections', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
@@ -1470,7 +1574,7 @@ describe('cookie persistence vs. shareable URLs', () => {
     // The remembered cookie is applied to the view...
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
     ]);
     // ...and materialised into the URL, which is now marked initialized so the
     // link reproduces this exact view for anyone.
@@ -1492,8 +1596,8 @@ describe('cookie persistence vs. shareable URLs', () => {
     // Cookie is ignored: every status stays visible.
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, +1.85 %, Medium',
+      '  - macOS 10.15, Improvement, +1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -1574,5 +1678,42 @@ describe('cookie persistence vs. shareable URLs', () => {
       expect(params.get('initialized')).toBe('1');
       expect(params.get('filter_status')).toBe('regression');
     });
+  });
+});
+
+// Placed at the end of the file on purpose: this test performs extra renders /
+// menu interactions, and React's useId counter is global across renders in a
+// jest run, so running it before the snapshot tests above would shift their
+// generated ids. Keeping it last avoids perturbing those snapshots.
+describe('Filtered-rows notice', () => {
+  it('shows how many rows the active filters hide, and why', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'test_version=student-t');
+
+    await screen.findByText('a11yr');
+    // No active filters → no notice.
+    expect(
+      screen.queryByTestId('filtered-rows-notice'),
+    ).not.toBeInTheDocument();
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // Hide the two "No changes" rows; the notice reports the count and reason.
+    await clickMenuItem(user, 'Status', /No changes/);
+    const notice = await screen.findByTestId('filtered-rows-notice');
+    expect(notice).toHaveTextContent('2 rows hidden by filters');
+    expect(notice).toHaveTextContent('Status: No changes');
+
+    // Narrowing to a single status hides more rows and the count updates.
+    await clickMenuItem(user, 'Status', /Select only.*Regression/);
+    expect(await screen.findByTestId('filtered-rows-notice')).toHaveTextContent(
+      '3 rows hidden by filters',
+    );
+
+    // Clearing the filter removes the notice again.
+    await clickMenuItem(user, 'Status', /Select all values/);
+    expect(
+      screen.queryByTestId('filtered-rows-notice'),
+    ).not.toBeInTheDocument();
   });
 });

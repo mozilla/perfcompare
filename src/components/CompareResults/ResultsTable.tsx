@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -28,7 +28,7 @@ export default function ResultsTable() {
   const {
     results: resultsPromise,
     view,
-    frameworkId,
+    frameworkIds,
     generation,
     replicates,
     testVersion,
@@ -65,7 +65,15 @@ export default function ResultsTable() {
 
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
-  const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
+  const [frameworkSelection, setFrameworkSelection] =
+    useState<Framework['id'][]>(frameworkIds);
+
+  // Keep the selection in sync when the URL changes outside of the toolbar
+  // (e.g. browser back/forward navigation).
+  useEffect(() => {
+    setFrameworkSelection(frameworkIds);
+  }, [frameworkIds]);
+
   const [testVersionVal, setTestVersionVal] = useState<TestVersion>(
     testVersion ?? MANN_WHITNEY_U,
   );
@@ -75,10 +83,13 @@ export default function ResultsTable() {
   // render-time snapshot, so they preserve params written out-of-band — most
   // importantly the `initialized` marker and cookie-seeded filter/sort — that a
   // stale snapshot would drop (see useRawSearchParams / tableStatePersistence).
-  const onFrameworkChange = (newFrameworkId: Framework['id']) => {
-    setFrameworkIdVal(newFrameworkId);
+  const onFrameworkChange = (selection: Framework['id'][]) => {
+    setFrameworkSelection(selection);
     const params = currentUrlParams();
-    params.set('framework', newFrameworkId.toString());
+    params.delete('framework');
+    for (const frameworkId of selection) {
+      params.append('framework', frameworkId.toString());
+    }
     setSearchParams(params);
   };
 
@@ -117,7 +128,7 @@ export default function ResultsTable() {
       >
         <ResultsControls
           initialSearchTerm={initialSearchTerm}
-          frameworkId={frameworkIdVal}
+          frameworkSelection={frameworkSelection}
           testType={testVersionVal}
           resultsPromise={resultsPromise}
           expandAll={expandAll}

@@ -51,6 +51,10 @@ export const Strings = {
         },
         framework: {
           selectLabel: 'Framework',
+          allFrameworks: 'All frameworks',
+          // e.g. "+ 2 others" in the closed dropdown summary
+          moreFrameworks: (count: number) =>
+            `+ ${count} ${count === 1 ? 'other' : 'others'}`,
           tooltip:
             'The framework or test harness containing the test you want to examine.',
         },
@@ -144,6 +148,15 @@ export const Strings = {
     noResultsFound: {
       mainMessage: 'No results found',
       note: 'For the selected revision(s), no results when compared to the base revision.',
+    },
+    failedFrameworksBanner: {
+      intro: 'Unable to load the following frameworks:',
+      outro: 'Please try again later.',
+    },
+    filteredRowsNotice: {
+      // e.g. "1 row hidden by filters" / "3 rows hidden by filters"
+      summary: (count: number) =>
+        `${count} ${count === 1 ? 'row' : 'rows'} hidden by filters`,
     },
     comparisonRevisionDropdown: {
       allRevisions: {
