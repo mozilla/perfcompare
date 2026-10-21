@@ -58,7 +58,7 @@
     "test:update": "npm test -- -u",
     "test:e2e": "playwright test",
     "test:agent-scripts": "node --test \".github/scripts/*.test.mjs\"",
-    "test-all": "run-p test format:check lint tsc",
+    "test-all": "run-p test format:check lint tsc test:agent-scripts",
     "fix-all": "run-p test:update format lint:fix",
     "tsc": "tsc"
   },

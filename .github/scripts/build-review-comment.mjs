@@ -16,6 +16,7 @@
 // Usage:
 //   node .github/scripts/build-review-comment.mjs --triage triage.json \
 //     [--checks checks.json] [--playwright results.json] \
+//     [--playwright-exit-code <n>] \
 //     [--fix-mode apply|propose] \
 //     [--fix-result fixed|not-fixed|rejected|failed|skipped-no-key] \
 //     [--pushed-sha <sha>] [--fix-limit-reached true|false] \
@@ -24,6 +25,7 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { stripVTControlCharacters } from 'node:util';
 
 export const MARKER = '<!-- dependency-pr-agent -->';
 const MAX_ROWS = 25;
@@ -78,6 +80,13 @@ export function summarizePlaywright(report) {
   }
   const stats = report.stats ?? {};
   return {
+    // Errors outside any test, such as the web server not starting.
+    errors: (report.errors ?? []).map((error) =>
+      truncate(
+        stripVTControlCharacters(String(error.message ?? error)).split('\n')[0],
+        300,
+      ),
+    ),
     passed: stats.expected ?? 0,
     failed: stats.unexpected ?? failed.length,
     flaky: stats.flaky ?? flaky.length,
@@ -87,8 +96,39 @@ export function summarizePlaywright(report) {
   };
 }
 
+// Whether a Playwright run passed. A run that broke before running the tests
+// (the web server didn't start, a spec didn't compile) still writes a report
+// with no failed tests, so that alone is not enough: the command must succeed,
+// the report must have no errors, and at least one test must pass, with none
+// failed, flaky or skipped.
+export function playwrightPassed(report, exitCode) {
+  if (!report || exitCode !== 0) {
+    return false;
+  }
+  const summary = summarizePlaywright(report);
+  return (
+    summary.errors.length === 0 &&
+    summary.passed > 0 &&
+    summary.failed === 0 &&
+    summary.flaky === 0 &&
+    summary.skipped === 0
+  );
+}
+
+// An exit code passed on the command line; anything else, including an empty
+// string, is unknown (null), which never counts as success.
+export function parseExitCode(value) {
+  return /^\d+$/.test(value ?? '') ? Number(value) : null;
+}
+
 // Returns the state of the PR and the headline shown at the top of the comment.
-export function decide({ triage, checks, playwright, fix = {} }) {
+export function decide({
+  triage,
+  checks,
+  playwright,
+  playwrightExitCode = null,
+  fix = {},
+}) {
   if (triage.blocked) {
     return {
       state: 'blocked',
@@ -123,8 +163,7 @@ export function decide({ triage, checks, playwright, fix = {} }) {
         "⚠️ **Needs human review: CI checks pass, but the browser tests didn't produce a report.**",
     };
   }
-  const summary = summarizePlaywright(playwright);
-  if (summary.failed > 0 || summary.flaky > 0) {
+  if (!playwrightPassed(playwright, playwrightExitCode)) {
     return {
       state: 'e2e-failed',
       headline:
@@ -156,11 +195,18 @@ export function buildComment({
   triage,
   checks,
   playwright,
+  playwrightExitCode = null,
   fix = {},
   agentFixCommits = 0,
   runUrl,
 }) {
-  const { state, headline } = decide({ triage, checks, playwright, fix });
+  const { state, headline } = decide({
+    triage,
+    checks,
+    playwright,
+    playwrightExitCode,
+    fix,
+  });
   const lines = [MARKER, '## Dependency update review', '', headline, ''];
 
   if (state === 'blocked') {
@@ -216,6 +262,19 @@ export function buildComment({
       }
       for (const title of summary.flakyTitles) {
         lines.push(`- flaky (passed only on retry): ${title}`);
+      }
+      for (const error of summary.errors) {
+        lines.push(`- error: ${escapeCell(error)}`);
+      }
+      if (
+        state === 'e2e-failed' &&
+        summary.failed === 0 &&
+        summary.flaky === 0
+      ) {
+        lines.push(
+          '',
+          `The test run itself didn't succeed (${playwrightExitCode === null ? 'no exit code' : `exit code ${playwrightExitCode}`}${summary.passed === 0 ? ', no test passed' : ''}${summary.skipped > 0 ? `, ${summary.skipped} skipped` : ''}). See the workflow run.`,
+        );
       }
     } else if (checks && !checks.passed) {
       lines.push('Not run: they run once the CI checks pass.');
@@ -319,6 +378,7 @@ function main() {
     triage: JSON.parse(readFileSync(args.triage, 'utf8')),
     checks: readJsonIfExists(args.checks),
     playwright: readJsonIfExists(args.playwright),
+    playwrightExitCode: parseExitCode(args['playwright-exit-code']),
     fix: {
       mode: args['fix-mode'] || null,
       result: args['fix-result'] || null,

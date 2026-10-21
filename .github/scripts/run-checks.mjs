@@ -30,6 +30,11 @@ export const CHECKS = [
     command: 'npm',
     args: ['test', '--', '--ci', '-w=4', '--workerIdleMemoryLimit=1.5G'],
   },
+  {
+    name: 'agent scripts',
+    command: 'npm',
+    args: ['run', 'test:agent-scripts'],
+  },
   { name: 'build', command: 'npm', args: ['run', 'build'] },
 ];
 

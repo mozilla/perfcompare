@@ -75,6 +75,8 @@ when:
   marked as agent fixes are checked separately, against the allowed files);
 - it changes `package.json` outside the dependency sections (scripts, engines,
   overrides, ...);
+- the lockfile isn't in the format npm 7+ writes (lockfileVersion 2 or 3),
+  so where its packages come from can't be checked;
 - the lockfile resolves packages from outside `registry.npmjs.org`;
 - the lockfile changes the tarball or integrity hash of a package without
   changing its version.
@@ -143,6 +145,11 @@ error, or requests a Treeherder endpoint that is not mocked in
 passes on retry is reported as flaky, and flaky counts as a failure for the
 verdict.
 
+The browser tests only count as passing when `npm run test:e2e` succeeds, the
+report has no errors outside the tests (such as the web server not starting),
+at least one test passed, and none failed, was flaky or was skipped
+(`e2e-result.mjs`, the same rule as the verdict).
+
 Other commands:
 
 - `node .github/scripts/run-checks.mjs --out checks.json`: run the CI checks
@@ -158,6 +165,14 @@ Other commands:
 - A package only used on a path the tests don't visit can break without the
   tests noticing, and the PR would still be "safe to merge". Add a Playwright
   test when a regression slips through.
+- A commit counts as an agent fix because its message carries the
+  `Dependency-Agent-Fix: true` trailer, and anyone who can push to the bot
+  branch can add that trailer to their own commit. Such a commit is checked
+  only against the allowed files (so it can change `src/`), not blocked as a
+  human change. Only people with write access to the repository can push to a
+  bot branch, and the comment asks you to review every agent fix commit before
+  approving: check that they were pushed by `github-actions[bot]` from this
+  workflow.
 - `run-checks.mjs` mirrors `.circleci/config.yml` by hand (a unit test checks
   the commands still match). CircleCI still runs on every push, including the
   agent's fixes, and stays the source of truth for branch protection.

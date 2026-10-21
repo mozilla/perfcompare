@@ -24,6 +24,7 @@ function scenario({
   changedFiles = ['package.json', 'package-lock.json'],
 }) {
   const toLock = (versions) => ({
+    lockfileVersion: 3,
     packages: {
       '': {},
       ...Object.fromEntries(
@@ -207,6 +208,7 @@ describe('analyze', () => {
         packages: { 'node_modules/dayjs': lockEntry('dayjs', '1.0.0') },
       },
       headLock: {
+        lockfileVersion: 3,
         packages: {
           'node_modules/dayjs': {
             version: '1.0.1',
@@ -229,6 +231,7 @@ describe('analyze', () => {
         packages: { 'node_modules/dayjs': lockEntry('dayjs', '1.0.0') },
       },
       headLock: {
+        lockfileVersion: 3,
         packages: {
           'node_modules/dayjs': {
             version: '1.0.0',
@@ -280,6 +283,35 @@ describe('analyze', () => {
     const result = scenario({ baseDeps: deps, base, head });
     assert.equal(result.risk, 'medium');
     assert.equal(result.changeCount, 20);
+  });
+
+  it('blocks lockfiles without a packages map, whose sources it cannot check', () => {
+    const v1Entry = {
+      version: '1.0.1',
+      resolved: 'https://example.com/dayjs-1.0.1.tgz',
+    };
+    for (const headLock of [
+      { lockfileVersion: 1, dependencies: { dayjs: v1Entry } },
+      // A version 1 lockfile with a decoy packages map.
+      {
+        lockfileVersion: 1,
+        packages: {},
+        dependencies: { dayjs: v1Entry },
+      },
+    ]) {
+      const result = analyze({
+        basePkg: { dependencies: { dayjs: '^1.0.0' } },
+        headPkg: { dependencies: { dayjs: '^1.0.0' } },
+        baseLock: {
+          lockfileVersion: 3,
+          packages: { 'node_modules/dayjs': lockEntry('dayjs', '1.0.0') },
+        },
+        headLock,
+        changedFiles: ['package-lock.json'],
+      });
+      assert.equal(result.blocked, true);
+      assert.match(result.blockers.join('\n'), /lockfileVersion 2 or 3/);
+    }
   });
 
   it('reports when nothing changed', () => {

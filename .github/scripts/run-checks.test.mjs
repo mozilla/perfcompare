@@ -11,7 +11,12 @@ describe('CHECKS', () => {
       'utf8',
     );
     const commands = CHECKS.map((check) => check.args.join(' '));
-    for (const script of ['lint', 'format:check', 'tsc']) {
+    for (const script of [
+      'lint',
+      'format:check',
+      'tsc',
+      'test:agent-scripts',
+    ]) {
       assert.match(circleci, new RegExp(`npm run ${script}\\b`));
       assert.ok(commands.includes(`run ${script}`), script);
     }

@@ -259,6 +259,14 @@ export function analyze({
     }
   }
 
+  // npm also installs from older lockfiles, which keep their entries under
+  // `dependencies`: the checks below read `packages` and would see nothing.
+  if (!headLock.packages || !(headLock.lockfileVersion >= 2)) {
+    block(
+      "The lockfile isn't in the format npm 7+ writes (lockfileVersion 2 or 3), so where its packages come from can't be checked",
+    );
+  }
+
   // 4. Per-package changes, from the lockfile (this also covers transitive
   // updates, which are the only change in lockfile-only PRs).
   const basePackages = baseLock.packages ?? {};
@@ -420,7 +428,13 @@ function main() {
   // changes the PR reverts.
   const mergeBase = git('merge-base', base, head).trim();
 
-  const changedFiles = git('diff', '--name-only', mergeBase, head)
+  const changedFiles = git(
+    'diff',
+    '--name-only',
+    '--no-renames',
+    mergeBase,
+    head,
+  )
     .split('\n')
     .filter(Boolean);
 

@@ -5,6 +5,8 @@ import {
   buildComment,
   decide,
   MARKER,
+  parseExitCode,
+  playwrightPassed,
   summarizePlaywright,
 } from './build-review-comment.mjs';
 
@@ -86,12 +88,60 @@ describe('summarizePlaywright', () => {
   });
 });
 
+describe('playwrightPassed', () => {
+  // What Playwright writes when the web server doesn't start: no tests ran.
+  const brokenRun = {
+    stats: { expected: 0, unexpected: 0, flaky: 0, skipped: 0 },
+    errors: [
+      {
+        message:
+          '\x1b[31mError: Timed out waiting 60000ms from config.webServer.\x1b[39m\n    at ...',
+      },
+    ],
+    suites: [],
+  };
+
+  it('passes a successful run where every test passed', () => {
+    assert.equal(playwrightPassed(report(), 0), true);
+  });
+
+  it('fails when the test command failed or its exit code is unknown', () => {
+    assert.equal(playwrightPassed(report(), 1), false);
+    assert.equal(playwrightPassed(report(), null), false);
+    assert.equal(playwrightPassed(null, 0), false);
+  });
+
+  it('fails a run that broke before running the tests', () => {
+    assert.equal(playwrightPassed(brokenRun, 0), false);
+    assert.deepEqual(summarizePlaywright(brokenRun).errors, [
+      'Error: Timed out waiting 60000ms from config.webServer.',
+    ]);
+  });
+
+  it('fails an empty run and a run with skipped tests', () => {
+    const empty = { stats: { expected: 0 }, suites: [] };
+    assert.equal(playwrightPassed(empty, 0), false);
+    const skipped = report();
+    skipped.stats.skipped = 1;
+    assert.equal(playwrightPassed(skipped, 0), false);
+  });
+
+  it('reads exit codes from the command line', () => {
+    assert.equal(parseExitCode('0'), 0);
+    assert.equal(parseExitCode('1'), 1);
+    assert.equal(parseExitCode(''), null);
+    assert.equal(parseExitCode(undefined), null);
+    assert.equal(parseExitCode('x'), null);
+  });
+});
+
 describe('decide', () => {
   it('says safe to merge when CI checks and browser tests pass', () => {
     const { state, headline } = decide({
       triage,
       checks: checks(),
       playwright: report(),
+      playwrightExitCode: 0,
     });
     assert.equal(state, 'safe');
     assert.match(headline, /Approve PR: safe to merge/);
@@ -102,6 +152,7 @@ describe('decide', () => {
       triage: { ...triage, risk: 'high' },
       checks: checks(),
       playwright: report(),
+      playwrightExitCode: 0,
     });
     assert.equal(state, 'safe');
   });
@@ -111,6 +162,7 @@ describe('decide', () => {
       triage: { ...triage, blocked: true, blockers: ['x'] },
       checks: checks(),
       playwright: report(),
+      playwrightExitCode: 0,
     });
     assert.equal(state, 'blocked');
   });
@@ -144,6 +196,22 @@ describe('decide', () => {
     }
   });
 
+  it('is not safe when the browser test run broke or has no exit code', () => {
+    assert.equal(
+      decide({ triage, checks: checks(), playwright: report() }).state,
+      'e2e-failed',
+    );
+    assert.equal(
+      decide({
+        triage,
+        checks: checks(),
+        playwright: { stats: { expected: 0 }, errors: [{ message: 'x' }] },
+        playwrightExitCode: 1,
+      }).state,
+      'e2e-failed',
+    );
+  });
+
   it('needs human review when a report is missing', () => {
     assert.equal(decide({ triage, checks: null }).state, 'no-checks');
     assert.equal(
@@ -169,6 +237,7 @@ describe('buildComment', () => {
       triage,
       checks: checks(),
       playwright: report(),
+      playwrightExitCode: 0,
     });
     assert.ok(text.startsWith(MARKER));
   });
@@ -178,6 +247,7 @@ describe('buildComment', () => {
       triage,
       checks: checks(),
       playwright: report(),
+      playwrightExitCode: 0,
     });
     assert.match(text, /✅ \*\*Approve PR: safe to merge\.\*\*/);
     assert.match(text, /- ✅ unit tests/);
@@ -194,6 +264,7 @@ describe('buildComment', () => {
       triage,
       checks: checks(),
       playwright: report(),
+      playwrightExitCode: 0,
       agentFixCommits: 1,
     });
     assert.match(text, /Approve PR: safe to merge/);
@@ -248,6 +319,26 @@ describe('buildComment', () => {
     assert.match(text, /- failed: results page › renders the table/);
     assert.match(text, /### What went wrong, and a proposed fix/);
     assert.match(text, /starting point, not a finished fix/);
+  });
+
+  it('explains a browser test run that broke before running the tests', () => {
+    const text = buildComment({
+      triage,
+      checks: checks(),
+      playwright: {
+        stats: { expected: 0, unexpected: 0, flaky: 0, skipped: 0 },
+        errors: [{ message: 'Error: Timed out waiting for config.webServer' }],
+        suites: [],
+      },
+      playwrightExitCode: 1,
+    });
+    assert.match(text, /browser tests failed/);
+    assert.doesNotMatch(text, /safe to merge/);
+    assert.match(
+      text,
+      /- error: Error: Timed out waiting for config\.webServer/,
+    );
+    assert.match(text, /didn't succeed \(exit code 1, no test passed\)/);
   });
 
   it('lists the blockers and nothing about tests when blocked', () => {
@@ -320,6 +411,7 @@ describe('buildComment', () => {
       },
       checks: checks(),
       playwright: report(),
+      playwrightExitCode: 0,
     });
     assert.match(text, /a\\\|b/);
   });
