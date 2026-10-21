@@ -756,6 +756,112 @@ describe('SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVers
   });
 });
 
+describe('Advanced options carry-over between results and subtests', () => {
+  const mannWhitneySearch =
+    '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487&test_version=mann-whitney-u';
+
+  // Start from the simplified view rather than the file-wide "all expanded-row
+  // options on" default, so only what each test selects is in play.
+  beforeEach(() => enableExpandedRowOptions({}));
+
+  it('opens with the selection from the results page link', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { subtestsMannWhitneyResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search: `${mannWhitneySearch}&advanced_columns=significance&advanced_expanded=stats_table`,
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+    await screen.findByText('dhtml.html');
+
+    expect(
+      screen.getByTestId('table-header').querySelector('.significance-header'),
+    ).toBeTruthy();
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    expect(
+      screen.getByRole('option', { name: 'Significance' }),
+    ).toHaveAttribute('aria-selected', 'true');
+    expect(
+      screen.getByRole('option', { name: 'Statistics table' }),
+    ).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByRole('option', { name: 'CLES' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
+  });
+
+  it.each([
+    {
+      name: 'compare with base',
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search: mannWhitneySearch,
+      resultsPath: '/compare-results',
+    },
+    {
+      name: 'compare over time',
+      element: (
+        <SubtestsOverTimeResultsView
+          title={Strings.metaData.pageTitle.subtests}
+        />
+      ),
+      route: '/subtests-compare-over-time-results/',
+      search: `${mannWhitneySearch}&selectedTimeRange=86400`,
+      resultsPath: '/compare-over-time-results',
+    },
+  ])(
+    'carries the selection back in the "All results" link ($name)',
+    async ({ element, route, search, resultsPath }) => {
+      const user = userEvent.setup({
+        advanceTimers: jest.advanceTimersByTime,
+      });
+      const { subtestsMannWhitneyResult } = getTestData();
+      setup({
+        element,
+        route,
+        search,
+        subtestsResult: subtestsMannWhitneyResult,
+      });
+      await screen.findByText('dhtml.html');
+
+      const allResultsLink = () =>
+        new URL(
+          screen
+            .getByRole('link', { name: 'All results' })
+            .getAttribute('href') as string,
+          'http://localhost',
+        );
+      expect(allResultsLink().pathname).toBe(resultsPath);
+      expect(allResultsLink().searchParams.has('advanced_columns')).toBe(false);
+      expect(allResultsLink().searchParams.has('advanced_expanded')).toBe(
+        false,
+      );
+
+      await user.click(
+        screen.getByRole('combobox', { name: 'Advanced options' }),
+      );
+      await user.click(screen.getByRole('option', { name: 'CLES' }));
+      await user.click(screen.getByRole('option', { name: 'Data warnings' }));
+      await user.keyboard('{Escape}');
+
+      expect(allResultsLink().searchParams.get('advanced_columns')).toBe(
+        'cles',
+      );
+      expect(allResultsLink().searchParams.get('advanced_expanded')).toBe(
+        'warnings',
+      );
+    },
+  );
+});
+
 describe('cookie persistence vs. shareable URLs (subtests)', () => {
   it('keeps the initialized marker and seeded filters after a search-term change', async () => {
     // Regression test: the subtests search handler must build its URL write
