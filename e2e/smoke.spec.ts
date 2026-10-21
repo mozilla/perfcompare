@@ -117,8 +117,10 @@ test.describe('results page', () => {
 
     const details = page.getByLabel('Revision Row Details').first();
     await expect(details).toBeVisible();
-    // echarts draws into a canvas (or an svg, depending on the renderer).
-    await expect(details.locator('canvas, svg').first()).toBeVisible();
+    // The canvas echarts (zrender) draws into, not the MUI icons next to it.
+    await expect(
+      details.locator('canvas[data-zr-dom-id]').first(),
+    ).toBeVisible();
   });
 
   test('renders the bundled fake data with several revisions', async ({

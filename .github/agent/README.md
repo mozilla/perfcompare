@@ -165,6 +165,14 @@ Other commands:
 - A package only used on a path the tests don't visit can break without the
   tests noticing, and the PR would still be "safe to merge". Add a Playwright
   test when a regression slips through.
+- A `pull_request` run uses the workflow file as it is in the PR, not on the
+  base branch. Someone who pushes a change to this workflow onto a bot branch
+  can therefore skip the triage or make the comment say anything. The triage
+  scripts and the agent's instructions come from the base branch, but the
+  workflow that calls them doesn't. If a bot PR's _Files changed_ includes
+  `.github/`, ignore the verdict and review the PR by hand. (The run that
+  checks a pushed fix uses `workflow_dispatch`, which reads the workflow from
+  the default branch.)
 - A commit counts as an agent fix because its message carries the
   `Dependency-Agent-Fix: true` trailer, and anyone who can push to the bot
   branch can add that trailer to their own commit. Such a commit is checked
