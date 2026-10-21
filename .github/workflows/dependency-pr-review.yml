@@ -362,7 +362,7 @@ jobs:
         id: agent
         if: env.HAS_API_KEY == 'true'
         continue-on-error: true
-        uses: anthropics/claude-code-action@310805dc335398c705877f09079340090470ff77 # v1
+        uses: anthropics/claude-code-action@73367208d0bc0c529b8b3fb223cbd4a8f63586e4 # v1, on the Mozilla allowed actions list
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ github.token }}
