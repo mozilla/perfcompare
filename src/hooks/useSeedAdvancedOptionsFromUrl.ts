@@ -8,29 +8,23 @@ import {
   updateShowSignificance,
   updateExpandedRow,
 } from '../reducers/ColumnPrefsSlice';
-import {
-  ADVANCED_COLUMNS_PARAM,
-  parseAdvancedColumns,
-} from '../utils/advancedColumnsUrl';
-import { EXPANDED_ROW_PARAM, parseExpandedRow } from '../utils/expandedRowUrl';
+import { resolveAdvancedOptions } from '../utils/advancedOptionsUrl';
 
-// On mount, seed the advanced-options visibility (columns + expanded row) from
-// the URL so a shared link reproduces the selection. Toggling updates both the
-// URL (for sharing) and Redux (for reactive rendering); this only handles the
-// initial URL → Redux direction. Call once per results view.
+// On mount, seed the Advanced options in Redux from the URL or cookie (see
+// resolveAdvancedOptions). A group neither specifies is left as is. Call once
+// per results view.
 function useSeedAdvancedOptionsFromUrl() {
   const [rawSearchParams] = useRawSearchParams();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const params = new URLSearchParams(rawSearchParams);
-    if (params.has(ADVANCED_COLUMNS_PARAM)) {
-      const { cliffsDelta, cles, significance } = parseAdvancedColumns(params);
-      dispatch(updateShowCliffsDelta(cliffsDelta));
-      dispatch(updateShowCles(cles));
-      dispatch(updateShowSignificance(significance));
+    const { columns, expandedRow } = resolveAdvancedOptions(rawSearchParams);
+    if (columns) {
+      dispatch(updateShowCliffsDelta(columns.cliffsDelta));
+      dispatch(updateShowCles(columns.cles));
+      dispatch(updateShowSignificance(columns.significance));
     }
-    if (params.has(EXPANDED_ROW_PARAM)) {
-      dispatch(updateExpandedRow(parseExpandedRow(params)));
+    if (expandedRow) {
+      dispatch(updateExpandedRow(expandedRow));
     }
   }, []);
 }

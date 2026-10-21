@@ -5,6 +5,7 @@ import type {
   CompareResultsTableConfig,
   CompareMannWhitneyResultsTableConfig,
 } from '../types/types';
+import { seedAdvancedOptionsParamsFromCookies } from '../utils/advancedOptionsUrl';
 import { getCookie } from '../utils/cookies';
 import {
   INITIALIZED_PARAM,
@@ -17,10 +18,11 @@ import {
 } from '../utils/tableStatePersistence';
 
 // On the first load of an *uninitialized* results URL (e.g. arriving from the
-// search form), copy the remembered filter/sort cookies into the URL and stamp
-// it as initialized. From then on the URL fully describes the view, so sharing
-// it reproduces the same result for everyone — the recipient's cookies are
-// ignored because the URL is initialized (see useTableFilters/useTableSort).
+// search form), copy the remembered filter/sort and Advanced options cookies
+// into the URL and stamp it as initialized. From then on the URL fully
+// describes the view, so sharing it reproduces the same result for everyone —
+// the recipient's cookies are ignored because the URL is initialized (see
+// useTableFilters/useTableSort).
 //
 // This runs exactly once and only mutates the URL via history.replaceState
 // (through useRawSearchParams), so it never triggers a re-render or a loader
@@ -60,6 +62,8 @@ const useInitializeTableStateFromCookies = (
         params.set(SORT_PARAM, sortCookie);
       }
     }
+
+    seedAdvancedOptionsParamsFromCookies(params);
 
     // Stamp the marker even when there were no cookies, so a filter-free view
     // is still "initialized" and can't pick up cookies on this or another
