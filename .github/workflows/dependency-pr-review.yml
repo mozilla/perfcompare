@@ -1,0 +1,589 @@
+# Checks dependency-update pull requests opened by dependabot or depfu, fixes
+# them when the CI checks fail, and says whether they are safe to merge.
+#
+#   context   Finds the PR and the fixes the agent already pushed to it.
+#   triage    Trusted script from the base branch: lists what changed and stops
+#             everything if the PR doesn't look like an ordinary update (files
+#             other than package.json and the lockfile, packages from outside
+#             the npm registry, ...). Runs no code from the PR.
+#   verify    No secrets. Runs the CircleCI checks (lint, formatting, types,
+#             unit tests) plus the build and, only if they all pass, the
+#             Playwright browser tests in Firefox.
+#   fix       Only when something failed. The agent works on the PR:
+#               - CI checks fail: it fixes them ("apply" mode), and the workflow
+#                 re-runs every check itself to verify the fix;
+#               - browser tests fail (or the fix limit is reached): it explains
+#                 why and proposes a fix ("propose" mode), which is not pushed.
+#             Has the Anthropic key but only a read-only GitHub token.
+#   push-fix  No secrets, runs no PR code. Pushes a verified fix to the PR
+#             branch if it only touches allowed files.
+#   comment   Posts one comment with the verdict, decided by a script, never by
+#             the agent: "Approve PR: safe to merge" only when the CI checks and
+#             browser tests pass. After a push it starts this workflow again,
+#             because pushes made with GITHUB_TOKEN don't trigger new runs.
+#
+# Nothing here approves or merges. Setup and the security trade-offs are in
+# .github/agent/README.md.
+
+name: Dependency PR review
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - package.json
+      - package-lock.json
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Number of the dependency pull request to check
+        required: true
+        type: string
+
+concurrency:
+  group: dependency-pr-review-${{ github.event.pull_request.number || inputs.pr_number }}
+  cancel-in-progress: true
+
+permissions: {}
+
+env:
+  # How many fix commits the agent may push to one PR. After that it only
+  # proposes fixes in the comment.
+  MAX_FIX_ATTEMPTS: 2
+  # Marks the agent's commits, so they can be counted and told apart from the
+  # bot's changes.
+  FIX_TRAILER: 'Dependency-Agent-Fix: true'
+
+jobs:
+  context:
+    name: Find the pull request
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      eligible: ${{ steps.pr.outputs.eligible }}
+      pr_number: ${{ steps.pr.outputs.pr_number }}
+      head_sha: ${{ steps.pr.outputs.head_sha }}
+      head_ref: ${{ steps.pr.outputs.head_ref }}
+      base_sha: ${{ steps.pr.outputs.base_sha }}
+      bot_head_sha: ${{ steps.pr.outputs.bot_head_sha }}
+      agent_fix_commits: ${{ steps.pr.outputs.agent_fix_commits }}
+    steps:
+      - name: Read the pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+        run: |
+          pr=$(gh api "repos/$GH_REPO/pulls/$PR_NUMBER")
+          author=$(jq -r .user.login <<< "$pr")
+          eligible=false
+          if [ "$(jq -r .state <<< "$pr")" = open ] \
+            && [ "$(jq -r .head.repo.full_name <<< "$pr")" = "$GH_REPO" ] \
+            && { [ "$author" = 'dependabot[bot]' ] || [ "$author" = 'depfu[bot]' ]; }; then
+            eligible=true
+          fi
+
+          # The bot's own changes end at its last commit; the agent's fixes are
+          # on top and carry the trailer.
+          commits=$(gh api --paginate "repos/$GH_REPO/pulls/$PR_NUMBER/commits" \
+            --jq '.[] | {sha, message: .commit.message}' | jq -s .)
+          agent_fix_commits=$(jq --arg t "$FIX_TRAILER" \
+            '[.[] | select(.message | contains($t))] | length' <<< "$commits")
+          bot_head_sha=$(jq -r --arg t "$FIX_TRAILER" \
+            '[.[] | select(.message | contains($t) | not)] | last | .sha' <<< "$commits")
+
+          {
+            echo "eligible=$eligible"
+            echo "pr_number=$PR_NUMBER"
+            echo "head_sha=$(jq -r .head.sha <<< "$pr")"
+            echo "head_ref=$(jq -r .head.ref <<< "$pr")"
+            echo "base_sha=$(jq -r .base.sha <<< "$pr")"
+            echo "bot_head_sha=$bot_head_sha"
+            echo "agent_fix_commits=$agent_fix_commits"
+          } >> "$GITHUB_OUTPUT"
+          echo "PR #$PR_NUMBER by $author: eligible=$eligible, agent fix commits=$agent_fix_commits"
+
+  triage:
+    name: Triage
+    needs: context
+    if: needs.context.outputs.eligible == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      blocked: ${{ steps.result.outputs.blocked }}
+    steps:
+      # The base branch, not the PR: the triage scripts must be trusted.
+      - name: Check out the base branch
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.context.outputs.base_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Fetch the pull request
+        env:
+          PR_NUMBER: ${{ needs.context.outputs.pr_number }}
+        run: git fetch --no-tags origin "refs/pull/${PR_NUMBER}/head"
+
+      # Only the bot's commits: the agent's fixes legitimately change other
+      # files, and are checked separately below.
+      - name: Classify the pull request
+        env:
+          BASE_SHA: ${{ needs.context.outputs.base_sha }}
+          BOT_HEAD_SHA: ${{ needs.context.outputs.bot_head_sha }}
+        run: |
+          node .github/scripts/triage-dependency-pr.mjs \
+            --base "$BASE_SHA" --head "$BOT_HEAD_SHA" --out triage.json
+
+      - name: Check the files changed by the agent's earlier fixes
+        if: needs.context.outputs.agent_fix_commits != '0'
+        env:
+          BOT_HEAD_SHA: ${{ needs.context.outputs.bot_head_sha }}
+          HEAD_SHA: ${{ needs.context.outputs.head_sha }}
+        run: |
+          if ! git diff --name-only --no-renames "$BOT_HEAD_SHA" "$HEAD_SHA" \
+            | node .github/scripts/fix-paths.mjs --mode apply; then
+            reason='Commits marked as agent fixes change files a fix may not touch.'
+            jq --arg r "$reason" \
+              '.blocked = true | .risk = "high" | .blockers += [$r] | .reasons += [$r]' \
+              triage.json > triage.tmp && mv triage.tmp triage.json
+          fi
+
+      - name: Record the result
+        id: result
+        run: echo "blocked=$(jq .blocked triage.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Upload the triage result
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: triage
+          path: triage.json
+          retention-days: 7
+
+  verify:
+    name: CI checks, then browser tests
+    needs: [context, triage]
+    if: needs.triage.outputs.blocked == 'false'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # Runs code from the PR (the updated packages), so: no secrets and a
+    # read-only token.
+    permissions:
+      contents: read
+    outputs:
+      checks_passed: ${{ steps.checks.outputs.passed }}
+      e2e: ${{ steps.e2e_result.outputs.e2e }}
+    steps:
+      # The scripts that run the checks come from the base branch, out of the
+      # PR's reach.
+      - name: Check out the trusted scripts
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.context.outputs.base_sha }}
+          path: trusted
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+      - run: mv trusted "$RUNNER_TEMP/trusted"
+
+      # The PR head, which is what CircleCI tests too.
+      - name: Check out the pull request
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.context.outputs.head_sha }}
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      # Install scripts of updated packages are the classic supply-chain
+      # vector, and nothing here needs them.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Run the CI checks
+        id: checks
+        run: |
+          mkdir -p "$RUNNER_TEMP/verify"
+          node "$RUNNER_TEMP/trusted/.github/scripts/run-checks.mjs" \
+            --out "$RUNNER_TEMP/verify/checks.json" \
+            --log-dir "$RUNNER_TEMP/verify/logs"
+
+      - name: Install the test browser
+        if: steps.checks.outputs.passed == 'true'
+        run: npx playwright install --with-deps firefox
+
+      - name: Run the browser tests
+        id: e2e
+        if: steps.checks.outputs.passed == 'true'
+        run: |
+          status=0
+          npm run test:e2e || status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+
+      # The exit code is kept with the report: a run that broke before running
+      # the tests can leave a report with no failures in it.
+      - name: Collect the browser test results
+        id: e2e_result
+        if: steps.checks.outputs.passed == 'true'
+        env:
+          EXIT_CODE: ${{ steps.e2e.outputs.exit_code }}
+        run: |
+          e2e=$(node "$RUNNER_TEMP/trusted/.github/scripts/e2e-result.mjs" \
+            --report test-results/results.json --exit-code "$EXIT_CODE")
+          if [ -f test-results/results.json ]; then
+            cp -r test-results "$RUNNER_TEMP/verify/playwright"
+            echo "$EXIT_CODE" > "$RUNNER_TEMP/verify/playwright/exit-code"
+          fi
+          echo "e2e=$e2e" >> "$GITHUB_OUTPUT"
+
+      # One directory, so the layout inside the artifact is always the same:
+      # checks.json, logs/ and playwright/results.json.
+      - name: Upload the results
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: verify
+          path: ${{ runner.temp }}/verify
+          if-no-files-found: ignore
+          retention-days: 7
+
+  fix:
+    name: Agent fix
+    needs: [context, triage, verify]
+    if: >-
+      needs.verify.result == 'success' &&
+      (needs.verify.outputs.checks_passed == 'false' || needs.verify.outputs.e2e == 'failed')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    # Holds the Anthropic key and runs code from the PR, so the GitHub token is
+    # read-only: pushing happens in push-fix, which runs no PR code.
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      mode: ${{ steps.mode.outputs.mode }}
+      limit_reached: ${{ steps.mode.outputs.limit_reached }}
+      result: ${{ steps.result.outputs.result }}
+    env:
+      HAS_API_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    steps:
+      - name: Choose the mode
+        id: mode
+        env:
+          CHECKS_PASSED: ${{ needs.verify.outputs.checks_passed }}
+          AGENT_FIX_COMMITS: ${{ needs.context.outputs.agent_fix_commits }}
+        run: |
+          mode=propose
+          limit_reached=false
+          if [ "$CHECKS_PASSED" = 'false' ]; then
+            if [ "$AGENT_FIX_COMMITS" -lt "$MAX_FIX_ATTEMPTS" ]; then
+              mode=apply
+            else
+              limit_reached=true
+            fi
+          fi
+          {
+            echo "mode=$mode"
+            echo "limit_reached=$limit_reached"
+          } >> "$GITHUB_OUTPUT"
+          echo "mode=$mode limit_reached=$limit_reached"
+
+      - name: Check out the trusted scripts
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.context.outputs.base_sha }}
+          path: trusted
+          sparse-checkout: |
+            .github/scripts
+            .github/agent
+          persist-credentials: false
+      - run: mv trusted "$RUNNER_TEMP/trusted"
+
+      - name: Check out the pull request
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.context.outputs.head_sha }}
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Install the test browser
+        if: steps.mode.outputs.mode == 'propose'
+        run: npx playwright install --with-deps firefox
+
+      - name: Download the results
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: verify
+          path: agent-input
+
+      - name: Download the triage result
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: triage
+          path: agent-input
+
+      # The instructions come from the base branch, so a PR can't change them.
+      - name: Prepare the agent
+        id: prepare
+        env:
+          MODE: ${{ steps.mode.outputs.mode }}
+        run: |
+          # The patterns contain globs that must reach the agent unexpanded.
+          set -f
+          mkdir -p agent-output
+          cp "$RUNNER_TEMP/trusted/.github/agent/dependency-pr-review.md" "$RUNNER_TEMP/instructions.md"
+          files='src/** @types/** webpack/** eslint.config.mjs tsconfig.json jest.config.ts babel.config.json agent-output/**'
+          commands='npm run lint,npm run lint:fix,npm run format,npm run format:check,npm run tsc,npm run test:agent-scripts,npm test *,npm test,npm run build,git diff *,git status *,gh pr view *'
+          if [ "$MODE" = propose ]; then
+            files="$files e2e/**"
+            commands="$commands,npm run test:e2e *,npm run test:e2e"
+          fi
+          tools='Read,Grep,Glob'
+          for f in $files; do tools="$tools,Edit($f),Write($f)"; done
+          IFS=','
+          for c in $commands; do tools="$tools,Bash($c)"; done
+          echo "tools=$tools" >> "$GITHUB_OUTPUT"
+
+      - name: Run the agent
+        id: agent
+        if: env.HAS_API_KEY == 'true'
+        continue-on-error: true
+        uses: anthropics/claude-code-action@73367208d0bc0c529b8b3fb223cbd4a8f63586e4 # v1, on the Mozilla allowed actions list
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          # github-actions[bot] starts the run that checks a pushed fix.
+          allowed_bots: 'dependabot[bot],depfu[bot],github-actions[bot]'
+          prompt: |
+            Follow the instructions in ${{ runner.temp }}/instructions.md.
+
+            - Mode: ${{ steps.mode.outputs.mode }}
+            - Repository: ${{ github.repository }}
+            - Pull request number: ${{ needs.context.outputs.pr_number }}
+            - Failing CI checks: ${{ needs.verify.outputs.checks_passed == 'false' && 'yes, see agent-input/checks.json' || 'none' }}
+            - Browser tests: ${{ needs.verify.outputs.e2e || 'not run' }}
+          claude_args: |
+            --max-turns 60
+            --allowedTools "${{ steps.prepare.outputs.tools }}"
+            --disallowedTools "WebFetch,WebSearch"
+
+      # The agent's word is not enough: check its changes the same way the
+      # PR was checked.
+      - name: Verify the agent's changes
+        id: result
+        env:
+          MODE: ${{ steps.mode.outputs.mode }}
+          AGENT_OUTCOME: ${{ steps.agent.outcome }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/fix"
+          [ -f agent-output/summary.md ] && cp agent-output/summary.md "$RUNNER_TEMP/fix/"
+          result() {
+            echo "result=$1" >> "$GITHUB_OUTPUT"
+            echo "result: $1"
+            exit 0
+          }
+
+          [ "$HAS_API_KEY" = 'true' ] || result skipped-no-key
+          [ "$AGENT_OUTCOME" = 'success' ] || result failed
+
+          git add -A
+          if git diff --cached --quiet; then
+            result not-fixed
+          fi
+          if ! git diff --cached --name-only --no-renames \
+            | node "$RUNNER_TEMP/trusted/.github/scripts/fix-paths.mjs" --mode "$MODE"; then
+            result rejected
+          fi
+          git diff --cached --binary > "$RUNNER_TEMP/fix/fix.patch"
+
+          node "$RUNNER_TEMP/trusted/.github/scripts/run-checks.mjs" \
+            --out "$RUNNER_TEMP/fix/checks-after.json" > "$RUNNER_TEMP/fix/checks-after.log" 2>&1 || true
+          jq -e .passed "$RUNNER_TEMP/fix/checks-after.json" > /dev/null || result not-fixed
+          if [ "$MODE" = propose ]; then
+            # A report left by the agent's own test runs must not count.
+            rm -rf test-results
+            status=0
+            npm run test:e2e > "$RUNNER_TEMP/fix/e2e-after.log" 2>&1 || status=$?
+            e2e=$(node "$RUNNER_TEMP/trusted/.github/scripts/e2e-result.mjs" \
+              --report test-results/results.json --exit-code "$status")
+            [ "$e2e" = passed ] || result not-fixed
+          fi
+          result fixed
+
+      - name: Upload the agent's work
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: agent-fix
+          path: ${{ runner.temp }}/fix
+          if-no-files-found: ignore
+          retention-days: 7
+
+  push-fix:
+    name: Push the fix
+    needs: [context, fix]
+    if: needs.fix.outputs.mode == 'apply' && needs.fix.outputs.result == 'fixed'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Can write to the repository, so it has no other secret and runs no code
+    # from the PR: it only applies and pushes the verified patch.
+    permissions:
+      contents: write
+    outputs:
+      pushed_sha: ${{ steps.push.outputs.pushed_sha }}
+    steps:
+      - name: Check out the trusted scripts
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.context.outputs.base_sha }}
+          path: trusted
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+      - run: mv trusted "$RUNNER_TEMP/trusted"
+
+      - name: Check out the pull request branch
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.context.outputs.head_ref }}
+
+      - name: Download the fix
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: agent-fix
+          path: ${{ runner.temp }}/fix
+
+      - name: Apply and push the fix
+        id: push
+        env:
+          HEAD_SHA: ${{ needs.context.outputs.head_sha }}
+          HEAD_REF: ${{ needs.context.outputs.head_ref }}
+        run: |
+          if [ "$(git rev-parse HEAD)" != "$HEAD_SHA" ]; then
+            echo '::warning::The PR branch moved since the checks ran; not pushing.'
+            exit 1
+          fi
+          git apply --index "$RUNNER_TEMP/fix/fix.patch"
+          git diff --cached --name-only --no-renames \
+            | node "$RUNNER_TEMP/trusted/.github/scripts/fix-paths.mjs" --mode apply
+          git -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit --quiet -m 'Fix CI checks for the dependency update' \
+            -m 'Automated fix by the dependency PR agent, verified by the CI checks.' \
+            -m "$FIX_TRAILER"
+          git push origin "HEAD:refs/heads/$HEAD_REF"
+          echo "pushed_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  comment:
+    name: Comment
+    needs: [context, triage, verify, fix, push-fix]
+    if: ${{ !cancelled() && needs.triage.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: write
+      actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      PR_NUMBER: ${{ needs.context.outputs.pr_number }}
+    steps:
+      - name: Check out the base branch
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.context.outputs.base_sha }}
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
+      - name: Download the triage result
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: triage
+          path: triage
+
+      - name: Download the results
+        if: needs.verify.result != 'skipped'
+        continue-on-error: true
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: verify
+          path: verify
+
+      - name: Download the agent's work
+        if: needs.fix.result != 'skipped'
+        continue-on-error: true
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: agent-fix
+          path: fix
+
+      - name: Build the comment
+        env:
+          FIX_MODE: ${{ needs.fix.outputs.mode }}
+          FIX_RESULT: ${{ needs.fix.outputs.result || (needs.fix.result == 'failure' && 'failed') || '' }}
+          FIX_LIMIT_REACHED: ${{ needs.fix.outputs.limit_reached }}
+          PUSHED_SHA: ${{ needs.push-fix.outputs.pushed_sha }}
+          AGENT_FIX_COMMITS: ${{ needs.context.outputs.agent_fix_commits }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # A rejected fix may touch dependency files: show the explanation,
+          # not the patch.
+          patch=fix/fix.patch
+          [ "$FIX_RESULT" = rejected ] && patch=''
+          node .github/scripts/build-review-comment.mjs \
+            --triage triage/triage.json \
+            --checks verify/checks.json \
+            --playwright verify/playwright/results.json \
+            --playwright-exit-code "$(cat verify/playwright/exit-code 2>/dev/null || true)" \
+            --fix-mode "$FIX_MODE" \
+            --fix-result "$FIX_RESULT" \
+            --fix-limit-reached "$FIX_LIMIT_REACHED" \
+            --pushed-sha "$PUSHED_SHA" \
+            --agent-summary fix/summary.md \
+            --patch "$patch" \
+            --agent-fix-commits "$AGENT_FIX_COMMITS" \
+            --run-url "$RUN_URL" \
+            --out comment.md
+
+      # One comment, updated on every run. It is found by the marker at its
+      # top (MARKER in build-review-comment.mjs), not by being the bot's latest
+      # comment, so comments from other workflows are never overwritten.
+      - name: Post the comment
+        run: |
+          marker='<!-- dependency-pr-agent -->'
+          comment_id=$(gh api --paginate "repos/$GH_REPO/issues/$PR_NUMBER/comments" \
+            --jq ".[] | select(.user.login == \"github-actions[bot]\" and (.body | startswith(\"$marker\"))) | .id" \
+            | head -n 1)
+          if [ -n "$comment_id" ]; then
+            jq -n --rawfile body comment.md '{body: $body}' \
+              | gh api --method PATCH "repos/$GH_REPO/issues/comments/$comment_id" --input - > /dev/null
+          else
+            gh pr comment "$PR_NUMBER" --body-file comment.md
+          fi
+
+      # Last, after the comment: the new run cancels this one (same
+      # concurrency group).
+      - name: Check the pushed fix
+        if: needs.push-fix.outputs.pushed_sha != ''
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          gh workflow run dependency-pr-review.yml --ref "$DEFAULT_BRANCH" \
+            -f pr_number="$PR_NUMBER"
