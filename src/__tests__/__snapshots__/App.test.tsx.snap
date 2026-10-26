@@ -760,7 +760,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                     <strong>
                       Magnitude
                     </strong>
-                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                     says how big the difference is: negligible, small, moderate, or large. Sort or filter by it to focus on the biggest changes.
                   </li>
                   <li>
                     Use 
@@ -2652,7 +2652,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                     <strong>
                       Magnitude
                     </strong>
-                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                     says how big the difference is: negligible, small, moderate, or large. Sort or filter by it to focus on the biggest changes.
                   </li>
                   <li>
                     Use 
@@ -4544,7 +4544,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                     <strong>
                       Magnitude
                     </strong>
-                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                     says how big the difference is: negligible, small, moderate, or large. Sort or filter by it to focus on the biggest changes.
                   </li>
                   <li>
                     Use 
@@ -6441,7 +6441,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                     <strong>
                       Magnitude
                     </strong>
-                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                     says how big the difference is: negligible, small, moderate, or large. Sort or filter by it to focus on the biggest changes.
                   </li>
                   <li>
                     Use 

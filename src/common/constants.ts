@@ -345,7 +345,7 @@ export const tooltipSignificance =
 export const tooltipStatusMannWhitney =
   'Whether New is an Improvement, a Regression, or No change compared to Base. Results whose difference is likely just noise (not statistically significant) are tagged "Noise" above the status; filter the Status column by "Noise" to hide or focus on those rows.';
 export const tooltipMagnitude =
-  'How big the difference between Base and New is, in plain words: negligible (barely any), small, medium, or large. It comes from how much the two sets of results overlap — the less they overlap, the bigger the difference. Sort or filter by it to focus on the biggest changes.';
+  'How big the difference between Base and New is, in plain words: negligible (barely any), small, moderate, or large. It comes from how much the two sets of results overlap — the less they overlap, the bigger the difference. Sort or filter by it to focus on the biggest changes.';
 export const tooltipTotalRuns =
   'The total number of tasks/jobs that ran for this metric.';
 export const tooltipBaseMean =

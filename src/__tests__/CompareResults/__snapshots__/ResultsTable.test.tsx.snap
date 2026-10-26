@@ -1089,7 +1089,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <strong>
                       Magnitude
                     </strong>
-                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                     says how big the difference is: negligible, small, moderate, or large. Sort or filter by it to focus on the biggest changes.
                   </li>
                   <li>
                     Use 
@@ -4140,7 +4140,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     <strong>
                       Magnitude
                     </strong>
-                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                     says how big the difference is: negligible, small, moderate, or large. Sort or filter by it to focus on the biggest changes.
                   </li>
                   <li>
                     Use 
