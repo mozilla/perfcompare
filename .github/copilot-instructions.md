@@ -20,7 +20,7 @@ React 19 + TypeScript on Webpack (`webpack/`), served by `webpack serve` in dev 
 
 **Redux.** Four slices in `src/reducers/`: `ComparisonSlice`, `SelectedRevisionsSlice`, `ColumnPrefsSlice` (column/panel visibility), `ThemeSlice`. The store in `src/common/store.ts` exports `RootState` and `AppDispatch`; always use the typed `useAppSelector` / `useAppDispatch` from `src/hooks/app.ts`.
 
-**URL as state.** Filters, sorting, and advanced column/expanded-row selections are encoded into the URL so a shared link reproduces a view (`src/utils/advancedColumnsUrl.ts`, `expandedRowUrl.ts`, `tableStatePersistence.ts`, plus the `useRawSearchParams` / `useSeedAdvancedOptionsFromUrl` hooks). New view options follow those serializers rather than a new scheme.
+**URL as state.** Filters, sorting, and advanced column/expanded-row selections are encoded into the URL so a shared link reproduces a view (`src/utils/advancedColumnsUrl.ts`, `expandedRowUrl.ts`, `tableStatePersistence.ts`, plus the `useRawSearchParams` / `useSeededAdvancedColumns` hooks). New view options follow those serializers rather than a new scheme.
 
 ## Project layout
 

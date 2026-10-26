@@ -30,9 +30,10 @@ const getPreviousCompareWithBaseURL = (
     newRepo,
     framework,
   });
-  // Carry the Advanced options selection back so the results page matches
-  // the subtests page.
-  setAdvancedOptionsParams(params, advancedColumns, expandedRow);
+  // Open the results page with the same Advanced options.
+  setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
+    explicit: true,
+  });
 
   return `/compare-results?${params.toString()}`;
 };
@@ -55,7 +56,9 @@ const getPreviousCompareOverTimeURL = (
     newRepo,
     framework,
   });
-  setAdvancedOptionsParams(params, advancedColumns, expandedRow);
+  setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
+    explicit: true,
+  });
 
   return `/compare-over-time-results?${params.toString()}`;
 };
