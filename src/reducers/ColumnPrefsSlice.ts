@@ -10,10 +10,8 @@ export const MANN_WHITNEY_WARNING_STORAGE_KEY = 'showMannWhitneyWarning';
 //   - showCliffsDelta / showCles / showSignificance: the advanced statistics
 //     columns, toggled independently from the "Advanced options" dropdown.
 //     Persisted in the URL and a cookie (see utils/advancedOptionsUrl).
-//     Resolved when the store is created, so the very first render already has
-//     the right columns — the table's filter and sort hooks read their URL
-//     params only once, against the columns present at mount. Default off (the
-//     simplified view).
+//     Resolved when the store is created and re-seeded by each results view
+//     (see useSeededAdvancedColumns). Default off (the simplified view).
 //   - showHowToRead: when true the "How to read the results" helper panel is
 //     shown above the table. Persisted to localStorage.
 //   - showMannWhitneyWarning: when true the experimental Mann-Whitney-U warning

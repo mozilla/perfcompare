@@ -822,6 +822,28 @@ describe('Advanced options carry-over between results and subtests', () => {
     },
   );
 
+  it('applies the remembered sort of a cookie-restored column', async () => {
+    document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+    document.cookie = 'perfcompare_sort=significance|asc; path=/';
+    const { subtestsMannWhitneyResult } = getTestData();
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search: mannWhitneySearch,
+      subtestsResult: subtestsMannWhitneyResult,
+    });
+    await screen.findByText('dhtml.html');
+
+    expect(
+      screen.getByRole('button', {
+        name: /Significance.*Currently sorted by this column/,
+      }),
+    ).toBeInTheDocument();
+    expectParameterToHaveValue('sort', 'significance|asc');
+  });
+
   it.each([
     {
       name: 'compare with base',

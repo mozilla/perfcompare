@@ -1780,6 +1780,30 @@ describe('Advanced options cookie persistence', () => {
     },
   );
 
+  it('applies the remembered filter and sort of a cookie-restored column when the store predates the cookie', async () => {
+    document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+    document.cookie = 'perfcompare_filter_significance=significant; path=/';
+    document.cookie = 'perfcompare_sort=significance|asc; path=/';
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    expect(
+      screen.getByRole('button', {
+        name: /Significance.*Currently sorted by this column/,
+      }),
+    ).toBeInTheDocument();
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -2.40%, , -, Real',
+      '  - Windows 10, -, , -, Real',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      significance: ['significant'],
+    });
+    expect(urlParam('sort')).toBe('significance|asc');
+  });
+
   it('remembers the selection in cookies when it changes', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
