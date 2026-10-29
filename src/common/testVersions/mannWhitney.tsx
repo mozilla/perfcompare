@@ -231,7 +231,7 @@ function resultIsNoise(result: MannWhitneyResultsItem): boolean {
 }
 
 // Magnitude cell — the plain-language Cliff's Delta interpretation
-// (negligible/small/medium/large). Shown only in the simplified view; the
+// (negligible/small/moderate/large). Shown only in the simplified view; the
 // numeric CD column covers it once advanced columns are on. Shared by the
 // main and subtests rows.
 function renderMagnitudeCell(interpretation: string) {
@@ -397,7 +397,7 @@ export const mannWhitneyStrategy = {
               possibleValues: [
                 { label: 'Negligible', key: 'negligible' },
                 { label: 'Small', key: 'small' },
-                { label: 'Medium', key: 'medium' },
+                { label: 'Moderate', key: 'moderate' },
                 { label: 'Large', key: 'large' },
               ],
               matchesFunction(

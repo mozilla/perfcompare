@@ -1340,6 +1340,34 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     });
   });
 
+  it('filters moderate-magnitude rows with the Moderate option', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    Object.assign(testCompareMannWhitneyData[2], {
+      cliffs_delta: 0.4,
+      cliffs_interpretation: 'moderate',
+    });
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const moderateRowOnly = [
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -2.40%, , Moderate, ',
+    ];
+
+    await clickMenuItem(user, 'Magnitude', /Select only.*Moderate/);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      magnitude: ['moderate'],
+    });
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual(moderateRowOnly);
+
+    await clickMenuItem(user, 'Magnitude', /Select all values/);
+    await clickMenuItem(user, 'Magnitude', /^Negligible/);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      magnitude: ['small', 'moderate', 'large'],
+    });
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual(moderateRowOnly);
+  });
+
   it('toggles Cliff’s Delta and CLES independently from the Advanced columns dropdown', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
