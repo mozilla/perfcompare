@@ -56,7 +56,9 @@
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
     "test:update": "npm test -- -u",
-    "test-all": "run-p test format:check lint tsc",
+    "test:e2e": "playwright test",
+    "test:agent-scripts": "node --test \".github/scripts/*.test.mjs\"",
+    "test-all": "run-p test format:check lint tsc test:agent-scripts",
     "fix-all": "run-p test:update format lint:fix",
     "tsc": "tsc"
   },
@@ -89,6 +91,7 @@
     "@eslint/js": "^9.39.5",
     "@fetch-mock/jest": "^0.2.20",
     "@jest/types": "^30.5.1",
+    "@playwright/test": "1.64.1",
     "@swc/core": "^1.16.13",
     "@swc/jest": "^0.2.39",
     "@testing-library/dom": "^10.4.2",

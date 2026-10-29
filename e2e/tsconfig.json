@@ -1,0 +1,13 @@
+{
+  // Type-checks the Playwright config and tests. The main tsconfig.json only
+  // covers src/. Run with: npx tsc -p e2e/tsconfig.json
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": [
+    "./",
+    "../playwright.config.ts",
+    "../src/__tests__/utils/fixtures.ts"
+  ]
+}
