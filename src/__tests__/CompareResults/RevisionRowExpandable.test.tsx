@@ -104,15 +104,11 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
       ...mockMannWhitneyResultData,
       shapiro_wilk_test_base: {
         ...(mockMannWhitneyResultData['shapiro_wilk_test_base'] ?? {}),
-        test_name: 'Shapiro Wilk',
-        stat: 0.2,
         pvalue: 0.24,
         interpretation: 'Base is likely not normal',
       },
       shapiro_wilk_test_new: {
         ...(mockMannWhitneyResultData['shapiro_wilk_test_new'] ?? {}),
-        test_name: 'Shapiro Wilk',
-        stat: 0.01,
         pvalue: 0.02,
         interpretation: 'New is likely normal',
       },
@@ -142,8 +138,6 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
       ...mockMannWhitneyResultData,
       ks_test: {
         ...(mockMannWhitneyResultData['shapiro_wilk_test_base'] ?? {}),
-        test_name: 'Shapiro Wilk',
-        stat: 1,
         pvalue: 1,
         interpretation: 'KS test p-value: 1.000, good fit',
       },
