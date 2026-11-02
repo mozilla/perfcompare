@@ -107,7 +107,6 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
         interpretation: 'Base is likely not normal',
       },
       shapiro_wilk_test_new: {
-        ...(mockMannWhitneyResultData['shapiro_wilk_test_new'] ?? {}),
         pvalue: 0.02,
         interpretation: 'New is likely normal',
       },
@@ -136,7 +135,6 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
     const ks_tests = {
       ...mockMannWhitneyResultData,
       ks_test: {
-        ...(mockMannWhitneyResultData['shapiro_wilk_test_base'] ?? {}),
         pvalue: 1,
         interpretation: 'KS test p-value: 1.000, good fit',
       },
