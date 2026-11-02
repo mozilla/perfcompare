@@ -117,9 +117,7 @@ export type BasicStatItem = {
   mean?: number | null;
   median?: number | null;
   stddev?: number | null;
-  stddev_pct?: number | null;
   variance?: number | null;
-  count?: number | null;
   min?: number | null;
   max?: number | null;
 };
@@ -128,8 +126,6 @@ export type BasicStatItem = {
  Basic statistics item for a statistical test (like Shapiro-Wilk or KS test).
 */
 export type StatisticsTestItem = {
-  test_name: string;
-  stat: number | null;
   pvalue: number | null;
   interpretation?: string | null;
 } | null;
@@ -144,10 +140,6 @@ export type CLESItem = {
   cles: number;
   cles_direction: string;
   mann_whitney_u_cles?: string;
-  p_value_cles?: string;
-  cliffs_delta_cles?: string;
-  effect_size?: string;
-  cles_explanation?: string;
 } | null;
 
 /*
@@ -172,8 +164,6 @@ export type MannWhitneyResultsItem = {
   base_runs: number[];
   new_runs_replicates: number[];
   base_runs_replicates: number[];
-  delta_value: number;
-  delta_percentage: number;
   base_standard_stats: BasicStatItem;
   new_standard_stats: BasicStatItem;
   ks_test: StatisticsTestItem; // Kolmogorov-Smirnov: Test for goodness of fit
@@ -185,18 +175,12 @@ export type MannWhitneyResultsItem = {
   cliffs_delta: number;
   cliffs_interpretation: string;
   cles?: CLESItem; // CLES: Common Language Effect Size, statistical effect interpretation from Mann-Whitney U
-  is_new_better: boolean | null; // is the new revision better than the base revision
   direction_of_change: 'no change' | 'improvement' | 'regression' | null;
-  new_is_better: boolean | null;
   lower_is_better: boolean | null;
-  is_improvement: boolean | null;
   test: string;
   option_name: string;
   extra_options: string;
   graphs_link: string;
-  is_regression: boolean | null;
-  is_meaningful: boolean | null;
-  more_runs_are_needed: boolean | null;
   /*
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
@@ -206,7 +190,6 @@ export type MannWhitneyResultsItem = {
   base_signature_id: number;
   new_signature_id: number;
   has_subtests: boolean;
-  is_complete: boolean | null;
   // values on CompareResultsItem Type not to be rendered on MannWhitneyResultsItem type
   base_avg_value?: number;
   new_avg_value?: number;

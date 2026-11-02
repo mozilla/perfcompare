@@ -60,7 +60,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     base_runs_replicates: baseRunsReplicates,
     new_runs_replicates: newRunsReplicates,
     platform,
-    more_runs_are_needed: moreRunsAreNeeded,
     lower_is_better: lowerIsBetter,
     base_app: baseApplication,
     new_app: newApplication,
@@ -69,6 +68,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   } = result;
 
   const strategy = getStrategy(testVersion);
+  const moreRunsAreNeeded = strategy.needsMoreRuns(result);
   const isMannWhitney = testVersion === MANN_WHITNEY_U;
   const expandedRow = useExpandedRowOptions();
 
