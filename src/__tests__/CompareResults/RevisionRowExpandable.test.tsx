@@ -103,7 +103,6 @@ describe('RevisionRowExpandable for mann-whitney-u testVersion', () => {
     const shapiro_wilk_tests = {
       ...mockMannWhitneyResultData,
       shapiro_wilk_test_base: {
-        ...(mockMannWhitneyResultData['shapiro_wilk_test_base'] ?? {}),
         pvalue: 0.24,
         interpretation: 'Base is likely not normal',
       },
