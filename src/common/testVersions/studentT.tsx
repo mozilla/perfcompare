@@ -247,6 +247,10 @@ export const studentTStrategy = {
     return (result as CompareResultsItem).is_improvement === true;
   },
 
+  needsMoreRuns(result: CombinedResultsItemType): boolean {
+    return (result as CompareResultsItem).more_runs_are_needed === true;
+  },
+
   renderExpandedRight(result: CombinedResultsItemType) {
     const {
       delta_percentage: deltaPercent,

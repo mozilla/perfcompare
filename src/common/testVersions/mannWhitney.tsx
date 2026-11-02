@@ -607,6 +607,10 @@ export const mannWhitneyStrategy = {
     );
   },
 
+  needsMoreRuns(): boolean {
+    return false;
+  },
+
   renderExpandedRight(result: CombinedResultsItemType) {
     const mwResult = result as MannWhitneyResultsItem;
     const { cles, cles_direction, mann_whitney_u_cles } = mwResult.cles ?? {

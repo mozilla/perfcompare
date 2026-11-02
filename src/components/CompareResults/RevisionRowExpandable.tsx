@@ -66,10 +66,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     base_measurement_unit: baseUnit,
     new_measurement_unit: newUnit,
   } = result;
-  const moreRunsAreNeeded =
-    'more_runs_are_needed' in result && result.more_runs_are_needed;
 
   const strategy = getStrategy(testVersion);
+  const moreRunsAreNeeded = strategy.needsMoreRuns(result);
   const isMannWhitney = testVersion === MANN_WHITNEY_U;
   const expandedRow = useExpandedRowOptions();
 
