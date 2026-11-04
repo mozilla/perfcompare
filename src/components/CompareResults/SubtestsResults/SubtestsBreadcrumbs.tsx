@@ -5,6 +5,7 @@ import Link from '@mui/material/Link';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
 import useExpandedRowOptions from '../../../hooks/useExpandedRowOptions';
+import { preserveFakeDataParam } from '../../../logic/treeherder';
 import type { AdvancedColumns, ExpandedRowOptions } from '../../../types/types';
 import { setAdvancedOptionsParams } from '../../../utils/advancedOptionsUrl';
 
@@ -34,6 +35,7 @@ const getPreviousCompareWithBaseURL = (
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });
+  preserveFakeDataParam(params);
 
   return `/compare-results?${params.toString()}`;
 };
@@ -59,6 +61,7 @@ const getPreviousCompareOverTimeURL = (
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });
+  preserveFakeDataParam(params);
 
   return `/compare-over-time-results?${params.toString()}`;
 };
