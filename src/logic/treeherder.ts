@@ -78,8 +78,57 @@ export async function fetchRevisionFromHash(
   return response.json() as Promise<HashToCommit>;
 }
 
+// When the URL contains `?fakedata`, every Treeherder request is answered by
+// a fake, in-browser backend that generates realistic data (see
+// ./fakeTreeherder.ts). This is kept in a module-level variable because
+// requests are also issued from components (eg subtests in expanded rows),
+// not only from loaders. It's synced from the URL by every route loader, see
+// withTreeherderBackend below.
+export const FAKE_DATA_PARAM = 'fakedata';
+let useFakeTreeherder = false;
+
+export function isFakeTreeherderEnabled() {
+  return useFakeTreeherder;
+}
+
+export function syncTreeherderBackendWithUrl(url: URL) {
+  const shouldUseFake = url.searchParams.has(FAKE_DATA_PARAM);
+  if (shouldUseFake !== useFakeTreeherder) {
+    // Never serve cached fake data for real requests, or the opposite.
+    clearTreeherderCaches();
+    useFakeTreeherder = shouldUseFake;
+  }
+}
+
+// Wraps a route loader so that the Treeherder backend (real or fake) is
+// selected from the requested URL before the loader runs.
+export function withTreeherderBackend<Args extends { request: Request }, R>(
+  loader: (args: Args) => R,
+) {
+  return (args: Args): R => {
+    syncTreeherderBackendWithUrl(new URL(args.request.url));
+    return loader(args);
+  };
+}
+
+// Adds the fakedata parameter to URL parameters of internal links, so that
+// navigating within the app keeps using the fake backend.
+export function preserveFakeDataParam(params: URLSearchParams) {
+  if (useFakeTreeherder && !params.has(FAKE_DATA_PARAM)) {
+    params.set(FAKE_DATA_PARAM, '');
+  }
+  return params;
+}
+
 async function fetchFromTreeherder(url: string) {
-  const response = await fetch(url);
+  let response: Response;
+  if (useFakeTreeherder) {
+    // Loaded lazily so that it's not part of the main bundle.
+    const { fakeTreeherderFetch } = await import('./fakeTreeherder');
+    response = await fakeTreeherderFetch(url);
+  } else {
+    response = await fetch(url);
+  }
   if (!response.ok) {
     if (response.status === 400) {
       throw new Error(
@@ -208,14 +257,6 @@ export async function fetchSubtestsCompareOverTimeResults({
   return response.json() as Promise<CompareResultsItem[]>;
 }
 
-// This function returns fake comparison results from mock files.
-export async function fetchFakeCompareResults(commitHash: string) {
-  const module = (await import(`../mockData/${commitHash}`)) as {
-    comparisonResults: CompareResultsItem[];
-  };
-  return module.comparisonResults;
-}
-
 export type RecentRevisionsParams = {
   repository: string;
   hash?: string | undefined;
@@ -273,10 +314,13 @@ export async function fetchRevisionForRepository(opts: {
 // We picked an arbitrary number of 5: we need 4 for base + 3 revs, and added an
 // extra one to allow moving back and worth with some options. It could be
 // increased some more later if needed.
-export const memoizedFetchRevisionForRepository = moize(
-  fetchRevisionForRepository,
-  { isPromise: true, isShallowEqual: true, maxSize: 5 },
-) as typeof fetchRevisionForRepository;
+const moizedFetchRevisionForRepository = moize(fetchRevisionForRepository, {
+  isPromise: true,
+  isShallowEqual: true,
+  maxSize: 5,
+});
+export const memoizedFetchRevisionForRepository =
+  moizedFetchRevisionForRepository as typeof fetchRevisionForRepository;
 
 // Memoized versions of the compare results fetch functions.
 // Going back and forth between the t-test and MWU views re-runs the route
@@ -369,9 +413,11 @@ export function memoizedFetchSubtestsCompareOverTimeResults(
   return promise;
 }
 
-// Clears all the memoization caches in this file. Only tests should need
-// this, to isolate the module-level caches between test cases.
+// Clears all the memoization caches in this file. This is used when switching
+// between the real and the fake backends, and by tests to isolate the
+// module-level caches between test cases.
 export function clearTreeherderCaches() {
+  moizedFetchRevisionForRepository.clear();
   compareResultsCache.clear();
   compareOverTimeResultsCache.clear();
   subtestCompareResultsCache.clear();

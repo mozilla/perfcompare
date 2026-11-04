@@ -1,4 +1,4 @@
-import { CompareResultsItem } from '../types/state';
+import { CompareResultsItem } from '../../../types/state';
 
 export const comparisonResults: CompareResultsItem[] = [
   {
