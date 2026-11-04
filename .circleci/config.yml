@@ -35,6 +35,9 @@ jobs:
       - run:
           name: prettier
           command: npm run format:check
+      - run:
+          name: dependency PR agent scripts
+          command: npm run test:agent-scripts
 
   typescript:
     executor: node

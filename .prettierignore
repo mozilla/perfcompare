@@ -1,2 +1,6 @@
 /build
 /coverage
+/playwright-report
+/test-results
+/agent-input
+/agent-output
