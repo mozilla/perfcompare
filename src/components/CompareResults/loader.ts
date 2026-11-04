@@ -1,3 +1,5 @@
+import { redirect } from 'react-router';
+
 import {
   repoMap,
   frameworks,
@@ -5,8 +7,9 @@ import {
   MANN_WHITNEY_U,
   DEFAULT_FRAMEWORK_ID,
 } from '../../common/constants';
+import { fakeDefaultComparison } from '../../logic/fakeTreeherderDefaults';
 import {
-  fetchFakeCompareResults,
+  FAKE_DATA_PARAM,
   memoizedFetchCompareResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
@@ -15,7 +18,7 @@ import {
   CombinedResultsItemType,
   Repository,
 } from '../../types/state';
-import { FakeCommitHash, Framework, TestVersion } from '../../types/types';
+import { Framework, TestVersion } from '../../types/types';
 
 // Parses the raw `framework` URL values into a validated, de-duplicated list
 // of framework ids. When no value is provided, it defaults to the default
@@ -202,21 +205,6 @@ async function fetchCompareResultsOnTreeherder({
   return { results, failedFrameworkIds };
 }
 
-const fakeCommitHashes: FakeCommitHash[] = [
-  'bb6a5e451dace3b9c7be42d24c9272738d73e6db',
-  '9d50665254899d8431813bdc04178e6006ce6d59',
-  'a998c42399a8fcea623690bf65bef49de20535b4',
-];
-
-// This is essentially a glue to call the related function from
-// /logic/treeherder.ts for all the revs we need results for.
-async function fetchAllFakeCompareResults() {
-  const promises = fakeCommitHashes.map((hash) =>
-    fetchFakeCompareResults(hash),
-  );
-  return Promise.all(promises);
-}
-
 // This counter is incremented for each call of the loader. This allows the
 // components to know when a new load happened and use it in keys.
 // Essentially a workaround to https://github.com/remix-run/react-router/issues/11864
@@ -228,29 +216,26 @@ let generationCounter = 0;
 // React components through React Router's useLoaderData hook.
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
-  const useFakeData = url.searchParams.has('fakedata');
-  if (useFakeData) {
-    const results = await fetchAllFakeCompareResults();
-    // They're all based on the same rev
-    const baseRev = results[0][0].base_rev;
-    // And the same repository
-    const baseRepo = results[0][0].base_repository_name;
-
-    const newRevs = fakeCommitHashes;
-    const newRepos = results.map((result) => result[0].new_repository_name);
-    const frameworkId = results[0][0].framework_id;
-
-    return {
-      results,
-      failedFrameworks: Promise.resolve([]),
-      baseRev,
-      baseRepo,
-      newRevs,
-      newRepos,
-      frameworkIds: [frameworkId],
-      view: compareView,
-      generation: generationCounter++,
-    };
+  // `/compare-results?fakedata` alone redirects to a default comparison from
+  // the fake Treeherder backend, so that a single short URL is enough.
+  if (
+    url.searchParams.has(FAKE_DATA_PARAM) &&
+    !url.searchParams.has('baseRev')
+  ) {
+    url.searchParams.set('baseRev', fakeDefaultComparison.baseRev);
+    url.searchParams.set('baseRepo', fakeDefaultComparison.baseRepo);
+    url.searchParams.delete('newRev');
+    url.searchParams.delete('newRepo');
+    fakeDefaultComparison.newRevs.forEach((newRev, i) => {
+      url.searchParams.append('newRev', newRev);
+      url.searchParams.append('newRepo', fakeDefaultComparison.newRepos[i]);
+    });
+    if (!url.searchParams.has('framework')) {
+      fakeDefaultComparison.frameworkIds.forEach((frameworkId) =>
+        url.searchParams.append('framework', String(frameworkId)),
+      );
+    }
+    return redirect(`${url.pathname}?${url.searchParams.toString()}`);
   }
 
   const baseRevFromUrl = url.searchParams.get('baseRev');
