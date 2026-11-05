@@ -1,16 +1,7 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type {
-  CombinedResultsItemType,
-  CompareResultsItem,
-} from '../types/state';
-import type {
-  CompareResultsTableConfig,
-  CompareResultsTableColumn,
-  CompareMannWhitneyResultsTableConfig,
-  CompareMannWhitneyResultsTableColumn,
-} from '../types/types';
+import type { TableColumn, TableConfig } from '../types/types';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
 import {
   filterParam,
@@ -42,15 +33,8 @@ import {
 // * "filter_confidence=" means that no line will be displayed, which isn't
 //   super useful actually (but is supported).
 
-const useTableFilters = (
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
-) => {
-  const columnIdToConfiguration: Map<
-    string,
-    CompareResultsTableColumn | CompareMannWhitneyResultsTableColumn
-  > = useMemo(
+const useTableFilters = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
+  const columnIdToConfiguration: Map<string, TableColumn<TRow>> = useMemo(
     () => new Map(columnsConfiguration.map((val) => [val.key, val])),
     [columnsConfiguration],
   );
@@ -170,8 +154,8 @@ export type ActiveColumnFilter = {
 // its possible values are unchecked. A column with all values checked (or no
 // entry in the map) isn't narrowing anything and is skipped. Labels come from
 // the column configuration so they always match what the header shows.
-function getActiveColumnFilters(
-  columnsConfiguration: CompareResultsTableConfig,
+function getActiveColumnFilters<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
   tableFilters: Map<string, Set<string>>,
 ): ActiveColumnFilter[] {
   const active: ActiveColumnFilter[] = [];
@@ -203,15 +187,12 @@ const NO_FILTERS: Map<string, Set<string>> = new Map();
 // remove — counting only rows the column filters drop, not ones the search term
 // already removed. `filteredCount` is the length of the already-computed
 // search+filter result, passed in so we don't filter that set a second time.
-export function getFilterHiddenSummary(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CombinedResultsItemType[],
+export function getFilterHiddenSummary<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  results: TRow[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
-  resultMatchesSearchTerm: (
-    result: CombinedResultsItemType,
-    searchTerm: string,
-  ) => boolean,
+  resultMatchesSearchTerm: (result: TRow, searchTerm: string) => boolean,
   filteredCount: number,
 ): { activeFilters: ActiveColumnFilter[]; hiddenCount: number } {
   const activeFilters = getActiveColumnFilters(
@@ -234,9 +215,9 @@ export function getFilterHiddenSummary(
   };
 }
 
-function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig,
-  result: CombinedResultsItemType,
+function resultMatchesColumnFilter<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  result: TRow,
   columnId: string,
   checkedValues: Set<string>,
 ): boolean {
@@ -254,12 +235,7 @@ function resultMatchesColumnFilter(
   }
 
   for (const filterValueKey of checkedValues) {
-    if (
-      columnConfiguration.matchesFunction(
-        result as CompareResultsItem,
-        filterValueKey,
-      )
-    ) {
+    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
       return true;
     }
   }
@@ -273,15 +249,12 @@ function resultMatchesColumnFilter(
 // characters, this works as a AND operation.
 // This also supports negative filtering if one of the search terms starts with
 // a "-" character.
-export function filterResults(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CombinedResultsItemType[],
+export function filterResults<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  results: TRow[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
-  resultMatchesSearchTerm: (
-    result: CombinedResultsItemType,
-    searchTerm: string,
-  ) => boolean,
+  resultMatchesSearchTerm: (result: TRow, searchTerm: string) => boolean,
 ) {
   if (!searchTerm && !tableFilters.size) {
     return results;
