@@ -1,12 +1,7 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import { CombinedResultsItemType } from '../types/state';
-import type {
-  CompareMannWhitneyResultsTableConfig,
-  CompareResultsTableConfig,
-  SortFunc,
-} from '../types/types';
+import type { TableConfig } from '../types/types';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
 import {
   SORT_PARAM,
@@ -23,11 +18,7 @@ import {
 // * otherwise, a single sort parameter contains both the column and the
 // direction, separated by a character |.
 
-const useTableSort = (
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
-) => {
+const useTableSort = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
@@ -91,24 +82,16 @@ export default useTableSort;
 // This function sorts the results array in accordance to the specified column
 // and direction. If no column is specified, the first column (the subtests)
 // is used.
-export function sortResults(
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
-  results: CombinedResultsItemType[],
+export function sortResults<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  results: TRow[],
   columnId: string | null,
   direction: 'asc' | 'desc' | null,
-  defaultSortFunction: (
-    resultA: CombinedResultsItemType,
-    resultB: CombinedResultsItemType,
-  ) => number,
+  defaultSortFunction: (resultA: TRow, resultB: TRow) => number,
 ) {
   let sortFunction = defaultSortFunction;
 
-  let columnConfiguration:
-    | CompareResultsTableConfig[number]
-    | CompareMannWhitneyResultsTableConfig[number]
-    | undefined;
+  let columnConfiguration: TableConfig<TRow>[number] | undefined;
   if (columnId && direction) {
     columnConfiguration = columnsConfiguration.find(
       (column) => column.key === columnId,
@@ -125,13 +108,12 @@ export function sortResults(
       return results;
     }
 
-    sortFunction = columnConfiguration.sortFunction as SortFunc;
+    sortFunction = columnConfiguration.sortFunction;
   }
 
   const directionedSortFunction =
     direction === 'desc'
-      ? (itemA: CombinedResultsItemType, itemB: CombinedResultsItemType) =>
-          sortFunction(itemB, itemA)
+      ? (itemA: TRow, itemB: TRow) => sortFunction(itemB, itemA)
       : sortFunction;
 
   return results.toSorted(directionedSortFunction);

@@ -1,6 +1,3 @@
-import { type ReactNode } from 'react';
-
-import AppleIcon from '@mui/icons-material/Apple';
 import { Box, Link } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { useLoaderData } from 'react-router';
@@ -14,23 +11,15 @@ import {
 } from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
-import type {
-  SubtestsRevisionsHeader,
-  PlatformShortName,
-} from '../../../types/state';
+import type { SubtestsRevisionsHeader } from '../../../types/state';
 import { Changeset, Repository } from '../../../types/state';
 import {
   getTreeherderURL,
   truncateHash,
   getDocsURL,
 } from '../../../utils/helpers';
-import {
-  getPlatformAndVersion,
-  getPlatformShortName,
-} from '../../../utils/platform';
-import AndroidIcon from '../../Shared/Icons/AndroidIcon';
-import LinuxIcon from '../../Shared/Icons/LinuxIcon';
-import WindowsIcon from '../../Shared/Icons/WindowsIcon';
+import { getPlatformAndVersion } from '../../../utils/platform';
+import { getPlatformIcon } from '../../Shared/Icons/platformIcons';
 import BetterDirectionIndicator from '../BetterDirectionIndicator';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
@@ -138,17 +127,7 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
     header.suite,
     header.framework_id,
   );
-  const platformIcons: Record<PlatformShortName, ReactNode> = {
-    Linux: <LinuxIcon />,
-    macOS: <AppleIcon />,
-    iOS: <AppleIcon />,
-    Windows: <WindowsIcon />,
-    Android: <AndroidIcon />,
-    Unspecified: '',
-  };
-
-  const platformShortName = getPlatformShortName(header.platform);
-  const platformIcon = platformIcons[platformShortName];
+  const platformIcon = getPlatformIcon(header.platform);
   const extraOptions = getExtraOptions(header.extra_options);
   const framework = frameworkMap[header.framework_id];
   const baseInfo =

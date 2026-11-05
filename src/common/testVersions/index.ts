@@ -27,6 +27,8 @@ export interface TestVersionStrategy {
   getComparisonResult(result: CombinedResultsItemType): string;
   isRegression(result: CombinedResultsItemType): boolean;
   isImprovement(result: CombinedResultsItemType): boolean;
+  // True when the change isn't statistically meaningful (Mann-Whitney-U only).
+  isNoise(result: CombinedResultsItemType): boolean;
   needsMoreRuns(result: CombinedResultsItemType): boolean;
   renderExpandedRight(result: CombinedResultsItemType): ReactNode;
   renderExpandedBottom(result: CombinedResultsItemType): ReactNode;
