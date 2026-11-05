@@ -51,7 +51,7 @@ export type SubtestsRevisionsHeader = {
   base_parent_signature: number | null;
   new_parent_signature: number | null;
   platform: Platform;
-  lower_is_better: boolean;
+  lower_is_better: boolean | null;
 };
 
 export type CompareResultsItem = {

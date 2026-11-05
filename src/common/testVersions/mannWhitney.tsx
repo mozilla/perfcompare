@@ -611,6 +611,12 @@ export const mannWhitneyStrategy = {
     return resultIsNoise(result as MannWhitneyResultsItem);
   },
 
+  getDeltaPct(result: CombinedResultsItemType): number | null {
+    return medianDiffPct(result as MannWhitneyResultsItem);
+  },
+
+  formatDeltaPct: formatMedianDiffPct,
+
   needsMoreRuns(): boolean {
     return false;
   },

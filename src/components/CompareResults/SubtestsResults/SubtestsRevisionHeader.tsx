@@ -7,6 +7,7 @@ import {
   frameworkMap,
   subtestsView,
   subtestsOverTimeView,
+  subtestsCrossPlatformView,
   timeRangeMap,
 } from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
@@ -121,8 +122,29 @@ function getExtraOptions(extraOptions: string) {
   return extraOptions ? extraOptions.split(' ') : [];
 }
 
+// Lists every platform in the tooltip; the table columns name them already.
+function PlatformsSummary({ platforms }: { platforms: string[] }) {
+  return (
+    <Tooltip
+      placement='bottom'
+      arrow
+      title={
+        <Box component='span' sx={{ whiteSpace: 'pre-line' }}>
+          {platforms.join('\n')}
+        </Box>
+      }
+    >
+      <span className='platforms-summary' tabIndex={0}>
+        {Strings.components.crossPlatformSubtests.platformCount(
+          platforms.length,
+        )}
+      </span>
+    </Tooltip>
+  );
+}
+
 function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
-  const { header, view } = props;
+  const { header, view, platforms } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     header.suite,
     header.framework_id,
@@ -131,9 +153,9 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
   const extraOptions = getExtraOptions(header.extra_options);
   const framework = frameworkMap[header.framework_id];
   const baseInfo =
-    view === subtestsView
-      ? getRevLink(header.base_rev, header.base_repo, 'Base')
-      : getTimeRange(header.base_repo);
+    view === subtestsOverTimeView
+      ? getTimeRange(header.base_repo)
+      : getRevLink(header.base_rev, header.base_repo, 'Base');
 
   return (
     <div className={styles.revisionHeader}>
@@ -142,17 +164,21 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
         <BetterDirectionIndicator lowerIsBetter={header.lower_is_better} /> |
         {baseInfo}
         {getRevLink(header.new_rev, header.new_repo, '- New')} | {framework} |{' '}
-        <Tooltip
-          style={{ cursor: 'pointer' }}
-          placement='bottom'
-          title={header.platform}
-          arrow
-        >
-          <span>
-            {platformIcon}
-            <span>{getPlatformAndVersion(header.platform)}</span>
-          </span>
-        </Tooltip>
+        {platforms ? (
+          <PlatformsSummary platforms={platforms} />
+        ) : (
+          <Tooltip
+            style={{ cursor: 'pointer' }}
+            placement='bottom'
+            title={header.platform}
+            arrow
+          >
+            <span>
+              {platformIcon}
+              <span>{getPlatformAndVersion(header.platform)}</span>
+            </span>
+          </Tooltip>
+        )}
       </div>
       <Box
         sx={{
@@ -175,7 +201,9 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
           },
         }}
       >
-        <span className={styles.chip}>{header.option_name}</span>
+        {header.option_name && (
+          <span className={styles.chip}>{header.option_name}</span>
+        )}
         {extraOptions.map((option, index) => (
           <span className={styles.chip} key={index}>
             {option}
@@ -188,7 +216,12 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
 
 interface SubtestsRevisionHeaderProps {
   header: SubtestsRevisionsHeader;
-  view: typeof subtestsView | typeof subtestsOverTimeView;
+  view:
+    | typeof subtestsView
+    | typeof subtestsOverTimeView
+    | typeof subtestsCrossPlatformView;
+  // Replaces the single platform for the cross-platform view.
+  platforms?: string[];
 }
 
 export default SubtestsRevisionHeader;

@@ -1573,7 +1573,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="flb4c18 f1l733lh table-header"
+                  class="fgm2xlz f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >
@@ -4624,7 +4624,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                   </div>
                 </div>
                 <div
-                  class="f4rch20 f1l733lh table-header"
+                  class="fzbt6sz f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >

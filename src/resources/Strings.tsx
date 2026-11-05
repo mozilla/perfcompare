@@ -4,6 +4,7 @@ export const Strings = {
       search: 'PerfCompare - Search',
       results: 'PerfCompare - Results',
       subtests: 'PerfCompare - Subtests Results',
+      subtestsCrossPlatform: 'PerfCompare - Subtests Across Platforms',
     },
   },
   components: {
@@ -131,6 +132,18 @@ export const Strings = {
         retriggerJobs: 'retrigger jobs',
         suiteLink: 'Link to suite documentation  ',
       },
+    },
+    crossPlatformSubtests: {
+      linkLabel: 'Compare across platforms',
+      description:
+        'Each column is a platform. Agreement shows whether a subtest moved the same way on the platforms that reported it. Select a cell to open the subtests for that platform.',
+      platformCount: (count: number) =>
+        `${count} platform${count === 1 ? '' : 's'}`,
+      missingCell: 'Not reported on this platform',
+      platformError: (platform: string) =>
+        `The subtests for ${platform} could not be loaded.`,
+      allPlatformsFailed:
+        'None of the platforms could be loaded. Try reloading the page.',
     },
     betterDirection: {
       lower: 'Lower is better',

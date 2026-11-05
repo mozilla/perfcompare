@@ -251,6 +251,14 @@ export const studentTStrategy = {
     return false;
   },
 
+  getDeltaPct(result: CombinedResultsItemType): number | null {
+    return (result as CompareResultsItem).delta_percentage ?? null;
+  },
+
+  formatDeltaPct(pct: number): string {
+    return `${formatDelta(pct)} %`;
+  },
+
   needsMoreRuns(result: CombinedResultsItemType): boolean {
     return (result as CompareResultsItem).more_runs_are_needed === true;
   },
