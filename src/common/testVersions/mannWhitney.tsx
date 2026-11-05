@@ -607,6 +607,10 @@ export const mannWhitneyStrategy = {
     );
   },
 
+  isNoise(result: CombinedResultsItemType): boolean {
+    return resultIsNoise(result as MannWhitneyResultsItem);
+  },
+
   needsMoreRuns(): boolean {
     return false;
   },
