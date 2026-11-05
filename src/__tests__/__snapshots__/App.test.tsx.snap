@@ -1241,7 +1241,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                   </div>
                 </div>
                 <div
-                  class="flb4c18 f1l733lh table-header"
+                  class="fgm2xlz f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >
@@ -3130,7 +3130,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                   </div>
                 </div>
                 <div
-                  class="flb4c18 f1l733lh table-header"
+                  class="fgm2xlz f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >
@@ -5019,7 +5019,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                   </div>
                 </div>
                 <div
-                  class="flb4c18 f1l733lh table-header"
+                  class="fgm2xlz f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >
@@ -6913,7 +6913,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                   </div>
                 </div>
                 <div
-                  class="flb4c18 f1l733lh table-header"
+                  class="fgm2xlz f1l733lh table-header"
                   data-testid="table-header"
                   role="row"
                 >

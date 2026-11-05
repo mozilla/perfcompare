@@ -327,6 +327,7 @@ function TableHeader<TRow>({
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          gap: Spacing.xSmall,
           padding: 0,
           margin: 0,
           fontWeight: 700,
@@ -446,6 +447,7 @@ function TableHeader<TRow>({
           className={`cell ${header.key}-header`}
           role='columnheader'
         >
+          {header.icon}
           {renderColumnHeader(header)}
         </div>
       ))}

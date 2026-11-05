@@ -17,6 +17,7 @@ export interface BasicColumn {
   // Used in the grid CSS property to configure the width of the column.
   gridWidth: string;
   tooltip?: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 // TResult below is the row type of the table. It defaults to the results

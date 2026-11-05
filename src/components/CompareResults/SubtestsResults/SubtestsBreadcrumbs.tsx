@@ -2,7 +2,11 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
-import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
+import {
+  subtestsView,
+  subtestsOverTimeView,
+  subtestsCrossPlatformView,
+} from '../../../common/constants';
 import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
 import useExpandedRowOptions from '../../../hooks/useExpandedRowOptions';
 import { preserveFakeDataParam } from '../../../logic/treeherder';
@@ -10,7 +14,10 @@ import type { AdvancedColumns, ExpandedRowOptions } from '../../../types/types';
 import { setAdvancedOptionsParams } from '../../../utils/advancedOptionsUrl';
 
 type SubtestsBreadcrumbsProps = {
-  view: typeof subtestsView | typeof subtestsOverTimeView;
+  view:
+    | typeof subtestsView
+    | typeof subtestsOverTimeView
+    | typeof subtestsCrossPlatformView;
 };
 
 const getPreviousCompareWithBaseURL = (
@@ -70,9 +77,9 @@ function SubtestsBreadcrumbs({ view }: SubtestsBreadcrumbsProps) {
   const advancedColumns = useAdvancedColumns();
   const expandedRow = useExpandedRowOptions();
   const allResultsURL =
-    view === subtestsView
-      ? getPreviousCompareWithBaseURL(advancedColumns, expandedRow)
-      : getPreviousCompareOverTimeURL(advancedColumns, expandedRow);
+    view === subtestsOverTimeView
+      ? getPreviousCompareOverTimeURL(advancedColumns, expandedRow)
+      : getPreviousCompareWithBaseURL(advancedColumns, expandedRow);
 
   return (
     <Breadcrumbs separator={<ChevronLeftIcon fontSize='small' />}>

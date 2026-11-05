@@ -1,3 +1,4 @@
+import ViewColumnIcon from '@mui/icons-material/ViewColumn';
 import { Box, Link } from '@mui/material';
 import { style } from 'typestyle';
 
@@ -114,7 +115,7 @@ function getFrameworkName(result: HeaderProperties) {
 }
 
 export default function TestHeader(props: TestHeaderProps) {
-  const { result, withRevision } = props;
+  const { result, withRevision, crossPlatformLink } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     result.suite,
     result.framework_id,
@@ -132,6 +133,24 @@ export default function TestHeader(props: TestHeaderProps) {
         )}
         <BetterDirectionIndicator lowerIsBetter={result.lower_is_better} />
         <span data-testid='framework-name'>{`- ${getFrameworkName(result)}`}</span>
+        {crossPlatformLink && (
+          <Link
+            className='cross-platform-link'
+            href={crossPlatformLink}
+            underline='hover'
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px',
+              marginInlineStart: `${Spacing.Medium}px`,
+              verticalAlign: 'middle',
+              fontSize: '14px',
+            }}
+          >
+            <ViewColumnIcon fontSize='small' />
+            {Strings.components.crossPlatformSubtests.linkLabel}
+          </Link>
+        )}
       </div>
       <Box
         sx={{
@@ -168,4 +187,5 @@ export default function TestHeader(props: TestHeaderProps) {
 interface TestHeaderProps {
   result: HeaderProperties;
   withRevision: boolean;
+  crossPlatformLink?: string;
 }

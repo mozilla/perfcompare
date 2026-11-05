@@ -11,6 +11,7 @@ import {
 import { Spacing } from '../../styles';
 import type { CombinedResultsItemType } from '../../types/state';
 import { TestVersion } from '../../types/types';
+import { crossPlatformGroupKey } from '../../utils/subtestsLinks';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
 // MUI's sx prop for these numerous elements.
@@ -36,6 +37,7 @@ function TableRevisionContent(props: Props) {
     replicates,
     testVersion,
     expandAll,
+    crossPlatformLinks,
   } = props;
 
   if (!results.length) {
@@ -52,6 +54,12 @@ function TableRevisionContent(props: Props) {
   //                                            v  v  v
   const representativeResultForHeader = results[0][1][0];
   const hasMoreThanOneNewRev = results.length > 1;
+  // The cross-platform view compares a single new revision.
+  const crossPlatformLink = hasMoreThanOneNewRev
+    ? undefined
+    : crossPlatformLinks?.get(
+        crossPlatformGroupKey(representativeResultForHeader),
+      );
 
   return (
     <div
@@ -61,6 +69,7 @@ function TableRevisionContent(props: Props) {
       <TestHeader
         result={representativeResultForHeader}
         withRevision={!hasMoreThanOneNewRev}
+        crossPlatformLink={crossPlatformLink}
       />
       {results.map(([revision, listOfResults]) => (
         <div
@@ -97,6 +106,8 @@ interface Props {
   replicates: boolean;
   testVersion: TestVersion;
   expandAll: boolean;
+  // Keyed by crossPlatformGroupKey; absent for the over-time view.
+  crossPlatformLinks?: Map<string, string>;
 }
 
 export default TableRevisionContent;
