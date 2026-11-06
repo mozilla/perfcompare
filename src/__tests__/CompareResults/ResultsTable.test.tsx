@@ -1888,3 +1888,43 @@ describe('Filtered-rows notice', () => {
     ).not.toBeInTheDocument();
   });
 });
+
+// Last in the file so that its React ids don't shift the snapshots above.
+describe('Cross-platform link', () => {
+  it('links a test to its cross-platform subtests, across header groups', async () => {
+    const { testCompareData } = getTestData();
+    const [first] = testCompareData;
+    const desktop = { ...first, has_subtests: true };
+    const android = {
+      ...first,
+      platform: 'android-hw-a55-14-0-aarch64-shippable' as Platform,
+      header_name: `${first.header_name} android`,
+      base_signature_id: first.base_signature_id + 1,
+      new_signature_id: first.new_signature_id + 1,
+      has_subtests: true,
+    };
+    const withoutSubtests = {
+      ...first,
+      test: 'other.html',
+      header_name: 'other header',
+      has_subtests: false,
+    };
+
+    setupAndRender([desktop, android, withoutSubtests]);
+    await screen.findAllByText('a11yr');
+    // jsdom names the link from the tooltip's title attribute; browsers use
+    // its text.
+    const links = screen.getAllByText(
+      Strings.components.crossPlatformSubtests.linkLabel,
+    );
+    // One per header group of the test, both to the same comparison.
+    expect(links).toHaveLength(2);
+    const url = new URL(links[0].getAttribute('href')!, window.location.href);
+    expect(url.pathname).toBe('/subtests-cross-platform-results');
+    expect(url.searchParams.getAll('platform')).toEqual([
+      desktop.platform,
+      android.platform,
+    ]);
+    expect(links[1]).toHaveAttribute('href', links[0].getAttribute('href'));
+  });
+});

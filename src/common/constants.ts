@@ -11,6 +11,7 @@ export const compareView = 'compare-results';
 export const compareOverTimeView = 'compare-over-time-results';
 export const subtestsView = 'subtests-results';
 export const subtestsOverTimeView = 'subtests-over-time-results';
+export const subtestsCrossPlatformView = 'subtests-cross-platform-results';
 export const searchView = 'search';
 
 export const repoMap: Record<Repository['id'], Repository['name']> = {
@@ -356,5 +357,7 @@ export const tooltipConfidence =
   "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.";
 export const tooltipDelta =
   'The percentage difference between the Base and New values';
+export const tooltipAgreement =
+  'How consistently this subtest moved across the platforms that reported it. "Consistent" means every one of them (at least 2) moved the same way; "Mixed" means some improved while others regressed. A change seen on several platforms is more trustworthy than one seen on a single platform.';
 export const tooltipMedianDiff =
   'Shows how much the middle result changed from Base to New. We line up all the runs from smallest to biggest and pick the middle one for each side, then show the change as a percent. A positive sign means New is higher; a negative sign means New is lower.';

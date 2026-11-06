@@ -1,4 +1,5 @@
-import { Box, Link } from '@mui/material';
+import ViewColumnIcon from '@mui/icons-material/ViewColumn';
+import { Box, Link, Tooltip } from '@mui/material';
 import { style } from 'typestyle';
 
 import BetterDirectionIndicator from './BetterDirectionIndicator';
@@ -56,7 +57,7 @@ const styles = {
     flexWrap: 'wrap',
     fontFamily: 'SF Pro',
     display: 'flex',
-    alignItems: 'baseline',
+    alignItems: 'center',
     gap: '4px',
   }),
 };
@@ -114,7 +115,7 @@ function getFrameworkName(result: HeaderProperties) {
 }
 
 export default function TestHeader(props: TestHeaderProps) {
-  const { result, withRevision } = props;
+  const { result, withRevision, crossPlatformLink } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     result.suite,
     result.framework_id,
@@ -132,6 +133,32 @@ export default function TestHeader(props: TestHeaderProps) {
         )}
         <BetterDirectionIndicator lowerIsBetter={result.lower_is_better} />
         <span data-testid='framework-name'>{`- ${getFrameworkName(result)}`}</span>
+        {crossPlatformLink && (
+          <Tooltip
+            title={Strings.components.crossPlatformSubtests.linkTooltip}
+            placement='top'
+            arrow
+            // Keeps the visible text as the link's accessible name.
+            describeChild
+          >
+            <Link
+              className='cross-platform-link'
+              href={crossPlatformLink}
+              underline='hover'
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                marginInlineStart: `${Spacing.Medium}px`,
+                verticalAlign: 'middle',
+                fontSize: '14px',
+              }}
+            >
+              <ViewColumnIcon fontSize='small' />
+              {Strings.components.crossPlatformSubtests.linkLabel}
+            </Link>
+          </Tooltip>
+        )}
       </div>
       <Box
         sx={{
@@ -168,4 +195,5 @@ export default function TestHeader(props: TestHeaderProps) {
 interface TestHeaderProps {
   result: HeaderProperties;
   withRevision: boolean;
+  crossPlatformLink?: string;
 }

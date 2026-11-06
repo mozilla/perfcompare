@@ -17,103 +17,18 @@ export interface BasicColumn {
   // Used in the grid CSS property to configure the width of the column.
   gridWidth: string;
   tooltip?: React.ReactNode;
+  // Replaces the name in sort-only column headers; name stays the accessible
+  // label.
+  label?: React.ReactNode;
+  // Rendered below the header button.
+  subLabel?: React.ReactNode;
 }
+
+// TResult below is the row type of the table. It defaults to the results
+// items, but tables over other row shapes can use their own row type.
 
 // This interface is used for a column that can be filtered.
-interface FilterableColumnMixin {
-  name: string;
-  // Always true for filterable columns.
-  filter: true;
-  // All values this column might have.
-  possibleValues: Array<{ label: string; key: string; icon?: React.ReactNode }>;
-  // This function returns whether this result matches the value for this column.
-  matchesFunction: (
-    this: FilterableColumnMixin,
-    result: CompareResultsItem,
-    value: string,
-  ) => boolean;
-}
-
-interface FilterableMannWhitneyColumnMixin {
-  name: string;
-  // Always true for filterable columns.
-  filter: true;
-  // All values this column might have.
-  possibleValues: Array<{ label: string; key: string; icon?: React.ReactNode }>;
-  // This function returns whether this result matches the value for this column.
-  matchesFunction: (
-    this: FilterableMannWhitneyColumnMixin,
-    result: MannWhitneyResultsItem,
-    value: string,
-  ) => boolean;
-}
-
-// This interface is used for a column that can be sorted.
-interface SortableColumnMixin {
-  name: string;
-  sortFunction: (
-    resultA: CompareResultsItem,
-    resultB: CompareResultsItem,
-  ) => number;
-}
-
-interface SortableMannWhitneyColumnMixin {
-  name: string;
-  sortFunction: (
-    resultA: MannWhitneyResultsItem,
-    resultB: MannWhitneyResultsItem,
-  ) => number;
-}
-// These types represent actual column types, by mixing a BasicColumn with the
-// mixins for Filterable and Sortable columns.
-// The "&" intersection works better than interface "extends" here, because the
-// "name" property has different types in the interfaces, so Typescript bails
-// out when using "extends".
-export type FilterableColumn = BasicColumn & FilterableColumnMixin;
-export type SortableColumn = BasicColumn & SortableColumnMixin;
-export type FilterableAndSortableColumn = FilterableColumn &
-  SortableColumnMixin;
-export type FilterableMannWhitneyColumn = BasicColumn &
-  FilterableMannWhitneyColumnMixin;
-export type SortableMannWhitneyColumn = BasicColumn &
-  SortableMannWhitneyColumnMixin;
-export type FilterableAndSortableMannWhitneyColumn =
-  FilterableMannWhitneyColumn & SortableMannWhitneyColumnMixin;
-
-// A column can be one of these types.
-export type CompareResultsTableColumn =
-  | BasicColumn
-  | FilterableColumn
-  | SortableColumn
-  | FilterableAndSortableColumn;
-
-export type CompareMannWhitneyResultsTableColumn =
-  | BasicColumn
-  | FilterableMannWhitneyColumn
-  | SortableMannWhitneyColumn
-  | FilterableAndSortableMannWhitneyColumn;
-
-// The full configuration for a results table.
-export type CompareResultsTableConfig = CompareResultsTableColumn[];
-export type CompareMannWhitneyResultsTableConfig =
-  CompareMannWhitneyResultsTableColumn[];
-
-/* --- End of types for configuring the behavior and styles of the results tables columns --- */
-
-/* --- Generic column types for column configuration ---
- * These are generic, version-agnostic replacements for the version-specific
- * column types above. To support a new test version,
- * extend CombinedResultsItemType in state.ts —
- * no changes are needed in this section.
- */
-
-// This interface is used for a column that can be filtered. TResult is the
-// result row type for the table this column belongs to, allowing matchesFunction
-// to receive the correctly-typed row without needing a separate mixin per
-// result type (contrast with FilterableColumnMixin / FilterableMannWhitneyColumnMixin above).
-interface FilterableColumnGenericMixin<
-  TResult extends CombinedResultsItemType,
-> {
+interface FilterableColumnGenericMixin<TResult> {
   name: string;
   // Always true for filterable columns.
   filter: true;
@@ -129,9 +44,8 @@ interface FilterableColumnGenericMixin<
   ) => boolean;
 }
 
-// This interface is used for a column that can be sorted. TResult is the
-// result row type, so the comparator is typed to the correct row shape.
-interface SortableColumnGenericMixin<TResult extends CombinedResultsItemType> {
+// This interface is used for a column that can be sorted.
+interface SortableColumnGenericMixin<TResult> {
   name: string;
   sortFunction: (resultA: TResult, resultB: TResult) => number;
 }
@@ -142,36 +56,31 @@ interface SortableColumnGenericMixin<TResult extends CombinedResultsItemType> {
 // and TypeScript handles that conflict more gracefully with intersections.
 
 // A column that supports filtering but not sorting.
-export type GenericFilterableColumn<
-  TResult extends CombinedResultsItemType = CombinedResultsItemType,
-> = BasicColumn & FilterableColumnGenericMixin<TResult>;
+export type GenericFilterableColumn<TResult = CombinedResultsItemType> =
+  BasicColumn & FilterableColumnGenericMixin<TResult>;
 
 // A column that supports sorting but not filtering.
-export type GenericSortableColumn<
-  TResult extends CombinedResultsItemType = CombinedResultsItemType,
-> = BasicColumn & SortableColumnGenericMixin<TResult>;
+export type GenericSortableColumn<TResult = CombinedResultsItemType> =
+  BasicColumn & SortableColumnGenericMixin<TResult>;
 
 // A column that supports both filtering and sorting.
 export type GenericFilterableAndSortableColumn<
-  TResult extends CombinedResultsItemType = CombinedResultsItemType,
+  TResult = CombinedResultsItemType,
 > = GenericFilterableColumn<TResult> & SortableColumnGenericMixin<TResult>;
 
 // The union of all valid column variants for a table whose rows are TResult.
 // Components that render or configure tables accept this type so they work
 // with any result type without knowing about the specific variant.
-export type TableColumn<
-  TResult extends CombinedResultsItemType = CombinedResultsItemType,
-> =
+export type TableColumn<TResult = CombinedResultsItemType> =
   | BasicColumn
   | GenericFilterableColumn<TResult>
   | GenericSortableColumn<TResult>
   | GenericFilterableAndSortableColumn<TResult>;
 
 // The full ordered list of columns that configures a results table.
-export type TableConfig<
-  TResult extends CombinedResultsItemType = CombinedResultsItemType,
-> = TableColumn<TResult>[];
-/* --- End of generic column types for column configuration --- */
+export type TableConfig<TResult = CombinedResultsItemType> =
+  TableColumn<TResult>[];
+/* --- End of types for configuring the behavior and styles of the results tables columns --- */
 
 export type ConfidenceText = 'High' | 'Medium' | 'Low' | '';
 
@@ -479,8 +388,3 @@ export interface ExpandedRowOptions {
   statsTable: boolean;
   warnings: boolean;
 }
-
-export type SortFunc = (
-  resultA: CombinedResultsItemType,
-  resultB: CombinedResultsItemType,
-) => number;

@@ -22,10 +22,9 @@ import { RESULTS_TABLE_MIN_WIDTH } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 import type {
-  CompareResultsTableConfig,
-  FilterableColumn,
-  CompareResultsTableColumn,
-  CompareMannWhitneyResultsTableConfig,
+  GenericFilterableColumn,
+  TableColumn,
+  TableConfig,
 } from '../../types/types';
 import { toGridTemplateColumns } from '../../utils/gridTemplateColumns';
 
@@ -74,7 +73,7 @@ type FilterableColumnHeaderProps = {
   columnId: string;
 
   /* Properties for filtering */
-  possibleValues: FilterableColumn['possibleValues'];
+  possibleValues: GenericFilterableColumn['possibleValues'];
   checkedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
@@ -215,6 +214,7 @@ function FilterableColumnHeader({
 
 type SortableColumnHeaderProps = {
   name: string;
+  label?: ReactNode;
   displayLabel: boolean;
   sortDirection: 'asc' | 'desc' | null;
   onToggle: (sortDirection: SortableColumnHeaderProps['sortDirection']) => void;
@@ -222,6 +222,7 @@ type SortableColumnHeaderProps = {
 
 function SortableColumnHeader({
   name,
+  label,
   displayLabel,
   sortDirection,
   onToggle,
@@ -277,15 +278,13 @@ function SortableColumnHeader({
         sortDirection={sortDirection}
         sx={inlineIconStyle}
       />
-      {displayLabel ? name : null}
+      {displayLabel ? (label ?? name) : null}
     </Button>
   );
 }
 
-type TableHeaderProps = {
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig;
+type TableHeaderProps<TRow> = {
+  columnsConfiguration: TableConfig<TRow>;
 
   // Filter properties
   filters: Map<string, Set<string>>;
@@ -297,11 +296,11 @@ type TableHeaderProps = {
   sortDirection: SortableColumnHeaderProps['sortDirection'];
   onToggleSort: (
     columnId: string,
-    sortDirection: TableHeaderProps['sortDirection'],
+    sortDirection: SortableColumnHeaderProps['sortDirection'],
   ) => void;
 };
 
-function TableHeader({
+function TableHeader<TRow>({
   columnsConfiguration,
   filters,
   onToggleFilter,
@@ -309,7 +308,7 @@ function TableHeader({
   sortColumn,
   sortDirection,
   onToggleSort,
-}: TableHeaderProps) {
+}: TableHeaderProps<TRow>) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     tableHeader: style({
@@ -354,7 +353,7 @@ function TableHeader({
     }),
   };
 
-  function renderColumnHeader(header: CompareResultsTableColumn) {
+  function renderColumnHeader(header: TableColumn<TRow>) {
     let content: ReactNode = header.name;
 
     if ('sortFunction' in header && 'filter' in header) {
@@ -389,6 +388,7 @@ function TableHeader({
       content = (
         <SortableColumnHeader
           name={header.name}
+          label={header.label}
           displayLabel={true}
           sortDirection={header.key === sortColumn ? sortDirection : null}
           onToggle={(newSortDirection) =>
@@ -450,6 +450,7 @@ function TableHeader({
           role='columnheader'
         >
           {renderColumnHeader(header)}
+          {header.subLabel}
         </div>
       ))}
     </div>

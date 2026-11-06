@@ -1,8 +1,6 @@
-import { useState, Suspense } from 'react';
+import { Suspense } from 'react';
 
 import { Grid, Skeleton, Stack } from '@mui/material';
-import Alert from '@mui/material/Alert';
-import Link from '@mui/material/Link';
 import { Container } from '@mui/system';
 import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
@@ -12,6 +10,7 @@ import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 import AdvancedOptionsMenu from '.././AdvancedOptionsMenu';
 import { DownloadButton, DisabledDownloadButton } from '.././DownloadButton';
+import MannWhitneyUWarning from '.././MannWhitneyUWarning';
 import SearchInput from '.././SearchInput';
 import {
   subtestsView,
@@ -20,16 +19,14 @@ import {
   STUDENT_T,
   RESULTS_TABLE_MAX_WIDTH,
 } from '../../../common/constants';
-import { useAppSelector, useAppDispatch } from '../../../hooks/app';
-import useRawSearchParams from '../../../hooks/useRawSearchParams';
-import { updateShowMannWhitneyWarning } from '../../../reducers/ColumnPrefsSlice';
+import { useAppSelector } from '../../../hooks/app';
+import useSearchTermParam from '../../../hooks/useSearchTermParam';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {
   CompareResultsItem,
   SubtestsRevisionsHeader,
 } from '../../../types/state';
-import { currentUrlParams } from '../../../utils/tableStatePersistence';
 import ToggleReplicatesButton from '../../Shared/ToggleReplicatesButton';
 import {
   RetriggerButton,
@@ -109,19 +106,10 @@ type CombinedLoaderReturnValue = LoaderReturnValue | OvertimeLoaderReturnValue;
 function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   const { results, replicates, testVersion } =
     useLoaderData<CombinedLoaderReturnValue>();
-  const dispatch = useAppDispatch();
-  const showMannWhitneyWarning = useAppSelector(
-    (state) => state.columnPrefs.showMannWhitneyWarning,
-  );
-  const displayMannWhitneyUWarning =
-    testVersion === MANN_WHITNEY_U && showMannWhitneyWarning;
-
   const themeMode = useAppSelector((state) => state.theme.mode);
 
-  // This is our custom hook that updates the search params without a rerender.
-  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
-  const initialSearchTerm = rawSearchParams.get('search') ?? '';
-  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const { initialSearchTerm, searchTerm, onSearchTermChange } =
+    useSearchTermParam();
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -150,21 +138,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     justifyContent: 'space-between',
   };
 
-  const onSearchTermChange = (newSearchTerm: string) => {
-    setSearchTerm(newSearchTerm);
-    // Build from the live URL (not the memoized rawSearchParams snapshot) so we
-    // don't clobber params written out-of-band after mount — the `initialized`
-    // marker and cookie-seeded filter/sort that let a shared URL supersede the
-    // recipient's cookies (see useRawSearchParams / tableStatePersistence).
-    const params = currentUrlParams();
-    if (newSearchTerm) {
-      params.set('search', newSearchTerm);
-    } else {
-      params.delete('search');
-    }
-    updateRawSearchParams(params);
-  };
-
   return (
     <Container className={styles.container} data-testid='subtests-main'>
       <header>
@@ -176,21 +149,8 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
             </Grid>
           )}
         </Grid>
-        {displayMannWhitneyUWarning && (
-          <Alert
-            severity='warning'
-            className={styles.title}
-            onClose={() => dispatch(updateShowMannWhitneyWarning(false))}
-          >
-            {Strings.components.mannWhitneyUWarning.text}{' '}
-            <Link
-              href={Strings.components.mannWhitneyUWarning.href}
-              target='_blank'
-            >
-              {Strings.components.mannWhitneyUWarning.linkText}
-            </Link>
-            {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}
-          </Alert>
+        {testVersion === MANN_WHITNEY_U && (
+          <MannWhitneyUWarning className={styles.title} />
         )}
         <Suspense
           fallback={

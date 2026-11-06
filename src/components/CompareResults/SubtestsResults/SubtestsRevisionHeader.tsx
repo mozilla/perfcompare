@@ -1,6 +1,3 @@
-import { type ReactNode } from 'react';
-
-import AppleIcon from '@mui/icons-material/Apple';
 import { Box, Link } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { useLoaderData } from 'react-router';
@@ -10,27 +7,20 @@ import {
   frameworkMap,
   subtestsView,
   subtestsOverTimeView,
+  subtestsCrossPlatformView,
   timeRangeMap,
 } from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
-import type {
-  SubtestsRevisionsHeader,
-  PlatformShortName,
-} from '../../../types/state';
+import type { SubtestsRevisionsHeader } from '../../../types/state';
 import { Changeset, Repository } from '../../../types/state';
 import {
   getTreeherderURL,
   truncateHash,
   getDocsURL,
 } from '../../../utils/helpers';
-import {
-  getPlatformAndVersion,
-  getPlatformShortName,
-} from '../../../utils/platform';
-import AndroidIcon from '../../Shared/Icons/AndroidIcon';
-import LinuxIcon from '../../Shared/Icons/LinuxIcon';
-import WindowsIcon from '../../Shared/Icons/WindowsIcon';
+import { getPlatformAndVersion } from '../../../utils/platform';
+import { getPlatformIcon } from '../../Shared/Icons/platformIcons';
 import BetterDirectionIndicator from '../BetterDirectionIndicator';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
@@ -132,29 +122,40 @@ function getExtraOptions(extraOptions: string) {
   return extraOptions ? extraOptions.split(' ') : [];
 }
 
+// Lists every platform in the tooltip; the table columns name them already.
+function PlatformsSummary({ platforms }: { platforms: string[] }) {
+  return (
+    <Tooltip
+      placement='bottom'
+      arrow
+      title={
+        <Box component='span' sx={{ whiteSpace: 'pre-line' }}>
+          {platforms.join('\n')}
+        </Box>
+      }
+    >
+      <span className='platforms-summary' tabIndex={0}>
+        {Strings.components.crossPlatformSubtests.platformCount(
+          platforms.length,
+        )}
+      </span>
+    </Tooltip>
+  );
+}
+
 function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
-  const { header, view } = props;
+  const { header, view, platforms } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     header.suite,
     header.framework_id,
   );
-  const platformIcons: Record<PlatformShortName, ReactNode> = {
-    Linux: <LinuxIcon />,
-    macOS: <AppleIcon />,
-    iOS: <AppleIcon />,
-    Windows: <WindowsIcon />,
-    Android: <AndroidIcon />,
-    Unspecified: '',
-  };
-
-  const platformShortName = getPlatformShortName(header.platform);
-  const platformIcon = platformIcons[platformShortName];
+  const platformIcon = getPlatformIcon(header.platform);
   const extraOptions = getExtraOptions(header.extra_options);
   const framework = frameworkMap[header.framework_id];
   const baseInfo =
-    view === subtestsView
-      ? getRevLink(header.base_rev, header.base_repo, 'Base')
-      : getTimeRange(header.base_repo);
+    view === subtestsOverTimeView
+      ? getTimeRange(header.base_repo)
+      : getRevLink(header.base_rev, header.base_repo, 'Base');
 
   return (
     <div className={styles.revisionHeader}>
@@ -163,17 +164,21 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
         <BetterDirectionIndicator lowerIsBetter={header.lower_is_better} /> |
         {baseInfo}
         {getRevLink(header.new_rev, header.new_repo, '- New')} | {framework} |{' '}
-        <Tooltip
-          style={{ cursor: 'pointer' }}
-          placement='bottom'
-          title={header.platform}
-          arrow
-        >
-          <span>
-            {platformIcon}
-            <span>{getPlatformAndVersion(header.platform)}</span>
-          </span>
-        </Tooltip>
+        {platforms ? (
+          <PlatformsSummary platforms={platforms} />
+        ) : (
+          <Tooltip
+            style={{ cursor: 'pointer' }}
+            placement='bottom'
+            title={header.platform}
+            arrow
+          >
+            <span>
+              {platformIcon}
+              <span>{getPlatformAndVersion(header.platform)}</span>
+            </span>
+          </Tooltip>
+        )}
       </div>
       <Box
         sx={{
@@ -196,7 +201,9 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
           },
         }}
       >
-        <span className={styles.chip}>{header.option_name}</span>
+        {header.option_name && (
+          <span className={styles.chip}>{header.option_name}</span>
+        )}
         {extraOptions.map((option, index) => (
           <span className={styles.chip} key={index}>
             {option}
@@ -209,7 +216,12 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
 
 interface SubtestsRevisionHeaderProps {
   header: SubtestsRevisionsHeader;
-  view: typeof subtestsView | typeof subtestsOverTimeView;
+  view:
+    | typeof subtestsView
+    | typeof subtestsOverTimeView
+    | typeof subtestsCrossPlatformView;
+  // Replaces the single platform for the cross-platform view.
+  platforms?: string[];
 }
 
 export default SubtestsRevisionHeader;
