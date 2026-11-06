@@ -17,7 +17,11 @@ export interface BasicColumn {
   // Used in the grid CSS property to configure the width of the column.
   gridWidth: string;
   tooltip?: React.ReactNode;
-  icon?: React.ReactNode;
+  // Replaces the name in sort-only column headers; name stays the accessible
+  // label.
+  label?: React.ReactNode;
+  // Rendered below the header button.
+  subLabel?: React.ReactNode;
 }
 
 // TResult below is the row type of the table. It defaults to the results

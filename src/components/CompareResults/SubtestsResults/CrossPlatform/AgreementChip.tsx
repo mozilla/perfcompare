@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -6,7 +8,7 @@ import {
   type SubtestMatrixRow,
 } from '../../../../utils/subtestMatrix';
 
-function chipLabel(row: SubtestMatrixRow): string {
+function chipLabel(row: SubtestMatrixRow): ReactNode {
   const { agreement, improvements, regressions, present, noise } = row;
   switch (agreement) {
     case 'consistent-regression':
@@ -16,7 +18,12 @@ function chipLabel(row: SubtestMatrixRow): string {
     case 'partial-improvement':
       return `${improvements}/${present} improved`;
     case 'mixed':
-      return `${regressions} regressed, ${improvements} improved`;
+      return (
+        <>
+          <span>{`${regressions} regressed,`}</span>{' '}
+          <span>{`${improvements} improved`}</span>
+        </>
+      );
     default:
       return present > 0 && noise === present ? 'Noise' : 'No change';
   }
@@ -53,7 +60,10 @@ function AgreementChip({ row }: { row: SubtestMatrixRow }) {
             bgcolor: chipColor(row),
             borderRadius: '4px',
             padding: '4px 10px',
-            whiteSpace: 'nowrap',
+            // Stacks the mixed counts rather than overflow the sticky column.
+            display: 'inline-flex',
+            flexDirection: 'column',
+            alignItems: 'center',
             fontWeight: consistent ? 700 : 400,
           }}
         >

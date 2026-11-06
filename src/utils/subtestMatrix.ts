@@ -23,7 +23,11 @@ export type PlatformSubtestResults = {
 export type PlatformColumnInfo = {
   key: string;
   platform: string;
+  // eg. "Windows 11 (webrender-sw)": shortLabel plus tag, if any.
   label: string;
+  shortLabel: string;
+  // What sets this column apart from others with the same shortLabel.
+  tag?: string;
   baseParentSignature: string;
   newParentSignature: string;
   error?: string;
@@ -126,17 +130,19 @@ function configTokens(platformResult: PlatformSubtestResults): string[] {
 }
 
 // Platforms are merged across test options, so two columns can share a short
-// name (eg. Linux 18.04 with and without fission): suffix them with what sets
+// name (eg. Linux 18.04 with and without fission): tag them with what sets
 // them apart.
-function columnLabels(platformResults: PlatformSubtestResults[]): string[] {
-  const baseLabels = platformResults.map(
+function columnLabels(
+  platformResults: PlatformSubtestResults[],
+): Array<Pick<PlatformColumnInfo, 'label' | 'shortLabel' | 'tag'>> {
+  const shortLabels = platformResults.map(
     ({ platform }) => getPlatformAndVersion(platform) || platform,
   );
-  return baseLabels.map((label, index) => {
-    const collidingIndexes = baseLabels
-      .map((other, otherIndex) => (other === label ? otherIndex : -1))
+  return shortLabels.map((shortLabel, index) => {
+    const collidingIndexes = shortLabels
+      .map((other, otherIndex) => (other === shortLabel ? otherIndex : -1))
       .filter((otherIndex) => otherIndex !== -1);
-    if (collidingIndexes.length === 1) return label;
+    if (collidingIndexes.length === 1) return { label: shortLabel, shortLabel };
 
     const tokensPerColumn = collidingIndexes.map((otherIndex) =>
       configTokens(platformResults[otherIndex]),
@@ -145,11 +151,11 @@ function columnLabels(platformResults: PlatformSubtestResults[]): string[] {
     const distinct = ownTokens.filter(
       (token) => !tokensPerColumn.every((tokens) => tokens.includes(token)),
     );
-    const suffix =
+    const tag =
       distinct.join(' ') ||
       ownTokens.join(' ') ||
       platformResults[index].platform;
-    return `${label} (${suffix})`;
+    return { label: `${shortLabel} (${tag})`, shortLabel, tag };
   });
 }
 
@@ -164,7 +170,7 @@ export function buildSubtestMatrix(
       // Index-based so that keys are unique and URL-safe.
       key: `platform-${index}`,
       platform: platformResult.platform,
-      label: labels[index],
+      ...labels[index],
       baseParentSignature: platformResult.baseParentSignature,
       newParentSignature: platformResult.newParentSignature,
       error: platformResult.error,
@@ -251,7 +257,7 @@ function normalizedDelta(cell: MatrixCell | undefined): number {
 
 export function buildMatrixColumns(
   columns: PlatformColumnInfo[],
-  getIcon: (platform: string) => ReactNode,
+  renderTag: (column: PlatformColumnInfo) => ReactNode,
 ): TableConfig<SubtestMatrixRow> {
   return [
     {
@@ -277,7 +283,8 @@ export function buildMatrixColumns(
       name: column.label,
       gridWidth: `minmax(${PLATFORM_COLUMN_MIN_WIDTH}px, 1fr)`,
       tooltip: column.platform,
-      icon: getIcon(column.platform),
+      label: column.shortLabel,
+      subLabel: column.tag ? renderTag(column) : undefined,
       sortFunction: (rowA: SubtestMatrixRow, rowB: SubtestMatrixRow) =>
         normalizedDelta(rowA.cells.get(column.key)) -
         normalizedDelta(rowB.cells.get(column.key)),
