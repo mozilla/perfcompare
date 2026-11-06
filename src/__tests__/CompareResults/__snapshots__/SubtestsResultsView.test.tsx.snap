@@ -922,7 +922,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="flxt3wf f1l733lh table-header"
+                class="f1aoth2s f1l733lh table-header"
                 data-testid="table-header"
                 role="row"
               >
@@ -2806,7 +2806,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               role="table"
             >
               <div
-                class="flxt3wf f1l733lh table-header"
+                class="f1aoth2s f1l733lh table-header"
                 data-testid="table-header"
                 role="row"
               >
@@ -4347,7 +4347,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
               role="table"
             >
               <div
-                class="flxt3wf f1l733lh table-header"
+                class="f1aoth2s f1l733lh table-header"
                 data-testid="table-header"
                 role="row"
               >
@@ -5888,7 +5888,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
               role="table"
             >
               <div
-                class="flxt3wf f1l733lh table-header"
+                class="f1aoth2s f1l733lh table-header"
                 data-testid="table-header"
                 role="row"
               >
@@ -7429,7 +7429,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="flxt3wf f1l733lh table-header"
+                class="f1aoth2s f1l733lh table-header"
                 data-testid="table-header"
                 role="row"
               >

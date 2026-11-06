@@ -151,9 +151,15 @@ describe('buildSubtestMatrix', () => {
       ],
       STUDENT_T,
     );
-    expect(matrix.columns.map(({ label }) => label)).toEqual([
-      'Linux 18.04 (fission)',
-      'Linux 18.04 (opt e10s)',
+    expect(
+      matrix.columns.map(({ label, shortLabel, tag }) => [
+        label,
+        shortLabel,
+        tag,
+      ]),
+    ).toEqual([
+      ['Linux 18.04 (fission)', 'Linux 18.04', 'fission'],
+      ['Linux 18.04 (opt e10s)', 'Linux 18.04', 'opt e10s'],
     ]);
   });
 

@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Await, useLoaderData } from 'react-router';
 import { Virtuoso } from 'react-virtuoso';
-import { style } from 'typestyle';
+import { media, style } from 'typestyle';
 
 import SubtestsCrossPlatformRow from './SubtestsCrossPlatformRow';
 import { RESULTS_TABLE_MIN_WIDTH } from '../../../../common/constants';
@@ -22,17 +22,16 @@ import { toGridTemplateColumns } from '../../../../utils/gridTemplateColumns';
 import {
   AGREEMENT_COLUMN_WIDTH,
   DEFAULT_MATRIX_SORT,
-  PLATFORM_COLUMN_MIN_WIDTH,
   SUBTESTS_COLUMN_WIDTH,
   buildMatrixColumns,
   buildSubtestMatrix,
+  PLATFORM_COLUMN_MIN_WIDTH,
   compareSubtestNames,
   matrixRowMatchesSearchTerm,
   type PlatformColumnInfo,
   type PlatformSubtestResults,
 } from '../../../../utils/subtestMatrix';
 import { buildSubtestsCompareWithBaseLink } from '../../../../utils/subtestsLinks';
-import { getPlatformIcon } from '../../../Shared/Icons/platformIcons';
 import FilteredRowsNotice from '../../FilteredRowsNotice';
 import NoResultsFound from '../../NoResultsFound';
 import type { LoaderReturnValue } from '../../subtestsCrossPlatformLoader';
@@ -71,10 +70,36 @@ const matrixStyles = style({
       padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
       wordBreak: 'break-word',
     },
-    // Long platform labels wrap inside their sort button.
-    '.table-header .cell button': {
-      height: 'auto',
-      minHeight: '32px',
+    // Same inline padding as the row cells, so labels keep clear of the
+    // header edges. The tag sits below the button, so it doesn't widen the
+    // column.
+    '.table-header [class*="platform-"]': {
+      paddingInline: `${Spacing.Small}px`,
+      flexDirection: 'column',
+      gap: Spacing.xSmall,
+    },
+    // Every platform button fills its (equal-width) column, inside the
+    // tooltip's span, so that they all have the same width.
+    '.table-header [class*="platform-"] > span:not(.platform-tag)': {
+      display: 'flex',
+      alignSelf: 'stretch',
+    },
+    '.table-header [class*="platform-"] button': {
+      flexWrap: 'nowrap',
+      width: '100%',
+      // Up to the Protocol "Large" breakpoint, so names like "Windows 11" fit
+      // on one line with 5 platforms.
+      ...media({ maxWidth: 1311.99999 }, { fontSize: '0.875rem' }),
+    },
+    '.platform-tag': {
+      borderRadius: '4px',
+      padding: '1px 6px',
+      fontSize: '10px',
+      fontWeight: 700,
+      letterSpacing: '0.02em',
+      lineHeight: 1.4,
+      textTransform: 'uppercase',
+      whiteSpace: 'nowrap',
     },
     // After .cell so that these win. Each selector needs its "&", as
     // typestyle only scopes the first one of a list.
@@ -126,6 +151,29 @@ const matrixStyles = style({
   },
 });
 
+// The theme colors of the test option chips, one per distinct tag so that a
+// tag has the same color in every column.
+const TAG_BACKGROUNDS = [
+  'tagOptions.backgroundColorOption1',
+  'tagOptions.backgroundColorOption2',
+  'tagOptions.backgroundColorOption3',
+];
+
+function renderPlatformTag(column: PlatformColumnInfo, tagIndex: number) {
+  return (
+    <Box
+      component='span'
+      className='platform-tag'
+      sx={{
+        color: 'tagOptions.text',
+        bgcolor: TAG_BACKGROUNDS[tagIndex % TAG_BACKGROUNDS.length],
+      }}
+    >
+      {column.tag}
+    </Box>
+  );
+}
+
 type MatrixTableProps = {
   platformResults: PlatformSubtestResults[];
   filteringSearchTerm: string;
@@ -144,10 +192,14 @@ function MatrixTable({
     () => buildSubtestMatrix(platformResults, testVersion),
     [platformResults, testVersion],
   );
-  const columnsConfiguration = useMemo(
-    () => buildMatrixColumns(matrix.columns, getPlatformIcon),
-    [matrix.columns],
-  );
+  const columnsConfiguration = useMemo(() => {
+    const tags = [
+      ...new Set(matrix.columns.flatMap(({ tag }) => (tag ? [tag] : []))),
+    ];
+    return buildMatrixColumns(matrix.columns, (column) =>
+      renderPlatformTag(column, tags.indexOf(column.tag ?? '')),
+    );
+  }, [matrix.columns]);
 
   const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters(
     columnsConfiguration,

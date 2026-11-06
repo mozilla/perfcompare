@@ -214,6 +214,7 @@ function FilterableColumnHeader({
 
 type SortableColumnHeaderProps = {
   name: string;
+  label?: ReactNode;
   displayLabel: boolean;
   sortDirection: 'asc' | 'desc' | null;
   onToggle: (sortDirection: SortableColumnHeaderProps['sortDirection']) => void;
@@ -221,6 +222,7 @@ type SortableColumnHeaderProps = {
 
 function SortableColumnHeader({
   name,
+  label,
   displayLabel,
   sortDirection,
   onToggle,
@@ -276,7 +278,7 @@ function SortableColumnHeader({
         sortDirection={sortDirection}
         sx={inlineIconStyle}
       />
-      {displayLabel ? name : null}
+      {displayLabel ? (label ?? name) : null}
     </Button>
   );
 }
@@ -327,7 +329,6 @@ function TableHeader<TRow>({
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: Spacing.xSmall,
           padding: 0,
           margin: 0,
           fontWeight: 700,
@@ -387,6 +388,7 @@ function TableHeader<TRow>({
       content = (
         <SortableColumnHeader
           name={header.name}
+          label={header.label}
           displayLabel={true}
           sortDirection={header.key === sortColumn ? sortDirection : null}
           onToggle={(newSortDirection) =>
@@ -447,8 +449,8 @@ function TableHeader<TRow>({
           className={`cell ${header.key}-header`}
           role='columnheader'
         >
-          {header.icon}
           {renderColumnHeader(header)}
+          {header.subLabel}
         </div>
       ))}
     </div>
