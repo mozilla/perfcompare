@@ -57,7 +57,7 @@ const styles = {
     flexWrap: 'wrap',
     fontFamily: 'SF Pro',
     display: 'flex',
-    alignItems: 'baseline',
+    alignItems: 'center',
     gap: '4px',
   }),
 };
