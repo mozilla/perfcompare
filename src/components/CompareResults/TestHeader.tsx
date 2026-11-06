@@ -1,5 +1,5 @@
 import ViewColumnIcon from '@mui/icons-material/ViewColumn';
-import { Box, Link } from '@mui/material';
+import { Box, Link, Tooltip } from '@mui/material';
 import { style } from 'typestyle';
 
 import BetterDirectionIndicator from './BetterDirectionIndicator';
@@ -134,22 +134,30 @@ export default function TestHeader(props: TestHeaderProps) {
         <BetterDirectionIndicator lowerIsBetter={result.lower_is_better} />
         <span data-testid='framework-name'>{`- ${getFrameworkName(result)}`}</span>
         {crossPlatformLink && (
-          <Link
-            className='cross-platform-link'
-            href={crossPlatformLink}
-            underline='hover'
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '4px',
-              marginInlineStart: `${Spacing.Medium}px`,
-              verticalAlign: 'middle',
-              fontSize: '14px',
-            }}
+          <Tooltip
+            title={Strings.components.crossPlatformSubtests.linkTooltip}
+            placement='top'
+            arrow
+            // Keeps the visible text as the link's accessible name.
+            describeChild
           >
-            <ViewColumnIcon fontSize='small' />
-            {Strings.components.crossPlatformSubtests.linkLabel}
-          </Link>
+            <Link
+              className='cross-platform-link'
+              href={crossPlatformLink}
+              underline='hover'
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                marginInlineStart: `${Spacing.Medium}px`,
+                verticalAlign: 'middle',
+                fontSize: '14px',
+              }}
+            >
+              <ViewColumnIcon fontSize='small' />
+              {Strings.components.crossPlatformSubtests.linkLabel}
+            </Link>
+          </Tooltip>
         )}
       </div>
       <Box

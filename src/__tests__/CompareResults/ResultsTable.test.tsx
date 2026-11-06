@@ -1912,9 +1912,11 @@ describe('Cross-platform link', () => {
 
     setupAndRender([desktop, android, withoutSubtests]);
     await screen.findAllByText('a11yr');
-    const links = screen.getAllByRole('link', {
-      name: Strings.components.crossPlatformSubtests.linkLabel,
-    });
+    // jsdom names the link from the tooltip's title attribute; browsers use
+    // its text.
+    const links = screen.getAllByText(
+      Strings.components.crossPlatformSubtests.linkLabel,
+    );
     // One per header group of the test, both to the same comparison.
     expect(links).toHaveLength(2);
     const url = new URL(links[0].getAttribute('href')!, window.location.href);

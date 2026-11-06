@@ -135,6 +135,8 @@ export const Strings = {
     },
     crossPlatformSubtests: {
       linkLabel: 'Compare across platforms',
+      linkTooltip:
+        "See this test's subtests side by side on every platform, to check whether a change reproduces across platforms.",
       description:
         'Each column is a platform. Agreement shows whether a subtest moved the same way on the platforms that reported it. Select a cell to open the subtests for that platform.',
       platformCount: (count: number) =>
