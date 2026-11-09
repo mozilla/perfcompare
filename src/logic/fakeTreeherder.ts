@@ -748,6 +748,10 @@ function variance(values: number[]) {
   );
 }
 
+function stddevPct({ mean, stddev }: BasicStatItem): number {
+  return mean && stddev ? round((stddev / mean) * 100) : 0;
+}
+
 function standardStats(values: number[]): BasicStatItem {
   const m = mean(values);
   const v = variance(values);
@@ -756,9 +760,7 @@ function standardStats(values: number[]): BasicStatItem {
     mean: round(m),
     median: round(median(values)),
     stddev: round(stddev),
-    stddev_pct: m ? round((stddev / m) * 100) : 0,
     variance: round(v),
-    count: values.length,
     min: values.length ? Math.min(...values) : 0,
     max: values.length ? Math.max(...values) : 0,
   };
@@ -855,8 +857,6 @@ function shapiroWilkItem(
   const result = shapiroWilkTest(values);
   if (!result) {
     return {
-      test_name: 'Shapiro-Wilk',
-      stat: null,
       pvalue: null,
       interpretation: 'Not enough data for normality test.',
     };
@@ -868,8 +868,6 @@ function shapiroWilkItem(
     );
   }
   return {
-    test_name: 'Shapiro-Wilk',
-    stat: round(result.w, 4),
     pvalue: round(result.pvalue, 4),
     interpretation: isNormal
       ? `${label} is likely normal`
@@ -1065,16 +1063,11 @@ function generateResult(
     new_runs: newSide.runs,
     base_runs_replicates: baseRunsReplicates,
     new_runs_replicates: newRunsReplicates,
-    is_complete: base.runs.length > 0 && newSide.runs.length > 0,
-    delta_value: round(deltaValue),
-    delta_percentage: round(deltaPercentage),
     lower_is_better: test.lowerIsBetter,
-    new_is_better: newIsBetter,
     test: subtest ?? test.test,
     option_name: 'opt',
     extra_options: framework.extraOptions,
     graphs_link: graphsLink(request, row),
-    more_runs_are_needed: moreRunsAreNeeded,
     base_parent_signature: row.parentSignature,
     new_parent_signature: row.parentSignature,
     base_signature_id: row.baseSignature,
@@ -1085,7 +1078,19 @@ function generateResult(
   if (request.testVersion === 'mann-whitney-u') {
     return mannWhitneyResult(common, baseSample, newSample, test.lowerIsBetter);
   }
-  return studentTResult(common, baseSample, newSample, test.lowerIsBetter);
+  return studentTResult(
+    {
+      ...common,
+      is_complete: base.runs.length > 0 && newSide.runs.length > 0,
+      delta_value: round(deltaValue),
+      delta_percentage: round(deltaPercentage),
+      new_is_better: newIsBetter,
+      more_runs_are_needed: moreRunsAreNeeded,
+    },
+    baseSample,
+    newSample,
+    test.lowerIsBetter,
+  );
 }
 
 type CommonFields = Omit<
@@ -1106,6 +1111,17 @@ type CommonFields = Omit<
   | 'is_confident'
   | 'is_regression'
   | 'is_meaningful'
+>;
+
+// The real API only returns these for Student-T, so Mann-Whitney results don't
+// get them.
+type SharedFields = Omit<
+  CommonFields,
+  | 'is_complete'
+  | 'delta_value'
+  | 'delta_percentage'
+  | 'new_is_better'
+  | 'more_runs_are_needed'
 >;
 
 function studentTResult(
@@ -1145,8 +1161,8 @@ function studentTResult(
     new_median_value: newStats.median ?? 0,
     base_stddev: baseStats.stddev ?? 0,
     new_stddev: newStats.stddev ?? 0,
-    base_stddev_pct: baseStats.stddev_pct ?? 0,
-    new_stddev_pct: newStats.stddev_pct ?? 0,
+    base_stddev_pct: stddevPct(baseStats),
+    new_stddev_pct: stddevPct(newStats),
     confidence,
     confidence_text: confidenceText,
     magnitude: round(
@@ -1161,7 +1177,7 @@ function studentTResult(
 }
 
 function mannWhitneyResult(
-  common: CommonFields,
+  common: SharedFields,
   baseSample: number[],
   newSample: number[],
   lowerIsBetter: boolean,
@@ -1193,8 +1209,6 @@ function mannWhitneyResult(
   const ks = ksGoodnessOfFit(baseSample);
   const ksTest: StatisticsTestItem = ks
     ? {
-        test_name: 'Kolmogorov-Smirnov',
-        stat: ks.stat,
         pvalue: ks.pvalue,
         interpretation: `KS test p-value: ${ks.pvalue.toFixed(3)}, ${
           ks.pvalue > 0.05 ? 'good fit' : 'poor fit'
@@ -1219,8 +1233,6 @@ function mannWhitneyResult(
     shapiro_wilk_test_new: shapiroNew,
     shapiro_wilk_warnings: shapiroWilkWarnings,
     mann_whitney_test: {
-      test_name: 'Mann-Whitney U',
-      stat: round(uBase, 1),
       pvalue: round(pvalue, 4),
       interpretation: isSignificant ? 'significant' : 'not significant',
     },
@@ -1230,17 +1242,8 @@ function mannWhitneyResult(
       cles: round(cles),
       cles_direction: `New is ${lowerOrHigher} than Base`,
       mann_whitney_u_cles: `${chance}% chance a New value is ${lowerOrHigher} than a Base value`,
-      p_value_cles: isSignificant ? 'Significant' : 'Not significant',
-      cliffs_delta_cles: interpretation,
-      effect_size: interpretation,
-      cles_explanation: `There is a ${chance}% chance that a run from New is ${lowerOrHigher} than a run from Base.`,
     },
-    is_new_better: direction === 'no change' ? null : newIsBetter,
-    new_is_better: newIsBetter,
     direction_of_change: direction,
-    is_improvement: direction === 'improvement',
-    is_regression: direction === 'regression',
-    is_meaningful: isSignificant && interpretation !== 'negligible',
     base_avg_value: round(mean(baseSample)),
     new_avg_value: round(mean(newSample)),
     base_median_value: round(median(baseSample)),
