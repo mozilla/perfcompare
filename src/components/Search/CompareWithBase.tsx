@@ -324,7 +324,7 @@ function CompareWithBase({
               ></input>
             </>
           )}
-          {/**** Keep using the fake Treeherder backend when it's enabled ****/}
+          {/* Keep using the fake Treeherder backend when it's enabled */}
           {isFakeTreeherderEnabled() && (
             <input type='hidden' value='' name={FAKE_DATA_PARAM}></input>
           )}
