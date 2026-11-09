@@ -12,6 +12,10 @@ import EditButton from './EditButton';
 import SearchComponent from './SearchComponent';
 import SearchFrameworkDropdown from './SearchFrameworkDropdown';
 import { useAppSelector } from '../../hooks/app';
+import {
+  FAKE_DATA_PARAM,
+  isFakeTreeherderEnabled,
+} from '../../logic/treeherder';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset, Repository } from '../../types/state';
@@ -319,6 +323,10 @@ function CompareWithBase({
                 name='test_version'
               ></input>
             </>
+          )}
+          {/* Keep using the fake Treeherder backend when it's enabled */}
+          {isFakeTreeherderEnabled() && (
+            <input type='hidden' value='' name={FAKE_DATA_PARAM}></input>
           )}
         </Form>
       </Box>

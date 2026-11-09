@@ -15,6 +15,7 @@ import { getStrategy } from '../../common/testVersions';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
 import useExpandedRowOptions from '../../hooks/useExpandedRowOptions';
 import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount';
+import { preserveFakeDataParam } from '../../logic/treeherder';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type {
@@ -189,6 +190,7 @@ const getSubtestsCompareWithBaseLink = (
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });
+  preserveFakeDataParam(params);
 
   return `/subtests-compare-results?${params.toString()}`;
 };
@@ -229,6 +231,7 @@ const getSubtestsCompareOverTimeLink = (
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });
+  preserveFakeDataParam(params);
 
   return `/subtests-compare-over-time-results?${params.toString()}`;
 };
