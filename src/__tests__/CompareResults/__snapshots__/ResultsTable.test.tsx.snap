@@ -966,10 +966,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     >
                       report it on Bugzilla
                     </a>
-                    . 
-                     
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                     
                   </div>
                   <div
                     class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -4017,10 +4014,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     >
                       report it on Bugzilla
                     </a>
-                    . 
-                     
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                     
                   </div>
                   <div
                     class="MuiAlert-action css-rgppqo-MuiAlert-action"

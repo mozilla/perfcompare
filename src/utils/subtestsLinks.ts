@@ -40,7 +40,7 @@ export const getSubtestsCompareOverTimeLink = (
 ) => {
   // Fetching the interval value directly from the URL avoids a
   // spurious render due to react-router context changing. It's not usually a
-  // problem, but because this component can have a lot of instances, this is a
+  // problem, but because RevisionRow can have a lot of instances, this is a
   // performance problem in our case.
   // If the process of fetching it from the URL is too costly, we might need to
   // pass it down using the props otherwise.

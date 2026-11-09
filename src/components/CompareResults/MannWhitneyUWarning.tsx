@@ -27,7 +27,7 @@ function MannWhitneyUWarning({ className }: { className?: string }) {
       <Link href={Strings.components.mannWhitneyUWarning.href} target='_blank'>
         {Strings.components.mannWhitneyUWarning.linkText}
       </Link>
-      {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}
+      {Strings.components.mannWhitneyUWarning.text2}
     </Alert>
   );
 }
