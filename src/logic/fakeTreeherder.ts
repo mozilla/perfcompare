@@ -55,7 +55,7 @@ function hashString(value: string): number {
 // Mulberry32: a tiny, fast, seedable PRNG returning floats in [0, 1).
 function createRandom(seedSource: string) {
   let seed = hashString(seedSource);
-  const next = () => {
+  const newSide = () => {
     seed = (seed + 0x6d2b79f5) | 0;
     let t = seed;
     t = Math.imul(t ^ (t >>> 15), t | 1);
@@ -64,15 +64,15 @@ function createRandom(seedSource: string) {
   };
   const normal = () => {
     // Box-Muller
-    const u = 1 - next();
-    const v = next();
+    const u = 1 - newSide();
+    const v = newSide();
     return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
   };
   const int = (min: number, max: number) =>
-    min + Math.floor(next() * (max - min + 1));
+    min + Math.floor(newSide() * (max - min + 1));
   const pick = <T>(values: readonly T[]): T =>
     values[int(0, values.length - 1)];
-  return { next, normal, int, pick };
+  return { newSide, normal, int, pick };
 }
 
 type Random = ReturnType<typeof createRandom>;
@@ -81,7 +81,7 @@ function fakeHash(seedSource: string): string {
   const random = createRandom(seedSource);
   let hash = '';
   for (let i = 0; i < 40; i++) {
-    hash += Math.floor(random.next() * 16).toString(16);
+    hash += Math.floor(random.newSide() * 16).toString(16);
   }
   return hash;
 }
@@ -299,7 +299,7 @@ const catalog: Partial<Record<Framework['id'], FrameworkDefinition>> = {
           'TodoMVC-Vue',
           'Editor-CodeMirror',
           'Charts-chartjs',
-          'NewsSite-Next',
+          'NewsSite-newSide',
           'React-Stockcharts-SVG',
           'Perf-Dashboard',
         ],
@@ -642,7 +642,7 @@ function pickScenario(random: Random, newRev: string): Scenario {
     knownIndex >= 0 ? knownIndex : hashString(newRev) % personalities.length;
   const weights = personalities[index % personalities.length];
   const total = weights.reduce((sum, [, weight]) => sum + weight, 0);
-  let roll = random.next() * total;
+  let roll = random.newSide() * total;
   for (const [scenario, weight] of weights) {
     roll -= weight;
     if (roll < 0) return scenario;
@@ -654,7 +654,7 @@ function pickScenario(random: Random, newRev: string): Scenario {
 // value is an improvement, a negative one is a regression.
 function scenarioChange(random: Random, scenario: Scenario): number {
   const between = (min: number, max: number) =>
-    min + random.next() * (max - min);
+    min + random.newSide() * (max - min);
   switch (scenario) {
     case 'small-regression':
       return -between(0.015, 0.04);
@@ -710,15 +710,15 @@ function generateSide(
   const runs: number[] = [];
   const replicates: number[] = [];
   const digits = center >= 1000 ? 0 : center >= 10 ? 2 : 3;
-  const modeGap = 0.08 + random.next() * 0.07;
+  const modeGap = 0.08 + random.newSide() * 0.07;
   for (let job = 0; job < jobs; job++) {
     // Each job runs on a different machine, which adds a bit of variance.
     const jobFactor = 1 + random.normal() * noise * 0.2;
     const jobValues: number[] = [];
     for (let i = 0; i < replicatesPerJob; i++) {
       let value = center * jobFactor * Math.exp(random.normal() * noise);
-      if (bimodal && random.next() < 0.3) value *= 1 + modeGap;
-      if (random.next() < 0.02) value *= 1 + 0.2 + random.next() * 0.4;
+      if (bimodal && random.newSide() < 0.3) value *= 1 + modeGap;
+      if (random.newSide() < 0.02) value *= 1 + 0.2 + random.newSide() * 0.4;
       value = integer ? Math.round(value) : round(value, digits);
       jobValues.push(value);
     }
@@ -778,12 +778,12 @@ function normalCdf(x: number) {
 
 // Mann-Whitney U with tie correction and normal approximation.
 // Returns U for "base > new" (ties count for half) and the two-sided p-value.
-function mannWhitney(base: number[], next: number[]) {
+function mannWhitney(base: number[], newSide: number[]) {
   const n1 = base.length;
-  const n2 = next.length;
+  const n2 = newSide.length;
   const combined = [
     ...base.map((value) => ({ value, isBase: true })),
-    ...next.map((value) => ({ value, isBase: false })),
+    ...newSide.map((value) => ({ value, isBase: false })),
   ].sort((a, b) => a.value - b.value);
 
   let rankSumBase = 0;
@@ -976,7 +976,7 @@ function generateResult(
 
   // Each subtest has its own typical value around the parent's value.
   const subtestFactor = subtest
-    ? 0.3 + createRandom(`subtest|${subtest}`).next() * 1.6
+    ? 0.3 + createRandom(`subtest|${subtest}`).newSide() * 1.6
     : 1;
   const center =
     test.value * (platformSpeedFactor[platform] ?? 1) * subtestFactor;
@@ -985,10 +985,10 @@ function generateResult(
 
   // Occasionally the new revision has fewer jobs, or none at all yet.
   const jobsBase = baseRandom.int(4, 8);
-  const missingNew = newRandom.next() < 0.02;
+  const missingNew = newRandom.newSide() < 0.02;
   const jobsNew = missingNew
     ? 0
-    : newRandom.next() < 0.12
+    : newRandom.newSide() < 0.12
       ? newRandom.int(2, 3)
       : newRandom.int(4, 8);
 
@@ -1009,7 +1009,7 @@ function generateResult(
     bimodal: Boolean(test.bimodal),
     integer,
   });
-  const next = generateSide(newRandom, {
+  const newSide = generateSide(newRandom, {
     jobs: jobsNew,
     replicatesPerJob: test.replicates,
     center: center * (1 + valueChange),
@@ -1020,16 +1020,16 @@ function generateResult(
 
   const useReplicates = request.replicates && test.replicates > 1;
   const baseSample = useReplicates ? base.replicates : base.runs;
-  const newSample = useReplicates ? next.replicates : next.runs;
+  const newSample = useReplicates ? newSide.replicates : newSide.runs;
   const baseRunsReplicates = request.replicates ? base.replicates : [];
-  const newRunsReplicates = request.replicates ? next.replicates : [];
+  const newRunsReplicates = request.replicates ? newSide.replicates : [];
 
   const baseMean = mean(baseSample);
   const newMean = mean(newSample);
   const deltaValue = newSample.length ? newMean - baseMean : 0;
   const deltaPercentage = baseMean ? (deltaValue / baseMean) * 100 : 0;
   const newIsBetter = test.lowerIsBetter ? deltaValue < 0 : deltaValue > 0;
-  const moreRunsAreNeeded = base.runs.length < 5 || next.runs.length < 5;
+  const moreRunsAreNeeded = base.runs.length < 5 || newSide.runs.length < 5;
 
   const headerName = [
     test.suite,
@@ -1049,7 +1049,7 @@ function generateResult(
     base_retriggerable_job_ids: base.runs.map(
       (_, i) => 480000000 + (hashString(`${row.baseSignature}|${i}`) % 9000000),
     ),
-    new_retriggerable_job_ids: next.runs.map(
+    new_retriggerable_job_ids: newSide.runs.map(
       (_, i) =>
         490000000 +
         (hashString(`${request.newRev}|${row.newSignature}|${i}`) % 9000000),
@@ -1062,10 +1062,10 @@ function generateResult(
     new_repository_name: request.newRepo,
     base_repository_name: request.baseRepo,
     base_runs: base.runs,
-    new_runs: next.runs,
+    new_runs: newSide.runs,
     base_runs_replicates: baseRunsReplicates,
     new_runs_replicates: newRunsReplicates,
-    is_complete: base.runs.length > 0 && next.runs.length > 0,
+    is_complete: base.runs.length > 0 && newSide.runs.length > 0,
     delta_value: round(deltaValue),
     delta_percentage: round(deltaPercentage),
     lower_is_better: test.lowerIsBetter,
@@ -1306,7 +1306,7 @@ function repositoryId(repository: string): Repository['id'] {
 }
 
 // "Now" is fixed so that the generated data doesn't change from one day to
-// the next.
+// the newSide.
 const REFERENCE_TIMESTAMP = Date.UTC(2026, 9, 28, 14, 0, 0) / 1000;
 
 function fakeChangeset(
