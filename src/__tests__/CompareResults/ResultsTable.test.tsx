@@ -1921,10 +1921,13 @@ describe('Cross-platform link', () => {
     expect(links).toHaveLength(2);
     const url = new URL(links[0].getAttribute('href')!, window.location.href);
     expect(url.pathname).toBe('/subtests-cross-platform-results');
-    expect(url.searchParams.getAll('platform')).toEqual([
-      desktop.platform,
-      android.platform,
-    ]);
+    const signatures = (result: typeof desktop) =>
+      result.base_signature_id === result.new_signature_id
+        ? `${result.base_signature_id}`
+        : `${result.base_signature_id}_${result.new_signature_id}`;
+    expect(url.searchParams.get('sigs')).toBe(
+      `${signatures(desktop)}.${signatures(android)}`,
+    );
     expect(links[1]).toHaveAttribute('href', links[0].getAttribute('href'));
   });
 });

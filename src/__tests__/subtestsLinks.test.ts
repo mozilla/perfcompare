@@ -2,6 +2,8 @@ import type { CompareResultsItem } from '../types/state';
 import {
   buildCrossPlatformLinks,
   crossPlatformGroupKey,
+  decodeParentSignatures,
+  encodeParentSignatures,
   getCrossPlatformSubtestsLink,
 } from '../utils/subtestsLinks';
 import getTestData from './utils/fixtures';
@@ -35,7 +37,7 @@ const windows = result({
 });
 
 describe('getCrossPlatformSubtestsLink', () => {
-  it('repeats the signatures and platform for each platform with subtests', () => {
+  it('lists the signatures of each platform with subtests', () => {
     const link = getCrossPlatformSubtestsLink(
       [linux, windows, result({ has_subtests: false })],
       'mann-whitney-u',
@@ -44,15 +46,9 @@ describe('getCrossPlatformSubtestsLink', () => {
     );
     const url = new URL(link!, 'https://perf.compare');
     expect(url.pathname).toBe('/subtests-cross-platform-results');
-    expect(url.searchParams.getAll('baseParentSignature')).toEqual([
-      '11',
-      '21',
-    ]);
-    expect(url.searchParams.getAll('newParentSignature')).toEqual(['12', '22']);
-    expect(url.searchParams.getAll('platform')).toEqual([
-      linux.platform,
-      windows.platform,
-    ]);
+    expect(url.searchParams.get('sigs')).toBe('11_12.21_22');
+    // The platforms come from the fetched results.
+    expect(url.searchParams.has('platform')).toBe(false);
     expect(url.searchParams.get('test_version')).toBe('mann-whitney-u');
   });
 
@@ -86,9 +82,31 @@ describe('buildCrossPlatformLinks', () => {
 
     expect([...links.keys()]).toEqual([crossPlatformGroupKey(linux)]);
     const url = new URL(links.get(crossPlatformGroupKey(linux))!, 'http://x');
-    expect(url.searchParams.getAll('platform')).toEqual([
-      linux.platform,
-      android.platform,
-    ]);
+    expect(decodeParentSignatures(url.searchParams.get('sigs')!)).toHaveLength(
+      2,
+    );
+  });
+});
+
+describe('parent signatures parameter', () => {
+  const pairs = [
+    { baseParentSignature: '4085770', newParentSignature: '4085770' },
+    { baseParentSignature: '11', newParentSignature: '12' },
+  ];
+
+  it('lists a shared signature once, and both otherwise', () => {
+    expect(encodeParentSignatures(pairs)).toBe('4085770.11_12');
+  });
+
+  it('decodes what it encodes, unescaped in a URL', () => {
+    const params = new URLSearchParams({ sigs: encodeParentSignatures(pairs) });
+    expect(params.toString()).toBe('sigs=4085770.11_12');
+    expect(decodeParentSignatures(params.get('sigs')!)).toEqual(pairs);
+  });
+
+  it.each(['', '1..2', '1_2_3', 'spam', '1_'])('rejects %p', (value) => {
+    expect(() => decodeParentSignatures(value)).toThrow(
+      'The parameter sigs should list signatures',
+    );
   });
 });

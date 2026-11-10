@@ -110,9 +110,47 @@ export const getSubtestsCompareOverTimeLink = (
   return `/subtests-compare-over-time-results?${params.toString()}`;
 };
 
-// One baseParentSignature/newParentSignature/platform triplet per platform
-// that has subtests. Returns null when fewer than 2 have subtests, as there's
-// nothing to compare across.
+// The parent signatures of each platform, in a single parameter so that links
+// stay short however many platforms there are, eg. "sigs=11.21_22": one entry
+// per platform, separated by ".", each the signature when base and new share
+// it (the usual case), else "base_new". "." and "_" aren't escaped in URLs.
+export const CROSS_PLATFORM_SIGNATURES_PARAM = 'sigs';
+
+export type ParentSignaturePair = {
+  baseParentSignature: string;
+  newParentSignature: string;
+};
+
+export function encodeParentSignatures(pairs: ParentSignaturePair[]) {
+  return pairs
+    .map(({ baseParentSignature, newParentSignature }) =>
+      baseParentSignature === newParentSignature
+        ? baseParentSignature
+        : `${baseParentSignature}_${newParentSignature}`,
+    )
+    .join('.');
+}
+
+export function decodeParentSignatures(value: string): ParentSignaturePair[] {
+  return value.split('.').map((entry) => {
+    const signatures = entry.split('_');
+    const valid =
+      signatures.length <= 2 &&
+      signatures.every((signature) => /^\d+$/.test(signature));
+    if (!valid) {
+      throw new Error(
+        `The parameter ${CROSS_PLATFORM_SIGNATURES_PARAM} should list signatures like "11.21_22", but it contains "${entry}".`,
+      );
+    }
+    const [baseParentSignature, newParentSignature = baseParentSignature] =
+      signatures;
+    return { baseParentSignature, newParentSignature };
+  });
+}
+
+// The parent signatures of each platform that has subtests. Returns null when
+// fewer than 2 have subtests, as there's nothing to compare across. The
+// platform names come from the fetched results.
 export const getCrossPlatformSubtestsLink = (
   results: CombinedResultsItemType[],
   testVersion: TestVersion,
@@ -133,11 +171,15 @@ export const getCrossPlatformSubtestsLink = (
     framework: String(firstResult.framework_id),
     test_version: testVersion,
   });
-  for (const result of rowsWithSubtests) {
-    params.append('baseParentSignature', String(result.base_signature_id));
-    params.append('newParentSignature', String(result.new_signature_id));
-    params.append('platform', result.platform);
-  }
+  params.set(
+    CROSS_PLATFORM_SIGNATURES_PARAM,
+    encodeParentSignatures(
+      rowsWithSubtests.map((result) => ({
+        baseParentSignature: String(result.base_signature_id),
+        newParentSignature: String(result.new_signature_id),
+      })),
+    ),
+  );
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });

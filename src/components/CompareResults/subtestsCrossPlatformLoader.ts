@@ -4,6 +4,10 @@ import { memoizedFetchSubtestsCompareResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { TestVersion } from '../../types/types';
 import type { PlatformSubtestResults } from '../../utils/subtestMatrix';
+import {
+  CROSS_PLATFORM_SIGNATURES_PARAM,
+  decodeParentSignatures,
+} from '../../utils/subtestsLinks';
 
 type SignaturePair = {
   baseParentSignature: string;
@@ -11,16 +15,38 @@ type SignaturePair = {
   platform: string;
 };
 
+// The signatures come from the "sigs" parameter (see
+// getCrossPlatformSubtestsLink), the platform names from the fetched results.
+function checkSignatures(searchParams: URLSearchParams): SignaturePair[] {
+  const signatures = searchParams.get(CROSS_PLATFORM_SIGNATURES_PARAM);
+  if (signatures !== null) {
+    return decodeParentSignatures(signatures).map((pair) => ({
+      ...pair,
+      platform: '',
+    }));
+  }
+
+  // The long form of the first links, still supported so that they keep
+  // working once shared.
+  return checkLegacySignaturePairs(
+    searchParams.getAll('baseParentSignature'),
+    searchParams.getAll('newParentSignature'),
+    searchParams.getAll('platform'),
+  );
+}
+
 // baseParentSignature, newParentSignature and platform are repeated once per
 // platform, in the same order. "platform" is only a label: if its count doesn't
 // match, it's ignored and the platform comes from the fetched results.
-function checkSignaturePairs(
+function checkLegacySignaturePairs(
   baseParentSignatures: string[],
   newParentSignatures: string[],
   platforms: string[],
 ): SignaturePair[] {
   if (!baseParentSignatures.length) {
-    throw new Error('The parameter baseParentSignature is missing.');
+    throw new Error(
+      `The parameter ${CROSS_PLATFORM_SIGNATURES_PARAM} is missing.`,
+    );
   }
 
   if (!newParentSignatures.length) {
@@ -78,11 +104,7 @@ export function loader({ request }: { request: Request }) {
       MANN_WHITNEY_U) as TestVersion,
   });
 
-  const pairs = checkSignaturePairs(
-    url.searchParams.getAll('baseParentSignature'),
-    url.searchParams.getAll('newParentSignature'),
-    url.searchParams.getAll('platform'),
-  );
+  const pairs = checkSignatures(url.searchParams);
 
   const results: Promise<PlatformSubtestResults[]> = Promise.allSettled(
     pairs.map((pair) =>

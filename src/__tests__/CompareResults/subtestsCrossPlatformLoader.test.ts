@@ -17,7 +17,8 @@ function load(search: string) {
 
 describe('subtestsCrossPlatformLoader', () => {
   it.each([
-    ['', 'The parameter baseParentSignature is missing.'],
+    ['', 'The parameter sigs is missing.'],
+    ['&sigs=1.spam', 'The parameter sigs should list signatures'],
     ['&baseParentSignature=1', 'The parameter newParentSignature is missing.'],
     [
       '&baseParentSignature=1&baseParentSignature=3&newParentSignature=2',
@@ -31,6 +32,38 @@ describe('subtestsCrossPlatformLoader', () => {
     expect(() => load(search)).toThrow(message);
   });
 
+  it('fetches each platform of the sigs parameter', async () => {
+    const { subtestsResult } = getTestData();
+    fetchMock
+      .get(forBaseParentSignature('1'), subtestsResult)
+      .get(forBaseParentSignature('3'), subtestsResult);
+
+    const [shared, differing] = await load('&sigs=1.3_4').results;
+
+    expect(shared).toMatchObject({
+      platform: subtestsResult[0].platform,
+      baseParentSignature: '1',
+      newParentSignature: '1',
+    });
+    expect(differing).toMatchObject({
+      baseParentSignature: '3',
+      newParentSignature: '4',
+    });
+    expect(
+      new URL(fetchMock.callHistory.lastCall()!.url).searchParams.get(
+        'new_parent_signature',
+      ),
+    ).toBe('4');
+  });
+
+  it('labels a failed platform by its signature', async () => {
+    fetchMock.get(forBaseParentSignature('1'), 500);
+    const [failed] = await load('&sigs=1').results;
+    expect(failed).toMatchObject({ platform: 'signature 1', results: [] });
+    expect(failed.error).toBeTruthy();
+  });
+
+  // The long form of the first links.
   it('fetches each platform and flags the ones that fail', async () => {
     const { subtestsResult } = getTestData();
     fetchMock
