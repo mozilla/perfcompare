@@ -11,7 +11,7 @@ import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 import { MANN_WHITNEY_U } from '../../common/constants';
 import useInitializeTableStateFromCookies from '../../hooks/useInitializeTableStateFromCookies';
-import useRawSearchParams from '../../hooks/useRawSearchParams';
+import useSearchTermParam from '../../hooks/useSearchTermParam';
 import useSeededAdvancedColumns from '../../hooks/useSeededAdvancedColumns';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
@@ -34,9 +34,6 @@ export default function ResultsTable() {
   } = useLoaderData<CombinedLoaderReturnValue>();
 
   const [, setSearchParams] = useSearchParams();
-
-  // This is our custom hook that updates the search params without a rerender.
-  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
   const advancedColumns = useSeededAdvancedColumns();
 
@@ -61,8 +58,8 @@ export default function ResultsTable() {
   const { sortColumn, sortDirection, onToggleSort } =
     useTableSort(columnsConfig);
 
-  const initialSearchTerm = rawSearchParams.get('search') ?? '';
-  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const { initialSearchTerm, searchTerm, onSearchTermChange } =
+    useSearchTermParam();
   const [frameworkSelection, setFrameworkSelection] =
     useState<Framework['id'][]>(frameworkIds);
 
@@ -89,17 +86,6 @@ export default function ResultsTable() {
       params.append('framework', frameworkId.toString());
     }
     setSearchParams(params);
-  };
-
-  const onSearchTermChange = (newSearchTerm: string) => {
-    setSearchTerm(newSearchTerm);
-    const params = currentUrlParams();
-    if (newSearchTerm) {
-      params.set('search', newSearchTerm);
-    } else {
-      params.delete('search');
-    }
-    updateRawSearchParams(params);
   };
 
   const onTestVersionChange = (testVersion: TestVersion): void => {

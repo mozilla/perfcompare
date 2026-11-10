@@ -2,23 +2,18 @@ import { useRef, useEffect, useState, Suspense } from 'react';
 
 import { Box, Button, Grid } from '@mui/material';
 import Alert from '@mui/material/Alert';
-import Link from '@mui/material/Link';
 import { Container } from '@mui/system';
 import { useLoaderData, Await } from 'react-router';
 import { style } from 'typestyle';
 
 import HowToReadResults from './HowToReadResults';
 import type { LoaderReturnValue } from './loader';
+import MannWhitneyUWarning from './MannWhitneyUWarning';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
-import {
-  STUDENT_T,
-  MANN_WHITNEY_U,
-  RESULTS_TABLE_MAX_WIDTH,
-} from '../../common/constants';
-import { useAppSelector, useAppDispatch } from '../../hooks/app';
+import { STUDENT_T, RESULTS_TABLE_MAX_WIDTH } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
-import { updateShowMannWhitneyWarning } from '../../reducers/ColumnPrefsSlice';
 import { Strings } from '../../resources/Strings';
 import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
@@ -34,10 +29,6 @@ function ResultsMain() {
   const loaderData = useLoaderData<CombinedLoaderReturnValue>();
   const testVersion = loaderData.testVersion;
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const dispatch = useAppDispatch();
-  const showMannWhitneyWarning = useAppSelector(
-    (state) => state.columnPrefs.showMannWhitneyWarning,
-  );
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -138,22 +129,7 @@ function ResultsMain() {
   );
 
   const testWarnings: Record<TestVersion, React.JSX.Element> = {
-    'mann-whitney-u': (
-      <Alert
-        severity='warning'
-        className={styles.alert}
-        onClose={() => dispatch(updateShowMannWhitneyWarning(false))}
-      >
-        {Strings.components.mannWhitneyUWarning.text}{' '}
-        <Link
-          href={Strings.components.mannWhitneyUWarning.href}
-          target='_blank'
-        >
-          {Strings.components.mannWhitneyUWarning.linkText}
-        </Link>
-        {'. '} {Strings.components.mannWhitneyUWarning.text2}{' '}
-      </Alert>
-    ),
+    'mann-whitney-u': <MannWhitneyUWarning className={styles.alert} />,
     'student-t': (
       <Alert severity='warning' className={styles.alert}>
         {Strings.components.studentTTestWarning.text}
@@ -207,11 +183,7 @@ function ResultsMain() {
         </Grid>
 
         <Grid container sx={titleContainerSx}>
-          {testVersion === STUDENT_T
-            ? testWarnings[STUDENT_T]
-            : showMannWhitneyWarning
-              ? testWarnings[MANN_WHITNEY_U]
-              : null}
+          {testWarnings[testVersion]}
         </Grid>
 
         <FailedFrameworksBanner

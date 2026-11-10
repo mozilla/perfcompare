@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type {
-  CompareResultsTableConfig,
-  CompareMannWhitneyResultsTableConfig,
-} from '../types/types';
+import type { TableConfig } from '../types/types';
 import { seedAdvancedOptionsParamsFromCookies } from '../utils/advancedOptionsUrl';
 import { getCookie } from '../utils/cookies';
 import {
@@ -27,10 +24,8 @@ import {
 // This runs exactly once and only mutates the URL via history.replaceState
 // (through useRawSearchParams), so it never triggers a re-render or a loader
 // refetch. It intentionally has no effect on an already-initialized URL.
-const useInitializeTableStateFromCookies = (
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
+const useInitializeTableStateFromCookies = <TRow>(
+  columnsConfiguration: TableConfig<TRow>,
 ) => {
   const [, updateRawSearchParams] = useRawSearchParams();
 

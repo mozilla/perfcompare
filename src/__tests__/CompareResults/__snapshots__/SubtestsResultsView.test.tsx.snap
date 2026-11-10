@@ -601,10 +601,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   >
                     report it on Bugzilla
                   </a>
-                  . 
-                   
                   The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
                 </div>
                 <div
                   class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -2493,10 +2490,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     report it on Bugzilla
                   </a>
-                  . 
-                   
                   The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
                 </div>
                 <div
                   class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -4034,10 +4028,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                   >
                     report it on Bugzilla
                   </a>
-                  . 
-                   
                   The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
                 </div>
                 <div
                   class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -5575,10 +5566,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                   >
                     report it on Bugzilla
                   </a>
-                  . 
-                   
                   The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
                 </div>
                 <div
                   class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -7116,10 +7104,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   >
                     report it on Bugzilla
                   </a>
-                  . 
-                   
                   The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                   
                 </div>
                 <div
                   class="MuiAlert-action css-rgppqo-MuiAlert-action"

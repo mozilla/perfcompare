@@ -21,11 +21,7 @@ import type {
   CompareResultsItem,
   MannWhitneyResultsItem,
 } from '../../types/state';
-import type {
-  CompareMannWhitneyResultsTableConfig,
-  CompareResultsTableConfig,
-  TestVersion,
-} from '../../types/types';
+import type { TableConfig, TestVersion } from '../../types/types';
 
 // The data structure returned by processResults may look complex at first, so
 // here are some extra explanation.
@@ -162,9 +158,7 @@ const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
 type Props = {
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig;
+  columnsConfiguration: TableConfig;
   results: CombinedResultsItemType[][];
   view: typeof compareView | typeof compareOverTimeView;
   rowGridTemplateColumns: string;

@@ -579,10 +579,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                     >
                       report it on Bugzilla
                     </a>
-                    . 
-                     
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                     
                   </div>
                   <div
                     class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -2471,10 +2468,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                     >
                       report it on Bugzilla
                     </a>
-                    . 
-                     
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                     
                   </div>
                   <div
                     class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -4363,10 +4357,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                     >
                       report it on Bugzilla
                     </a>
-                    . 
-                     
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                     
                   </div>
                   <div
                     class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -6260,10 +6251,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                     >
                       report it on Bugzilla
                     </a>
-                    . 
-                     
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                     
                   </div>
                   <div
                     class="MuiAlert-action css-rgppqo-MuiAlert-action"
