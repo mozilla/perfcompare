@@ -174,6 +174,35 @@ describe('buildSubtestMatrix', () => {
     expect(matrix.columns[1]).toMatchObject({ error: 'Error: 500' });
     expect(matrix.rows[0]).toMatchObject({ present: 1, totalPlatforms: 2 });
   });
+
+  it('drops platforms without both base and new runs', () => {
+    const matrix = buildSubtestMatrix(
+      [
+        platformResults(LINUX, [subtest('a.html', 'regression')]),
+        platformResults(WINDOWS, [subtest('a.html', 'none', { new_runs: [] })]),
+        platformResults(MAC, [subtest('a.html', 'none', { base_runs: [] })]),
+        platformResults(LINUX, []),
+        platformResults(WINDOWS, [
+          subtest('a.html', 'regression'),
+          subtest('b.html', 'none', { base_runs: [] }),
+        ]),
+      ],
+      STUDENT_T,
+    );
+    expect(matrix.columns.map(({ key, label }) => [key, label])).toEqual([
+      ['platform-0', 'Linux 18.04'],
+      ['platform-1', 'Windows 11'],
+    ]);
+    expect(matrix.hiddenPlatforms).toEqual([WINDOWS, MAC, LINUX]);
+    expect(matrix.rows).toHaveLength(1);
+    expect(matrix.rows[0]).toMatchObject({
+      test: 'a.html',
+      regressions: 2,
+      present: 2,
+      totalPlatforms: 2,
+      agreement: 'consistent-regression',
+    });
+  });
 });
 
 describe('buildMatrixColumns', () => {

@@ -146,6 +146,10 @@ export const Strings = {
         `The subtests for ${platform} could not be loaded.`,
       allPlatformsFailed:
         'None of the platforms could be loaded. Try reloading the page.',
+      hiddenPlatforms: (platforms: string[]) =>
+        `${platforms.length} ${
+          platforms.length === 1 ? 'platform is' : 'platforms are'
+        } hidden because they have no data to compare for one of the revisions: ${platforms.join(', ')}`,
     },
     betterDirection: {
       lower: 'Lower is better',

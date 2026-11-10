@@ -325,6 +325,15 @@ function MatrixTable({
 
   return (
     <>
+      {matrix.hiddenPlatforms.length > 0 && (
+        <Alert
+          severity='info'
+          data-testid='hidden-platforms-notice'
+          sx={{ marginTop: 2 }}
+        >
+          {strings.hiddenPlatforms(matrix.hiddenPlatforms)}
+        </Alert>
+      )}
       {hiddenCount > 0 && (
         <FilteredRowsNotice
           hiddenCount={hiddenCount}

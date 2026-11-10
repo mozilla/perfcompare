@@ -66,6 +66,9 @@ export type SubtestMatrixRow = {
 export type SubtestMatrix = {
   columns: PlatformColumnInfo[];
   rows: SubtestMatrixRow[];
+  // Platforms left out because none of their subtests has both base and new
+  // runs.
+  hiddenPlatforms: string[];
 };
 
 export const agreementLabels: Record<AgreementBucket, string> = {
@@ -159,11 +162,35 @@ function columnLabels(
   });
 }
 
+// A subtest missing its base or new runs has nothing to compare: showing it
+// would read as "No change".
+function hasBothRuns(result: CombinedResultsItemType) {
+  return result.base_runs.length > 0 && result.new_runs.length > 0;
+}
+
+// Drops the results without data, then the platforms left with none. Failed
+// platforms are kept so that their column flags the error.
+function withComparableData(platformResults: PlatformSubtestResults[]) {
+  const kept: PlatformSubtestResults[] = [];
+  const hiddenPlatforms: string[] = [];
+  for (const platformResult of platformResults) {
+    const results = platformResult.results.filter(hasBothRuns);
+    if (platformResult.error || results.length > 0) {
+      kept.push({ ...platformResult, results });
+    } else {
+      hiddenPlatforms.push(platformResult.platform);
+    }
+  }
+  return { kept, hiddenPlatforms };
+}
+
 export function buildSubtestMatrix(
-  platformResults: PlatformSubtestResults[],
+  allPlatformResults: PlatformSubtestResults[],
   testVersion: TestVersion,
 ): SubtestMatrix {
   const strategy = getStrategy(testVersion);
+  const { kept: platformResults, hiddenPlatforms } =
+    withComparableData(allPlatformResults);
   const labels = columnLabels(platformResults);
   const columns: PlatformColumnInfo[] = platformResults.map(
     (platformResult, index) => ({
@@ -227,7 +254,7 @@ export function buildSubtestMatrix(
     row.score = agreementScore(row);
   }
 
-  return { columns, rows };
+  return { columns, rows, hiddenPlatforms };
 }
 
 /* --- Table configuration --- */
