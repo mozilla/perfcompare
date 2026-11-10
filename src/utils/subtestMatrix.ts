@@ -171,7 +171,7 @@ function isReferenceHardware(platform: string) {
   return /-hw-ref(-|$)/.test(platform);
 }
 
-// With normal spaces, as the narrow headers need to wrap, eg. "Galaxy A55".
+// With normal spaces, like the other labels of the view.
 function platformShortLabel(platform: string) {
   const label = (getPlatformAndVersion(platform) || platform).replace(
     /\u00a0/g,
@@ -402,8 +402,8 @@ export const SUBTESTS_COLUMN_WIDTH = 200;
 export const AGREEMENT_COLUMN_WIDTH = 184;
 // Fits the compact chip, with the header wrapping inside its button.
 export const AGREEMENT_COLUMN_NARROW_WIDTH = 140;
-// Fits the longest word of a header, eg. "Windows" next to the sort icon,
-// so that names only wrap between words.
+// Fits a compact cell, and enough of a header's name next to its sort icon
+// before it trails off (the tooltip has the full name).
 export const PLATFORM_COLUMN_MIN_WIDTH = 100;
 // Platform columns share the width left, but their buttons and cells stop
 // growing at this width, so that they don't turn into wide bars when there
@@ -451,6 +451,8 @@ function normalizedDelta(cell: MatrixCell | undefined): number {
 export function buildMatrixColumns(
   columns: PlatformColumnInfo[],
   renderTag: (column: PlatformColumnInfo) => ReactNode,
+  renderLabel: (column: PlatformColumnInfo) => ReactNode = (column) =>
+    column.shortLabel,
 ): TableConfig<SubtestMatrixRow> {
   return [
     {
@@ -476,7 +478,7 @@ export function buildMatrixColumns(
       name: column.label,
       gridWidth: `minmax(${PLATFORM_COLUMN_MIN_WIDTH}px, 1fr)`,
       tooltip: column.platform,
-      label: column.shortLabel,
+      label: renderLabel(column),
       subLabel: column.tag ? renderTag(column) : undefined,
       sortFunction: (rowA: SubtestMatrixRow, rowB: SubtestMatrixRow) =>
         normalizedDelta(rowA.cells.get(column.key)) -

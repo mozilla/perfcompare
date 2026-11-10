@@ -76,6 +76,11 @@ const agreementHeaderContainer = {
   containerType: 'inline-size',
   containerName: 'agreement-header',
 } as NestedCSSProperties;
+// And the platform cells, so that they're bigger with fewer platforms.
+const platformCellContainer = {
+  containerType: 'inline-size',
+  containerName: 'platform-cell',
+} as NestedCSSProperties;
 
 // No overflow here: like the results table, the page itself scrolls
 // horizontally when there are too many platforms, so that the header can
@@ -117,20 +122,23 @@ const matrixStyles = style({
       justifyContent: 'center',
       minWidth: 0,
     },
-    // Names wrap inside the button rather than spilling out of it: the icon
-    // stays on the left, the name wraps between words, and the column's
-    // minimum width fits the longest word.
+    // Names stay on one line inside the button, next to the sort icon, and
+    // trail off when too long: the header's tooltip has the full name.
     '.table-header [class*="platform-"] button': {
       flexWrap: 'nowrap',
       width: '100%',
       maxWidth: PLATFORM_CONTENT_MAX_WIDTH,
       minWidth: 0,
       padding: `${Spacing.xSmall}px ${Spacing.Small - 2}px`,
-      textAlign: 'center',
-      overflowWrap: 'break-word',
     },
-    // So that names like "Windows 11" keep fitting on one line, next to the
-    // sort icon, as columns narrow.
+    // Not "platform-…", which the selectors above match.
+    '.table-header .column-name': {
+      minWidth: 0,
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    },
+    // So that more of the names fit before trailing off as columns narrow.
     '@container platform-header (max-width: 139.99px)': {
       $nest: {
         '& .table-header [class*="platform-"] button': { fontSize: '14px' },
@@ -209,7 +217,7 @@ const matrixStyles = style({
       },
     },
     // Covers the grid gap, which would otherwise show scrolled cells.
-    '& .table-header .agreement-header::before, & .matrix-row .agreement::before':
+    '& .table-header .agreement-header::before, & .matrix-row .agreement::before, & .variant-header .agreement-spacer::before':
       {
         content: '""',
         position: 'absolute',
@@ -223,7 +231,10 @@ const matrixStyles = style({
     // only needs to fit the delta.
     '.matrix-row .platform-cell': {
       padding: `${Spacing.xSmall}px`,
+      ...platformCellContainer,
     },
+    // Sized for wide columns (up to about 7 platforms), then stepping down
+    // with the column's width like the platform headers, one size below them.
     '.status-hint': {
       display: 'inline-flex',
       justifyContent: 'center',
@@ -232,14 +243,26 @@ const matrixStyles = style({
       width: '100%',
       maxWidth: PLATFORM_CONTENT_MAX_WIDTH,
       borderRadius: '4px',
-      padding: '4px 6px',
-      fontSize: '0.8125rem',
+      padding: '5px 8px',
+      fontSize: '15px',
       fontVariantNumeric: 'tabular-nums',
       whiteSpace: 'nowrap',
     },
     '.status-hint .MuiSvgIcon-root': {
-      height: '14px',
-      width: '14px',
+      height: '16px',
+      width: '16px',
+    },
+    '@container platform-cell (max-width: 139.99px)': {
+      $nest: {
+        '& .status-hint': { fontSize: '14px' },
+        '& .status-hint .MuiSvgIcon-root': { height: '15px', width: '15px' },
+      },
+    },
+    '@container platform-cell (max-width: 103.99px)': {
+      $nest: {
+        '& .status-hint': { fontSize: '13px', padding: '4px 6px' },
+        '& .status-hint .MuiSvgIcon-root': { height: '14px', width: '14px' },
+      },
     },
     '.status-hint-regression .MuiSvgIcon-root': {
       // Moves the icon a bit lower so that it _looks_ centered.
@@ -335,8 +358,10 @@ function MatrixTable({
     const tags = [
       ...new Set(matrix.columns.flatMap(({ tag }) => (tag ? [tag] : []))),
     ];
-    return buildMatrixColumns(matrix.columns, (column) =>
-      renderPlatformTag(column, tags.indexOf(column.tag ?? '')),
+    return buildMatrixColumns(
+      matrix.columns,
+      (column) => renderPlatformTag(column, tags.indexOf(column.tag ?? '')),
+      (column) => <span className='column-name'>{column.shortLabel}</span>,
     );
   }, [matrix.columns]);
 
@@ -571,6 +596,13 @@ function SubtestsCrossPlatformTable({
           zIndex: 101,
           bgcolor: 'background.default',
           paddingBlock: 1,
+          // When the page scrolls horizontally, the table is wider than this
+          // row: extend its background over the whole width so that the rows
+          // don't show through above the header. A shadow, unlike a wider
+          // box, doesn't make the page wider.
+          boxShadow: (theme) =>
+            `0 0 0 100vmax ${theme.palette.background.default}`,
+          clipPath: 'inset(0 -100vmax)',
         }}
       >
         {controls}
