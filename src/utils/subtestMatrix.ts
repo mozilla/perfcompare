@@ -9,7 +9,7 @@ import {
   CROSS_PLATFORM_MAX_WIDTH,
   tooltipAgreement,
 } from '../common/constants';
-import { getStrategy } from '../common/testVersions';
+import { getStrategy, type TestVersionStrategy } from '../common/testVersions';
 import { Spacing } from '../styles';
 import type { CombinedResultsItemType } from '../types/state';
 import type { TableConfig, TestVersion } from '../types/types';
@@ -102,11 +102,11 @@ export const agreementLabels: Record<AgreementBucket, string> = {
 // by a single platform can't confirm anything across platforms.
 const MIN_CONSISTENT_PLATFORMS = 2;
 
+// Takes the strategy, so that it's looked up once per matrix.
 function cellStatus(
   result: CombinedResultsItemType,
-  testVersion: TestVersion,
+  strategy: TestVersionStrategy,
 ): MatrixCellStatus {
-  const strategy = getStrategy(testVersion);
   // Noise first so the buckets stay mutually exclusive, like the Status filter.
   if (strategy.isNoise(result)) return 'noise';
   if (strategy.isImprovement(result)) return 'improvement';
@@ -362,7 +362,7 @@ export function buildSubtestMatrix(
       // first one rather than counting a platform twice.
       if (row.cells.has(column.key)) continue;
 
-      const status = cellStatus(result, testVersion);
+      const status = cellStatus(result, strategy);
       row.cells.set(column.key, {
         result,
         status,
