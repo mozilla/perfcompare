@@ -122,23 +122,20 @@ const matrixStyles = style({
       justifyContent: 'center',
       minWidth: 0,
     },
-    // Names stay on one line inside the button, next to the sort icon, and
-    // trail off when too long: the header's tooltip has the full name.
+    // Names wrap inside the button rather than spilling out of it: the icon
+    // stays on the left, the name wraps between words, and the column's
+    // minimum width fits the longest word.
     '.table-header [class*="platform-"] button': {
       flexWrap: 'nowrap',
       width: '100%',
       maxWidth: PLATFORM_CONTENT_MAX_WIDTH,
       minWidth: 0,
       padding: `${Spacing.xSmall}px ${Spacing.Small - 2}px`,
+      textAlign: 'center',
+      overflowWrap: 'break-word',
     },
-    // Not "platform-…", which the selectors above match.
-    '.table-header .column-name': {
-      minWidth: 0,
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-    },
-    // So that more of the names fit before trailing off as columns narrow.
+    // So that names like "Windows 11" keep fitting on one line, next to the
+    // sort icon, as columns narrow.
     '@container platform-header (max-width: 139.99px)': {
       $nest: {
         '& .table-header [class*="platform-"] button': { fontSize: '14px' },
@@ -148,6 +145,13 @@ const matrixStyles = style({
       $nest: {
         '& .table-header [class*="platform-"] button': { fontSize: '13px' },
       },
+    },
+    // A name that wraps would fill the fixed height of the button, touching
+    // its edges: smaller and with tighter lines, its 2 lines keep some room.
+    // Set by useFlagWrappedPlatformNames.
+    '& .table-header [class*="platform-"] button[data-wrapped]': {
+      fontSize: '12px',
+      lineHeight: 1.05,
     },
     // The variant row and the table header read as one two-row header.
     '.variant-header': {
@@ -336,6 +340,44 @@ function VariantHeader({
   );
 }
 
+const PLATFORM_HEADER_BUTTONS = '.table-header [class*="platform-"] button';
+
+// Flags the platform headers whose name wraps (see their data-wrapped style),
+// whenever the header is laid out again. Each name is measured at its normal
+// size first, so that the result doesn't depend on the previous one.
+function useFlagWrappedPlatformNames(dependency: unknown) {
+  const ref = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const header = ref.current;
+    if (!header) return;
+    const update = () => {
+      for (const button of header.querySelectorAll<HTMLElement>(
+        PLATFORM_HEADER_BUTTONS,
+      )) {
+        delete button.dataset.wrapped;
+        const name = [...button.childNodes].find(
+          (node) => node.nodeType === Node.TEXT_NODE,
+        );
+        if (!name) continue;
+        const range = document.createRange();
+        range.selectNodeContents(name);
+        // Not available in jsdom.
+        if (!('getClientRects' in range)) continue;
+        const lineTops = new Set(
+          [...range.getClientRects()].map(({ top }) => Math.round(top)),
+        );
+        if (lineTops.size > 1) button.dataset.wrapped = '';
+      }
+    };
+    update();
+    if (typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(update);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, [dependency]);
+  return ref;
+}
+
 type MatrixTableProps = {
   platformResults: PlatformSubtestResults[];
   filteringSearchTerm: string;
@@ -358,10 +400,8 @@ function MatrixTable({
     const tags = [
       ...new Set(matrix.columns.flatMap(({ tag }) => (tag ? [tag] : []))),
     ];
-    return buildMatrixColumns(
-      matrix.columns,
-      (column) => renderPlatformTag(column, tags.indexOf(column.tag ?? '')),
-      (column) => <span className='column-name'>{column.shortLabel}</span>,
+    return buildMatrixColumns(matrix.columns, (column) =>
+      renderPlatformTag(column, tags.indexOf(column.tag ?? '')),
     );
   }, [matrix.columns]);
 
@@ -445,6 +485,7 @@ function MatrixTable({
   );
 
   const gridTemplateColumns = toGridTemplateColumns(columnsConfiguration);
+  const headerRef = useFlagWrappedPlatformNames(columnsConfiguration);
   const platformCount = matrix.columns.length;
   const minWidth = `max(${RESULTS_TABLE_MIN_WIDTH}, ${matrixMinWidth(
     platformCount,
@@ -511,6 +552,7 @@ function MatrixTable({
           {/* Stays at the top of the window, below the controls, while
             scrolling the rows, like the results table's header. */}
           <Box
+            ref={headerRef}
             data-testid='subtests-cross-platform-header'
             sx={{
               position: 'sticky',
