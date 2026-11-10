@@ -5,10 +5,12 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Await, useLoaderData } from 'react-router';
 import { Virtuoso } from 'react-virtuoso';
-import { media, style } from 'typestyle';
+import { style } from 'typestyle';
+import type { NestedCSSProperties } from 'typestyle/lib/types';
 
 import SubtestsCrossPlatformRow from './SubtestsCrossPlatformRow';
 import { RESULTS_TABLE_MIN_WIDTH } from '../../../../common/constants';
+import { useAppSelector } from '../../../../hooks/app';
 import useExpandedRowOptions from '../../../../hooks/useExpandedRowOptions';
 import useSeededAdvancedColumns from '../../../../hooks/useSeededAdvancedColumns';
 import useTableFilters, {
@@ -17,7 +19,7 @@ import useTableFilters, {
 } from '../../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../../hooks/useTableSort';
 import { Strings } from '../../../../resources/Strings';
-import { Spacing } from '../../../../styles';
+import { Colors, Spacing } from '../../../../styles';
 import { toGridTemplateColumns } from '../../../../utils/gridTemplateColumns';
 import {
   AGREEMENT_COLUMN_WIDTH,
@@ -30,6 +32,7 @@ import {
   matrixRowMatchesSearchTerm,
   type PlatformColumnInfo,
   type PlatformSubtestResults,
+  type PlatformVariant,
 } from '../../../../utils/subtestMatrix';
 import { buildSubtestsCompareWithBaseLink } from '../../../../utils/subtestsLinks';
 import FilteredRowsNotice from '../../FilteredRowsNotice';
@@ -51,6 +54,14 @@ const stickyCell = (left: number) => ({
 });
 const agreementLeft = SUBTESTS_COLUMN_WIDTH + Spacing.Small;
 
+// The platform headers' font size steps down with the column's own width,
+// which depends on the number of platforms, not on the screen's. Typestyle's
+// types predate container queries, hence the cast.
+const platformHeaderContainer = {
+  containerType: 'inline-size',
+  containerName: 'platform-header',
+} as NestedCSSProperties;
+
 const matrixStyles = style({
   overflowX: 'auto',
   marginTop: Spacing.Large,
@@ -70,27 +81,74 @@ const matrixStyles = style({
       padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
       wordBreak: 'break-word',
     },
-    // Same inline padding as the row cells, so labels keep clear of the
+    // Same inline padding as the platform cells, so labels keep clear of the
     // header edges. The tag sits below the button, so it doesn't widen the
     // column.
     '.table-header [class*="platform-"]': {
-      paddingInline: `${Spacing.Small}px`,
+      paddingInline: `${Spacing.xSmall}px`,
       flexDirection: 'column',
       gap: Spacing.xSmall,
+      ...platformHeaderContainer,
     },
     // Every platform button fills its (equal-width) column, inside the
     // tooltip's span, so that they all have the same width.
     '.table-header [class*="platform-"] > span:not(.platform-tag)': {
       display: 'flex',
       alignSelf: 'stretch',
+      minWidth: 0,
     },
+    // Names wrap inside the button rather than spilling out of it: the icon
+    // stays on the left, the name wraps between words, and the column's
+    // minimum width fits the longest word.
     '.table-header [class*="platform-"] button': {
       flexWrap: 'nowrap',
       width: '100%',
-      // Up to the Protocol "Large" breakpoint, so names like "Windows 11" fit
-      // on one line with 5 platforms.
-      ...media({ maxWidth: 1311.99999 }, { fontSize: '0.875rem' }),
+      maxWidth: '100%',
+      minWidth: 0,
+      padding: `${Spacing.xSmall}px ${Spacing.Small - 2}px`,
+      textAlign: 'center',
+      overflowWrap: 'break-word',
     },
+    // So that names like "Windows 11" keep fitting on one line, next to the
+    // sort icon, as columns narrow.
+    '@container platform-header (max-width: 139.99px)': {
+      $nest: {
+        '& .table-header [class*="platform-"] button': { fontSize: '14px' },
+      },
+    },
+    '@container platform-header (max-width: 103.99px)': {
+      $nest: {
+        '& .table-header [class*="platform-"] button': { fontSize: '13px' },
+      },
+    },
+    // The variant row and the table header read as one two-row header.
+    '.variant-header': {
+      display: 'grid',
+      // Keep this gap in sync with the header grid in TableHeader.
+      columnGap: `${Spacing.Small}px`,
+      marginTop: Spacing.Medium,
+      paddingTop: Spacing.Medium,
+      borderRadius: '4px 4px 0 0',
+      fontWeight: 700,
+    },
+    '.variant-header + .table-header': {
+      marginTop: 0,
+      paddingTop: Spacing.Small,
+      borderRadius: '0 0 4px 4px',
+    },
+    '.variant-cell': {
+      display: 'flex',
+      justifyContent: 'center',
+      paddingBottom: Spacing.xSmall,
+      borderBottom: '2px solid',
+      borderColor: 'inherit',
+      textTransform: 'uppercase',
+      fontSize: '0.75rem',
+      letterSpacing: '0.04em',
+      whiteSpace: 'nowrap',
+    },
+    '& .variant-header .subtests-spacer': stickyCell(0),
+    '& .variant-header .agreement-spacer': stickyCell(agreementLeft),
     '.platform-tag': {
       borderRadius: '4px',
       padding: '1px 6px',
@@ -124,29 +182,30 @@ const matrixStyles = style({
         width: Spacing.Small,
         background: 'inherit',
       },
+    // Compact cells: the tint and the icon carry the status, so a column
+    // only needs to fit the delta.
+    '.matrix-row .platform-cell': {
+      padding: `${Spacing.xSmall}px`,
+    },
     '.status-hint': {
       display: 'inline-flex',
-      gap: '6px',
-      borderRadius: '4px',
-      padding: '4px 10px',
+      justifyContent: 'center',
       alignItems: 'center',
+      gap: '4px',
+      minWidth: '100%',
+      borderRadius: '4px',
+      padding: '4px 6px',
+      fontSize: '0.8125rem',
+      fontVariantNumeric: 'tabular-nums',
       whiteSpace: 'nowrap',
     },
     '.status-hint .MuiSvgIcon-root': {
-      height: '16px',
+      height: '14px',
+      width: '14px',
     },
     '.status-hint-regression .MuiSvgIcon-root': {
       // Moves the icon a bit lower so that it _looks_ centered.
       marginTop: '2px',
-    },
-    '.noise-label': {
-      borderRadius: '4px',
-      padding: '2px 8px',
-      fontSize: '11px',
-      fontWeight: 600,
-      lineHeight: 1.2,
-      textTransform: 'uppercase',
-      letterSpacing: '0.02em',
     },
   },
 });
@@ -171,6 +230,48 @@ function renderPlatformTag(column: PlatformColumnInfo, tagIndex: number) {
     >
       {column.tag}
     </Box>
+  );
+}
+
+type VariantHeaderProps = {
+  variants: PlatformVariant[];
+  gridTemplateColumns: string;
+  minWidth: string;
+};
+
+// Spans each variant's label over its columns, above the platform names.
+function VariantHeader({
+  variants,
+  gridTemplateColumns,
+  minWidth,
+}: VariantHeaderProps) {
+  const themeMode = useAppSelector((state) => state.theme.mode);
+  const background =
+    themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark;
+  return (
+    <div
+      className='variant-header'
+      data-testid='variant-header'
+      role='row'
+      style={{ gridTemplateColumns, minWidth, background }}
+    >
+      <div className='subtests-spacer' aria-hidden='true' />
+      <div className='agreement-spacer' aria-hidden='true' />
+      {variants.map((variant) => (
+        <Box
+          key={variant.key}
+          className='variant-cell'
+          role='columnheader'
+          aria-colspan={variant.columnCount}
+          sx={{
+            gridColumn: `span ${variant.columnCount}`,
+            borderColor: 'divider',
+          }}
+        >
+          {variant.label}
+        </Box>
+      ))}
+    </div>
   );
 }
 
@@ -346,6 +447,13 @@ function MatrixTable({
         role='table'
       >
         <Box sx={{ minWidth, '& .table-header': { minWidth } }}>
+          {matrix.variants.length > 1 && (
+            <VariantHeader
+              variants={matrix.variants}
+              gridTemplateColumns={gridTemplateColumns}
+              minWidth={minWidth}
+            />
+          )}
           <TableHeader
             columnsConfiguration={columnsConfiguration}
             filters={tableFilters}

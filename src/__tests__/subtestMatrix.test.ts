@@ -97,10 +97,14 @@ describe('buildSubtestMatrix', () => {
       STUDENT_T,
     );
 
+    // Sorted by OS, all in the same (shippable) variant.
     expect(matrix.columns.map(({ key, label }) => [key, label])).toEqual([
-      ['platform-0', 'Linux 18.04'],
-      ['platform-1', 'Windows 11'],
+      ['platform-0', 'Windows 11'],
+      ['platform-1', 'Linux 18.04'],
       ['platform-2', 'macOS 15'],
+    ]);
+    expect(matrix.variants).toEqual([
+      { key: 'shippable', label: 'shippable', columnCount: 3 },
     ]);
 
     const [rowA, rowB] = matrix.rows;
@@ -139,7 +143,7 @@ describe('buildSubtestMatrix', () => {
     expect(matrix.rows[0]).toMatchObject({ regressions: 1, present: 1 });
   });
 
-  it('labels same-named platforms with the options that set them apart', () => {
+  it('groups same-named platforms by the options that set them apart', () => {
     const matrix = buildSubtestMatrix(
       [
         platformResults(LINUX, [
@@ -152,14 +156,77 @@ describe('buildSubtestMatrix', () => {
       STUDENT_T,
     );
     expect(
-      matrix.columns.map(({ label, shortLabel, tag }) => [
+      matrix.columns.map(({ label, shortLabel, tag, variant }) => [
         label,
         shortLabel,
         tag,
+        variant,
       ]),
     ).toEqual([
-      ['Linux 18.04 (fission)', 'Linux 18.04', 'fission'],
-      ['Linux 18.04 (opt e10s)', 'Linux 18.04', 'opt e10s'],
+      [
+        'Linux 18.04 (shippable · fission)',
+        'Linux 18.04',
+        undefined,
+        'shippable fission',
+      ],
+      ['Linux 18.04 (shippable)', 'Linux 18.04', undefined, 'shippable'],
+    ]);
+    expect(matrix.variants).toEqual([
+      {
+        key: 'shippable fission',
+        label: 'shippable · fission',
+        columnCount: 1,
+      },
+      { key: 'shippable', label: 'shippable', columnCount: 1 },
+    ]);
+  });
+
+  it('groups platforms by build type, in the same order in every group', () => {
+    const matrix = buildSubtestMatrix(
+      [
+        'android-hw-p6-13-0-aarch64-nightlyasrelease',
+        'linux2404-64-shippable',
+        'windows11-64-24h2-hw-ref-shippable',
+        'windows11-64-24h2-shippable',
+        'linux2404-64-nightlyasrelease',
+        'android-hw-p6-13-0-aarch64-shippable',
+      ].map((platform) =>
+        platformResults(platform as Platform, [subtest('a.html', 'none')]),
+      ),
+      STUDENT_T,
+    );
+    expect(
+      matrix.columns.map(({ shortLabel, variant }) => [variant, shortLabel]),
+    ).toEqual([
+      ['shippable', 'Pixel 6'],
+      ['shippable', 'Windows 11'],
+      ['shippable', 'Windows 11 ref'],
+      ['shippable', 'Linux 24.04'],
+      ['nightly-as-release', 'Pixel 6'],
+      ['nightly-as-release', 'Linux 24.04'],
+    ]);
+    expect(matrix.columns[0].label).toBe('Pixel 6 (shippable)');
+    expect(matrix.variants).toEqual([
+      { key: 'shippable', label: 'shippable', columnCount: 4 },
+      {
+        key: 'nightly-as-release',
+        label: 'nightly-as-release',
+        columnCount: 2,
+      },
+    ]);
+  });
+
+  it('tags platforms that are still indistinguishable', () => {
+    const matrix = buildSubtestMatrix(
+      [
+        platformResults(LINUX, [subtest('a.html', 'none')]),
+        platformResults('linux1804-64-shippable', [subtest('a.html', 'none')]),
+      ],
+      STUDENT_T,
+    );
+    expect(matrix.columns.map(({ label, tag }) => [label, tag])).toEqual([
+      [`Linux 18.04 (${LINUX})`, LINUX],
+      ['Linux 18.04 (linux1804-64-shippable)', 'linux1804-64-shippable'],
     ]);
   });
 
@@ -171,7 +238,9 @@ describe('buildSubtestMatrix', () => {
       ],
       STUDENT_T,
     );
-    expect(matrix.columns[1]).toMatchObject({ error: 'Error: 500' });
+    expect(
+      matrix.columns.find(({ platform }) => platform === WINDOWS),
+    ).toMatchObject({ error: 'Error: 500' });
     expect(matrix.rows[0]).toMatchObject({ present: 1, totalPlatforms: 2 });
   });
 
@@ -190,10 +259,14 @@ describe('buildSubtestMatrix', () => {
       STUDENT_T,
     );
     expect(matrix.columns.map(({ key, label }) => [key, label])).toEqual([
-      ['platform-0', 'Linux 18.04'],
-      ['platform-1', 'Windows 11'],
+      ['platform-0', 'Windows 11'],
+      ['platform-1', 'Linux 18.04'],
     ]);
-    expect(matrix.hiddenPlatforms).toEqual([WINDOWS, MAC, LINUX]);
+    expect(matrix.hiddenPlatforms).toEqual([
+      'Windows 11 (shippable)',
+      'macOS 15 (shippable)',
+      'Linux 18.04 (shippable)',
+    ]);
     expect(matrix.rows).toHaveLength(1);
     expect(matrix.rows[0]).toMatchObject({
       test: 'a.html',
@@ -241,7 +314,8 @@ describe('buildMatrixColumns', () => {
 
   it('sorts a platform by change, better first when descending', () => {
     // lower_is_better, so a negative delta is the best change.
-    expect(sortedTests('platform-0', 'desc')).toEqual([
+    const linux = matrix.columns.find(({ platform }) => platform === LINUX);
+    expect(sortedTests(linux!.key, 'desc')).toEqual([
       'improved.html',
       'consistent.html',
       'partial.html',

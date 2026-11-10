@@ -21,6 +21,7 @@ const osMapping = {
   linux64: 'Linux x64',
   linux1804: 'Linux 18.04',
   linux2204: 'Linux 22.04',
+  linux2404: 'Linux 24.04',
   osx: 'macOS',
   macosx1014: 'macOS 10.14',
   macosx1015: 'macOS 10.15',
@@ -50,14 +51,27 @@ const extractPlatformWithOs = (platform: string) => {
   return getPlatformShortName(platform);
 };
 
+// The Android test devices, by their code in the platform name.
+const androidDevices: Record<string, string> = {
+  a51: 'Galaxy\u00a0A51',
+  a55: 'Galaxy\u00a0A55',
+  s21: 'Galaxy\u00a0S21',
+  s24: 'Galaxy\u00a0S24',
+  p2: 'Pixel\u00a02',
+  p5: 'Pixel\u00a05',
+  p6: 'Pixel\u00a06',
+};
+
 export const getPlatformAndVersion = (platform: string): string => {
   // Example of android platform, the split is specific for this platform
   // Other platforms are built differently
   // android-hw-p6-13-0-android-aarch64-shippable-qr
   if (platform.startsWith('android-hw-')) {
-    const platformShortName = getPlatformShortName(platform);
-
-    return `${platformShortName}\u00a0${platform.split('-')[2]}`;
+    const device = platform.split('-')[2];
+    return (
+      androidDevices[device] ??
+      `${getPlatformShortName(platform)}\u00a0${device}`
+    );
   }
 
   return extractPlatformWithOs(platform);

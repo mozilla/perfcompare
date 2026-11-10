@@ -39,6 +39,7 @@ function cellTooltipLines(cell: MatrixCell, testVersion: TestVersion) {
   const { result } = cell;
   const { baseAvg, newAvg } = getStrategy(testVersion).getAvgValues(result);
   const lines = [
+    statusText[cell.status],
     result.platform,
     `Base: ${formatAvg(baseAvg, result.base_measurement_unit)} (${result.base_runs.length} runs)`,
     `New: ${formatAvg(newAvg, result.new_measurement_unit)} (${result.new_runs.length} runs)`,
@@ -121,36 +122,23 @@ function PlatformStatusCell({
           underline='none'
           color='inherit'
           aria-label={`${column.label}: ${statusText[status]} ${delta}`}
+          className={`status-hint ${determineStatusHintClass(
+            isImprovement,
+            isRegression,
+          )} status-hint-${status}`}
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 0.5,
+            bgcolor: isImprovement
+              ? 'status.improvement'
+              : isRegression
+                ? 'status.regression'
+                : undefined,
+            // Noise is shown, dimmed, as it isn't a meaningful change.
+            color: status === 'noise' ? 'text.disabled' : undefined,
           }}
         >
-          {status === 'noise' && (
-            <Box component='span' className='noise-label'>
-              {statusText.noise}
-            </Box>
-          )}
-          <Box
-            className={`status-hint ${determineStatusHintClass(
-              isImprovement,
-              isRegression,
-            )}`}
-            sx={{
-              bgcolor: isImprovement
-                ? 'status.improvement'
-                : isRegression
-                  ? 'status.regression'
-                  : 'none',
-              color: status === 'noise' ? 'text.secondary' : undefined,
-            }}
-          >
-            {isImprovement ? <ThumbUpIcon color='success' /> : null}
-            {isRegression ? <ThumbDownIcon color='error' /> : null}
-            {delta}
-          </Box>
+          {isImprovement ? <ThumbUpIcon color='success' /> : null}
+          {isRegression ? <ThumbDownIcon color='error' /> : null}
+          {delta}
         </Link>
       </Tooltip>
     </div>

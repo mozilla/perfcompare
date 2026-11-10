@@ -3,7 +3,7 @@
 
 import type { ReactNode } from 'react';
 
-import { getPlatformAndVersion } from './platform';
+import { getPlatformAndVersion, getPlatformShortName } from './platform';
 import { stringComparisonCollator } from './sortFunctions';
 import { tooltipAgreement } from '../common/constants';
 import { getStrategy } from '../common/testVersions';
@@ -23,11 +23,15 @@ export type PlatformSubtestResults = {
 export type PlatformColumnInfo = {
   key: string;
   platform: string;
-  // eg. "Windows 11 (webrender-sw)": shortLabel plus tag, if any.
+  // eg. "Windows 11 (shippable)": shortLabel plus the variant, when there are
+  // several, and the tag, if any. Used where the header isn't visible.
   label: string;
+  // eg. "Windows 11" or "Windows 11 ref", shown in the column header.
   shortLabel: string;
-  // What sets this column apart from others with the same shortLabel.
+  // Only for columns that still share a shortLabel in the same variant.
   tag?: string;
+  // The key of the PlatformVariant that this column belongs to.
+  variant: string;
   baseParentSignature: string;
   newParentSignature: string;
   error?: string;
@@ -63,11 +67,21 @@ export type SubtestMatrixRow = {
   score: number;
 };
 
+// A group of contiguous columns sharing a build type and test options, eg.
+// "shippable" and "nightly-as-release".
+export type PlatformVariant = {
+  key: string;
+  label: string;
+  columnCount: number;
+};
+
 export type SubtestMatrix = {
+  // Sorted by variant, then by platform in the same order in every variant.
   columns: PlatformColumnInfo[];
   rows: SubtestMatrixRow[];
-  // Platforms left out because none of their subtests has both base and new
-  // runs.
+  variants: PlatformVariant[];
+  // Readable names of the platforms left out because none of their subtests
+  // has both base and new runs.
   hiddenPlatforms: string[];
 };
 
@@ -132,34 +146,155 @@ function configTokens(platformResult: PlatformSubtestResults): string[] {
   );
 }
 
-// Platforms are merged across test options, so two columns can share a short
-// name (eg. Linux 18.04 with and without fission): tag them with what sets
-// them apart.
-function columnLabels(
-  platformResults: PlatformSubtestResults[],
-): Array<Pick<PlatformColumnInfo, 'label' | 'shortLabel' | 'tag'>> {
-  const shortLabels = platformResults.map(
-    ({ platform }) => getPlatformAndVersion(platform) || platform,
-  );
-  return shortLabels.map((shortLabel, index) => {
-    const collidingIndexes = shortLabels
-      .map((other, otherIndex) => (other === shortLabel ? otherIndex : -1))
-      .filter((otherIndex) => otherIndex !== -1);
-    if (collidingIndexes.length === 1) return { label: shortLabel, shortLabel };
+// The build types found in platform names, in display order.
+const BUILD_TYPES = [
+  { token: 'shippable', label: 'shippable' },
+  { token: 'nightlyasrelease', label: 'nightly-as-release' },
+  { token: 'asan', label: 'asan' },
+  { token: 'tsan', label: 'tsan' },
+  { token: 'ccov', label: 'ccov' },
+  { token: 'debug', label: 'debug' },
+];
 
-    const tokensPerColumn = collidingIndexes.map((otherIndex) =>
-      configTokens(platformResults[otherIndex]),
+function buildType(platform: string) {
+  const tokens = platform.split('-');
+  return BUILD_TYPES.findIndex(({ token }) => tokens.includes(token));
+}
+
+// eg. windows11-64-24h2-hw-ref-shippable: the reference hardware, a different
+// machine from the regular windows11-64-24h2-shippable.
+function isReferenceHardware(platform: string) {
+  return /-hw-ref(-|$)/.test(platform);
+}
+
+// With normal spaces, as the narrow headers need to wrap, eg. "Galaxy A55".
+function platformShortLabel(platform: string) {
+  const label = (getPlatformAndVersion(platform) || platform).replace(
+    /\u00a0/g,
+    ' ',
+  );
+  return isReferenceHardware(platform) ? `${label} ref` : label;
+}
+
+// Keeps the platforms in the same order in every variant.
+const OS_ORDER = ['Android', 'Windows', 'Linux', 'macOS', 'iOS'];
+function osRank(platform: string) {
+  const rank = OS_ORDER.indexOf(getPlatformShortName(platform));
+  return rank === -1 ? OS_ORDER.length : rank;
+}
+
+type VariantInfo = { key: string; label: string; rank: number };
+
+// Platforms are merged across build types and test options, so the same
+// platform can show up several times: group its columns by what sets them
+// apart.
+function platformVariants(platformResults: PlatformSubtestResults[]) {
+  const tokensPerPlatform = platformResults.map(configTokens);
+  const withTokens = tokensPerPlatform.filter((tokens) => tokens.length);
+  const commonTokens = (withTokens[0] ?? []).filter((token) =>
+    withTokens.every((tokens) => tokens.includes(token)),
+  );
+  const variants = platformResults.map(({ platform }, index): VariantInfo => {
+    const buildTypeIndex = buildType(platform);
+    const distinctTokens = tokensPerPlatform[index].filter(
+      (token) => !commonTokens.includes(token),
     );
-    const ownTokens = configTokens(platformResults[index]);
-    const distinct = ownTokens.filter(
-      (token) => !tokensPerColumn.every((tokens) => tokens.includes(token)),
-    );
-    const tag =
-      distinct.join(' ') ||
-      ownTokens.join(' ') ||
-      platformResults[index].platform;
-    return { label: `${shortLabel} (${tag})`, shortLabel, tag };
+    const parts = [
+      ...(buildTypeIndex === -1 ? [] : [BUILD_TYPES[buildTypeIndex].label]),
+      ...(distinctTokens.length ? [distinctTokens.join(' ')] : []),
+    ];
+    return {
+      key: parts.join(' '),
+      label: parts.join(' · ') || 'default',
+      rank: buildTypeIndex === -1 ? BUILD_TYPES.length : buildTypeIndex,
+    };
   });
+  return variants;
+}
+
+// eg. "Galaxy S24 (nightly-as-release)", for the hidden platforms notice.
+export function describePlatform(platform: string) {
+  const index = buildType(platform);
+  const label = platformShortLabel(platform);
+  return index === -1 ? label : `${label} (${BUILD_TYPES[index].label})`;
+}
+
+type SortedColumn = {
+  platformResult: PlatformSubtestResults;
+  shortLabel: string;
+  variant: VariantInfo;
+};
+
+function sortColumns(
+  platformResults: PlatformSubtestResults[],
+  variants: VariantInfo[],
+): SortedColumn[] {
+  const columns = platformResults.map((platformResult, index) => ({
+    platformResult,
+    shortLabel: platformShortLabel(platformResult.platform),
+    variant: variants[index],
+  }));
+  // Variants by build type, then by first appearance.
+  const variantOrder = [
+    ...new Set(
+      [...columns]
+        .sort((a, b) => a.variant.rank - b.variant.rank)
+        .map(({ variant }) => variant.key),
+    ),
+  ];
+  // Stable, so same-named platforms keep the order of the URL.
+  return columns.sort(
+    (a, b) =>
+      variantOrder.indexOf(a.variant.key) -
+        variantOrder.indexOf(b.variant.key) ||
+      osRank(a.platformResult.platform) - osRank(b.platformResult.platform) ||
+      stringComparisonCollator.compare(a.shortLabel, b.shortLabel),
+  );
+}
+
+// Groups contiguous columns. Columns sharing a shortLabel in the same
+// variant are tagged with their platform, the only thing left to tell them
+// apart.
+function buildColumns(sortedColumns: SortedColumn[]) {
+  const variants: PlatformVariant[] = [];
+  for (const { variant } of sortedColumns) {
+    const last = variants[variants.length - 1];
+    if (last?.key === variant.key) last.columnCount++;
+    else
+      variants.push({ key: variant.key, label: variant.label, columnCount: 1 });
+  }
+  const hasSeveralVariants = variants.length > 1;
+
+  const columns = sortedColumns.map(
+    ({ platformResult, shortLabel, variant }, index): PlatformColumnInfo => {
+      const isColliding = sortedColumns.some(
+        (other, otherIndex) =>
+          otherIndex !== index &&
+          other.variant.key === variant.key &&
+          other.shortLabel === shortLabel,
+      );
+      const tag = isColliding ? platformResult.platform : undefined;
+      const qualifiers = [
+        ...(hasSeveralVariants && variant.key ? [variant.label] : []),
+        ...(tag ? [tag] : []),
+      ];
+      return {
+        // Index-based so that keys are unique and URL-safe.
+        key: `platform-${index}`,
+        platform: platformResult.platform,
+        label: qualifiers.length
+          ? `${shortLabel} (${qualifiers.join(', ')})`
+          : shortLabel,
+        shortLabel,
+        tag,
+        variant: variant.key,
+        baseParentSignature: platformResult.baseParentSignature,
+        newParentSignature: platformResult.newParentSignature,
+        error: platformResult.error,
+      };
+    },
+  );
+  return { columns, variants };
 }
 
 // A subtest missing its base or new runs has nothing to compare: showing it
@@ -178,7 +313,7 @@ function withComparableData(platformResults: PlatformSubtestResults[]) {
     if (platformResult.error || results.length > 0) {
       kept.push({ ...platformResult, results });
     } else {
-      hiddenPlatforms.push(platformResult.platform);
+      hiddenPlatforms.push(describePlatform(platformResult.platform));
     }
   }
   return { kept, hiddenPlatforms };
@@ -189,20 +324,13 @@ export function buildSubtestMatrix(
   testVersion: TestVersion,
 ): SubtestMatrix {
   const strategy = getStrategy(testVersion);
-  const { kept: platformResults, hiddenPlatforms } =
-    withComparableData(allPlatformResults);
-  const labels = columnLabels(platformResults);
-  const columns: PlatformColumnInfo[] = platformResults.map(
-    (platformResult, index) => ({
-      // Index-based so that keys are unique and URL-safe.
-      key: `platform-${index}`,
-      platform: platformResult.platform,
-      ...labels[index],
-      baseParentSignature: platformResult.baseParentSignature,
-      newParentSignature: platformResult.newParentSignature,
-      error: platformResult.error,
-    }),
+  const { kept, hiddenPlatforms } = withComparableData(allPlatformResults);
+  const variantPerPlatform = platformVariants(kept);
+  const sortedColumns = sortColumns(kept, variantPerPlatform);
+  const platformResults = sortedColumns.map(
+    ({ platformResult }) => platformResult,
   );
+  const { columns, variants } = buildColumns(sortedColumns);
   const totalPlatforms = columns.length;
   const rowsByTest = new Map<string, SubtestMatrixRow>();
 
@@ -254,7 +382,7 @@ export function buildSubtestMatrix(
     row.score = agreementScore(row);
   }
 
-  return { columns, rows, hiddenPlatforms };
+  return { columns, rows, variants, hiddenPlatforms };
 }
 
 /* --- Table configuration --- */
@@ -266,7 +394,9 @@ export const DEFAULT_MATRIX_SORT = `${AGREEMENT_COLUMN}|desc`;
 // Fixed widths so that the first two columns can stick while scrolling.
 export const SUBTESTS_COLUMN_WIDTH = 240;
 export const AGREEMENT_COLUMN_WIDTH = 180;
-export const PLATFORM_COLUMN_MIN_WIDTH = 110;
+// Fits the longest word of a header, eg. "Windows" next to the sort icon,
+// so that names only wrap between words.
+export const PLATFORM_COLUMN_MIN_WIDTH = 100;
 
 export function compareSubtestNames(
   rowA: SubtestMatrixRow,
