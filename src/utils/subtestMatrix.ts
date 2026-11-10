@@ -5,8 +5,12 @@ import type { ReactNode } from 'react';
 
 import { getPlatformAndVersion, getPlatformShortName } from './platform';
 import { stringComparisonCollator } from './sortFunctions';
-import { tooltipAgreement } from '../common/constants';
+import {
+  CROSS_PLATFORM_MAX_WIDTH,
+  tooltipAgreement,
+} from '../common/constants';
 import { getStrategy } from '../common/testVersions';
+import { Spacing } from '../styles';
 import type { CombinedResultsItemType } from '../types/state';
 import type { TableConfig, TestVersion } from '../types/types';
 
@@ -392,11 +396,43 @@ export const AGREEMENT_COLUMN = 'agreement';
 export const DEFAULT_MATRIX_SORT = `${AGREEMENT_COLUMN}|desc`;
 
 // Fixed widths so that the first two columns can stick while scrolling.
-export const SUBTESTS_COLUMN_WIDTH = 240;
-export const AGREEMENT_COLUMN_WIDTH = 180;
+// Long subtest names wrap.
+export const SUBTESTS_COLUMN_WIDTH = 200;
+// Fits the "Agreement (6)" header on one line, with some room for fonts.
+export const AGREEMENT_COLUMN_WIDTH = 184;
+// Fits the compact chip, with the header wrapping inside its button.
+export const AGREEMENT_COLUMN_NARROW_WIDTH = 140;
 // Fits the longest word of a header, eg. "Windows" next to the sort icon,
 // so that names only wrap between words.
 export const PLATFORM_COLUMN_MIN_WIDTH = 100;
+// Platform columns share the width left, but their buttons and cells stop
+// growing at this width, so that they don't turn into wide bars when there
+// are only a few platforms. Below it, they shrink with their column.
+export const PLATFORM_CONTENT_MAX_WIDTH = 150;
+// The page's horizontal padding, from MUI's Container, on each side.
+const PAGE_GUTTER = 24;
+
+// The narrowest the table can be, with the grid gaps (Spacing.Small, like the
+// header and the rows).
+export function matrixMinWidth(platformCount: number, agreementWidth: number) {
+  return (
+    SUBTESTS_COLUMN_WIDTH +
+    agreementWidth +
+    platformCount * PLATFORM_COLUMN_MIN_WIDTH +
+    (platformCount + 1) * Spacing.Small
+  );
+}
+
+// The agreement header stays on one line as long as the platforms fit the
+// widest page (9 platforms with the current widths). After that, the column
+// narrows to fit one more platform before the table scrolls, and its header
+// wraps.
+export function agreementColumnWidth(platformCount: number) {
+  const fits =
+    matrixMinWidth(platformCount, AGREEMENT_COLUMN_WIDTH) <=
+    CROSS_PLATFORM_MAX_WIDTH - 2 * PAGE_GUTTER;
+  return fits ? AGREEMENT_COLUMN_WIDTH : AGREEMENT_COLUMN_NARROW_WIDTH;
+}
 
 export function compareSubtestNames(
   rowA: SubtestMatrixRow,
@@ -426,7 +462,7 @@ export function buildMatrixColumns(
     {
       key: AGREEMENT_COLUMN,
       name: 'Agreement',
-      gridWidth: `${AGREEMENT_COLUMN_WIDTH}px`,
+      gridWidth: `${agreementColumnWidth(columns.length)}px`,
       tooltip: tooltipAgreement,
       filter: true,
       possibleValues: (Object.keys(agreementLabels) as AgreementBucket[]).map(

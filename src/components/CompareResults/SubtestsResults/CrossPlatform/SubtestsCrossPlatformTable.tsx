@@ -22,12 +22,13 @@ import { Strings } from '../../../../resources/Strings';
 import { Colors, Spacing } from '../../../../styles';
 import { toGridTemplateColumns } from '../../../../utils/gridTemplateColumns';
 import {
-  AGREEMENT_COLUMN_WIDTH,
+  agreementColumnWidth,
+  matrixMinWidth,
   DEFAULT_MATRIX_SORT,
   SUBTESTS_COLUMN_WIDTH,
   buildMatrixColumns,
   buildSubtestMatrix,
-  PLATFORM_COLUMN_MIN_WIDTH,
+  PLATFORM_CONTENT_MAX_WIDTH,
   compareSubtestNames,
   matrixRowMatchesSearchTerm,
   type PlatformColumnInfo,
@@ -90,11 +91,13 @@ const matrixStyles = style({
       gap: Spacing.xSmall,
       ...platformHeaderContainer,
     },
-    // Every platform button fills its (equal-width) column, inside the
-    // tooltip's span, so that they all have the same width.
+    // Every platform button fills its (equal-width) column, up to
+    // PLATFORM_CONTENT_MAX_WIDTH, centered, so that they all have the same
+    // width.
     '.table-header [class*="platform-"] > span:not(.platform-tag)': {
       display: 'flex',
       alignSelf: 'stretch',
+      justifyContent: 'center',
       minWidth: 0,
     },
     // Names wrap inside the button rather than spilling out of it: the icon
@@ -103,7 +106,7 @@ const matrixStyles = style({
     '.table-header [class*="platform-"] button': {
       flexWrap: 'nowrap',
       width: '100%',
-      maxWidth: '100%',
+      maxWidth: PLATFORM_CONTENT_MAX_WIDTH,
       minWidth: 0,
       padding: `${Spacing.xSmall}px ${Spacing.Small - 2}px`,
       textAlign: 'center',
@@ -192,7 +195,8 @@ const matrixStyles = style({
       justifyContent: 'center',
       alignItems: 'center',
       gap: '4px',
-      minWidth: '100%',
+      width: '100%',
+      maxWidth: PLATFORM_CONTENT_MAX_WIDTH,
       borderRadius: '4px',
       padding: '4px 6px',
       fontSize: '0.8125rem',
@@ -383,12 +387,10 @@ function MatrixTable({
 
   const gridTemplateColumns = toGridTemplateColumns(columnsConfiguration);
   const platformCount = matrix.columns.length;
-  const minWidth = `max(${RESULTS_TABLE_MIN_WIDTH}, ${
-    SUBTESTS_COLUMN_WIDTH +
-    AGREEMENT_COLUMN_WIDTH +
-    platformCount * PLATFORM_COLUMN_MIN_WIDTH +
-    (platformCount + 1) * Spacing.Small
-  }px)`;
+  const minWidth = `max(${RESULTS_TABLE_MIN_WIDTH}, ${matrixMinWidth(
+    platformCount,
+    agreementColumnWidth(platformCount),
+  )}px)`;
   const everyPlatformFailed =
     platformResults.length > 0 &&
     platformResults.every((platformResult) => platformResult.error);

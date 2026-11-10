@@ -74,9 +74,11 @@ function visibleRows() {
     .filter((row) => row.classList.contains('matrix-row'))
     .map(
       (row) =>
-        `${row.querySelector('.subtests')?.textContent}: ${
-          row.querySelector('.agreement')?.textContent
-        }`,
+        // The chip only shows icons and counts: its accessible name spells
+        // them out.
+        `${row.querySelector('.subtests')?.textContent} — ${row
+          .querySelector('.agreement-chip')
+          ?.getAttribute('aria-label')}`,
     );
 }
 
@@ -96,9 +98,9 @@ describe('SubtestsCrossPlatformView', () => {
     expect(screen.getByText('2 platforms')).toBeInTheDocument();
 
     expect(visibleRows().slice(0, 3)).toEqual([
-      'regression.html: 2/2 regressed',
-      'dhtml.html: 1/2 regressed',
-      'tablemutation.html: 1/2 regressed',
+      'regression.html — Consistent regression: 2 regressed, 0 improved, 0 unchanged.',
+      'dhtml.html — Partial regression: 1 regressed, 0 improved, 1 unchanged.',
+      'tablemutation.html — Partial regression: 1 regressed, 0 improved, 1 unchanged.',
     ]);
 
     // axe schedules work on timers.
@@ -136,9 +138,9 @@ describe('SubtestsCrossPlatformView', () => {
     await user.keyboard('{Escape}');
 
     expect(visibleRows()).toEqual([
-      'dhtml.html: 1/2 regressed',
-      'tablemutation.html: 1/2 regressed',
-      'improvement.html: 1 regressed, 1 improved',
+      'dhtml.html — Partial regression: 1 regressed, 0 improved, 1 unchanged.',
+      'tablemutation.html — Partial regression: 1 regressed, 0 improved, 1 unchanged.',
+      'improvement.html — Mixed: 1 regressed, 1 improved, 0 unchanged.',
     ]);
     expect(window.location.search).not.toContain('consistent-regression');
     expect(window.location.search).toContain('filter_agreement=');

@@ -328,6 +328,25 @@ export const platformMap: Record<Platform, string> = {
   'android-hw-a51-11-0-aarch64-qr': 'Android 11.0 Samsung A51 AArch64',
   'android-hw-a51-11-0-aarch64-shippable-qr':
     'Android 11.0 Samsung A51 Shippable AArch64',
+  'android-hw-a55-14-0-aarch64-shippable':
+    'Android 14.0 Samsung A55 Shippable AArch64',
+  'android-hw-a55-14-0-aarch64-nightlyasrelease':
+    'Android 14.0 Samsung A55 Nightly-as-release AArch64',
+  'android-hw-p6-13-0-aarch64-shippable':
+    'Android 13.0 Pixel 6 Shippable AArch64',
+  'android-hw-p6-13-0-aarch64-nightlyasrelease':
+    'Android 13.0 Pixel 6 Nightly-as-release AArch64',
+  'android-hw-s24-14-0-aarch64-nightlyasrelease':
+    'Android 14.0 Samsung S24 Nightly-as-release AArch64',
+  'linux2404-64-shippable': 'Linux 24.04 x64 Shippable',
+  'linux2404-64-nightlyasrelease': 'Linux 24.04 x64 Nightly-as-release',
+  'macosx1500-aarch64-shippable': 'macOS 15 AArch64 Shippable',
+  'macosx1500-aarch64-nightlyasrelease': 'macOS 15 AArch64 Nightly-as-release',
+  'windows11-64-24h2-shippable': 'Windows 11 x64 24H2 Shippable',
+  'windows11-64-24h2-hw-ref-shippable':
+    'Windows 11 x64 24H2 Reference Hardware Shippable',
+  'windows11-64-24h2-nightlyasrelease':
+    'Windows 11 x64 24H2 Nightly-as-release',
 };
 
 export const MANN_WHITNEY_U = 'mann-whitney-u' as TestVersion;
@@ -340,6 +359,10 @@ export const STUDENT_T = 'student-t' as TestVersion;
 export const RESULTS_TABLE_MIN_WIDTH = '1200px';
 
 export const RESULTS_TABLE_MAX_WIDTH = '1450px';
+
+// Fits up to 10 platform columns in the cross-platform view, padding
+// included. Beyond that, the table scrolls horizontally. In pixels.
+export const CROSS_PLATFORM_MAX_WIDTH = 1480;
 
 export const tooltipSignificance =
   'Significance of the comparison as determined by a Mann Whitney U test. A significant comparison has a p-value of less than 0.05.';

@@ -3,6 +3,9 @@ import { sortResults } from '../hooks/useTableSort';
 import type { CompareResultsItem } from '../types/state';
 import type { Platform } from '../types/types';
 import {
+  AGREEMENT_COLUMN_NARROW_WIDTH,
+  AGREEMENT_COLUMN_WIDTH,
+  agreementColumnWidth,
   agreementScore,
   buildMatrixColumns,
   buildSubtestMatrix,
@@ -320,5 +323,17 @@ describe('buildMatrixColumns', () => {
       'consistent.html',
       'partial.html',
     ]);
+  });
+});
+
+describe('agreementColumnWidth', () => {
+  it('keeps the header on one line while the platforms fit the page', () => {
+    expect(agreementColumnWidth(2)).toBe(AGREEMENT_COLUMN_WIDTH);
+    expect(agreementColumnWidth(9)).toBe(AGREEMENT_COLUMN_WIDTH);
+  });
+
+  it('narrows to fit one more platform, and for the scrolling tables', () => {
+    expect(agreementColumnWidth(10)).toBe(AGREEMENT_COLUMN_NARROW_WIDTH);
+    expect(agreementColumnWidth(12)).toBe(AGREEMENT_COLUMN_NARROW_WIDTH);
   });
 });

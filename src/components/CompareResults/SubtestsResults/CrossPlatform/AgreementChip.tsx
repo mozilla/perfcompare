@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -8,20 +10,36 @@ import {
   type SubtestMatrixRow,
 } from '../../../../utils/subtestMatrix';
 
+// An icon and its count, eg. "👎 4/10".
+function Count({ regressed, count }: { regressed: boolean; count: string }) {
+  return (
+    <span className='agreement-count'>
+      {regressed ? (
+        <ThumbDownIcon color='error' aria-hidden />
+      ) : (
+        <ThumbUpIcon color='success' aria-hidden />
+      )}
+      {count}
+    </span>
+  );
+}
+
+// Compact, like the platform cells. The tooltip and the accessible name spell
+// it out.
 function chipLabel(row: SubtestMatrixRow): ReactNode {
   const { agreement, improvements, regressions, present, noise } = row;
   switch (agreement) {
     case 'consistent-regression':
     case 'partial-regression':
-      return `${regressions}/${present} regressed`;
+      return <Count regressed count={`${regressions}/${present}`} />;
     case 'consistent-improvement':
     case 'partial-improvement':
-      return `${improvements}/${present} improved`;
+      return <Count regressed={false} count={`${improvements}/${present}`} />;
     case 'mixed':
       return (
         <>
-          <span>{`${regressions} regressed,`}</span>{' '}
-          <span>{`${improvements} improved`}</span>
+          <Count regressed count={String(regressions)} />
+          <Count regressed={false} count={String(improvements)} />
         </>
       );
     default:
@@ -56,15 +74,26 @@ function AgreementChip({ row }: { row: SubtestMatrixRow }) {
           component='span'
           className={`agreement-chip agreement-${row.agreement}`}
           tabIndex={0}
+          role='img'
+          aria-label={chipTooltip(row)}
           sx={{
             bgcolor: chipColor(row),
             borderRadius: '4px',
-            padding: '4px 10px',
-            // Stacks the mixed counts rather than overflow the sticky column.
+            padding: '4px 8px',
             display: 'inline-flex',
-            flexDirection: 'column',
             alignItems: 'center',
+            gap: '10px',
+            whiteSpace: 'nowrap',
+            fontVariantNumeric: 'tabular-nums',
             fontWeight: consistent ? 700 : 400,
+            // Hints at the tooltip with the full breakdown.
+            cursor: 'pointer',
+            '& .agreement-count': {
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px',
+            },
+            '& .MuiSvgIcon-root': { width: '16px', height: '16px' },
           }}
         >
           {chipLabel(row)}

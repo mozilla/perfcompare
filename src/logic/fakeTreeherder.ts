@@ -90,7 +90,11 @@ function fakeHash(seedSource: string): string {
 // Test catalog
 // ---------------------------------------------------------------------------
 
-type PlatformGroup = 'desktop' | 'desktop+android' | 'android';
+type PlatformGroup =
+  | 'desktop'
+  | 'desktop+android'
+  | 'android'
+  | 'cross-platform';
 
 type TestDefinition = {
   suite: string;
@@ -125,6 +129,24 @@ const androidPlatforms: Platform[] = [
   'android-hw-a51-11-0-aarch64-shippable-qr',
 ];
 
+// Today's platforms, in both shippable and nightly-as-release builds, like
+// speedometer3 in production. Enough of them for the cross-platform subtests
+// view to need its horizontal scroll (more than 10).
+const crossPlatformPlatforms: Platform[] = [
+  'android-hw-a55-14-0-aarch64-shippable',
+  'android-hw-p6-13-0-aarch64-shippable',
+  'windows11-64-24h2-shippable',
+  'windows11-64-24h2-hw-ref-shippable',
+  'linux2404-64-shippable',
+  'macosx1500-aarch64-shippable',
+  'android-hw-a55-14-0-aarch64-nightlyasrelease',
+  'android-hw-p6-13-0-aarch64-nightlyasrelease',
+  'android-hw-s24-14-0-aarch64-nightlyasrelease',
+  'windows11-64-24h2-nightlyasrelease',
+  'linux2404-64-nightlyasrelease',
+  'macosx1500-aarch64-nightlyasrelease',
+];
+
 // Platforms are not equally fast.
 const platformSpeedFactor: Partial<Record<Platform, number>> = {
   'linux1804-64-shippable-qr': 1,
@@ -132,6 +154,16 @@ const platformSpeedFactor: Partial<Record<Platform, number>> = {
   'windows10-64-shippable-qr': 1.15,
   'windows11-64-2009-qr': 1.05,
   'android-hw-a51-11-0-aarch64-shippable-qr': 2.6,
+  'android-hw-a55-14-0-aarch64-shippable': 2.3,
+  'android-hw-a55-14-0-aarch64-nightlyasrelease': 2.3,
+  'android-hw-p6-13-0-aarch64-shippable': 2.8,
+  'android-hw-p6-13-0-aarch64-nightlyasrelease': 2.8,
+  'android-hw-s24-14-0-aarch64-nightlyasrelease': 1.8,
+  'macosx1500-aarch64-shippable': 0.8,
+  'macosx1500-aarch64-nightlyasrelease': 0.8,
+  'windows11-64-24h2-shippable': 1.05,
+  'windows11-64-24h2-hw-ref-shippable': 1.1,
+  'windows11-64-24h2-nightlyasrelease': 1.05,
 };
 
 function platformsFor(group: PlatformGroup = 'desktop'): Platform[] {
@@ -140,6 +172,8 @@ function platformsFor(group: PlatformGroup = 'desktop'): Platform[] {
       return androidPlatforms;
     case 'desktop+android':
       return [...desktopPlatforms, ...androidPlatforms];
+    case 'cross-platform':
+      return crossPlatformPlatforms;
     default:
       return desktopPlatforms;
   }
@@ -293,7 +327,7 @@ const catalog: Partial<Record<Framework['id'], FrameworkDefinition>> = {
         value: 24.5,
         noise: 0.015,
         replicates: 5,
-        platforms: 'desktop+android',
+        platforms: 'cross-platform',
         subtests: [
           'TodoMVC-React-Complex-DOM',
           'TodoMVC-Vue',

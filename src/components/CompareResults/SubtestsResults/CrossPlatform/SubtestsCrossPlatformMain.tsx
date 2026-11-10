@@ -7,8 +7,8 @@ import { style } from 'typestyle';
 
 import SubtestsCrossPlatformTable from './SubtestsCrossPlatformTable';
 import {
+  CROSS_PLATFORM_MAX_WIDTH,
   MANN_WHITNEY_U,
-  RESULTS_TABLE_MAX_WIDTH,
   STUDENT_T,
   subtestsCrossPlatformView,
 } from '../../../../common/constants';
@@ -92,7 +92,7 @@ function SubtestsCrossPlatformMain() {
         themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark,
       margin: '0 auto',
       marginBottom: '80px',
-      maxWidth: RESULTS_TABLE_MAX_WIDTH,
+      maxWidth: CROSS_PLATFORM_MAX_WIDTH,
     }),
     title: style({
       margin: 0,
@@ -106,6 +106,8 @@ function SubtestsCrossPlatformMain() {
 
   return (
     <Container
+      // The width comes from styles.container, not MUI's breakpoints.
+      maxWidth={false}
       className={styles.container}
       data-testid='subtests-cross-platform-main'
     >

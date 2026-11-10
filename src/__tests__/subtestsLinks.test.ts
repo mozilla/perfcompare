@@ -1,5 +1,4 @@
 import type { CompareResultsItem } from '../types/state';
-import type { Platform } from '../types/types';
 import {
   buildCrossPlatformLinks,
   crossPlatformGroupKey,
@@ -30,7 +29,7 @@ const linux = result({
   new_signature_id: 12,
 });
 const windows = result({
-  platform: 'windows11-64-24h2-shippable' as Platform,
+  platform: 'windows11-64-24h2-shippable',
   base_signature_id: 21,
   new_signature_id: 22,
 });
@@ -72,7 +71,7 @@ describe('getCrossPlatformSubtestsLink', () => {
 describe('buildCrossPlatformLinks', () => {
   it('groups by test and framework across header groups', () => {
     const android = result({
-      platform: 'android-hw-a55-14-0-aarch64-shippable' as Platform,
+      platform: 'android-hw-a55-14-0-aarch64-shippable',
       header_name: 'a different header',
       extra_options: 'webrender',
     });

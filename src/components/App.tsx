@@ -111,7 +111,7 @@ export const router = createBrowserRouter(
 
       <Route
         path='/subtests-cross-platform-results'
-        loader={compareSubtestsCrossPlatformLoader}
+        loader={withTreeherderBackend(compareSubtestsCrossPlatformLoader)}
         element={
           <SubtestsCrossPlatformView
             title={Strings.metaData.pageTitle.subtestsCrossPlatform}
