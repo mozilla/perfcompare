@@ -10,7 +10,12 @@ import type { Platform } from '../../types/types';
 import { getCookie } from '../../utils/cookies';
 import { SORT_COOKIE } from '../../utils/tableStatePersistence';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen, within } from '../utils/test-utils';
+import {
+  enableAdvancedColumns,
+  renderWithRouter,
+  screen,
+  within,
+} from '../utils/test-utils';
 
 expect.extend(toHaveNoViolations);
 
@@ -119,6 +124,18 @@ describe('SubtestsCrossPlatformView', () => {
     expect(url.searchParams.get('baseParentSignature')).toBe('101');
     expect(url.searchParams.get('newParentSignature')).toBe('201');
     expect(url.searchParams.get('search')).toBe('regression.html');
+  });
+
+  it('passes the current Advanced options on to the cell links', async () => {
+    // Not in this view's URL: they come from the current state.
+    enableAdvancedColumns();
+    renderView(linuxAndRegressedWindows());
+
+    const cell = await screen.findByRole('link', {
+      name: 'Windows 11: Regression +1.04 %',
+    });
+    const url = new URL(cell.getAttribute('href')!, window.location.href);
+    expect(url.searchParams.get('advanced_columns')).toContain('cliffs_delta');
   });
 
   it('filters by agreement and keeps the state out of the cookies', async () => {

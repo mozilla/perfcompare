@@ -21,8 +21,8 @@ import type { NestedCSSProperties } from 'typestyle/lib/types';
 import SubtestsCrossPlatformRow from './SubtestsCrossPlatformRow';
 import { RESULTS_TABLE_MIN_WIDTH } from '../../../../common/constants';
 import { useAppSelector } from '../../../../hooks/app';
+import useAdvancedColumns from '../../../../hooks/useAdvancedColumns';
 import useExpandedRowOptions from '../../../../hooks/useExpandedRowOptions';
-import useSeededAdvancedColumns from '../../../../hooks/useSeededAdvancedColumns';
 import useTableFilters, {
   filterResults,
   getFilterHiddenSummary,
@@ -484,7 +484,10 @@ function MatrixTable({
 }: MatrixTableProps) {
   const { baseRev, baseRepo, newRev, newRepo, frameworkId, testVersion } =
     useLoaderData<LoaderReturnValue>();
-  const advancedColumns = useSeededAdvancedColumns();
+  // This view doesn't show the Advanced options, nor carries them in its URL:
+  // its links to the subtests of each platform pass on the current ones,
+  // rather than seeding them from the URL like the views that show them.
+  const advancedColumns = useAdvancedColumns();
   const expandedRow = useExpandedRowOptions();
 
   const matrix = useMemo(

@@ -151,11 +151,13 @@ export function decodeParentSignatures(value: string): ParentSignaturePair[] {
 // The parent signatures of each platform that has subtests. Returns null when
 // fewer than 2 have subtests, as there's nothing to compare across. The
 // platform names come from the fetched results.
+// Unlike the other subtests links, this one leaves out the Advanced options:
+// the cross-platform view doesn't show them, and its links to the subtests of
+// each platform take them from the current state (see
+// SubtestsCrossPlatformTable).
 export const getCrossPlatformSubtestsLink = (
   results: CombinedResultsItemType[],
   testVersion: TestVersion,
-  advancedColumns: AdvancedColumns,
-  expandedRow: ExpandedRowOptions,
 ): string | null => {
   const rowsWithSubtests = results.filter((result) => result.has_subtests);
   if (rowsWithSubtests.length < 2) {
@@ -180,9 +182,6 @@ export const getCrossPlatformSubtestsLink = (
       })),
     ),
   );
-  setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
-    explicit: true,
-  });
   preserveFakeDataParam(params);
 
   return `/subtests-cross-platform-results?${params.toString()}`;
@@ -197,8 +196,6 @@ export const crossPlatformGroupKey = (result: CombinedResultsItemType) =>
 export const buildCrossPlatformLinks = (
   results: CombinedResultsItemType[],
   testVersion: TestVersion,
-  advancedColumns: AdvancedColumns,
-  expandedRow: ExpandedRowOptions,
 ): Map<string, string> => {
   const groups = new Map<string, CombinedResultsItemType[]>();
   for (const result of results) {
@@ -209,12 +206,7 @@ export const buildCrossPlatformLinks = (
   }
   const links = new Map<string, string>();
   for (const [key, group] of groups) {
-    const link = getCrossPlatformSubtestsLink(
-      group,
-      testVersion,
-      advancedColumns,
-      expandedRow,
-    );
+    const link = getCrossPlatformSubtestsLink(group, testVersion);
     if (link) links.set(key, link);
   }
   return links;

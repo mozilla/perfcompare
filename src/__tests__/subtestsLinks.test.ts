@@ -8,18 +8,6 @@ import {
 } from '../utils/subtestsLinks';
 import getTestData from './utils/fixtures';
 
-const noAdvancedColumns = {
-  cliffsDelta: false,
-  cles: false,
-  significance: false,
-};
-const noExpandedRow = {
-  effectSize: false,
-  modes: false,
-  statsTable: false,
-  warnings: false,
-};
-
 function result(overrides: Partial<CompareResultsItem>): CompareResultsItem {
   const [template] = getTestData().testCompareData;
   return { ...template, has_subtests: true, ...overrides };
@@ -41,8 +29,6 @@ describe('getCrossPlatformSubtestsLink', () => {
     const link = getCrossPlatformSubtestsLink(
       [linux, windows, result({ has_subtests: false })],
       'mann-whitney-u',
-      noAdvancedColumns,
-      noExpandedRow,
     );
     const url = new URL(link!, 'https://perf.compare');
     expect(url.pathname).toBe('/subtests-cross-platform-results');
@@ -50,6 +36,9 @@ describe('getCrossPlatformSubtestsLink', () => {
     // The platforms come from the fetched results.
     expect(url.searchParams.has('platform')).toBe(false);
     expect(url.searchParams.get('test_version')).toBe('mann-whitney-u');
+    // The view doesn't show the Advanced options.
+    expect(url.searchParams.has('advanced_columns')).toBe(false);
+    expect(url.searchParams.has('advanced_expanded')).toBe(false);
   });
 
   it('returns null with fewer than 2 platforms with subtests', () => {
@@ -57,8 +46,6 @@ describe('getCrossPlatformSubtestsLink', () => {
       getCrossPlatformSubtestsLink(
         [linux, result({ has_subtests: false })],
         'mann-whitney-u',
-        noAdvancedColumns,
-        noExpandedRow,
       ),
     ).toBeNull();
   });
@@ -76,8 +63,6 @@ describe('buildCrossPlatformLinks', () => {
     const links = buildCrossPlatformLinks(
       [linux, android, otherFramework],
       'mann-whitney-u',
-      noAdvancedColumns,
-      noExpandedRow,
     );
 
     expect([...links.keys()]).toEqual([crossPlatformGroupKey(linux)]);

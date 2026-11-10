@@ -7,8 +7,6 @@ import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
 import { compareView, type compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
-import useAdvancedColumns from '../../hooks/useAdvancedColumns';
-import useExpandedRowOptions from '../../hooks/useExpandedRowOptions';
 import {
   filterResults,
   getFilterHiddenSummary,
@@ -239,27 +237,14 @@ function TableContent({
     ],
   );
 
-  const advancedColumns = useAdvancedColumns();
-  const expandedRow = useExpandedRowOptions();
   // Built from the unfiltered rows, so that filtering by platform doesn't
   // shrink the set of platforms compared.
   const crossPlatformLinks = useMemo(
     () =>
       view === compareView
-        ? buildCrossPlatformLinks(
-            resultsForCurrentComparison,
-            testVersion,
-            advancedColumns,
-            expandedRow,
-          )
+        ? buildCrossPlatformLinks(resultsForCurrentComparison, testVersion)
         : undefined,
-    [
-      view,
-      resultsForCurrentComparison,
-      testVersion,
-      advancedColumns,
-      expandedRow,
-    ],
+    [view, resultsForCurrentComparison, testVersion],
   );
 
   const sortedResults = useMemo(() => {
