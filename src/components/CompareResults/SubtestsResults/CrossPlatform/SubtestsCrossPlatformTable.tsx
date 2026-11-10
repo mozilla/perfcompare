@@ -7,6 +7,7 @@ import {
   useState,
   type CSSProperties,
   type ReactNode,
+  type WheelEvent,
 } from 'react';
 
 import Alert from '@mui/material/Alert';
@@ -82,10 +83,9 @@ const platformCellContainer = {
   containerName: 'platform-cell',
 } as NestedCSSProperties;
 
-// No overflow here: like the results table, the page itself scrolls
-// horizontally when there are too many platforms, so that the header can
-// stick to the top of the window (an overflowing box would become the
-// header's scroll container instead).
+// With too many platforms, only the table scrolls horizontally (see
+// useSyncedHorizontalScroll). This box has no overflow itself, so that the
+// header can stick to the top of the window.
 const matrixStyles = style({
   marginTop: Spacing.Large,
   paddingBottom: Spacing.Large,
@@ -378,6 +378,101 @@ function useFlagWrappedPlatformNames(dependency: unknown) {
   return ref;
 }
 
+// The rows scroll horizontally in their own box. The header, which has to stay
+// out of it to stick to the top of the window, and a scrollbar stuck to the
+// bottom of the window (the rows' own one would be at the end of the table)
+// follow along.
+function useSyncedHorizontalScroll(layoutDependency: unknown) {
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const scrollbarRef = useRef<HTMLDivElement>(null);
+  // Whether there are more columns out of view, on each side.
+  const [overflow, setOverflow] = useState({ left: false, right: false });
+
+  const updateOverflow = useCallback(() => {
+    const body = bodyRef.current;
+    if (!body) return;
+    const maxScrollLeft = body.scrollWidth - body.clientWidth;
+    // 1px of slack for fractional widths.
+    const left = body.scrollLeft > 1;
+    const right = body.scrollLeft < maxScrollLeft - 1;
+    setOverflow((previous) =>
+      previous.left === left && previous.right === right
+        ? previous
+        : { left, right },
+    );
+  }, []);
+
+  useLayoutEffect(() => {
+    const body = bodyRef.current;
+    updateOverflow();
+    // Not available in jsdom.
+    if (!body || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(updateOverflow);
+    observer.observe(body);
+    return () => observer.disconnect();
+  }, [updateOverflow, layoutDependency]);
+
+  const scrollAllTo = (left: number) => {
+    for (const element of [
+      bodyRef.current,
+      headerRef.current,
+      scrollbarRef.current,
+    ]) {
+      if (element && element.scrollLeft !== left) element.scrollLeft = left;
+    }
+    updateOverflow();
+  };
+  return {
+    bodyRef,
+    headerRef,
+    scrollbarRef,
+    overflow,
+    onBodyScroll: () => scrollAllTo(bodyRef.current?.scrollLeft ?? 0),
+    onScrollbarScroll: () => scrollAllTo(scrollbarRef.current?.scrollLeft ?? 0),
+    // The header can't scroll by itself: pass on horizontal trackpad and
+    // shift + wheel scrolling.
+    onHeaderWheel: (event: WheelEvent<HTMLDivElement>) => {
+      const deltaX = event.deltaX || (event.shiftKey ? event.deltaY : 0);
+      if (bodyRef.current && deltaX) bodyRef.current.scrollLeft += deltaX;
+    },
+  };
+}
+
+const EDGE_FADE_WIDTH = 32;
+
+// Hints that there are more columns, by fading the edges they're hidden
+// behind: the right edge, and on the left the edge of the pinned subtest and
+// agreement columns, which stay opaque.
+function edgeFadeMask(
+  overflow: { left: boolean; right: boolean },
+  pinnedWidth: number,
+) {
+  if (!overflow.left && !overflow.right) return {};
+  const stops = ['black 0'];
+  if (overflow.left) {
+    stops.push(
+      `black ${pinnedWidth}px`,
+      `transparent ${pinnedWidth}px`,
+      `black ${pinnedWidth + EDGE_FADE_WIDTH}px`,
+    );
+  }
+  if (overflow.right) {
+    stops.push(`black calc(100% - ${EDGE_FADE_WIDTH}px)`, 'transparent 100%');
+  } else {
+    stops.push('black 100%');
+  }
+  const mask = `linear-gradient(to right, ${stops.join(', ')})`;
+  return { maskImage: mask, WebkitMaskImage: mask };
+}
+
+// No visible scrollbar on the rows: the one stuck to the bottom of the window
+// replaces it.
+const hiddenScrollbar = {
+  scrollbarWidth: 'none',
+  '&::-webkit-scrollbar': { display: 'none' },
+} as const;
+
 type MatrixTableProps = {
   platformResults: PlatformSubtestResults[];
   filteringSearchTerm: string;
@@ -486,11 +581,16 @@ function MatrixTable({
 
   const gridTemplateColumns = toGridTemplateColumns(columnsConfiguration);
   const headerRef = useFlagWrappedPlatformNames(columnsConfiguration);
+  const horizontalScroll = useSyncedHorizontalScroll(columnsConfiguration);
   const platformCount = matrix.columns.length;
   const minWidth = `max(${RESULTS_TABLE_MIN_WIDTH}, ${matrixMinWidth(
     platformCount,
     agreementColumnWidth(platformCount),
   )}px)`;
+  // The right edge of the pinned columns, in the scrolling boxes.
+  const pinnedWidth =
+    SUBTESTS_COLUMN_WIDTH + Spacing.Small + agreementColumnWidth(platformCount);
+  const fadeMask = edgeFadeMask(horizontalScroll.overflow, pinnedWidth);
   const everyPlatformFailed =
     platformResults.length > 0 &&
     platformResults.every((platformResult) => platformResult.error);
@@ -548,37 +648,67 @@ function MatrixTable({
         data-testid='subtests-cross-platform-table'
         role='table'
       >
-        <Box sx={{ minWidth, '& .table-header': { minWidth } }}>
-          {/* Stays at the top of the window, below the controls, while
-            scrolling the rows, like the results table's header. */}
+        {/* Stays at the top of the window, below the controls, while
+          scrolling the rows, like the results table's header. */}
+        <Box
+          ref={headerRef}
+          data-testid='subtests-cross-platform-header'
+          sx={{
+            position: 'sticky',
+            top: `var(${CONTROLS_HEIGHT_VARIABLE}, 0px)`,
+            zIndex: 100,
+            bgcolor: 'background.default',
+          }}
+        >
           <Box
-            ref={headerRef}
-            data-testid='subtests-cross-platform-header'
-            sx={{
-              position: 'sticky',
-              top: `var(${CONTROLS_HEIGHT_VARIABLE}, 0px)`,
-              zIndex: 100,
-              bgcolor: 'background.default',
-            }}
+            ref={horizontalScroll.headerRef}
+            onWheel={horizontalScroll.onHeaderWheel}
+            sx={{ overflowX: 'hidden', ...fadeMask }}
           >
-            {matrix.variants.length > 1 && (
-              <VariantHeader
-                variants={matrix.variants}
-                gridTemplateColumns={gridTemplateColumns}
-                minWidth={minWidth}
+            <Box sx={{ minWidth, '& .table-header': { minWidth } }}>
+              {matrix.variants.length > 1 && (
+                <VariantHeader
+                  variants={matrix.variants}
+                  gridTemplateColumns={gridTemplateColumns}
+                  minWidth={minWidth}
+                />
+              )}
+              <TableHeader
+                columnsConfiguration={columnsConfiguration}
+                filters={tableFilters}
+                onToggleFilter={onToggleFilter}
+                onClearFilter={onClearFilter}
+                sortColumn={sortColumn}
+                sortDirection={sortDirection}
+                onToggleSort={onToggleSort}
               />
-            )}
-            <TableHeader
-              columnsConfiguration={columnsConfiguration}
-              filters={tableFilters}
-              onToggleFilter={onToggleFilter}
-              onClearFilter={onClearFilter}
-              sortColumn={sortColumn}
-              sortDirection={sortDirection}
-              onToggleSort={onToggleSort}
-            />
+            </Box>
           </Box>
-          {content}
+        </Box>
+        <Box
+          ref={horizontalScroll.bodyRef}
+          onScroll={horizontalScroll.onBodyScroll}
+          data-testid='subtests-cross-platform-body'
+          sx={{ overflowX: 'auto', ...hiddenScrollbar, ...fadeMask }}
+        >
+          <Box sx={{ minWidth }}>{content}</Box>
+        </Box>
+        <Box
+          ref={horizontalScroll.scrollbarRef}
+          onScroll={horizontalScroll.onScrollbarScroll}
+          // A duplicate of the rows' scrollbar: they stay reachable from the
+          // keyboard through their links.
+          aria-hidden
+          data-testid='subtests-cross-platform-scrollbar'
+          sx={{
+            position: 'sticky',
+            bottom: 0,
+            zIndex: 100,
+            overflowX: 'auto',
+            bgcolor: 'background.default',
+          }}
+        >
+          <Box sx={{ minWidth, height: '1px' }} />
         </Box>
       </div>
     </>
@@ -638,13 +768,6 @@ function SubtestsCrossPlatformTable({
           zIndex: 101,
           bgcolor: 'background.default',
           paddingBlock: 1,
-          // When the page scrolls horizontally, the table is wider than this
-          // row: extend its background over the whole width so that the rows
-          // don't show through above the header. A shadow, unlike a wider
-          // box, doesn't make the page wider.
-          boxShadow: (theme) =>
-            `0 0 0 100vmax ${theme.palette.background.default}`,
-          clipPath: 'inset(0 -100vmax)',
         }}
       >
         {controls}
