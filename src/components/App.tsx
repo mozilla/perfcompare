@@ -20,8 +20,10 @@ import { loader as compareLoader } from './CompareResults/loader';
 import { loader as compareOverTimeLoader } from './CompareResults/overTimeLoader';
 import OverTimeResultsView from './CompareResults/OverTimeResultsView';
 import ResultsView from './CompareResults/ResultsView';
+import { loader as compareSubtestsCrossPlatformLoader } from './CompareResults/subtestsCrossPlatformLoader';
 import { loader as compareSubtestsLoader } from './CompareResults/subtestsLoader';
 import { loader as compareSubtestsOverTimeLoader } from './CompareResults/subtestsOverTimeLoader';
+import SubtestsCrossPlatformView from './CompareResults/SubtestsResults/CrossPlatform/SubtestsCrossPlatformView';
 import SubtestsOverTimeResultsView from './CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsView from './CompareResults/SubtestsResults/SubtestsResultsView';
 import { loader as homeLoader } from './Search/loader';
@@ -104,6 +106,20 @@ export const router = createBrowserRouter(
           <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
         }
         errorElement={<PageError title={Strings.metaData.pageTitle.subtests} />}
+        hydrateFallbackElement={<></>}
+      />
+
+      <Route
+        path='/subtests-cross-platform-results'
+        loader={withTreeherderBackend(compareSubtestsCrossPlatformLoader)}
+        element={
+          <SubtestsCrossPlatformView
+            title={Strings.metaData.pageTitle.subtestsCrossPlatform}
+          />
+        }
+        errorElement={
+          <PageError title={Strings.metaData.pageTitle.subtestsCrossPlatform} />
+        }
         hydrateFallbackElement={<></>}
       />
 

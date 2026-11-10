@@ -17,6 +17,11 @@ export interface BasicColumn {
   // Used in the grid CSS property to configure the width of the column.
   gridWidth: string;
   tooltip?: React.ReactNode;
+  // Replaces the name in sort-only column headers; name stays the accessible
+  // label.
+  label?: React.ReactNode;
+  // Rendered below the header button.
+  subLabel?: React.ReactNode;
 }
 
 // TResult below is the row type of the table. It defaults to the results
@@ -344,7 +349,19 @@ export type Platform =
   | 'android-hw-a51-11-0-arm7-qr'
   | 'android-hw-a51-11-0-arm7-shippable-qr'
   | 'android-hw-a51-11-0-aarch64-qr'
-  | 'android-hw-a51-11-0-aarch64-shippable-qr';
+  | 'android-hw-a51-11-0-aarch64-shippable-qr'
+  | 'android-hw-a55-14-0-aarch64-shippable'
+  | 'android-hw-a55-14-0-aarch64-nightlyasrelease'
+  | 'android-hw-p6-13-0-aarch64-shippable'
+  | 'android-hw-p6-13-0-aarch64-nightlyasrelease'
+  | 'android-hw-s24-14-0-aarch64-nightlyasrelease'
+  | 'linux2404-64-shippable'
+  | 'linux2404-64-nightlyasrelease'
+  | 'macosx1500-aarch64-shippable'
+  | 'macosx1500-aarch64-nightlyasrelease'
+  | 'windows11-64-24h2-shippable'
+  | 'windows11-64-24h2-hw-ref-shippable'
+  | 'windows11-64-24h2-nightlyasrelease';
 
 export type UserCredentials = {
   expires: string;

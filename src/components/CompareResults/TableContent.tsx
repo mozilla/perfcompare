@@ -5,10 +5,7 @@ import { Virtuoso } from 'react-virtuoso';
 import FilteredRowsNotice from './FilteredRowsNotice';
 import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
-import {
-  type compareView,
-  type compareOverTimeView,
-} from '../../common/constants';
+import { compareView, type compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import {
   filterResults,
@@ -22,6 +19,7 @@ import type {
   MannWhitneyResultsItem,
 } from '../../types/state';
 import type { TableConfig, TestVersion } from '../../types/types';
+import { buildCrossPlatformLinks } from '../../utils/subtestsLinks';
 
 // The data structure returned by processResults may look complex at first, so
 // here are some extra explanation.
@@ -239,6 +237,16 @@ function TableContent({
     ],
   );
 
+  // Built from the unfiltered rows, so that filtering by platform doesn't
+  // shrink the set of platforms compared.
+  const crossPlatformLinks = useMemo(
+    () =>
+      view === compareView
+        ? buildCrossPlatformLinks(resultsForCurrentComparison, testVersion)
+        : undefined,
+    [view, resultsForCurrentComparison, testVersion],
+  );
+
   const sortedResults = useMemo(() => {
     return sortResults(
       columnsConfiguration,
@@ -296,6 +304,7 @@ function TableContent({
             replicates={replicates}
             testVersion={testVersion}
             expandAll={expandAll}
+            crossPlatformLinks={crossPlatformLinks}
           />
         )}
       />

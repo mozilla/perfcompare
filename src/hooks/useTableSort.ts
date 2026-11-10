@@ -18,17 +18,26 @@ import {
 // * otherwise, a single sort parameter contains both the column and the
 // direction, separated by a character |.
 
-const useTableSort = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
+// persist: false keeps the sort out of the cookie shared with the results
+// tables; defaultSort applies when the URL has no sort.
+const useTableSort = <TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  {
+    persist = true,
+    defaultSort = '',
+  }: { persist?: boolean; defaultSort?: string } = {},
+) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
   // Cookies are only consulted for an uninitialized URL; an initialized URL is
   // the single source of truth so a shared link reproduces the same view.
-  const initialized = isTableStateInitialized(window.location.search);
+  const readCookies =
+    persist && !isTableStateInitialized(window.location.search);
   const sortFromUrl =
     rawSearchParams.get(SORT_PARAM) ??
-    (initialized ? null : getCookie(SORT_COOKIE)) ??
-    '';
+    (readCookies ? getCookie(SORT_COOKIE) : null) ??
+    defaultSort;
   const [columnId, direction] = useMemo(() => {
     const [columnId, direction] = sortFromUrl.split('|');
     if (!columnId) {
@@ -63,13 +72,15 @@ const useTableSort = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
     if (newSortDirection === null) {
       setSortColumn(null);
       setSortDirection(null);
-      params.delete(SORT_PARAM);
-      deleteCookie(SORT_COOKIE);
+      // An empty param keeps a cleared sort from falling back to defaultSort.
+      if (defaultSort) params.set(SORT_PARAM, '');
+      else params.delete(SORT_PARAM);
+      if (persist) deleteCookie(SORT_COOKIE);
     } else {
       setSortColumn(columnId);
       setSortDirection(newSortDirection);
       params.set(SORT_PARAM, columnId + '|' + newSortDirection);
-      setCookie(SORT_COOKIE, columnId + '|' + newSortDirection);
+      if (persist) setCookie(SORT_COOKIE, columnId + '|' + newSortDirection);
     }
     updateRawSearchParams(params);
   };

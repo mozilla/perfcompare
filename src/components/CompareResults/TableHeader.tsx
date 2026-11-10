@@ -134,6 +134,7 @@ function FilterableColumnHeader({
         >
           {name}
           <Box
+            className='filter-count'
             sx={{
               paddingInlineStart: 0.5,
               color: 'primary.main',
@@ -214,6 +215,7 @@ function FilterableColumnHeader({
 
 type SortableColumnHeaderProps = {
   name: string;
+  label?: ReactNode;
   displayLabel: boolean;
   sortDirection: 'asc' | 'desc' | null;
   onToggle: (sortDirection: SortableColumnHeaderProps['sortDirection']) => void;
@@ -221,6 +223,7 @@ type SortableColumnHeaderProps = {
 
 function SortableColumnHeader({
   name,
+  label,
   displayLabel,
   sortDirection,
   onToggle,
@@ -276,7 +279,7 @@ function SortableColumnHeader({
         sortDirection={sortDirection}
         sx={inlineIconStyle}
       />
-      {displayLabel ? name : null}
+      {displayLabel ? (label ?? name) : null}
     </Button>
   );
 }
@@ -386,6 +389,7 @@ function TableHeader<TRow>({
       content = (
         <SortableColumnHeader
           name={header.name}
+          label={header.label}
           displayLabel={true}
           sortDirection={header.key === sortColumn ? sortDirection : null}
           onToggle={(newSortDirection) =>
@@ -447,6 +451,7 @@ function TableHeader<TRow>({
           role='columnheader'
         >
           {renderColumnHeader(header)}
+          {header.subLabel}
         </div>
       ))}
     </div>

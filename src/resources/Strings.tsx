@@ -4,6 +4,7 @@ export const Strings = {
       search: 'PerfCompare - Search',
       results: 'PerfCompare - Results',
       subtests: 'PerfCompare - Subtests Results',
+      subtestsCrossPlatform: 'PerfCompare - Subtests Across Platforms',
     },
   },
   components: {
@@ -131,6 +132,24 @@ export const Strings = {
         retriggerJobs: 'retrigger jobs',
         suiteLink: 'Link to suite documentation  ',
       },
+    },
+    crossPlatformSubtests: {
+      linkLabel: 'Compare across platforms',
+      linkTooltip:
+        "See this test's subtests side by side on every platform, to check whether a change reproduces across platforms.",
+      description:
+        "Each column is a platform. Agreement shows whether a subtest moved the same way on the platforms that reported it; hover over it to see how many platforms regressed, improved, or didn't change. Hover over a cell for a quick summary of that result (its status, the base and new values with their number of runs, and the statistical test's results), or select it to open the subtests for that platform.",
+      platformCount: (count: number) =>
+        `${count} platform${count === 1 ? '' : 's'}`,
+      missingCell: 'Not reported on this platform',
+      platformError: (platform: string) =>
+        `The subtests for ${platform} could not be loaded.`,
+      allPlatformsFailed:
+        'None of the platforms could be loaded. Try reloading the page.',
+      hiddenPlatforms: (platforms: string[]) =>
+        `${platforms.length} ${
+          platforms.length === 1 ? 'platform is' : 'platforms are'
+        } hidden because they have no data to compare for one of the revisions: ${platforms.join(', ')}`,
     },
     betterDirection: {
       lower: 'Lower is better',

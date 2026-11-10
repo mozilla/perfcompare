@@ -1260,7 +1260,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                       Platform
                       <div
                         aria-label="5 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         5
@@ -1355,7 +1355,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                       Status
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -1414,7 +1414,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                         Magnitude
                         <div
                           aria-label="4 items selected"
-                          class="MuiBox-root css-18uhbjh"
+                          class="filter-count MuiBox-root css-18uhbjh"
                         >
                           (
                           4
@@ -3149,7 +3149,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                       Platform
                       <div
                         aria-label="5 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         5
@@ -3244,7 +3244,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                       Status
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -3303,7 +3303,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                         Magnitude
                         <div
                           aria-label="4 items selected"
-                          class="MuiBox-root css-18uhbjh"
+                          class="filter-count MuiBox-root css-18uhbjh"
                         >
                           (
                           4
@@ -5038,7 +5038,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                       Platform
                       <div
                         aria-label="5 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         5
@@ -5133,7 +5133,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                       Status
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -5192,7 +5192,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                         Magnitude
                         <div
                           aria-label="4 items selected"
-                          class="MuiBox-root css-18uhbjh"
+                          class="filter-count MuiBox-root css-18uhbjh"
                         >
                           (
                           4
@@ -6932,7 +6932,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                       Platform
                       <div
                         aria-label="5 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         5
@@ -7027,7 +7027,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                       Status
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -7086,7 +7086,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                         Magnitude
                         <div
                           aria-label="4 items selected"
-                          class="MuiBox-root css-18uhbjh"
+                          class="filter-count MuiBox-root css-18uhbjh"
                         >
                           (
                           4
@@ -7154,7 +7154,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="fnf9lyn"
+                            class="f2nmzvj"
                           >
                             <strong>
                               <a

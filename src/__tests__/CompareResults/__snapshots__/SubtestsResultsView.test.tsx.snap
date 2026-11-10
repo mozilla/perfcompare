@@ -1026,7 +1026,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     Status
                     <div
                       aria-label="4 items selected"
-                      class="MuiBox-root css-18uhbjh"
+                      class="filter-count MuiBox-root css-18uhbjh"
                     >
                       (
                       4
@@ -1085,7 +1085,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       Magnitude
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -2907,7 +2907,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     Status
                     <div
                       aria-label="4 items selected"
-                      class="MuiBox-root css-18uhbjh"
+                      class="filter-count MuiBox-root css-18uhbjh"
                     >
                       (
                       4
@@ -2966,7 +2966,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       Magnitude
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -4445,7 +4445,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                     Status
                     <div
                       aria-label="4 items selected"
-                      class="MuiBox-root css-18uhbjh"
+                      class="filter-count MuiBox-root css-18uhbjh"
                     >
                       (
                       4
@@ -4504,7 +4504,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                       Magnitude
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -5983,7 +5983,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                     Status
                     <div
                       aria-label="4 items selected"
-                      class="MuiBox-root css-18uhbjh"
+                      class="filter-count MuiBox-root css-18uhbjh"
                     >
                       (
                       4
@@ -6042,7 +6042,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                       Magnitude
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -7521,7 +7521,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     Status
                     <div
                       aria-label="4 items selected"
-                      class="MuiBox-root css-18uhbjh"
+                      class="filter-count MuiBox-root css-18uhbjh"
                     >
                       (
                       4
@@ -7580,7 +7580,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       Magnitude
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4

@@ -33,7 +33,11 @@ import {
 // * "filter_confidence=" means that no line will be displayed, which isn't
 //   super useful actually (but is supported).
 
-const useTableFilters = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
+// persist: false keeps the filters out of the cookies (see useTableSort).
+const useTableFilters = <TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  { persist = true }: { persist?: boolean } = {},
+) => {
   const columnIdToConfiguration: Map<string, TableColumn<TRow>> = useMemo(
     () => new Map(columnsConfiguration.map((val) => [val.key, val])),
     [columnsConfiguration],
@@ -57,7 +61,8 @@ const useTableFilters = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
   // only be called once at mount time.
   // Cookies are only consulted for an uninitialized URL; an initialized URL is
   // the single source of truth so a shared link reproduces the same view.
-  const initialized = isTableStateInitialized(window.location.search);
+  const readCookies =
+    persist && !isTableStateInitialized(window.location.search);
 
   const getInitialTableFilters = () => {
     const result: Map<string, Set<string>> = new Map();
@@ -70,7 +75,7 @@ const useTableFilters = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
 
       const paramValue =
         rawSearchParams.get(filterParam(columnKey)) ??
-        (initialized ? null : getCookie(filterCookie(columnKey)));
+        (readCookies ? getCookie(filterCookie(columnKey)) : null);
       if (paramValue) {
         const configuredValuesSet = new Set(
           paramValue.split(',').map((item) => item.trim()),
@@ -98,7 +103,7 @@ const useTableFilters = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
     const params = currentUrlParams();
     params.delete(filterParam(columnId));
     updateRawSearchParams(params);
-    deleteCookie(filterCookie(columnId));
+    if (persist) deleteCookie(filterCookie(columnId));
 
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
@@ -121,10 +126,10 @@ const useTableFilters = <TRow>(columnsConfiguration: TableConfig<TRow>) => {
     const params = currentUrlParams();
     if (filters.size < columnConfiguration.possibleValues.length) {
       params.set(filterParam(columnId), [...filters].join(','));
-      setCookie(filterCookie(columnId), [...filters].join(','));
+      if (persist) setCookie(filterCookie(columnId), [...filters].join(','));
     } else {
       params.delete(filterParam(columnId));
-      deleteCookie(filterCookie(columnId));
+      if (persist) deleteCookie(filterCookie(columnId));
     }
     updateRawSearchParams(params);
 
