@@ -1,4 +1,13 @@
-import { Suspense, useCallback, useMemo } from 'react';
+import {
+  Suspense,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from 'react';
 
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
@@ -62,9 +71,17 @@ const platformHeaderContainer = {
   containerType: 'inline-size',
   containerName: 'platform-header',
 } as NestedCSSProperties;
+// Same for the agreement header, which drops its filter count when narrow.
+const agreementHeaderContainer = {
+  containerType: 'inline-size',
+  containerName: 'agreement-header',
+} as NestedCSSProperties;
 
+// No overflow here: like the results table, the page itself scrolls
+// horizontally when there are too many platforms, so that the header can
+// stick to the top of the window (an overflowing box would become the
+// header's scroll container instead).
 const matrixStyles = style({
-  overflowX: 'auto',
   marginTop: Spacing.Large,
   paddingBottom: Spacing.Large,
   $nest: {
@@ -173,6 +190,23 @@ const matrixStyles = style({
     '& .table-header .agreement-header, & .matrix-row .agreement': {
       ...stickyCell(agreementLeft),
       boxShadow: '4px 0 4px -4px rgba(0, 0, 0, 0.3)',
+    },
+    '& .table-header .agreement-header': agreementHeaderContainer,
+    // With many platforms, the column narrows (see agreementColumnWidth). So
+    // that its header still fits on one line, it drops its "(6)" (the filter
+    // menu still shows the selected values) and steps down like the platform
+    // headers.
+    '@container agreement-header (max-width: 159.99px)': {
+      $nest: {
+        '& .table-header .agreement-header .filter-count': {
+          display: 'none',
+        },
+        // The filter button, after the sort one.
+        '& .table-header .agreement-header button + button': {
+          fontSize: '14px',
+          paddingInline: `${Spacing.Small}px`,
+        },
+      },
     },
     // Covers the grid gap, which would otherwise show scrolled cells.
     '& .table-header .agreement-header::before, & .matrix-row .agreement::before':
@@ -449,22 +483,34 @@ function MatrixTable({
         role='table'
       >
         <Box sx={{ minWidth, '& .table-header': { minWidth } }}>
-          {matrix.variants.length > 1 && (
-            <VariantHeader
-              variants={matrix.variants}
-              gridTemplateColumns={gridTemplateColumns}
-              minWidth={minWidth}
+          {/* Stays at the top of the window, below the controls, while
+            scrolling the rows, like the results table's header. */}
+          <Box
+            data-testid='subtests-cross-platform-header'
+            sx={{
+              position: 'sticky',
+              top: `var(${CONTROLS_HEIGHT_VARIABLE}, 0px)`,
+              zIndex: 100,
+              bgcolor: 'background.default',
+            }}
+          >
+            {matrix.variants.length > 1 && (
+              <VariantHeader
+                variants={matrix.variants}
+                gridTemplateColumns={gridTemplateColumns}
+                minWidth={minWidth}
+              />
+            )}
+            <TableHeader
+              columnsConfiguration={columnsConfiguration}
+              filters={tableFilters}
+              onToggleFilter={onToggleFilter}
+              onClearFilter={onClearFilter}
+              sortColumn={sortColumn}
+              sortDirection={sortDirection}
+              onToggleSort={onToggleSort}
             />
-          )}
-          <TableHeader
-            columnsConfiguration={columnsConfiguration}
-            filters={tableFilters}
-            onToggleFilter={onToggleFilter}
-            onClearFilter={onClearFilter}
-            sortColumn={sortColumn}
-            sortDirection={sortDirection}
-            onToggleSort={onToggleSort}
-          />
+          </Box>
           {content}
         </Box>
       </div>
@@ -472,32 +518,80 @@ function MatrixTable({
   );
 }
 
+const CONTROLS_HEIGHT_VARIABLE = '--cross-platform-controls-height';
+
+// The height of an element, kept up to date as it wraps.
+function useElementHeight() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+  useLayoutEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    const update = () => setHeight(element.offsetHeight);
+    update();
+    // Not available in jsdom.
+    if (typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(update);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+  return { ref, height };
+}
+
 type SubtestsCrossPlatformTableProps = {
   filteringSearchTerm: string;
   resultsPromise: Promise<PlatformSubtestResults[]>;
+  // The search and download row, stuck to the top of the window above the
+  // table header, like the results table's controls.
+  controls: ReactNode;
 };
 
 function SubtestsCrossPlatformTable({
   filteringSearchTerm,
   resultsPromise,
+  controls,
 }: SubtestsCrossPlatformTableProps) {
+  // The controls are outside of Suspense, so that they're usable while the
+  // results load and aren't remounted when they arrive. The table header then
+  // sticks below them, at their height.
+  const { ref: controlsRef, height: controlsHeight } = useElementHeight();
   return (
-    <Suspense
-      fallback={
-        <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 3 }}>
-          <CircularProgress />
-        </Box>
+    <div
+      style={
+        { [CONTROLS_HEIGHT_VARIABLE]: `${controlsHeight}px` } as CSSProperties
       }
     >
-      <Await resolve={resultsPromise}>
-        {(platformResults: PlatformSubtestResults[]) => (
-          <MatrixTable
-            platformResults={platformResults}
-            filteringSearchTerm={filteringSearchTerm}
-          />
-        )}
-      </Await>
-    </Suspense>
+      <Box
+        ref={controlsRef}
+        data-testid='subtests-cross-platform-controls'
+        sx={{
+          position: 'sticky',
+          top: 0,
+          // Above the table header.
+          zIndex: 101,
+          bgcolor: 'background.default',
+          paddingBlock: 1,
+        }}
+      >
+        {controls}
+      </Box>
+      <Suspense
+        fallback={
+          <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 3 }}>
+            <CircularProgress />
+          </Box>
+        }
+      >
+        <Await resolve={resultsPromise}>
+          {(platformResults: PlatformSubtestResults[]) => (
+            <MatrixTable
+              platformResults={platformResults}
+              filteringSearchTerm={filteringSearchTerm}
+            />
+          )}
+        </Await>
+      </Suspense>
+    </div>
   );
 }
 

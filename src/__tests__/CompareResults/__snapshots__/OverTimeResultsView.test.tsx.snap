@@ -469,7 +469,7 @@ exports[`Results View The table should match snapshot and other elements should 
           Platform
           <div
             aria-label="5 items selected"
-            class="MuiBox-root css-18uhbjh"
+            class="filter-count MuiBox-root css-18uhbjh"
           >
             (
             5
@@ -564,7 +564,7 @@ exports[`Results View The table should match snapshot and other elements should 
           Status
           <div
             aria-label="4 items selected"
-            class="MuiBox-root css-18uhbjh"
+            class="filter-count MuiBox-root css-18uhbjh"
           >
             (
             4
@@ -623,7 +623,7 @@ exports[`Results View The table should match snapshot and other elements should 
             Magnitude
             <div
               aria-label="4 items selected"
-              class="MuiBox-root css-18uhbjh"
+              class="filter-count MuiBox-root css-18uhbjh"
             >
               (
               4

@@ -1589,7 +1589,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       Platform
                       <div
                         aria-label="5 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         5
@@ -1684,7 +1684,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       Status
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -1743,7 +1743,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         Magnitude
                         <div
                           aria-label="4 items selected"
-                          class="MuiBox-root css-18uhbjh"
+                          class="filter-count MuiBox-root css-18uhbjh"
                         >
                           (
                           4
@@ -4637,7 +4637,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       Platform
                       <div
                         aria-label="5 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         5
@@ -4732,7 +4732,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       Status
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -4855,7 +4855,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                         Sig
                         <div
                           aria-label="2 items selected"
-                          class="MuiBox-root css-18uhbjh"
+                          class="filter-count MuiBox-root css-18uhbjh"
                         >
                           (
                           2
@@ -6422,7 +6422,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
   Sig
   <div
     aria-label="2 items selected"
-    class="MuiBox-root css-18uhbjh"
+    class="filter-count MuiBox-root css-18uhbjh"
   >
     (
     2

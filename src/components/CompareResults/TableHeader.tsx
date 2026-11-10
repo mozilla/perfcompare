@@ -134,6 +134,7 @@ function FilterableColumnHeader({
         >
           {name}
           <Box
+            className='filter-count'
             sx={{
               paddingInlineStart: 0.5,
               color: 'primary.main',

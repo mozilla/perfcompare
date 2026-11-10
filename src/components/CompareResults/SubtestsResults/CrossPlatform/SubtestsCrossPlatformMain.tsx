@@ -157,32 +157,34 @@ function SubtestsCrossPlatformMain() {
         >
           {Strings.components.crossPlatformSubtests.description}
         </Typography>
-        <Grid container spacing={1}>
-          <Grid sx={{ marginInlineEnd: 'auto' }} size={{ xs: 12, md: 6 }}>
-            <SearchInput
-              defaultValue={initialSearchTerm}
-              onChange={onSearchTermChange}
-              strings={Strings.components.subtestsSearchResultsInput}
-            />
-          </Grid>
-          <Grid size='auto'>
-            <Suspense fallback={<DisabledDownloadButton />}>
-              <Await resolve={results}>
-                {(platformResults: PlatformSubtestResults[]) => (
-                  <DownloadButton
-                    resultsPromise={platformResults.map(
-                      (platformResult) => platformResult.results,
-                    )}
-                  />
-                )}
-              </Await>
-            </Suspense>
-          </Grid>
-        </Grid>
       </header>
       <SubtestsCrossPlatformTable
         filteringSearchTerm={searchTerm}
         resultsPromise={results}
+        controls={
+          <Grid container spacing={1}>
+            <Grid sx={{ marginInlineEnd: 'auto' }} size={{ xs: 12, md: 6 }}>
+              <SearchInput
+                defaultValue={initialSearchTerm}
+                onChange={onSearchTermChange}
+                strings={Strings.components.subtestsSearchResultsInput}
+              />
+            </Grid>
+            <Grid size='auto'>
+              <Suspense fallback={<DisabledDownloadButton />}>
+                <Await resolve={results}>
+                  {(platformResults: PlatformSubtestResults[]) => (
+                    <DownloadButton
+                      resultsPromise={platformResults.map(
+                        (platformResult) => platformResult.results,
+                      )}
+                    />
+                  )}
+                </Await>
+              </Suspense>
+            </Grid>
+          </Grid>
+        }
       />
     </Container>
   );
