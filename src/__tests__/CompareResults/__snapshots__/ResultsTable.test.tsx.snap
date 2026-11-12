@@ -966,10 +966,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     >
                       report it on Bugzilla
                     </a>
-                    . 
-                     
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                     
                   </div>
                   <div
                     class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -1089,7 +1086,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <strong>
                       Magnitude
                     </strong>
-                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                     says how big the difference is: negligible, small, moderate, or large. Sort or filter by it to focus on the biggest changes.
                   </li>
                   <li>
                     Use 
@@ -1592,7 +1589,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       Platform
                       <div
                         aria-label="5 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         5
@@ -1687,7 +1684,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       Status
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -1746,7 +1743,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         Magnitude
                         <div
                           aria-label="4 items selected"
-                          class="MuiBox-root css-18uhbjh"
+                          class="filter-count MuiBox-root css-18uhbjh"
                         >
                           (
                           4
@@ -1814,7 +1811,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="fnf9lyn"
+                            class="f2nmzvj"
                           >
                             <strong>
                               <a
@@ -2097,7 +2094,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="fnf9lyn"
+                            class="f2nmzvj"
                           >
                             <strong>
                               <a
@@ -4017,10 +4014,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     >
                       report it on Bugzilla
                     </a>
-                    . 
-                     
                     The performance comparison shown here may not reflect what performance alerts are generated in CI. Conversely, a performance comparison from a generated alert in CI may not reflect the changes shown here. For a comparison that currently reflects our CI detection system, select the Student-T Test option.
-                     
                   </div>
                   <div
                     class="MuiAlert-action css-rgppqo-MuiAlert-action"
@@ -4140,7 +4134,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                     <strong>
                       Magnitude
                     </strong>
-                     says how big the difference is: negligible, small, medium, or large. Sort or filter by it to focus on the biggest changes.
+                     says how big the difference is: negligible, small, moderate, or large. Sort or filter by it to focus on the biggest changes.
                   </li>
                   <li>
                     Use 
@@ -4643,7 +4637,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       Platform
                       <div
                         aria-label="5 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         5
@@ -4738,7 +4732,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       Status
                       <div
                         aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                        class="filter-count MuiBox-root css-18uhbjh"
                       >
                         (
                         4
@@ -4861,7 +4855,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                         Sig
                         <div
                           aria-label="2 items selected"
-                          class="MuiBox-root css-18uhbjh"
+                          class="filter-count MuiBox-root css-18uhbjh"
                         >
                           (
                           2
@@ -4929,7 +4923,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="fnf9lyn"
+                            class="f2nmzvj"
                           >
                             <strong>
                               <a
@@ -5220,7 +5214,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                           class="revision-header fh103jg"
                         >
                           <div
-                            class="fnf9lyn"
+                            class="f2nmzvj"
                           >
                             <strong>
                               <a
@@ -6428,7 +6422,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
   Sig
   <div
     aria-label="2 items selected"
-    class="MuiBox-root css-18uhbjh"
+    class="filter-count MuiBox-root css-18uhbjh"
   >
     (
     2
@@ -6477,7 +6471,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
     class="revision-header fh103jg"
   >
     <div
-      class="fnf9lyn"
+      class="f2nmzvj"
     >
       <strong>
         <a
@@ -7065,7 +7059,7 @@ exports[`Results Table should render different blocks when rendering several rev
     class="revision-header fh103jg"
   >
     <div
-      class="fnf9lyn"
+      class="f2nmzvj"
     >
       <strong>
         <a

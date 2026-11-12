@@ -1,6 +1,5 @@
-import { useId, useState, useEffect, type ReactNode } from 'react';
+import { useId, useState, useEffect } from 'react';
 
-import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TimelineIcon from '@mui/icons-material/Timeline';
@@ -13,26 +12,24 @@ import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { getStrategy } from '../../common/testVersions';
 import useAdvancedColumns from '../../hooks/useAdvancedColumns';
+import useExpandedRowOptions from '../../hooks/useExpandedRowOptions';
 import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount';
 import { Strings } from '../../resources/Strings';
 import { FontSize, Spacing } from '../../styles';
 import type {
   CombinedResultsItemType,
   CompareResultsItem,
-  PlatformShortName,
 } from '../../types/state';
-import { TestVersion } from '../../types/types';
+import type { TestVersion } from '../../types/types';
 import { formatNumber } from '../../utils/format';
-import {
-  getPlatformShortName,
-  getPlatformAndVersion,
-  getBrowserDisplay,
-} from '../../utils/platform';
+import { getPlatformAndVersion, getBrowserDisplay } from '../../utils/platform';
 import { determineSign } from '../../utils/revisionRowHelpers';
-import AndroidIcon from '../Shared/Icons/AndroidIcon';
-import LinuxIcon from '../Shared/Icons/LinuxIcon';
+import {
+  getSubtestsCompareOverTimeLink,
+  getSubtestsCompareWithBaseLink,
+} from '../../utils/subtestsLinks';
+import { getPlatformIcon } from '../Shared/Icons/platformIcons';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
-import WindowsIcon from '../Shared/Icons/WindowsIcon';
 
 const typography = style({
   fontFamily: 'SF Pro',
@@ -154,68 +151,6 @@ const regressionPill = style(pillStyle);
 
 const improvementPill = style(pillStyle);
 
-const platformIcons: Record<PlatformShortName, ReactNode> = {
-  Linux: <LinuxIcon />,
-  macOS: <AppleIcon />,
-  iOS: <AppleIcon />,
-  Windows: <WindowsIcon />,
-  Android: <AndroidIcon />,
-  Unspecified: '',
-};
-
-const getSubtestsCompareWithBaseLink = (
-  result: CombinedResultsItemType,
-  testVersion: TestVersion,
-) => {
-  const params = new URLSearchParams({
-    baseRev: result.base_rev,
-    baseRepo: result.base_repository_name,
-    newRev: result.new_rev,
-    newRepo: result.new_repository_name,
-    framework: String(result.framework_id),
-    baseParentSignature: String(result.base_signature_id),
-    newParentSignature: String(result.new_signature_id),
-    test_version: testVersion,
-  });
-
-  return `/subtests-compare-results?${params.toString()}`;
-};
-
-const getSubtestsCompareOverTimeLink = (
-  result: CombinedResultsItemType,
-  testVersion: TestVersion,
-) => {
-  // Fetching the interval value directly from the URL avoids a
-  // spurious render due to react-router context changing. It's not usually a
-  // problem, but because this component can have a lot of instances, this is a
-  // performance problem in our case.
-  // If the process of fetching it from the URL is too costly, we might need to
-  // pass it down using the props otherwise.
-  const currentSearchParams = new URLSearchParams(location.search);
-  const interval = currentSearchParams.get('selectedTimeRange');
-  if (interval === null) {
-    // We should always have it because it's been checked in the loader already.
-    // Let's throw if it's absent so that if the loader and URL changes in the
-    // future but this path isn't changed, this will be very visible.
-    throw new Error(
-      "The parameter 'selectedTimeRange' is absent from the search parameters, this should not happen.",
-    );
-  }
-
-  const params = new URLSearchParams({
-    baseRepo: result.base_repository_name,
-    newRev: result.new_rev,
-    newRepo: result.new_repository_name,
-    framework: String(result.framework_id),
-    selectedTimeRange: interval,
-    baseParentSignature: String(result.base_signature_id),
-    newParentSignature: String(result.new_signature_id),
-    test_version: testVersion,
-  });
-
-  return `/subtests-compare-over-time-results?${params.toString()}`;
-};
-
 function RevisionRow(props: RevisionRowProps) {
   const id = useId();
 
@@ -240,8 +175,7 @@ function RevisionRow(props: RevisionRowProps) {
     base_runs_replicates: baseRunsReplicates,
   } = result;
 
-  const platformShortName = getPlatformShortName(platform);
-  const platformIcon = platformIcons[platformShortName];
+  const platformIcon = getPlatformIcon(platform);
   const platformNameAndVersion = getPlatformAndVersion(platform);
   const baseRunsCount = replicates
     ? baseRunsReplicates.length
@@ -249,6 +183,7 @@ function RevisionRow(props: RevisionRowProps) {
   const newRunsCount = replicates ? newRunsReplicates.length : newRuns.length;
   const strategy = getStrategy(testVersion);
   const advancedColumns = useAdvancedColumns();
+  const expandedRow = useExpandedRowOptions();
   const { baseAvg: baseAvgValue, newAvg: newAvgValue } =
     strategy.getAvgValues(result);
   const [expanded, setExpanded] = useState(false);
@@ -267,8 +202,18 @@ function RevisionRow(props: RevisionRowProps) {
   // Note that the return type is different depending on the view we're in
   const subtestsCompareLink =
     view === compareView
-      ? getSubtestsCompareWithBaseLink(result, testVersion)
-      : getSubtestsCompareOverTimeLink(result, testVersion);
+      ? getSubtestsCompareWithBaseLink(
+          result,
+          testVersion,
+          advancedColumns,
+          expandedRow,
+        )
+      : getSubtestsCompareOverTimeLink(
+          result,
+          testVersion,
+          advancedColumns,
+          expandedRow,
+        );
 
   return (
     <>

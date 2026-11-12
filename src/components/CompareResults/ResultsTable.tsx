@@ -10,10 +10,9 @@ import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 import { MANN_WHITNEY_U } from '../../common/constants';
-import useAdvancedColumns from '../../hooks/useAdvancedColumns';
 import useInitializeTableStateFromCookies from '../../hooks/useInitializeTableStateFromCookies';
-import useRawSearchParams from '../../hooks/useRawSearchParams';
-import useSeedAdvancedOptionsFromUrl from '../../hooks/useSeedAdvancedOptionsFromUrl';
+import useSearchTermParam from '../../hooks/useSearchTermParam';
+import useSeededAdvancedColumns from '../../hooks/useSeededAdvancedColumns';
 import useTableFilters from '../../hooks/useTableFilters';
 import useTableSort from '../../hooks/useTableSort';
 import { Framework, TestVersion } from '../../types/types';
@@ -36,11 +35,7 @@ export default function ResultsTable() {
 
   const [, setSearchParams] = useSearchParams();
 
-  // This is our custom hook that updates the search params without a rerender.
-  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
-
-  useSeedAdvancedOptionsFromUrl();
-  const advancedColumns = useAdvancedColumns();
+  const advancedColumns = useSeededAdvancedColumns();
 
   const columnsConfig = useMemo(
     () =>
@@ -63,8 +58,8 @@ export default function ResultsTable() {
   const { sortColumn, sortDirection, onToggleSort } =
     useTableSort(columnsConfig);
 
-  const initialSearchTerm = rawSearchParams.get('search') ?? '';
-  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const { initialSearchTerm, searchTerm, onSearchTermChange } =
+    useSearchTermParam();
   const [frameworkSelection, setFrameworkSelection] =
     useState<Framework['id'][]>(frameworkIds);
 
@@ -91,17 +86,6 @@ export default function ResultsTable() {
       params.append('framework', frameworkId.toString());
     }
     setSearchParams(params);
-  };
-
-  const onSearchTermChange = (newSearchTerm: string) => {
-    setSearchTerm(newSearchTerm);
-    const params = currentUrlParams();
-    if (newSearchTerm) {
-      params.set('search', newSearchTerm);
-    } else {
-      params.delete('search');
-    }
-    updateRawSearchParams(params);
   };
 
   const onTestVersionChange = (testVersion: TestVersion): void => {

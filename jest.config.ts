@@ -57,7 +57,7 @@ const config: Config.InitialOptions = {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     '\\.(css)$': 'identity-obj-proxy',
     '\\.(woff|woff2|ttf)$':
-      '<rootDir>/src/mockData/mockedFonts/Metropolis-Bold.woff2',
+      '<rootDir>/src/__tests__/utils/mockedFonts/Metropolis-Bold.woff2',
   },
   moduleFileExtensions: ['js', 'ts', 'tsx', 'jsx'],
   globalSetup: '<rootDir>/src/__tests__/utils/globalSetup.ts',

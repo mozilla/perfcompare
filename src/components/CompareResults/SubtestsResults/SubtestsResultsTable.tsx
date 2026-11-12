@@ -9,9 +9,8 @@ import FilteredRowsNotice from '.././FilteredRowsNotice';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import { STUDENT_T } from '../../../common/constants';
-import useAdvancedColumns from '../../../hooks/useAdvancedColumns';
 import useInitializeTableStateFromCookies from '../../../hooks/useInitializeTableStateFromCookies';
-import useSeedAdvancedOptionsFromUrl from '../../../hooks/useSeedAdvancedOptionsFromUrl';
+import useSeededAdvancedColumns from '../../../hooks/useSeededAdvancedColumns';
 import useTableFilters, {
   filterResults,
   getFilterHiddenSummary,
@@ -86,8 +85,7 @@ function SubtestsResultsTable({
   replicates,
   testVersion,
 }: ResultsTableProps) {
-  useSeedAdvancedOptionsFromUrl();
-  const advancedColumns = useAdvancedColumns();
+  const advancedColumns = useSeededAdvancedColumns();
   const columnsConfiguration = useMemo(
     () =>
       getColumnsConfiguration(true, testVersion ?? STUDENT_T, advancedColumns),

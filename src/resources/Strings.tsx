@@ -4,6 +4,7 @@ export const Strings = {
       search: 'PerfCompare - Search',
       results: 'PerfCompare - Results',
       subtests: 'PerfCompare - Subtests Results',
+      subtestsCrossPlatform: 'PerfCompare - Subtests Across Platforms',
     },
   },
   components: {
@@ -132,6 +133,24 @@ export const Strings = {
         suiteLink: 'Link to suite documentation  ',
       },
     },
+    crossPlatformSubtests: {
+      linkLabel: 'Compare across platforms',
+      linkTooltip:
+        "See this test's subtests side by side on every platform, to check whether a change reproduces across platforms.",
+      description:
+        "Each column is a platform. Agreement shows whether a subtest moved the same way on the platforms that reported it; hover over it to see how many platforms regressed, improved, or didn't change. Hover over a cell for a quick summary of that result (its status, the base and new values with their number of runs, and the statistical test's results), or select it to open the subtests for that platform.",
+      platformCount: (count: number) =>
+        `${count} platform${count === 1 ? '' : 's'}`,
+      missingCell: 'Not reported on this platform',
+      platformError: (platform: string) =>
+        `The subtests for ${platform} could not be loaded.`,
+      allPlatformsFailed:
+        'None of the platforms could be loaded. Try reloading the page.',
+      hiddenPlatforms: (platforms: string[]) =>
+        `${platforms.length} ${
+          platforms.length === 1 ? 'platform is' : 'platforms are'
+        } hidden because they have no data to compare for one of the revisions: ${platforms.join(', ')}`,
+    },
     betterDirection: {
       lower: 'Lower is better',
       higher: 'Higher is better',
@@ -197,5 +216,17 @@ export const Strings = {
   },
   errors: {
     warningText: 'The search input must be at least three characters.',
+    lando: {
+      pending: (landoId: string, status: string) =>
+        `Lando has not finished creating the try push for job ${landoId} yet (status: ${status}). Please wait a few moments for the push to complete and then refresh the page.`,
+      failed: (landoId: string, status: string, detail?: string) =>
+        detail
+          ? `Lando could not create the try push for job ${landoId} (status: ${status}): ${detail}`
+          : `Lando could not create the try push for job ${landoId} (status: ${status}).`,
+      landedWithoutRevision: (landoId: string, status: string) =>
+        `Lando reports job ${landoId} as ${status}, but no Treeherder revision is available yet. Please wait a few moments and then refresh the page.`,
+      notInTreeherder: (landoId: string, revision: string) =>
+        `Lando job ${landoId} has revision ${revision}, but Treeherder does not have this try push yet. If the push exists, it will appear in a few minutes once Treeherder has processed it. If this Lando ID is from lando.moz.tools, add landoInstance=lando-prod-2025 to the URL.`,
+    },
   },
 };

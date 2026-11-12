@@ -1,16 +1,7 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
-import type {
-  CombinedResultsItemType,
-  CompareResultsItem,
-} from '../types/state';
-import type {
-  CompareResultsTableConfig,
-  CompareResultsTableColumn,
-  CompareMannWhitneyResultsTableConfig,
-  CompareMannWhitneyResultsTableColumn,
-} from '../types/types';
+import type { TableColumn, TableConfig } from '../types/types';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookies';
 import {
   filterParam,
@@ -42,15 +33,12 @@ import {
 // * "filter_confidence=" means that no line will be displayed, which isn't
 //   super useful actually (but is supported).
 
-const useTableFilters = (
-  columnsConfiguration:
-    | CompareResultsTableConfig
-    | CompareMannWhitneyResultsTableConfig,
+// persist: false keeps the filters out of the cookies (see useTableSort).
+const useTableFilters = <TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  { persist = true }: { persist?: boolean } = {},
 ) => {
-  const columnIdToConfiguration: Map<
-    string,
-    CompareResultsTableColumn | CompareMannWhitneyResultsTableColumn
-  > = useMemo(
+  const columnIdToConfiguration: Map<string, TableColumn<TRow>> = useMemo(
     () => new Map(columnsConfiguration.map((val) => [val.key, val])),
     [columnsConfiguration],
   );
@@ -73,7 +61,8 @@ const useTableFilters = (
   // only be called once at mount time.
   // Cookies are only consulted for an uninitialized URL; an initialized URL is
   // the single source of truth so a shared link reproduces the same view.
-  const initialized = isTableStateInitialized(window.location.search);
+  const readCookies =
+    persist && !isTableStateInitialized(window.location.search);
 
   const getInitialTableFilters = () => {
     const result: Map<string, Set<string>> = new Map();
@@ -86,7 +75,7 @@ const useTableFilters = (
 
       const paramValue =
         rawSearchParams.get(filterParam(columnKey)) ??
-        (initialized ? null : getCookie(filterCookie(columnKey)));
+        (readCookies ? getCookie(filterCookie(columnKey)) : null);
       if (paramValue) {
         const configuredValuesSet = new Set(
           paramValue.split(',').map((item) => item.trim()),
@@ -114,7 +103,7 @@ const useTableFilters = (
     const params = currentUrlParams();
     params.delete(filterParam(columnId));
     updateRawSearchParams(params);
-    deleteCookie(filterCookie(columnId));
+    if (persist) deleteCookie(filterCookie(columnId));
 
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
@@ -137,10 +126,10 @@ const useTableFilters = (
     const params = currentUrlParams();
     if (filters.size < columnConfiguration.possibleValues.length) {
       params.set(filterParam(columnId), [...filters].join(','));
-      setCookie(filterCookie(columnId), [...filters].join(','));
+      if (persist) setCookie(filterCookie(columnId), [...filters].join(','));
     } else {
       params.delete(filterParam(columnId));
-      deleteCookie(filterCookie(columnId));
+      if (persist) deleteCookie(filterCookie(columnId));
     }
     updateRawSearchParams(params);
 
@@ -170,8 +159,8 @@ export type ActiveColumnFilter = {
 // its possible values are unchecked. A column with all values checked (or no
 // entry in the map) isn't narrowing anything and is skipped. Labels come from
 // the column configuration so they always match what the header shows.
-function getActiveColumnFilters(
-  columnsConfiguration: CompareResultsTableConfig,
+function getActiveColumnFilters<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
   tableFilters: Map<string, Set<string>>,
 ): ActiveColumnFilter[] {
   const active: ActiveColumnFilter[] = [];
@@ -203,15 +192,12 @@ const NO_FILTERS: Map<string, Set<string>> = new Map();
 // remove — counting only rows the column filters drop, not ones the search term
 // already removed. `filteredCount` is the length of the already-computed
 // search+filter result, passed in so we don't filter that set a second time.
-export function getFilterHiddenSummary(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CombinedResultsItemType[],
+export function getFilterHiddenSummary<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  results: TRow[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
-  resultMatchesSearchTerm: (
-    result: CombinedResultsItemType,
-    searchTerm: string,
-  ) => boolean,
+  resultMatchesSearchTerm: (result: TRow, searchTerm: string) => boolean,
   filteredCount: number,
 ): { activeFilters: ActiveColumnFilter[]; hiddenCount: number } {
   const activeFilters = getActiveColumnFilters(
@@ -234,9 +220,9 @@ export function getFilterHiddenSummary(
   };
 }
 
-function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig,
-  result: CombinedResultsItemType,
+function resultMatchesColumnFilter<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  result: TRow,
   columnId: string,
   checkedValues: Set<string>,
 ): boolean {
@@ -254,12 +240,7 @@ function resultMatchesColumnFilter(
   }
 
   for (const filterValueKey of checkedValues) {
-    if (
-      columnConfiguration.matchesFunction(
-        result as CompareResultsItem,
-        filterValueKey,
-      )
-    ) {
+    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
       return true;
     }
   }
@@ -273,15 +254,12 @@ function resultMatchesColumnFilter(
 // characters, this works as a AND operation.
 // This also supports negative filtering if one of the search terms starts with
 // a "-" character.
-export function filterResults(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CombinedResultsItemType[],
+export function filterResults<TRow>(
+  columnsConfiguration: TableConfig<TRow>,
+  results: TRow[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
-  resultMatchesSearchTerm: (
-    result: CombinedResultsItemType,
-    searchTerm: string,
-  ) => boolean,
+  resultMatchesSearchTerm: (result: TRow, searchTerm: string) => boolean,
 ) {
   if (!searchTerm && !tableFilters.size) {
     return results;

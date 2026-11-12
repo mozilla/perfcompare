@@ -11,6 +11,7 @@ import type {
   CompareResultsItem,
 } from '../../types/state';
 import type { Platform, TestVersion } from '../../types/types';
+import { getCookie } from '../../utils/cookies';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
   augmentCompareDataWithSeveralRevisions,
@@ -1339,6 +1340,34 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     });
   });
 
+  it('filters moderate-magnitude rows with the Moderate option', async () => {
+    const { testCompareMannWhitneyData } = getTestData();
+    Object.assign(testCompareMannWhitneyData[2], {
+      cliffs_delta: 0.4,
+      cliffs_interpretation: 'moderate',
+    });
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const moderateRowOnly = [
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -2.40%, , Moderate, ',
+    ];
+
+    await clickMenuItem(user, 'Magnitude', /Select only.*Moderate/);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      magnitude: ['moderate'],
+    });
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual(moderateRowOnly);
+
+    await clickMenuItem(user, 'Magnitude', /Select all values/);
+    await clickMenuItem(user, 'Magnitude', /^Negligible/);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      magnitude: ['small', 'moderate', 'large'],
+    });
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual(moderateRowOnly);
+  });
+
   it('toggles Cliff’s Delta and CLES independently from the Advanced columns dropdown', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
@@ -1541,6 +1570,41 @@ describe('Advanced-columns toggle for mann-whitney-u testVersion', () => {
     expect(expandedParam()).toBeNull();
   });
 
+  it('carries the Advanced options selection into the subtests links', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    // The subtests link only renders for results that have subtests.
+    setupAndRender(
+      testCompareMannWhitneyData.map((result) => ({
+        ...result,
+        has_subtests: true,
+      })),
+      'test_version=mann-whitney-u',
+    );
+    await screen.findByText('a11yr');
+
+    const subtestsLinkParams = () =>
+      new URL(
+        screen
+          .getAllByTitle(Strings.components.revisionRow.title.subtestsLink)[0]
+          .getAttribute('href') as string,
+        'http://localhost',
+      ).searchParams;
+    // Simplified default: "none" is pinned explicitly.
+    expect(subtestsLinkParams().get('advanced_columns')).toBe('');
+    expect(subtestsLinkParams().get('advanced_expanded')).toBe('');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    await user.click(screen.getByRole('option', { name: 'Significance' }));
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    await user.keyboard('{Escape}');
+
+    expect(subtestsLinkParams().get('advanced_columns')).toBe('significance');
+    expect(subtestsLinkParams().get('advanced_expanded')).toBe('stats_table');
+  });
+
   it('toasts when an expanded-row option is added, but not when removed', async () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const { testCompareMannWhitneyData } = getTestData();
@@ -1681,6 +1745,113 @@ describe('cookie persistence vs. shareable URLs', () => {
   });
 });
 
+describe('Advanced options cookie persistence', () => {
+  const header = () => screen.getByTestId('table-header');
+  const urlParam = (name: string) =>
+    new URLSearchParams(window.location.search).get(name);
+
+  it('restores the remembered selection on a fresh URL and writes it into the URL', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+    document.cookie = 'perfcompare_advanced_expanded=stats_table; path=/';
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u',
+    );
+    await screen.findByText('a11yr');
+
+    expect(header().querySelector('.significance-header')).toBeTruthy();
+    expect(urlParam('advanced_columns')).toBe('significance');
+    expect(urlParam('advanced_expanded')).toBe('stats_table');
+    expect(urlParam('initialized')).toBe('1');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    expect(
+      screen.getByRole('option', { name: 'Statistics table' }),
+    ).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('ignores the cookie when the URL is already initialized', async () => {
+    document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRenderAsPageLoad(
+      testCompareMannWhitneyData,
+      'test_version=mann-whitney-u&initialized=1',
+    );
+    await screen.findByText('a11yr');
+
+    expect(header().querySelector('.significance-header')).toBeFalsy();
+    expect(urlParam('advanced_columns')).toBeNull();
+  });
+
+  it.each([
+    { param: 'cles', expectCles: true },
+    { param: '', expectCles: false },
+  ])(
+    'prefers the URL param over the cookie on a fresh URL (advanced_columns=$param)',
+    async ({ param, expectCles }) => {
+      document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+      const { testCompareMannWhitneyData } = getTestData();
+      setupAndRenderAsPageLoad(
+        testCompareMannWhitneyData,
+        `test_version=mann-whitney-u&advanced_columns=${param}`,
+      );
+      await screen.findByText('a11yr');
+
+      expect(header().querySelector('.significance-header')).toBeFalsy();
+      expect(Boolean(header().querySelector('.effects-header'))).toBe(
+        expectCles,
+      );
+    },
+  );
+
+  it('applies the remembered filter and sort of a cookie-restored column when the store predates the cookie', async () => {
+    document.cookie = 'perfcompare_advanced_columns=significance; path=/';
+    document.cookie = 'perfcompare_filter_significance=significant; path=/';
+    document.cookie = 'perfcompare_sort=significance|asc; path=/';
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    expect(
+      screen.getByRole('button', {
+        name: /Significance.*Currently sorted by this column/,
+      }),
+    ).toBeInTheDocument();
+    expect(summarizeVisibleRows('mann-whitney-u')).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -2.40%, , -, Real',
+      '  - Windows 10, -, , -, Real',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      significance: ['significant'],
+    });
+    expect(urlParam('sort')).toBe('significance|asc');
+  });
+
+  it('remembers the selection in cookies when it changes', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const { testCompareMannWhitneyData } = getTestData();
+    setupAndRender(testCompareMannWhitneyData, 'test_version=mann-whitney-u');
+    await screen.findByText('a11yr');
+
+    await user.click(
+      screen.getByRole('combobox', { name: 'Advanced options' }),
+    );
+    await user.click(screen.getByRole('option', { name: 'Significance' }));
+    await user.click(screen.getByRole('option', { name: 'Statistics table' }));
+    expect(getCookie('perfcompare_advanced_columns')).toBe('significance');
+    expect(getCookie('perfcompare_advanced_expanded')).toBe('stats_table');
+
+    await user.click(screen.getByRole('option', { name: 'Significance' }));
+    expect(getCookie('perfcompare_advanced_columns')).toBeNull();
+    expect(getCookie('perfcompare_advanced_expanded')).toBe('stats_table');
+  });
+});
+
 // Placed at the end of the file on purpose: this test performs extra renders /
 // menu interactions, and React's useId counter is global across renders in a
 // jest run, so running it before the snapshot tests above would shift their
@@ -1715,5 +1886,48 @@ describe('Filtered-rows notice', () => {
     expect(
       screen.queryByTestId('filtered-rows-notice'),
     ).not.toBeInTheDocument();
+  });
+});
+
+// Last in the file so that its React ids don't shift the snapshots above.
+describe('Cross-platform link', () => {
+  it('links a test to its cross-platform subtests, across header groups', async () => {
+    const { testCompareData } = getTestData();
+    const [first] = testCompareData;
+    const desktop = { ...first, has_subtests: true };
+    const android = {
+      ...first,
+      platform: 'android-hw-a55-14-0-aarch64-shippable' as Platform,
+      header_name: `${first.header_name} android`,
+      base_signature_id: first.base_signature_id + 1,
+      new_signature_id: first.new_signature_id + 1,
+      has_subtests: true,
+    };
+    const withoutSubtests = {
+      ...first,
+      test: 'other.html',
+      header_name: 'other header',
+      has_subtests: false,
+    };
+
+    setupAndRender([desktop, android, withoutSubtests]);
+    await screen.findAllByText('a11yr');
+    // jsdom names the link from the tooltip's title attribute; browsers use
+    // its text.
+    const links = screen.getAllByText(
+      Strings.components.crossPlatformSubtests.linkLabel,
+    );
+    // One per header group of the test, both to the same comparison.
+    expect(links).toHaveLength(2);
+    const url = new URL(links[0].getAttribute('href')!, window.location.href);
+    expect(url.pathname).toBe('/subtests-cross-platform-results');
+    const signatures = (result: typeof desktop) =>
+      result.base_signature_id === result.new_signature_id
+        ? `${result.base_signature_id}`
+        : `${result.base_signature_id}_${result.new_signature_id}`;
+    expect(url.searchParams.get('sigs')).toBe(
+      `${signatures(desktop)}.${signatures(android)}`,
+    );
+    expect(links[1]).toHaveAttribute('href', links[0].getAttribute('href'));
   });
 });

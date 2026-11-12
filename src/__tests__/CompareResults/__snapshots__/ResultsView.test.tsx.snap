@@ -20,10 +20,6 @@ exports[`Results View Should display Base, New and Common graphs with replicates
     >
       <div>
         <div>
-          Only one run (consider more runs for greater confidence).
-           
-        </div>
-        <div>
           <b>
             Base application
           </b>
@@ -196,10 +192,6 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
       class="MuiStack-root css-1ucnu3w-MuiStack-root"
     >
       <div>
-        <div>
-          Only one run (consider more runs for greater confidence).
-           
-        </div>
         <div>
           <b>
             Base application
@@ -888,7 +880,7 @@ exports[`Results View The table should match snapshot and other elements should 
           Platform
           <div
             aria-label="5 items selected"
-            class="MuiBox-root css-18uhbjh"
+            class="filter-count MuiBox-root css-18uhbjh"
           >
             (
             5
@@ -983,7 +975,7 @@ exports[`Results View The table should match snapshot and other elements should 
           Status
           <div
             aria-label="4 items selected"
-            class="MuiBox-root css-18uhbjh"
+            class="filter-count MuiBox-root css-18uhbjh"
           >
             (
             4
@@ -1042,7 +1034,7 @@ exports[`Results View The table should match snapshot and other elements should 
             Magnitude
             <div
               aria-label="4 items selected"
-              class="MuiBox-root css-18uhbjh"
+              class="filter-count MuiBox-root css-18uhbjh"
             >
               (
               4
@@ -1110,7 +1102,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="revision-header fh103jg"
             >
               <div
-                class="fnf9lyn"
+                class="f2nmzvj"
               >
                 <strong>
                   <a

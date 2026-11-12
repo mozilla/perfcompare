@@ -11,6 +11,7 @@ import {
 import { RouterProvider } from 'react-router/dom';
 
 import { useAppSelector } from '../hooks/app';
+import { withTreeherderBackend } from '../logic/treeherder';
 import { Strings } from '../resources/Strings';
 import getProtocolTheme from '../theme/protocolTheme';
 import { loader as hashToCommitLoader } from './CompareResults/hashToCommitLoader';
@@ -19,8 +20,10 @@ import { loader as compareLoader } from './CompareResults/loader';
 import { loader as compareOverTimeLoader } from './CompareResults/overTimeLoader';
 import OverTimeResultsView from './CompareResults/OverTimeResultsView';
 import ResultsView from './CompareResults/ResultsView';
+import { loader as compareSubtestsCrossPlatformLoader } from './CompareResults/subtestsCrossPlatformLoader';
 import { loader as compareSubtestsLoader } from './CompareResults/subtestsLoader';
 import { loader as compareSubtestsOverTimeLoader } from './CompareResults/subtestsOverTimeLoader';
+import SubtestsCrossPlatformView from './CompareResults/SubtestsResults/CrossPlatform/SubtestsCrossPlatformView';
 import SubtestsOverTimeResultsView from './CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsView from './CompareResults/SubtestsResults/SubtestsResultsView';
 import { loader as homeLoader } from './Search/loader';
@@ -56,7 +59,7 @@ export const router = createBrowserRouter(
     <>
       <Route
         path='/'
-        loader={homeLoader}
+        loader={withTreeherderBackend(homeLoader)}
         element={<SearchView title={Strings.metaData.pageTitle.search} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.search} />}
         hydrateFallbackElement={<></>}
@@ -64,7 +67,7 @@ export const router = createBrowserRouter(
 
       <Route
         path='/compare-results'
-        loader={compareLoader}
+        loader={withTreeherderBackend(compareLoader)}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
         hydrateFallbackElement={<></>}
@@ -72,7 +75,7 @@ export const router = createBrowserRouter(
 
       <Route
         path='/compare-hash-results'
-        loader={hashToCommitLoader}
+        loader={withTreeherderBackend(hashToCommitLoader)}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
         hydrateFallbackElement={<></>}
@@ -80,7 +83,7 @@ export const router = createBrowserRouter(
 
       <Route
         path='/compare-lando-results'
-        loader={landoToCommitLoader}
+        loader={withTreeherderBackend(landoToCommitLoader)}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
         hydrateFallbackElement={<></>}
@@ -88,7 +91,7 @@ export const router = createBrowserRouter(
 
       <Route
         path='/compare-over-time-results'
-        loader={compareOverTimeLoader}
+        loader={withTreeherderBackend(compareOverTimeLoader)}
         element={
           <OverTimeResultsView title={Strings.metaData.pageTitle.results} />
         }
@@ -98,7 +101,7 @@ export const router = createBrowserRouter(
 
       <Route
         path='/subtests-compare-results'
-        loader={compareSubtestsLoader}
+        loader={withTreeherderBackend(compareSubtestsLoader)}
         element={
           <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
         }
@@ -107,8 +110,22 @@ export const router = createBrowserRouter(
       />
 
       <Route
+        path='/subtests-cross-platform-results'
+        loader={withTreeherderBackend(compareSubtestsCrossPlatformLoader)}
+        element={
+          <SubtestsCrossPlatformView
+            title={Strings.metaData.pageTitle.subtestsCrossPlatform}
+          />
+        }
+        errorElement={
+          <PageError title={Strings.metaData.pageTitle.subtestsCrossPlatform} />
+        }
+        hydrateFallbackElement={<></>}
+      />
+
+      <Route
         path='/subtests-compare-over-time-results'
-        loader={compareSubtestsOverTimeLoader}
+        loader={withTreeherderBackend(compareSubtestsOverTimeLoader)}
         element={
           <SubtestsOverTimeResultsView
             title={Strings.metaData.pageTitle.subtests}

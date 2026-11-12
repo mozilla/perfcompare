@@ -27,6 +27,12 @@ export interface TestVersionStrategy {
   getComparisonResult(result: CombinedResultsItemType): string;
   isRegression(result: CombinedResultsItemType): boolean;
   isImprovement(result: CombinedResultsItemType): boolean;
+  // True when the change isn't statistically meaningful (Mann-Whitney-U only).
+  isNoise(result: CombinedResultsItemType): boolean;
+  // The change in percent shown in the rows, and how the rows format it.
+  getDeltaPct(result: CombinedResultsItemType): number | null;
+  formatDeltaPct(pct: number): string;
+  needsMoreRuns(result: CombinedResultsItemType): boolean;
   renderExpandedRight(result: CombinedResultsItemType): ReactNode;
   renderExpandedBottom(result: CombinedResultsItemType): ReactNode;
 }

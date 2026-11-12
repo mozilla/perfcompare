@@ -53,8 +53,8 @@ function HowToReadResults() {
         </li>
         <li>
           <strong>Magnitude</strong> says how big the difference is: negligible,
-          small, medium, or large. Sort or filter by it to focus on the biggest
-          changes.
+          small, moderate, or large. Sort or filter by it to focus on the
+          biggest changes.
         </li>
         <li>
           Use <strong>Advanced columns</strong> to add the expert stats
