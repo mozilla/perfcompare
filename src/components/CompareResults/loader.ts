@@ -20,12 +20,7 @@ import {
   CombinedResultsItemType,
   Repository,
 } from '../../types/state';
-import {
-  DataPointsValue,
-  FakeCommitHash,
-  Framework,
-  TestVersion,
-} from '../../types/types';
+import { DataPointsValue, Framework, TestVersion } from '../../types/types';
 
 // Parses the raw `framework` URL values into a validated, de-duplicated list
 // of framework ids. When no value is provided, it defaults to the default
