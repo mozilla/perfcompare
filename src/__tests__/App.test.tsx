@@ -411,6 +411,36 @@ describe('App', () => {
       );
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
+
+      // Error 11: invalid number of data points value
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?baseRepo=try&newRev=spam&newRepo=try&selectedTimeRange=86400&numberOfDataPoints=FOO',
+        ),
+      );
+      expect(await screen.findByText(/"FOO"/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(
+          `The parameter numberOfDataPoints isn't a valid value: "FOO".`,
+        ),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
+      // Error 12: unknown number of data points value
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?baseRepo=try&newRev=spam&newRepo=try&selectedTimeRange=86400&numberOfDataPoints=1000',
+        ),
+      );
+      expect(await screen.findByText(/"1000"/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(
+          `The parameter numberOfDataPoints isn't a valid value: "1000".`,
+        ),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
     });
 
     it('Should default testVersion to mann-whitney-u when not provided in URL', async () => {
@@ -472,6 +502,54 @@ describe('App', () => {
         .map((call) => new URL(call.url).searchParams.get('framework'))
         .sort();
       expect(requestedFrameworks).toEqual(['1', '4']);
+    });
+
+    it('Should forward the number of data points to treeherder for the over time view when provided', async () => {
+      const { testCompareMannWhitneyData } = getTestData();
+      fetchMock.get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareMannWhitneyData,
+      );
+
+      await router.navigate(
+        '/compare-over-time-results/?baseRepo=try&selectedTimeRange=86400&newRev=spam&newRepo=try&framework=1&numberOfDataPoints=25',
+      );
+      render(<App />);
+
+      await screen.findByText('a11yr');
+      await waitForAllFetches();
+
+      const resultsCalls = fetchMock.callHistory
+        .calls()
+        .filter((call) => call.url.includes('/api/perfcompare/results/'));
+      expect(resultsCalls).toHaveLength(1);
+      expect(
+        new URL(resultsCalls[0].url).searchParams.get('number_of_data_points'),
+      ).toBe('25');
+    });
+
+    it('Should not send the number of data points to treeherder when it is absent from the URL', async () => {
+      const { testCompareMannWhitneyData } = getTestData();
+      fetchMock.get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareMannWhitneyData,
+      );
+
+      await router.navigate(
+        '/compare-over-time-results/?baseRepo=try&selectedTimeRange=86400&newRev=spam&newRepo=try&framework=1',
+      );
+      render(<App />);
+
+      await screen.findByText('a11yr');
+      await waitForAllFetches();
+
+      const resultsCalls = fetchMock.callHistory
+        .calls()
+        .filter((call) => call.url.includes('/api/perfcompare/results/'));
+      expect(resultsCalls).toHaveLength(1);
+      expect(
+        new URL(resultsCalls[0].url).searchParams.has('number_of_data_points'),
+      ).toBe(false);
     });
   });
 });
