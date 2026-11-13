@@ -1,3 +1,4 @@
+import { parseNumberOfDataPoints } from './loader';
 import {
   repoMap,
   frameworks,
@@ -17,6 +18,7 @@ function checkValues({
   newRepo,
   framework,
   interval,
+  dataPoints,
   baseParentSignature,
   newParentSignature,
   replicates,
@@ -27,6 +29,7 @@ function checkValues({
   newRepo: Repository['name'] | null;
   framework: string | number | null;
   interval: string | number | null;
+  dataPoints: string | null;
   baseParentSignature: string | null;
   newParentSignature: string | null;
   replicates: boolean;
@@ -39,6 +42,7 @@ function checkValues({
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
+  dataPointsValue?: number;
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
@@ -124,6 +128,8 @@ function checkValues({
     );
   }
 
+  const dataPointsValue = parseNumberOfDataPoints(dataPoints);
+
   if (testVersion === MANN_WHITNEY_U || testVersion === null) {
     replicates = true;
   }
@@ -140,6 +146,7 @@ function checkValues({
     frameworkName,
     intervalText,
     intervalValue,
+    dataPointsValue,
     baseParentSignature,
     newParentSignature,
     replicates,
@@ -162,6 +169,7 @@ export function loader({ request }: { request: Request }) {
     | Repository['name']
     | null;
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
+  const dataPointsFromUrl = url.searchParams.get('numberOfDataPoints');
   const frameworkFromUrl = url.searchParams.get('framework');
   const baseParentSignatureFromUrl = url.searchParams.get(
     'baseParentSignature',
@@ -179,6 +187,7 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
+    dataPointsValue,
     baseParentSignature,
     newParentSignature,
     replicates,
@@ -189,6 +198,7 @@ export function loader({ request }: { request: Request }) {
     newRepo: newRepoFromUrl,
     framework: frameworkFromUrl,
     interval: intervalFromUrl,
+    dataPoints: dataPointsFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
     replicates: replicatesFromUrl,
@@ -201,6 +211,7 @@ export function loader({ request }: { request: Request }) {
     newRepo,
     framework: frameworkId,
     interval: intervalValue,
+    numberOfDataPoints: dataPointsValue,
     baseParentSignature,
     newParentSignature,
     replicates,
@@ -216,6 +227,7 @@ export function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
+    dataPointsValue,
     baseParentSignature,
     newParentSignature,
     replicates,

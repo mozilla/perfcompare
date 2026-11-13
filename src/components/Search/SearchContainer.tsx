@@ -7,7 +7,7 @@ import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 import type { LoaderReturnValue } from './loader';
 import SearchFormHeader from './SearchFormHeader';
-import { STUDENT_T } from '../../common/constants';
+import { ALL_DATA_POINTS, STUDENT_T } from '../../common/constants';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
 
@@ -65,6 +65,7 @@ function SearchContainer(props: SearchViewProps) {
           setIsExpanded={() => setIsBaseSearchExpanded(false)}
           frameworkIdVal={[frameworkId]}
           intervalValue={86400}
+          dataPointsValue={ALL_DATA_POINTS}
           baseRepo={newRepo}
           newRepo={newRepo}
           testVersion={STUDENT_T}

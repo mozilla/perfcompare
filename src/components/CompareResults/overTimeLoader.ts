@@ -1,4 +1,4 @@
-import { parseFrameworkIds } from './loader';
+import { parseFrameworkIds, parseNumberOfDataPoints } from './loader';
 import {
   repoMap,
   frameworks,
@@ -15,7 +15,12 @@ import {
   CombinedResultsItemType,
   Repository,
 } from '../../types/state';
-import { Framework, TestVersion, TimeRange } from '../../types/types';
+import {
+  DataPointsValue,
+  Framework,
+  TestVersion,
+  TimeRange,
+} from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -25,6 +30,7 @@ function checkValues({
   newRepos,
   frameworkValues,
   interval,
+  dataPoints,
   replicates,
   testVersion,
 }: {
@@ -33,6 +39,7 @@ function checkValues({
   newRepos: Repository['name'][];
   frameworkValues: string[];
   interval: string | number | null;
+  dataPoints: string | null;
   replicates: boolean;
   testVersion?: TestVersion | null;
 }): {
@@ -42,6 +49,7 @@ function checkValues({
   frameworkIds: Framework['id'][];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
+  dataPointsValue?: number;
   replicates: boolean;
   testVersion: TestVersion;
 } {
@@ -88,6 +96,8 @@ function checkValues({
     );
   }
 
+  const dataPointsValue = parseNumberOfDataPoints(dataPoints);
+
   if (testVersion === MANN_WHITNEY_U || testVersion === null) {
     replicates = true;
   }
@@ -103,6 +113,7 @@ function checkValues({
     frameworkIds,
     intervalText,
     intervalValue,
+    dataPointsValue,
     replicates,
     testVersion,
   };
@@ -120,6 +131,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   newRepos,
   frameworkIds,
   interval,
+  numberOfDataPoints,
   replicates,
   testVersion,
 }: {
@@ -128,6 +140,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   newRepos: Repository['name'][];
   frameworkIds: Framework['id'][];
   interval: TimeRange['value'];
+  numberOfDataPoints?: number;
   replicates: boolean;
   testVersion: TestVersion;
 }): Promise<{
@@ -144,6 +157,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
             newRepo: newRepos[i],
             framework,
             interval,
+            numberOfDataPoints,
             replicates,
             testVersion,
           }),
@@ -190,6 +204,7 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.getAll('framework');
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
+  const dataPointsFromUrl = url.searchParams.get('numberOfDataPoints');
   const replicatesFromUrl = url.searchParams.has('replicates');
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
@@ -202,6 +217,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkIds,
     intervalValue,
     intervalText,
+    dataPointsValue,
     replicates,
     testVersion,
   } = checkValues({
@@ -210,6 +226,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos: newReposFromUrl,
     frameworkValues: frameworkFromUrl,
     interval: intervalFromUrl,
+    dataPoints: dataPointsFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
@@ -220,6 +237,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkIds,
     interval: intervalValue,
+    numberOfDataPoints: dataPointsValue,
     replicates,
     testVersion,
   });
@@ -253,6 +271,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkIds,
     intervalValue,
     intervalText,
+    dataPointsValue: dataPointsValue as DataPointsValue | undefined,
     view: compareOverTimeView,
     generation: generationCounter++,
     replicates,
@@ -270,6 +289,7 @@ type DeferredLoaderData = {
   frameworkIds: Framework['id'][];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
+  dataPointsValue?: DataPointsValue;
   view: typeof compareOverTimeView;
   generation: number;
   replicates: boolean;

@@ -65,6 +65,12 @@ const getPreviousCompareOverTimeURL = (
     newRepo,
     framework,
   });
+  // Forward the number of data points when it was selected, so that the
+  // results view requests the same amount.
+  const dataPoints = currentSearchParams.get('numberOfDataPoints');
+  if (dataPoints !== null) {
+    params.set('numberOfDataPoints', dataPoints);
+  }
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });

@@ -121,6 +121,11 @@ export type TimeRange =
   | { value: 7776000; text: 'Last 90 days' }
   | { value: 31536000; text: 'Last year' };
 
+// The possible choices for the number of data points to request per signature
+// when comparing over time. 'all' means the parameter isn't sent to the server,
+// which then returns every available data point.
+export type DataPointsValue = 'all' | 5 | 10 | 25 | 50 | 100;
+
 export type FilterValue = {
   name: string;
   value: string;

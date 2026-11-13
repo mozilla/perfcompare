@@ -1,5 +1,6 @@
 import { Repository } from '../types/state';
 import {
+  DataPointsValue,
   Framework,
   Platform,
   SupportedPerfdocsFramework,
@@ -107,6 +108,19 @@ export const timeRanges: TimeRange[] = [
   { value: 5184000, text: 'Last 60 days' },
   { value: 7776000, text: 'Last 90 days' },
   { value: 31536000, text: 'Last year' },
+];
+
+// The value used when no numberOfDataPoints parameter is present. The parameter
+// is then not sent to the server, which returns all the data points available.
+export const ALL_DATA_POINTS: DataPointsValue = 'all';
+
+export const dataPointsOptions: { value: DataPointsValue; text: string }[] = [
+  { value: ALL_DATA_POINTS, text: 'All data points' },
+  { value: 5, text: '5' },
+  { value: 10, text: '10' },
+  { value: 25, text: '25' },
+  { value: 50, text: '50' },
+  { value: 100, text: '100' },
 ];
 
 export const platformMap: Record<Platform, string> = {
