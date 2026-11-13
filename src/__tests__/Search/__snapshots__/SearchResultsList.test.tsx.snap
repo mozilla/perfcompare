@@ -2,9 +2,9 @@
 
 exports[`SearchResultsList Should apply dark and light mode styles when theme button is toggled: after toggling dark mode 1 1`] = `
 <ul
-  aria-labelledby="_r_7a_-label"
+  aria-labelledby="_r_7m_-label"
   class="MuiAutocomplete-listbox f1recfq3 results-list-dark css-hcvz0e-MuiAutocomplete-listbox"
-  id="_r_7a_-listbox"
+  id="_r_7m_-listbox"
   role="listbox"
 >
   <li
@@ -13,7 +13,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="0"
     data-testid="autocomplete-option"
-    id="_r_7a_-option-0"
+    id="_r_7m_-option-0"
     role="option"
     tabindex="-1"
   >
@@ -125,7 +125,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="1"
     data-testid="autocomplete-option"
-    id="_r_7a_-option-1"
+    id="_r_7m_-option-1"
     role="option"
     tabindex="-1"
   >
@@ -237,7 +237,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="2"
     data-testid="autocomplete-option"
-    id="_r_7a_-option-2"
+    id="_r_7m_-option-2"
     role="option"
     tabindex="-1"
   >
@@ -349,7 +349,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="3"
     data-testid="autocomplete-option"
-    id="_r_7a_-option-3"
+    id="_r_7m_-option-3"
     role="option"
     tabindex="-1"
   >
@@ -461,7 +461,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="4"
     data-testid="autocomplete-option"
-    id="_r_7a_-option-4"
+    id="_r_7m_-option-4"
     role="option"
     tabindex="-1"
   >
@@ -573,7 +573,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="5"
     data-testid="autocomplete-option"
-    id="_r_7a_-option-5"
+    id="_r_7m_-option-5"
     role="option"
     tabindex="-1"
   >
@@ -685,7 +685,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
     class="f1sxt1ji search-revision-item search-revision "
     data-option-index="6"
     data-testid="autocomplete-option"
-    id="_r_7a_-option-6"
+    id="_r_7m_-option-6"
     role="option"
     tabindex="-1"
   >
@@ -1683,6 +1683,81 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
+                    class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 datapoints-repo-dropdown dropDown_frp1utb css-13620ud-MuiGrid-root"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-direction-xs-row css-zla2hx-MuiGrid-root"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--datapoints css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
+                        id="select-datapoints-label"
+                      >
+                        Number of data points
+                      </label>
+                      <svg
+                        aria-hidden="true"
+                        aria-label="The maximum data points returned per test signature; lower values load faster."
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi css-1dgifna-MuiGrid-root"
+                    id="data-points-container"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow datapoints-search-dropdown dropDown_frp1utb css-t3of1j-MuiGrid-root"
+                      id="data-points"
+                      style="max-width: 365px;"
+                    >
+                      <div
+                        class="MuiFormControl-root datapoints-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
+                      >
+                        <div
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          data-testid="dropdown-select-datapoints"
+                        >
+                          <div
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-labelledby="select-datapoints-label"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            role="combobox"
+                            tabindex="0"
+                          >
+                            All data points
+                          </div>
+                          <input
+                            aria-hidden="true"
+                            aria-invalid="false"
+                            class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                            tabindex="-1"
+                            value="all"
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                            data-testid="ArrowDropDownIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M7 10l5 5 5-5z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
                     class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-7epmqr-MuiGrid-root"
                   >
                     <label
@@ -1802,7 +1877,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   autocapitalize="none"
                                   autocomplete="off"
                                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                                  id="_r_l_"
+                                  id="_r_n_"
                                   placeholder="Search by revision ID or author email"
                                   role="combobox"
                                   spellcheck="false"

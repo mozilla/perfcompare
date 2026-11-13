@@ -3,11 +3,13 @@ import { ReactElement } from 'react';
 import fetchMock from '@fetch-mock/jest';
 import userEvent from '@testing-library/user-event';
 
-import { compareView } from '../../common/constants';
+import { compareView, compareOverTimeView } from '../../common/constants';
 import { isDistributionNormal } from '../../common/testVersions/mannWhitney';
 import { loader } from '../../components/CompareResults/loader';
+import { loader as overTimeLoader } from '../../components/CompareResults/overTimeLoader';
 import RevisionRow from '../../components/CompareResults/RevisionRow';
 import { useSubtestRegressionCount } from '../../hooks/useSubtestRegressionCount';
+import { Strings } from '../../resources/Strings';
 import { CompareResultsItem, MannWhitneyResultsItem } from '../../types/state';
 import { Platform } from '../../types/types';
 import getTestData from '../utils/fixtures';
@@ -669,5 +671,45 @@ describe('expandAll prop', () => {
     await user.click(collapseButton);
 
     expect(await screen.findByTestId(/ExpandMoreIcon/)).toBeInTheDocument();
+  });
+});
+
+describe('Subtest link for the over time view', () => {
+  it('forwards the number of data points to the subtests link', async () => {
+    fetchMock
+      .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [],
+      });
+    const {
+      testCompareData: [rowData],
+    } = getTestData();
+
+    renderWithRouter(
+      <RevisionRow
+        result={{ ...rowData, has_subtests: true }}
+        view={compareOverTimeView}
+        gridTemplateColumns='none'
+        replicates={false}
+        testVersion='student-t'
+        expandAll={false}
+      />,
+      {
+        route: '/compare-over-time-results/',
+        search:
+          '?baseRepo=try&selectedTimeRange=86400&newRev=coconut&newRepo=try&framework=1&numberOfDataPoints=25',
+        loader: overTimeLoader,
+      },
+    );
+
+    const subtestsLink = await screen.findByTitle(
+      Strings.components.revisionRow.title.subtestsLink,
+    );
+    const url = new URL(
+      subtestsLink.getAttribute('href') as string,
+      'http://localhost',
+    );
+    expect(url.pathname).toBe('/subtests-compare-over-time-results');
+    expect(url.searchParams.get('numberOfDataPoints')).toBe('25');
   });
 });

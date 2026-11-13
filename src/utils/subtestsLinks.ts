@@ -102,6 +102,12 @@ export const getSubtestsCompareOverTimeLink = (
     newParentSignature: String(result.new_signature_id),
     test_version: testVersion,
   });
+  // Forward the number of data points when it was selected, so that the
+  // subtests view requests the same amount.
+  const dataPoints = currentSearchParams.get('numberOfDataPoints');
+  if (dataPoints !== null) {
+    params.set('numberOfDataPoints', dataPoints);
+  }
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });

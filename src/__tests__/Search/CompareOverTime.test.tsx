@@ -314,6 +314,33 @@ describe('Compare Over Time', () => {
     ).toBeInTheDocument();
   });
 
+  it('selects and displays the number of data points when clicked', async () => {
+    renderSearchViewComponent();
+    await expandOverTimeComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
+
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+    // All data points is the default.
+    expect(
+      within(formElement).getAllByText(/All data points/i)[0],
+    ).toBeInTheDocument();
+
+    expect(within(formElement).queryByText(/^25$/)).not.toBeInTheDocument();
+
+    const dataPointsDropdown = screen.getByRole('combobox', {
+      name: /Number of data points/i,
+    });
+
+    await user.click(dataPointsDropdown);
+    expect(screen.getByRole('listbox')).toMatchSnapshot();
+    const twentyFiveItem = screen.getByRole('option', { name: '25' });
+
+    await user.click(twentyFiveItem);
+
+    expect(within(formElement).getAllByText(/^25$/)[0]).toBeInTheDocument();
+  });
+
   it('should hide search results when clicking outside of search input', async () => {
     renderSearchViewComponent();
     await expandOverTimeComponent();
@@ -628,12 +655,23 @@ describe('Compare Over Time', () => {
     });
     await user.click(last2daysItem);
 
+    // change the number of data points
+    const dataPointsDropdown = screen.getByRole('combobox', {
+      name: /Number of data points/i,
+    });
+    await user.click(dataPointsDropdown);
+    const twentyFiveItem = screen.getByRole('option', { name: '25' });
+    await user.click(twentyFiveItem);
+
     // Press the compare button
     await user.click(compareButton);
     expect(formElement).toMatchSnapshot('After clicking Compare button');
 
     await waitFor(() => {
       expect(location.href).toContain('selectedTimeRange=172800');
+    });
+    await waitFor(() => {
+      expect(location.href).toContain('numberOfDataPoints=25');
     });
 
     // the updated revision and time range should be displayed
