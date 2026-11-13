@@ -15,7 +15,12 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
-import { Framework, TestVersion, TimeRange } from '../../types/types';
+import {
+  DataPointsValue,
+  Framework,
+  TestVersion,
+  TimeRange,
+} from '../../types/types';
 
 const strings = Strings.components.searchDefault;
 const stringsOverTime = Strings.components.searchDefault.overTime;
@@ -25,6 +30,7 @@ interface CompareWithTimeProps {
   newRevs: Changeset[];
   frameworkIdVal: Framework['id'][];
   intervalValue: TimeRange['value'];
+  dataPointsValue: DataPointsValue;
   newRepo: Repository['name'];
   baseRepo: Repository['name'];
   testVersion: TestVersion;
@@ -37,6 +43,7 @@ function CompareOverTime({
   newRevs,
   frameworkIdVal,
   intervalValue,
+  dataPointsValue,
   baseRepo,
   newRepo,
   isExpanded,
@@ -47,6 +54,7 @@ function CompareOverTime({
   const resultsView = location.pathname.includes(compareOverTimeView);
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
+  const [dataPoints, setDataPoints] = useState(dataPointsValue);
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
@@ -184,6 +192,10 @@ function CompareOverTime({
             timeRangeValue={timeRangeValue}
             onTimeRangeChange={(value: TimeRange['value']) =>
               setTimeRangeValue(value)
+            }
+            dataPointsValue={dataPoints}
+            onDataPointsChange={(value: DataPointsValue) =>
+              setDataPoints(value)
             }
           />
 

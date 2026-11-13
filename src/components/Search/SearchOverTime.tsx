@@ -6,11 +6,16 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import { style } from 'typestyle';
 
+import DataPointsDropdown from './DataPointsDropdown';
 import SearchDropdown from './SearchDropdown';
 import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
 import TimeRangeDropdown from './TimeRangeDropdown';
-import { compareOverTimeView, timeRanges } from '../../common/constants';
+import {
+  compareOverTimeView,
+  dataPointsOptions,
+  timeRanges,
+} from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import {
@@ -21,7 +26,7 @@ import {
   FontSize,
 } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
-import { TimeRange } from '../../types/types';
+import { DataPointsValue, TimeRange } from '../../types/types';
 import { formatDateRange } from '../../utils/format';
 
 interface SearchProps {
@@ -30,12 +35,14 @@ interface SearchProps {
   baseRepo: Repository['name'];
   newRepo: Repository['name'];
   timeRangeValue: TimeRange['value'];
+  dataPointsValue: DataPointsValue;
   formIsDisplayed: boolean;
   onRemoveRevision: (item: Changeset) => void;
   onSearchResultsToggle: (item: Changeset) => void;
   onBaseRepositoryChange: (repo: Repository['name']) => unknown;
   onNewRepositoryChange: (repo: Repository['name']) => unknown;
   onTimeRangeChange: (val: TimeRange['value']) => unknown;
+  onDataPointsChange: (val: DataPointsValue) => unknown;
 }
 
 export default function SearchOverTime({
@@ -44,17 +51,21 @@ export default function SearchOverTime({
   newRepo,
   displayedRevisions,
   timeRangeValue,
+  dataPointsValue,
   onRemoveRevision,
   onSearchResultsToggle,
   onBaseRepositoryChange,
   onNewRepositoryChange,
   onTimeRangeChange,
+  onDataPointsChange,
   formIsDisplayed,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
   const timeRangeStrings =
     Strings.components.searchDefault.overTime.collapsed.timeRange;
+  const dataPointsStrings =
+    Strings.components.searchDefault.overTime.collapsed.dataPoints;
   const stringsBase =
     Strings.components.searchDefault.overTime.collapsed.baseRepo;
   const stringsNew =
@@ -62,6 +73,10 @@ export default function SearchOverTime({
 
   const timeRangeText = timeRanges.find(
     (entry) => entry.value === timeRangeValue,
+  )?.text;
+
+  const dataPointsText = dataPointsOptions.find(
+    (entry) => entry.value === dataPointsValue,
   )?.text;
 
   const readOnlyStyles = style({
@@ -235,6 +250,98 @@ export default function SearchOverTime({
             <TimeRangeDropdown
               timeRangeValue={timeRangeValue}
               onChange={onTimeRangeChange}
+            />
+          </Grid>
+        </Grid>
+      )}
+      {/**** Data Points Label Section ****/}
+      <Grid
+        container
+        spacing={2}
+        className={`datapoints-repo-dropdown ${styles.dropDown}`}
+      >
+        <Grid
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <InputLabel
+            id='select-datapoints-label'
+            className='dropdown-select-label dropdown-select-label--datapoints'
+          >
+            {dataPointsStrings.selectLabel}
+          </InputLabel>
+          <Tooltip
+            classes={{
+              tooltip: `tooltip-${mode === 'light' ? 'light' : 'dark'}`,
+            }}
+            placement='top'
+            title={dataPointsStrings.tooltip}
+          >
+            <InfoIcon fontSize='small' className='dropdown-info-icon' />
+          </Tooltip>
+        </Grid>
+      </Grid>
+      {/**** Data Points ReadyOnly ****/}
+      {!formIsDisplayed && (
+        <Grid
+          container
+          id='data-points-container--readonly'
+          className={styles.container}
+          sx={{
+            alignItems: 'flex-start',
+            mb: 3,
+            p: 0,
+            ml: 0,
+          }}
+        >
+          <Grid
+            style={{
+              maxWidth: hasEditButton ? maxWidthTimeRangeL : maxWidthTimeRangeS,
+            }}
+            className={`datapoints-search-dropdown  ${readOnlyStyles}`}
+            size='grow'
+          >
+            <Typography
+              component='span'
+              variant='body2'
+              color='textPrimary'
+              sx={{
+                alignItems: 'center',
+              }}
+            >
+              {dataPointsText}
+            </Typography>
+          </Grid>
+        </Grid>
+      )}
+      {/**** Data Points DropDown Section ****/}
+      {formIsDisplayed && (
+        <Grid
+          container
+          id='data-points-container'
+          className={styles.container}
+          sx={{
+            alignItems: 'flex-start',
+            mb: 3,
+            p: 0,
+            ml: 0,
+          }}
+        >
+          <Grid
+            id='data-points'
+            style={{
+              maxWidth: hasEditButton ? maxWidthTimeRangeL : maxWidthTimeRangeS,
+            }}
+            className={`datapoints-search-dropdown ${
+              hasEditButton ? 'small' : ''
+            } ${styles.dropDown}  `}
+            size='grow'
+          >
+            <DataPointsDropdown
+              dataPointsValue={dataPointsValue}
+              onChange={onDataPointsChange}
             />
           </Grid>
         </Grid>

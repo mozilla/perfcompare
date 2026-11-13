@@ -6,6 +6,7 @@ import { style } from 'typestyle';
 
 import type { LoaderReturnValue } from './overTimeLoader';
 import ResultsMain from './ResultsMain';
+import { ALL_DATA_POINTS } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { SearchContainerStyles, background } from '../../styles';
 import CompareOverTime from '../Search/CompareOverTime';
@@ -20,6 +21,7 @@ function ResultsView(props: ResultsViewProps) {
     newRevsInfo,
     frameworkIds,
     intervalValue,
+    dataPointsValue,
     baseRepo,
     newRepos,
     testVersion,
@@ -53,6 +55,7 @@ function ResultsView(props: ResultsViewProps) {
           isExpanded={true}
           frameworkIdVal={frameworkIds}
           intervalValue={intervalValue}
+          dataPointsValue={dataPointsValue ?? ALL_DATA_POINTS}
           baseRepo={baseRepo}
           newRepo={newRepo}
           testVersion={testVersion}
