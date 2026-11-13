@@ -853,6 +853,7 @@ describe('Advanced options carry-over between results and subtests', () => {
       route: '/subtests-compare-results/',
       search: mannWhitneySearch,
       resultsPath: '/compare-results',
+      dataPoints: null,
     },
     {
       name: 'compare over time',
@@ -862,12 +863,13 @@ describe('Advanced options carry-over between results and subtests', () => {
         />
       ),
       route: '/subtests-compare-over-time-results/',
-      search: `${mannWhitneySearch}&selectedTimeRange=86400`,
+      search: `${mannWhitneySearch}&selectedTimeRange=86400&numberOfDataPoints=25`,
       resultsPath: '/compare-over-time-results',
+      dataPoints: '25',
     },
   ])(
     'carries the selection back in the "All results" link ($name)',
-    async ({ element, route, search, resultsPath }) => {
+    async ({ element, route, search, resultsPath, dataPoints }) => {
       const user = userEvent.setup({
         advanceTimers: jest.advanceTimersByTime,
       });
@@ -890,6 +892,10 @@ describe('Advanced options carry-over between results and subtests', () => {
       expect(allResultsLink().pathname).toBe(resultsPath);
       expect(allResultsLink().searchParams.get('advanced_columns')).toBe('');
       expect(allResultsLink().searchParams.get('advanced_expanded')).toBe('');
+      // The number of data points is only forwarded for the over time view.
+      expect(allResultsLink().searchParams.get('numberOfDataPoints')).toBe(
+        dataPoints,
+      );
 
       await user.click(
         screen.getByRole('combobox', { name: 'Advanced options' }),
