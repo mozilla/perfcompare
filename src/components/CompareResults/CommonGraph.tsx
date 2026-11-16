@@ -823,52 +823,6 @@ function CommonGraph({
           mb: 0.5,
         }}
       >
-        <Typography
-          variant='body2'
-          sx={{
-            color: 'text.primary',
-            whiteSpace: 'nowrap',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          Valley depth threshold
-          <Tooltip
-            placement='top'
-            title='A valley between two peaks must be shallower than this fraction of the shorter peak to count as a mode boundary. Higher = more splits detected.'
-          >
-            <InfoIcon
-              fontSize='small'
-              sx={{
-                cursor: 'help',
-                mx: 0.5,
-              }}
-            />
-          </Tooltip>
-          :
-        </Typography>
-        <Slider
-          size='small'
-          value={localVt}
-          min={VT_MIN}
-          max={VT_MAX}
-          step={VT_STEP}
-          disabled={!showModes}
-          onChange={(_, value) => setLocalVt(value)}
-          onChangeCommitted={(_, value) => onVtChange(value)}
-          aria-label='Valley depth threshold'
-          sx={{ maxWidth: 240 }}
-        />
-        <Typography
-          variant='body2'
-          sx={{
-            color: 'text.secondary',
-            minWidth: 36,
-            textAlign: 'right',
-          }}
-        >
-          {Math.round(localVt * 100)}%
-        </Typography>
         <FormControlLabel
           control={
             <Checkbox
@@ -877,9 +831,59 @@ function CommonGraph({
               onChange={(_, checked) => onShowModesChange(checked)}
             />
           }
-          label='Show modes'
-          sx={{ ml: 1, '& .MuiFormControlLabel-label': { fontSize: 14 } }}
+          label='Modal analysis'
+          sx={{ '& .MuiFormControlLabel-label': { fontSize: 14 } }}
         />
+        {/*
+          The sensitivity slider only makes sense while modal analysis is on —
+          with it off the chart is just the KDE, so we hide the slider entirely
+          rather than showing a disabled control.
+        */}
+        {showModes && (
+          <>
+            <Typography
+              variant='body2'
+              sx={{
+                color: 'text.primary',
+                whiteSpace: 'nowrap',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              Mode sensitivity
+              <Tooltip
+                placement='top'
+                title='How readily the KDE peak detector splits neighboring bumps into separate modes. Higher = more modes detected; lower = only strongly separated modes.'
+              >
+                <InfoIcon
+                  fontSize='small'
+                  sx={{ color: 'text.primary', cursor: 'help', mx: 0.5 }}
+                />
+              </Tooltip>
+              :
+            </Typography>
+            {/*
+              Preview chart modes during drag; update the detail panel on release.
+            */}
+            <Slider
+              size='small'
+              value={localVt}
+              min={VT_MIN}
+              max={VT_MAX}
+              step={VT_STEP}
+              onChange={(_, value) => setLocalVt(value)}
+              onChangeCommitted={(_, value) => onVtChange(value)}
+              aria-label='Mode sensitivity'
+              sx={{ maxWidth: 240 }}
+            />
+            <Typography
+              variant='body2'
+              sx={{ color: 'text.secondary', minWidth: 36, textAlign: 'right' }}
+            >
+              {Math.round(localVt * 100)}%
+            </Typography>
+          </>
+        )}
       </Box>
       <Box sx={{ flex: 0 }}>
         <div

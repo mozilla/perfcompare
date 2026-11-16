@@ -221,16 +221,16 @@ describe('RevisionRowExpandable simplified Mann-Whitney-U view', () => {
     expect(screen.queryByText(STATS_TABLE_TEXT)).not.toBeInTheDocument();
   });
 
-  it('shows the graph mode controls (valley-depth slider + Show modes) by default, independent of the Mode analysis option', async () => {
+  it('shows the graph mode controls (sensitivity slider + Modal analysis) by default, independent of the Mode analysis option', async () => {
     renderMwuRow();
 
     // The controls live on the graph and are available in the simplified view
     // without enabling the "Mode analysis" expanded-row option.
     expect(
-      await screen.findByRole('slider', { name: /valley depth threshold/i }),
+      await screen.findByRole('slider', { name: /mode sensitivity/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('checkbox', { name: /show modes/i }),
+      screen.getByRole('checkbox', { name: /modal analysis/i }),
     ).toBeInTheDocument();
   });
 

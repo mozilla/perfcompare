@@ -592,7 +592,7 @@ describe('CommonGraph', () => {
     // Starts at vt = 0.5 → 50%.
     expect(screen.getByText('50%')).toBeInTheDocument();
 
-    const slider = screen.getByRole('slider', { name: /valley depth/i });
+    const slider = screen.getByRole('slider', { name: /mode sensitivity/i });
     fireEvent.change(slider, { target: { value: '0.7' } });
 
     // Local mirror updated → percentage reflects the new value.
@@ -627,9 +627,10 @@ describe('CommonGraph', () => {
         (series) => series.z === 2 && Boolean(series.markLine),
       );
     expect(ticks()).toHaveLength(2);
-    fireEvent.change(screen.getByRole('slider', { name: /valley depth/i }), {
-      target: { value: '0.9' },
-    });
+    fireEvent.change(
+      screen.getByRole('slider', { name: /mode sensitivity/i }),
+      { target: { value: '0.9' } },
+    );
     expect(ticks()).toHaveLength(4);
     expect(fftkde).toHaveBeenCalledTimes(2);
   });
@@ -668,7 +669,7 @@ describe('CommonGraph', () => {
     expect(arrow?.markLine?.lineStyle?.color).toBe(color);
   });
 
-  it('disables the slider when showModes is false', () => {
+  it('hides the sensitivity slider when modal analysis is off', () => {
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
@@ -691,11 +692,13 @@ describe('CommonGraph', () => {
       />,
     );
 
-    const slider = screen.getByRole('slider', { name: /valley depth/i });
-    expect(slider).toBeDisabled();
+    // With modal analysis off the chart is just the KDE — no slider at all.
+    expect(
+      screen.queryByRole('slider', { name: /mode sensitivity/i }),
+    ).not.toBeInTheDocument();
   });
 
-  it('calls onShowModesChange when the Show modes checkbox is toggled', () => {
+  it('calls onShowModesChange when the Modal analysis checkbox is toggled', () => {
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
@@ -719,7 +722,7 @@ describe('CommonGraph', () => {
       />,
     );
 
-    const checkbox = screen.getByRole('checkbox', { name: /show modes/i });
+    const checkbox = screen.getByRole('checkbox', { name: /modal analysis/i });
     fireEvent.click(checkbox);
     expect(onShowModesChange).toHaveBeenCalledWith(false);
   });
