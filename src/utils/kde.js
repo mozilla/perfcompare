@@ -255,7 +255,11 @@ function gaussianKernel1D(x, bw) {
 function gaussianPracticalSupport(bw, atol = 10e-5) {
   const inner = atol * Math.sqrt(2 * Math.PI) * bw;
   if (inner >= 1) return 3 * bw;
-  return bw * Math.sqrt(-2 * Math.log(inner)) + 1e-3;
+  // Enforce at least 3σ: the atol formula finds where the kernel *value* hits
+  // atol, but for large bw the kernel peak is low so that threshold is reached
+  // at only ~1-2σ, truncating >20% of the probability mass and causing
+  // convolution ringing that looks like aliasing on the chart.
+  return Math.max(bw * Math.sqrt(-2 * Math.log(inner)) + 1e-3, 3 * bw);
 }
 // ---------------------------------------------------------------------------
 // ISJ fixed-point function — port of KDEpy's _fixed_point

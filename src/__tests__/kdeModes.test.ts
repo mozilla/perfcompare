@@ -141,6 +141,19 @@ describe('assignLetters', () => {
   });
 });
 
+describe('fftkde kernel support', () => {
+  it('retains probability mass at large bandwidths', () => {
+    const { fftkde: realFftkde } =
+      jest.requireActual<typeof import('../utils/kde.js')>('../utils/kde.js');
+    const { x, y } = realFftkde([1000, 2000, 3000], 2000);
+    const integral = y
+      .slice(1)
+      .reduce((area, v, i) => area + ((v + y[i]) * (x[i + 1] - x[i])) / 2, 0);
+    expect(integral).toBeGreaterThan(0.99);
+    expect(integral).toBeLessThan(1.01);
+  });
+});
+
 describe('matchModes', () => {
   it('pairs modes by proximity when counts match', () => {
     // Base modes at 10, 90; new modes at 12, 88 — should match index-to-index.
