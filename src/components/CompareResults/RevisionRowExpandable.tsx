@@ -48,9 +48,7 @@ function ExpandedCell({ children }: { children: ReactNode }) {
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id, testVersion } = props;
 
-  // Valley-depth threshold for the mode-detection slider rendered next to the
-  // chart. Lifted to this row so the future mode-blurb panel can read the same
-  // detected modes without recomputing the KDE.
+  // Sensitivity is shared by the chart and the mode-breakdown panel.
   const [vt, setVt] = useState(0.5);
   const [showModes, setShowModes] = useState(true);
 
@@ -125,6 +123,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         baseValues={baseValues}
         newValues={newValues}
         unit={baseUnit || newUnit}
+        lowerIsBetter={lowerIsBetter ?? true}
         sharedBw={sharedBw}
         bwMultiplier={bwMultiplier}
         onBwMultiplierChange={setBwMultiplier}

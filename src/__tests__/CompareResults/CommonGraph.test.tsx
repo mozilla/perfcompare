@@ -3,6 +3,7 @@ import { init as echartsInit } from 'echarts';
 import type { EChartsOption, LineSeriesOption } from 'echarts';
 
 import CommonGraph from '../../components/CompareResults/CommonGraph';
+import { Colors } from '../../styles/Colors';
 import { fftkde } from '../../utils/kde.js';
 import { render, screen } from '../utils/test-utils';
 
@@ -75,6 +76,11 @@ function getLatestEChartsOption(): EChartsOption {
 }
 
 describe('CommonGraph', () => {
+  beforeEach(() => {
+    // jsdom has no canvas context; exercise the text-width fallback.
+    jest.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null);
+  });
+
   it('resamples both KDEs onto a shared 1024-point x-grid', () => {
     // Both series mock to the same x range so the shared grid spans [10, 30].
     (fftkde as jest.Mock).mockImplementation(() => ({
@@ -230,17 +236,18 @@ describe('CommonGraph', () => {
 
     const option = getLatestEChartsOption();
     const allSeries = option.series as LineSeriesOption[];
-    // Mode-overlay markLine series share names with the parent KDE lines
-    // (Base/New) so the legend can toggle them together — identify the
-    // underlying KDE curves by the absence of a markLine config.
-    const series = allSeries.filter(
-      (s) => s.type === 'line' && !(s as { markLine?: unknown }).markLine,
+    // The KDE density curves are the line series with triggerLineEvent set
+    // (the GMM overlay curves and mode markLines don't carry it).
+    const kdeSeries = allSeries.filter(
+      (s) =>
+        s.type === 'line' &&
+        (s as { triggerLineEvent?: boolean }).triggerLineEvent,
     );
-    expect(series).toHaveLength(2);
+    expect(kdeSeries).toHaveLength(2);
     // Base side has a resampled density curve.
-    expect(series[0].data as unknown[]).toHaveLength(1024);
+    expect(kdeSeries[0].data as unknown[]).toHaveLength(1024);
     // New side has no KDE — its data array stays empty.
-    expect(series[1].data).toEqual([]);
+    expect(kdeSeries[1].data).toEqual([]);
   });
 
   it('skips chart init when the container ref has no element attached', () => {
@@ -333,7 +340,7 @@ describe('CommonGraph', () => {
     );
   });
 
-  it('formats x-axis tick labels: 2 dp for fractions, bare integer for whole numbers', () => {
+  it('formats whole and fractional x-axis values with the same precision', () => {
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
@@ -414,22 +421,24 @@ describe('CommonGraph', () => {
     expect(rendered).toBe('Value: 5.00<br>Base: 0.1000');
   });
 
-  it('emits a mode-overlay markLine series for each detected peak', () => {
-    // Strictly increasing fake KDE — fitModesFromKde returns a single peak at
-    // the global max (last x). That yields exactly one markLine overlay per
-    // series, with a label tagged by series and letter A. Overlays share
-    // names with the parent KDE series (Base/New) so the legend can toggle
-    // them — identify them by the markLine config rather than name.
+  it('emits a mode-overlay markLine series for each detected mode', () => {
+    // Each side has one mode (KDE mock peaks at x=30). Each mode emits two
+    // series: an unlabeled horizontal span (z=3) and a vertical peak tick
+    // (z=2) carrying the combined series/letter/value/fraction label. So 4
+    // overlays total.
     (fftkde as jest.Mock).mockImplementation(() => ({
       x: [10, 20, 30],
       y: [0.1, 0.2, 0.3],
       bandwidth: 1,
     }));
 
+    const baseCluster = [100, 101, 99, 100, 102, 98, 101, 100];
+    const newCluster = [200, 201, 199, 200, 202, 198, 201, 200];
+
     render(
       <CommonGraph
-        baseValues={[1, 2]}
-        newValues={[3, 4]}
+        baseValues={baseCluster}
+        newValues={newCluster}
         unit='ms'
         sharedBw={undefined}
         bwMultiplier={1.0}
@@ -445,25 +454,39 @@ describe('CommonGraph', () => {
     const option = getLatestEChartsOption();
     const series = option.series as Array<{
       name?: string;
+      z?: number;
       markLine?: {
-        data?: Array<{ xAxis?: number }>;
-        label?: { formatter?: string };
+        data?: Array<[{ coord: number[] }, { coord: number[] }]>;
+        label?: { formatter?: string; show?: boolean };
         lineStyle?: { color?: string };
       };
     }>;
-    // Peak overlays are line-type series with a markLine. Scatter rows also
-    // carry a baseline markLine but they're scatter-type, so type filters them out.
+    // Line-type series with markLine: span (z=3) + tick (z=2) per mode per series.
     const overlays = series.filter(
       (s) => (s as { type?: string }).type === 'line' && Boolean(s.markLine),
     );
-    // One overlay per series (Base + New), both peaking at the same x.
-    expect(overlays).toHaveLength(2);
-    expect(overlays[0].name).toBe('Base');
-    expect(overlays[1].name).toBe('New');
-    expect(overlays[0].markLine?.data?.[0]?.xAxis).toBe(30);
-    expect(overlays[1].markLine?.data?.[0]?.xAxis).toBe(30);
-    expect(overlays[0].markLine?.label?.formatter).toMatch(/^Base A: 30/);
-    expect(overlays[1].markLine?.label?.formatter).toMatch(/^New A: 30/);
+    // 2 series × (1 span + 1 tick) = 4 overlays total.
+    expect(overlays).toHaveLength(4);
+    // Spans are at even indices (0=Base, 2=New), ticks at odd (1=Base, 3=New).
+    const baseSpan = overlays[0];
+    const newSpan = overlays[2];
+    expect(baseSpan.name).toBe('Base');
+    expect(newSpan.name).toBe('New');
+    // Spans carry no label — the combined label lives on the tick below.
+    expect(baseSpan.markLine?.label?.show).toBe(false);
+    expect(newSpan.markLine?.label?.show).toBe(false);
+    // Matched letter A → same color in both series.
+    expect(baseSpan.markLine?.lineStyle?.color).toBe(
+      newSpan.markLine?.lineStyle?.color,
+    );
+    // Vertical tick marks the KDE peak (x=30 from the mock) and carries the
+    // combined label.
+    const baseTick = overlays[1];
+    const newTick = overlays[3];
+    expect(baseTick.markLine?.label?.formatter).toMatch(/^Base A:/);
+    expect(newTick.markLine?.label?.formatter).toMatch(/^New A:/);
+    expect(baseTick.markLine?.data?.[0]?.[0]?.coord?.[0]).toBeCloseTo(30, 5);
+    expect(newTick.markLine?.data?.[0]?.[0]?.coord?.[0]).toBeCloseTo(30, 5);
   });
 
   it('shows raw run values in the scatter tooltip with the unit suffix', () => {
@@ -576,6 +599,73 @@ describe('CommonGraph', () => {
     expect(screen.getByText('70%')).toBeInTheDocument();
     // Parent committed callback also fired with the same value.
     expect(onVtChange).toHaveBeenCalledWith(0.7);
+  });
+
+  it('splits shallower valleys when the sensitivity slider moves right', () => {
+    (fftkde as jest.Mock).mockImplementation(() => ({
+      x: [0, 1, 2, 3, 4],
+      y: [0, 1, 0.6, 1, 0],
+      bandwidth: 1,
+    }));
+    render(
+      <CommonGraph
+        baseValues={[1, 3]}
+        newValues={[1, 3]}
+        unit='ms'
+        sharedBw={1}
+        bwMultiplier={1}
+        onBwMultiplierChange={jest.fn()}
+        isLargeBw={false}
+        vt={0.1}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
+      />,
+    );
+    const ticks = () =>
+      (getLatestEChartsOption().series as LineSeriesOption[]).filter(
+        (series) => series.z === 2 && Boolean(series.markLine),
+      );
+    expect(ticks()).toHaveLength(2);
+    fireEvent.change(screen.getByRole('slider', { name: /valley depth/i }), {
+      target: { value: '0.9' },
+    });
+    expect(ticks()).toHaveLength(4);
+    expect(fftkde).toHaveBeenCalledTimes(2);
+  });
+
+  it.each([
+    [true, Colors.IconLightError],
+    [false, Colors.IconLightSuccess],
+  ])('colors a rising peak for lowerIsBetter=%s', (lowerIsBetter, color) => {
+    (fftkde as jest.Mock).mockImplementation((values: number[]) => ({
+      x: [values[0] - 1, values[0], values[0] + 1],
+      y: [0, 1, 0],
+      bandwidth: 1,
+    }));
+    render(
+      <CommonGraph
+        baseValues={[10, 10]}
+        newValues={[20, 20]}
+        unit='score'
+        sharedBw={1}
+        lowerIsBetter={lowerIsBetter}
+        bwMultiplier={1}
+        onBwMultiplierChange={jest.fn()}
+        isLargeBw={false}
+        vt={0.5}
+        onVtChange={jest.fn()}
+        showModes={true}
+        onShowModesChange={jest.fn()}
+      />,
+    );
+    const series = getLatestEChartsOption().series as Array<{
+      markLine?: { symbol?: string[]; lineStyle?: { color?: string } };
+    }>;
+    const arrow = series.find((item) =>
+      item.markLine?.symbol?.includes('arrow'),
+    );
+    expect(arrow?.markLine?.lineStyle?.color).toBe(color);
   });
 
   it('disables the slider when showModes is false', () => {
