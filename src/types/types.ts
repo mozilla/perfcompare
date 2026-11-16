@@ -92,6 +92,7 @@ export type MeasurementUnit =
   | 'mAh'
   | 'ms'
   | 'mWh'
+  | 'uWh'
   | 'KB'
   | 'fps'
   | 'bytes'

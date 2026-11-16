@@ -47,7 +47,7 @@ describe('RevisionRowExpandable for student-t testVersion', () => {
     const meansHeader = await screen.findByText(/Difference of means/);
     const meansBox = meansHeader.closest('div');
     expect(meansBox).toHaveTextContent('+1.08%');
-    expect(meansBox).toHaveTextContent('7.6 ms');
+    expect(meansBox).toHaveTextContent('7.60 ms');
   });
 
   it('should not display median difference when median values are absent', async () => {
