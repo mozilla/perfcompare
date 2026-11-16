@@ -247,13 +247,13 @@ function CommonGraph({
   // the thumb in real time. fitModesFromKde is cheap (array ops on a
   // pre-computed 1024-point grid), so running it on every drag pixel is fine.
   const modes = useMemo(() => {
-    const { bKde, nKde, sharedX, baseY, newY, min, max } = analysis;
+    const { bKde, nKde, min, max } = analysis;
 
     const baseModes: ModeInfo = bKde
-      ? computeModeInfo(sharedX, baseY, localVt)
+      ? computeModeInfo(bKde.x, bKde.y, localVt, baseValues)
       : { peakLocs: [], boundaries: [], fracs: [], letters: [] };
     const newModes: ModeInfo = nKde
-      ? computeModeInfo(sharedX, newY, localVt)
+      ? computeModeInfo(nKde.x, nKde.y, localVt, newValues)
       : { peakLocs: [], boundaries: [], fracs: [], letters: [] };
 
     // Assign vertical stagger levels across all peaks so labels don't collide.
@@ -274,7 +274,7 @@ function CommonGraph({
     const maxLevel =
       levelLookup.size > 0 ? Math.max(...levelLookup.values()) : 0;
     return { baseModes, newModes, levelLookup, maxLevel };
-  }, [analysis, localVt]);
+  }, [analysis, localVt, baseValues, newValues]);
 
   const option: EChartsOption = useMemo(() => {
     const {

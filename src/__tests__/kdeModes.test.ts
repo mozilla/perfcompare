@@ -2,9 +2,11 @@ import {
   areaFracs,
   assignLetters,
   fitModesFromKde,
+  fitKdePeakModes,
   matchModes,
   splitByMode,
 } from '../utils/kde.js';
+import { computeModeInfo } from '../utils/kdeAnalysis';
 
 // Build a synthetic KDE: a sum of narrow Gaussian bumps on a uniform grid.
 // Useful for tests that need a curve with known peak locations.
@@ -138,6 +140,62 @@ describe('assignLetters', () => {
 
   it('handles already-sorted input', () => {
     expect(assignLetters([1, 2, 3, 4])).toEqual(['A', 'B', 'C', 'D']);
+  });
+});
+
+describe('fitKdePeakModes', () => {
+  it('counts raw runs, including boundary values in the lower region', () => {
+    const modes = fitKdePeakModes(
+      [0, 1, 2, 3, 4],
+      [0, 1, 0.2, 1, 0],
+      [1, 1, 2, 3],
+    );
+    expect(modes).toEqual({
+      peakLocs: [1, 3],
+      boundaries: [2],
+      fracs: [0.75, 0.25],
+    });
+  });
+
+  it('keeps more peaks as sensitivity increases', () => {
+    const x = [0, 1, 2, 3, 4];
+    const y = [0, 1, 0.6, 1, 0];
+    expect(computeModeInfo(x, y, 0.1, [1, 3]).peakLocs).toHaveLength(1);
+    expect(computeModeInfo(x, y, 0.9, [1, 3]).peakLocs).toEqual([1, 3]);
+  });
+
+  it('merges a tiny region into the closer neighboring peak', () => {
+    const modes = fitKdePeakModes(
+      [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      [0, 2, 0, 0, 0, 1, 0, 2, 0],
+      [...Array<number>(10).fill(1), 5, ...Array<number>(10).fill(7)],
+    );
+    expect(modes.peakLocs).toEqual([1, 7]);
+    expect(modes.boundaries).toEqual([2]);
+    expect(modes.fracs).toEqual([10 / 21, 11 / 21]);
+  });
+
+  it('treats a flat peak as one mode', () => {
+    expect(fitKdePeakModes([0, 1, 2, 3], [0, 1, 1, 0], [1, 2])).toEqual({
+      peakLocs: [2],
+      boundaries: [],
+      fracs: [1],
+    });
+  });
+
+  it('uses the global maximum when the curve is monotone', () => {
+    expect(fitKdePeakModes([0, 1, 2], [1, 2, 3], [1, 2])).toEqual({
+      peakLocs: [2],
+      boundaries: [],
+      fracs: [1],
+    });
+  });
+
+  it('returns no modes without samples or a complete grid', () => {
+    const empty = { peakLocs: [], boundaries: [], fracs: [] };
+    expect(fitKdePeakModes([0, 1, 2], [0, 1, 0], [])).toEqual(empty);
+    expect(fitKdePeakModes([0, 1], [1, 0], [1])).toEqual(empty);
+    expect(fitKdePeakModes([0, 1, 2], [1, 0], [1])).toEqual(empty);
   });
 });
 

@@ -75,6 +75,12 @@ export declare function areaFracs(
   y: ArrayLike<number>,
   boundaries: number[],
 ): number[];
+export declare function fitKdePeakModes(
+  kdeX: ArrayLike<number>,
+  kdeY: ArrayLike<number>,
+  data: number[],
+  opts?: { valleyRatio?: number; minFrac?: number },
+): { peakLocs: number[]; boundaries: number[]; fracs: number[] };
 export declare function assignLetters(locs: number[]): string[];
 export type MatchModesResult = {
   pairs: Array<[number, number]>;

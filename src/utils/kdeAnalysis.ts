@@ -4,10 +4,9 @@
  * so they can't drift onto subtly different bandwidth / mode-detection logic.
  */
 import {
-  areaFracs,
   assignLetters,
   fftkde,
-  fitModesFromKde,
+  fitKdePeakModes,
   improvedSheatherJones,
   silvermansRule,
 } from './kde.js';
@@ -19,7 +18,7 @@ export const KDE_GRID_POINTS = 1024;
 
 /**
  * Per-side mode summary: peaks, their boundary x-values (used to bucket raw
- * samples for bootstrap CIs), area-under-curve fractions per mode, and the
+ * samples for bootstrap CIs), fractions of raw runs per mode, and the
  * A/B/C letter labels by peak location.
  */
 export type ModeInfo = {
@@ -118,7 +117,7 @@ export function safeKde(values: number[], bw?: number) {
 }
 
 /**
- * Run mode detection on a KDE curve and bundle the result with area fractions
+ * Run mode detection on a KDE curve and bundle the result with sample fractions
  * and letter labels. Returns the empty ModeInfo (rather than null) when there's
  * nothing to fit — callers check `peakLocs.length` to detect empty.
  */
@@ -126,14 +125,19 @@ export function computeModeInfo(
   x: number[],
   y: number[],
   vt: number,
+  values: number[],
 ): ModeInfo {
   if (!x.length || !y.length) return EMPTY_MODE_INFO;
-  const { peakLocs, boundaries } = fitModesFromKde(x, y, vt);
+  // Higher sensitivity accepts shallower valleys, so it keeps more peaks.
+  const valleyRatio = Math.max(0.05, Math.min(0.95, vt));
+  const { peakLocs, boundaries, fracs } = fitKdePeakModes(x, y, values, {
+    valleyRatio,
+  });
   if (!peakLocs.length) return EMPTY_MODE_INFO;
   return {
     peakLocs,
     boundaries,
-    fracs: areaFracs(x, y, boundaries),
+    fracs,
     letters: assignLetters(peakLocs),
   };
 }

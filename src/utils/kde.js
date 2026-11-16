@@ -715,6 +715,91 @@ export function assignLetters(locs) {
   });
   return out;
 }
+
+/**
+ * Detect peaks in a KDE curve, merging shallow valleys and small sample regions.
+ * A valley must fall below valleyRatio times the shorter peak to split modes;
+ * higher ratios therefore keep more modes. Fractions count raw samples, with
+ * samples on a boundary belonging to the region on its left.
+ *
+ * @param {ArrayLike<number>} kdeX
+ * @param {ArrayLike<number>} kdeY
+ * @param {number[]} data
+ * @param {{ valleyRatio?: number, minFrac?: number }} [opts]
+ * @returns {{ peakLocs: number[], boundaries: number[], fracs: number[] }}
+ */
+export function fitKdePeakModes(kdeX, kdeY, data, opts = {}) {
+  const { valleyRatio = 0.5, minFrac = 0.05 } = opts;
+  const n = kdeX.length;
+  if (n < 3 || kdeY.length !== n || !data.length)
+    return { peakLocs: [], boundaries: [], fracs: [] };
+
+  const peaks = [];
+  // Strict on the right so a flat peak contributes only one maximum.
+  for (let i = 1; i < n - 1; i++) {
+    if (kdeY[i] >= kdeY[i - 1] && kdeY[i] > kdeY[i + 1]) {
+      peaks.push(i);
+    }
+  }
+  if (!peaks.length) {
+    // Monotone or constant curves still describe one region.
+    let maxIdx = 0;
+    for (let i = 1; i < n; i++) if (kdeY[i] > kdeY[maxIdx]) maxIdx = i;
+    peaks.push(maxIdx);
+  }
+
+  // Restart after each merge because the surviving peak has a new neighbor.
+  for (let i = 0; i < peaks.length - 1; ) {
+    const left = peaks[i];
+    const right = peaks[i + 1];
+    let valley = Infinity;
+    for (let j = left + 1; j < right; j++) valley = Math.min(valley, kdeY[j]);
+    if (valley >= valleyRatio * Math.min(kdeY[left], kdeY[right])) {
+      peaks.splice(kdeY[left] >= kdeY[right] ? i + 1 : i, 1);
+      i = 0;
+    } else {
+      i++;
+    }
+  }
+
+  const boundaries = peaks.slice(1).map((right, i) => {
+    let valleyIdx = peaks[i] + 1;
+    for (let j = valleyIdx + 1; j < right; j++) {
+      if (kdeY[j] < kdeY[valleyIdx]) valleyIdx = j;
+    }
+    return kdeX[valleyIdx];
+  });
+  const fractions = () =>
+    splitByMode(data, boundaries).map((bucket) => bucket.length / data.length);
+  let fracs = fractions();
+
+  // Merge the least populated region into the closest neighboring peak until
+  // every region holds enough runs. Retain the taller peak and outer bounds.
+  while (peaks.length > 1) {
+    const smallest = fracs.indexOf(Math.min(...fracs));
+    if (fracs[smallest] >= minFrac) break;
+    let neighbor;
+    if (smallest === 0) neighbor = 1;
+    else if (smallest === peaks.length - 1) neighbor = smallest - 1;
+    else {
+      const loc = kdeX[peaks[smallest]];
+      neighbor =
+        loc - kdeX[peaks[smallest - 1]] <= kdeX[peaks[smallest + 1]] - loc
+          ? smallest - 1
+          : smallest + 1;
+    }
+    const left = Math.min(smallest, neighbor);
+    const right = Math.max(smallest, neighbor);
+    const keep =
+      kdeY[peaks[left]] >= kdeY[peaks[right]] ? peaks[left] : peaks[right];
+    peaks.splice(left, 2, keep);
+    boundaries.splice(left, 1);
+    fracs = fractions();
+  }
+
+  return { peakLocs: peaks.map((i) => kdeX[i]), boundaries, fracs };
+}
+
 function popcount(x) {
   let c = 0;
   let v = x;
