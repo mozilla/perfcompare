@@ -800,6 +800,48 @@ export function fitKdePeakModes(kdeX, kdeY, data, opts = {}) {
   return { peakLocs: peaks.map((i) => kdeX[i]), boundaries, fracs };
 }
 
+/**
+ * Cross-series mode matching. Assigns letters to base modes by position
+ * (A = leftmost), then uses `matchModes` to pair new modes with base modes.
+ * Matched new modes inherit the base letter; unmatched new modes get the next
+ * unused letter. This lets the caller see "Base A shifted to New A" vs.
+ * "New B is a novel mode".
+ *
+ * @param {number[]} baseLocs  - peak positions for the base series
+ * @param {number[]} baseFracs - weight fractions for the base series
+ * @param {number[]} newLocs   - peak positions for the new series
+ * @param {number[]} newFracs  - weight fractions for the new series
+ * @returns {{ baseLetters: string[], newLetters: string[] }}
+ */
+export function matchModeLetters(baseLocs, baseFracs, newLocs, newFracs) {
+  const baseLetters = assignLetters(baseLocs);
+  if (!newLocs.length) return { baseLetters, newLetters: [] };
+  if (!baseLocs.length)
+    return { baseLetters: [], newLetters: assignLetters(newLocs) };
+
+  const { pairs, un } = matchModes(baseLocs, baseFracs, newLocs, newFracs);
+
+  // Build a map from new-mode index → letter.
+  const newLetters = new Array(newLocs.length);
+  for (const [bi, ni] of pairs) {
+    newLetters[ni] = baseLetters[bi];
+  }
+
+  // Unmatched new modes get fresh letters not already used.
+  const usedLetters = new Set(baseLetters);
+  let nextCode = 65;
+  function freshLetter() {
+    while (usedLetters.has(String.fromCharCode(nextCode))) nextCode++;
+    const l = String.fromCharCode(nextCode++);
+    usedLetters.add(l);
+    return l;
+  }
+  for (const ni of un) {
+    newLetters[ni] = freshLetter();
+  }
+
+  return { baseLetters, newLetters };
+}
 function popcount(x) {
   let c = 0;
   let v = x;
@@ -812,11 +854,6 @@ function popcount(x) {
 function range(n) {
   return Array.from({ length: n }, (_, i) => i);
 }
-// `matchModes` and `splitByMode` below are intentionally unused
-// in this PR — they're the pure-logic helpers that the follow-up
-// `KdeModesPanel` (per-mode blurb) will consume. They live here so the
-// follow-up PR stays focused on the UI rather than re-introducing utility
-// code, and they're exercised by kdeModes.test.ts.
 /**
  * Pair modes between base and comparison runs by minimum total distance.
  *

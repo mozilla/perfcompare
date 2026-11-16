@@ -3,6 +3,7 @@ import {
   assignLetters,
   fitModesFromKde,
   fitKdePeakModes,
+  matchModeLetters,
   matchModes,
   splitByMode,
 } from '../utils/kde.js';
@@ -196,6 +197,15 @@ describe('fitKdePeakModes', () => {
     expect(fitKdePeakModes([0, 1, 2], [0, 1, 0], [])).toEqual(empty);
     expect(fitKdePeakModes([0, 1], [1, 0], [1])).toEqual(empty);
     expect(fitKdePeakModes([0, 1, 2], [1, 0], [1])).toEqual(empty);
+  });
+});
+
+describe('matchModeLetters', () => {
+  it('keeps a matched slow mode letter when a new fast mode appears', () => {
+    expect(matchModeLetters([80], [1], [20, 80], [0.4, 0.6])).toEqual({
+      baseLetters: ['A'],
+      newLetters: ['B', 'A'],
+    });
   });
 });
 

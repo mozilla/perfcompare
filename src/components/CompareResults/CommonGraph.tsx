@@ -12,6 +12,7 @@ import { init, type ECharts, type EChartsOption } from 'echarts';
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { getDisplayScale } from '../../utils/format';
+import { matchModeLetters } from '../../utils/kde.js';
 import {
   computeModeInfo,
   KDE_GRID_POINTS,
@@ -255,6 +256,15 @@ function CommonGraph({
     const newModes: ModeInfo = nKde
       ? computeModeInfo(nKde.x, nKde.y, localVt, newValues)
       : { peakLocs: [], boundaries: [], fracs: [], letters: [] };
+
+    const { baseLetters, newLetters } = matchModeLetters(
+      baseModes.peakLocs,
+      baseModes.fracs,
+      newModes.peakLocs,
+      newModes.fracs,
+    );
+    baseModes.letters = baseLetters;
+    newModes.letters = newLetters;
 
     // Assign vertical stagger levels across all peaks so labels don't collide.
     const allPeaks: PeakRef[] = [];

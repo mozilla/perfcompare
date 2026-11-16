@@ -82,6 +82,12 @@ export declare function fitKdePeakModes(
   opts?: { valleyRatio?: number; minFrac?: number },
 ): { peakLocs: number[]; boundaries: number[]; fracs: number[] };
 export declare function assignLetters(locs: number[]): string[];
+export declare function matchModeLetters(
+  baseLocs: number[],
+  baseFracs: number[],
+  newLocs: number[],
+  newFracs: number[],
+): { baseLetters: string[]; newLetters: string[] };
 export type MatchModesResult = {
   pairs: Array<[number, number]>;
   ub: number[];
