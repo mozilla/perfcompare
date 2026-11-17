@@ -11,7 +11,7 @@ exports[`Results Table Should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -58,7 +58,7 @@ exports[`Results Table Should match snapshot 1`] = `
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -894,7 +894,7 @@ exports[`Results Table Should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-15b5cu7-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-w4qwsf-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -1208,7 +1208,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
                     >
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-1xffaih-MuiGrid-root"
                       >
                         <form
                           aria-label="Search by title, platform, revision or options"
@@ -1294,7 +1294,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </form>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -1359,7 +1359,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </div>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -3059,7 +3059,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -3106,7 +3106,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -3942,7 +3942,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-15b5cu7-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-w4qwsf-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -4256,7 +4256,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
                     >
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-1xffaih-MuiGrid-root"
                       >
                         <form
                           aria-label="Search by title, platform, revision or options"
@@ -4342,7 +4342,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                         </form>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -4407,7 +4407,7 @@ exports[`Results Table for MannWhitneyResultsItem for mann-whitney-u testVersion
                         </div>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
