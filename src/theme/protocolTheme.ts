@@ -110,7 +110,14 @@ const darkMode = {
   },
 };
 
+// Protocol layout breakpoints: phones < sm, tablets sm–md, desktops md and up.
+// https://protocol.mozilla.org/components/detail/content-container--default.html
+const breakpoints = {
+  values: { xs: 0, sm: 768, md: 1024, lg: 1312, xl: 1440 },
+};
+
 const getDesignTokens = (modeVal: ThemeMode) => ({
+  breakpoints,
   palette: {
     mode: modeVal,
     ...(modeVal === 'light' ? lightMode : darkMode),

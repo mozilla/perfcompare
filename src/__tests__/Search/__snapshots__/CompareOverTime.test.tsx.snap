@@ -877,7 +877,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="86400"
     role="option"
     tabindex="0"
@@ -895,7 +895,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="172800"
     role="option"
     tabindex="-1"
@@ -913,7 +913,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="604800"
     role="option"
     tabindex="-1"
@@ -931,7 +931,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1209600"
     role="option"
     tabindex="-1"
@@ -949,7 +949,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2592000"
     role="option"
     tabindex="-1"
@@ -967,7 +967,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="5184000"
     role="option"
     tabindex="-1"
@@ -985,7 +985,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="7776000"
     role="option"
     tabindex="-1"
@@ -1003,7 +1003,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="31536000"
     role="option"
     tabindex="-1"
@@ -1032,7 +1032,7 @@ exports[`Compare Over Time selects and displays the number of data points when c
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected datapoints-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters Mui-selected datapoints-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="all"
     role="option"
     tabindex="0"
@@ -1041,7 +1041,7 @@ exports[`Compare Over Time selects and displays the number of data points when c
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="5"
     role="option"
     tabindex="-1"
@@ -1050,7 +1050,7 @@ exports[`Compare Over Time selects and displays the number of data points when c
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="10"
     role="option"
     tabindex="-1"
@@ -1059,7 +1059,7 @@ exports[`Compare Over Time selects and displays the number of data points when c
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="25"
     role="option"
     tabindex="-1"
@@ -1068,7 +1068,7 @@ exports[`Compare Over Time selects and displays the number of data points when c
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="50"
     role="option"
     tabindex="-1"
@@ -1077,7 +1077,7 @@ exports[`Compare Over Time selects and displays the number of data points when c
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-1cvsdoy-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters datapoints-dropdown-item fcmecz0 css-5fgbsv-MuiButtonBase-root-MuiMenuItem-root"
     data-value="100"
     role="option"
     tabindex="-1"
