@@ -3,7 +3,7 @@ import { fftkde } from '../../utils/kde.js';
 import { render, screen } from '../utils/test-utils';
 
 // Build a deterministic synthetic KDE curve (sum of Gaussian bumps on a uniform
-// grid) so we can drive fitModesFromKde without relying on the real fftkde.
+// grid) so we can drive mode detection without relying on the real fftkde.
 // fftkde is auto-mocked in setupTests; each test overrides it per-call.
 function gaussianCurve(
   grid: { lo: number; hi: number; n: number },
@@ -111,6 +111,32 @@ describe('KdeModesPanel', () => {
     );
 
     expect(screen.getByText(/new path — these runs/)).toBeInTheDocument();
+  });
+
+  it('uses a fresh letter and the correct path rank for a new fast mode', () => {
+    const baseCurve = gaussianCurve({ lo: 0, hi: 100, n: 1024 }, [
+      { mu: 80, sigma: 3, weight: 1 },
+    ]);
+    const newCurve = gaussianCurve({ lo: 0, hi: 100, n: 1024 }, [
+      { mu: 20, sigma: 3, weight: 1 },
+      { mu: 80, sigma: 3, weight: 1 },
+    ]);
+    mockKdePerSeries(baseCurve, newCurve);
+    render(
+      <KdeModesPanel
+        baseValues={[78, 79, 80, 81, 82]}
+        newValues={[18, 19, 20, 21, 22, 78, 79, 80, 81, 82]}
+        unit='ms'
+        vt={0.5}
+        showModes={true}
+        sharedBw={undefined}
+        lowerIsBetter={true}
+      />,
+    );
+    expect(screen.getByText('Mode B').closest('div')).toHaveTextContent(
+      'better path',
+    );
+    expect(screen.getByText('Mode B').closest('div')).toHaveTextContent('20');
   });
 
   it('flags an unmatched base mode as gone', () => {

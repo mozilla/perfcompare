@@ -47,7 +47,7 @@ describe('RevisionRowExpandable for student-t testVersion', () => {
     const meansHeader = await screen.findByText(/Difference of means/);
     const meansBox = meansHeader.closest('div');
     expect(meansBox).toHaveTextContent('+1.08%');
-    expect(meansBox).toHaveTextContent('7.6 ms');
+    expect(meansBox).toHaveTextContent('7.60 ms');
   });
 
   it('should not display median difference when median values are absent', async () => {
@@ -221,16 +221,16 @@ describe('RevisionRowExpandable simplified Mann-Whitney-U view', () => {
     expect(screen.queryByText(STATS_TABLE_TEXT)).not.toBeInTheDocument();
   });
 
-  it('shows the graph mode controls (valley-depth slider + Show modes) by default, independent of the Mode analysis option', async () => {
+  it('shows the graph mode controls (sensitivity slider + Modal analysis) by default, independent of the Mode analysis option', async () => {
     renderMwuRow();
 
     // The controls live on the graph and are available in the simplified view
     // without enabling the "Mode analysis" expanded-row option.
     expect(
-      await screen.findByRole('slider', { name: /valley depth threshold/i }),
+      await screen.findByRole('slider', { name: /mode sensitivity/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('checkbox', { name: /show modes/i }),
+      screen.getByRole('checkbox', { name: /modal analysis/i }),
     ).toBeInTheDocument();
   });
 

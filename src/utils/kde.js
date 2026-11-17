@@ -255,7 +255,11 @@ function gaussianKernel1D(x, bw) {
 function gaussianPracticalSupport(bw, atol = 10e-5) {
   const inner = atol * Math.sqrt(2 * Math.PI) * bw;
   if (inner >= 1) return 3 * bw;
-  return bw * Math.sqrt(-2 * Math.log(inner)) + 1e-3;
+  // Enforce at least 3σ: the atol formula finds where the kernel *value* hits
+  // atol, but for large bw the kernel peak is low so that threshold is reached
+  // at only ~1-2σ, truncating >20% of the probability mass and causing
+  // convolution ringing that looks like aliasing on the chart.
+  return Math.max(bw * Math.sqrt(-2 * Math.log(inner)) + 1e-3, 3 * bw);
 }
 // ---------------------------------------------------------------------------
 // ISJ fixed-point function — port of KDEpy's _fixed_point
@@ -711,6 +715,133 @@ export function assignLetters(locs) {
   });
   return out;
 }
+
+/**
+ * Detect peaks in a KDE curve, merging shallow valleys and small sample regions.
+ * A valley must fall below valleyRatio times the shorter peak to split modes;
+ * higher ratios therefore keep more modes. Fractions count raw samples, with
+ * samples on a boundary belonging to the region on its left.
+ *
+ * @param {ArrayLike<number>} kdeX
+ * @param {ArrayLike<number>} kdeY
+ * @param {number[]} data
+ * @param {{ valleyRatio?: number, minFrac?: number }} [opts]
+ * @returns {{ peakLocs: number[], boundaries: number[], fracs: number[] }}
+ */
+export function fitKdePeakModes(kdeX, kdeY, data, opts = {}) {
+  const { valleyRatio = 0.5, minFrac = 0.05 } = opts;
+  const n = kdeX.length;
+  if (n < 3 || kdeY.length !== n || !data.length)
+    return { peakLocs: [], boundaries: [], fracs: [] };
+
+  const peaks = [];
+  // Strict on the right so a flat peak contributes only one maximum.
+  for (let i = 1; i < n - 1; i++) {
+    if (kdeY[i] >= kdeY[i - 1] && kdeY[i] > kdeY[i + 1]) {
+      peaks.push(i);
+    }
+  }
+  if (!peaks.length) {
+    // Monotone or constant curves still describe one region.
+    let maxIdx = 0;
+    for (let i = 1; i < n; i++) if (kdeY[i] > kdeY[maxIdx]) maxIdx = i;
+    peaks.push(maxIdx);
+  }
+
+  // Restart after each merge because the surviving peak has a new neighbor.
+  for (let i = 0; i < peaks.length - 1; ) {
+    const left = peaks[i];
+    const right = peaks[i + 1];
+    let valley = Infinity;
+    for (let j = left + 1; j < right; j++) valley = Math.min(valley, kdeY[j]);
+    if (valley >= valleyRatio * Math.min(kdeY[left], kdeY[right])) {
+      peaks.splice(kdeY[left] >= kdeY[right] ? i + 1 : i, 1);
+      i = 0;
+    } else {
+      i++;
+    }
+  }
+
+  const boundaries = peaks.slice(1).map((right, i) => {
+    let valleyIdx = peaks[i] + 1;
+    for (let j = valleyIdx + 1; j < right; j++) {
+      if (kdeY[j] < kdeY[valleyIdx]) valleyIdx = j;
+    }
+    return kdeX[valleyIdx];
+  });
+  const fractions = () =>
+    splitByMode(data, boundaries).map((bucket) => bucket.length / data.length);
+  let fracs = fractions();
+
+  // Merge the least populated region into the closest neighboring peak until
+  // every region holds enough runs. Retain the taller peak and outer bounds.
+  while (peaks.length > 1) {
+    const smallest = fracs.indexOf(Math.min(...fracs));
+    if (fracs[smallest] >= minFrac) break;
+    let neighbor;
+    if (smallest === 0) neighbor = 1;
+    else if (smallest === peaks.length - 1) neighbor = smallest - 1;
+    else {
+      const loc = kdeX[peaks[smallest]];
+      neighbor =
+        loc - kdeX[peaks[smallest - 1]] <= kdeX[peaks[smallest + 1]] - loc
+          ? smallest - 1
+          : smallest + 1;
+    }
+    const left = Math.min(smallest, neighbor);
+    const right = Math.max(smallest, neighbor);
+    const keep =
+      kdeY[peaks[left]] >= kdeY[peaks[right]] ? peaks[left] : peaks[right];
+    peaks.splice(left, 2, keep);
+    boundaries.splice(left, 1);
+    fracs = fractions();
+  }
+
+  return { peakLocs: peaks.map((i) => kdeX[i]), boundaries, fracs };
+}
+
+/**
+ * Cross-series mode matching. Assigns letters to base modes by position
+ * (A = leftmost), then uses `matchModes` to pair new modes with base modes.
+ * Matched new modes inherit the base letter; unmatched new modes get the next
+ * unused letter. This lets the caller see "Base A shifted to New A" vs.
+ * "New B is a novel mode".
+ *
+ * @param {number[]} baseLocs  - peak positions for the base series
+ * @param {number[]} baseFracs - weight fractions for the base series
+ * @param {number[]} newLocs   - peak positions for the new series
+ * @param {number[]} newFracs  - weight fractions for the new series
+ * @returns {{ baseLetters: string[], newLetters: string[] }}
+ */
+export function matchModeLetters(baseLocs, baseFracs, newLocs, newFracs) {
+  const baseLetters = assignLetters(baseLocs);
+  if (!newLocs.length) return { baseLetters, newLetters: [] };
+  if (!baseLocs.length)
+    return { baseLetters: [], newLetters: assignLetters(newLocs) };
+
+  const { pairs, un } = matchModes(baseLocs, baseFracs, newLocs, newFracs);
+
+  // Build a map from new-mode index → letter.
+  const newLetters = new Array(newLocs.length);
+  for (const [bi, ni] of pairs) {
+    newLetters[ni] = baseLetters[bi];
+  }
+
+  // Unmatched new modes get fresh letters not already used.
+  const usedLetters = new Set(baseLetters);
+  let nextCode = 65;
+  function freshLetter() {
+    while (usedLetters.has(String.fromCharCode(nextCode))) nextCode++;
+    const l = String.fromCharCode(nextCode++);
+    usedLetters.add(l);
+    return l;
+  }
+  for (const ni of un) {
+    newLetters[ni] = freshLetter();
+  }
+
+  return { baseLetters, newLetters };
+}
 function popcount(x) {
   let c = 0;
   let v = x;
@@ -723,11 +854,6 @@ function popcount(x) {
 function range(n) {
   return Array.from({ length: n }, (_, i) => i);
 }
-// `matchModes` and `splitByMode` below are intentionally unused
-// in this PR — they're the pure-logic helpers that the follow-up
-// `KdeModesPanel` (per-mode blurb) will consume. They live here so the
-// follow-up PR stays focused on the UI rather than re-introducing utility
-// code, and they're exercised by kdeModes.test.ts.
 /**
  * Pair modes between base and comparison runs by minimum total distance.
  *
