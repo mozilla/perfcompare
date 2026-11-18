@@ -109,6 +109,9 @@ afterEach(() => {
   // Also restore the fetch mock
   fetchMock.mockReset();
 
+  // Installed by setViewportWidth in test-utils.
+  delete (window as Partial<Window>).matchMedia;
+
   // Clear the treeherder memoization caches so that tests aren't polluted.
   clearTreeherderCaches();
 

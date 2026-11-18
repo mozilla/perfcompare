@@ -53,6 +53,27 @@ export function enableExpandedRowOptions(
   );
 }
 
+// jsdom has no matchMedia, so useMediaQuery always returns false. This installs
+// one that evaluates min-width/max-width queries against `width`; setupTests
+// removes it after each test.
+export function setViewportWidth(width: number) {
+  const matches = (query: string) =>
+    [...query.matchAll(/\((min|max)-width:\s*([\d.]+)px\)/g)].every(
+      ([, kind, px]) =>
+        kind === 'min' ? width >= Number(px) : width <= Number(px),
+    );
+  window.matchMedia = (query: string) => ({
+    matches: matches(query),
+    media: query,
+    onchange: null,
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    addListener: () => {},
+    removeListener: () => {},
+    dispatchEvent: () => false,
+  });
+}
+
 type ThemeConfig = Partial<Theme> | null;
 export function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {
   function Wrapper({ children }: { children: React.ReactNode }) {

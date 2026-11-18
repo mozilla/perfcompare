@@ -16,7 +16,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -63,7 +63,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -507,7 +507,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-15b5cu7-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-w4qwsf-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -879,7 +879,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
                     >
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-1xffaih-MuiGrid-root"
                       >
                         <form
                           aria-label="Search by title, platform, revision or options"
@@ -965,7 +965,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                         </form>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -1030,7 +1030,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                         </div>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -1457,7 +1457,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                 </div>
               </div>
               <div
-                class="MuiContainer-root MuiContainer-maxWidthLg css-5c1adp-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthLg css-nekq37-MuiContainer-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
@@ -1513,7 +1513,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -1560,7 +1560,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -2396,7 +2396,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-15b5cu7-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-w4qwsf-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -2768,7 +2768,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
                     >
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-1xffaih-MuiGrid-root"
                       >
                         <form
                           aria-label="Search by title, platform, revision or options"
@@ -2854,7 +2854,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                         </form>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -2919,7 +2919,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                         </div>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -3346,7 +3346,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                 </div>
               </div>
               <div
-                class="MuiContainer-root MuiContainer-maxWidthLg css-5c1adp-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthLg css-nekq37-MuiContainer-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
@@ -3402,7 +3402,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -3449,7 +3449,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -4285,7 +4285,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-15b5cu7-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-w4qwsf-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -4657,7 +4657,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
                     >
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-1xffaih-MuiGrid-root"
                       >
                         <form
                           aria-label="Search by title, platform, revision or options"
@@ -4743,7 +4743,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                         </form>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -4808,7 +4808,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                         </div>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -5235,7 +5235,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                 </div>
               </div>
               <div
-                class="MuiContainer-root MuiContainer-maxWidthLg css-5c1adp-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthLg css-nekq37-MuiContainer-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-vdwn9g-MuiGrid-root"
@@ -5291,7 +5291,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -5338,7 +5338,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -6179,7 +6179,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root f2ayd27 css-15b5cu7-MuiContainer-root"
+            class="MuiContainer-root f2ayd27 css-w4qwsf-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -6551,7 +6551,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
                     >
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-1xffaih-MuiGrid-root"
                       >
                         <form
                           aria-label="Search by title, platform, revision or options"
@@ -6637,7 +6637,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                         </form>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -6702,7 +6702,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                         </div>
                       </div>
                       <div
-                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+                        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
                       >
                         <div
                           class="MuiFormControl-root css-7549ua-MuiFormControl-root"
