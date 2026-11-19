@@ -57,6 +57,9 @@ export function parseFrameworkIds(
   return frameworkIds;
 }
 
+const isDataPointsCount = (n: number): n is DataPointsCount =>
+  dataPointsOptions.some(({ value }) => value === n);
+
 // Parses the optional `numberOfDataPoints` URL value. Returns `undefined` when
 // the parameter is absent or set to 'all', because in that case no parameter
 // is sent to the server and it returns every available data point.
@@ -68,16 +71,13 @@ export function parseNumberOfDataPoints(
   }
 
   const parsedDataPoints = +dataPoints;
-  const isValidDataPoints = dataPointsOptions.some(
-    ({ value }) => value === parsedDataPoints,
-  );
-  if (Number.isNaN(parsedDataPoints) || !isValidDataPoints) {
+  if (!isDataPointsCount(parsedDataPoints)) {
     throw new Error(
       `The parameter numberOfDataPoints isn't a valid value: "${dataPoints}".`,
     );
   }
 
-  return parsedDataPoints as DataPointsCount;
+  return parsedDataPoints;
 }
 
 // This function checks and sanitizes the input values, then returns values that
