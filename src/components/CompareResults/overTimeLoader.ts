@@ -16,7 +16,7 @@ import {
   Repository,
 } from '../../types/state';
 import {
-  DataPointsValue,
+  DataPointsCount,
   Framework,
   TestVersion,
   TimeRange,
@@ -49,7 +49,7 @@ function checkValues({
   frameworkIds: Framework['id'][];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
-  dataPointsValue?: number;
+  dataPointsValue?: DataPointsCount;
   replicates: boolean;
   testVersion: TestVersion;
 } {
@@ -140,7 +140,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   newRepos: Repository['name'][];
   frameworkIds: Framework['id'][];
   interval: TimeRange['value'];
-  numberOfDataPoints?: number;
+  numberOfDataPoints?: DataPointsCount;
   replicates: boolean;
   testVersion: TestVersion;
 }): Promise<{
@@ -271,7 +271,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkIds,
     intervalValue,
     intervalText,
-    dataPointsValue: dataPointsValue as DataPointsValue | undefined,
+    dataPointsValue,
     view: compareOverTimeView,
     generation: generationCounter++,
     replicates,
@@ -289,7 +289,7 @@ type DeferredLoaderData = {
   frameworkIds: Framework['id'][];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
-  dataPointsValue?: DataPointsValue;
+  dataPointsValue?: DataPointsCount;
   view: typeof compareOverTimeView;
   generation: number;
   replicates: boolean;

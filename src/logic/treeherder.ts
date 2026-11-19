@@ -8,7 +8,12 @@ import {
   Changeset,
   HashToCommit,
 } from '../types/state';
-import { Framework, TestVersion, TimeRange } from '../types/types';
+import {
+  DataPointsCount,
+  Framework,
+  TestVersion,
+  TimeRange,
+} from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
@@ -30,7 +35,7 @@ type FetchOverTimeProps = {
   newRev: string;
   framework: Framework['id'];
   interval: TimeRange['value'];
-  numberOfDataPoints?: number;
+  numberOfDataPoints?: DataPointsCount;
   replicates: boolean;
   testVersion?: TestVersion;
 };
@@ -53,7 +58,7 @@ type FetchSubtestsOverTimeProps = {
   newRev: string;
   framework: Framework['id'];
   interval: TimeRange['value'];
-  numberOfDataPoints?: number;
+  numberOfDataPoints?: DataPointsCount;
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;

@@ -125,6 +125,7 @@ export type TimeRange =
 // when comparing over time. 'all' means the parameter isn't sent to the server,
 // which then returns every available data point.
 export type DataPointsValue = 'all' | 5 | 10 | 25 | 50 | 100;
+export type DataPointsCount = Exclude<DataPointsValue, 'all'>;
 
 export type FilterValue = {
   name: string;

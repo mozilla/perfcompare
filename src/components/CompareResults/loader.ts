@@ -20,7 +20,7 @@ import {
   CombinedResultsItemType,
   Repository,
 } from '../../types/state';
-import { DataPointsValue, Framework, TestVersion } from '../../types/types';
+import { DataPointsCount, Framework, TestVersion } from '../../types/types';
 
 // Parses the raw `framework` URL values into a validated, de-duplicated list
 // of framework ids. When no value is provided, it defaults to the default
@@ -62,7 +62,7 @@ export function parseFrameworkIds(
 // is sent to the server and it returns every available data point.
 export function parseNumberOfDataPoints(
   dataPoints: string | null,
-): Exclude<DataPointsValue, 'all'> | undefined {
+): DataPointsCount | undefined {
   if (dataPoints === null || dataPoints === ALL_DATA_POINTS) {
     return undefined;
   }
@@ -77,7 +77,7 @@ export function parseNumberOfDataPoints(
     );
   }
 
-  return parsedDataPoints as Exclude<DataPointsValue, 'all'>;
+  return parsedDataPoints as DataPointsCount;
 }
 
 // This function checks and sanitizes the input values, then returns values that

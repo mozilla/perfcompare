@@ -8,7 +8,12 @@ import {
 } from '../../common/constants';
 import { fetchSubtestsCompareOverTimeResults } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
-import { Framework, TestVersion, TimeRange } from '../../types/types';
+import {
+  DataPointsCount,
+  Framework,
+  TestVersion,
+  TimeRange,
+} from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -42,7 +47,7 @@ function checkValues({
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
-  dataPointsValue?: number;
+  dataPointsValue?: DataPointsCount;
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
