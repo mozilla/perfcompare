@@ -1,4 +1,5 @@
 import { setAdvancedOptionsParams } from './advancedOptionsUrl';
+import { copyParamIfPresent } from './urlParams';
 import { preserveFakeDataParam } from '../logic/treeherder';
 import type { CombinedResultsItemType } from '../types/state';
 import type {
@@ -104,10 +105,7 @@ export const getSubtestsCompareOverTimeLink = (
   });
   // Forward the number of data points when it was selected, so that the
   // subtests view requests the same amount.
-  const dataPoints = currentSearchParams.get('numberOfDataPoints');
-  if (dataPoints !== null) {
-    params.set('numberOfDataPoints', dataPoints);
-  }
+  copyParamIfPresent(currentSearchParams, params, 'numberOfDataPoints');
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });

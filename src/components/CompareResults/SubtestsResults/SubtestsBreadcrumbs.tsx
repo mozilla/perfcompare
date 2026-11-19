@@ -12,6 +12,7 @@ import useExpandedRowOptions from '../../../hooks/useExpandedRowOptions';
 import { preserveFakeDataParam } from '../../../logic/treeherder';
 import type { AdvancedColumns, ExpandedRowOptions } from '../../../types/types';
 import { setAdvancedOptionsParams } from '../../../utils/advancedOptionsUrl';
+import { copyParamIfPresent } from '../../../utils/urlParams';
 
 type SubtestsBreadcrumbsProps = {
   view:
@@ -67,10 +68,7 @@ const getPreviousCompareOverTimeURL = (
   });
   // Forward the number of data points when it was selected, so that the
   // results view requests the same amount.
-  const dataPoints = currentSearchParams.get('numberOfDataPoints');
-  if (dataPoints !== null) {
-    params.set('numberOfDataPoints', dataPoints);
-  }
+  copyParamIfPresent(currentSearchParams, params, 'numberOfDataPoints');
   setAdvancedOptionsParams(params, advancedColumns, expandedRow, {
     explicit: true,
   });
