@@ -888,6 +888,81 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                   <div
+                    class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 datapoints-repo-dropdown dropDown_frp1utb css-13620ud-MuiGrid-root"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-direction-xs-row css-zla2hx-MuiGrid-root"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--datapoints css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
+                        id="select-datapoints-label"
+                      >
+                        Number of data points
+                      </label>
+                      <svg
+                        aria-hidden="true"
+                        aria-label="The maximum data points returned per test signature; lower values load faster."
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi css-1dgifna-MuiGrid-root"
+                    id="data-points-container"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow datapoints-search-dropdown dropDown_frp1utb css-t3of1j-MuiGrid-root"
+                      id="data-points"
+                      style="max-width: 365px;"
+                    >
+                      <div
+                        class="MuiFormControl-root datapoints-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
+                      >
+                        <div
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          data-testid="dropdown-select-datapoints"
+                        >
+                          <div
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-labelledby="select-datapoints-label"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            role="combobox"
+                            tabindex="0"
+                          >
+                            All data points
+                          </div>
+                          <input
+                            aria-hidden="true"
+                            aria-invalid="false"
+                            class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+                            tabindex="-1"
+                            value="all"
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+                            data-testid="ArrowDropDownIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M7 10l5 5 5-5z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
                     class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-7epmqr-MuiGrid-root"
                   >
                     <label
@@ -1007,7 +1082,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                                   autocapitalize="none"
                                   autocomplete="off"
                                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                                  id="_r_l_"
+                                  id="_r_n_"
                                   placeholder="Search by revision ID or author email"
                                   role="combobox"
                                   spellcheck="false"
@@ -1339,6 +1414,81 @@ exports[`With search parameters both search components are populated as expected
       </div>
     </div>
     <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 datapoints-repo-dropdown dropDown_frp1utb css-13620ud-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row css-zla2hx-MuiGrid-root"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--datapoints css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
+          id="select-datapoints-label"
+        >
+          Number of data points
+        </label>
+        <svg
+          aria-hidden="true"
+          aria-label="The maximum data points returned per test signature; lower values load faster."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi css-1dgifna-MuiGrid-root"
+      id="data-points-container"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow datapoints-search-dropdown dropDown_frp1utb css-t3of1j-MuiGrid-root"
+        id="data-points"
+        style="max-width: 365px;"
+      >
+        <div
+          class="MuiFormControl-root datapoints-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
+        >
+          <div
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-datapoints"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="select-datapoints-label"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="combobox"
+              tabindex="0"
+            >
+              All data points
+            </div>
+            <input
+              aria-hidden="true"
+              aria-invalid="false"
+              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="all"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-7epmqr-MuiGrid-root"
     >
       <label
@@ -1458,7 +1608,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_h7_"
+                    id="_r_i9_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -1887,7 +2037,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_gj_"
+                    id="_r_hj_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2074,7 +2224,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_go_"
+                    id="_r_ho_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -2540,6 +2690,81 @@ exports[`With search parameters both search components are populated as expected
       </div>
     </div>
     <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 datapoints-repo-dropdown dropDown_frp1utb css-13620ud-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row css-zla2hx-MuiGrid-root"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--datapoints css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
+          id="select-datapoints-label"
+        >
+          Number of data points
+        </label>
+        <svg
+          aria-hidden="true"
+          aria-label="The maximum data points returned per test signature; lower values load faster."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi css-1dgifna-MuiGrid-root"
+      id="data-points-container"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow datapoints-search-dropdown dropDown_frp1utb css-t3of1j-MuiGrid-root"
+        id="data-points"
+        style="max-width: 365px;"
+      >
+        <div
+          class="MuiFormControl-root datapoints-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
+        >
+          <div
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-datapoints"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="select-datapoints-label"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="combobox"
+              tabindex="0"
+            >
+              All data points
+            </div>
+            <input
+              aria-hidden="true"
+              aria-invalid="false"
+              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="all"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-7epmqr-MuiGrid-root"
     >
       <label
@@ -2659,7 +2884,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_i8_"
+                    id="_r_jc_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3088,7 +3313,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_hk_"
+                    id="_r_im_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3275,7 +3500,7 @@ exports[`With search parameters both search components are populated as expected
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_hp_"
+                    id="_r_ir_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -3741,6 +3966,81 @@ exports[`With search parameters displays the default value for framework if the 
       </div>
     </div>
     <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 datapoints-repo-dropdown dropDown_frp1utb css-13620ud-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row css-zla2hx-MuiGrid-root"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--datapoints css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
+          id="select-datapoints-label"
+        >
+          Number of data points
+        </label>
+        <svg
+          aria-hidden="true"
+          aria-label="The maximum data points returned per test signature; lower values load faster."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi css-1dgifna-MuiGrid-root"
+      id="data-points-container"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow datapoints-search-dropdown dropDown_frp1utb css-t3of1j-MuiGrid-root"
+        id="data-points"
+        style="max-width: 365px;"
+      >
+        <div
+          class="MuiFormControl-root datapoints-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
+        >
+          <div
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-datapoints"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="select-datapoints-label"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="combobox"
+              tabindex="0"
+            >
+              All data points
+            </div>
+            <input
+              aria-hidden="true"
+              aria-invalid="false"
+              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="all"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-7epmqr-MuiGrid-root"
     >
       <label
@@ -3860,7 +4160,7 @@ exports[`With search parameters displays the default value for framework if the 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_k4_"
+                    id="_r_lc_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4289,7 +4589,7 @@ exports[`With search parameters displays the default value for framework if the 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_jg_"
+                    id="_r_km_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4476,7 +4776,7 @@ exports[`With search parameters displays the default value for framework if the 
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_jl_"
+                    id="_r_kr_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -4942,6 +5242,81 @@ exports[`With search parameters displays the default values if some values are b
       </div>
     </div>
     <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 datapoints-repo-dropdown dropDown_frp1utb css-13620ud-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row css-zla2hx-MuiGrid-root"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--datapoints css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
+          id="select-datapoints-label"
+        >
+          Number of data points
+        </label>
+        <svg
+          aria-hidden="true"
+          aria-label="The maximum data points returned per test signature; lower values load faster."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi css-1dgifna-MuiGrid-root"
+      id="data-points-container"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow datapoints-search-dropdown dropDown_frp1utb css-t3of1j-MuiGrid-root"
+        id="data-points"
+        style="max-width: 365px;"
+      >
+        <div
+          class="MuiFormControl-root datapoints-dropdown f1o9jg5h css-1iw3t7y-MuiFormControl-root"
+        >
+          <div
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select MuiSelect-root css-1iucqpj-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-datapoints"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="select-datapoints-label"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ychxii-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="combobox"
+              tabindex="0"
+            >
+              All data points
+            </div>
+            <input
+              aria-hidden="true"
+              aria-invalid="false"
+              class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="all"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-17rugnf-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-7epmqr-MuiGrid-root"
     >
       <label
@@ -5061,7 +5436,7 @@ exports[`With search parameters displays the default values if some values are b
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_j6_"
+                    id="_r_kc_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -5350,7 +5725,7 @@ exports[`With search parameters displays the default values if some values are b
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_il_"
+                    id="_r_jp_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"
@@ -5537,7 +5912,7 @@ exports[`With search parameters displays the default values if some values are b
                     autocapitalize="none"
                     autocomplete="off"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-9wexq8-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_iq_"
+                    id="_r_ju_"
                     placeholder="Search by revision ID or author email"
                     role="combobox"
                     spellcheck="false"

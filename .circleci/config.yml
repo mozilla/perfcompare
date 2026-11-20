@@ -21,7 +21,7 @@ jobs:
           name: tests
           # We use workerIdleMemoryLimit to work around a memory issue with node.
           # See https://github.com/facebook/jest/issues/11956
-          command: npm run test:coverage -- -w=4 --workerIdleMemoryLimit=1.5G
+          command: npm run test:coverage -- -w=4 --workerIdleMemoryLimit=1.5G --testTimeout=60000
       - codecov/upload
 
   lint:

@@ -8,7 +8,12 @@ import {
   Changeset,
   HashToCommit,
 } from '../types/state';
-import { Framework, TestVersion, TimeRange } from '../types/types';
+import {
+  DataPointsCount,
+  Framework,
+  TestVersion,
+  TimeRange,
+} from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
@@ -30,6 +35,7 @@ type FetchOverTimeProps = {
   newRev: string;
   framework: Framework['id'];
   interval: TimeRange['value'];
+  numberOfDataPoints?: DataPointsCount;
   replicates: boolean;
   testVersion?: TestVersion;
 };
@@ -52,6 +58,7 @@ type FetchSubtestsOverTimeProps = {
   newRev: string;
   framework: Framework['id'];
   interval: TimeRange['value'];
+  numberOfDataPoints?: DataPointsCount;
   baseParentSignature: string;
   newParentSignature: string;
   replicates: boolean;
@@ -178,6 +185,7 @@ export async function fetchCompareOverTimeResults({
   newRepo,
   framework,
   interval,
+  numberOfDataPoints,
   replicates,
   testVersion,
 }: FetchOverTimeProps) {
@@ -191,6 +199,11 @@ export async function fetchCompareOverTimeResults({
     replicates: String(replicates),
     test_version: testVersion ?? STUDENT_T,
   });
+  // When the number of data points isn't specified, the parameter isn't sent
+  // and the server returns every data point available.
+  if (numberOfDataPoints !== undefined) {
+    searchParams.set('number_of_data_points', String(numberOfDataPoints));
+  }
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
 
@@ -234,6 +247,7 @@ export async function fetchSubtestsCompareOverTimeResults({
   newRepo,
   framework,
   interval,
+  numberOfDataPoints,
   baseParentSignature,
   newParentSignature,
   replicates,
@@ -250,6 +264,11 @@ export async function fetchSubtestsCompareOverTimeResults({
     replicates: String(replicates),
     test_version: testVersion ?? STUDENT_T,
   });
+  // When the number of data points isn't specified, the parameter isn't sent
+  // and the server returns every data point available.
+  if (numberOfDataPoints !== undefined) {
+    searchParams.set('number_of_data_points', String(numberOfDataPoints));
+  }
 
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
