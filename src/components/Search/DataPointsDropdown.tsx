@@ -20,11 +20,10 @@ function DataPointsDropdown({
   }));
 
   const handleDataPointsSelect = (rawValue: string) => {
-    const value: DataPointsValue =
-      rawValue === ALL_DATA_POINTS
-        ? ALL_DATA_POINTS
-        : (+rawValue as DataPointsValue);
-    onChange(value);
+    const option = dataPointsOptions.find(
+      ({ value }) => `${value}` === rawValue,
+    );
+    onChange(option?.value ?? ALL_DATA_POINTS);
   };
 
   return (
