@@ -351,7 +351,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -398,7 +398,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -494,7 +494,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-nekq37-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -728,7 +728,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1eexwk7-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1aolwog-MuiGrid-root"
                 >
                   <form
                     aria-label="Search by title"
@@ -2240,7 +2240,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -2287,7 +2287,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -2383,7 +2383,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-nekq37-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -2609,7 +2609,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1eexwk7-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1aolwog-MuiGrid-root"
                 >
                   <form
                     aria-label="Search by title"
@@ -3778,7 +3778,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -3825,7 +3825,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -3921,7 +3921,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-nekq37-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -4147,7 +4147,7 @@ exports[`SubtestsViewCompareOverTime Component Tests in mann-whitney-u testVersi
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1eexwk7-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1aolwog-MuiGrid-root"
                 >
                   <form
                     aria-label="Search by title"
@@ -5316,7 +5316,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -5363,7 +5363,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -5459,7 +5459,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-nekq37-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -5685,7 +5685,7 @@ exports[`SubtestsViewCompareOverTime Component Tests renders over-time view when
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1eexwk7-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1aolwog-MuiGrid-root"
                 >
                   <form
                     aria-label="Search by title"
@@ -6854,7 +6854,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_f16a4r9k css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -6901,7 +6901,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
             PerfCompare
           </h2>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -6997,7 +6997,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-16nz7cf-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-5c1adp-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg f1uxyc95 css-nekq37-MuiContainer-root"
             data-testid="subtests-main"
           >
             <header>
@@ -7223,7 +7223,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-1 css-1ewzjrk-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1eexwk7-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1aolwog-MuiGrid-root"
                 >
                   <form
                     aria-label="Search by title"

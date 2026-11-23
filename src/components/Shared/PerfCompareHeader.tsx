@@ -28,7 +28,6 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
           justifyContent: 'space-between',
           alignItems: 'center',
           width: '100%',
-          marginBotton: 2,
         }}
       >
         <ToggleDarkMode />
@@ -42,8 +41,8 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
           </Typography>
         )}
         <Box
+          className='nav-links'
           sx={{
-            className: 'nav-links',
             display: 'flex',
             gap: 2,
             flexWrap: 'wrap',

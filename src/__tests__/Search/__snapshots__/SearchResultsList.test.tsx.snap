@@ -3,7 +3,7 @@
 exports[`SearchResultsList Should apply dark and light mode styles when theme button is toggled: after toggling dark mode 1 1`] = `
 <ul
   aria-labelledby="_r_7m_-label"
-  class="MuiAutocomplete-listbox f1recfq3 results-list-dark css-hcvz0e-MuiAutocomplete-listbox"
+  class="MuiAutocomplete-listbox f1recfq3 results-list-dark css-1y3i1ov-MuiAutocomplete-listbox"
   id="_r_7m_-listbox"
   role="listbox"
 >
@@ -811,7 +811,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-direction-xs-row header-container container_fllbiki css-k4qgqg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1e39pab"
+          class="MuiBox-root css-nb2z2f"
         >
           <div
             class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
@@ -853,7 +853,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="MuiBox-root css-u7c4o"
+            class="nav-links MuiBox-root css-1cuyom4"
           >
             <div
               class="MuiBox-root css-0"
@@ -2054,7 +2054,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
     >
       <ul
         aria-labelledby="_r_4_-label"
-        class="MuiAutocomplete-listbox f8k10hi results-list-light css-hcvz0e-MuiAutocomplete-listbox"
+        class="MuiAutocomplete-listbox f8k10hi results-list-light css-1y3i1ov-MuiAutocomplete-listbox"
         id="_r_4_-listbox"
         role="listbox"
       >

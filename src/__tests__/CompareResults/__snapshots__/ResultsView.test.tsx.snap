@@ -499,7 +499,7 @@ exports[`Results View The table should match snapshot and other elements should 
           class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 results-controls-inputs css-13620ud-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-11ufmbb-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-3 MuiGrid-grid-xs-12 css-1xffaih-MuiGrid-root"
           >
             <form
               aria-label="Search by title, platform, revision or options"
@@ -585,7 +585,7 @@ exports[`Results View The table should match snapshot and other elements should 
             </form>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
           >
             <div
               class="MuiFormControl-root css-7549ua-MuiFormControl-root"
@@ -650,7 +650,7 @@ exports[`Results View The table should match snapshot and other elements should 
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-4yvdwt-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-md-2 MuiGrid-grid-xs-6 css-d1hefr-MuiGrid-root"
           >
             <div
               class="MuiFormControl-root css-7549ua-MuiFormControl-root"
