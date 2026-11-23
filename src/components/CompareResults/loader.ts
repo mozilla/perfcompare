@@ -1,6 +1,8 @@
 import { redirect } from 'react-router';
 
 import {
+  ALL_DATA_POINTS,
+  dataPointsOptions,
   repoMap,
   frameworks,
   compareView,
@@ -18,7 +20,7 @@ import {
   CombinedResultsItemType,
   Repository,
 } from '../../types/state';
-import { Framework, TestVersion } from '../../types/types';
+import { DataPointsCount, Framework, TestVersion } from '../../types/types';
 
 // Parses the raw `framework` URL values into a validated, de-duplicated list
 // of framework ids. When no value is provided, it defaults to the default
@@ -53,6 +55,29 @@ export function parseFrameworkIds(
   }
 
   return frameworkIds;
+}
+
+const isDataPointsCount = (n: number): n is DataPointsCount =>
+  dataPointsOptions.some(({ value }) => value === n);
+
+// Parses the optional `numberOfDataPoints` URL value. Returns `undefined` when
+// the parameter is absent or set to 'all', because in that case no parameter
+// is sent to the server and it returns every available data point.
+export function parseNumberOfDataPoints(
+  dataPoints: string | null,
+): DataPointsCount | undefined {
+  if (dataPoints === null || dataPoints === ALL_DATA_POINTS) {
+    return undefined;
+  }
+
+  const parsedDataPoints = +dataPoints;
+  if (!isDataPointsCount(parsedDataPoints)) {
+    throw new Error(
+      `The parameter numberOfDataPoints isn't a valid value: "${dataPoints}".`,
+    );
+  }
+
+  return parsedDataPoints;
 }
 
 // This function checks and sanitizes the input values, then returns values that

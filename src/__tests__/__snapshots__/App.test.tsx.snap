@@ -312,6 +312,48 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                   </div>
                 </div>
                 <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-2 datapoints-repo-dropdown dropDown_frp1utb css-13620ud-MuiGrid-root"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-direction-xs-row css-zla2hx-MuiGrid-root"
+                  >
+                    <label
+                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--datapoints css-gv6qu0-MuiFormLabel-root-MuiInputLabel-root"
+                      id="select-datapoints-label"
+                    >
+                      Number of data points
+                    </label>
+                    <svg
+                      aria-hidden="true"
+                      aria-label="The maximum data points returned per test signature; lower values load faster."
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-54rgmy-MuiSvgIcon-root"
+                      data-mui-internal-clone-element="true"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row container_fgv7cgi css-1dgifna-MuiGrid-root"
+                  id="data-points-container--readonly"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-grow datapoints-search-dropdown flie9py css-t3of1j-MuiGrid-root"
+                    style="max-width: 430px;"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body2 css-vn4ej5-MuiTypography-root"
+                    >
+                      All data points
+                    </span>
+                  </div>
+                </div>
+                <div
                   class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-7epmqr-MuiGrid-root"
                 >
                   <label
@@ -918,7 +960,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner fo
                                 aria-invalid="false"
                                 aria-label="Search by title, platform, revision or options"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_8e_"
+                                id="_r_8r_"
                                 placeholder="Filter results"
                                 type="search"
                                 value=""
@@ -1843,7 +1885,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                                 autocapitalize="none"
                                 autocomplete="off"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_6p_"
+                                id="_r_75_"
                                 placeholder="Search by revision ID or author email"
                                 role="combobox"
                                 spellcheck="false"
@@ -2170,7 +2212,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                                 autocapitalize="none"
                                 autocomplete="off"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_71_"
+                                id="_r_7d_"
                                 placeholder="Search by revision ID or author email"
                                 role="combobox"
                                 spellcheck="false"
@@ -2807,7 +2849,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                                 aria-invalid="false"
                                 aria-label="Search by title, platform, revision or options"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_7c_"
+                                id="_r_7o_"
                                 placeholder="Filter results"
                                 type="search"
                                 value=""
@@ -3732,7 +3774,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                                 autocapitalize="none"
                                 autocomplete="off"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_5d_"
+                                id="_r_5p_"
                                 placeholder="Search by revision ID or author email"
                                 role="combobox"
                                 spellcheck="false"
@@ -4059,7 +4101,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                                 autocapitalize="none"
                                 autocomplete="off"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_5l_"
+                                id="_r_61_"
                                 placeholder="Search by revision ID or author email"
                                 role="combobox"
                                 spellcheck="false"
@@ -4696,7 +4738,7 @@ exports[`App CompareResults or CompareOverTime loader Should display a banner wh
                                 aria-invalid="false"
                                 aria-label="Search by title, platform, revision or options"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_60_"
+                                id="_r_6c_"
                                 placeholder="Filter results"
                                 type="search"
                                 value=""
@@ -5621,7 +5663,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                                 autocapitalize="none"
                                 autocomplete="off"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_97_"
+                                id="_r_9k_"
                                 placeholder="Search by revision ID or author email"
                                 role="combobox"
                                 spellcheck="false"
@@ -5948,7 +5990,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                                 autocapitalize="none"
                                 autocomplete="off"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-16cokj7-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_9f_"
+                                id="_r_9s_"
                                 placeholder="Search by revision ID or author email"
                                 role="combobox"
                                 spellcheck="false"
@@ -6590,7 +6632,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                                 aria-invalid="false"
                                 aria-label="Search by title, platform, revision or options"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-3v3un6-MuiInputBase-input-MuiOutlinedInput-input"
-                                id="_r_9q_"
+                                id="_r_a7_"
                                 placeholder="Filter results"
                                 type="search"
                                 value=""
@@ -7417,7 +7459,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_af_"
+                                  aria-controls="_r_as_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -7608,7 +7650,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_am_"
+                                  aria-controls="_r_b3_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -7799,7 +7841,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_at_"
+                                  aria-controls="_r_ba_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -7990,7 +8032,7 @@ exports[`App CompareResults or CompareOverTime loader Should only list the faile
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls="_r_b4_"
+                                  aria-controls="_r_bh_"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1pgb59k-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -8129,5 +8171,19 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
 <p>
   Error: 
   The parameter interval isn't a valid value: "1000".
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 16`] = `
+<p>
+  Error: 
+  The parameter numberOfDataPoints isn't a valid value: "FOO".
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 17`] = `
+<p>
+  Error: 
+  The parameter numberOfDataPoints isn't a valid value: "1000".
 </p>
 `;

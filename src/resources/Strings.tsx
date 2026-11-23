@@ -105,6 +105,11 @@ export const Strings = {
             selectLabel: 'Time range',
             tooltip: 'The time range to compare revisions.',
           },
+          dataPoints: {
+            selectLabel: 'Number of data points',
+            tooltip:
+              'The maximum data points returned per test signature; lower values load faster.',
+          },
           revisions: {
             selectLabel: 'Revisions',
             tooltip:
