@@ -7,14 +7,14 @@ import { render } from '../utils/test-utils';
 describe('Lando to commit validating', () => {
   it('Should tell us not all paramaters were provided', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
-    // Error 1: no newLando=5678
+    // Error 1: no newLando=5678 or newRev
     await router.navigate(
       '/compare-lando-results?baseLando=1234&baseRepo=try&newRepo=try&framework=1',
     );
     render(<App />);
     expect(console.error).toHaveBeenCalledWith(
       new Error(
-        'Not all values were supplied please check you provided both baseLando and newLando',
+        'Not all values were supplied please check you provided baseLando or baseRev, and newLando or newRev',
       ),
     );
     expect(console.error).toHaveBeenCalledTimes(1);
@@ -187,5 +187,63 @@ describe('Lando to commit validating', () => {
     );
     expect(console.error).toHaveBeenCalledTimes(1);
     (console.error as jest.Mock).mockClear();
+  });
+
+  it('should compare a base Lando job with a new revision', async () => {
+    const baseRev = '096aa2c25fb2f031021de8c58baf9c46c052ab2e';
+    const newRev = '6331cb86f104e2587160208d8e47d8bef8b38ffc';
+    fetchMock.get('glob:https://lando.moz.tools/*', {
+      commit_id: baseRev,
+      id: 123,
+      status: 'LANDED',
+    });
+    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+      results: [{ id: 1, revision: baseRev }],
+    });
+    fetchMock.get(
+      'glob:https://treeherder.mozilla.org/api/perfcompare/results/*',
+      [],
+    );
+    await router.navigate(
+      `/compare-lando-results?baseLando=123&baseRepo=try&newRev=${newRev}&newRepo=try&framework=1&landoInstance=lando-prod-2025`,
+    );
+
+    expect(
+      fetchMock.callHistory.calls('glob:https://lando.moz.tools/*'),
+    ).toHaveLength(1);
+    const [compareCall] = fetchMock.callHistory.calls(
+      'glob:https://treeherder.mozilla.org/api/perfcompare/results/*',
+    );
+    expect(compareCall.url).toContain(`base_revision=${baseRev}`);
+    expect(compareCall.url).toContain(`new_revision=${newRev}`);
+  });
+
+  it('should compare a base revision with a new Lando job', async () => {
+    const baseRev = '096aa2c25fb2f031021de8c58baf9c46c052ab2e';
+    const newRev = '6331cb86f104e2587160208d8e47d8bef8b38ffc';
+    fetchMock.get('glob:https://lando.moz.tools/*', {
+      commit_id: newRev,
+      id: 456,
+      status: 'LANDED',
+    });
+    fetchMock.get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+      results: [{ id: 1, revision: newRev }],
+    });
+    fetchMock.get(
+      'glob:https://treeherder.mozilla.org/api/perfcompare/results/*',
+      [],
+    );
+    await router.navigate(
+      `/compare-lando-results?baseRev=${baseRev}&baseRepo=try&newLando=456&newRepo=try&framework=1&landoInstance=lando-prod-2025`,
+    );
+
+    expect(
+      fetchMock.callHistory.calls('glob:https://lando.moz.tools/*'),
+    ).toHaveLength(1);
+    const [compareCall] = fetchMock.callHistory.calls(
+      'glob:https://treeherder.mozilla.org/api/perfcompare/results/*',
+    );
+    expect(compareCall.url).toContain(`base_revision=${baseRev}`);
+    expect(compareCall.url).toContain(`new_revision=${newRev}`);
   });
 });

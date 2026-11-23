@@ -30,13 +30,16 @@ async function ensureTryPushExists({
 
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-lando-results route is requested.
-// This loader is used by ./mach try perf, and due to recent changes in
+// This loader is used by ./mach try perf, and due to recent changes
 // we now add the lando id. The lando id can be determined within about 30 seconds
-// of pushing to resolve to the treeherder commit
+// of pushing to resolve to the treeherder commit. A base/new revision can
+// be requsted alongside a lando ID here.
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
   const baseLandoIDFromUrl = url.searchParams.get('baseLando');
+  const baseRevFromUrl = url.searchParams.get('baseRev') ?? '';
   const newLandoIDFromUrl = url.searchParams.get('newLando');
+  const newRevFromUrl = url.searchParams.get('newRev') ?? '';
   const baseRepoFromUrl = url.searchParams.get('baseRepo') as
     | Repository['name']
     | null;
@@ -47,21 +50,24 @@ export async function loader({ request }: { request: Request }) {
   const landoInstanceFromUrl =
     (url.searchParams.get('landoInstance') as LandoInstance | null) ??
     undefined;
-  if (!baseLandoIDFromUrl || !newLandoIDFromUrl) {
+  if (
+    !(baseLandoIDFromUrl || baseRevFromUrl) ||
+    !(newLandoIDFromUrl || newRevFromUrl)
+  ) {
     throw new Error(
-      'Not all values were supplied please check you provided both baseLando and newLando',
+      'Not all values were supplied please check you provided baseLando or baseRev, and newLando or newRev',
     );
   }
   const replicatesFromUrl = url.searchParams.has('replicates');
 
-  const baseRevisionsFromLando = await fetchRevisionFromLandoId(
-    baseLandoIDFromUrl,
-    landoInstanceFromUrl,
-  );
-  const newRevisionsFromLando = await fetchRevisionFromLandoId(
-    newLandoIDFromUrl,
-    landoInstanceFromUrl,
-  );
+  const baseRevFromLandoOrUrl = baseLandoIDFromUrl
+    ? (await fetchRevisionFromLandoId(baseLandoIDFromUrl, landoInstanceFromUrl))
+        .commit_id
+    : baseRevFromUrl;
+  const newRevFromLandoOrUrl = newLandoIDFromUrl
+    ? (await fetchRevisionFromLandoId(newLandoIDFromUrl, landoInstanceFromUrl))
+        .commit_id
+    : newRevFromUrl;
   const testVersionFromUrl = url.searchParams.get(
     'test_version',
   ) as TestVersion;
@@ -74,24 +80,28 @@ export async function loader({ request }: { request: Request }) {
     replicates,
     testVersion,
   } = checkValues({
-    baseRev: baseRevisionsFromLando.commit_id,
+    baseRev: baseRevFromLandoOrUrl,
     baseRepo: baseRepoFromUrl,
-    newRevs: [newRevisionsFromLando.commit_id],
+    newRevs: [newRevFromLandoOrUrl],
     newRepos: newReposFromUrl,
     frameworkValues: frameworkFromUrl,
     replicates: replicatesFromUrl,
     testVersion: testVersionFromUrl,
   });
-  await ensureTryPushExists({
-    landoId: baseLandoIDFromUrl,
-    commitId: baseRev,
-    repo: baseRepo,
-  });
-  await ensureTryPushExists({
-    landoId: newLandoIDFromUrl,
-    commitId: newRevs[0],
-    repo: newRepos[0],
-  });
+  if (baseLandoIDFromUrl) {
+    await ensureTryPushExists({
+      landoId: baseLandoIDFromUrl,
+      commitId: baseRev,
+      repo: baseRepo,
+    });
+  }
+  if (newLandoIDFromUrl) {
+    await ensureTryPushExists({
+      landoId: newLandoIDFromUrl,
+      commitId: newRevs[0],
+      repo: newRepos[0],
+    });
+  }
   return await getComparisonInformation(
     baseRev,
     baseRepo,
