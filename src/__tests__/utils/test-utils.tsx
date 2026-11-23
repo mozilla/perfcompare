@@ -54,14 +54,25 @@ export function enableExpandedRowOptions(
 }
 
 // jsdom has no matchMedia, so useMediaQuery always returns false. This installs
-// one that evaluates min-width/max-width queries against `width`; setupTests
-// removes it after each test.
+// one that evaluates MUI's min/max-width breakpoint queries against `width`;
+// setupTests removes it after each test. It doesn't fire change/resize events.
 export function setViewportWidth(width: number) {
-  const matches = (query: string) =>
-    [...query.matchAll(/\((min|max)-width:\s*([\d.]+)px\)/g)].every(
-      ([, kind, px]) =>
+  const matches = (query: string) => {
+    // Evaluating only the bounds of a `not` query gives the inverted answer.
+    if (/\bnot\b/.test(query)) {
+      throw new Error(
+        `setViewportWidth cannot evaluate a "not" media query: ${query}`,
+      );
+    }
+    // -? because down('xs') emits (max-width:-0.05px).
+    const bounds = [...query.matchAll(/\((min|max)-width:\s*(-?[\d.]+)px\)/g)];
+    return (
+      bounds.length > 0 &&
+      bounds.every(([, kind, px]) =>
         kind === 'min' ? width >= Number(px) : width <= Number(px),
+      )
     );
+  };
   window.matchMedia = (query: string) => ({
     matches: matches(query),
     media: query,

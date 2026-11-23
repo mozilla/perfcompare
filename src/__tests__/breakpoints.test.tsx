@@ -46,6 +46,27 @@ describe('Protocol breakpoints', () => {
     },
   );
 
+  it('never matches down(xs)', () => {
+    let query = '';
+    function ReadQuery() {
+      query = useTheme().breakpoints.down('xs').replace('@media ', '');
+      return null;
+    }
+    render(<ReadQuery />);
+    setViewportWidth(0);
+    expect(window.matchMedia(query).matches).toBe(false);
+    setViewportWidth(1920);
+    expect(window.matchMedia(query).matches).toBe(false);
+  });
+
+  it('does not match queries it cannot evaluate', () => {
+    setViewportWidth(900);
+    expect(window.matchMedia('print').matches).toBe(false);
+    expect(() => window.matchMedia('not all and (min-width:1024px)')).toThrow(
+      /not.*media query/,
+    );
+  });
+
   it('matches nothing when no viewport width is set', () => {
     render(<BreakpointProbe />);
     expect(screen.getByTestId('tablet-up')).toHaveTextContent('false');
