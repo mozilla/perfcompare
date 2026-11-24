@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles/Colors';
 import { bootstrapMedianDiffCI } from '../../utils/bootstrap-ci';
-import { matchModes, splitByMode } from '../../utils/kde.js';
+import { matchModeLetters, matchModes, splitByMode } from '../../utils/kde.js';
 import {
   computeModeInfo,
   safeKde,
@@ -46,16 +46,14 @@ function isSignificant(ciLow: number, ciHigh: number): boolean {
   );
 }
 
-// better / mid / worse path label by letter rank.
-// Rank uses location order (A = lowest x, last letter = highest x). Whether
+// Better / mid / worse path label by position in this series. Whether
 // that's "better" or "worse" depends on the metric: time/memory are lower-is-
 // better, throughput/score are higher-is-better.
 function pathLabel(
-  letter: string,
+  rank: number,
   totalModes: number,
   lowerIsBetter: boolean,
 ): string | null {
-  const rank = letter.charCodeAt(0) - 65;
   if (totalModes <= 1) return null;
   const betterEnd = lowerIsBetter ? 0 : totalModes - 1;
   const worseEnd = lowerIsBetter ? totalModes - 1 : 0;
@@ -106,8 +104,8 @@ function computeBlurb(
   const bKde = safeKde(baseValues, sharedBw);
   const nKde = safeKde(newValues, sharedBw);
   if (!bKde || !nKde) return null;
-  const bModes = computeModeInfo(bKde.x, bKde.y, vt);
-  const nModes = computeModeInfo(nKde.x, nKde.y, vt);
+  const bModes = computeModeInfo(bKde.x, bKde.y, vt, baseValues);
+  const nModes = computeModeInfo(nKde.x, nKde.y, vt, newValues);
   if (!bModes.peakLocs.length || !nModes.peakLocs.length) return null;
 
   // Single-mode-on-both-sides: the Δ-median alert already covers it.
@@ -119,6 +117,15 @@ function computeBlurb(
     nModes.peakLocs,
     nModes.fracs,
   );
+
+  const { baseLetters, newLetters } = matchModeLetters(
+    bModes.peakLocs,
+    bModes.fracs,
+    nModes.peakLocs,
+    nModes.fracs,
+  );
+  bModes.letters = baseLetters;
+  nModes.letters = newLetters;
 
   const baseSplits = splitByMode(baseValues, bModes.boundaries);
   const newSplits = splitByMode(newValues, nModes.boundaries);
@@ -414,7 +421,7 @@ function KdeModesPanel({
         const baseFrac = baseModes.fracs[r.baseIdx];
         const newFrac = newModes.fracs[r.newIdx];
         const fracDelta = newFrac - baseFrac;
-        const path = pathLabel(letter, baseCount, lowerIsBetter);
+        const path = pathLabel(r.baseIdx, baseCount, lowerIsBetter);
         const fracStr =
           Math.abs(fracDelta) >= 0.03
             ? `${Math.round(baseFrac * 100)}% → ${Math.round(newFrac * 100)}%`
@@ -447,7 +454,7 @@ function KdeModesPanel({
         const letter = baseModes.letters[modeIdx];
         const baseLoc = baseModes.peakLocs[modeIdx];
         const frac = baseModes.fracs[modeIdx];
-        const path = pathLabel(letter, baseCount, lowerIsBetter);
+        const path = pathLabel(modeIdx, baseCount, lowerIsBetter);
         return (
           <Box key={`ub-${modeIdx}`} sx={{ mt: 1 }}>
             <Box>
@@ -479,7 +486,7 @@ function KdeModesPanel({
         const letter = newModes.letters[modeIdx];
         const newLoc = newModes.peakLocs[modeIdx];
         const frac = newModes.fracs[modeIdx];
-        const path = pathLabel(letter, newCount, lowerIsBetter);
+        const path = pathLabel(modeIdx, newCount, lowerIsBetter);
         return (
           <Box key={`un-${modeIdx}`} sx={{ mt: 1 }}>
             <Box>
